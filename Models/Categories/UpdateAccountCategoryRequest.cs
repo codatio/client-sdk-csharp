@@ -11,10 +11,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-/*
-using Codat.Models.Shared;
-*/
-
 public class UpdateAccountCategoryRequest
 {
     [JsonProperty("ConfirmCategory")]
@@ -43,9 +39,6 @@ public class UpdateAccountCategoryRequest
             var connectionId = PathParamSerializer.Serialize("simple", false, this.ConnectionId);
             var message = new HttpRequestMessage(HttpMethod.Patch, $"/data/companies/{companyId}/connections/{connectionId}/assess/accounts/{accountId}/categories");
             
-
-            // do json serialization
-            // ConfirmCategory :: UpdateAccountCategoryRequest
 
             string json = JsonConvert.SerializeObject(this.ConfirmCategory);
             message.Content = new StringContent(json, Encoding.UTF8, "application/json");

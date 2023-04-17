@@ -11,10 +11,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-/*
-using Codat.Models.Shared;
-*/
-
 public class GetAccountsForEnhancedProfitAndLossResponse {
     public string? ContentType { get; set; }
     

@@ -11,10 +11,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-/*
-using Codat.Models.Shared;
-*/
-
 public class UpdateAccountCategoryResponse {
     public CategorisedAccount? CategorisedAccount { get; set; }
     

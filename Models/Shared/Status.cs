@@ -10,10 +10,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-/*
-using Codat.Models.DataIntegrity;
-*/
-
 public class Status
 {
     [JsonProperty("metadata")]

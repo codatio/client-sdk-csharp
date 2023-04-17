@@ -11,10 +11,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-/*
-
-*/
-
 public class GetAccountsForEnhancedProfitAndLossRequest
 {
     [JsonProperty("companyId")]

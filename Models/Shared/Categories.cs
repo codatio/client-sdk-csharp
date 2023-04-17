@@ -10,10 +10,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-/*
-using Codat.Models.Categories;
-*/
-
 public class Categories
 {
     [JsonProperty("detailType")]

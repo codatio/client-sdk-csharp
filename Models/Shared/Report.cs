@@ -10,11 +10,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-/*
-using Codat.Models.ExcelReports;
-using Codat.Models.Reports;
-*/
-
 public class Report
 {
     [JsonProperty("dimensions")]

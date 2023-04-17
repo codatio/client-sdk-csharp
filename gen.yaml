@@ -1,0 +1,10 @@
+configVersion: 1.0.0
+generation:
+  telemetryEnabled: false
+  sdkClassName: Codat
+  sdkFlattening: true
+  singleTagPerOp: false
+csharp:
+  version: 0.0.1
+  author: Speakeasy
+  packageName: openapi

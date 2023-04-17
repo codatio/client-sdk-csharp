@@ -47,7 +47,7 @@ public class ExcelReportsSDK: IExcelReportsSDK
         {
             if("application/octet-stream" == response.ContentType)
             {
-                throw new NotImplementedException();
+                response.Body = await response.RawResponse.Content.ReadAsByteArrayAsync();
             }
             return response;
         }
@@ -110,7 +110,7 @@ public class ExcelReportsSDK: IExcelReportsSDK
         {
             if("application/octet-stream" == response.ContentType)
             {
-                throw new NotImplementedException();
+                response.Body = await response.RawResponse.Content.ReadAsByteArrayAsync();
             }
             return response;
         }

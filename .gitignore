@@ -1,2 +1,5 @@
-bin/
 obj/
+bin/
+debug/
+spec.yaml
+.idea/

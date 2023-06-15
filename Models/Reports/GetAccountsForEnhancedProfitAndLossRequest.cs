@@ -35,14 +35,13 @@ public class GetAccountsForEnhancedProfitAndLossRequest
     {
         if("get-accounts-for-enhanced-profit-and-loss" == operationId)
         {
-            // serialize query parameters
             var queryParams = new List<string>();
-            queryParams.Add(QueryParamSerializer.Serialize("simple",false, "companyId", "", value.CompanyId));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
-
+            
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
             var queryParamString = $"?{String.Join("&", queryParams)}";
-            // add path params
             
             var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
             

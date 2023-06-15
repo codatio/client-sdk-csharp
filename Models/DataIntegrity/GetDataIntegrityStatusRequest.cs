@@ -32,7 +32,6 @@ public class GetDataIntegrityStatusRequest
     {
         if("get-data-integrity-status" == operationId)
         {
-            // add path params
             
             var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
             

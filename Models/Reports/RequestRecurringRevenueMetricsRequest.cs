@@ -32,7 +32,6 @@ public class RequestRecurringRevenueMetricsRequest
     {
         if("request-recurring-revenue-metrics" == operationId)
         {
-            // add path params
             
             var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
             

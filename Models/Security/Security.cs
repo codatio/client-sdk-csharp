@@ -25,5 +25,14 @@ public class Security
     [JsonProperty("auth_header")]
     public string AuthHeader { get; set; }
     
+    // Global security
+    public static void Apply(Security security, SpeakeasyHttpClient securityClient)
+    {
+        
+        if(security.AuthHeader != null)
+        {
+            securityClient.AddHeader("Authorization", security.AuthHeader);
+        }
+    }
 }
 }

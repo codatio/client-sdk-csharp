@@ -44,17 +44,18 @@ public class ListAccountsCategoriesRequest
     {
         if("list-accounts-categories" == operationId)
         {
-            // serialize query parameters
             var queryParams = new List<string>();
-            queryParams.Add(QueryParamSerializer.Serialize("simple",false, "companyId", "", value.CompanyId));
-            queryParams.Add(QueryParamSerializer.Serialize("simple",false, "connectionId", "", value.ConnectionId));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "orderBy", "", value.OrderBy));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "page", "", value.Page));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "pageSize", "", value.PageSize));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
-
+            
+            
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "orderBy", "", value.OrderBy));
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "page", "", value.Page));
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "pageSize", "", value.PageSize));
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
             var queryParamString = $"?{String.Join("&", queryParams)}";
-            // add path params
             
             var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
             

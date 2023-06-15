@@ -33,11 +33,11 @@ namespace Codat.DataIntegrity
         private const string language = "csharp";
         private const string sdkVersion = "0.0.1";
         private const string sdkGenVersion = "internal";
-        public Uri ServerUrl { get { return _defaultClient.BaseAddress; } }
-        private HttpClient _defaultClient;
-        private HttpClient _securityClient;
+        public Uri ServerUrl { get { return _defaultClient.Client.BaseAddress; } }
+        private SpeakeasyHttpClient _defaultClient;
+        private SpeakeasyHttpClient _securityClient;
 
-        public DataIntegritySDK(HttpClient defaultClient, HttpClient securityClient)
+        public DataIntegritySDK(SpeakeasyHttpClient defaultClient, SpeakeasyHttpClient securityClient)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

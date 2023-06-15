@@ -40,9 +40,9 @@ namespace Codat
         private const string language = "csharp";
         private const string sdkVersion = "0.0.1";
         private const string sdkGenVersion = "internal";
-        public Uri ServerUrl { get { return _defaultClient.BaseAddress; } }
-        private HttpClient _defaultClient;
-        private HttpClient _securityClient;
+        public Uri ServerUrl { get { return _defaultClient.Client.BaseAddress; } }
+        private SpeakeasyHttpClient _defaultClient;
+        private SpeakeasyHttpClient _securityClient;
         public ICategoriesSDK Categories { get; private set; }
         public IDataIntegritySDK DataIntegrity { get; private set; }
         public IExcelReportsSDK ExcelReports { get; private set; }
@@ -50,20 +50,17 @@ namespace Codat
 
         public CodatSDK(HttpClient? client = null, string? serverUrl = null, Security? security = null)
         {
-            _defaultClient = client;
-            if(_defaultClient == null)
+            _defaultClient = new SpeakeasyHttpClient(client);
+            if(client == null)
             {
-                _defaultClient = new HttpClient();
                 var _serverUrl = serverUrl ?? CodatSDK.ServerList[0];
 
-                _defaultClient.BaseAddress = new System.Uri(_serverUrl);
+                _defaultClient.SetBaseUrl(_serverUrl);
             }
-            _securityClient = _defaultClient;
-            // {Security class <nil> [0x14000d5ddb0] [] <nil> shared   false <nil> false false map[] []  <nil> <nil>}
+            _securityClient = new SpeakeasyHttpClient(_defaultClient.Client);
             if(security != null)
             {
-    // here
-_securityClient.DefaultRequestHeaders.Add("Authorization", security.AuthHeader);
+                Security.Apply(security, _securityClient);
             }
             Categories = new CategoriesSDK(_defaultClient, _securityClient);
             DataIntegrity = new DataIntegritySDK(_defaultClient, _securityClient);

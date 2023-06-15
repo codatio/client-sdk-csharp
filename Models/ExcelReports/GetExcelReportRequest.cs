@@ -32,13 +32,11 @@ public class GetExcelReportRequest
     {
         if("get-excel-report" == operationId)
         {
-            // serialize query parameters
             var queryParams = new List<string>();
-            queryParams.Add(QueryParamSerializer.Serialize("simple",false, "companyId", "", value.CompanyId));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportType", "", value.ReportType));
-
+            
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportType", "", value.ReportType));
             var queryParamString = $"?{String.Join("&", queryParams)}";
-            // add path params
             
             var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
             

@@ -38,7 +38,6 @@ public class UpdateAccountCategoryRequest
     {
         if("update-account-category" == operationId)
         {
-            // add path params
             
             
             var accountId = PathParamSerializer.Serialize("simple", false, value.AccountId);

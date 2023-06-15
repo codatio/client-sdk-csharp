@@ -35,7 +35,6 @@ public class GetAccountCategoryRequest
     {
         if("get-account-category" == operationId)
         {
-            // add path params
             
             var accountId = PathParamSerializer.Serialize("simple", false, value.AccountId);
             

@@ -138,6 +138,6 @@ Utils/HeaderParamSerializer.cs
 Utils/IsoDateTimeSerializer.cs
 Utils/PathParamSerializer.cs
 Utils/QueryParamSerializer.cs
-Utils/SecurityUtils.cs
+Utils/SpeakeasyHttpClient.cs
 Utils/Utilities.cs
 Codat.csproj

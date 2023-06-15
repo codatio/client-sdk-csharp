@@ -35,14 +35,12 @@ public class GetDataIntegritySummariesRequest
     {
         if("get-data-integrity-summaries" == operationId)
         {
-            // serialize query parameters
             var queryParams = new List<string>();
-            queryParams.Add(QueryParamSerializer.Serialize("simple",false, "companyId", "", value.CompanyId));
-            queryParams.Add(QueryParamSerializer.Serialize("simple",false, "dataType", "", value.DataType));
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
-
+            
+            
+            
+                    queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
             var queryParamString = $"?{String.Join("&", queryParams)}";
-            // add path params
             
             var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
             

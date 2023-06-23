@@ -7,4 +7,5 @@ generation:
 csharp:
   version: 0.0.1
   author: Speakeasy
+  maxMethodParams: 0
   packageName: openapi

@@ -22,13 +22,13 @@ namespace Codat.Models.Shared
 public class EnhancedCashFlowTransactions
 {
     [JsonProperty("dataSources")]
-    public IEnumerable<DataSource>? DataSources { get; set; }
+    public List<DataSource>? DataSources { get; set; }
     
     [JsonProperty("reportInfo")]
     public ReportInfo? ReportInfo { get; set; }
     
     [JsonProperty("reportItems")]
-    public IEnumerable<EnhancedCashFlowItem>? ReportItems { get; set; }
+    public List<EnhancedCashFlowItem>? ReportItems { get; set; }
     
 }
 }

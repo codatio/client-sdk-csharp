@@ -21,7 +21,7 @@ namespace Codat.Models.Categories
     using System.Text;
     
 public class ListAvailableAccountCategoriesResponse {
-    public IEnumerable<Categories>? Categories { get; set; }
+    public List<Categories>? Categories { get; set; }
     
     public string? ContentType { get; set; }
     

@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class Summaries
 {
     [JsonProperty("summaries")]
-    public IEnumerable<DataIntegritySummary>? SummariesValue { get; set; }
+    public List<DataIntegritySummary>? SummariesValue { get; set; }
     
 }
 }

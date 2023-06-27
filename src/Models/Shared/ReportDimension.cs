@@ -28,7 +28,7 @@ public class ReportDimension
     public int? Index { get; set; }
     
     [JsonProperty("items")]
-    public IEnumerable<ReportDimensionItems>? Items { get; set; }
+    public List<ReportDimensionItems>? Items { get; set; }
     
     [JsonProperty("type")]
     public string? Type { get; set; }

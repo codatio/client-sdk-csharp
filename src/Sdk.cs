@@ -29,10 +29,13 @@ namespace Codat
         public IDataIntegritySDK DataIntegrity { get; }
         public IExcelReportsSDK ExcelReports { get; }
         public IReportsSDK Reports { get; }
+    }public class SDKConfig
+    {
     }
 
     public class CodatSDK: ICodatSDK
     {
+        public SDKConfig Config { get; private set; }
         public static List<string> ServerList = new List<string>()
         {
             "https://api.codat.io",
@@ -64,10 +67,14 @@ namespace Codat
             {
                 Security.Apply(security, _securityClient);
             }
-            Categories = new CategoriesSDK(_defaultClient, _securityClient);
-            DataIntegrity = new DataIntegritySDK(_defaultClient, _securityClient);
-            ExcelReports = new ExcelReportsSDK(_defaultClient, _securityClient);
-            Reports = new ReportsSDK(_defaultClient, _securityClient);
+
+            Config = new SDKConfig()
+            {
+            };
+            Categories = new CategoriesSDK(_defaultClient, _securityClient, Config);
+            DataIntegrity = new DataIntegritySDK(_defaultClient, _securityClient, Config);
+            ExcelReports = new ExcelReportsSDK(_defaultClient, _securityClient, Config);
+            Reports = new ReportsSDK(_defaultClient, _securityClient, Config);
         }
     }
 }

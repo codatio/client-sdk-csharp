@@ -1,0 +1,10 @@
+# FinancialMetricErrors
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `details`                                                                     | Dictionary<String, List<*string*>   !!!>                                      | :heavy_minus_sign:                                                            | Dictionary list outlining the missing properties or allowed values.           |                                                                               |
+| `message`                                                                     | *string*                                                                      | :heavy_minus_sign:                                                            | Description of the error.                                                     | There are uncategorized accounts IDs, see details.                            |
+| `type`                                                                        | [FinancialMetricErrorsType](../../Models/Shared/FinancialMetricErrorsType.md) | :heavy_minus_sign:                                                            | Metric level error.                                                           |                                                                               |

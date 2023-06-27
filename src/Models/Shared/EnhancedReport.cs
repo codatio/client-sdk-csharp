@@ -25,7 +25,7 @@ public class EnhancedReport
     public EnhancedReportInfo? ReportInfo { get; set; }
     
     [JsonProperty("reportItems")]
-    public IEnumerable<EnhancedReportReportItem>? ReportItems { get; set; }
+    public List<EnhancedReportReportItem>? ReportItems { get; set; }
     
 }
 }

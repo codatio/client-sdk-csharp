@@ -31,6 +31,7 @@ namespace Codat.DataIntegrity
     public class DataIntegritySDK: IDataIntegritySDK
     {
 
+        public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
         private const string _sdkVersion = "0.0.1";
         private const string _sdkGenVersion = "internal";
@@ -39,10 +40,11 @@ namespace Codat.DataIntegrity
         private SpeakeasyHttpClient _defaultClient;
         private SpeakeasyHttpClient _securityClient;
 
-        public DataIntegritySDK(SpeakeasyHttpClient defaultClient, SpeakeasyHttpClient securityClient)
+        public DataIntegritySDK(SpeakeasyHttpClient defaultClient, SpeakeasyHttpClient securityClient, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
+            Config = config;
         }
 
         

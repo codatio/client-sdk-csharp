@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class EnhancedCashFlowItem
 {
     [JsonProperty("transactions")]
-    public IEnumerable<EnhancedCashFlowTransaction>? Transactions { get; set; }
+    public List<EnhancedCashFlowTransaction>? Transactions { get; set; }
     
 }
 }

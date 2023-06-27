@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class ReportComponent
 {
     [JsonProperty("components")]
-    public IEnumerable<ReportComponent>? Components { get; set; }
+    public List<ReportComponent>? Components { get; set; }
     
     [JsonProperty("dimension")]
     public int? Dimension { get; set; }
@@ -37,7 +37,7 @@ public class ReportComponent
     public string? ItemDisplayName { get; set; }
     
     [JsonProperty("measures")]
-    public IEnumerable<ReportComponentMeasure>? Measures { get; set; }
+    public List<ReportComponentMeasure>? Measures { get; set; }
     
 }
 }

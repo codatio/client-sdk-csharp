@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class EnhancedReportAccountCategory
 {
     [JsonProperty("levels")]
-    public IEnumerable<AccountCategoryLevel>? Levels { get; set; }
+    public List<AccountCategoryLevel>? Levels { get; set; }
     
     [JsonProperty("status")]
     public string? Status { get; set; }

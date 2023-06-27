@@ -33,6 +33,7 @@ namespace Codat.Categories
     public class CategoriesSDK: ICategoriesSDK
     {
 
+        public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
         private const string _sdkVersion = "0.0.1";
         private const string _sdkGenVersion = "internal";
@@ -41,10 +42,11 @@ namespace Codat.Categories
         private SpeakeasyHttpClient _defaultClient;
         private SpeakeasyHttpClient _securityClient;
 
-        public CategoriesSDK(SpeakeasyHttpClient defaultClient, SpeakeasyHttpClient securityClient)
+        public CategoriesSDK(SpeakeasyHttpClient defaultClient, SpeakeasyHttpClient securityClient, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
+            Config = config;
         }
 
         
@@ -118,7 +120,7 @@ namespace Codat.Categories
         {
             if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
             {
-                response.Categories = JsonConvert.DeserializeObject<IEnumerable<Categories>>(await httpResponseMessage.Content.ReadAsStringAsync(), new FlexibleObjectDeserializer());
+                response.Categories = JsonConvert.DeserializeObject<List<Categories>>(await httpResponseMessage.Content.ReadAsStringAsync(), new FlexibleObjectDeserializer());
             }
             return response;
         }
@@ -170,7 +172,7 @@ namespace Codat.Categories
         {
             if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
             {
-                response.CategorisedAccounts = JsonConvert.DeserializeObject<IEnumerable<CategorisedAccount>>(await httpResponseMessage.Content.ReadAsStringAsync(), new FlexibleObjectDeserializer());
+                response.CategorisedAccounts = JsonConvert.DeserializeObject<List<CategorisedAccount>>(await httpResponseMessage.Content.ReadAsStringAsync(), new FlexibleObjectDeserializer());
             }
             return response;
         }

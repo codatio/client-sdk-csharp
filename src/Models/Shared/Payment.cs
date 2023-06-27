@@ -25,7 +25,7 @@ public class Payment
     public float? Amount { get; set; }
     
     [JsonProperty("bankingTransactionRefs")]
-    public IEnumerable<BankingTransactionRef>? BankingTransactionRefs { get; set; }
+    public List<BankingTransactionRef>? BankingTransactionRefs { get; set; }
     
     [JsonProperty("currency")]
     public string? Currency { get; set; }

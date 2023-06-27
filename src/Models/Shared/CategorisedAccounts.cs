@@ -31,7 +31,7 @@ public class CategorisedAccounts
     public int PageSize { get; set; }
     
     [JsonProperty("results")]
-    public IEnumerable<CategorisedAccount>? Results { get; set; }
+    public List<CategorisedAccount>? Results { get; set; }
     
     [JsonProperty("totalResults")]
     public int TotalResults { get; set; }

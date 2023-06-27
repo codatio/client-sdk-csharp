@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class EnhancedInvoicesReportReportItems
 {
     [JsonProperty("invoices")]
-    public IEnumerable<EnhancedInvoiceReportItem>? Invoices { get; set; }
+    public List<EnhancedInvoiceReportItem>? Invoices { get; set; }
     
 }
 }

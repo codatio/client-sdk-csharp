@@ -22,10 +22,10 @@ namespace Codat.Models.Shared
 public class DataIntegrityConnectionId
 {
     [JsonProperty("source")]
-    public IEnumerable<string>? Source { get; set; }
+    public List<string>? Source { get; set; }
     
     [JsonProperty("target")]
-    public IEnumerable<string>? Target { get; set; }
+    public List<string>? Target { get; set; }
     
 }
 }

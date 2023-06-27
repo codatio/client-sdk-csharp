@@ -32,6 +32,7 @@ namespace Codat.ExcelReports
     public class ExcelReportsSDK: IExcelReportsSDK
     {
 
+        public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
         private const string _sdkVersion = "0.0.1";
         private const string _sdkGenVersion = "internal";
@@ -40,10 +41,11 @@ namespace Codat.ExcelReports
         private SpeakeasyHttpClient _defaultClient;
         private SpeakeasyHttpClient _securityClient;
 
-        public ExcelReportsSDK(SpeakeasyHttpClient defaultClient, SpeakeasyHttpClient securityClient)
+        public ExcelReportsSDK(SpeakeasyHttpClient defaultClient, SpeakeasyHttpClient securityClient, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
+            Config = config;
         }
 
         

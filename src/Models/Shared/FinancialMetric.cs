@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class FinancialMetric
 {
     [JsonProperty("errors")]
-    public IEnumerable<FinancialMetricErrors>? Errors { get; set; }
+    public List<FinancialMetricErrors>? Errors { get; set; }
     
     [JsonProperty("key")]
     public FinancialMetricKey? Key { get; set; }
@@ -34,7 +34,7 @@ public class FinancialMetric
     public string? Name { get; set; }
     
     [JsonProperty("periods")]
-    public IEnumerable<FinancialMetricPeriods>? Periods { get; set; }
+    public List<FinancialMetricPeriods>? Periods { get; set; }
     
 }
 }

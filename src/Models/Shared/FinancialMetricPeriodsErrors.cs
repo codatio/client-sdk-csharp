@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class FinancialMetricPeriodsErrors
 {
     [JsonProperty("details")]
-    public Dictionary<string, IEnumerable<string>>? Details { get; set; }
+    public Dictionary<string, List<string>>? Details { get; set; }
     
     [JsonProperty("massage")]
     public string? Massage { get; set; }

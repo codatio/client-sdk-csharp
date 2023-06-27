@@ -25,10 +25,10 @@ public class FinancialMetrics
     public string? Currency { get; set; }
     
     [JsonProperty("errors")]
-    public IEnumerable<FinancialMetricError>? Errors { get; set; }
+    public List<FinancialMetricError>? Errors { get; set; }
     
     [JsonProperty("metrics")]
-    public IEnumerable<FinancialMetric>? Metrics { get; set; }
+    public List<FinancialMetric>? Metrics { get; set; }
     
     [JsonProperty("periodUnit")]
     public FinancialMetricsPeriodUnit? PeriodUnit { get; set; }

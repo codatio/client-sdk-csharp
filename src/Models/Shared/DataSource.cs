@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class DataSource
 {
     [JsonProperty("accounts")]
-    public IEnumerable<Accounts>? Accounts { get; set; }
+    public List<Accounts>? Accounts { get; set; }
     
 }
 }

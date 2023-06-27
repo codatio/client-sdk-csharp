@@ -31,7 +31,7 @@ public class Details
     public int PageSize { get; set; }
     
     [JsonProperty("results")]
-    public IEnumerable<DataIntegrityDetails>? Results { get; set; }
+    public List<DataIntegrityDetails>? Results { get; set; }
     
     [JsonProperty("totalResults")]
     public int TotalResults { get; set; }

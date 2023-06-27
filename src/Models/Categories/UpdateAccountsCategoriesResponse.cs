@@ -21,7 +21,7 @@ namespace Codat.Models.Categories
     using System.Text;
     
 public class UpdateAccountsCategoriesResponse {
-    public IEnumerable<CategorisedAccount>? CategorisedAccounts { get; set; }
+    public List<CategorisedAccount>? CategorisedAccounts { get; set; }
     
     public string? ContentType { get; set; }
     

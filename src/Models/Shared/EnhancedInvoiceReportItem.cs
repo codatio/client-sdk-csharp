@@ -49,7 +49,7 @@ public class EnhancedInvoiceReportItem
     public string? PaidOnDate { get; set; }
     
     [JsonProperty("payments")]
-    public IEnumerable<Payment>? Payments { get; set; }
+    public List<Payment>? Payments { get; set; }
     
     [JsonProperty("sourceModifiedDate")]
     public string? SourceModifiedDate { get; set; }

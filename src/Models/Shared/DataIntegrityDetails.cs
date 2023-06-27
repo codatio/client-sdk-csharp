@@ -40,7 +40,7 @@ public class DataIntegrityDetails
     public string? Id { get; set; }
     
     [JsonProperty("matches")]
-    public IEnumerable<DataIntegrityMatch>? Matches { get; set; }
+    public List<DataIntegrityMatch>? Matches { get; set; }
     
     [JsonProperty("type")]
     public string? Type { get; set; }

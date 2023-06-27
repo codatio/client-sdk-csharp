@@ -22,13 +22,13 @@ namespace Codat.Models.Shared
 public class FinancialMetricPeriods
 {
     [JsonProperty("errors")]
-    public IEnumerable<FinancialMetricPeriodsErrors>? Errors { get; set; }
+    public List<FinancialMetricPeriodsErrors>? Errors { get; set; }
     
     [JsonProperty("fromDate")]
     public LocalDate? FromDate { get; set; }
     
     [JsonProperty("inputs")]
-    public IEnumerable<FinancialMetricPeriodsInputs>? Inputs { get; set; }
+    public List<FinancialMetricPeriodsInputs>? Inputs { get; set; }
     
     [JsonProperty("toDate")]
     public LocalDate? ToDate { get; set; }

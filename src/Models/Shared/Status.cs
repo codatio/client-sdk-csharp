@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class Status
 {
     [JsonProperty("metadata")]
-    public IEnumerable<DataIntegrityStatus>? Metadata { get; set; }
+    public List<DataIntegrityStatus>? Metadata { get; set; }
     
 }
 }

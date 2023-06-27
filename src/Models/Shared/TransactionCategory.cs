@@ -25,7 +25,7 @@ public class TransactionCategory
     public float? Confidence { get; set; }
     
     [JsonProperty("levels")]
-    public IEnumerable<string>? Levels { get; set; }
+    public List<string>? Levels { get; set; }
     
 }
 }

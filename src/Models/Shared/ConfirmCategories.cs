@@ -22,7 +22,7 @@ namespace Codat.Models.Shared
 public class ConfirmCategories
 {
     [JsonProperty("categories")]
-    public IEnumerable<ConfirmCategoriesCategories>? Categories { get; set; }
+    public List<ConfirmCategoriesCategories>? Categories { get; set; }
     
 }
 }

@@ -9,47 +9,52 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.DataIntegrity
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
+using Codat.Utils;
     
-public class GetDataIntegritySummariesRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("dataType")]
-    public DataIntegrityDataType DataType { get; set; }
-    
-    [JsonProperty("query")]
-    public string? Query { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetDataIntegritySummariesRequest value, string baseUrl)
+    public class GetDataIntegritySummariesRequest
     {
-        if("get-data-integrity-summaries" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+    /// <summary>
+    /// A key for a Codat data type.
+    /// </summary>
+        
+        [JsonProperty("dataType")]
+        public DataIntegrityDataType DataType { get; set; }
+        
+    /// <summary>
+    /// Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
+    /// </summary>
+        
+        [JsonProperty("query")]
+        public string? Query { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetDataIntegritySummariesRequest value, string baseUrl)
         {
-            var queryParams = new List<string>();
-            
-            
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
-            var queryParamString = $"?{String.Join("&", queryParams)}";
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            var dataType = PathParamSerializer.Serialize("simple", false, value.DataType);
-            
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/summaries" + queryParamString);
-            return message;
+            if("get-data-integrity-summaries" == operationId)
+            {
+                var queryParams = new List<string>();
+                
+                
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
+                var queryParamString = $"?{String.Join("&", queryParams)}";
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                var dataType = PathParamSerializer.Serialize("simple", false, value.DataType);
+                
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/summaries" + queryParamString);
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetDataIntegritySummariesRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetDataIntegritySummariesRequest]");
     }
-}
 }

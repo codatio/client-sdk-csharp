@@ -9,44 +9,73 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class AccountCategoriesUpdatedWebhook
-{
-    [JsonProperty("alertId")]
-    public string? AlertId { get; set; }
-    
-    [JsonProperty("clientId")]
-    public string? ClientId { get; set; }
-    
-    [JsonProperty("clientName")]
-    public string? ClientName { get; set; }
-    
-    [JsonProperty("companyId")]
-    public string? CompanyId { get; set; }
-    
-    [JsonProperty("data")]
-    public AccountCategoriesUpdatedWebhookData? Data { get; set; }
-    
-    [JsonProperty("dataConnectionId")]
-    public string? DataConnectionId { get; set; }
-    
-    [JsonProperty("message")]
-    public string? Message { get; set; }
-    
-    [JsonProperty("ruleId")]
-    public string? RuleId { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+/// <summary>
+/// Webhook request body for account categories updated.
+/// </summary>
+    public class AccountCategoriesUpdatedWebhook
+    {
+    /// <summary>
+    /// Unique identifier of the webhook event.
+    /// </summary>
+        
+        [JsonProperty("alertId")]
+        public string? AlertId { get; set; }
+        
+    /// <summary>
+    /// Unique identifier for your client in Codat.
+    /// </summary>
+        
+        [JsonProperty("clientId")]
+        public string? ClientId { get; set; }
+        
+    /// <summary>
+    /// Name of your client in Codat.
+    /// </summary>
+        
+        [JsonProperty("clientName")]
+        public string? ClientName { get; set; }
+        
+    /// <summary>
+    /// Unique identifier for your SMB in Codat.
+    /// </summary>
+        
+        [JsonProperty("companyId")]
+        public string? CompanyId { get; set; }
+        
+        
+        [JsonProperty("data")]
+        public AccountCategoriesUpdatedWebhookData? Data { get; set; }
+        
+    /// <summary>
+    /// Unique identifier for a company's data connection.
+    /// </summary>
+        
+        [JsonProperty("dataConnectionId")]
+        public string? DataConnectionId { get; set; }
+        
+    /// <summary>
+    /// A human readable message about the webhook.
+    /// </summary>
+        
+        [JsonProperty("message")]
+        public string? Message { get; set; }
+        
+    /// <summary>
+    /// Unique identifier for the rule.
+    /// </summary>
+        
+        [JsonProperty("ruleId")]
+        public string? RuleId { get; set; }
+        
+    /// <summary>
+    /// The type of rule.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

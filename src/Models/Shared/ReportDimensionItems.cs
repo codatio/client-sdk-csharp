@@ -9,20 +9,13 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class ReportDimensionItems
-{
-    [JsonProperty("index")]
-    public int? Index { get; set; }
-    
-}
+    public class ReportDimensionItems
+    {
+        
+        [JsonProperty("index")]
+        public int? Index { get; set; }
+        
+    }
 }

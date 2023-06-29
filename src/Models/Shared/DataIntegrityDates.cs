@@ -9,29 +9,124 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class DataIntegrityDates
-{
-    [JsonProperty("maxDate")]
-    public string? MaxDate { get; set; }
-    
-    [JsonProperty("maxOverlappingDate")]
-    public string? MaxOverlappingDate { get; set; }
-    
-    [JsonProperty("minDate")]
-    public string? MinDate { get; set; }
-    
-    [JsonProperty("minOverlappingDate")]
-    public string? MinOverlappingDate { get; set; }
-    
-}
+/// <summary>
+/// Only returned for transactions. For accounts, there is nothing returned.
+/// </summary>
+    public class DataIntegrityDates
+    {
+    /// <summary>
+    /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+    /// 
+    /// <remarks>
+    /// 
+    /// ```
+    /// 2020-10-08T22:40:50Z
+    /// 2021-01-01T00:00:00
+    /// ```
+    /// 
+    /// 
+    /// 
+    /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+    /// 
+    /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+    /// - Unqualified local time: `2021-11-15T01:00:00`
+    /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
+    /// 
+    /// > Time zones
+    /// > 
+    /// > Not all dates from Codat will contain information about time zones.  
+    /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("maxDate")]
+        public string? MaxDate { get; set; }
+        
+    /// <summary>
+    /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+    /// 
+    /// <remarks>
+    /// 
+    /// ```
+    /// 2020-10-08T22:40:50Z
+    /// 2021-01-01T00:00:00
+    /// ```
+    /// 
+    /// 
+    /// 
+    /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+    /// 
+    /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+    /// - Unqualified local time: `2021-11-15T01:00:00`
+    /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
+    /// 
+    /// > Time zones
+    /// > 
+    /// > Not all dates from Codat will contain information about time zones.  
+    /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("maxOverlappingDate")]
+        public string? MaxOverlappingDate { get; set; }
+        
+    /// <summary>
+    /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+    /// 
+    /// <remarks>
+    /// 
+    /// ```
+    /// 2020-10-08T22:40:50Z
+    /// 2021-01-01T00:00:00
+    /// ```
+    /// 
+    /// 
+    /// 
+    /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+    /// 
+    /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+    /// - Unqualified local time: `2021-11-15T01:00:00`
+    /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
+    /// 
+    /// > Time zones
+    /// > 
+    /// > Not all dates from Codat will contain information about time zones.  
+    /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("minDate")]
+        public string? MinDate { get; set; }
+        
+    /// <summary>
+    /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+    /// 
+    /// <remarks>
+    /// 
+    /// ```
+    /// 2020-10-08T22:40:50Z
+    /// 2021-01-01T00:00:00
+    /// ```
+    /// 
+    /// 
+    /// 
+    /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+    /// 
+    /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+    /// - Unqualified local time: `2021-11-15T01:00:00`
+    /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
+    /// 
+    /// > Time zones
+    /// > 
+    /// > Not all dates from Codat will contain information about time zones.  
+    /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("minOverlappingDate")]
+        public string? MinOverlappingDate { get; set; }
+        
+    }
 }

@@ -9,37 +9,33 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Reports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Utils;
     
-public class RequestRecurringRevenueMetricsRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("connectionId")]
-    public string ConnectionId { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, RequestRecurringRevenueMetricsRequest value, string baseUrl)
+    public class RequestRecurringRevenueMetricsRequest
     {
-        if("request-recurring-revenue-metrics" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+        
+        [JsonProperty("connectionId")]
+        public string ConnectionId { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, RequestRecurringRevenueMetricsRequest value, string baseUrl)
         {
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/process");
-            return message;
+            if("request-recurring-revenue-metrics" == operationId)
+            {
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/process");
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [RequestRecurringRevenueMetricsRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [RequestRecurringRevenueMetricsRequest]");
     }
-}
 }

@@ -9,65 +9,78 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Categories
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Utils;
     
-public class ListAccountsCategoriesRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("connectionId")]
-    public string ConnectionId { get; set; }
-    
-    [JsonProperty("orderBy")]
-    public string? OrderBy { get; set; }
-    
-    [JsonProperty("page")]
-    public int? Page { get; set; }
-    
-    [JsonProperty("pageSize")]
-    public int? PageSize { get; set; }
-    
-    [JsonProperty("query")]
-    public string? Query { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, ListAccountsCategoriesRequest value, string baseUrl)
+    public class ListAccountsCategoriesRequest
     {
-        if("list-accounts-categories" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+        
+        [JsonProperty("connectionId")]
+        public string ConnectionId { get; set; }
+        
+    /// <summary>
+    /// Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
+    /// </summary>
+        
+        [JsonProperty("orderBy")]
+        public string? OrderBy { get; set; }
+        
+    /// <summary>
+    /// Page number. [Read more](https://docs.codat.io/using-the-api/paging).
+    /// </summary>
+        
+        [JsonProperty("page")]
+        public int? Page { get; set; }
+        
+    /// <summary>
+    /// Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
+    /// </summary>
+        
+        [JsonProperty("pageSize")]
+        public int? PageSize { get; set; }
+        
+    /// <summary>
+    /// Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
+    /// </summary>
+        
+        [JsonProperty("query")]
+        public string? Query { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, ListAccountsCategoriesRequest value, string baseUrl)
         {
-            var queryParams = new List<string>();
-            
-            
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "orderBy", "", value.OrderBy));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "page", "", value.Page));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "pageSize", "", value.PageSize));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
-            var queryParamString = $"?{String.Join("&", queryParams)}";
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
-            
-            
-            
-            
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/accounts/categories" + queryParamString);
-            return message;
+            if("list-accounts-categories" == operationId)
+            {
+                var queryParams = new List<string>();
+                
+                
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "orderBy", "", value.OrderBy));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "page", "", value.Page));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "pageSize", "", value.PageSize));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
+                var queryParamString = $"?{String.Join("&", queryParams)}";
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
+                
+                
+                
+                
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/accounts/categories" + queryParamString);
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [ListAccountsCategoriesRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [ListAccountsCategoriesRequest]");
     }
-}
 }

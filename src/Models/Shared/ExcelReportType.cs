@@ -9,27 +9,22 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum ExcelReportType
-{
+    /// <summary>
+    /// The type of report you want to generate and download.
+    /// </summary>
+    public enum ExcelReportType
+    {
     	[JsonProperty("assess")]
-	Assess,
-	[JsonProperty("audit")]
-	Audit,
-	[JsonProperty("enhancedFinancials")]
-	EnhancedFinancials,
-	[JsonProperty("enhancedInvoices")]
-	EnhancedInvoices,
-	[JsonProperty("enhancedCashFlow")]
-	EnhancedCashFlow,
-}
+		Assess,
+		[JsonProperty("audit")]
+		Audit,
+		[JsonProperty("enhancedFinancials")]
+		EnhancedFinancials,
+		[JsonProperty("enhancedInvoices")]
+		EnhancedInvoices,
+		[JsonProperty("enhancedCashFlow")]
+		EnhancedCashFlow,
+    }
 }

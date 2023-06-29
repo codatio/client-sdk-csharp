@@ -9,35 +9,36 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class Schema
-{
-    [JsonProperty("canBeRetried")]
-    public string? CanBeRetried { get; set; }
-    
-    [JsonProperty("correlationId")]
-    public string? CorrelationId { get; set; }
-    
-    [JsonProperty("detailedErrorCode")]
-    public int? DetailedErrorCode { get; set; }
-    
-    [JsonProperty("error")]
-    public string? Error { get; set; }
-    
-    [JsonProperty("service")]
-    public string? Service { get; set; }
-    
-    [JsonProperty("statusCode")]
-    public int? StatusCode { get; set; }
-    
-}
+/// <summary>
+/// Your API request was not properly authorized.
+/// </summary>
+    public class Schema
+    {
+        
+        [JsonProperty("canBeRetried")]
+        public string? CanBeRetried { get; set; }
+        
+        
+        [JsonProperty("correlationId")]
+        public string? CorrelationId { get; set; }
+        
+        
+        [JsonProperty("detailedErrorCode")]
+        public int? DetailedErrorCode { get; set; }
+        
+        
+        [JsonProperty("error")]
+        public string? Error { get; set; }
+        
+        
+        [JsonProperty("service")]
+        public string? Service { get; set; }
+        
+        
+        [JsonProperty("statusCode")]
+        public int? StatusCode { get; set; }
+        
+    }
 }

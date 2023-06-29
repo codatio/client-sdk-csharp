@@ -9,27 +9,25 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Reports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
     using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class GetEnhancedCashFlowTransactionsResponse {
-    public string? ContentType { get; set; }
-    
-    public EnhancedCashFlowTransactions? EnhancedCashFlowTransactions { get; set; }
-    
-    public int StatusCode { get; set; }
-    
-    public HttpResponseMessage? RawResponse { get; set; }
-    
-    public Schema? Schema { get; set; }
-    
-}
+    public class GetEnhancedCashFlowTransactionsResponse {
+        public string? ContentType { get; set; }
+        
+    /// <summary>
+    /// OK
+    /// </summary>
+        public EnhancedCashFlowTransactions? EnhancedCashFlowTransactions { get; set; }
+        
+        public int StatusCode { get; set; }
+        
+        public HttpResponseMessage? RawResponse { get; set; }
+        
+    /// <summary>
+    /// Your API request was not properly authorized.
+    /// </summary>
+        public Schema? Schema { get; set; }
+        
+    }
 }

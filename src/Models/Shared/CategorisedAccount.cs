@@ -9,26 +9,28 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class CategorisedAccount
-{
-    [JsonProperty("accountRef")]
-    public AccountRef? AccountRef { get; set; }
-    
-    [JsonProperty("confirmed")]
-    public AccountCategoryDeprecated? Confirmed { get; set; }
-    
-    [JsonProperty("suggested")]
-    public AccountCategoryDeprecated? Suggested { get; set; }
-    
-}
+/// <summary>
+/// OK
+/// </summary>
+    public class CategorisedAccount
+    {
+    /// <summary>
+    /// An object containing account reference data.
+    /// </summary>
+        
+        [JsonProperty("accountRef")]
+        public AccountRef? AccountRef { get; set; }
+        
+        
+        [JsonProperty("confirmed")]
+        public AccountCategoryDeprecated? Confirmed { get; set; }
+        
+        
+        [JsonProperty("suggested")]
+        public AccountCategoryDeprecated? Suggested { get; set; }
+        
+    }
 }

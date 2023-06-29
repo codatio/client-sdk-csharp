@@ -9,23 +9,23 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class CustomerRef
-{
-    [JsonProperty("customerName")]
-    public string? CustomerName { get; set; }
-    
-    [JsonProperty("id")]
-    public string? Id { get; set; }
-    
-}
+    public class CustomerRef
+    {
+    /// <summary>
+    /// `customerName` from the Customer data type
+    /// </summary>
+        
+        [JsonProperty("customerName")]
+        public string? CustomerName { get; set; }
+        
+    /// <summary>
+    /// `id` from the Customers data type
+    /// </summary>
+        
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+        
+    }
 }

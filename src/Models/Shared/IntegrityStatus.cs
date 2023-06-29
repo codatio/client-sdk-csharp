@@ -9,25 +9,20 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum IntegrityStatus
-{
+    /// <summary>
+    /// The current status of the most recently run matching algorithm.
+    /// </summary>
+    public enum IntegrityStatus
+    {
     	[JsonProperty("Unknown")]
-	Unknown,
-	[JsonProperty("DoesNotExist")]
-	DoesNotExist,
-	[JsonProperty("Error")]
-	Error,
-	[JsonProperty("Complete")]
-	Complete,
-}
+		Unknown,
+		[JsonProperty("DoesNotExist")]
+		DoesNotExist,
+		[JsonProperty("Error")]
+		Error,
+		[JsonProperty("Complete")]
+		Complete,
+    }
 }

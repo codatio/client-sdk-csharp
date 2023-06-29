@@ -9,38 +9,68 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class Accounts
-{
-    [JsonProperty("accountName")]
-    public string? AccountName { get; set; }
-    
-    [JsonProperty("accountProvider")]
-    public string? AccountProvider { get; set; }
-    
-    [JsonProperty("accountType")]
-    public string? AccountType { get; set; }
-    
-    [JsonProperty("currency")]
-    public string? Currency { get; set; }
-    
-    [JsonProperty("currentBalance")]
-    public float? CurrentBalance { get; set; }
-    
-    [JsonProperty("platformName")]
-    public string? PlatformName { get; set; }
-    
-    [JsonProperty("sourceRef")]
-    public SourceRef? SourceRef { get; set; }
-    
-}
+    public class Accounts
+    {
+    /// <summary>
+    /// The name of the account according to the provider.
+    /// </summary>
+        
+        [JsonProperty("accountName")]
+        public string? AccountName { get; set; }
+        
+    /// <summary>
+    /// The bank or other financial institution providing the account.
+    /// </summary>
+        
+        [JsonProperty("accountProvider")]
+        public string? AccountProvider { get; set; }
+        
+    /// <summary>
+    /// The type of banking account, e.g. credit or debit.
+    /// </summary>
+        
+        [JsonProperty("accountType")]
+        public string? AccountType { get; set; }
+        
+    /// <summary>
+    /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+    /// 
+    /// <remarks>
+    /// 
+    /// ## Unknown currencies
+    /// 
+    /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
+    /// 
+    /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("currency")]
+        public string? Currency { get; set; }
+        
+    /// <summary>
+    /// The balance of the bank account.
+    /// </summary>
+        
+        [JsonProperty("currentBalance")]
+        public float? CurrentBalance { get; set; }
+        
+    /// <summary>
+    /// Name of the banking data source, e.g. "Plaid".
+    /// </summary>
+        
+        [JsonProperty("platformName")]
+        public string? PlatformName { get; set; }
+        
+    /// <summary>
+    /// A source reference containing the `sourceType` object "Banking".
+    /// </summary>
+        
+        [JsonProperty("sourceRef")]
+        public SourceRef? SourceRef { get; set; }
+        
+    }
 }

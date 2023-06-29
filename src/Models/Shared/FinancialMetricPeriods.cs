@@ -9,32 +9,46 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using NodaTime;
+using Codat.Models.Shared;
     
-public class FinancialMetricPeriods
-{
-    [JsonProperty("errors")]
-    public List<FinancialMetricPeriodsErrors>? Errors { get; set; }
-    
-    [JsonProperty("fromDate")]
-    public LocalDate? FromDate { get; set; }
-    
-    [JsonProperty("inputs")]
-    public List<FinancialMetricPeriodsInputs>? Inputs { get; set; }
-    
-    [JsonProperty("toDate")]
-    public LocalDate? ToDate { get; set; }
-    
-    [JsonProperty("value")]
-    public float? Value { get; set; }
-    
-}
+    public class FinancialMetricPeriods
+    {
+        
+        [JsonProperty("errors")]
+        public List<FinancialMetricPeriodsErrors>? Errors { get; set; }
+        
+    /// <summary>
+    /// The date from which the report starts.
+    /// </summary>
+        
+        [JsonProperty("fromDate")]
+        public LocalDate? FromDate { get; set; }
+        
+        
+        [JsonProperty("inputs")]
+        public List<FinancialMetricPeriodsInputs>? Inputs { get; set; }
+        
+    /// <summary>
+    /// The date on which the report ends (inclusive of day).
+    /// </summary>
+        
+        [JsonProperty("toDate")]
+        public LocalDate? ToDate { get; set; }
+        
+    /// <summary>
+    /// The top level metric value that is calculated for the specified period. 
+    /// 
+    /// <remarks>
+    /// 
+    /// If the system cannot calculate for that period, the value will be null. The system will still show the metric inputs.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("value")]
+        public float? Value { get; set; }
+        
+    }
 }

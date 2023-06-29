@@ -9,65 +9,78 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Reports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Utils;
     
-public class GetEnhancedFinancialMetricsRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("connectionId")]
-    public string ConnectionId { get; set; }
-    
-    [JsonProperty("numberOfPeriods")]
-    public int NumberOfPeriods { get; set; }
-    
-    [JsonProperty("periodLength")]
-    public int PeriodLength { get; set; }
-    
-    [JsonProperty("reportDate")]
-    public string ReportDate { get; set; }
-    
-    [JsonProperty("showMetricInputs")]
-    public bool? ShowMetricInputs { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetEnhancedFinancialMetricsRequest value, string baseUrl)
+    public class GetEnhancedFinancialMetricsRequest
     {
-        if("get-enhanced-financial-metrics" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+        
+        [JsonProperty("connectionId")]
+        public string ConnectionId { get; set; }
+        
+    /// <summary>
+    /// The number of periods to return.  There will be no pagination as a query parameter, however Codat will limit the number of periods to request to 12 periods.
+    /// </summary>
+        
+        [JsonProperty("numberOfPeriods")]
+        public int NumberOfPeriods { get; set; }
+        
+    /// <summary>
+    /// The number of months per period. E.g. 2 = 2 months per period.
+    /// </summary>
+        
+        [JsonProperty("periodLength")]
+        public int PeriodLength { get; set; }
+        
+    /// <summary>
+    /// The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.
+    /// </summary>
+        
+        [JsonProperty("reportDate")]
+        public string ReportDate { get; set; }
+        
+    /// <summary>
+    /// If set to true, then the system includes the input values within the response.
+    /// </summary>
+        
+        [JsonProperty("showMetricInputs")]
+        public bool? ShowMetricInputs { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetEnhancedFinancialMetricsRequest value, string baseUrl)
         {
-            var queryParams = new List<string>();
-            
-            
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "periodLength", "", value.PeriodLength));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "showMetricInputs", "", value.ShowMetricInputs));
-            var queryParamString = $"?{String.Join("&", queryParams)}";
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
-            
-            
-            
-            
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/financialMetrics" + queryParamString);
-            return message;
+            if("get-enhanced-financial-metrics" == operationId)
+            {
+                var queryParams = new List<string>();
+                
+                
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "periodLength", "", value.PeriodLength));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "showMetricInputs", "", value.ShowMetricInputs));
+                var queryParamString = $"?{String.Join("&", queryParams)}";
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
+                
+                
+                
+                
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/financialMetrics" + queryParamString);
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetEnhancedFinancialMetricsRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetEnhancedFinancialMetricsRequest]");
     }
-}
 }

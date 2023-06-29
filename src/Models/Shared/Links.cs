@@ -9,29 +9,26 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class Links
-{
-    [JsonProperty("current")]
-    public HalRef Current { get; set; }
-    
-    [JsonProperty("next")]
-    public HalRef? Next { get; set; }
-    
-    [JsonProperty("previous")]
-    public HalRef? Previous { get; set; }
-    
-    [JsonProperty("self")]
-    public HalRef Self { get; set; }
-    
-}
+    public class Links
+    {
+        
+        [JsonProperty("current")]
+        public HalRef Current { get; set; }
+        
+        
+        [JsonProperty("next")]
+        public HalRef? Next { get; set; }
+        
+        
+        [JsonProperty("previous")]
+        public HalRef? Previous { get; set; }
+        
+        
+        [JsonProperty("self")]
+        public HalRef Self { get; set; }
+        
+    }
 }

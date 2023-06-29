@@ -10,16 +10,11 @@
 namespace Codat.ExcelReports
 {
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using NodaTime;
-    using Codat.Models.Shared;
-    using Codat.Models.ExcelReports;
-    using Codat.Utils;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Codat.Models.ExcelReports;
+using Codat.Models.Shared;
+using Codat.Utils;
 
     public interface IExcelReportsSDK
     {
@@ -49,6 +44,13 @@ namespace Codat.ExcelReports
         }
 
         
+    /// <summary>
+    /// Generate Excel report
+    /// 
+    /// <remarks>
+    /// Generate an Excel report which can subsequently be downloaded.
+    /// </remarks>
+    /// </summary>
     public async Task<GenerateExcelReportResponse> GenerateExcelReportAsync(GenerateExcelReportRequest request)
     {
         string baseUrl = "";
@@ -83,6 +85,15 @@ namespace Codat.ExcelReports
     }
 
         
+    /// <summary>
+    /// Get marketing metrics report
+    /// 
+    /// <remarks>
+    /// Get the marketing metrics from an accounting source for a given company.
+    /// 
+    /// Request an Excel report for download.
+    /// </remarks>
+    /// </summary>
     public async Task<GetAccountingMarketingMetricsResponse> GetAccountingMarketingMetricsAsync(GetAccountingMarketingMetricsRequest request)
     {
         string baseUrl = "";
@@ -117,6 +128,13 @@ namespace Codat.ExcelReports
     }
 
         
+    /// <summary>
+    /// Download Excel report
+    /// 
+    /// <remarks>
+    /// Download the previously generated Excel report to a local drive.
+    /// </remarks>
+    /// </summary>
     public async Task<GetExcelReportResponse> GetExcelReportAsync(GetExcelReportRequest request)
     {
         string baseUrl = "";
@@ -151,6 +169,13 @@ namespace Codat.ExcelReports
     }
 
         
+    /// <summary>
+    /// Get Excel report status
+    /// 
+    /// <remarks>
+    /// Returns the status of the latest report requested.
+    /// </remarks>
+    /// </summary>
     public async Task<GetExcelReportGenerationStatusResponse> GetExcelReportGenerationStatusAsync(GetExcelReportGenerationStatusRequest request)
     {
         string baseUrl = "";

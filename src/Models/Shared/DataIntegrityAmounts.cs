@@ -9,26 +9,42 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class DataIntegrityAmounts
-{
-    [JsonProperty("currency")]
-    public string? Currency { get; set; }
-    
-    [JsonProperty("max")]
-    public float? Max { get; set; }
-    
-    [JsonProperty("min")]
-    public float? Min { get; set; }
-    
-}
+/// <summary>
+/// Only returned for transactions. For accounts, there is nothing returned.
+/// </summary>
+    public class DataIntegrityAmounts
+    {
+    /// <summary>
+    /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+    /// 
+    /// <remarks>
+    /// 
+    /// ## Unknown currencies
+    /// 
+    /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
+    /// 
+    /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("currency")]
+        public string? Currency { get; set; }
+        
+    /// <summary>
+    /// Highest value of transaction set.
+    /// </summary>
+        
+        [JsonProperty("max")]
+        public float? Max { get; set; }
+        
+    /// <summary>
+    /// Lowest value of transaction set.
+    /// </summary>
+        
+        [JsonProperty("min")]
+        public float? Min { get; set; }
+        
+    }
 }

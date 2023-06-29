@@ -9,27 +9,22 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Webhooks
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
     using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
     
-public class AccountCategoriesUpdatedResponse
-{
-    [JsonProperty("ContentType")]
-    public string ContentType { get; set; }
-    
-    [JsonProperty("StatusCode")]
-    public int StatusCode { get; set; }
-    
-    [JsonProperty("RawResponse")]
-    public HttpResponseMessage? RawResponse { get; set; }
-    
-}
+    public class AccountCategoriesUpdatedResponse
+    {
+        
+        [JsonProperty("ContentType")]
+        public string ContentType { get; set; }
+        
+        
+        [JsonProperty("StatusCode")]
+        public int StatusCode { get; set; }
+        
+        
+        [JsonProperty("RawResponse")]
+        public HttpResponseMessage? RawResponse { get; set; }
+        
+    }
 }

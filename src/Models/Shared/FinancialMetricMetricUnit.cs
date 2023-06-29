@@ -9,21 +9,13 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum FinancialMetricMetricUnit
-{
+    public enum FinancialMetricMetricUnit
+    {
     	[JsonProperty("Ratio")]
-	Ratio,
-	[JsonProperty("Money")]
-	Money,
-}
+		Ratio,
+		[JsonProperty("Money")]
+		Money,
+    }
 }

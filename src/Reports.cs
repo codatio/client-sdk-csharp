@@ -10,16 +10,11 @@
 namespace Codat.Reports
 {
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using NodaTime;
-    using Codat.Models.Shared;
-    using Codat.Models.Reports;
-    using Codat.Utils;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Codat.Models.Reports;
+using Codat.Models.Shared;
+using Codat.Utils;
 
     public interface IReportsSDK
     {
@@ -59,6 +54,15 @@ namespace Codat.Reports
         }
 
         
+    /// <summary>
+    /// Get enhanced balance sheet accounts
+    /// 
+    /// <remarks>
+    /// The Enhanced Balance Sheet Accounts endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
+    /// 
+    /// Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
+    /// </remarks>
+    /// </summary>
     public async Task<GetAccountsForEnhancedBalanceSheetResponse> GetAccountsForEnhancedBalanceSheetAsync(GetAccountsForEnhancedBalanceSheetRequest request)
     {
         string baseUrl = "";
@@ -93,6 +97,15 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get enhanced profit and loss accounts
+    /// 
+    /// <remarks>
+    /// The Enhanced Profit and Loss Accounts endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss. It also includes a balance per the financial statement date.
+    /// 
+    /// Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
+    /// </remarks>
+    /// </summary>
     public async Task<GetAccountsForEnhancedProfitAndLossResponse> GetAccountsForEnhancedProfitAndLossAsync(GetAccountsForEnhancedProfitAndLossRequest request)
     {
         string baseUrl = "";
@@ -127,6 +140,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get customer retention metrics
+    /// 
+    /// <remarks>
+    /// Gets the customer retention metrics for a specific company connection, over one or more periods of time.
+    /// </remarks>
+    /// </summary>
     public async Task<GetCommerceCustomerRetentionMetricsResponse> GetCommerceCustomerRetentionMetricsAsync(GetCommerceCustomerRetentionMetricsRequest request)
     {
         string baseUrl = "";
@@ -161,6 +181,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get lifetime value metric
+    /// 
+    /// <remarks>
+    /// Gets the lifetime value metric for a specific company connection, over one or more periods of time.
+    /// </remarks>
+    /// </summary>
     public async Task<GetCommerceLifetimeValueMetricsResponse> GetCommerceLifetimeValueMetricsAsync(GetCommerceLifetimeValueMetricsRequest request)
     {
         string baseUrl = "";
@@ -195,6 +222,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get orders report
+    /// 
+    /// <remarks>
+    /// Gets the order information for a specific company connection, over one or more periods of time.
+    /// </remarks>
+    /// </summary>
     public async Task<GetCommerceOrdersMetricsResponse> GetCommerceOrdersMetricsAsync(GetCommerceOrdersMetricsRequest request)
     {
         string baseUrl = "";
@@ -229,6 +263,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get refunds report
+    /// 
+    /// <remarks>
+    /// Gets the refunds information for a specific company connection, over one or more periods of time.
+    /// </remarks>
+    /// </summary>
     public async Task<GetCommerceRefundsMetricsResponse> GetCommerceRefundsMetricsAsync(GetCommerceRefundsMetricsRequest request)
     {
         string baseUrl = "";
@@ -263,6 +304,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get commerce revenue metrics
+    /// 
+    /// <remarks>
+    /// Get the revenue and revenue growth for a specific company connection, over one or more periods of time.
+    /// </remarks>
+    /// </summary>
     public async Task<GetCommerceRevenueMetricsResponse> GetCommerceRevenueMetricsAsync(GetCommerceRevenueMetricsRequest request)
     {
         string baseUrl = "";
@@ -297,6 +345,14 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get enhanced balance sheet report
+    /// 
+    /// <remarks>
+    /// Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<GetEnhancedBalanceSheetResponse> GetEnhancedBalanceSheetAsync(GetEnhancedBalanceSheetRequest request)
     {
         string baseUrl = "";
@@ -331,6 +387,17 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get enhanced cash flow report
+    /// 
+    /// <remarks>
+    /// > **Categorization engine**
+    /// > 
+    /// > The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
+    /// 
+    /// The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
+    /// </remarks>
+    /// </summary>
     public async Task<GetEnhancedCashFlowTransactionsResponse> GetEnhancedCashFlowTransactionsAsync(GetEnhancedCashFlowTransactionsRequest request)
     {
         string baseUrl = "";
@@ -365,6 +432,14 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// List financial metrics
+    /// 
+    /// <remarks>
+    /// Gets all the available financial metrics for a given company, over one or more periods.
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<GetEnhancedFinancialMetricsResponse> GetEnhancedFinancialMetricsAsync(GetEnhancedFinancialMetricsRequest request)
     {
         string baseUrl = "";
@@ -391,6 +466,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get enhanced invoices report
+    /// 
+    /// <remarks>
+    /// Gets a list of invoices linked to the corresponding banking transaction
+    /// </remarks>
+    /// </summary>
     public async Task<GetEnhancedInvoicesReportResponse> GetEnhancedInvoicesReportAsync(GetEnhancedInvoicesReportRequest request)
     {
         string baseUrl = "";
@@ -425,6 +507,14 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get enhanced profit and loss report
+    /// 
+    /// <remarks>
+    /// Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<GetEnhancedProfitAndLossResponse> GetEnhancedProfitAndLossAsync(GetEnhancedProfitAndLossRequest request)
     {
         string baseUrl = "";
@@ -459,6 +549,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Get key subscription revenue metrics
+    /// 
+    /// <remarks>
+    /// Gets key metrics for subscription revenue.
+    /// </remarks>
+    /// </summary>
     public async Task<GetRecurringRevenueMetricsResponse> GetRecurringRevenueMetricsAsync(GetRecurringRevenueMetricsRequest request)
     {
         string baseUrl = "";
@@ -493,6 +590,13 @@ namespace Codat.Reports
     }
 
         
+    /// <summary>
+    /// Generate key subscription revenue metrics
+    /// 
+    /// <remarks>
+    /// Requests production of key subscription revenue metrics.
+    /// </remarks>
+    /// </summary>
     public async Task<RequestRecurringRevenueMetricsResponse> RequestRecurringRevenueMetricsAsync(RequestRecurringRevenueMetricsRequest request)
     {
         string baseUrl = "";

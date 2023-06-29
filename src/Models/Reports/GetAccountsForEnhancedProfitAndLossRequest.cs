@@ -9,47 +9,51 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Reports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Utils;
     
-public class GetAccountsForEnhancedProfitAndLossRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("numberOfPeriods")]
-    public int NumberOfPeriods { get; set; }
-    
-    [JsonProperty("reportDate")]
-    public string ReportDate { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetAccountsForEnhancedProfitAndLossRequest value, string baseUrl)
+    public class GetAccountsForEnhancedProfitAndLossRequest
     {
-        if("get-accounts-for-enhanced-profit-and-loss" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+    /// <summary>
+    /// The number of periods to return.  There will be no pagination as a query parameter, however Codat will limit the number of periods to request to 12 periods.
+    /// </summary>
+        
+        [JsonProperty("numberOfPeriods")]
+        public int NumberOfPeriods { get; set; }
+        
+    /// <summary>
+    /// The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.
+    /// </summary>
+        
+        [JsonProperty("reportDate")]
+        public string ReportDate { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetAccountsForEnhancedProfitAndLossRequest value, string baseUrl)
         {
-            var queryParams = new List<string>();
-            
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
-            var queryParamString = $"?{String.Join("&", queryParams)}";
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/companies/{companyId}/reports/enhancedProfitAndLoss/accounts" + queryParamString);
-            return message;
+            if("get-accounts-for-enhanced-profit-and-loss" == operationId)
+            {
+                var queryParams = new List<string>();
+                
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
+                var queryParamString = $"?{String.Join("&", queryParams)}";
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/companies/{companyId}/reports/enhancedProfitAndLoss/accounts" + queryParamString);
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetAccountsForEnhancedProfitAndLossRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetAccountsForEnhancedProfitAndLossRequest]");
     }
-}
 }

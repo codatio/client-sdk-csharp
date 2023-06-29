@@ -10,16 +10,11 @@
 namespace Codat.DataIntegrity
 {
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using NodaTime;
-    using Codat.Models.Shared;
-    using Codat.Models.DataIntegrity;
-    using Codat.Utils;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Codat.Models.DataIntegrity;
+using Codat.Models.Shared;
+using Codat.Utils;
 
     public interface IDataIntegritySDK
     {
@@ -48,6 +43,13 @@ namespace Codat.DataIntegrity
         }
 
         
+    /// <summary>
+    /// Get data integrity status
+    /// 
+    /// <remarks>
+    /// Gets match status for a given company and datatype.
+    /// </remarks>
+    /// </summary>
     public async Task<GetDataIntegrityStatusResponse> GetDataIntegrityStatusAsync(GetDataIntegrityStatusRequest request)
     {
         string baseUrl = "";
@@ -82,6 +84,13 @@ namespace Codat.DataIntegrity
     }
 
         
+    /// <summary>
+    /// Get data integrity summary
+    /// 
+    /// <remarks>
+    /// Gets match summary for a given company and datatype, optionally restricted by a Codat query string.
+    /// </remarks>
+    /// </summary>
     public async Task<GetDataIntegritySummariesResponse> GetDataIntegritySummariesAsync(GetDataIntegritySummariesRequest request)
     {
         string baseUrl = "";
@@ -116,6 +125,13 @@ namespace Codat.DataIntegrity
     }
 
         
+    /// <summary>
+    /// List data type data integrity
+    /// 
+    /// <remarks>
+    /// Gets record-by-record match results for a given company and datatype, optionally restricted by a Codat query string.
+    /// </remarks>
+    /// </summary>
     public async Task<ListDataTypeDataIntegrityDetailsResponse> ListDataTypeDataIntegrityDetailsAsync(ListDataTypeDataIntegrityDetailsRequest request)
     {
         string baseUrl = "";

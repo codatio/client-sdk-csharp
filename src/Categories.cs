@@ -10,16 +10,13 @@
 namespace Codat.Categories
 {
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using NodaTime;
-    using Codat.Models.Shared;
-    using Codat.Models.Categories;
-    using Codat.Utils;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Codat.Models.Categories;
+using Codat.Models.Shared;
+using Codat.Utils;
 
     public interface ICategoriesSDK
     {
@@ -50,6 +47,14 @@ namespace Codat.Categories
         }
 
         
+    /// <summary>
+    /// Get suggested and/or confirmed category for a specific account
+    /// 
+    /// <remarks>
+    /// Get category for specific nominal account.
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<GetAccountCategoryResponse> GetAccountCategoryAsync(GetAccountCategoryRequest request)
     {
         string baseUrl = "";
@@ -76,6 +81,14 @@ namespace Codat.Categories
     }
 
         
+    /// <summary>
+    /// List suggested and confirmed account categories
+    /// 
+    /// <remarks>
+    /// Lists suggested and confirmed chart of account categories for the given company and data connection.
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<ListAccountsCategoriesResponse> ListAccountsCategoriesAsync(ListAccountsCategoriesRequest request)
     {
         string baseUrl = "";
@@ -102,6 +115,14 @@ namespace Codat.Categories
     }
 
         
+    /// <summary>
+    /// List account categories
+    /// 
+    /// <remarks>
+    /// Lists available account categories Codat's categorisation engine can provide. 
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<ListAvailableAccountCategoriesResponse> ListAvailableAccountCategoriesAsync()
     {
         string baseUrl = "";
@@ -128,6 +149,14 @@ namespace Codat.Categories
     }
 
         
+    /// <summary>
+    /// Update account categories
+    /// 
+    /// <remarks>
+    /// Update category for a specific nominal account
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<UpdateAccountCategoryResponse> UpdateAccountCategoryAsync(UpdateAccountCategoryRequest request)
     {
         string baseUrl = "";
@@ -154,6 +183,14 @@ namespace Codat.Categories
     }
 
         
+    /// <summary>
+    /// Confirm categories for accounts
+    /// 
+    /// <remarks>
+    /// Comfirms the categories for all or a batch of accounts for a specific connection.
+    /// </remarks>
+    /// </summary>
+    [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
     public async Task<UpdateAccountsCategoriesResponse> UpdateAccountsCategoriesAsync(UpdateAccountsCategoriesRequest request)
     {
         string baseUrl = "";

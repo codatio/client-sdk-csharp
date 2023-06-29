@@ -9,25 +9,17 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum FinancialMetricErrorType
-{
+    public enum FinancialMetricErrorType
+    {
     	[JsonProperty("DataNotSynced")]
-	DataNotSynced,
-	[JsonProperty("DataNotSupported")]
-	DataNotSupported,
-	[JsonProperty("DataSyncFailed")]
-	DataSyncFailed,
-	[JsonProperty("DataTypeNotEnabled")]
-	DataTypeNotEnabled,
-}
+		DataNotSynced,
+		[JsonProperty("DataNotSupported")]
+		DataNotSupported,
+		[JsonProperty("DataSyncFailed")]
+		DataSyncFailed,
+		[JsonProperty("DataTypeNotEnabled")]
+		DataTypeNotEnabled,
+    }
 }

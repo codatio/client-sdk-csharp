@@ -9,20 +9,16 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class ConfirmCategoriesCategoriesAccountRef
-{
-    [JsonProperty("id")]
-    public string Id { get; set; }
-    
-}
+    public class ConfirmCategoriesCategoriesAccountRef
+    {
+    /// <summary>
+    /// A unique, persistent identifier for this record
+    /// </summary>
+        
+        [JsonProperty("id")]
+        public string Id { get; set; }
+        
+    }
 }

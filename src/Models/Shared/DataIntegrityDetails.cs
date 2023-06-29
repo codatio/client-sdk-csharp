@@ -9,41 +9,94 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class DataIntegrityDetails
-{
-    [JsonProperty("amount")]
-    public float? Amount { get; set; }
-    
-    [JsonProperty("connectionId")]
-    public string? ConnectionId { get; set; }
-    
-    [JsonProperty("currency")]
-    public string? Currency { get; set; }
-    
-    [JsonProperty("date")]
-    public string? Date { get; set; }
-    
-    [JsonProperty("description")]
-    public string? Description { get; set; }
-    
-    [JsonProperty("id")]
-    public string? Id { get; set; }
-    
-    [JsonProperty("matches")]
-    public List<DataIntegrityMatch>? Matches { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+    public class DataIntegrityDetails
+    {
+    /// <summary>
+    /// The transaction value.
+    /// </summary>
+        
+        [JsonProperty("amount")]
+        public float? Amount { get; set; }
+        
+    /// <summary>
+    /// ID GUID representing the connection of the accounting or banking platform.
+    /// </summary>
+        
+        [JsonProperty("connectionId")]
+        public string? ConnectionId { get; set; }
+        
+    /// <summary>
+    /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+    /// 
+    /// <remarks>
+    /// 
+    /// ## Unknown currencies
+    /// 
+    /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
+    /// 
+    /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("currency")]
+        public string? Currency { get; set; }
+        
+    /// <summary>
+    /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+    /// 
+    /// <remarks>
+    /// 
+    /// ```
+    /// 2020-10-08T22:40:50Z
+    /// 2021-01-01T00:00:00
+    /// ```
+    /// 
+    /// 
+    /// 
+    /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+    /// 
+    /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+    /// - Unqualified local time: `2021-11-15T01:00:00`
+    /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
+    /// 
+    /// > Time zones
+    /// > 
+    /// > Not all dates from Codat will contain information about time zones.  
+    /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("date")]
+        public string? Date { get; set; }
+        
+    /// <summary>
+    /// The transaction description.
+    /// </summary>
+        
+        [JsonProperty("description")]
+        public string? Description { get; set; }
+        
+    /// <summary>
+    /// ID GUID of the transaction.
+    /// </summary>
+        
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+        
+        
+        [JsonProperty("matches")]
+        public List<DataIntegrityMatch>? Matches { get; set; }
+        
+    /// <summary>
+    /// The data type of the record.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

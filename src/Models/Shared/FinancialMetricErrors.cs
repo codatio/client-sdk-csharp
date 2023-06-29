@@ -9,26 +9,32 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class FinancialMetricErrors
-{
-    [JsonProperty("details")]
-    public Dictionary<string, List<string>>? Details { get; set; }
-    
-    [JsonProperty("message")]
-    public string? Message { get; set; }
-    
-    [JsonProperty("type")]
-    public FinancialMetricErrorsType? Type { get; set; }
-    
-}
+    public class FinancialMetricErrors
+    {
+    /// <summary>
+    /// Dictionary list outlining the missing properties or allowed values.
+    /// </summary>
+        
+        [JsonProperty("details")]
+        public Dictionary<string, List<string>>? Details { get; set; }
+        
+    /// <summary>
+    /// Description of the error.
+    /// </summary>
+        
+        [JsonProperty("message")]
+        public string? Message { get; set; }
+        
+    /// <summary>
+    /// Metric level error.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public FinancialMetricErrorsType? Type { get; set; }
+        
+    }
 }

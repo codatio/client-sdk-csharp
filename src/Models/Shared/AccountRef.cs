@@ -9,23 +9,26 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class AccountRef
-{
-    [JsonProperty("id")]
-    public string? Id { get; set; }
-    
-    [JsonProperty("name")]
-    public string? Name { get; set; }
-    
-}
+/// <summary>
+/// An object containing account reference data.
+/// </summary>
+    public class AccountRef
+    {
+    /// <summary>
+    /// 'id' from the Accounts data type.
+    /// </summary>
+        
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+        
+    /// <summary>
+    /// 'name' from the Accounts data type.
+    /// </summary>
+        
+        [JsonProperty("name")]
+        public string? Name { get; set; }
+        
+    }
 }

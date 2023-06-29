@@ -9,20 +9,18 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class ConfirmCategories
-{
-    [JsonProperty("categories")]
-    public List<ConfirmCategoriesCategories>? Categories { get; set; }
-    
-}
+    public class ConfirmCategories
+    {
+    /// <summary>
+    /// List of confirmed account categories set manually by the user. 
+    /// </summary>
+        
+        [JsonProperty("categories")]
+        public List<ConfirmCategoriesCategories>? Categories { get; set; }
+        
+    }
 }

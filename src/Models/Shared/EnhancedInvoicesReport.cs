@@ -9,23 +9,25 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class EnhancedInvoicesReport
-{
-    [JsonProperty("reportInfo")]
-    public ReportInfo? ReportInfo { get; set; }
-    
-    [JsonProperty("reportItems")]
-    public List<EnhancedInvoicesReportReportItems>? ReportItems { get; set; }
-    
-}
+/// <summary>
+/// The enhanced invoices report takes the key elements of the Invoices report verifying those marked as paid in the accounting platform have actually been paid by matching with the bank statement.
+/// </summary>
+    public class EnhancedInvoicesReport
+    {
+    /// <summary>
+    /// Report additional information, which is specific to Assess reports
+    /// </summary>
+        
+        [JsonProperty("reportInfo")]
+        public ReportInfo? ReportInfo { get; set; }
+        
+        
+        [JsonProperty("reportItems")]
+        public List<EnhancedInvoicesReportReportItems>? ReportItems { get; set; }
+        
+    }
 }

@@ -9,20 +9,18 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class EnhancedCashFlowItem
-{
-    [JsonProperty("transactions")]
-    public List<EnhancedCashFlowTransaction>? Transactions { get; set; }
-    
-}
+    public class EnhancedCashFlowItem
+    {
+    /// <summary>
+    /// An array of transaction data.
+    /// </summary>
+        
+        [JsonProperty("transactions")]
+        public List<EnhancedCashFlowTransaction>? Transactions { get; set; }
+        
+    }
 }

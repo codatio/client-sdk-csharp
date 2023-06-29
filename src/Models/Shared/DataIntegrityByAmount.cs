@@ -9,32 +9,53 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class DataIntegrityByAmount
-{
-    [JsonProperty("currency")]
-    public string? Currency { get; set; }
-    
-    [JsonProperty("matchPercentage")]
-    public float? MatchPercentage { get; set; }
-    
-    [JsonProperty("matched")]
-    public float? Matched { get; set; }
-    
-    [JsonProperty("total")]
-    public float? Total { get; set; }
-    
-    [JsonProperty("unmatched")]
-    public float? Unmatched { get; set; }
-    
-}
+    public class DataIntegrityByAmount
+    {
+    /// <summary>
+    /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+    /// 
+    /// <remarks>
+    /// 
+    /// ## Unknown currencies
+    /// 
+    /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
+    /// 
+    /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("currency")]
+        public string? Currency { get; set; }
+        
+    /// <summary>
+    /// The percentage of the absolute value of transactions of the type specified in the route which have a match.
+    /// </summary>
+        
+        [JsonProperty("matchPercentage")]
+        public float? MatchPercentage { get; set; }
+        
+    /// <summary>
+    /// The sum of the absolute value of transactions of the type specified in the route which have a match.
+    /// </summary>
+        
+        [JsonProperty("matched")]
+        public float? Matched { get; set; }
+        
+    /// <summary>
+    /// The total of unmatched and matched.
+    /// </summary>
+        
+        [JsonProperty("total")]
+        public float? Total { get; set; }
+        
+    /// <summary>
+    /// The sum of the absolute value of transactions of the type specified in the route which don't have a match.
+    /// </summary>
+        
+        [JsonProperty("unmatched")]
+        public float? Unmatched { get; set; }
+        
+    }
 }

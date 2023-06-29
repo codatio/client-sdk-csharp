@@ -9,29 +9,45 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class FinancialMetrics
-{
-    [JsonProperty("currency")]
-    public string? Currency { get; set; }
-    
-    [JsonProperty("errors")]
-    public List<FinancialMetricError>? Errors { get; set; }
-    
-    [JsonProperty("metrics")]
-    public List<FinancialMetric>? Metrics { get; set; }
-    
-    [JsonProperty("periodUnit")]
-    public FinancialMetricsPeriodUnit? PeriodUnit { get; set; }
-    
-}
+/// <summary>
+/// OK
+/// </summary>
+    public class FinancialMetrics
+    {
+    /// <summary>
+    /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+    /// 
+    /// <remarks>
+    /// 
+    /// ## Unknown currencies
+    /// 
+    /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
+    /// 
+    /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("currency")]
+        public string? Currency { get; set; }
+        
+    /// <summary>
+    /// If there are no errors, an empty array is returned.
+    /// </summary>
+        
+        [JsonProperty("errors")]
+        public List<FinancialMetricError>? Errors { get; set; }
+        
+        
+        [JsonProperty("metrics")]
+        public List<FinancialMetric>? Metrics { get; set; }
+        
+        
+        [JsonProperty("periodUnit")]
+        public FinancialMetricsPeriodUnit? PeriodUnit { get; set; }
+        
+    }
 }

@@ -9,65 +9,78 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Reports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Utils;
     
-public class GetEnhancedBalanceSheetRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("connectionId")]
-    public string ConnectionId { get; set; }
-    
-    [JsonProperty("includeDisplayNames")]
-    public bool? IncludeDisplayNames { get; set; }
-    
-    [JsonProperty("numberOfPeriods")]
-    public int NumberOfPeriods { get; set; }
-    
-    [JsonProperty("periodLength")]
-    public int PeriodLength { get; set; }
-    
-    [JsonProperty("reportDate")]
-    public string ReportDate { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetEnhancedBalanceSheetRequest value, string baseUrl)
+    public class GetEnhancedBalanceSheetRequest
     {
-        if("get-enhanced-balance-sheet" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+        
+        [JsonProperty("connectionId")]
+        public string ConnectionId { get; set; }
+        
+    /// <summary>
+    /// Shows the dimensionDisplayName and itemDisplayName in measures to make the report data human-readable.
+    /// </summary>
+        
+        [JsonProperty("includeDisplayNames")]
+        public bool? IncludeDisplayNames { get; set; }
+        
+    /// <summary>
+    /// The number of periods to return.  There will be no pagination as a query parameter, however Codat will limit the number of periods to request to 12 periods.
+    /// </summary>
+        
+        [JsonProperty("numberOfPeriods")]
+        public int NumberOfPeriods { get; set; }
+        
+    /// <summary>
+    /// The number of months per period. E.g. 2 = 2 months per period.
+    /// </summary>
+        
+        [JsonProperty("periodLength")]
+        public int PeriodLength { get; set; }
+        
+    /// <summary>
+    /// The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.
+    /// </summary>
+        
+        [JsonProperty("reportDate")]
+        public string ReportDate { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetEnhancedBalanceSheetRequest value, string baseUrl)
         {
-            var queryParams = new List<string>();
-            
-            
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "includeDisplayNames", "", value.IncludeDisplayNames));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "periodLength", "", value.PeriodLength));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
-            var queryParamString = $"?{String.Join("&", queryParams)}";
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
-            
-            
-            
-            
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/enhancedBalanceSheet" + queryParamString);
-            return message;
+            if("get-enhanced-balance-sheet" == operationId)
+            {
+                var queryParams = new List<string>();
+                
+                
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "includeDisplayNames", "", value.IncludeDisplayNames));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "numberOfPeriods", "", value.NumberOfPeriods));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "periodLength", "", value.PeriodLength));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportDate", "", value.ReportDate));
+                var queryParamString = $"?{String.Join("&", queryParams)}";
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
+                
+                
+                
+                
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/enhancedBalanceSheet" + queryParamString);
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetEnhancedBalanceSheetRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetEnhancedBalanceSheetRequest]");
     }
-}
 }

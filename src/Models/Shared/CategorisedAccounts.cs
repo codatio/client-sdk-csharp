@@ -9,32 +9,37 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class CategorisedAccounts
-{
-    [JsonProperty("_links")]
-    public Links Links { get; set; }
-    
-    [JsonProperty("pageNumber")]
-    public int PageNumber { get; set; }
-    
-    [JsonProperty("pageSize")]
-    public int PageSize { get; set; }
-    
-    [JsonProperty("results")]
-    public List<CategorisedAccount>? Results { get; set; }
-    
-    [JsonProperty("totalResults")]
-    public int TotalResults { get; set; }
-    
-}
+/// <summary>
+/// OK
+/// </summary>
+    public class CategorisedAccounts
+    {
+        
+        [JsonProperty("_links")]
+        public Links Links { get; set; }
+        
+        
+        [JsonProperty("pageNumber")]
+        public int PageNumber { get; set; }
+        
+        
+        [JsonProperty("pageSize")]
+        public int PageSize { get; set; }
+        
+    /// <summary>
+    /// A list confirmed and suggested account categories.
+    /// </summary>
+        
+        [JsonProperty("results")]
+        public List<CategorisedAccount>? Results { get; set; }
+        
+        
+        [JsonProperty("totalResults")]
+        public int TotalResults { get; set; }
+        
+    }
 }

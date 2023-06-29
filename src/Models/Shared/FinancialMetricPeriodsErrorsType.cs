@@ -9,21 +9,16 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum FinancialMetricPeriodsErrorsType
-{
+    /// <summary>
+    /// Period error type.
+    /// </summary>
+    public enum FinancialMetricPeriodsErrorsType
+    {
     	[JsonProperty("MissingAccountData")]
-	MissingAccountData,
-	[JsonProperty("DatesOutOfRange")]
-	DatesOutOfRange,
-}
+		MissingAccountData,
+		[JsonProperty("DatesOutOfRange")]
+		DatesOutOfRange,
+    }
 }

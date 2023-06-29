@@ -10,18 +10,15 @@
 namespace Codat
 {
     using System;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
-    using System.Text;
-    using Codat.Categories;
-    using Codat.DataIntegrity;
-    using Codat.ExcelReports;
-    using Codat.Reports;
-    using System.Net;
-    using System.Net.Http;
-    using Codat.Models.Security;
-    using Codat.Utils;
-    using NodaTime;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Codat.Categories;
+using Codat.DataIntegrity;
+using Codat.ExcelReports;
+using Codat.Reports;
+using Codat.Models.Security;
+using Codat.Utils;
 
     public interface ICodatSDK
     {

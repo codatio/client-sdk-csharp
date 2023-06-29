@@ -9,23 +9,24 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
     
-public class TransactionCategory
-{
-    [JsonProperty("confidence")]
-    public float? Confidence { get; set; }
-    
-    [JsonProperty("levels")]
-    public List<string>? Levels { get; set; }
-    
-}
+    public class TransactionCategory
+    {
+    /// <summary>
+    /// Returns the confidence of the suggested category for the transaction.
+    /// </summary>
+        
+        [JsonProperty("confidence")]
+        public float? Confidence { get; set; }
+        
+    /// <summary>
+    /// An array of category levels against an individual transaction.
+    /// </summary>
+        
+        [JsonProperty("levels")]
+        public List<string>? Levels { get; set; }
+        
+    }
 }

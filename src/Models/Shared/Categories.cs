@@ -9,35 +9,51 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class Categories
-{
-    [JsonProperty("detailType")]
-    public string? DetailType { get; set; }
-    
-    [JsonProperty("detailTypeDescription")]
-    public string? DetailTypeDescription { get; set; }
-    
-    [JsonProperty("detailTypeDisplayName")]
-    public string? DetailTypeDisplayName { get; set; }
-    
-    [JsonProperty("subtype")]
-    public string? Subtype { get; set; }
-    
-    [JsonProperty("subtypeDisplayName")]
-    public string? SubtypeDisplayName { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+    public class Categories
+    {
+    /// <summary>
+    /// Most granular chart of account type.
+    /// </summary>
+        
+        [JsonProperty("detailType")]
+        public string? DetailType { get; set; }
+        
+    /// <summary>
+    /// A description of the fully categorized (to detail type) account.
+    /// </summary>
+        
+        [JsonProperty("detailTypeDescription")]
+        public string? DetailTypeDescription { get; set; }
+        
+    /// <summary>
+    /// Human readable detailType display name.
+    /// </summary>
+        
+        [JsonProperty("detailTypeDisplayName")]
+        public string? DetailTypeDisplayName { get; set; }
+        
+    /// <summary>
+    /// The account subtype.
+    /// </summary>
+        
+        [JsonProperty("subtype")]
+        public string? Subtype { get; set; }
+        
+    /// <summary>
+    /// Human readable subtype display name.
+    /// </summary>
+        
+        [JsonProperty("subtypeDisplayName")]
+        public string? SubtypeDisplayName { get; set; }
+        
+    /// <summary>
+    /// The top level account type.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

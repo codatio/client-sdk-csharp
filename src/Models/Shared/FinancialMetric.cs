@@ -9,32 +9,34 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class FinancialMetric
-{
-    [JsonProperty("errors")]
-    public List<FinancialMetricErrors>? Errors { get; set; }
-    
-    [JsonProperty("key")]
-    public FinancialMetricKey? Key { get; set; }
-    
-    [JsonProperty("metricUnit")]
-    public FinancialMetricMetricUnit? MetricUnit { get; set; }
-    
-    [JsonProperty("name")]
-    public string? Name { get; set; }
-    
-    [JsonProperty("periods")]
-    public List<FinancialMetricPeriods>? Periods { get; set; }
-    
-}
+    public class FinancialMetric
+    {
+        
+        [JsonProperty("errors")]
+        public List<FinancialMetricErrors>? Errors { get; set; }
+        
+        
+        [JsonProperty("key")]
+        public FinancialMetricKey? Key { get; set; }
+        
+        
+        [JsonProperty("metricUnit")]
+        public FinancialMetricMetricUnit? MetricUnit { get; set; }
+        
+    /// <summary>
+    /// Metric name.
+    /// </summary>
+        
+        [JsonProperty("name")]
+        public string? Name { get; set; }
+        
+        
+        [JsonProperty("periods")]
+        public List<FinancialMetricPeriods>? Periods { get; set; }
+        
+    }
 }

@@ -9,23 +9,25 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class EnhancedReport
-{
-    [JsonProperty("reportInfo")]
-    public EnhancedReportInfo? ReportInfo { get; set; }
-    
-    [JsonProperty("reportItems")]
-    public List<EnhancedReportReportItem>? ReportItems { get; set; }
-    
-}
+/// <summary>
+/// OK
+/// </summary>
+    public class EnhancedReport
+    {
+        
+        [JsonProperty("reportInfo")]
+        public EnhancedReportInfo? ReportInfo { get; set; }
+        
+    /// <summary>
+    /// An array of report items.
+    /// </summary>
+        
+        [JsonProperty("reportItems")]
+        public List<EnhancedReportReportItem>? ReportItems { get; set; }
+        
+    }
 }

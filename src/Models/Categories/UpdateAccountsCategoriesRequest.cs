@@ -9,44 +9,43 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Categories
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Net.Http;
+using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
+using Codat.Utils;
     
-public class UpdateAccountsCategoriesRequest
-{
-    [JsonProperty("ConfirmCategories")]
-    public ConfirmCategories? ConfirmCategories { get; set; }
-    
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("connectionId")]
-    public string ConnectionId { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, UpdateAccountsCategoriesRequest value, string baseUrl)
+    public class UpdateAccountsCategoriesRequest
     {
-        if("update-accounts-categories" == operationId)
+        
+        [JsonProperty("ConfirmCategories")]
+        public ConfirmCategories? ConfirmCategories { get; set; }
+        
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+        
+        [JsonProperty("connectionId")]
+        public string ConnectionId { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, UpdateAccountsCategoriesRequest value, string baseUrl)
         {
-            
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
-            var message = new HttpRequestMessage(HttpMethod.Patch, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/accounts/categories");
+            if("update-accounts-categories" == operationId)
+            {
+                
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                var connectionId = PathParamSerializer.Serialize("simple", false, value.ConnectionId);
+                var message = new HttpRequestMessage(HttpMethod.Patch, baseUrl + $"/data/companies/{companyId}/connections/{connectionId}/assess/accounts/categories");
 
-            string json = JsonConvert.SerializeObject(value.ConfirmCategories);
-            message.Content = new StringContent(json, Encoding.UTF8, "application/json");
-            return message;
+                string json = JsonConvert.SerializeObject(value.ConfirmCategories);
+                message.Content = new StringContent(json, Encoding.UTF8, "application/json");
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [UpdateAccountsCategoriesRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [UpdateAccountsCategoriesRequest]");
     }
-}
 }

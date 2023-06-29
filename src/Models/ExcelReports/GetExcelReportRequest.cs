@@ -9,41 +9,42 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.ExcelReports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
+using Codat.Utils;
     
-public class GetExcelReportRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("reportType")]
-    public ExcelReportType ReportType { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetExcelReportRequest value, string baseUrl)
+    public class GetExcelReportRequest
     {
-        if("get-excel-report" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+    /// <summary>
+    /// The type of report you want to generate and download.
+    /// </summary>
+        
+        [JsonProperty("reportType")]
+        public ExcelReportType ReportType { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetExcelReportRequest value, string baseUrl)
         {
-            var queryParams = new List<string>();
-            
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportType", "", value.ReportType));
-            var queryParamString = $"?{String.Join("&", queryParams)}";
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/assess/excel/download" + queryParamString);
-            return message;
+            if("get-excel-report" == operationId)
+            {
+                var queryParams = new List<string>();
+                
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "reportType", "", value.ReportType));
+                var queryParamString = $"?{String.Join("&", queryParams)}";
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/data/companies/{companyId}/assess/excel/download" + queryParamString);
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetExcelReportRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetExcelReportRequest]");
     }
-}
 }

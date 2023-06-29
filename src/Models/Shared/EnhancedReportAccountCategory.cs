@@ -9,23 +9,22 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class EnhancedReportAccountCategory
-{
-    [JsonProperty("levels")]
-    public List<AccountCategoryLevel>? Levels { get; set; }
-    
-    [JsonProperty("status")]
-    public string? Status { get; set; }
-    
-}
+    public class EnhancedReportAccountCategory
+    {
+        
+        [JsonProperty("levels")]
+        public List<AccountCategoryLevel>? Levels { get; set; }
+        
+    /// <summary>
+    /// Returns a status of "Suggested" or "Confirmed". If an account has a confirmed category, it will replace any suggested category returned.
+    /// </summary>
+        
+        [JsonProperty("status")]
+        public string? Status { get; set; }
+        
+    }
 }

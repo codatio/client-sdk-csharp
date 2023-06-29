@@ -9,29 +9,37 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class DataIntegrityByCount
-{
-    [JsonProperty("matchPercentage")]
-    public float? MatchPercentage { get; set; }
-    
-    [JsonProperty("matched")]
-    public float? Matched { get; set; }
-    
-    [JsonProperty("total")]
-    public float? Total { get; set; }
-    
-    [JsonProperty("unmatched")]
-    public float? Unmatched { get; set; }
-    
-}
+    public class DataIntegrityByCount
+    {
+    /// <summary>
+    /// The percentage of records of the type specified in the route which have a match.
+    /// </summary>
+        
+        [JsonProperty("matchPercentage")]
+        public float? MatchPercentage { get; set; }
+        
+    /// <summary>
+    /// The number of records of the type specified in the route which do have a match.
+    /// </summary>
+        
+        [JsonProperty("matched")]
+        public float? Matched { get; set; }
+        
+    /// <summary>
+    /// The total of unmatched and matched.
+    /// </summary>
+        
+        [JsonProperty("total")]
+        public float? Total { get; set; }
+        
+    /// <summary>
+    /// The number of records of the type specified in the route which don't have a match.
+    /// </summary>
+        
+        [JsonProperty("unmatched")]
+        public float? Unmatched { get; set; }
+        
+    }
 }

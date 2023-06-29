@@ -9,20 +9,16 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class AccountCategoriesUpdatedWebhookData
-{
-    [JsonProperty("modifiedDate")]
-    public string? ModifiedDate { get; set; }
-    
-}
+    public class AccountCategoriesUpdatedWebhookData
+    {
+    /// <summary>
+    /// The date on which this account categories were last modified in Codat.
+    /// </summary>
+        
+        [JsonProperty("modifiedDate")]
+        public string? ModifiedDate { get; set; }
+        
+    }
 }

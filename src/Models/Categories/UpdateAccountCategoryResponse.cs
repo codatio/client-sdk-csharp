@@ -9,25 +9,20 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Categories
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
     using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class UpdateAccountCategoryResponse {
-    public CategorisedAccount? CategorisedAccount { get; set; }
-    
-    public string? ContentType { get; set; }
-    
-    public int StatusCode { get; set; }
-    
-    public HttpResponseMessage? RawResponse { get; set; }
-    
-}
+    public class UpdateAccountCategoryResponse {
+    /// <summary>
+    /// OK
+    /// </summary>
+        public CategorisedAccount? CategorisedAccount { get; set; }
+        
+        public string? ContentType { get; set; }
+        
+        public int StatusCode { get; set; }
+        
+        public HttpResponseMessage? RawResponse { get; set; }
+        
+    }
 }

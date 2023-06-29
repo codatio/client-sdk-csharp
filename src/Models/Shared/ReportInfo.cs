@@ -9,35 +9,54 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class ReportInfo
-{
-    [JsonProperty("companyName")]
-    public string? CompanyName { get; set; }
-    
-    [JsonProperty("generatedDate")]
-    public string? GeneratedDate { get; set; }
-    
-    [JsonProperty("pageNumber")]
-    public int? PageNumber { get; set; }
-    
-    [JsonProperty("pageSize")]
-    public int? PageSize { get; set; }
-    
-    [JsonProperty("reportName")]
-    public string? ReportName { get; set; }
-    
-    [JsonProperty("totalResults")]
-    public int? TotalResults { get; set; }
-    
-}
+/// <summary>
+/// Report additional information, which is specific to Assess reports
+/// </summary>
+    public class ReportInfo
+    {
+    /// <summary>
+    /// The name of the company being queried.
+    /// </summary>
+        
+        [JsonProperty("companyName")]
+        public string? CompanyName { get; set; }
+        
+    /// <summary>
+    /// Date the report was generated
+    /// </summary>
+        
+        [JsonProperty("generatedDate")]
+        public string? GeneratedDate { get; set; }
+        
+    /// <summary>
+    /// The number of the page queried.
+    /// </summary>
+        
+        [JsonProperty("pageNumber")]
+        public int? PageNumber { get; set; }
+        
+    /// <summary>
+    /// The number of transactions returned per page.
+    /// </summary>
+        
+        [JsonProperty("pageSize")]
+        public int? PageSize { get; set; }
+        
+    /// <summary>
+    /// Name of the report
+    /// </summary>
+        
+        [JsonProperty("reportName")]
+        public string? ReportName { get; set; }
+        
+    /// <summary>
+    /// The total number of transactions available for a company for the period specified in the query string.
+    /// </summary>
+        
+        [JsonProperty("totalResults")]
+        public int? TotalResults { get; set; }
+        
+    }
 }

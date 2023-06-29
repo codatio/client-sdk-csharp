@@ -9,20 +9,18 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class DataSource
-{
-    [JsonProperty("accounts")]
-    public List<Accounts>? Accounts { get; set; }
-    
-}
+    public class DataSource
+    {
+    /// <summary>
+    /// An array containing bank account data for each connected banking data source that have the following data types enabled: `banking-accounts`, `banking-transactions`.
+    /// </summary>
+        
+        [JsonProperty("accounts")]
+        public List<Accounts>? Accounts { get; set; }
+        
+    }
 }

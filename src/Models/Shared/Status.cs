@@ -9,20 +9,18 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class Status
-{
-    [JsonProperty("metadata")]
-    public List<DataIntegrityStatus>? Metadata { get; set; }
-    
-}
+/// <summary>
+/// OK
+/// </summary>
+    public class Status
+    {
+        
+        [JsonProperty("metadata")]
+        public List<DataIntegrityStatus>? Metadata { get; set; }
+        
+    }
 }

@@ -9,26 +9,29 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
+using Codat.Models.Shared;
     
-public class EnhancedCashFlowTransactions
-{
-    [JsonProperty("dataSources")]
-    public List<DataSource>? DataSources { get; set; }
-    
-    [JsonProperty("reportInfo")]
-    public ReportInfo? ReportInfo { get; set; }
-    
-    [JsonProperty("reportItems")]
-    public List<EnhancedCashFlowItem>? ReportItems { get; set; }
-    
-}
+/// <summary>
+/// OK
+/// </summary>
+    public class EnhancedCashFlowTransactions
+    {
+        
+        [JsonProperty("dataSources")]
+        public List<DataSource>? DataSources { get; set; }
+        
+    /// <summary>
+    /// Report additional information, which is specific to Assess reports
+    /// </summary>
+        
+        [JsonProperty("reportInfo")]
+        public ReportInfo? ReportInfo { get; set; }
+        
+        
+        [JsonProperty("reportItems")]
+        public List<EnhancedCashFlowItem>? ReportItems { get; set; }
+        
+    }
 }

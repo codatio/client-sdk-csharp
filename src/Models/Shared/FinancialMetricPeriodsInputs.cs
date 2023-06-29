@@ -9,23 +9,23 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class FinancialMetricPeriodsInputs
-{
-    [JsonProperty("name")]
-    public string? Name { get; set; }
-    
-    [JsonProperty("value")]
-    public float? Value { get; set; }
-    
-}
+    public class FinancialMetricPeriodsInputs
+    {
+    /// <summary>
+    /// The name of the metric input e.g. “Current Assets”, “Capital Expenditure”.
+    /// </summary>
+        
+        [JsonProperty("name")]
+        public string? Name { get; set; }
+        
+    /// <summary>
+    /// The positive or negative number of the input value.
+    /// </summary>
+        
+        [JsonProperty("value")]
+        public float? Value { get; set; }
+        
+    }
 }

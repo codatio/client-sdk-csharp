@@ -9,25 +9,20 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum DataIntegrityDataType
-{
+    /// <summary>
+    /// A key for a Codat data type.
+    /// </summary>
+    public enum DataIntegrityDataType
+    {
     	[JsonProperty("banking-accounts")]
-	BankingAccounts,
-	[JsonProperty("banking-transactions")]
-	BankingTransactions,
-	[JsonProperty("bankAccounts")]
-	BankAccounts,
-	[JsonProperty("accountTransactions")]
-	AccountTransactions,
-}
+		BankingAccounts,
+		[JsonProperty("banking-transactions")]
+		BankingTransactions,
+		[JsonProperty("bankAccounts")]
+		BankAccounts,
+		[JsonProperty("accountTransactions")]
+		AccountTransactions,
+    }
 }

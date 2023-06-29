@@ -9,23 +9,24 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
     
-public class DataIntegrityConnectionId
-{
-    [JsonProperty("source")]
-    public List<string>? Source { get; set; }
-    
-    [JsonProperty("target")]
-    public List<string>? Target { get; set; }
-    
-}
+    public class DataIntegrityConnectionId
+    {
+    /// <summary>
+    /// An array of strings. The connection IDs for the type specified in the url.
+    /// </summary>
+        
+        [JsonProperty("source")]
+        public List<string>? Source { get; set; }
+        
+    /// <summary>
+    /// An array of strings. The connection IDs for the type being matched to.
+    /// </summary>
+        
+        [JsonProperty("target")]
+        public List<string>? Target { get; set; }
+        
+    }
 }

@@ -9,23 +9,26 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class AccountCategoryLevel
-{
-    [JsonProperty("confidence")]
-    public float? Confidence { get; set; }
-    
-    [JsonProperty("levelName")]
-    public string? LevelName { get; set; }
-    
-}
+/// <summary>
+/// An object containing an ordered list of account category levels.
+/// </summary>
+    public class AccountCategoryLevel
+    {
+    /// <summary>
+    /// Confidence level of the category. This will only be populated where `status` is `Suggested`.
+    /// </summary>
+        
+        [JsonProperty("confidence")]
+        public float? Confidence { get; set; }
+        
+    /// <summary>
+    /// Account category name.
+    /// </summary>
+        
+        [JsonProperty("levelName")]
+        public string? LevelName { get; set; }
+        
+    }
 }

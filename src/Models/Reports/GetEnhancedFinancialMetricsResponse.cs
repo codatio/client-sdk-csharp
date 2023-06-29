@@ -9,25 +9,20 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Reports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
     using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class GetEnhancedFinancialMetricsResponse {
-    public string? ContentType { get; set; }
-    
-    public FinancialMetrics? FinancialMetrics { get; set; }
-    
-    public int StatusCode { get; set; }
-    
-    public HttpResponseMessage? RawResponse { get; set; }
-    
-}
+    public class GetEnhancedFinancialMetricsResponse {
+        public string? ContentType { get; set; }
+        
+    /// <summary>
+    /// OK
+    /// </summary>
+        public FinancialMetrics? FinancialMetrics { get; set; }
+        
+        public int StatusCode { get; set; }
+        
+        public HttpResponseMessage? RawResponse { get; set; }
+        
+    }
 }

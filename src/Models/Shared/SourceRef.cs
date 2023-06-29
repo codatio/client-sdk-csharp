@@ -9,20 +9,16 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class SourceRef
-{
-    [JsonProperty("sourceType")]
-    public string? SourceType { get; set; }
-    
-}
+/// <summary>
+/// A source reference containing the `sourceType` object "Banking".
+/// </summary>
+    public class SourceRef
+    {
+        
+        [JsonProperty("sourceType")]
+        public string? SourceType { get; set; }
+        
+    }
 }

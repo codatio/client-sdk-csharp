@@ -9,26 +9,25 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class DataIntegritySummary
-{
-    [JsonProperty("byAmount")]
-    public DataIntegrityByAmount? ByAmount { get; set; }
-    
-    [JsonProperty("byCount")]
-    public DataIntegrityByCount? ByCount { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+    public class DataIntegritySummary
+    {
+        
+        [JsonProperty("byAmount")]
+        public DataIntegrityByAmount? ByAmount { get; set; }
+        
+        
+        [JsonProperty("byCount")]
+        public DataIntegrityByCount? ByCount { get; set; }
+        
+    /// <summary>
+    /// The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

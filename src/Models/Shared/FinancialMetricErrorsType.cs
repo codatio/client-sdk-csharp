@@ -9,23 +9,18 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum FinancialMetricErrorsType
-{
+    /// <summary>
+    /// Metric level error.
+    /// </summary>
+    public enum FinancialMetricErrorsType
+    {
     	[JsonProperty("UncategorizedAccounts")]
-	UncategorizedAccounts,
-	[JsonProperty("MissingInputData")]
-	MissingInputData,
-	[JsonProperty("InputDataError")]
-	InputDataError,
-}
+		UncategorizedAccounts,
+		[JsonProperty("MissingInputData")]
+		MissingInputData,
+		[JsonProperty("InputDataError")]
+		InputDataError,
+    }
 }

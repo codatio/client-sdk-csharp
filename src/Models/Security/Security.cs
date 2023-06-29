@@ -9,34 +9,27 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Security
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Codat.Utils;
     
-public class Security
-{
-    [JsonProperty("auth_header")]
-    public string AuthHeader { get; set; }
-    
-    // Global security
-    public static void Apply(Security security, SpeakeasyHttpClient securityClient)
+    public class Security
     {
-        if(security == null)
-        {
-            return;
-        }
         
-        if(security.AuthHeader != null)
+        [JsonProperty("auth_header")]
+        public string AuthHeader { get; set; }
+        
+        // Global security
+        public static void Apply(Security security, SpeakeasyHttpClient securityClient)
         {
-            securityClient.AddHeader("Authorization", Utilities.ToString(security.AuthHeader));
+            if(security == null)
+            {
+                return;
+            }
+            
+            if(security.AuthHeader != null)
+            {
+                securityClient.AddHeader("Authorization", Utilities.ToString(security.AuthHeader));
+            }
         }
     }
-}
 }

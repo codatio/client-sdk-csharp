@@ -9,59 +9,51 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum FinancialMetricKey
-{
+    public enum FinancialMetricKey
+    {
     	[JsonProperty("Unknown")]
-	Unknown,
-	[JsonProperty("EBITDA")]
-	Ebitda,
-	[JsonProperty("DebtServiceCoverageRatio")]
-	DebtServiceCoverageRatio,
-	[JsonProperty("CurrentRatio QuickRatio")]
-	CurrentRatioQuickRatio,
-	[JsonProperty("GrossProfitMargin")]
-	GrossProfitMargin,
-	[JsonProperty("FixedChargeCoverageRatio")]
-	FixedChargeCoverageRatio,
-	[JsonProperty("WorkingCapital")]
-	WorkingCapital,
-	[JsonProperty("FreeCashFlow")]
-	FreeCashFlow,
-	[JsonProperty("NetProfitMargin")]
-	NetProfitMargin,
-	[JsonProperty("ReturnOnAssetsRatio")]
-	ReturnOnAssetsRatio,
-	[JsonProperty("ReturnOnEquityRatio")]
-	ReturnOnEquityRatio,
-	[JsonProperty("OperatingProfitMargin")]
-	OperatingProfitMargin,
-	[JsonProperty("DeptToEquity")]
-	DeptToEquity,
-	[JsonProperty("DebtToAssets")]
-	DebtToAssets,
-	[JsonProperty("InterestCoverageRatio")]
-	InterestCoverageRatio,
-	[JsonProperty("CashRatio")]
-	CashRatio,
-	[JsonProperty("InventoryTurnoverRatio")]
-	InventoryTurnoverRatio,
-	[JsonProperty("AssetTurnoverRatio")]
-	AssetTurnoverRatio,
-	[JsonProperty("WorkingCapitalTurnoverRatio")]
-	WorkingCapitalTurnoverRatio,
-	[JsonProperty("DaysSalesOutstanding")]
-	DaysSalesOutstanding,
-	[JsonProperty("DaysPayablesOutstanding")]
-	DaysPayablesOutstanding,
-}
+		Unknown,
+		[JsonProperty("EBITDA")]
+		Ebitda,
+		[JsonProperty("DebtServiceCoverageRatio")]
+		DebtServiceCoverageRatio,
+		[JsonProperty("CurrentRatio QuickRatio")]
+		CurrentRatioQuickRatio,
+		[JsonProperty("GrossProfitMargin")]
+		GrossProfitMargin,
+		[JsonProperty("FixedChargeCoverageRatio")]
+		FixedChargeCoverageRatio,
+		[JsonProperty("WorkingCapital")]
+		WorkingCapital,
+		[JsonProperty("FreeCashFlow")]
+		FreeCashFlow,
+		[JsonProperty("NetProfitMargin")]
+		NetProfitMargin,
+		[JsonProperty("ReturnOnAssetsRatio")]
+		ReturnOnAssetsRatio,
+		[JsonProperty("ReturnOnEquityRatio")]
+		ReturnOnEquityRatio,
+		[JsonProperty("OperatingProfitMargin")]
+		OperatingProfitMargin,
+		[JsonProperty("DeptToEquity")]
+		DeptToEquity,
+		[JsonProperty("DebtToAssets")]
+		DebtToAssets,
+		[JsonProperty("InterestCoverageRatio")]
+		InterestCoverageRatio,
+		[JsonProperty("CashRatio")]
+		CashRatio,
+		[JsonProperty("InventoryTurnoverRatio")]
+		InventoryTurnoverRatio,
+		[JsonProperty("AssetTurnoverRatio")]
+		AssetTurnoverRatio,
+		[JsonProperty("WorkingCapitalTurnoverRatio")]
+		WorkingCapitalTurnoverRatio,
+		[JsonProperty("DaysSalesOutstanding")]
+		DaysSalesOutstanding,
+		[JsonProperty("DaysPayablesOutstanding")]
+		DaysPayablesOutstanding,
+    }
 }

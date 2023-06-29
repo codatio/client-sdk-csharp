@@ -9,32 +9,39 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Codat.Models.Shared;
     
-public class DataIntegrityStatus
-{
-    [JsonProperty("amounts")]
-    public DataIntegrityAmounts? Amounts { get; set; }
-    
-    [JsonProperty("connectionIds")]
-    public DataIntegrityConnectionId? ConnectionIds { get; set; }
-    
-    [JsonProperty("dates")]
-    public DataIntegrityDates? Dates { get; set; }
-    
-    [JsonProperty("statusInfo")]
-    public DataIntegrityStatusInfo? StatusInfo { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+    public class DataIntegrityStatus
+    {
+    /// <summary>
+    /// Only returned for transactions. For accounts, there is nothing returned.
+    /// </summary>
+        
+        [JsonProperty("amounts")]
+        public DataIntegrityAmounts? Amounts { get; set; }
+        
+        
+        [JsonProperty("connectionIds")]
+        public DataIntegrityConnectionId? ConnectionIds { get; set; }
+        
+    /// <summary>
+    /// Only returned for transactions. For accounts, there is nothing returned.
+    /// </summary>
+        
+        [JsonProperty("dates")]
+        public DataIntegrityDates? Dates { get; set; }
+        
+        
+        [JsonProperty("statusInfo")]
+        public DataIntegrityStatusInfo? StatusInfo { get; set; }
+        
+    /// <summary>
+    /// The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

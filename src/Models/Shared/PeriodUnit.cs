@@ -9,25 +9,20 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public enum PeriodUnit
-{
+    /// <summary>
+    /// The period unit of time returned.
+    /// </summary>
+    public enum PeriodUnit
+    {
     	[JsonProperty("Day")]
-	Day,
-	[JsonProperty("Week")]
-	Week,
-	[JsonProperty("Month")]
-	Month,
-	[JsonProperty("Year")]
-	Year,
-}
+		Day,
+		[JsonProperty("Week")]
+		Week,
+		[JsonProperty("Month")]
+		Month,
+		[JsonProperty("Year")]
+		Year,
+    }
 }

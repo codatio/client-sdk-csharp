@@ -9,26 +9,22 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
     using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using Newtonsoft.Json;
     
-public class ReportError
-{
-    [JsonProperty("details")]
-    public Dictionary<string, List<string>>? Details { get; set; }
-    
-    [JsonProperty("message")]
-    public string? Message { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+    public class ReportError
+    {
+        
+        [JsonProperty("details")]
+        public Dictionary<string, List<string>>? Details { get; set; }
+        
+        
+        [JsonProperty("message")]
+        public string? Message { get; set; }
+        
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

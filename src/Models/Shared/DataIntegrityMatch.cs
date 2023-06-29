@@ -9,38 +9,67 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class DataIntegrityMatch
-{
-    [JsonProperty("amount")]
-    public string? Amount { get; set; }
-    
-    [JsonProperty("connectionId")]
-    public string? ConnectionId { get; set; }
-    
-    [JsonProperty("currency")]
-    public string? Currency { get; set; }
-    
-    [JsonProperty("date")]
-    public string? Date { get; set; }
-    
-    [JsonProperty("description")]
-    public string? Description { get; set; }
-    
-    [JsonProperty("id")]
-    public string? Id { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+    public class DataIntegrityMatch
+    {
+    /// <summary>
+    /// The transaction value.
+    /// </summary>
+        
+        [JsonProperty("amount")]
+        public string? Amount { get; set; }
+        
+    /// <summary>
+    /// ID GUID representing the connection of the accounting or banking platform.
+    /// </summary>
+        
+        [JsonProperty("connectionId")]
+        public string? ConnectionId { get; set; }
+        
+    /// <summary>
+    /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+    /// 
+    /// <remarks>
+    /// 
+    /// ## Unknown currencies
+    /// 
+    /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
+    /// 
+    /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
+    /// </remarks>
+    /// </summary>
+        
+        [JsonProperty("currency")]
+        public string? Currency { get; set; }
+        
+    /// <summary>
+    /// The date of the transaction.
+    /// </summary>
+        
+        [JsonProperty("date")]
+        public string? Date { get; set; }
+        
+    /// <summary>
+    /// The transaction description.
+    /// </summary>
+        
+        [JsonProperty("description")]
+        public string? Description { get; set; }
+        
+    /// <summary>
+    /// ID GUID of the transaction.
+    /// </summary>
+        
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+        
+    /// <summary>
+    /// The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

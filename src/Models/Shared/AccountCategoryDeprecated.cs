@@ -9,29 +9,34 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Shared
 {
-    using Codat.Utils;
-    using NodaTime;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
     
-public class AccountCategoryDeprecated
-{
-    [JsonProperty("detailType")]
-    public string? DetailType { get; set; }
-    
-    [JsonProperty("modifiedDate")]
-    public string? ModifiedDate { get; set; }
-    
-    [JsonProperty("subtype")]
-    public string? Subtype { get; set; }
-    
-    [JsonProperty("type")]
-    public string? Type { get; set; }
-    
-}
+    public class AccountCategoryDeprecated
+    {
+    /// <summary>
+    /// Most granular chart of account type.
+    /// </summary>
+        
+        [JsonProperty("detailType")]
+        public string? DetailType { get; set; }
+        
+        
+        [JsonProperty("modifiedDate")]
+        public string? ModifiedDate { get; set; }
+        
+    /// <summary>
+    /// The account subtype.
+    /// </summary>
+        
+        [JsonProperty("subtype")]
+        public string? Subtype { get; set; }
+        
+    /// <summary>
+    /// The top level account type.
+    /// </summary>
+        
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+        
+    }
 }

@@ -9,53 +9,61 @@
 //------------------------------------------------------------------------------
 namespace Codat.Models.Reports
 {
-    using Codat.Utils;
-    using Codat.Models.Shared;
-    using NodaTime;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Text;
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Codat.Utils;
     
-public class GetEnhancedCashFlowTransactionsRequest
-{
-    [JsonProperty("companyId")]
-    public string CompanyId { get; set; }
-    
-    [JsonProperty("page")]
-    public int? Page { get; set; }
-    
-    [JsonProperty("pageSize")]
-    public int? PageSize { get; set; }
-    
-    [JsonProperty("query")]
-    public string? Query { get; set; }
-    
-    internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetEnhancedCashFlowTransactionsRequest value, string baseUrl)
+    public class GetEnhancedCashFlowTransactionsRequest
     {
-        if("get-enhanced-cash-flow-transactions" == operationId)
+        
+        [JsonProperty("companyId")]
+        public string CompanyId { get; set; }
+        
+    /// <summary>
+    /// Page number. [Read more](https://docs.codat.io/using-the-api/paging).
+    /// </summary>
+        
+        [JsonProperty("page")]
+        public int? Page { get; set; }
+        
+    /// <summary>
+    /// Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
+    /// </summary>
+        
+        [JsonProperty("pageSize")]
+        public int? PageSize { get; set; }
+        
+    /// <summary>
+    /// Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
+    /// </summary>
+        
+        [JsonProperty("query")]
+        public string? Query { get; set; }
+        
+        internal static HttpRequestMessage BuildHttpRequestMessage(string operationId, GetEnhancedCashFlowTransactionsRequest value, string baseUrl)
         {
-            var queryParams = new List<string>();
-            
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "page", "", value.Page));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "pageSize", "", value.PageSize));
-            
-            queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
-            var queryParamString = $"?{String.Join("&", queryParams)}";
-            
-            var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
-            
-            
-            
-            var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/companies/{companyId}/reports/enhancedCashFlow/transactions" + queryParamString);
-            return message;
+            if("get-enhanced-cash-flow-transactions" == operationId)
+            {
+                var queryParams = new List<string>();
+                
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "page", "", value.Page));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "pageSize", "", value.PageSize));
+                
+                queryParams.Add(QueryParamSerializer.Serialize("form",true, "query", "", value.Query));
+                var queryParamString = $"?{String.Join("&", queryParams)}";
+                
+                var companyId = PathParamSerializer.Serialize("simple", false, value.CompanyId);
+                
+                
+                
+                var message = new HttpRequestMessage(HttpMethod.Get, baseUrl + $"/companies/{companyId}/reports/enhancedCashFlow/transactions" + queryParamString);
+                return message;
+            }
+            throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetEnhancedCashFlowTransactionsRequest]");
         }
-        throw new ArgumentException($"Attempt to build HttpRequestMessage for invalid operationId [{operationId}] for request type [GetEnhancedCashFlowTransactionsRequest]");
     }
-}
 }

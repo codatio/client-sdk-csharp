@@ -1,0 +1,11 @@
+# ReportDimension
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `displayName`                                                                   | *string*                                                                        | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `index`                                                                         | *int*                                                                           | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `items`                                                                         | List<[ReportDimensionItems](../../Models/Shared/ReportDimensionItems.md)>   !!! | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `type`                                                                          | *string*                                                                        | :heavy_minus_sign:                                                              | N/A                                                                             |

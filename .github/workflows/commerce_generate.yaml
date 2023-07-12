@@ -1,5 +1,11 @@
 name: Generate Commerce SDK
 
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+
 on:
   workflow_dispatch: # Allows manual triggering of the workflow to generate SDK
     inputs:
@@ -18,11 +24,12 @@ jobs:
       openapi_doc_location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
       languages: |-
         - csharp: ./commerce
-      publish_python: true
+      publish_csharp: true
       create_release: true
       mode: pr
       force: ${{ github.event.inputs.force }}
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+      nuget_api_key: ${{ secrets.NUGET_API_KEY }}
       slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

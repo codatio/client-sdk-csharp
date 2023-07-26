@@ -1,0 +1,25 @@
+name: Generate Common library
+'on':
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force generation of SDKs
+        type: boolean
+        default: false
+  schedule:
+  - cron: 0 0 * * *
+jobs:
+  generate:
+    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14
+    with:
+      speakeasy_version: latest
+      openapi_doc_location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Common.yaml
+      languages:
+      - csharp: ./common
+      create_release: true
+      mode: pr
+      force: ${{ github.event.inputs.force }}
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

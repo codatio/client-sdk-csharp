@@ -39,7 +39,7 @@ namespace CodatBankFeeds
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.1.0";
+        private const string _sdkVersion = "0.2.0";
         private const string _sdkGenVersion = "2.91.4";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

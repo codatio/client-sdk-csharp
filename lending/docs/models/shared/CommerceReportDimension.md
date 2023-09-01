@@ -1,0 +1,11 @@
+# CommerceReportDimension
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `displayName`                                                                             | *string*                                                                                  | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `index`                                                                                   | *int*                                                                                     | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `items`                                                                                   | List<[CommerceReportDimensionItems](../../models/shared/CommerceReportDimensionItems.md)> | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `type`                                                                                    | *string*                                                                                  | :heavy_minus_sign:                                                                        | N/A                                                                                       |

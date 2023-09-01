@@ -1,0 +1,11 @@
+# GetAccountingAgedDebtorsReportRequest
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `companyId`                                                         | *string*                                                            | :heavy_check_mark:                                                  | N/A                                                                 | 8a210b68-6988-11ed-a1eb-0242ac120002                                |
+| `numberOfPeriods`                                                   | *int*                                                               | :heavy_minus_sign:                                                  | Number of periods to include in the report.                         | 12                                                                  |
+| `periodLengthDays`                                                  | *int*                                                               | :heavy_minus_sign:                                                  | The length of period in days.                                       | 30                                                                  |
+| `reportDate`                                                        | [LocalDate](https://nodatime.org/3.1.x/api/NodaTime.LocalDate.html) | :heavy_minus_sign:                                                  | Date the report is generated up to.                                 | 2022-12-31                                                          |

@@ -1,6 +1,6 @@
-# Sync for Expenses
+# Sync for Payroll
     
-﻿Embedded accounting integrations for corporate card providers.
+
 
 <!-- Start SDK Installation -->
 <!-- End SDK Installation -->

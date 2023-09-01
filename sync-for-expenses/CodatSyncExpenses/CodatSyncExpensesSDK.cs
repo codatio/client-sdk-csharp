@@ -45,7 +45,7 @@ namespace CodatSyncExpenses
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
+        private const string _sdkVersion = "0.4.0";
         private const string _sdkGenVersion = "2.91.4";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";

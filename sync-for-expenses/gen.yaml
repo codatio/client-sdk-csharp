@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.3.0
+  version: 0.4.0
   author: Codat
   description: Push expenses to accounting platforms.
   maxMethodParams: 0

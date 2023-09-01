@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.1.0
+  version: 0.2.0
   author: Codat
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   maxMethodParams: 0

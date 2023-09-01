@@ -6,8 +6,6 @@ name: Generate Sync for Payables library
         description: Force generation of SDKs
         type: boolean
         default: false
-  schedule:
-  - cron: 0 0 * * *
 jobs:
   generate:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14
@@ -17,7 +15,7 @@ jobs:
       languages: |-
         - csharp: ./sync-for-payables
       create_release: true
-      mode: pr
+      mode: direct
       force: ${{ github.event.inputs.force }}
       publish_csharp: true
     secrets:

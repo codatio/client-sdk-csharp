@@ -1,0 +1,14 @@
+# Sales
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `accounts`                                                                | Dictionary<String, [ConfigAccount](../../models/shared/ConfigAccount.md)> | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `grouping`                                                                | [Grouping](../../models/shared/Grouping.md)                               | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `invoiceStatus`                                                           | [InvoiceStatus](../../models/shared/InvoiceStatus.md)                     | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `newTaxRates`                                                             | [NewTaxRates](../../models/shared/NewTaxRates.md)                         | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `salesCustomer`                                                           | [Customer](../../models/shared/Customer.md)                               | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `syncSales`                                                               | *bool*                                                                    | :heavy_minus_sign:                                                        | Boolean indicator for syncing sales.                                      |
+| `taxRates`                                                                | Dictionary<String, [TaxRateAmount](../../models/shared/TaxRateAmount.md)> | :heavy_minus_sign:                                                        | N/A                                                                       |

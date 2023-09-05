@@ -11,6 +11,7 @@ generation:
 csharp:
   version: 0.1.0
   author: Codat
+  dotnetVersion: net6.0
   description: Manage the building blocks of Codat, including companies, connections,
     and more.
   maxMethodParams: 0

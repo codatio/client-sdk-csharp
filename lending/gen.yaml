@@ -11,6 +11,7 @@ generation:
 csharp:
   version: 0.2.0
   author: Codat
+  dotnetVersion: net6.0
   description: Make credit decisions backed by enhanced financials, metrics, reports,
     and data integrity features.
   maxMethodParams: 0

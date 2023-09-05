@@ -11,6 +11,7 @@ generation:
 csharp:
   version: 0.5.0
   author: Codat
+  dotnetVersion: net6.0
   description: Set up bank feeds from accounts in your application to supported accounting
     platforms.
   maxMethodParams: 0

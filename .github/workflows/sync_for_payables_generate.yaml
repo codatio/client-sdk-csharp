@@ -6,6 +6,7 @@ name: Generate Sync for Payables library
         description: Force generation of SDKs
         type: boolean
         default: false
+      dotnet_version: 6.x
   schedule:
   - cron: 0 0 * * *
 jobs:

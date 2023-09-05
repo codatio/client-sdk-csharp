@@ -2,7 +2,7 @@ configVersion: 1.0.0
 management:
   docChecksum: ac231ce0874ff5d34780886a1dd4e053
   docVersion: 3.0.0
-  speakeasyVersion: 1.53.0
+  speakeasyVersion: 1.77.1
   generationVersion: 2.58.0
 generation:
   sdkClassName: Codat.BankFeeds

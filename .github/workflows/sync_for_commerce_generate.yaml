@@ -6,6 +6,9 @@ name: Generate Sync for Commerce library
         description: Force generation of SDKs
         type: boolean
         default: false
+      dotnet_version: 6.x
+  schedule:
+  - cron: 0 0 * * *
 jobs:
   generate:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14
@@ -15,11 +18,10 @@ jobs:
       languages: |-
         - csharp: ./sync-for-commerce
       create_release: true
-      mode: direct
+      mode: pr
       force: ${{ github.event.inputs.force }}
       publish_csharp: true
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
       slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-      nuget_api_key: ${{ secrets.NUGET_API_KEY }}

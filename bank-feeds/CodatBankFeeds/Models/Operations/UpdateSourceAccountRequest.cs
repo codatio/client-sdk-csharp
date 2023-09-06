@@ -10,11 +10,21 @@
 #nullable enable
 namespace CodatBankFeeds.Models.Operations
 {
+    using CodatBankFeeds.Models.Shared;
     using CodatBankFeeds.Utils;
     
     
-    public class ListBankFeedsRequest
+    public class UpdateSourceAccountRequest
     {
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public SourceAccount? SourceAccount { get; set; }
+        
+        /// <summary>
+        /// Unique identifier for an account
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountId")]
+        public string AccountId { get; set; }
+        
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; }
         

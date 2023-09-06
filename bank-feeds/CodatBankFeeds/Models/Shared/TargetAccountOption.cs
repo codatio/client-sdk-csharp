@@ -25,7 +25,7 @@ namespace CodatBankFeeds.Models.Shared
         /// The balance of the account.
         /// </summary>
         [JsonProperty("balance")]
-        public float? Balance { get; set; }
+        public decimal? Balance { get; set; }
         
         /// <summary>
         /// Id of the target account.

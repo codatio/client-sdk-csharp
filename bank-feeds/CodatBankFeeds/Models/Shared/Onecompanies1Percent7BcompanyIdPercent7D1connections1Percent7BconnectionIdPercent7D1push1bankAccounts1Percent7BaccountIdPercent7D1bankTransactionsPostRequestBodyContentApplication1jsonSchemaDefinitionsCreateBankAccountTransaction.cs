@@ -13,7 +13,7 @@ namespace CodatBankFeeds.Models.Shared
     using Newtonsoft.Json;
     
     
-    public class CreateBankAccountTransaction
+    public class Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction
     {
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }

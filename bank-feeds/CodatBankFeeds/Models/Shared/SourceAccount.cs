@@ -16,7 +16,7 @@ namespace CodatBankFeeds.Models.Shared
     /// <summary>
     /// The target bank account in a supported accounting package for ingestion into a bank feed.
     /// </summary>
-    public class BankFeedAccount
+    public class SourceAccount
     {
         /// <summary>
         /// The bank account name
@@ -40,7 +40,7 @@ namespace CodatBankFeeds.Models.Shared
         /// The latest balance for the bank account
         /// </summary>
         [JsonProperty("balance")]
-        public float? Balance { get; set; }
+        public decimal? Balance { get; set; }
         
         /// <summary>
         /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
@@ -85,7 +85,7 @@ namespace CodatBankFeeds.Models.Shared
         public string? FeedStartDate { get; set; }
         
         /// <summary>
-        /// Unique ID for the bank feed account
+        /// Unique ID for the bank account
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; }

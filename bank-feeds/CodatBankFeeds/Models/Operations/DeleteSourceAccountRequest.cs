@@ -10,15 +10,11 @@
 #nullable enable
 namespace CodatBankFeeds.Models.Operations
 {
-    using CodatBankFeeds.Models.Shared;
     using CodatBankFeeds.Utils;
     
     
-    public class UpdateBankFeedRequest
+    public class DeleteSourceAccountRequest
     {
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public BankFeedAccount? BankFeedAccount { get; set; }
-        
         /// <summary>
         /// Unique identifier for an account
         /// </summary>

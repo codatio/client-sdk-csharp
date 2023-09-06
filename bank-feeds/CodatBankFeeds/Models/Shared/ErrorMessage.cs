@@ -25,7 +25,7 @@ namespace CodatBankFeeds.Models.Shared
         public string? CorrelationId { get; set; }
         
         [JsonProperty("detailedErrorCode")]
-        public int? DetailedErrorCode { get; set; }
+        public long? DetailedErrorCode { get; set; }
         
         [JsonProperty("error")]
         public string? Error { get; set; }
@@ -34,7 +34,7 @@ namespace CodatBankFeeds.Models.Shared
         public string? Service { get; set; }
         
         [JsonProperty("statusCode")]
-        public int? StatusCode { get; set; }
+        public long? StatusCode { get; set; }
         
     }
     

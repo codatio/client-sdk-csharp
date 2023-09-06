@@ -11,26 +11,19 @@
 namespace CodatBankFeeds.Models.Operations
 {
     using CodatBankFeeds.Models.Shared;
-    using System.Net.Http;
-    using System;
+    using CodatBankFeeds.Utils;
     
     
-    public class DeleteBankFeedBankAccountResponse
+    public class CreateSourceAccountRequest
     {
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public SourceAccount? SourceAccount { get; set; }
         
-        public string? ContentType { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
+        public string CompanyId { get; set; }
         
-        /// <summary>
-        /// Your API request was not properly authorized.
-        /// </summary>
-        
-        public ErrorMessage? ErrorMessage { get; set; }
-        
-        
-        public int StatusCode { get; set; }
-        
-        
-        public HttpResponseMessage? RawResponse { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
+        public string ConnectionId { get; set; }
         
     }
     

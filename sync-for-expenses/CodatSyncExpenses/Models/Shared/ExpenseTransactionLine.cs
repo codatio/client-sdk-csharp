@@ -23,13 +23,13 @@ namespace CodatSyncExpenses.Models.Shared
         /// Amount of the line, exclusive of tax.
         /// </summary>
         [JsonProperty("netAmount")]
-        public float NetAmount { get; set; }
+        public decimal NetAmount { get; set; }
         
         /// <summary>
         /// Amount of tax for the line.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float TaxAmount { get; set; }
+        public decimal TaxAmount { get; set; }
         
         [JsonProperty("taxRateRef")]
         public RecordRef? TaxRateRef { get; set; }

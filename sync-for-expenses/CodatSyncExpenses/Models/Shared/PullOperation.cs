@@ -41,7 +41,7 @@ namespace CodatSyncExpenses.Models.Shared
         public bool IsErrored { get; set; }
         
         [JsonProperty("progress")]
-        public int Progress { get; set; }
+        public long Progress { get; set; }
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

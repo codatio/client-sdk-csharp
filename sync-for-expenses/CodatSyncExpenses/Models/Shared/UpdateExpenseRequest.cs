@@ -59,7 +59,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// Date the transaction was recorded.

@@ -32,13 +32,13 @@ namespace CodatLending.Models.Operations
         /// The number of periods to return. There will be no pagination as a query parameter.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=numberOfPeriods")]
-        public int NumberOfPeriods { get; set; }
+        public long NumberOfPeriods { get; set; }
         
         /// <summary>
         /// The number of months per period. E.g. 2 = 2 months per period.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=periodLength")]
-        public int PeriodLength { get; set; }
+        public long PeriodLength { get; set; }
         
         /// <summary>
         /// The period unit of time returned.

@@ -33,13 +33,13 @@ namespace CodatLending.Models.Shared
         /// Value of any discounts applied.
         /// </summary>
         [JsonProperty("discountAmount")]
-        public float? DiscountAmount { get; set; }
+        public decimal? DiscountAmount { get; set; }
         
         /// <summary>
         /// Percentage rate of any discount applied to the line item.
         /// </summary>
         [JsonProperty("discountPercentage")]
-        public float? DiscountPercentage { get; set; }
+        public decimal? DiscountPercentage { get; set; }
         
         [JsonProperty("isDirectIncome")]
         public bool? IsDirectIncome { get; set; }
@@ -54,19 +54,19 @@ namespace CodatLending.Models.Shared
         /// Number of units of the goods or service for which credit has been issued.
         /// </summary>
         [JsonProperty("quantity")]
-        public float Quantity { get; set; }
+        public decimal Quantity { get; set; }
         
         /// <summary>
         /// Amount of credit associated with the line item, including discounts but excluding tax.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float? SubTotal { get; set; }
+        public decimal? SubTotal { get; set; }
         
         /// <summary>
         /// Amount of tax associated with the line item.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float? TaxAmount { get; set; }
+        public decimal? TaxAmount { get; set; }
         
         /// <summary>
         /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
@@ -90,7 +90,7 @@ namespace CodatLending.Models.Shared
         /// Total amount of the line item, including discounts and tax.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
         /// <summary>
         /// Categories, and a project and customer, against which the item is tracked.
@@ -109,7 +109,7 @@ namespace CodatLending.Models.Shared
         /// Unit price of the goods or service.
         /// </summary>
         [JsonProperty("unitAmount")]
-        public float UnitAmount { get; set; }
+        public decimal UnitAmount { get; set; }
         
     }
     

@@ -19,7 +19,7 @@ namespace CodatLending.Models.Shared
         public string? DisplayName { get; set; }
         
         [JsonProperty("index")]
-        public int? Index { get; set; }
+        public long? Index { get; set; }
         
         [JsonProperty("type")]
         public string? Type { get; set; }

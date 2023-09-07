@@ -121,7 +121,7 @@ namespace CodatLending.Models.Shared
         /// The total transaction amount
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
         /// <summary>
         /// Link to the source event which triggered this transaction

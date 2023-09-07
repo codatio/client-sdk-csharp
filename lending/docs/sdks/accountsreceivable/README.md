@@ -16,10 +16,10 @@ Data from a linked accounting platform representing money owed to the business f
 * [GetCustomerAttachment](#getcustomerattachment) - Get customer attachment
 * [GetDirectIncome](#getdirectincome) - Get direct income
 * [GetDirectIncomeAttachment](#getdirectincomeattachment) - Get direct income attachment
-* [GetEnhancedInvoicesReport](#getenhancedinvoicesreport) - Get enhanced invoices report
 * [GetInvoice](#getinvoice) - Get invoice
 * [GetInvoiceAttachment](#getinvoiceattachment) - Get invoice attachment
 * [GetPayment](#getpayment) - Get payment
+* [GetReconciledInvoices](#getreconciledinvoices) - Get reconciled invoices
 * [IsAgedDebtorReportAvailable](#isageddebtorreportavailable) - Aged debtors report available
 * [ListCreditNotes](#listcreditnotes) - List credit notes
 * [ListCustomerAttachments](#listcustomerattachments) - List customer attachments
@@ -461,45 +461,6 @@ var res = await sdk.AccountsReceivable.GetDirectIncomeAttachmentAsync(new GetAcc
 **[GetAccountingDirectIncomeAttachmentResponse](../../models/operations/GetAccountingDirectIncomeAttachmentResponse.md)**
 
 
-## GetEnhancedInvoicesReport
-
-Gets a list of invoices linked to the corresponding banking transaction
-
-### Example Usage
-
-```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
-
-var sdk = new CodatLendingSDK(
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
-
-var res = await sdk.AccountsReceivable.GetEnhancedInvoicesReportAsync(new GetEnhancedInvoicesReportRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    Page = 1,
-    PageSize = 100,
-    Query = "quis",
-});
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetEnhancedInvoicesReportRequest](../../models/operations/GetEnhancedInvoicesReportRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
-
-
-### Response
-
-**[GetEnhancedInvoicesReportResponse](../../models/operations/GetEnhancedInvoicesReportResponse.md)**
-
-
 ## GetInvoice
 
 The *Get invoice* endpoint returns a single invoice for a given invoiceId.
@@ -526,7 +487,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.GetInvoiceAsync(new GetAccountingInvoiceRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    InvoiceId = "veritatis",
+    InvoiceId = "quis",
 });
 
 // handle response
@@ -570,7 +531,7 @@ var res = await sdk.AccountsReceivable.GetInvoiceAttachmentAsync(new GetAccounti
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    InvoiceId = "deserunt",
+    InvoiceId = "veritatis",
 });
 
 // handle response
@@ -614,7 +575,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.GetPaymentAsync(new GetAccountingPaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PaymentId = "perferendis",
+    PaymentId = "deserunt",
 });
 
 // handle response
@@ -630,6 +591,45 @@ var res = await sdk.AccountsReceivable.GetPaymentAsync(new GetAccountingPaymentR
 ### Response
 
 **[GetAccountingPaymentResponse](../../models/operations/GetAccountingPaymentResponse.md)**
+
+
+## GetReconciledInvoices
+
+Gets a list of invoices linked to the corresponding banking transaction
+
+### Example Usage
+
+```csharp
+using CodatLending;
+using CodatLending.Models.Shared;
+using CodatLending.Models.Operations;
+
+var sdk = new CodatLendingSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.AccountsReceivable.GetReconciledInvoicesAsync(new GetReconciledInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Page = 1,
+    PageSize = 100,
+    Query = "perferendis",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [GetReconciledInvoicesRequest](../../models/operations/GetReconciledInvoicesRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+
+### Response
+
+**[GetReconciledInvoicesResponse](../../models/operations/GetReconciledInvoicesResponse.md)**
 
 
 ## IsAgedDebtorReportAvailable

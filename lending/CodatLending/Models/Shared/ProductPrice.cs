@@ -31,7 +31,7 @@ namespace CodatLending.Models.Shared
         public string? Currency { get; set; }
         
         [JsonProperty("unitPrice")]
-        public float? UnitPrice { get; set; }
+        public decimal? UnitPrice { get; set; }
         
     }
     

@@ -132,7 +132,7 @@ namespace CodatLending.Models.Shared
         /// Total transaction amount that is under dispute.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public object? TotalAmount { get; set; }
         
     }
     

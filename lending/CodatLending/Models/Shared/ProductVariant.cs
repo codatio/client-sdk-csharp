@@ -117,7 +117,7 @@ namespace CodatLending.Models.Shared
         /// VAT rate for the product variant if sales taxes are enabled.
         /// </summary>
         [JsonProperty("vatPercentage")]
-        public float? VatPercentage { get; set; }
+        public decimal? VatPercentage { get; set; }
         
     }
     

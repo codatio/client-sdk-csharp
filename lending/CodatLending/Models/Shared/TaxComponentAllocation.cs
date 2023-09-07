@@ -19,7 +19,7 @@ namespace CodatLending.Models.Shared
         /// Tax amount on order line sale as available from source commerce platform.
         /// </summary>
         [JsonProperty("rate")]
-        public float? Rate { get; set; }
+        public decimal? Rate { get; set; }
         
         /// <summary>
         /// Taxes rates reference object depending on the rates being available on source commerce package.

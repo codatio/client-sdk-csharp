@@ -28,7 +28,7 @@ namespace CodatLending.Models.Shared
         /// The file size in Bytes is populated upon successful generation of the report.
         /// </summary>
         [JsonProperty("fileSize")]
-        public int? FileSize { get; set; }
+        public long? FileSize { get; set; }
         
         /// <summary>
         /// When true, the request was successful and the report is being generated. If false, the request was unsuccessful and the report is not being generated.

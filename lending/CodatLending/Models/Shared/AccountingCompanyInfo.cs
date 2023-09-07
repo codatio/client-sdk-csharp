@@ -38,7 +38,7 @@ namespace CodatLending.Models.Shared
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<AccountingAddress>? Addresses { get; set; }
+        public List<AccountingCompanyInfoAccountingAddress>? Addresses { get; set; }
         
         /// <summary>
         /// Currency set in the accounting platform of the linked company. Used by the currency rate.

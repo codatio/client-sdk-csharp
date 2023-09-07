@@ -55,7 +55,7 @@ namespace CodatLending.Models.Shared
         /// Value of net assets for a company in their base currency.
         /// </summary>
         [JsonProperty("netAssets")]
-        public float NetAssets { get; set; }
+        public decimal NetAssets { get; set; }
         
     }
     

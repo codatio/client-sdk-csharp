@@ -20,7 +20,7 @@ namespace CodatLending.Models.Shared
         /// The transaction value.
         /// </summary>
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         /// <summary>
         /// ID GUID representing the connection of the accounting or banking platform.

@@ -52,7 +52,7 @@ namespace CodatLending.Models.Shared
         /// The balance of the bank account.
         /// </summary>
         [JsonProperty("currentBalance")]
-        public float? CurrentBalance { get; set; }
+        public decimal? CurrentBalance { get; set; }
         
         /// <summary>
         /// Name of the banking data source, e.g. "Plaid".

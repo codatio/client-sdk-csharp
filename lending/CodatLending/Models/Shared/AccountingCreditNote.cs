@@ -34,10 +34,10 @@ namespace CodatLending.Models.Shared
     public class AccountingCreditNote
     {
         [JsonProperty("additionalTaxAmount")]
-        public float? AdditionalTaxAmount { get; set; }
+        public decimal? AdditionalTaxAmount { get; set; }
         
         [JsonProperty("additionalTaxPercentage")]
-        public float? AdditionalTaxPercentage { get; set; }
+        public decimal? AdditionalTaxPercentage { get; set; }
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -118,7 +118,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         [JsonProperty("customerRef")]
         public AccountingCustomerRef? CustomerRef { get; set; }
@@ -127,7 +127,7 @@ namespace CodatLending.Models.Shared
         /// Percentage rate (from 0 to 100) of discounts applied to the credit note.
         /// </summary>
         [JsonProperty("discountPercentage")]
-        public float DiscountPercentage { get; set; }
+        public decimal DiscountPercentage { get; set; }
         
         /// <summary>
         /// Identifier for the credit note, unique to the company in the accounting platform.
@@ -187,7 +187,7 @@ namespace CodatLending.Models.Shared
         /// Unused balance of totalAmount originally raised.
         /// </summary>
         [JsonProperty("remainingCredit")]
-        public float RemainingCredit { get; set; }
+        public decimal RemainingCredit { get; set; }
         
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
@@ -199,14 +199,14 @@ namespace CodatLending.Models.Shared
         /// Value of the credit note, including discounts and excluding tax.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float SubTotal { get; set; }
+        public decimal SubTotal { get; set; }
         
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. 
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -216,19 +216,19 @@ namespace CodatLending.Models.Shared
         /// Total amount of credit that has been applied to the customer's accounts receivable
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
         
         /// <summary>
         /// Any discounts applied to the credit note amount.
         /// </summary>
         [JsonProperty("totalDiscount")]
-        public float TotalDiscount { get; set; }
+        public decimal TotalDiscount { get; set; }
         
         /// <summary>
         /// Any tax applied to the credit note amount.
         /// </summary>
         [JsonProperty("totalTaxAmount")]
-        public float TotalTaxAmount { get; set; }
+        public decimal TotalTaxAmount { get; set; }
         
         [JsonProperty("withholdingTax")]
         public List<WithholdingTaxitems>? WithholdingTax { get; set; }

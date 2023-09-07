@@ -33,13 +33,13 @@ namespace CodatLending.Models.Shared
         /// Numerical value of any discounts applied.
         /// </summary>
         [JsonProperty("discountAmount")]
-        public float? DiscountAmount { get; set; }
+        public decimal? DiscountAmount { get; set; }
         
         /// <summary>
         /// Percentage rate (from 0 to 100) of any discounts applied to the unit amount.
         /// </summary>
         [JsonProperty("discountPercentage")]
-        public float? DiscountPercentage { get; set; }
+        public decimal? DiscountPercentage { get; set; }
         
         [JsonProperty("isDirectIncome")]
         public bool? IsDirectIncome { get; set; }
@@ -54,19 +54,19 @@ namespace CodatLending.Models.Shared
         /// Number of units of goods or services provided.
         /// </summary>
         [JsonProperty("quantity")]
-        public float Quantity { get; set; }
+        public decimal Quantity { get; set; }
         
         /// <summary>
         /// Amount of the line, inclusive of discounts but exclusive of tax.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float? SubTotal { get; set; }
+        public decimal? SubTotal { get; set; }
         
         /// <summary>
         /// Amount of tax for the line.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float? TaxAmount { get; set; }
+        public decimal? TaxAmount { get; set; }
         
         /// <summary>
         /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
@@ -90,7 +90,7 @@ namespace CodatLending.Models.Shared
         /// Total amount of the line, including tax. When pushing invoices to Xero, the total amount is exclusive of tax to allow automatic calculations if a tax rate or tax amount is not specified.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
         /// <summary>
         /// Categories, and a project and customer, against which the item is tracked.
@@ -109,7 +109,7 @@ namespace CodatLending.Models.Shared
         /// Price of each unit of goods or services.
         /// </summary>
         [JsonProperty("unitAmount")]
-        public float UnitAmount { get; set; }
+        public decimal UnitAmount { get; set; }
         
     }
     

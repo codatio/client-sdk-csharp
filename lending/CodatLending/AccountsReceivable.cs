@@ -31,10 +31,10 @@ namespace CodatLending
         Task<GetAccountingCustomerAttachmentResponse> GetCustomerAttachmentAsync(GetAccountingCustomerAttachmentRequest? request = null);
         Task<GetAccountingDirectIncomeResponse> GetDirectIncomeAsync(GetAccountingDirectIncomeRequest? request = null);
         Task<GetAccountingDirectIncomeAttachmentResponse> GetDirectIncomeAttachmentAsync(GetAccountingDirectIncomeAttachmentRequest? request = null);
-        Task<GetEnhancedInvoicesReportResponse> GetEnhancedInvoicesReportAsync(GetEnhancedInvoicesReportRequest? request = null);
         Task<GetAccountingInvoiceResponse> GetInvoiceAsync(GetAccountingInvoiceRequest? request = null);
         Task<GetAccountingInvoiceAttachmentResponse> GetInvoiceAttachmentAsync(GetAccountingInvoiceAttachmentRequest? request = null);
         Task<GetAccountingPaymentResponse> GetPaymentAsync(GetAccountingPaymentRequest? request = null);
+        Task<GetReconciledInvoicesResponse> GetReconciledInvoicesAsync(GetReconciledInvoicesRequest? request = null);
         Task<IsAgedDebtorReportAvailableResponse> IsAgedDebtorReportAvailableAsync(IsAgedDebtorReportAvailableRequest? request = null);
         Task<ListAccountingCreditNotesResponse> ListCreditNotesAsync(ListAccountingCreditNotesRequest? request = null);
         Task<ListAccountingCustomerAttachmentsResponse> ListCustomerAttachmentsAsync(ListAccountingCustomerAttachmentsRequest? request = null);
@@ -50,8 +50,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.101.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -654,61 +654,6 @@ namespace CodatLending
         
 
         /// <summary>
-        /// Get enhanced invoices report
-        /// 
-        /// <remarks>
-        /// Gets a list of invoices linked to the corresponding banking transaction
-        /// </remarks>
-        /// </summary>
-        public async Task<GetEnhancedInvoicesReportResponse> GetEnhancedInvoicesReportAsync(GetEnhancedInvoicesReportRequest? request = null)
-        {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/enhancedInvoices", request);
-            
-
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new GetEnhancedInvoicesReportResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.EnhancedInvoicesReport = JsonConvert.DeserializeObject<EnhancedInvoicesReport>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 404))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        /// <summary>
         /// Get invoice
         /// 
         /// <remarks>
@@ -880,6 +825,61 @@ namespace CodatLending
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        /// <summary>
+        /// Get reconciled invoices
+        /// 
+        /// <remarks>
+        /// Gets a list of invoices linked to the corresponding banking transaction
+        /// </remarks>
+        /// </summary>
+        public async Task<GetReconciledInvoicesResponse> GetReconciledInvoicesAsync(GetReconciledInvoicesRequest? request = null)
+        {
+            string baseUrl = _serverUrl;
+            if (baseUrl.EndsWith("/"))
+            {
+                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
+            }
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/enhancedInvoices", request);
+            
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new GetReconciledInvoicesResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.EnhancedInvoicesReport = JsonConvert.DeserializeObject<EnhancedInvoicesReport>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

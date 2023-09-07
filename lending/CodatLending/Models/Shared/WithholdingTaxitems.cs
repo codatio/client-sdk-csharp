@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     public class WithholdingTaxitems
     {
         [JsonProperty("amount")]
-        public float Amount { get; set; }
+        public decimal Amount { get; set; }
         
         [JsonProperty("name")]
         public string Name { get; set; }

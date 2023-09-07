@@ -38,7 +38,7 @@ namespace CodatLending.Models.Shared
         /// Numerical value of the line item.
         /// </summary>
         [JsonProperty("value")]
-        public float Value { get; set; }
+        public decimal Value { get; set; }
         
     }
     

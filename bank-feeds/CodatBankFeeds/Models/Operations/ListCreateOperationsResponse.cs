@@ -30,7 +30,7 @@ namespace CodatBankFeeds.Models.Operations
         /// OK
         /// </summary>
         
-        public ListPushOperations? ListPushOperations { get; set; }
+        public PushOperations? PushOperations { get; set; }
         
         
         public int StatusCode { get; set; }

@@ -15,14 +15,8 @@ namespace CodatBankFeeds.Models.Operations
     using System;
     
     
-    public class ListBankFeedsResponse
+    public class UpdateSourceAccountResponse
     {
-        /// <summary>
-        /// Success
-        /// </summary>
-        
-        public BankFeedAccount? BankFeedAccount { get; set; }
-        
         
         public string? ContentType { get; set; }
         
@@ -31,6 +25,12 @@ namespace CodatBankFeeds.Models.Operations
         /// </summary>
         
         public ErrorMessage? ErrorMessage { get; set; }
+        
+        /// <summary>
+        /// Success
+        /// </summary>
+        
+        public SourceAccount? SourceAccount { get; set; }
         
         
         public int StatusCode { get; set; }

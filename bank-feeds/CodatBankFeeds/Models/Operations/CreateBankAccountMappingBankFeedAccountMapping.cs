@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Shared
+namespace CodatBankFeeds.Models.Operations
 {
     using Newtonsoft.Json;
     
@@ -16,7 +16,7 @@ namespace CodatBankFeeds.Models.Shared
     /// <summary>
     /// A bank feed connection between a source account and a target account.
     /// </summary>
-    public class BankFeedAccountMapping
+    public class CreateBankAccountMappingBankFeedAccountMapping
     {
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

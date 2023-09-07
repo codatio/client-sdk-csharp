@@ -29,8 +29,8 @@ namespace CodatBankFeeds
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.6.0";
+        private const string _sdkGenVersion = "2.101.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -46,7 +46,7 @@ namespace CodatBankFeeds
         
 
         /// <summary>
-        /// Create bank feed bank account mapping
+        /// Create bank feed account mapping
         /// 
         /// <remarks>
         /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting platform (target account).
@@ -71,7 +71,7 @@ namespace CodatBankFeeds
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "BankFeedAccountMapping", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "json");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;

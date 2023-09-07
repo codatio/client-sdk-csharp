@@ -21,20 +21,20 @@ namespace CodatBankFeeds
 
     public interface ISourceAccountsSDK
     {
-        Task<CreateBankFeedResponse> CreateAsync(CreateBankFeedRequest? request = null);
-        Task<DeleteBankFeedBankAccountResponse> DeleteAsync(DeleteBankFeedBankAccountRequest? request = null);
+        Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest? request = null);
+        Task<DeleteSourceAccountResponse> DeleteAsync(DeleteSourceAccountRequest? request = null);
         Task<DeleteBankFeedCredentialsResponse> DeleteCredentialsAsync(DeleteBankFeedCredentialsRequest? request = null);
         Task<GenerateCredentialsResponse> GenerateCredentialsAsync(GenerateCredentialsRequest request);
-        Task<ListBankFeedsResponse> ListAsync(ListBankFeedsRequest? request = null);
-        Task<UpdateBankFeedResponse> UpdateAsync(UpdateBankFeedRequest? request = null);
+        Task<ListSourceAccountsResponse> ListAsync(ListSourceAccountsRequest? request = null);
+        Task<UpdateSourceAccountResponse> UpdateAsync(UpdateSourceAccountRequest? request = null);
     }
 
     public class SourceAccountsSDK: ISourceAccountsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.6.0";
+        private const string _sdkGenVersion = "2.101.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,13 +50,33 @@ namespace CodatBankFeeds
         
 
         /// <summary>
-        /// Create a bank feed bank account
+        /// Create source account
         /// 
         /// <remarks>
-        /// Post a BankFeed BankAccount for a single data source connected. to a single company.
+        /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
+        /// 
+        /// #### Account Mapping Variability
+        /// 
+        /// The method of mapping the source account to the target account varies depending on the accounting package your company uses.
+        /// 
+        /// #### Mapping Options:
+        /// 
+        /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
+        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
+        /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
+        /// 
+        /// ### Integration specific behaviour
+        /// 
+        /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
+        /// | --------------------- | ----------- | ---------------- | --------------------------- |
+        /// | Xero                  | ✅          | ✅               |                             |
+        /// | FreeAgent             | ✅          | ✅               |                             |
+        /// | QuickBooks Online     |             |                  | ✅                          |
+        /// | Sage                  |             |                  | ✅                          |
+        /// 
         /// </remarks>
         /// </summary>
-        public async Task<CreateBankFeedResponse> CreateAsync(CreateBankFeedRequest? request = null)
+        public async Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -69,7 +89,7 @@ namespace CodatBankFeeds
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "BankFeedAccount", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "SourceAccount", "json");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -81,7 +101,7 @@ namespace CodatBankFeeds
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new CreateBankFeedResponse
+            var response = new CreateSourceAccountResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -91,7 +111,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.BankFeedAccount = JsonConvert.DeserializeObject<BankFeedAccount>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.SourceAccount = JsonConvert.DeserializeObject<SourceAccount>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
                 
                 return response;
@@ -110,15 +130,16 @@ namespace CodatBankFeeds
         
 
         /// <summary>
-        /// Delete bank feed bank account
+        /// Delete source account
         /// 
         /// <remarks>
-        /// The *delete bank feed bank account* endpoint enables you to remove a source account.
+        /// The _Delete source account_ endpoint enables you to remove a source account.
         /// 
         /// Removing a source account will also remove any mapping between the source bank feed bank accounts and the target bankfeed bank account.
+        /// 
         /// </remarks>
         /// </summary>
-        public async Task<DeleteBankFeedBankAccountResponse> DeleteAsync(DeleteBankFeedBankAccountRequest? request = null)
+        public async Task<DeleteSourceAccountResponse> DeleteAsync(DeleteSourceAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -138,7 +159,7 @@ namespace CodatBankFeeds
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new DeleteBankFeedBankAccountResponse
+            var response = new DeleteSourceAccountResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -283,17 +304,16 @@ namespace CodatBankFeeds
         
 
         /// <summary>
-        /// List bank feed bank accounts
+        /// List source accounts
         /// 
         /// <remarks>
-        /// The *List bank feed bank accounts* endpoint returns a list of [bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
+        /// The _List source accounts_ endpoint returns a list of [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
         /// 
-        /// [Bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account from which transactions are synced into the accounting platform.
-        /// 
+        /// [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
         /// 
         /// </remarks>
         /// </summary>
-        public async Task<ListBankFeedsResponse> ListAsync(ListBankFeedsRequest? request = null)
+        public async Task<ListSourceAccountsResponse> ListAsync(ListSourceAccountsRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -313,7 +333,7 @@ namespace CodatBankFeeds
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new ListBankFeedsResponse
+            var response = new ListSourceAccountsResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -323,7 +343,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.BankFeedAccount = JsonConvert.DeserializeObject<BankFeedAccount>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.SourceAccount = JsonConvert.DeserializeObject<SourceAccount>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
                 
                 return response;
@@ -342,13 +362,14 @@ namespace CodatBankFeeds
         
 
         /// <summary>
-        /// Update bank feed bank account
+        /// Update source account
         /// 
         /// <remarks>
-        /// The *Update bank feed bank account* endpoint updates a single bank feed bank account for a single data source connected to a single company.
+        /// The _Update source account_ endpoint updates a single source account for a single data connection connected to a single company.
+        /// 
         /// </remarks>
         /// </summary>
-        public async Task<UpdateBankFeedResponse> UpdateAsync(UpdateBankFeedRequest? request = null)
+        public async Task<UpdateSourceAccountResponse> UpdateAsync(UpdateSourceAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -361,7 +382,7 @@ namespace CodatBankFeeds
             var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);
             httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "BankFeedAccount", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "SourceAccount", "json");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -373,7 +394,7 @@ namespace CodatBankFeeds
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new UpdateBankFeedResponse
+            var response = new UpdateSourceAccountResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -383,7 +404,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.BankFeedAccount = JsonConvert.DeserializeObject<BankFeedAccount>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.SourceAccount = JsonConvert.DeserializeObject<SourceAccount>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
                 
                 return response;

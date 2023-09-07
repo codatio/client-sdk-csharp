@@ -15,22 +15,22 @@ namespace CodatBankFeeds.Models.Operations
     using System;
     
     
-    public class UpdateBankFeedResponse
+    public class CreateSourceAccountResponse
     {
-        /// <summary>
-        /// Success
-        /// </summary>
-        
-        public BankFeedAccount? BankFeedAccount { get; set; }
-        
         
         public string? ContentType { get; set; }
         
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// The request made is not valid.
         /// </summary>
         
         public ErrorMessage? ErrorMessage { get; set; }
+        
+        /// <summary>
+        /// Success
+        /// </summary>
+        
+        public SourceAccount? SourceAccount { get; set; }
         
         
         public int StatusCode { get; set; }

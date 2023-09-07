@@ -6,15 +6,15 @@ Transactions represent debits and credits from a source account.
 
 ### Available Operations
 
-* [Create](#create) - Create bank account transactions
+* [Create](#create) - Create bank transactions
 * [GetCreateOperation](#getcreateoperation) - Get create operation
 * [ListCreateOperations](#listcreateoperations) - List create operations
 
 ## Create
 
-﻿The *Create bank account transactions* endpoint creates new [bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
+﻿The *Create bank transactions* endpoint creates new [bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
 
-[Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
+[Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
 
 **Integration-specific behaviour**
 
@@ -37,23 +37,23 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest() {
-    CreateBankTransactions = new CreateBankTransactions() {
+    RequestBody = new CreateBankTransactionsCreateBankAccountTransactions() {
         AccountId = "corporis",
-        Transactions = new List<CreateBankAccountTransaction>() {
-            new CreateBankAccountTransaction() {
-                Amount = 7506.86F,
-                Balance = 3154.28F,
+        Transactions = new List<Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction>() {
+            new Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction() {
+                Amount = 1289.26M,
+                Balance = 7506.86M,
                 Date = "2022-10-23T00:00:00.000Z",
-                Description = "nemo",
-                Id = "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
+                Description = "omnis",
+                Id = "55907aff-1a3a-42fa-9467-739251aa52c3",
             },
         },
     },
-    AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    AccountId = "EILBDVJVNUAGVKRQ",
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 662527,
+    TimeoutInMinutes = 368725,
 });
 
 // handle response
@@ -90,7 +90,7 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.Transactions.GetCreateOperationAsync(new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "d019da1f-fe78-4f09-bb00-74f15471b5e6",
+    PushOperationKey = "ad019da1-ffe7-48f0-97b0-074f15471b5e",
 });
 
 // handle response
@@ -130,7 +130,7 @@ var res = await sdk.Transactions.ListCreateOperationsAsync(new ListCreateOperati
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "repudiandae",
+    Query = "commodi",
 });
 
 // handle response

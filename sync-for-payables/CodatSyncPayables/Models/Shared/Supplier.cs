@@ -30,7 +30,7 @@ namespace CodatSyncPayables.Models.Shared
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<SupplierAddresses>? Addresses { get; set; }
+        public List<SupplierAccountingAddress>? Addresses { get; set; }
         
         /// <summary>
         /// Name of the main contact for the supplier.
@@ -88,7 +88,7 @@ namespace CodatSyncPayables.Models.Shared
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]

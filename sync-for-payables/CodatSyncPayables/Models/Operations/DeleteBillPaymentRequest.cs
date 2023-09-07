@@ -8,18 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace CodatSyncPayables.Models.Operations
 {
-    using Newtonsoft.Json;
+    using CodatSyncPayables.Utils;
     
     
-    public class BillCreditNoteLineItemTrackingProjectRef
+    public class DeleteBillPaymentRequest
     {
-        [JsonProperty("id")]
-        public string Id { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billPaymentId")]
+        public string BillPaymentId { get; set; }
         
-        [JsonProperty("name")]
-        public string? Name { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
+        public string CompanyId { get; set; }
         
     }
     

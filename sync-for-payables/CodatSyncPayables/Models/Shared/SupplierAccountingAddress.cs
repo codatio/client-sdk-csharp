@@ -13,7 +13,7 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     
     
-    public class SupplierAddresses
+    public class SupplierAccountingAddress
     {
         /// <summary>
         /// City of the customer address.

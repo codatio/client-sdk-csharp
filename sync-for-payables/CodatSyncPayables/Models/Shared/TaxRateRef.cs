@@ -34,7 +34,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Applicable tax rate.
         /// </summary>
         [JsonProperty("effectiveTaxRate")]
-        public float? EffectiveTaxRate { get; set; }
+        public decimal? EffectiveTaxRate { get; set; }
         
         /// <summary>
         /// Unique identifier for the tax rate in the accounting platform.

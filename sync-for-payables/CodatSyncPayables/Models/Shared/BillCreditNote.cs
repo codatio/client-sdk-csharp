@@ -116,13 +116,13 @@ namespace CodatSyncPayables.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// Percentage rate of any discount applied to the bill credit note.
         /// </summary>
         [JsonProperty("discountPercentage")]
-        public float DiscountPercentage { get; set; }
+        public decimal DiscountPercentage { get; set; }
         
         /// <summary>
         /// Identifier for the bill credit note that is unique to a company in the accounting platform.
@@ -185,7 +185,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Amount of the bill credit note that is still outstanding.
         /// </summary>
         [JsonProperty("remainingCredit")]
-        public float? RemainingCredit { get; set; }
+        public decimal? RemainingCredit { get; set; }
         
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
@@ -200,14 +200,14 @@ namespace CodatSyncPayables.Models.Shared
         /// Total amount of the bill credit note, including discounts but excluding tax.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float SubTotal { get; set; }
+        public decimal SubTotal { get; set; }
         
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. 
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -223,19 +223,19 @@ namespace CodatSyncPayables.Models.Shared
         /// Total amount of credit that has been applied to the business' account with the supplier, including discounts and tax.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
         
         /// <summary>
         /// Total value of any discounts applied.
         /// </summary>
         [JsonProperty("totalDiscount")]
-        public float TotalDiscount { get; set; }
+        public decimal TotalDiscount { get; set; }
         
         /// <summary>
         /// Amount of tax included in the bill credit note.
         /// </summary>
         [JsonProperty("totalTaxAmount")]
-        public float TotalTaxAmount { get; set; }
+        public decimal TotalTaxAmount { get; set; }
         
         [JsonProperty("withholdingTax")]
         public List<WithholdingTaxitems>? WithholdingTax { get; set; }

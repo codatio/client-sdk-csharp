@@ -22,6 +22,7 @@ namespace CodatSyncPayables
     public interface IBillPaymentsSDK
     {
         Task<Models.Operations.CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest? request = null);
+        Task<DeleteBillPaymentResponse> DeleteAsync(DeleteBillPaymentRequest? request = null);
         Task<GetBillPaymentsResponse> GetAsync(GetBillPaymentsRequest? request = null);
         Task<GetCreateBillPaymentModelResponse> GetCreateModelAsync(GetCreateBillPaymentModelRequest? request = null);
         Task<ListBillPaymentsResponse> ListAsync(ListBillPaymentsRequest? request = null);
@@ -31,8 +32,8 @@ namespace CodatSyncPayables
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.1.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.1.1";
+        private const string _sdkGenVersion = "2.101.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -104,6 +105,83 @@ namespace CodatSyncPayables
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        /// <summary>
+        /// Delete bill payment
+        /// 
+        /// <remarks>
+        /// The *Delete bill payment* endpoint allows you to delete a specified bill payment from an accounting platform.
+        /// 
+        /// [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+        /// 
+        /// ### Process
+        /// 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
+        /// 2. Check the status of the delete operation by checking the status of push operation either via
+        ///     1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+        ///     2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
+        /// 
+        ///    A `Success` status indicates that the bill payment object was deleted from the accounting platform.
+        /// 3. (Optional) Check that the bill payment was deleted from the accounting platform.
+        /// 
+        /// ### Effect on related objects
+        /// Be aware that deleting a bill payment from an accounting platform might cause related objects to be modified.
+        /// 
+        /// ## Integration specifics
+        /// Integrations that support soft delete do not permanently delete the object in the accounting platform.
+        /// 
+        /// | Integration | Soft Delete | Details                                                                                             |  
+        /// |-------------|-------------|-----------------------------------------------------------------------------------------------------|
+        /// | Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more. |
+        /// 
+        /// </remarks>
+        /// </summary>
+        public async Task<DeleteBillPaymentResponse> DeleteAsync(DeleteBillPaymentRequest? request = null)
+        {
+            string baseUrl = _serverUrl;
+            if (baseUrl.EndsWith("/"))
+            {
+                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
+            }
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billPayments/{billPaymentId}", request);
+            
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
+            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new DeleteBillPaymentResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

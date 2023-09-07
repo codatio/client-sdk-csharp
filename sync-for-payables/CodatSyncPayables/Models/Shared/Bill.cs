@@ -44,7 +44,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Amount outstanding on the bill.
         /// </summary>
         [JsonProperty("amountDue")]
-        public float? AmountDue { get; set; }
+        public decimal? AmountDue { get; set; }
         
         /// <summary>
         /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
@@ -92,7 +92,7 @@ namespace CodatSyncPayables.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         [JsonProperty("dueDate")]
         public string? DueDate { get; set; }
@@ -152,14 +152,14 @@ namespace CodatSyncPayables.Models.Shared
         /// Total amount of the bill, excluding any taxes.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float SubTotal { get; set; }
+        public decimal SubTotal { get; set; }
         
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. 
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -175,13 +175,13 @@ namespace CodatSyncPayables.Models.Shared
         /// Amount of tax on the bill.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float TaxAmount { get; set; }
+        public decimal TaxAmount { get; set; }
         
         /// <summary>
         /// Amount of the bill, including tax.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
         
         [JsonProperty("withholdingTax")]
         public List<BillWithholdingTax>? WithholdingTax { get; set; }

@@ -34,7 +34,7 @@ namespace CodatSyncPayables.Models.Shared
         /// The rate of the tax rate component, usually a percentage.
         /// </summary>
         [JsonProperty("rate")]
-        public float? Rate { get; set; }
+        public decimal? Rate { get; set; }
         
     }
     

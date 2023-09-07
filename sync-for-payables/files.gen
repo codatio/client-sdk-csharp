@@ -45,6 +45,8 @@ CodatSyncPayables/Models/Operations/UpdateBillCreditNoteRequest.cs
 CodatSyncPayables/Models/Operations/UpdateBillCreditNoteResponse.cs
 CodatSyncPayables/Models/Operations/CreateBillPaymentRequest.cs
 CodatSyncPayables/Models/Operations/CreateBillPaymentResponse.cs
+CodatSyncPayables/Models/Operations/DeleteBillPaymentRequest.cs
+CodatSyncPayables/Models/Operations/DeleteBillPaymentResponse.cs
 CodatSyncPayables/Models/Operations/GetBillPaymentsRequest.cs
 CodatSyncPayables/Models/Operations/GetBillPaymentsResponse.cs
 CodatSyncPayables/Models/Operations/GetCreateBillPaymentModelRequest.cs
@@ -53,6 +55,8 @@ CodatSyncPayables/Models/Operations/ListBillPaymentsRequest.cs
 CodatSyncPayables/Models/Operations/ListBillPaymentsResponse.cs
 CodatSyncPayables/Models/Operations/CreateBillRequest.cs
 CodatSyncPayables/Models/Operations/CreateBillResponse.cs
+CodatSyncPayables/Models/Operations/DeleteBillRequest.cs
+CodatSyncPayables/Models/Operations/DeleteBillResponse.cs
 CodatSyncPayables/Models/Operations/DownloadBillAttachmentRequest.cs
 CodatSyncPayables/Models/Operations/DownloadBillAttachmentResponse.cs
 CodatSyncPayables/Models/Operations/GetBillRequest.cs
@@ -174,7 +178,7 @@ CodatSyncPayables/Models/Shared/PaymentAllocationPayment.cs
 CodatSyncPayables/Models/Shared/AccountRef.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItemItemReference.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTrackingCustomerRef.cs
-CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTrackingProjectRef.cs
+CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTrackingProjectReference.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTracking.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItem.cs
 CodatSyncPayables/Models/Shared/TrackingCategoryRef.cs
@@ -187,6 +191,7 @@ CodatSyncPayables/Models/Shared/BillPayment.cs
 CodatSyncPayables/Models/Shared/BillPaymentLine.cs
 CodatSyncPayables/Models/Shared/BillPaymentLineLink.cs
 CodatSyncPayables/Models/Shared/BillPaymentLineLinkType.cs
+CodatSyncPayables/Models/Shared/PushOperation.cs
 CodatSyncPayables/Models/Shared/BillPayments.cs
 CodatSyncPayables/Models/Shared/CreateBillResponse.cs
 CodatSyncPayables/Models/Shared/BillPaymentAllocationAllocation.cs
@@ -198,7 +203,7 @@ CodatSyncPayables/Models/Shared/Bill.cs
 CodatSyncPayables/Models/Shared/BillStatus.cs
 CodatSyncPayables/Models/Shared/BillLineItem.cs
 CodatSyncPayables/Models/Shared/TrackingCustomerRef.cs
-CodatSyncPayables/Models/Shared/TrackingProjectRef.cs
+CodatSyncPayables/Models/Shared/TrackingProjectReference.cs
 CodatSyncPayables/Models/Shared/Tracking.cs
 CodatSyncPayables/Models/Shared/ItemRef.cs
 CodatSyncPayables/Models/Shared/Attachment.cs
@@ -232,10 +237,9 @@ CodatSyncPayables/Models/Shared/PaymentMethod.cs
 CodatSyncPayables/Models/Shared/PaymentMethodType.cs
 CodatSyncPayables/Models/Shared/PaymentMethodStatus.cs
 CodatSyncPayables/Models/Shared/PaymentMethods.cs
-CodatSyncPayables/Models/Shared/PushOperation.cs
 CodatSyncPayables/Models/Shared/PushOperations.cs
 CodatSyncPayables/Models/Shared/CreateSupplierResponse.cs
-CodatSyncPayables/Models/Shared/SupplierAddresses.cs
+CodatSyncPayables/Models/Shared/SupplierAccountingAddress.cs
 CodatSyncPayables/Models/Shared/Supplier.cs
 CodatSyncPayables/Models/Shared/SupplierStatus.cs
 CodatSyncPayables/Models/Shared/AccountingAddressType.cs
@@ -287,6 +291,8 @@ docs/models/operations/UpdateBillCreditNoteRequest.md
 docs/models/operations/UpdateBillCreditNoteResponse.md
 docs/models/operations/CreateBillPaymentRequest.md
 docs/models/operations/CreateBillPaymentResponse.md
+docs/models/operations/DeleteBillPaymentRequest.md
+docs/models/operations/DeleteBillPaymentResponse.md
 docs/models/operations/GetBillPaymentsRequest.md
 docs/models/operations/GetBillPaymentsResponse.md
 docs/models/operations/GetCreateBillPaymentModelRequest.md
@@ -295,6 +301,8 @@ docs/models/operations/ListBillPaymentsRequest.md
 docs/models/operations/ListBillPaymentsResponse.md
 docs/models/operations/CreateBillRequest.md
 docs/models/operations/CreateBillResponse.md
+docs/models/operations/DeleteBillRequest.md
+docs/models/operations/DeleteBillResponse.md
 docs/models/operations/DownloadBillAttachmentRequest.md
 docs/models/operations/DownloadBillAttachmentResponse.md
 docs/models/operations/GetBillRequest.md
@@ -416,7 +424,7 @@ docs/models/shared/PaymentAllocationPayment.md
 docs/models/shared/AccountRef.md
 docs/models/shared/BillCreditNoteLineItemItemReference.md
 docs/models/shared/BillCreditNoteLineItemTrackingCustomerRef.md
-docs/models/shared/BillCreditNoteLineItemTrackingProjectRef.md
+docs/models/shared/BillCreditNoteLineItemTrackingProjectReference.md
 docs/models/shared/BillCreditNoteLineItemTracking.md
 docs/models/shared/BillCreditNoteLineItem.md
 docs/models/shared/TrackingCategoryRef.md
@@ -429,6 +437,7 @@ docs/models/shared/BillPayment.md
 docs/models/shared/BillPaymentLine.md
 docs/models/shared/BillPaymentLineLink.md
 docs/models/shared/BillPaymentLineLinkType.md
+docs/models/shared/PushOperation.md
 docs/models/shared/BillPayments.md
 docs/models/shared/CreateBillResponse.md
 docs/models/shared/BillPaymentAllocationAllocation.md
@@ -440,7 +449,7 @@ docs/models/shared/Bill.md
 docs/models/shared/BillStatus.md
 docs/models/shared/BillLineItem.md
 docs/models/shared/TrackingCustomerRef.md
-docs/models/shared/TrackingProjectRef.md
+docs/models/shared/TrackingProjectReference.md
 docs/models/shared/Tracking.md
 docs/models/shared/ItemRef.md
 docs/models/shared/Attachment.md
@@ -474,10 +483,9 @@ docs/models/shared/PaymentMethod.md
 docs/models/shared/PaymentMethodType.md
 docs/models/shared/PaymentMethodStatus.md
 docs/models/shared/PaymentMethods.md
-docs/models/shared/PushOperation.md
 docs/models/shared/PushOperations.md
 docs/models/shared/CreateSupplierResponse.md
-docs/models/shared/SupplierAddresses.md
+docs/models/shared/SupplierAccountingAddress.md
 docs/models/shared/Supplier.md
 docs/models/shared/SupplierStatus.md
 docs/models/shared/AccountingAddressType.md

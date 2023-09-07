@@ -144,7 +144,7 @@ namespace CodatSyncPayables.Models.Shared
         public PushOperationStatus Status { get; set; }
         
         [JsonProperty("statusCode")]
-        public int StatusCode { get; set; }
+        public long StatusCode { get; set; }
         
         [JsonProperty("timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }

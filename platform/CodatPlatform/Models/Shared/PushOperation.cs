@@ -60,12 +60,6 @@ namespace CodatPlatform.Models.Shared
         public string? CompletedOnUtc { get; set; }
         
         /// <summary>
-        /// Object submitted in push operation.
-        /// </summary>
-        [JsonProperty("data")]
-        public Dictionary<string, object>? Data { get; set; }
-        
-        /// <summary>
         /// Unique identifier for a company's data connection.
         /// </summary>
         [JsonProperty("dataConnectionKey")]
@@ -120,7 +114,7 @@ namespace CodatPlatform.Models.Shared
         public PushOperationStatus Status { get; set; }
         
         [JsonProperty("statusCode")]
-        public int StatusCode { get; set; }
+        public long StatusCode { get; set; }
         
         [JsonProperty("timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }

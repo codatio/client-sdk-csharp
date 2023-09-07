@@ -25,7 +25,7 @@ namespace CodatPlatform.Models.Operations
         /// OK
         /// </summary>
         
-        public Dictionary<string, DataStatus>? DataStatusResponse { get; set; }
+        public Dictionary<string, DataStatus>? DataStatuses { get; set; }
         
         /// <summary>
         /// Your API request was not properly authorized.

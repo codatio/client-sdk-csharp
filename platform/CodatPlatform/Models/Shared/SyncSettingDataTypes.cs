@@ -17,7 +17,7 @@ namespace CodatPlatform.Models.Shared
     /// <summary>
     /// Available Data types
     /// </summary>
-    public enum SyncSettingDataType
+    public enum SyncSettingDataTypes
     {
     	[JsonProperty("accountTransactions")]
 		AccountTransactions,
@@ -105,25 +105,25 @@ namespace CodatPlatform.Models.Shared
 		CommerceTransactions,
     }
     
-    public static class SyncSettingDataTypeExtension
+    public static class SyncSettingDataTypesExtension
     {
-        public static string Value(this SyncSettingDataType value)
+        public static string Value(this SyncSettingDataTypes value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static SyncSettingDataType ToEnum(this string value)
+        public static SyncSettingDataTypes ToEnum(this string value)
         {
-            foreach(var field in typeof(SyncSettingDataType).GetFields())
+            foreach(var field in typeof(SyncSettingDataTypes).GetFields())
             {
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (SyncSettingDataType)field.GetValue(null);
+                    return (SyncSettingDataTypes)field.GetValue(null);
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum SyncSettingDataType");
+            throw new Exception($"Unknown value {value} for enum SyncSettingDataTypes");
         }
     }
     

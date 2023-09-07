@@ -22,7 +22,7 @@ namespace CodatPlatform.Models.Shared
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
-        public SyncSettingDataType DataType { get; set; }
+        public SyncSettingDataTypes DataType { get; set; }
         
         /// <summary>
         /// Whether this data type should be queued after a company has authorized a connection.
@@ -37,7 +37,7 @@ namespace CodatPlatform.Models.Shared
         /// Months of data to fetch, for report data types (`balanceSheet` & `profitAndLoss`) only.
         /// </summary>
         [JsonProperty("monthsToSync")]
-        public int? MonthsToSync { get; set; }
+        public long? MonthsToSync { get; set; }
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -70,16 +70,16 @@ namespace CodatPlatform.Models.Shared
         /// Number of months of data to be fetched. Set this *or* `syncFromUTC`
         /// </summary>
         [JsonProperty("syncFromWindow")]
-        public int? SyncFromWindow { get; set; }
+        public long? SyncFromWindow { get; set; }
         
         [JsonProperty("syncOrder")]
-        public int SyncOrder { get; set; }
+        public long SyncOrder { get; set; }
         
         /// <summary>
         /// Number of hours after which this data type should be refreshed.
         /// </summary>
         [JsonProperty("syncSchedule")]
-        public int SyncSchedule { get; set; }
+        public long SyncSchedule { get; set; }
         
     }
     

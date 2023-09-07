@@ -17,22 +17,22 @@ namespace CodatPlatform.Models.Shared
     /// <summary>
     /// OK
     /// </summary>
-    public class DataConnectionHistory
+    public class PushOperations
     {
         [JsonProperty("_links")]
         public Links Links { get; set; }
         
         [JsonProperty("pageNumber")]
-        public int PageNumber { get; set; }
+        public long PageNumber { get; set; }
         
         [JsonProperty("pageSize")]
-        public int PageSize { get; set; }
+        public long PageSize { get; set; }
         
         [JsonProperty("results")]
-        public List<PullOperation>? Results { get; set; }
+        public List<PushOperation>? Results { get; set; }
         
         [JsonProperty("totalResults")]
-        public int TotalResults { get; set; }
+        public long TotalResults { get; set; }
         
     }
     

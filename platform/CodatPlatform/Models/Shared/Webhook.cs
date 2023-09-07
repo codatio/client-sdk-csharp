@@ -11,28 +11,24 @@
 namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     
     
     /// <summary>
-    /// OK
+    /// Create an event notification to a URL or list of email addresses based on the given type or condition.
     /// </summary>
-    public class PushHistoryResponse
+    public class Webhook
     {
-        [JsonProperty("_links")]
-        public Links Links { get; set; }
+        [JsonProperty("companyId")]
+        public string? CompanyId { get; set; }
         
-        [JsonProperty("pageNumber")]
-        public int PageNumber { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
         
-        [JsonProperty("pageSize")]
-        public int PageSize { get; set; }
+        [JsonProperty("notifiers")]
+        public WebhookNotifiers Notifiers { get; set; }
         
-        [JsonProperty("results")]
-        public List<PushOperationSummary>? Results { get; set; }
-        
-        [JsonProperty("totalResults")]
-        public int TotalResults { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
         
     }
     

@@ -26,17 +26,17 @@ namespace CodatPlatform.Models.Operations
         
         public ErrorMessage? ErrorMessage { get; set; }
         
-        /// <summary>
-        /// OK
-        /// </summary>
-        
-        public Rule? Rule { get; set; }
-        
         
         public int StatusCode { get; set; }
         
         
         public HttpResponseMessage? RawResponse { get; set; }
+        
+        /// <summary>
+        /// OK
+        /// </summary>
+        
+        public Webhook? Webhook { get; set; }
         
     }
     

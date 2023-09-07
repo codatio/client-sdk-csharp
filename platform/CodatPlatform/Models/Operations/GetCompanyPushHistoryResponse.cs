@@ -30,7 +30,7 @@ namespace CodatPlatform.Models.Operations
         /// OK
         /// </summary>
         
-        public PushHistoryResponse? PushHistoryResponse { get; set; }
+        public PushOperations? PushOperations { get; set; }
         
         
         public int StatusCode { get; set; }

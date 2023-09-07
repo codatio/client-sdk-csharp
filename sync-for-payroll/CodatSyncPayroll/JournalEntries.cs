@@ -22,6 +22,7 @@ namespace CodatSyncPayroll
     public interface IJournalEntriesSDK
     {
         Task<Models.Operations.CreateJournalEntryResponse> CreateAsync(CreateJournalEntryRequest? request = null);
+        Task<DeleteJournalEntryResponse> DeleteAsync(DeleteJournalEntryRequest? request = null);
         Task<GetJournalEntryResponse> GetAsync(GetJournalEntryRequest? request = null);
         Task<GetCreateJournalEntryModelResponse> GetCreateModelAsync(GetCreateJournalEntryModelRequest? request = null);
         Task<ListJournalEntriesResponse> ListAsync(ListJournalEntriesRequest? request = null);
@@ -31,8 +32,8 @@ namespace CodatSyncPayroll
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.1.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.1.1";
+        private const string _sdkGenVersion = "2.101.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -104,6 +105,90 @@ namespace CodatSyncPayroll
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        /// <summary>
+        /// Delete journal entry
+        /// 
+        /// <remarks>
+        /// > **Use with caution**
+        /// >
+        /// >Because journal entries underpin every transaction in an accounting platform, deleting a journal entry can affect every transaction for a given company.
+        /// > 
+        /// > **Before you proceed, make sure you understand the implications of deleting journal entries from an accounting perspective.**
+        /// 
+        /// The *Delete journal entry* endpoint allows you to delete a specified journal entry from an accounting platform.
+        /// 
+        /// [Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are made in a company's general ledger, or accounts, when transactions are approved.
+        /// 
+        /// ### Process
+        /// 1. Pass the `{journalEntryId}` to the *Delete journal entry* endpoint and store the `pushOperationKey` returned.
+        /// 2. Check the status of the delete by checking the status of push operation either via
+        ///    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+        ///    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payroll-api#/operations/get-push-operation). 
+        ///    
+        ///    A `Success` status indicates that the journal entry object was deleted from the accounting platform.
+        /// 3. (Optional) Check that the journal entry was deleted from the accounting platform.
+        /// 
+        /// ### Effect on related objects
+        /// 
+        /// Be aware that deleting a journal entry from an accounting platform might cause related objects to be modified. For example, if you delete the journal entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
+        /// 
+        /// ## Integration specifics
+        /// Integrations that support soft delete do not permanently delete the object in the accounting platform.
+        /// 
+        /// | Integration | Soft Deleted | 
+        /// |-------------|--------------|
+        /// | QuickBooks Online | Yes    |       
+        /// 
+        /// </remarks>
+        /// </summary>
+        public async Task<DeleteJournalEntryResponse> DeleteAsync(DeleteJournalEntryRequest? request = null)
+        {
+            string baseUrl = _serverUrl;
+            if (baseUrl.EndsWith("/"))
+            {
+                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
+            }
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/journalEntries/{journalEntryId}", request);
+            
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
+            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new DeleteJournalEntryResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

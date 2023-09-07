@@ -6,13 +6,15 @@ Asynchronously retrieve data from an integration to refresh data in Codat.
 
 ### Available Operations
 
-* [Get](#get) - Get data status
+* [GetDataStatus](#getdatastatus) - Get data status
 * [GetPullOperation](#getpulloperation) - Get pull operation
+* [GetPushOperation](#getpushoperation) - Get push operation
+* [List](#list) - List push operations
 * [ListPullOperations](#listpulloperations) - List pull operations
 * [RefreshAllDataTypes](#refreshalldatatypes) - Refresh all data
 * [RefreshDataType](#refreshdatatype) - Refresh data type
 
-## Get
+## GetDataStatus
 
 Get the state of each data type for a company
 
@@ -29,7 +31,7 @@ var sdk = new CodatSyncPayrollSDK(
     }
 );
 
-var res = await sdk.ManageData.GetAsync(new GetDataStatusRequest() {
+var res = await sdk.ManageData.GetDataStatusAsync(new GetDataStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -85,6 +87,83 @@ var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest
 **[GetPullOperationResponse](../../models/operations/GetPullOperationResponse.md)**
 
 
+## GetPushOperation
+
+Retrieve push operation.
+
+### Example Usage
+
+```csharp
+using CodatSyncPayroll;
+using CodatSyncPayroll.Models.Shared;
+using CodatSyncPayroll.Models.Operations;
+
+var sdk = new CodatSyncPayrollSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.ManageData.GetPushOperationAsync(new GetPushOperationRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PushOperationKey = "97074ba4-469b-46e2-9419-59890afa563e",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [GetPushOperationRequest](../../models/operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+
+
+### Response
+
+**[GetPushOperationResponse](../../models/operations/GetPushOperationResponse.md)**
+
+
+## List
+
+List push operation records.
+
+### Example Usage
+
+```csharp
+using CodatSyncPayroll;
+using CodatSyncPayroll.Models.Shared;
+using CodatSyncPayroll.Models.Operations;
+
+var sdk = new CodatSyncPayrollSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.ManageData.ListAsync(new ListPushOperationsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    OrderBy = "-modifiedDate",
+    Page = 1,
+    PageSize = 100,
+    Query = "odit",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [ListPushOperationsRequest](../../models/operations/ListPushOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+
+### Response
+
+**[ListPushOperationsResponse](../../models/operations/ListPushOperationsResponse.md)**
+
+
 ## ListPullOperations
 
 Gets the pull operation history (datasets) for a given company.
@@ -107,7 +186,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "libero",
+    Query = "nemo",
 });
 
 // handle response
@@ -186,7 +265,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "b2587053-202c-473d-9fe9-b90c28909b3f",
+    ConnectionId = "16fe4c8b-711e-45b7-bd2e-d028921cddc6",
     DataType = CodatSyncPayroll.Models.Shared.DataType.Invoices,
 });
 

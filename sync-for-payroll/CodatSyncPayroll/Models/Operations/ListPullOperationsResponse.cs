@@ -21,16 +21,16 @@ namespace CodatSyncPayroll.Models.Operations
         public string? ContentType { get; set; }
         
         /// <summary>
-        /// OK
-        /// </summary>
-        
-        public DataConnectionHistory? DataConnectionHistory { get; set; }
-        
-        /// <summary>
         /// Your `query` parameter was not correctly formed
         /// </summary>
         
         public ErrorMessage? ErrorMessage { get; set; }
+        
+        /// <summary>
+        /// OK
+        /// </summary>
+        
+        public PullOperations? PullOperations { get; set; }
         
         
         public int StatusCode { get; set; }

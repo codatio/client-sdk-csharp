@@ -15,13 +15,13 @@ namespace CodatSyncPayroll.Models.Operations
     using System;
     
     
-    public class ListPushOperationsResponse
+    public class DeleteJournalEntryResponse
     {
         
         public string? ContentType { get; set; }
         
         /// <summary>
-        /// Your `query` parameter was not correctly formed
+        /// Your API request was not properly authorized.
         /// </summary>
         
         public ErrorMessage? ErrorMessage { get; set; }
@@ -30,7 +30,7 @@ namespace CodatSyncPayroll.Models.Operations
         /// OK
         /// </summary>
         
-        public PushOperations? PushOperations { get; set; }
+        public PushOperation? PushOperation { get; set; }
         
         
         public int StatusCode { get; set; }

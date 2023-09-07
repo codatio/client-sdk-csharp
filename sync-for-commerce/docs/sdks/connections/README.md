@@ -1,13 +1,9 @@
 # connections
 
-## Overview
-
-Create new and manage existing Sync for Commerce companies using the Sync flow UI.
-
 ### Available Operations
 
 * [Create](#create) - Create connection
-* [GetSyncFlowUrl](#getsyncflowurl) - Retrieve sync flow url
+* [GetSyncFlowUrl](#getsyncflowurl) - Start new sync flow
 * [List](#list) - List connections
 * [UpdateAuthorization](#updateauthorization) - Update authorization
 * [UpdateConnection](#updateconnection) - Update connection
@@ -55,7 +51,7 @@ var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
 
 ## GetSyncFlowUrl
 
-Get a URL for Sync Flow including a one time passcode.
+Create a new company and connections. Get a URL for Sync Flow, including a one time passcode.
 
 ### Example Usage
 
@@ -150,9 +146,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
-        { "illum", "vel" },
-        { "error", "deserunt" },
-        { "suscipit", "iure" },
+        { "corrupti", "illum" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -192,7 +186,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.UpdateConnectionAsync(new UpdateConnectionRequest() {
     UpdateConnection = new UpdateConnection() {
-        Status = "Linked",
+        Status = CodatSyncCommerce.Models.Shared.DataConnectionStatus.Linked,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

@@ -23,7 +23,7 @@ namespace CodatSyncCommerce.Models.Shared
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
-        public DataTypeFeatureDataType? DataType { get; set; }
+        public DataTypeFeatureDataTypes? DataType { get; set; }
         
         [JsonProperty("supportedFeatures")]
         public List<SupportedFeature> SupportedFeatures { get; set; }

@@ -1,4 +1,4 @@
-# syncFlowPreferences
+# syncFlowSettings
 
 ## Overview
 
@@ -27,7 +27,7 @@ var sdk = new CodatSyncCommerceSDK(
     }
 );
 
-var res = await sdk.SyncFlowPreferences.GetConfigTextSyncFlowAsync();
+var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync();
 
 // handle response
 ```
@@ -55,9 +55,9 @@ var sdk = new CodatSyncCommerceSDK(
     }
 );
 
-var res = await sdk.SyncFlowPreferences.GetVisibleAccountsAsync(new GetVisibleAccountsRequest() {
-    ClientId = "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
-    PlatformKey = "ba928fc8-1674-42cb-b392-05929396fea7",
+var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(new GetVisibleAccountsRequest() {
+    ClientId = "e0f467cc-8796-4ed1-91a0-5dfc2ddf7cc7",
+    PlatformKey = "8ca1ba92-8fc8-4167-82cb-739205929396",
 });
 
 // handle response
@@ -91,14 +91,10 @@ var sdk = new CodatSyncCommerceSDK(
     }
 );
 
-var res = await sdk.SyncFlowPreferences.UpdateConfigTextSyncFlowAsync(new Dictionary<string, Localization>() {
-    { "iste", new Localization() {
+var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(new Dictionary<string, Localization>() {
+    { "hic", new Localization() {
         Required = false,
-        Text = "iure",
-    } },
-    { "saepe", new Localization() {
-        Required = false,
-        Text = "quidem",
+        Text = "saepe",
     } },
 });
 
@@ -134,13 +130,13 @@ var sdk = new CodatSyncCommerceSDK(
     }
 );
 
-var res = await sdk.SyncFlowPreferences.UpdateVisibleAccountsSyncFlowAsync(new UpdateVisibleAccountsSyncFlowRequest() {
+var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(new UpdateVisibleAccountsSyncFlowRequest() {
     VisibleAccounts = new VisibleAccounts() {
         VisibleAccounts = new List<string>() {
-            "ipsa",
+            "fuga",
         },
     },
-    PlatformKey = "faaa2352-c595-4590-baff-1a3a2fa94677",
+    PlatformKey = "7596eb10-faaa-4235-ac59-55907aff1a3a",
 });
 
 // handle response

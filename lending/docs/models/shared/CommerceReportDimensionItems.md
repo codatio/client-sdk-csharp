@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `index`            | *int*              | :heavy_minus_sign: | N/A                |
+| `index`            | *long*             | :heavy_minus_sign: | N/A                |

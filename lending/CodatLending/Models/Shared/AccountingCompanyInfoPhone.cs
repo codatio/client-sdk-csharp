@@ -19,13 +19,13 @@ namespace CodatLending.Models.Shared
         /// A phone number.
         /// </summary>
         [JsonProperty("number")]
-        public string Number { get; set; }
+        public string Number { get; set; } = default!;
         
         /// <summary>
         /// The type of phone number
         /// </summary>
         [JsonProperty("type")]
-        public PhoneNumberType Type { get; set; }
+        public PhoneNumberType Type { get; set; } = default!;
         
     }
     

@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         /// Confidence level of the category. This will only be populated where `status` is `Suggested`.
         /// </summary>
         [JsonProperty("confidence")]
-        public float? Confidence { get; set; }
+        public decimal? Confidence { get; set; }
         
         /// <summary>
         /// Account category name.

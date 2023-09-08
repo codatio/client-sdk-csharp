@@ -44,7 +44,7 @@ namespace CodatLending.Models.Shared
         /// Amount outstanding on the bill.
         /// </summary>
         [JsonProperty("amountDue")]
-        public float? AmountDue { get; set; }
+        public decimal? AmountDue { get; set; }
         
         /// <summary>
         /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
@@ -92,7 +92,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         [JsonProperty("dueDate")]
         public string? DueDate { get; set; }
@@ -104,7 +104,7 @@ namespace CodatLending.Models.Shared
         public string? Id { get; set; }
         
         [JsonProperty("issueDate")]
-        public string IssueDate { get; set; }
+        public string IssueDate { get; set; } = default!;
         
         /// <summary>
         /// Array of Bill line items.
@@ -146,20 +146,20 @@ namespace CodatLending.Models.Shared
         /// Current state of the bill.
         /// </summary>
         [JsonProperty("status")]
-        public BillStatus Status { get; set; }
+        public BillStatus Status { get; set; } = default!;
         
         /// <summary>
         /// Total amount of the bill, excluding any taxes.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float SubTotal { get; set; }
+        public decimal SubTotal { get; set; } = default!;
         
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. 
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -175,13 +175,13 @@ namespace CodatLending.Models.Shared
         /// Amount of tax on the bill.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float TaxAmount { get; set; }
+        public decimal TaxAmount { get; set; } = default!;
         
         /// <summary>
         /// Amount of the bill, including tax.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; } = default!;
         
         [JsonProperty("withholdingTax")]
         public List<AccountingBillWithholdingTax>? WithholdingTax { get; set; }

@@ -41,7 +41,12 @@ namespace CodatLending.Models.Operations
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (ListLoanTransactionsSourceType)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is ListLoanTransactionsSourceType)
+                    {
+                        return (ListLoanTransactionsSourceType)enumVal;
+                    }
                 }
             }
 

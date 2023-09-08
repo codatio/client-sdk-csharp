@@ -29,13 +29,13 @@ namespace CodatLending.Models.Shared
         /// Depending on the data provided by the underlying bank, not all balances are always available.
         /// </summary>
         [JsonProperty("balance")]
-        public AccountBalanceAmounts Balance { get; set; }
+        public AccountBalanceAmounts Balance { get; set; } = default!;
         
         /// <summary>
         /// The currency code for the account.
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency { get; set; } = default!;
         
         /// <summary>
         /// The name of the person or company who holds the account.
@@ -47,13 +47,13 @@ namespace CodatLending.Models.Shared
         /// The ID of the account from the provider.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// An object containing bank account identification information.
         /// </summary>
         [JsonProperty("identifiers")]
-        public AccountIdentifiers Identifiers { get; set; }
+        public AccountIdentifiers Identifiers { get; set; } = default!;
         
         /// <summary>
         /// The friendly name of the account, chosen by the holder. This may not have been set by the account holder and therefore is not always available.
@@ -65,7 +65,7 @@ namespace CodatLending.Models.Shared
         /// The bank or other financial institution providing the account.
         /// </summary>
         [JsonProperty("institution")]
-        public AccountInstitution Institution { get; set; }
+        public AccountInstitution Institution { get; set; } = default!;
         
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
@@ -74,7 +74,7 @@ namespace CodatLending.Models.Shared
         /// The name of the account according to the provider.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
@@ -88,7 +88,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("type")]
-        public AccountingBankAccountType Type { get; set; }
+        public AccountingBankAccountType Type { get; set; } = default!;
         
     }
     

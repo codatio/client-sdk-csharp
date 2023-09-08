@@ -16,13 +16,13 @@ namespace CodatLending.Models.Shared
     public class ReportComponentMeasure
     {
         [JsonProperty("index")]
-        public int? Index { get; set; }
+        public long? Index { get; set; }
         
         [JsonProperty("measureDisplayName")]
         public string? MeasureDisplayName { get; set; }
         
         [JsonProperty("value")]
-        public float? Value { get; set; }
+        public decimal? Value { get; set; }
         
     }
     

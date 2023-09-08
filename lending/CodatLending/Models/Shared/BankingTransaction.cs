@@ -29,13 +29,13 @@ namespace CodatLending.Models.Shared
         /// The unique identifier of the bank account.
         /// </summary>
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId { get; set; } = default!;
         
         /// <summary>
         /// The amount of the bank transaction.
         /// </summary>
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -74,7 +74,7 @@ namespace CodatLending.Models.Shared
         /// The currency of the bank transaction.
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency { get; set; } = default!;
         
         /// <summary>
         /// The description of the bank transaction.
@@ -86,7 +86,7 @@ namespace CodatLending.Models.Shared
         /// The unique identifier of the bank transaction.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// The name of the merchant.

@@ -52,7 +52,7 @@ namespace CodatLending.Models.Shared
         /// Gross profit of the company in the given date range.
         /// </summary>
         [JsonProperty("grossProfit")]
-        public float GrossProfit { get; set; }
+        public decimal GrossProfit { get; set; } = default!;
         
         [JsonProperty("income")]
         public ReportLine? Income { get; set; }
@@ -61,19 +61,19 @@ namespace CodatLending.Models.Shared
         /// Net operating profit of the company in the given date range.
         /// </summary>
         [JsonProperty("netOperatingProfit")]
-        public float NetOperatingProfit { get; set; }
+        public decimal NetOperatingProfit { get; set; } = default!;
         
         /// <summary>
         /// Net other income of the company in the given date range.
         /// </summary>
         [JsonProperty("netOtherIncome")]
-        public float NetOtherIncome { get; set; }
+        public decimal NetOtherIncome { get; set; } = default!;
         
         /// <summary>
         /// Net profit of the company in the given date range.
         /// </summary>
         [JsonProperty("netProfit")]
-        public float NetProfit { get; set; }
+        public decimal NetProfit { get; set; } = default!;
         
         [JsonProperty("otherExpenses")]
         public ReportLine? OtherExpenses { get; set; }

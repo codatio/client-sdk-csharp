@@ -43,8 +43,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.107.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -99,7 +99,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/octet-stream",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/octet-stream", response.ContentType))
                 {
                     response.Data = await httpResponse.Content.ReadAsByteArrayAsync();
                 }
@@ -108,7 +108,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -159,7 +159,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/octet-stream",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/octet-stream", response.ContentType))
                 {
                     response.Data = await httpResponse.Content.ReadAsByteArrayAsync();
                 }
@@ -168,7 +168,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -214,7 +214,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingAgedCreditorReport = JsonConvert.DeserializeObject<AccountingAgedCreditorReport>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -223,7 +223,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -276,7 +276,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingBill = JsonConvert.DeserializeObject<AccountingBill>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -285,7 +285,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -336,7 +336,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingAttachment = JsonConvert.DeserializeObject<AccountingAttachment>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -345,7 +345,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -398,7 +398,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingBillCreditNote = JsonConvert.DeserializeObject<AccountingBillCreditNote>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -407,7 +407,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -460,7 +460,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingBillPayment = JsonConvert.DeserializeObject<AccountingBillPayment>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -469,7 +469,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -522,7 +522,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingSupplier = JsonConvert.DeserializeObject<AccountingSupplier>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -531,7 +531,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -582,7 +582,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingAttachment = JsonConvert.DeserializeObject<AccountingAttachment>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -591,7 +591,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -637,7 +637,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.IsAgedCreditorsReportAvailable200ApplicationJSONBoolean = JsonConvert.DeserializeObject<bool>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -688,7 +688,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.Attachments = JsonConvert.DeserializeObject<Attachments>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -697,7 +697,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -748,7 +748,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingBillCreditNotes = JsonConvert.DeserializeObject<AccountingBillCreditNotes>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -757,7 +757,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -808,7 +808,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingBillPayments = JsonConvert.DeserializeObject<AccountingBillPayments>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -817,7 +817,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -868,7 +868,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingBills = JsonConvert.DeserializeObject<AccountingBills>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -877,7 +877,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -928,7 +928,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.Attachments = JsonConvert.DeserializeObject<Attachments>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -937,7 +937,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -988,7 +988,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingSuppliers = JsonConvert.DeserializeObject<AccountingSuppliers>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -997,7 +997,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }

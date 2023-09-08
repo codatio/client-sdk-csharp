@@ -17,7 +17,7 @@ namespace CodatLending.Models.Operations
     public class DownloadAccountingInvoicePdfResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Success
@@ -26,7 +26,7 @@ namespace CodatLending.Models.Operations
         public byte[]? Data { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

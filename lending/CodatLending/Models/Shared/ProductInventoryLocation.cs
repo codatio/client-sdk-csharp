@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         public LocationRef? LocationRef { get; set; }
         
         [JsonProperty("quantity")]
-        public float? Quantity { get; set; }
+        public decimal? Quantity { get; set; }
         
     }
     

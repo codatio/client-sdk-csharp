@@ -16,13 +16,13 @@ namespace CodatLending.Models.Operations
     public class GetAccountingDirectIncomeRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=directIncomeId")]
-        public string DirectIncomeId { get; set; }
+        public string DirectIncomeId { get; set; } = default!;
         
     }
     

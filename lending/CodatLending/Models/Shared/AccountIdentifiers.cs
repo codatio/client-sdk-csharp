@@ -66,7 +66,7 @@ namespace CodatLending.Models.Shared
         /// Type of account
         /// </summary>
         [JsonProperty("type")]
-        public AccountIdentifierType Type { get; set; }
+        public AccountIdentifierType Type { get; set; } = default!;
         
     }
     

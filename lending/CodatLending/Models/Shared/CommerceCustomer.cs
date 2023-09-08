@@ -76,7 +76,7 @@ namespace CodatLending.Models.Shared
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }

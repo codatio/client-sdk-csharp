@@ -56,7 +56,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency { get; set; } = default!;
         
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.
@@ -89,7 +89,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// Identifier of the direct income, unique for the company.
@@ -122,13 +122,13 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("issueDate")]
-        public string IssueDate { get; set; }
+        public string IssueDate { get; set; } = default!;
         
         /// <summary>
         /// An array of line items.
         /// </summary>
         [JsonProperty("lineItems")]
-        public List<DirectIncomeLineItem> LineItems { get; set; }
+        public List<DirectIncomeLineItem> LineItems { get; set; } = default!;
         
         [JsonProperty("metadata")]
         public Metadata? Metadata { get; set; }
@@ -140,7 +140,7 @@ namespace CodatLending.Models.Shared
         public string? Note { get; set; }
         
         [JsonProperty("paymentAllocations")]
-        public List<AccountingPaymentAllocation> PaymentAllocations { get; set; }
+        public List<AccountingPaymentAllocation> PaymentAllocations { get; set; } = default!;
         
         /// <summary>
         /// User-friendly reference for the direct income.
@@ -155,14 +155,14 @@ namespace CodatLending.Models.Shared
         /// The total amount of the direct incomes, excluding any taxes.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float SubTotal { get; set; }
+        public decimal SubTotal { get; set; } = default!;
         
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. 
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -172,13 +172,13 @@ namespace CodatLending.Models.Shared
         /// The total amount of tax on the direct incomes.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float TaxAmount { get; set; }
+        public decimal TaxAmount { get; set; } = default!;
         
         /// <summary>
         /// The amount of the direct incomes, inclusive of tax.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; } = default!;
         
     }
     

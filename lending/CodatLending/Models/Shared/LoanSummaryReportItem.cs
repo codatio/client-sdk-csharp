@@ -19,7 +19,7 @@ namespace CodatLending.Models.Shared
         /// The loan outstanding balance.  This may not equal totalDrawdowns - totalRepayments due to interest which has been accrued.
         /// </summary>
         [JsonProperty("balance")]
-        public float? Balance { get; set; }
+        public decimal? Balance { get; set; }
         
         /// <summary>
         /// The description of the object being referred to. E.g. the account.
@@ -61,13 +61,13 @@ namespace CodatLending.Models.Shared
         /// The total loan drawdowns.
         /// </summary>
         [JsonProperty("totalDrawdowns")]
-        public float? TotalDrawdowns { get; set; }
+        public decimal? TotalDrawdowns { get; set; }
         
         /// <summary>
         /// The total loan repayments which includes capital plus any interest.
         /// </summary>
         [JsonProperty("totalRepayments")]
-        public float? TotalRepayments { get; set; }
+        public decimal? TotalRepayments { get; set; }
         
     }
     

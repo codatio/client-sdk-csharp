@@ -17,10 +17,10 @@ namespace CodatLending.Models.Operations
     public class GetCommerceRefundsMetricsRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// Shows the dimensionDisplayName and itemDisplayName in measures to make the report data human-readable.
@@ -32,25 +32,25 @@ namespace CodatLending.Models.Operations
         /// The number of periods to return. There will be no pagination as a query parameter.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=numberOfPeriods")]
-        public int NumberOfPeriods { get; set; }
+        public long NumberOfPeriods { get; set; } = default!;
         
         /// <summary>
         /// The number of months per period. E.g. 2 = 2 months per period.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=periodLength")]
-        public int PeriodLength { get; set; }
+        public long PeriodLength { get; set; } = default!;
         
         /// <summary>
         /// The period unit of time returned.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=periodUnit")]
-        public PeriodUnit PeriodUnit { get; set; }
+        public PeriodUnit PeriodUnit { get; set; } = default!;
         
         /// <summary>
         /// The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=reportDate")]
-        public string ReportDate { get; set; }
+        public string ReportDate { get; set; } = default!;
         
     }
     

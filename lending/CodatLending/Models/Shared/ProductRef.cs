@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         /// The unique identitifer of the product being referenced.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Name of the product being referenced.

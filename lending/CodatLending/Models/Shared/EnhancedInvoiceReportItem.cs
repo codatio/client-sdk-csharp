@@ -17,7 +17,7 @@ namespace CodatLending.Models.Shared
     public class EnhancedInvoiceReportItem
     {
         [JsonProperty("amountDue")]
-        public float? AmountDue { get; set; }
+        public decimal? AmountDue { get; set; }
         
         /// <summary>
         /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
@@ -152,7 +152,7 @@ namespace CodatLending.Models.Shared
         public InvoiceStatus? Status { get; set; }
         
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
     }
     

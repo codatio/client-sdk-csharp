@@ -14,9 +14,6 @@ namespace CodatLending.Models.Shared
     using System;
     
     
-    /// <summary>
-    /// A key for a Codat data type.
-    /// </summary>
     public enum DataIntegrityDataType
     {
     	[JsonProperty("banking-accounts")]
@@ -43,7 +40,12 @@ namespace CodatLending.Models.Shared
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (DataIntegrityDataType)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is DataIntegrityDataType)
+                    {
+                        return (DataIntegrityDataType)enumVal;
+                    }
                 }
             }
 

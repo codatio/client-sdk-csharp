@@ -22,13 +22,13 @@ namespace CodatLending.Models.Shared
         /// The unique identitifer of the tax component being referenced.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Name of the tax component being referenced.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
     }
     

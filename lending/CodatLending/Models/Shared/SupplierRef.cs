@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         /// The supplier's unique ID
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// The supplier's name

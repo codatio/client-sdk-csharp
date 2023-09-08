@@ -22,19 +22,19 @@ namespace CodatLending.Models.Shared
         /// The balance available in the account, including any pending transactions. This doesn't include additional funds available from any overdrafts.
         /// </summary>
         [JsonProperty("available")]
-        public float? Available { get; set; }
+        public decimal? Available { get; set; }
         
         /// <summary>
         /// The balance of the account only including cleared transactions.
         /// </summary>
         [JsonProperty("current")]
-        public float? Current { get; set; }
+        public decimal? Current { get; set; }
         
         /// <summary>
         /// The minimum allowed balance for the account. For example, a $100.00 overdraft would show as a limit of `-100.00`.
         /// </summary>
         [JsonProperty("limit")]
-        public float? Limit { get; set; }
+        public decimal? Limit { get; set; }
         
     }
     

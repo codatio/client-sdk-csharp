@@ -16,16 +16,16 @@ namespace CodatLending.Models.Operations
     public class GetCommerceOrderRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// Unique identifier for an order.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=orderId")]
-        public string OrderId { get; set; }
+        public string OrderId { get; set; } = default!;
         
     }
     

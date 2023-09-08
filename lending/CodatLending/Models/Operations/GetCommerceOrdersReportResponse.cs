@@ -24,7 +24,7 @@ namespace CodatLending.Models.Operations
         public CommerceReport? CommerceReport { get; set; }
         
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Your API request was not properly authorized.
@@ -33,7 +33,7 @@ namespace CodatLending.Models.Operations
         public ErrorMessage? ErrorMessage { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

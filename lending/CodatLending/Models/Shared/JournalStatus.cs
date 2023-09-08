@@ -41,7 +41,12 @@ namespace CodatLending.Models.Shared
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (JournalStatus)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is JournalStatus)
+                    {
+                        return (JournalStatus)enumVal;
+                    }
                 }
             }
 

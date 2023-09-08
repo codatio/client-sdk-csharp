@@ -24,10 +24,10 @@ namespace CodatLending.Models.Operations
         public BankingTransaction? BankingTransaction { get; set; }
         
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

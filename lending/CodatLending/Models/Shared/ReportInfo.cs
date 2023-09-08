@@ -34,13 +34,13 @@ namespace CodatLending.Models.Shared
         /// The number of the page queried.
         /// </summary>
         [JsonProperty("pageNumber")]
-        public int? PageNumber { get; set; }
+        public long? PageNumber { get; set; }
         
         /// <summary>
         /// The number of transactions returned per page.
         /// </summary>
         [JsonProperty("pageSize")]
-        public int? PageSize { get; set; }
+        public long? PageSize { get; set; }
         
         /// <summary>
         /// Name of the report
@@ -52,7 +52,7 @@ namespace CodatLending.Models.Shared
         /// The total number of transactions available for a company for the period specified in the query string.
         /// </summary>
         [JsonProperty("totalResults")]
-        public int? TotalResults { get; set; }
+        public long? TotalResults { get; set; }
         
     }
     

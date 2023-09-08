@@ -19,25 +19,25 @@ namespace CodatLending.Models.Shared
         /// The percentage of records of the type specified in the route which have a match.
         /// </summary>
         [JsonProperty("matchPercentage")]
-        public float? MatchPercentage { get; set; }
+        public decimal? MatchPercentage { get; set; }
         
         /// <summary>
         /// The number of records of the type specified in the route which do have a match.
         /// </summary>
         [JsonProperty("matched")]
-        public float? Matched { get; set; }
+        public decimal? Matched { get; set; }
         
         /// <summary>
         /// The total of unmatched and matched.
         /// </summary>
         [JsonProperty("total")]
-        public float? Total { get; set; }
+        public decimal? Total { get; set; }
         
         /// <summary>
         /// The number of records of the type specified in the route which don't have a match.
         /// </summary>
         [JsonProperty("unmatched")]
-        public float? Unmatched { get; set; }
+        public decimal? Unmatched { get; set; }
         
     }
     

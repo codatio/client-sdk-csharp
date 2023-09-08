@@ -19,7 +19,7 @@ namespace CodatSyncCommerce.Models.Shared
         /// The current authorization status of the data connection.
         /// </summary>
         [JsonProperty("status")]
-        public string? Status { get; set; }
+        public DataConnectionStatus? Status { get; set; }
         
     }
     

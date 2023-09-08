@@ -20,7 +20,7 @@ namespace CodatSyncCommerce.Models.Operations
         public VisibleAccounts? VisibleAccounts { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
-        public string PlatformKey { get; set; }
+        public string PlatformKey { get; set; } = default!;
         
     }
     

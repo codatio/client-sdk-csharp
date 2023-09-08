@@ -2,8 +2,10 @@ CodatSyncCommerce/AdvancedControls.cs
 CodatSyncCommerce/Connections.cs
 CodatSyncCommerce/Integrations.cs
 CodatSyncCommerce/Sync.cs
-CodatSyncCommerce/SyncFlowPreferences.cs
+CodatSyncCommerce/SyncFlowSettings.cs
 CodatSyncCommerce/CodatSyncCommerceSDK.cs
+CodatSyncCommerce/Utils/BigIntSerializer.cs
+CodatSyncCommerce/Utils/DecimalSerializer.cs
 CodatSyncCommerce/Utils/EnumSerializer.cs
 CodatSyncCommerce/Utils/FlexibleObjectDeserializer.cs
 CodatSyncCommerce/Utils/HeaderSerializer.cs
@@ -98,7 +100,7 @@ CodatSyncCommerce/Models/Shared/BrandingButton.cs
 CodatSyncCommerce/Models/Shared/Integrations.cs
 CodatSyncCommerce/Models/Shared/Integration.cs
 CodatSyncCommerce/Models/Shared/SourceType.cs
-CodatSyncCommerce/Models/Shared/DataTypeFeatureDataType.cs
+CodatSyncCommerce/Models/Shared/DataTypeFeatureDataTypes.cs
 CodatSyncCommerce/Models/Shared/DataTypeFeature.cs
 CodatSyncCommerce/Models/Shared/SupportedFeature.cs
 CodatSyncCommerce/Models/Shared/FeatureType.cs
@@ -117,7 +119,7 @@ docs/sdks/advancedcontrols/README.md
 docs/sdks/connections/README.md
 docs/sdks/integrations/README.md
 docs/sdks/sync/README.md
-docs/sdks/syncflowpreferences/README.md
+docs/sdks/syncflowsettings/README.md
 USAGE.md
 docs/models/operations/CreateCompanyResponse.md
 docs/models/operations/GetConfigurationRequest.md
@@ -201,7 +203,7 @@ docs/models/shared/BrandingButton.md
 docs/models/shared/Integrations.md
 docs/models/shared/Integration.md
 docs/models/shared/SourceType.md
-docs/models/shared/DataTypeFeatureDataType.md
+docs/models/shared/DataTypeFeatureDataTypes.md
 docs/models/shared/DataTypeFeature.md
 docs/models/shared/SupportedFeature.md
 docs/models/shared/FeatureType.md

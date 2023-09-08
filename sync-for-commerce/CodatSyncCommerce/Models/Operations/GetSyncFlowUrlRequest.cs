@@ -19,13 +19,13 @@ namespace CodatSyncCommerce.Models.Operations
         /// Accounting platform key
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountingKey")]
-        public string AccountingKey { get; set; }
+        public string AccountingKey { get; set; } = default!;
         
         /// <summary>
         /// Commerce platform key
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=commerceKey")]
-        public string CommerceKey { get; set; }
+        public string CommerceKey { get; set; } = default!;
         
         /// <summary>
         /// Identifier for your merchant, can be the merchant name or Codat company id.

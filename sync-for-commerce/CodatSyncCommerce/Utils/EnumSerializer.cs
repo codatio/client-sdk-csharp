@@ -33,7 +33,7 @@ namespace CodatSyncCommerce.Utils
             }
 
             var isInt = false;
-            var attributes = value.GetType().GetMember(value.ToString()).First().CustomAttributes;
+            var attributes = value.GetType().GetMember(value.ToString() ?? "").First().CustomAttributes;
             if(attributes.Count() == 0 || attributes.First().ConstructorArguments.Count() == 0)
             {
                 isInt = true;

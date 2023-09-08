@@ -23,7 +23,7 @@ namespace CodatSyncCommerce
         public IConnectionsSDK Connections { get; }
         public IIntegrationsSDK Integrations { get; }
         public ISyncSDK Sync { get; }
-        public ISyncFlowPreferencesSDK SyncFlowPreferences { get; }
+        public ISyncFlowSettingsSDK SyncFlowSettings { get; }
     }
     
     public class SDKConfig
@@ -39,8 +39,8 @@ namespace CodatSyncCommerce
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.107.0";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,7 +49,7 @@ namespace CodatSyncCommerce
         public IConnectionsSDK Connections { get; private set; }
         public IIntegrationsSDK Integrations { get; private set; }
         public ISyncSDK Sync { get; private set; }
-        public ISyncFlowPreferencesSDK SyncFlowPreferences { get; private set; }
+        public ISyncFlowSettingsSDK SyncFlowSettings { get; private set; }
 
         public CodatSyncCommerceSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
         {
@@ -71,7 +71,7 @@ namespace CodatSyncCommerce
             Connections = new ConnectionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Integrations = new IntegrationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Sync = new SyncSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            SyncFlowPreferences = new SyncFlowPreferencesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            SyncFlowSettings = new SyncFlowSettingsSDK(_defaultClient, _securityClient, _serverUrl, Config);
         }
     }
 }

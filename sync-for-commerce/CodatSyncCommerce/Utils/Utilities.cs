@@ -37,7 +37,7 @@ namespace CodatSyncCommerce.Utils
             );
         }
 
-        public static bool IsDictionary(object o)
+        public static bool IsDictionary(object? o)
         {
             if (o == null)
                 return false;
@@ -46,7 +46,7 @@ namespace CodatSyncCommerce.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(Dictionary<,>));
         }
 
-        public static bool IsList(object o)
+        public static bool IsList(object? o)
         {
             if (o == null)
                 return false;
@@ -55,11 +55,11 @@ namespace CodatSyncCommerce.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
         }
 
-        public static bool IsClass(object o)
+        public static bool IsClass(object? o)
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && o.GetType().FullName.StartsWith("SDK.Models");
+            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("CodatSyncCommerce.Models");
         }
 
         // TODO: code review polyfilled for IsAssignableTo
@@ -69,7 +69,7 @@ namespace CodatSyncCommerce.Utils
                 || potentialDescendant == potentialBase;
         }
 
-        public static bool IsString(object obj)
+        public static bool IsString(object? obj)
         {
             if (obj != null)
             {
@@ -100,8 +100,13 @@ namespace CodatSyncCommerce.Utils
             return input;
         }
 
-        public static string ValueToString(object value)
+        public static string ValueToString(object? value)
         {
+            if (value == null)
+            {
+                return "";
+            }
+
             if (value.GetType() == typeof(DateTime))
             {
                 return ((DateTime)value)
@@ -124,56 +129,61 @@ namespace CodatSyncCommerce.Utils
                     ?.GetMethod("Value");
                 if (method == null)
                 {
-                    return Convert.ChangeType(value, Enum.GetUnderlyingType(value.GetType())).ToString();
+                    return Convert.ChangeType(value, Enum.GetUnderlyingType(value.GetType()))?.ToString() ?? "";
                 }
-                return (string)method.Invoke(null, new[] { value });
+                return (string)(method.Invoke(null, new[] { value }) ?? "");
             }
 
-            return value.ToString();
+            return value.ToString() ?? "";
         }
 
-        public static string ToString(object obj)
+        public static string ToString(object? obj)
         {
-            if(obj == null)
+            if (obj == null)
             {
-                return null;
+                return "";
             }
 
-            if(IsString(obj))
+            if (IsString(obj))
             {
-                return obj.ToString();
+                return obj.ToString() ?? "";
             }
 
-            if(IsPrimitive(obj))
+            if (IsPrimitive(obj))
             {
                 return JsonConvert.SerializeObject(obj);
             }
 
-            if(IsEnum(obj))
+            if (IsEnum(obj))
             {
-                var attributes = obj.GetType().GetMember(obj.ToString()).First().CustomAttributes;
-                if(attributes.Count() == 0)
+                var attributes = obj.GetType().GetMember(obj.ToString() ?? "").First().CustomAttributes;
+                if (attributes.Count() == 0)
                 {
                     return JsonConvert.SerializeObject(obj);
                 }
 
                 var args = attributes.First().ConstructorArguments;
-                if(args.Count() == 0)
+                if (args.Count() == 0)
                 {
                     return JsonConvert.SerializeObject(obj);
                 }
                 return StripSurroundingQuotes(args.First().ToString());
             }
 
-            if(IsDate(obj))
+            if (IsDate(obj))
             {
                 return StripSurroundingQuotes(JsonConvert.SerializeObject(obj, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new IsoDateTimeSerializer(), new EnumSerializer() }}));
             }
             return JsonConvert.SerializeObject(obj, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new IsoDateTimeSerializer(), new EnumSerializer() }});
         }
 
-        public static bool IsContentTypeMatch(string expected, string actual)
+        public static bool IsContentTypeMatch(string expected, string? actual)
         {
+            if (actual == null)
+            {
+                return false;
+            }
+
             if (expected == actual || expected == "*" || expected == "*/*")
             {
                 return true;
@@ -181,7 +191,7 @@ namespace CodatSyncCommerce.Utils
 
             try
             {
-                var mediaType = MediaTypeHeaderValue.Parse(actual).MediaType;
+                var mediaType = MediaTypeHeaderValue.Parse(actual).MediaType ?? "";
 
                 if (expected == mediaType)
                 {

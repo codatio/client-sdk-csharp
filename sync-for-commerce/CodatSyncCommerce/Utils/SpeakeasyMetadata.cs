@@ -26,7 +26,7 @@ namespace CodatSyncCommerce.Utils
             public string Style { get; set; } = "form";
             public bool Explode { get; set; } = true;
             public bool Json { get; set; } = false;
-            public string? Name { get; set; } = null;
+            public string Name { get; set; } = "";
         }
 
         internal class MultipartFormMetadata
@@ -34,14 +34,14 @@ namespace CodatSyncCommerce.Utils
             public bool File { get; set; } = false;
             public bool Content { get; set; } = false;
             public bool Json { get; set; } = false;
-            public string? Name { get; set; } = null;
+            public string Name { get; set; } = "";
         }
 
         internal class PathParamMetadata
         {
             public string Style { get; set; } = "simple";
             public bool Explode { get; set; } = false;
-            public string? Name { get; set; } = null;
+            public string Name { get; set; } = "";
             public string? Serialization { get; set; } = null;
         }
 
@@ -49,7 +49,7 @@ namespace CodatSyncCommerce.Utils
         {
             public string Style { get; set; } = "form";
             public bool Explode { get; set; } = true;
-            public string? Name { get; set; } = null;
+            public string Name { get; set; } = "";
             public string? Serialization { get; set; } = null;
         }
 
@@ -57,7 +57,7 @@ namespace CodatSyncCommerce.Utils
         {
             public string Style { get; set; } = "simple";
             public bool Explode { get; set; } = false;
-            public string? Name { get; set; } = null;
+            public string Name { get; set; } = "";
         }
 
         internal class SecurityMetadata
@@ -66,7 +66,7 @@ namespace CodatSyncCommerce.Utils
             public string? SubType { get; set; } = null;
             public bool Option { get; set; } = false;
             public bool Scheme { get; set; } = false;
-            public string? Name { get; set; } = null;
+            public string Name { get; set; } = "";
         }
 
         public string Value { get; set; }

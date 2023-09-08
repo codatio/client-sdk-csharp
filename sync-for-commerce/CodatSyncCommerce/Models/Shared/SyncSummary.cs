@@ -14,9 +14,6 @@ namespace CodatSyncCommerce.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class SyncSummary
     {
         /// <summary>

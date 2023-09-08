@@ -19,7 +19,7 @@ namespace CodatSyncCommerce.Models.Operations
     public class GetConfigTextSyncFlowResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Success
@@ -28,7 +28,7 @@ namespace CodatSyncCommerce.Models.Operations
         public Dictionary<string, Localization>? LocalizationInfo { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

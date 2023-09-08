@@ -36,8 +36,7 @@ namespace CodatSyncExpenses.Utils
 
                 if (prop != null)
                 {
-                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                        ?.GetRequestMetadata();
+                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetRequestMetadata();
                     if (metadata != null)
                     {
                         var fieldValue = prop.GetValue(request);
@@ -141,16 +140,20 @@ namespace CodatSyncExpenses.Utils
                         continue;
                     }
 
-                    var keyName = metadata.Name ?? prop.Name;
-
                     if (metadata.Json)
                     {
-                        if (!form.ContainsKey(keyName))
+                        var key = metadata.Name ?? prop.Name;
+                        if (key == "")
                         {
-                            form.Add(keyName, new List<string>());
+                            continue;
                         }
 
-                        form[keyName].Add(Utilities.SerializeJSON(val));
+                        if (!form.ContainsKey(key))
+                        {
+                            form.Add(key, new List<string>());
+                        }
+
+                        form[key].Add(Utilities.SerializeJSON(val));
                     }
                     else
                     {
@@ -172,16 +175,21 @@ namespace CodatSyncExpenses.Utils
             }
             else if (Utilities.IsDictionary(request))
             {
-                foreach (var key in ((IDictionary)request).Keys)
+                foreach (var k in ((IDictionary)request).Keys)
                 {
-                    var keyName = key.ToString();
+                    var key = k?.ToString();
 
-                    if (!form.ContainsKey(keyName))
+                    if (key == null)
                     {
-                        form.Add(keyName, new List<string>());
+                        continue;
                     }
 
-                    form[keyName].Add(Utilities.ValueToString(((IDictionary)request)[key]));
+                    if (!form.ContainsKey(key))
+                    {
+                        form.Add(key, new List<string>());
+                    }
+
+                    form[key].Add(Utilities.ValueToString(((IDictionary)request)[key]));
                 }
             }
             else if (Utilities.IsList(request))
@@ -235,8 +243,7 @@ namespace CodatSyncExpenses.Utils
                     continue;
                 }
 
-                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                    ?.GetMultipartFormMetadata();
+                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetMultipartFormMetadata();
                 if (metadata == null)
                 {
                     continue;
@@ -272,12 +279,12 @@ namespace CodatSyncExpenses.Utils
 
                         if (fileMetadata.Content)
                         {
-                            content = (byte[])fileProp.GetValue(value);
+                            content = (byte[]?)fileProp.GetValue(value);
                         }
                         else
                         {
                             fieldName = fileMetadata.Name ?? fileProp.Name;
-                            fileName = fileProp.GetValue(value).ToString();
+                            fileName = fileProp.GetValue(value)?.ToString() ?? "";
                         }
                     }
 
@@ -365,8 +372,7 @@ namespace CodatSyncExpenses.Utils
                             continue;
                         }
 
-                        var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                            ?.GetFormMetadata();
+                        var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetFormMetadata();
                         if (metadata == null || metadata.Name == null)
                         {
                             continue;
@@ -402,16 +408,23 @@ namespace CodatSyncExpenses.Utils
             {
                 var items = new List<string>();
 
-                foreach (var key in ((IDictionary)value).Keys)
+                foreach (var k in ((IDictionary)value).Keys)
                 {
+                    var key = k?.ToString();
+
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     if (explode)
                     {
-                        if (!form.ContainsKey(key.ToString()))
+                        if (!form.ContainsKey(key))
                         {
-                            form[key.ToString()] = new List<string>();
+                            form[key] = new List<string>();
                         }
 
-                        form[key.ToString()].Add(
+                        form[key].Add(
                             Utilities.ValueToString(((IDictionary)value)[key])
                         );
                     }

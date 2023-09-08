@@ -14,9 +14,6 @@ namespace CodatSyncExpenses.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class MappingOptions
     {
         /// <summary>

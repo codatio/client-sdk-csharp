@@ -10,6 +10,8 @@ CodatSyncExpenses/Suppliers.cs
 CodatSyncExpenses/Sync.cs
 CodatSyncExpenses/TransactionStatus.cs
 CodatSyncExpenses/CodatSyncExpensesSDK.cs
+CodatSyncExpenses/Utils/BigIntSerializer.cs
+CodatSyncExpenses/Utils/DecimalSerializer.cs
 CodatSyncExpenses/Utils/EnumSerializer.cs
 CodatSyncExpenses/Utils/FlexibleObjectDeserializer.cs
 CodatSyncExpenses/Utils/HeaderSerializer.cs

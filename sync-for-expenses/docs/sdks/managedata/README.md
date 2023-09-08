@@ -107,7 +107,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "dolor",
+    Query = "quis",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "96fea759-6eb1-40fa-aa23-52c5955907af",
+    ConnectionId = "1a05dfc2-ddf7-4cc7-8ca1-ba928fc81674",
     DataType = CodatSyncExpenses.Models.Shared.DataType.Invoices,
 });
 

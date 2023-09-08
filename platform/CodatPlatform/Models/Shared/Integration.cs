@@ -29,7 +29,7 @@ namespace CodatPlatform.Models.Shared
         /// Whether this integration is enabled for your customers to use
         /// </summary>
         [JsonProperty("enabled")]
-        public bool Enabled { get; set; }
+        public bool Enabled { get; set; } = default!;
         
         /// <summary>
         /// A Codat ID representing the integration.
@@ -47,13 +47,13 @@ namespace CodatPlatform.Models.Shared
         /// A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys. 
         /// </summary>
         [JsonProperty("key")]
-        public string Key { get; set; }
+        public string Key { get; set; } = default!;
         
         [JsonProperty("logoUrl")]
-        public string LogoUrl { get; set; }
+        public string LogoUrl { get; set; } = default!;
         
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
         /// <summary>
         /// A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.

@@ -18,7 +18,7 @@ namespace CodatPlatform.Models.Operations
     public class UpdateProfileResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Your API request was not properly authorized.
@@ -33,7 +33,7 @@ namespace CodatPlatform.Models.Operations
         public Profile? Profile { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

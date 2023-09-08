@@ -228,9 +228,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
-        { "nulla", "corrupti" },
-        { "illum", "vel" },
-        { "error", "deserunt" },
+        { "unde", "nulla" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

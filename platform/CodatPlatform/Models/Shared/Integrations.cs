@@ -14,25 +14,22 @@ namespace CodatPlatform.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// OK
-    /// </summary>
     public class Integrations
     {
         [JsonProperty("_links")]
-        public Links Links { get; set; }
+        public Links Links { get; set; } = default!;
         
         [JsonProperty("pageNumber")]
-        public int PageNumber { get; set; }
+        public long PageNumber { get; set; } = default!;
         
         [JsonProperty("pageSize")]
-        public int PageSize { get; set; }
+        public long PageSize { get; set; } = default!;
         
         [JsonProperty("results")]
         public List<Integration>? Results { get; set; }
         
         [JsonProperty("totalResults")]
-        public int TotalResults { get; set; }
+        public long TotalResults { get; set; } = default!;
         
     }
     

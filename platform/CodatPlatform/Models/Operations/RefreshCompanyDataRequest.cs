@@ -16,7 +16,7 @@ namespace CodatPlatform.Models.Operations
     public class RefreshCompanyDataRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

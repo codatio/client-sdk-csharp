@@ -26,7 +26,7 @@ namespace CodatPlatform.Models.Shared
         public DataType? DataType { get; set; }
         
         [JsonProperty("supportedFeatures")]
-        public List<SupportedFeature> SupportedFeatures { get; set; }
+        public List<SupportedFeature> SupportedFeatures { get; set; } = default!;
         
     }
     

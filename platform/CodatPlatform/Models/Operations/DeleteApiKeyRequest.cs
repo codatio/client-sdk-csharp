@@ -19,7 +19,7 @@ namespace CodatPlatform.Models.Operations
         /// Unique identifier for api key.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiKeyId")]
-        public string ApiKeyId { get; set; }
+        public string ApiKeyId { get; set; } = default!;
         
     }
     

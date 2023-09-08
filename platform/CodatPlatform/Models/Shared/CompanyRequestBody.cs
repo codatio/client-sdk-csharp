@@ -25,7 +25,7 @@ namespace CodatPlatform.Models.Shared
         /// Name of company being connected.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
     }
     

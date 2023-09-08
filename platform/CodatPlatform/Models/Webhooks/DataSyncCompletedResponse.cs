@@ -17,10 +17,10 @@ namespace CodatPlatform.Models.Webhooks
     public class DataSyncCompletedResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

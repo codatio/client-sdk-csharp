@@ -19,13 +19,13 @@ namespace CodatPlatform.Models.Operations
     public class GetCompanyDataStatusResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// OK
         /// </summary>
         
-        public Dictionary<string, DataStatus>? DataStatusResponse { get; set; }
+        public Dictionary<string, DataStatus>? DataStatuses { get; set; }
         
         /// <summary>
         /// Your API request was not properly authorized.
@@ -34,7 +34,7 @@ namespace CodatPlatform.Models.Operations
         public ErrorMessage? ErrorMessage { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

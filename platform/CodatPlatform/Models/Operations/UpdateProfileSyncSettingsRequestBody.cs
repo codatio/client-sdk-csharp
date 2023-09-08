@@ -25,13 +25,13 @@ namespace CodatPlatform.Models.Operations
     public class UpdateProfileSyncSettingsRequestBody
     {
         [JsonProperty("clientId")]
-        public string ClientId { get; set; }
+        public string ClientId { get; set; } = default!;
         
         [JsonProperty("overridesDefaults")]
-        public bool OverridesDefaults { get; set; }
+        public bool OverridesDefaults { get; set; } = default!;
         
         [JsonProperty("settings")]
-        public List<SyncSetting> Settings { get; set; }
+        public List<SyncSetting> Settings { get; set; } = default!;
         
     }
     

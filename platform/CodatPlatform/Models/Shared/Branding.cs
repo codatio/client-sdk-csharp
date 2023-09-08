@@ -13,9 +13,6 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     
     
-    /// <summary>
-    /// OK
-    /// </summary>
     public class Branding
     {
         /// <summary>

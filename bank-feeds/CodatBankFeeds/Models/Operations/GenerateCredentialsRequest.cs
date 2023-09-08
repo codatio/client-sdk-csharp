@@ -16,13 +16,13 @@ namespace CodatBankFeeds.Models.Operations
     public class GenerateCredentialsRequest
     {
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public byte[] RequestBody { get; set; }
+        public byte[] RequestBody { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
     }
     

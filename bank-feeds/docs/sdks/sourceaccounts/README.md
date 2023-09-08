@@ -6,16 +6,36 @@ Source accounts act as a bridge to bank accounts in accounting software.
 
 ### Available Operations
 
-* [Create](#create) - Create a bank feed bank account
-* [Delete](#delete) - Delete bank feed bank account
+* [Create](#create) - Create source account
+* [Delete](#delete) - Delete source account
 * [DeleteCredentials](#deletecredentials) - Delete all source account credentials
 * [GenerateCredentials](#generatecredentials) - Generate source account credentials
-* [List](#list) - List bank feed bank accounts
-* [Update](#update) - Update bank feed bank account
+* [List](#list) - List source accounts
+* [Update](#update) - Update source account
 
 ## Create
 
-Post a BankFeed BankAccount for a single data source connected. to a single company.
+The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
+
+#### Account Mapping Variability
+
+The method of mapping the source account to the target account varies depending on the accounting package your company uses.
+
+#### Mapping Options:
+
+1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
+2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
+3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
+
+### Integration specific behaviour
+
+| Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
+| --------------------- | ----------- | ---------------- | --------------------------- |
+| Xero                  | ✅          | ✅               |                             |
+| FreeAgent             | ✅          | ✅               |                             |
+| QuickBooks Online     |             |                  | ✅                          |
+| Sage                  |             |                  | ✅                          |
+
 
 ### Example Usage
 
@@ -30,12 +50,12 @@ var sdk = new CodatBankFeedsSDK(
     }
 );
 
-var res = await sdk.SourceAccounts.CreateAsync(new CreateBankFeedRequest() {
-    BankFeedAccount = new BankFeedAccount() {
+var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() {
+    SourceAccount = new SourceAccount() {
         AccountName = "deserunt",
         AccountNumber = "suscipit",
         AccountType = "iure",
-        Balance = 2975.34F,
+        Balance = 2975.34M,
         Currency = "EUR",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
         Id = "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
@@ -52,21 +72,22 @@ var res = await sdk.SourceAccounts.CreateAsync(new CreateBankFeedRequest() {
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [CreateBankFeedRequest](../../models/operations/CreateBankFeedRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [CreateSourceAccountRequest](../../models/operations/CreateSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[CreateBankFeedResponse](../../models/operations/CreateBankFeedResponse.md)**
+**[CreateSourceAccountResponse](../../models/operations/CreateSourceAccountResponse.md)**
 
 
 ## Delete
 
-The *delete bank feed bank account* endpoint enables you to remove a source account.
+The _Delete source account_ endpoint enables you to remove a source account.
 
 Removing a source account will also remove any mapping between the source bank feed bank accounts and the target bankfeed bank account.
+
 
 ### Example Usage
 
@@ -81,7 +102,7 @@ var sdk = new CodatBankFeedsSDK(
     }
 );
 
-var res = await sdk.SourceAccounts.DeleteAsync(new DeleteBankFeedBankAccountRequest() {
+var res = await sdk.SourceAccounts.DeleteAsync(new DeleteSourceAccountRequest() {
     AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -92,14 +113,14 @@ var res = await sdk.SourceAccounts.DeleteAsync(new DeleteBankFeedBankAccountRequ
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [DeleteBankFeedBankAccountRequest](../../models/operations/DeleteBankFeedBankAccountRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [DeleteSourceAccountRequest](../../models/operations/DeleteSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[DeleteBankFeedBankAccountResponse](../../models/operations/DeleteBankFeedBankAccountResponse.md)**
+**[DeleteSourceAccountResponse](../../models/operations/DeleteSourceAccountResponse.md)**
 
 
 ## DeleteCredentials
@@ -184,10 +205,9 @@ var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredenti
 
 ## List
 
-﻿The *List bank feed bank accounts* endpoint returns a list of [bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
+﻿The _List source accounts_ endpoint returns a list of [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
 
-[Bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account from which transactions are synced into the accounting platform.
-
+[source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
 
 
 ### Example Usage
@@ -203,7 +223,7 @@ var sdk = new CodatBankFeedsSDK(
     }
 );
 
-var res = await sdk.SourceAccounts.ListAsync(new ListBankFeedsRequest() {
+var res = await sdk.SourceAccounts.ListAsync(new ListSourceAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -213,19 +233,20 @@ var res = await sdk.SourceAccounts.ListAsync(new ListBankFeedsRequest() {
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [ListBankFeedsRequest](../../models/operations/ListBankFeedsRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [ListSourceAccountsRequest](../../models/operations/ListSourceAccountsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListBankFeedsResponse](../../models/operations/ListBankFeedsResponse.md)**
+**[ListSourceAccountsResponse](../../models/operations/ListSourceAccountsResponse.md)**
 
 
 ## Update
 
-﻿The *Update bank feed bank account* endpoint updates a single bank feed bank account for a single data source connected to a single company.
+﻿The _Update source account_ endpoint updates a single source account for a single data connection connected to a single company.
+
 
 ### Example Usage
 
@@ -240,12 +261,12 @@ var sdk = new CodatBankFeedsSDK(
     }
 );
 
-var res = await sdk.SourceAccounts.UpdateAsync(new UpdateBankFeedRequest() {
-    BankFeedAccount = new BankFeedAccount() {
+var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() {
+    SourceAccount = new SourceAccount() {
         AccountName = "fugit",
         AccountNumber = "deleniti",
         AccountType = "hic",
-        Balance = 7586.16F,
+        Balance = 7586.16M,
         Currency = "USD",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
         Id = "6742cb73-9205-4929-b96f-ea7596eb10fa",
@@ -263,12 +284,12 @@ var res = await sdk.SourceAccounts.UpdateAsync(new UpdateBankFeedRequest() {
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [UpdateBankFeedRequest](../../models/operations/UpdateBankFeedRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [UpdateSourceAccountRequest](../../models/operations/UpdateSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[UpdateBankFeedResponse](../../models/operations/UpdateBankFeedResponse.md)**
+**[UpdateSourceAccountResponse](../../models/operations/UpdateSourceAccountResponse.md)**
 

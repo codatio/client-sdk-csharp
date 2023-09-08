@@ -11,19 +11,17 @@
 namespace CodatBankFeeds.Models.Operations
 {
     using CodatBankFeeds.Models.Shared;
-    using CodatBankFeeds.Utils;
+    using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     
-    public class CreateBankFeedRequest
+    public class CreateBankTransactionsCreateBankAccountTransactions
     {
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public BankFeedAccount? BankFeedAccount { get; set; }
+        [JsonProperty("accountId")]
+        public string? AccountId { get; set; }
         
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
-        
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        [JsonProperty("transactions")]
+        public List<Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction>? Transactions { get; set; }
         
     }
     

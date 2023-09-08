@@ -18,7 +18,7 @@ namespace CodatBankFeeds.Models.Operations
     public class ListCreateOperationsResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Your `query` parameter was not correctly formed
@@ -30,10 +30,10 @@ namespace CodatBankFeeds.Models.Operations
         /// OK
         /// </summary>
         
-        public ListPushOperations? ListPushOperations { get; set; }
+        public PushOperations? PushOperations { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

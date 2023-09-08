@@ -13,10 +13,13 @@ namespace CodatBankFeeds.Models.Operations
     using CodatBankFeeds.Utils;
     
     
-    public class CreateBankAccountMappingRequest
+    public class DeleteSourceAccountRequest
     {
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CreateBankAccountMappingBankFeedAccountMapping? RequestBody { get; set; }
+        /// <summary>
+        /// Unique identifier for an account
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountId")]
+        public string AccountId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;

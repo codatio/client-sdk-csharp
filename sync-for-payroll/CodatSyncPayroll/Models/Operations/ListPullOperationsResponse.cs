@@ -18,13 +18,7 @@ namespace CodatSyncPayroll.Models.Operations
     public class ListPullOperationsResponse
     {
         
-        public string? ContentType { get; set; }
-        
-        /// <summary>
-        /// OK
-        /// </summary>
-        
-        public DataConnectionHistory? DataConnectionHistory { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Your `query` parameter was not correctly formed
@@ -32,8 +26,14 @@ namespace CodatSyncPayroll.Models.Operations
         
         public ErrorMessage? ErrorMessage { get; set; }
         
+        /// <summary>
+        /// OK
+        /// </summary>
         
-        public int StatusCode { get; set; }
+        public PullOperations? PullOperations { get; set; }
+        
+        
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

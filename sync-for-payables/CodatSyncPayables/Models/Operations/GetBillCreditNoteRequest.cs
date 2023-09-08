@@ -16,10 +16,10 @@ namespace CodatSyncPayables.Models.Operations
     public class GetBillCreditNoteRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billCreditNoteId")]
-        public string BillCreditNoteId { get; set; }
+        public string BillCreditNoteId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

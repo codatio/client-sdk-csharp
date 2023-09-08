@@ -16,7 +16,7 @@ namespace CodatSyncPayables.Models.Operations
     public class ListPullOperationsRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).

@@ -16,10 +16,10 @@ namespace CodatSyncPayables.Models.Shared
     public class BillWithholdingTax
     {
         [JsonProperty("amount")]
-        public float Amount { get; set; }
+        public decimal Amount { get; set; } = default!;
         
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
     }
     

@@ -18,7 +18,7 @@ namespace CodatSyncPayables.Models.Operations
     public class CreateJournalEntryResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Success
@@ -33,7 +33,7 @@ namespace CodatSyncPayables.Models.Operations
         public ErrorMessage? ErrorMessage { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

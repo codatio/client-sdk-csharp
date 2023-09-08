@@ -37,7 +37,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Amount for the journal line. Debit entries are considered positive, and credit entries are considered negative.
         /// </summary>
         [JsonProperty("netAmount")]
-        public float NetAmount { get; set; }
+        public decimal NetAmount { get; set; } = default!;
         
         /// <summary>
         /// List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)

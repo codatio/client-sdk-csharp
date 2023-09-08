@@ -22,7 +22,7 @@ namespace CodatSyncPayables.Models.Shared
         /// GUID of the underlying journal.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Name of journal

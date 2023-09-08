@@ -212,10 +212,10 @@ namespace CodatSyncPayables.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         [JsonProperty("date")]
-        public string Date { get; set; }
+        public string Date { get; set; } = default!;
         
         /// <summary>
         /// Identifier for the bill payment, unique for the company in the accounting platform.
@@ -258,7 +258,7 @@ namespace CodatSyncPayables.Models.Shared
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -271,7 +271,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Amount of the payment in the payment currency. This value never changes and represents the amount of money that is paid into the supplier's account.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
     }
     

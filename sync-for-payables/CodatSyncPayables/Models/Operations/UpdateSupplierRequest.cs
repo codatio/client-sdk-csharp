@@ -20,10 +20,10 @@ namespace CodatSyncPayables.Models.Operations
         public Supplier? Supplier { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting platform, if they're different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
@@ -35,7 +35,7 @@ namespace CodatSyncPayables.Models.Operations
         /// Unique identifier for a supplier
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=supplierId")]
-        public string SupplierId { get; set; }
+        public string SupplierId { get; set; } = default!;
         
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }

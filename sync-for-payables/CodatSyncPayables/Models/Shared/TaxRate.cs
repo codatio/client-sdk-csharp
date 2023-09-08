@@ -54,7 +54,7 @@ namespace CodatSyncPayables.Models.Shared
         /// See Effective tax rates description.
         /// </summary>
         [JsonProperty("effectiveTaxRate")]
-        public float? EffectiveTaxRate { get; set; }
+        public decimal? EffectiveTaxRate { get; set; }
         
         /// <summary>
         /// Identifier for the tax rate, unique for the company in the accounting platform.
@@ -93,7 +93,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Total (not compounded) sum of the components of a tax rate.
         /// </summary>
         [JsonProperty("totalTaxRate")]
-        public float? TotalTaxRate { get; set; }
+        public decimal? TotalTaxRate { get; set; }
         
         [JsonProperty("validDatatypeLinks")]
         public List<ValidDatatypeLinksitems>? ValidDatatypeLinks { get; set; }

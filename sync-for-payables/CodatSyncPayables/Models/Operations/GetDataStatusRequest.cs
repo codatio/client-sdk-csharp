@@ -16,7 +16,7 @@ namespace CodatSyncPayables.Models.Operations
     public class GetDataStatusRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

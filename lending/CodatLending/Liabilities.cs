@@ -29,8 +29,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.107.0";
+        private const string _sdkVersion = "0.3.1";
+        private const string _sdkGenVersion = "2.107.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,7 +49,7 @@ namespace CodatLending
         /// Get loan summaries
         /// 
         /// <remarks>
-        /// The *Get enhanced loan summaries* endpoint returns a summary by integration type of all loans identified in each integration.
+        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified in each integration.
         /// 
         /// The endpoint returns a list of a company's [loan summaries](https://docs.codat.io/lending-api#/schemas/LoanSummary) for each valid data connection.
         /// 
@@ -109,7 +109,7 @@ namespace CodatLending
         /// List loan transactions
         /// 
         /// <remarks>
-        /// The *List enhanced loan transactions* endpoint returns all [loan transactions](https://docs.codat.io/lending-api#/schemas/LoanTransactions) identified from a company's accounting, banking, and commerce integrations.
+        /// The *List loan transactions* endpoint returns all [loan transactions](https://docs.codat.io/lending-api#/schemas/LoanTransactions) identified from a company's accounting, banking, and commerce integrations.
         /// 
         /// This detail gives analysts a better idea of the loan obligations a company may have.
         /// 

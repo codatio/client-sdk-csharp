@@ -53,7 +53,7 @@ var res = await sdk.ExcelReports.DownloadAsync(new DownloadExcelReportRequest() 
 
 ## Generate
 
-﻿The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.
+The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.
 
 In response, the endpoint returns the [status](https://docs.codat.io/lending-api#/schemas/ExcelStatus) detailing the current state of the report generation request.
 

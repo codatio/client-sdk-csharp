@@ -50,8 +50,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.107.0";
+        private const string _sdkVersion = "0.3.1";
+        private const string _sdkGenVersion = "2.107.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -841,7 +841,7 @@ namespace CodatLending
         /// Get reconciled invoices
         /// 
         /// <remarks>
-        /// Gets a list of invoices linked to the corresponding banking transaction
+        /// The _Get reconciled invoices_ endpoint gets a list of invoices linked to the corresponding banking transaction
         /// </remarks>
         /// </summary>
         public async Task<GetReconciledInvoicesResponse> GetReconciledInvoicesAsync(GetReconciledInvoicesRequest? request = null)

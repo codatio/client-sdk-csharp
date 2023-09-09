@@ -138,7 +138,7 @@ var res = await sdk.FinancialStatements.GetCashFlowStatementAsync(new GetAccount
 
 ## GetCategorizedBalanceSheet
 
-﻿The *Get enhanced balance sheet accounts* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
+The *Get categorized balance sheet statement* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
 
 Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
 
@@ -178,7 +178,7 @@ var res = await sdk.FinancialStatements.GetCategorizedBalanceSheetAsync(new GetC
 
 ## GetCategorizedProfitAndLoss
 
-﻿The *Get enhanced profit and loss accounts* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.
+The *Get categorized profit and loss statement* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.
 
 Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
 

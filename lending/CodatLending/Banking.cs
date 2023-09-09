@@ -35,8 +35,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.107.0";
+        private const string _sdkVersion = "0.3.1";
+        private const string _sdkGenVersion = "2.107.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -218,7 +218,7 @@ namespace CodatLending
         /// > 
         /// > The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
         /// 
-        /// The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
+        /// The _Get categorized bank statement_ endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
         /// </remarks>
         /// </summary>
         public async Task<GetCategorizedBankStatementResponse> GetCategorizedBankStatementAsync(GetCategorizedBankStatementRequest? request = null)

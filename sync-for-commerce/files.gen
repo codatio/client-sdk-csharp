@@ -40,8 +40,6 @@ CodatSyncCommerce/Models/Operations/GetIntegrationBrandingRequest.cs
 CodatSyncCommerce/Models/Operations/GetIntegrationBrandingResponse.cs
 CodatSyncCommerce/Models/Operations/ListIntegrationsRequest.cs
 CodatSyncCommerce/Models/Operations/ListIntegrationsResponse.cs
-CodatSyncCommerce/Models/Operations/GetSyncByIdRequest.cs
-CodatSyncCommerce/Models/Operations/GetSyncByIdResponse.cs
 CodatSyncCommerce/Models/Operations/GetLastSuccessfulSyncRequest.cs
 CodatSyncCommerce/Models/Operations/GetLastSuccessfulSyncResponse.cs
 CodatSyncCommerce/Models/Operations/GetLatestSyncRequest.cs
@@ -106,8 +104,9 @@ CodatSyncCommerce/Models/Shared/SupportedFeature.cs
 CodatSyncCommerce/Models/Shared/FeatureType.cs
 CodatSyncCommerce/Models/Shared/FeatureState.cs
 CodatSyncCommerce/Models/Shared/CompanySyncStatus.cs
+CodatSyncCommerce/Models/Shared/SyncStatus.cs
+CodatSyncCommerce/Models/Shared/SyncSummarySyncDateRangeUtc.cs
 CodatSyncCommerce/Models/Shared/SyncSummary.cs
-CodatSyncCommerce/Models/Shared/DateRange.cs
 CodatSyncCommerce/Models/Shared/SyncToLatestArgs.cs
 CodatSyncCommerce/Models/Shared/SyncRangeDateRange.cs
 CodatSyncCommerce/Models/Shared/SyncRange.cs
@@ -143,8 +142,6 @@ docs/models/operations/GetIntegrationBrandingRequest.md
 docs/models/operations/GetIntegrationBrandingResponse.md
 docs/models/operations/ListIntegrationsRequest.md
 docs/models/operations/ListIntegrationsResponse.md
-docs/models/operations/GetSyncByIdRequest.md
-docs/models/operations/GetSyncByIdResponse.md
 docs/models/operations/GetLastSuccessfulSyncRequest.md
 docs/models/operations/GetLastSuccessfulSyncResponse.md
 docs/models/operations/GetLatestSyncRequest.md
@@ -209,8 +206,9 @@ docs/models/shared/SupportedFeature.md
 docs/models/shared/FeatureType.md
 docs/models/shared/FeatureState.md
 docs/models/shared/CompanySyncStatus.md
+docs/models/shared/SyncStatus.md
+docs/models/shared/SyncSummarySyncDateRangeUtc.md
 docs/models/shared/SyncSummary.md
-docs/models/shared/DateRange.md
 docs/models/shared/SyncToLatestArgs.md
 docs/models/shared/SyncRangeDateRange.md
 docs/models/shared/SyncRange.md

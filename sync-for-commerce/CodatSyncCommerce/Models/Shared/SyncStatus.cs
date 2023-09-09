@@ -14,7 +14,10 @@ namespace CodatSyncCommerce.Models.Shared
     using System.Collections.Generic;
     
     
-    public class SyncSummary
+    /// <summary>
+    /// The status of syncing for a company and its connections.
+    /// </summary>
+    public class SyncStatus
     {
         /// <summary>
         /// Unique identifier for the sync in Codat.
@@ -22,11 +25,8 @@ namespace CodatSyncCommerce.Models.Shared
         [JsonProperty("commerceSyncId")]
         public string? CommerceSyncId { get; set; }
         
-        /// <summary>
-        /// Unique identifier for your SMB in Codat.
-        /// </summary>
         [JsonProperty("companyId")]
-        public string? CompanyId { get; set; }
+        public object? CompanyId { get; set; }
         
         /// <summary>
         /// Array of containing objects data connection information for the company.
@@ -46,9 +46,6 @@ namespace CodatSyncCommerce.Models.Shared
         [JsonProperty("errorMessage")]
         public string? ErrorMessage { get; set; }
         
-        [JsonProperty("syncDateRangeUtc")]
-        public SyncSummarySyncDateRangeUtc? SyncDateRangeUtc { get; set; }
-        
         /// <summary>
         /// Exception message for the sync operation.
         /// </summary>
@@ -56,10 +53,16 @@ namespace CodatSyncCommerce.Models.Shared
         public string? SyncExceptionMessage { get; set; }
         
         /// <summary>
+        /// Unique identifier for the sync in Codat.
+        /// </summary>
+        [JsonProperty("syncId")]
+        public string? SyncId { get; set; }
+        
+        /// <summary>
         /// Status of the sync of the company data. This is linked to status code.
         /// </summary>
         [JsonProperty("syncStatus")]
-        public string? SyncStatus { get; set; }
+        public string? SyncStatusValue { get; set; }
         
         /// <summary>
         /// Numerical status code sync of the company data.

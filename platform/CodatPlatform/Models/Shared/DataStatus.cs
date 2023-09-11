@@ -19,10 +19,10 @@ namespace CodatPlatform.Models.Shared
     public class DataStatus
     {
         [JsonProperty("currentStatus")]
-        public string CurrentStatus { get; set; }
+        public string CurrentStatus { get; set; } = default!;
         
         [JsonProperty("dataType")]
-        public string DataType { get; set; }
+        public string DataType { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -49,7 +49,7 @@ namespace CodatPlatform.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("lastSuccessfulSync")]
-        public string LastSuccessfulSync { get; set; }
+        public string LastSuccessfulSync { get; set; } = default!;
         
         [JsonProperty("latestSuccessfulSyncId")]
         public string? LatestSuccessfulSyncId { get; set; }

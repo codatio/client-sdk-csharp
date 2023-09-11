@@ -26,10 +26,10 @@ namespace CodatPlatform.Models.Operations
         /// Data types that support supplemental data
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public ConfigureSupplementalDataDataType DataType { get; set; }
+        public ConfigureSupplementalDataDataType DataType { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
-        public string PlatformKey { get; set; }
+        public string PlatformKey { get; set; } = default!;
         
     }
     

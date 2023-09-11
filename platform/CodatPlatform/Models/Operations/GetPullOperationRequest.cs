@@ -16,13 +16,13 @@ namespace CodatPlatform.Models.Operations
     public class GetPullOperationRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Unique ID of a dataset or pull operation.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=datasetId")]
-        public string DatasetId { get; set; }
+        public string DatasetId { get; set; } = default!;
         
     }
     

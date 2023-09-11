@@ -22,10 +22,10 @@ namespace CodatPlatform.Models.Shared
         public string? CompanyId { get; set; }
         
         [JsonProperty("notifiers")]
-        public CreateRuleNotifiers Notifiers { get; set; }
+        public CreateRuleNotifiers Notifiers { get; set; } = default!;
         
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Type { get; set; } = default!;
         
     }
     

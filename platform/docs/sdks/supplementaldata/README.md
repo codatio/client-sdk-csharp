@@ -34,22 +34,19 @@ var sdk = new CodatPlatformSDK(
 var res = await sdk.SupplementalData.ConfigureAsync(new ConfigureSupplementalDataRequest() {
     SupplementalDataConfiguration = new SupplementalDataConfiguration() {
         SupplementalDataConfig = new Dictionary<string, SupplementalDataConfigurationSupplementalDataSourceConfiguration>() {
-            { "reiciendis", new SupplementalDataConfigurationSupplementalDataSourceConfiguration() {
-                DataSource = "est",
+            { "dolor", new SupplementalDataConfigurationSupplementalDataSourceConfiguration() {
+                DataSource = "natus",
                 PullData = new Dictionary<string, string>() {
-                    { "laborum", "dolores" },
-                    { "dolorem", "corporis" },
-                    { "explicabo", "nobis" },
+                    { "laboriosam", "hic" },
                 },
                 PushData = new Dictionary<string, string>() {
-                    { "omnis", "nemo" },
-                    { "minima", "excepturi" },
+                    { "saepe", "fuga" },
                 },
             } },
         },
     },
     DataType = CodatPlatform.Models.Operations.ConfigureSupplementalDataDataType.Invoices,
-    PlatformKey = "accusantium",
+    PlatformKey = "in",
 });
 
 // handle response
@@ -88,7 +85,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.SupplementalData.GetConfigurationAsync(new GetSupplementalDataConfigurationRequest() {
     DataType = CodatPlatform.Models.Operations.GetSupplementalDataConfigurationDataType.Invoices,
-    PlatformKey = "iure",
+    PlatformKey = "corporis",
 });
 
 // handle response

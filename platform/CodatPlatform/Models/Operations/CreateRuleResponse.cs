@@ -18,7 +18,7 @@ namespace CodatPlatform.Models.Operations
     public class CreateRuleResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Your API request was not properly authorized.
@@ -26,17 +26,17 @@ namespace CodatPlatform.Models.Operations
         
         public ErrorMessage? ErrorMessage { get; set; }
         
+        
+        public int StatusCode { get; set; } = default!;
+        
+        
+        public HttpResponseMessage? RawResponse { get; set; }
+        
         /// <summary>
         /// OK
         /// </summary>
         
-        public Rule? Rule { get; set; }
-        
-        
-        public int StatusCode { get; set; }
-        
-        
-        public HttpResponseMessage? RawResponse { get; set; }
+        public Webhook? Webhook { get; set; }
         
     }
     

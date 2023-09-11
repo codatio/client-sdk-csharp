@@ -18,7 +18,7 @@ namespace CodatPlatform.Models.Operations
     public class ListRulesResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Your `query` parameter was not correctly formed
@@ -26,17 +26,17 @@ namespace CodatPlatform.Models.Operations
         
         public ErrorMessage? ErrorMessage { get; set; }
         
+        
+        public int StatusCode { get; set; } = default!;
+        
+        
+        public HttpResponseMessage? RawResponse { get; set; }
+        
         /// <summary>
         /// OK
         /// </summary>
         
-        public Rules? Rules { get; set; }
-        
-        
-        public int StatusCode { get; set; }
-        
-        
-        public HttpResponseMessage? RawResponse { get; set; }
+        public Webhooks? Webhooks { get; set; }
         
     }
     

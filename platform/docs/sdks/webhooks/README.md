@@ -31,12 +31,10 @@ var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
     Notifiers = new CreateRuleNotifiers() {
         Emails = new List<string>() {
             "info@client.com",
-            "info@client.com",
-            "info@client.com",
         },
         Webhook = "https://webhook.client.com",
     },
-    Type = "doloribus",
+    Type = "iste",
 });
 
 // handle response
@@ -111,7 +109,7 @@ var res = await sdk.Webhooks.ListAsync(new ListRulesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "sapiente",
+    Query = "iure",
 });
 
 // handle response

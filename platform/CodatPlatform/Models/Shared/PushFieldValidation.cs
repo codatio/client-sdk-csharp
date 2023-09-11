@@ -16,7 +16,7 @@ namespace CodatPlatform.Models.Shared
     public class PushFieldValidation
     {
         [JsonProperty("details")]
-        public string Details { get; set; }
+        public string Details { get; set; } = default!;
         
         [JsonProperty("field")]
         public string? Field { get; set; }

@@ -38,10 +38,10 @@ namespace CodatPlatform.Models.Shared
         public string? LogoUrl { get; set; }
         
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
         [JsonProperty("redirectUrl")]
-        public string RedirectUrl { get; set; }
+        public string RedirectUrl { get; set; } = default!;
         
         [JsonProperty("whiteListUrls")]
         public List<string>? WhiteListUrls { get; set; }

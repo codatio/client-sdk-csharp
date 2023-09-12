@@ -57,7 +57,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetCustomerAsync(new GetCommerceCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "accusantium",
+    CustomerId = "excepturi",
 });
 
 // handle response
@@ -124,9 +124,9 @@ var res = await sdk.Sales.GetCustomerRetentionMetricsAsync(new GetCommerceCustom
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 438601,
-    PeriodLength = 634274,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Year,
+    NumberOfPeriods = 38425,
+    PeriodLength = 438601,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
     ReportDate = "29-09-2020",
 });
 
@@ -172,7 +172,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetDisputeAsync(new GetCommerceDisputeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DisputeId = "sapiente",
+    DisputeId = "doloribus",
 });
 
 // handle response
@@ -233,9 +233,9 @@ var res = await sdk.Sales.GetLifetimeValueMetricsAsync(new GetCommerceLifetimeVa
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 102044,
-    PeriodLength = 652790,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Day,
+    NumberOfPeriods = 958950,
+    PeriodLength = 102044,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
     ReportDate = "29-09-2020",
 });
 
@@ -281,7 +281,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetLocationAsync(new GetCommerceLocationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    LocationId = "culpa",
+    LocationId = "dolorem",
 });
 
 // handle response
@@ -326,7 +326,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetOrderAsync(new GetCommerceOrderRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    OrderId = "consequuntur",
+    OrderId = "culpa",
 });
 
 // handle response
@@ -388,8 +388,8 @@ var res = await sdk.Sales.GetOrdersReportAsync(new GetCommerceOrdersReportReques
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 995300,
-    PeriodLength = 653108,
+    NumberOfPeriods = 161309,
+    PeriodLength = 995300,
     PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
     ReportDate = "29-09-2020",
 });
@@ -436,7 +436,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetPaymentAsync(new GetCommercePaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    PaymentId = "numquam",
+    PaymentId = "occaecati",
 });
 
 // handle response
@@ -481,7 +481,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetPaymentMethodAsync(new GetCommercePaymentMethodRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    PaymentMethodId = "commodi",
+    PaymentMethodId = "numquam",
 });
 
 // handle response
@@ -526,7 +526,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetProductAsync(new GetCommerceProductRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    ProductId = "quam",
+    ProductId = "commodi",
 });
 
 // handle response
@@ -571,7 +571,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetProductCategoryAsync(new GetCommerceProductCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    ProductId = "molestiae",
+    ProductId = "quam",
 });
 
 // handle response
@@ -634,9 +634,9 @@ var res = await sdk.Sales.GetRefundsReportAsync(new GetCommerceRefundsMetricsReq
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 244425,
-    PeriodLength = 623510,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Day,
+    NumberOfPeriods = 474697,
+    PeriodLength = 244425,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
     ReportDate = "29-09-2020",
 });
 
@@ -699,9 +699,9 @@ var res = await sdk.Sales.GetRevenueMetricsAsync(new GetCommerceRevenueMetricsRe
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 338007,
-    PeriodLength = 110375,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
+    NumberOfPeriods = 158969,
+    PeriodLength = 338007,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Day,
     ReportDate = "29-09-2020",
 });
 
@@ -747,7 +747,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Sales.GetTransactionAsync(new GetCommerceTransactionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TransactionId = "animi",
+    TransactionId = "laborum",
 });
 
 // handle response
@@ -793,7 +793,7 @@ var res = await sdk.Sales.ListCustomersAsync(new ListCommerceCustomersRequest() 
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "enim",
+    Query = "animi",
 });
 
 // handle response
@@ -839,7 +839,7 @@ var res = await sdk.Sales.ListDisputesAsync(new ListCommerceDisputesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "odit",
+    Query = "enim",
 });
 
 // handle response
@@ -927,7 +927,7 @@ var res = await sdk.Sales.ListOrdersAsync(new ListCommerceOrdersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quo",
+    Query = "odit",
 });
 
 // handle response
@@ -973,7 +973,7 @@ var res = await sdk.Sales.ListPaymentMethodsAsync(new ListCommercePaymentMethods
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "sequi",
+    Query = "quo",
 });
 
 // handle response
@@ -1019,7 +1019,7 @@ var res = await sdk.Sales.ListPaymentsAsync(new ListCommercePaymentsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "tenetur",
+    Query = "sequi",
 });
 
 // handle response
@@ -1065,7 +1065,7 @@ var res = await sdk.Sales.ListProductCategoriesAsync(new ListCommerceProductCate
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "ipsam",
+    Query = "tenetur",
 });
 
 // handle response
@@ -1111,7 +1111,7 @@ var res = await sdk.Sales.ListProductsAsync(new ListCommerceProductsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "id",
+    Query = "ipsam",
 });
 
 // handle response
@@ -1157,7 +1157,7 @@ var res = await sdk.Sales.ListTransactionsAsync(new ListCommerceTransactionsRequ
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "possimus",
+    Query = "id",
 });
 
 // handle response

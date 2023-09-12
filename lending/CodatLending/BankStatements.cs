@@ -19,7 +19,7 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface IBankingSDK
+    public interface IBankStatementsSDK
     {
         Task<GetBankingAccountResponse> GetBankAccountAsync(GetBankingAccountRequest? request = null);
         Task<GetBankingTransactionResponse> GetBankTransactionAsync(GetBankingTransactionRequest? request = null);
@@ -31,18 +31,18 @@ namespace CodatLending
         Task<ListBankingTransactionsResponse> ListBankTransactionsAsync(ListBankingTransactionsRequest? request = null);
     }
 
-    public class BankingSDK: IBankingSDK
+    public class BankStatementsSDK: IBankStatementsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.1";
-        private const string _sdkGenVersion = "2.107.3";
+        private const string _sdkVersion = "0.3.2";
+        private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public BankingSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public BankStatementsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

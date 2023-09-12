@@ -1,4 +1,4 @@
-# banking
+# bankStatements
 
 ## Overview
 
@@ -39,8 +39,8 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.GetBankAccountAsync(new GetBankingAccountRequest() {
-    AccountId = "molestiae",
+var res = await sdk.BankStatements.GetBankAccountAsync(new GetBankingAccountRequest() {
+    AccountId = "maiores",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -84,10 +84,10 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.GetBankTransactionAsync(new GetBankingTransactionRequest() {
+var res = await sdk.BankStatements.GetBankTransactionAsync(new GetBankingTransactionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TransactionId = "quod",
+    TransactionId = "molestiae",
 });
 
 // handle response
@@ -129,7 +129,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.GetBankTransactionCategoryAsync(new GetBankingTransactionCategoryRequest() {
+var res = await sdk.BankStatements.GetBankTransactionCategoryAsync(new GetBankingTransactionCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     TransactionCategoryId = "quod",
@@ -171,11 +171,11 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.GetCategorizedBankStatementAsync(new GetCategorizedBankStatementRequest() {
+var res = await sdk.BankStatements.GetCategorizedBankStatementAsync(new GetCategorizedBankStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Page = 1,
     PageSize = 100,
-    Query = "esse",
+    Query = "quod",
 });
 
 // handle response
@@ -215,13 +215,13 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.ListBankAccountBalancesAsync(new ListBankingAccountBalancesRequest() {
+var res = await sdk.BankStatements.ListBankAccountBalancesAsync(new ListBankingAccountBalancesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "totam",
+    Query = "esse",
 });
 
 // handle response
@@ -261,13 +261,13 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.ListBankAccountsAsync(new ListBankingAccountsRequest() {
+var res = await sdk.BankStatements.ListBankAccountsAsync(new ListBankingAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "porro",
+    Query = "totam",
 });
 
 // handle response
@@ -307,13 +307,13 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.ListBankTransactionCategoriesAsync(new ListBankingTransactionCategoriesRequest() {
+var res = await sdk.BankStatements.ListBankTransactionCategoriesAsync(new ListBankingTransactionCategoriesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "dolorum",
+    Query = "porro",
 });
 
 // handle response
@@ -353,13 +353,13 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.Banking.ListBankTransactionsAsync(new ListBankingTransactionsRequest() {
+var res = await sdk.BankStatements.ListBankTransactionsAsync(new ListBankingTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "dicta",
+    Query = "dolorum",
 });
 
 // handle response

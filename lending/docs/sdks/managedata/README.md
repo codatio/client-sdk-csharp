@@ -107,7 +107,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "ad",
+    Query = "perferendis",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "929396fe-a759-46eb-90fa-aa2352c59559",
+    ConnectionId = "5929396f-ea75-496e-b10f-aaa2352c5955",
     DataType = CodatLending.Models.Shared.DataType.Invoices,
 });
 

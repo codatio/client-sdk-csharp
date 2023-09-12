@@ -46,7 +46,7 @@ var res = await sdk.Transactions.DownloadDirectCostAttachmentAsync(new DownloadA
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "aut",
+    DirectCostId = "possimus",
 });
 
 // handle response
@@ -89,7 +89,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.Transactions.GetAccountTransactionAsync(new GetAccountingAccountTransactionRequest() {
-    AccountTransactionId = "quasi",
+    AccountTransactionId = "aut",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -136,7 +136,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Transactions.GetDirectCostAsync(new GetAccountingDirectCostRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "error",
+    DirectCostId = "quasi",
 });
 
 // handle response
@@ -180,7 +180,7 @@ var res = await sdk.Transactions.GetDirectCostAttachmentAsync(new GetAccountingD
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "temporibus",
+    DirectCostId = "error",
 });
 
 // handle response
@@ -224,7 +224,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Transactions.GetJournalAsync(new GetAccountingJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "laborum",
+    JournalId = "temporibus",
 });
 
 // handle response
@@ -268,7 +268,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Transactions.GetJournalEntryAsync(new GetAccountingJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "quasi",
+    JournalEntryId = "laborum",
 });
 
 // handle response
@@ -313,7 +313,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Transactions.GetTransferAsync(new GetAccountingTransferRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TransferId = "reiciendis",
+    TransferId = "quasi",
 });
 
 // handle response
@@ -359,7 +359,7 @@ var res = await sdk.Transactions.ListAccountTransactionsAsync(new ListAccounting
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "voluptatibus",
+    Query = "reiciendis",
 });
 
 // handle response
@@ -402,7 +402,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Transactions.ListDirectCostAttachmentsAsync(new ListAccountingDirectCostAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "vero",
+    DirectCostId = "voluptatibus",
 });
 
 // handle response
@@ -448,7 +448,7 @@ var res = await sdk.Transactions.ListDirectCostsAsync(new ListAccountingDirectCo
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "nihil",
+    Query = "vero",
 });
 
 // handle response
@@ -493,7 +493,7 @@ var res = await sdk.Transactions.ListJournalEntriesAsync(new ListAccountingJourn
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "praesentium",
+    Query = "nihil",
 });
 
 // handle response
@@ -538,7 +538,7 @@ var res = await sdk.Transactions.ListJournalsAsync(new ListAccountingJournalsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "voluptatibus",
+    Query = "praesentium",
 });
 
 // handle response
@@ -584,7 +584,7 @@ var res = await sdk.Transactions.ListTransfersAsync(new ListAccountingTransfersR
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "ipsa",
+    Query = "voluptatibus",
 });
 
 // handle response

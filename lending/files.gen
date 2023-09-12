@@ -1,7 +1,7 @@
 CodatLending/AccountingBankData.cs
 CodatLending/AccountsPayable.cs
 CodatLending/AccountsReceivable.cs
-CodatLending/Banking.cs
+CodatLending/BankStatements.cs
 CodatLending/Companies.cs
 CodatLending/CompanyInfo.cs
 CodatLending/Connections.cs
@@ -28,6 +28,8 @@ CodatLending/Utils/URLBuilder.cs
 CodatLending/Utils/Utilities.cs
 CodatLending/CodatLending.csproj
 CodatLending.sln
+CodatLending/Models/Operations/GetAccountingProfileRequest.cs
+CodatLending/Models/Operations/GetAccountingProfileResponse.cs
 CodatLending/Models/Operations/GetAccountingBankAccountRequest.cs
 CodatLending/Models/Operations/GetAccountingBankAccountResponse.cs
 CodatLending/Models/Operations/ListAccountingBankAccountsRequest.cs
@@ -137,8 +139,6 @@ CodatLending/Models/Operations/ListCompaniesRequest.cs
 CodatLending/Models/Operations/ListCompaniesResponse.cs
 CodatLending/Models/Operations/UpdateCompanyRequest.cs
 CodatLending/Models/Operations/UpdateCompanyResponse.cs
-CodatLending/Models/Operations/GetAccountingProfileRequest.cs
-CodatLending/Models/Operations/GetAccountingProfileResponse.cs
 CodatLending/Models/Operations/GetCommerceProfileRequest.cs
 CodatLending/Models/Operations/GetCommerceProfileResponse.cs
 CodatLending/Models/Operations/CreateConnectionRequestBody.cs
@@ -274,6 +274,13 @@ CodatLending/Models/Operations/ListAccountingJournalsResponse.cs
 CodatLending/Models/Operations/ListAccountingTransfersRequest.cs
 CodatLending/Models/Operations/ListAccountingTransfersResponse.cs
 CodatLending/Models/Shared/ErrorMessage.cs
+CodatLending/Models/Shared/AccountingCompanyInfoAccountingAddress.cs
+CodatLending/Models/Shared/AccountingCompanyInfoPhone.cs
+CodatLending/Models/Shared/AccountingCompanyInfoWeblinkType.cs
+CodatLending/Models/Shared/AccountingCompanyInfoWeblink.cs
+CodatLending/Models/Shared/AccountingCompanyInfo.cs
+CodatLending/Models/Shared/PhoneNumberType.cs
+CodatLending/Models/Shared/AccountingAddressType.cs
 CodatLending/Models/Shared/AccountingBankAccount.cs
 CodatLending/Models/Shared/Metadata.cs
 CodatLending/Models/Shared/AccountingBankAccountType.cs
@@ -320,7 +327,6 @@ CodatLending/Models/Shared/BillPaymentLineLinkType.cs
 CodatLending/Models/Shared/AccountingSupplier.cs
 CodatLending/Models/Shared/SupplierStatus.cs
 CodatLending/Models/Shared/Addressesitems.cs
-CodatLending/Models/Shared/AccountingAddressType.cs
 CodatLending/Models/Shared/Attachments.cs
 CodatLending/Models/Shared/AccountingBillCreditNotes.cs
 CodatLending/Models/Shared/AccountingBillPayments.cs
@@ -338,7 +344,6 @@ CodatLending/Models/Shared/AccountingCustomer.cs
 CodatLending/Models/Shared/CustomerStatus.cs
 CodatLending/Models/Shared/Contact.cs
 CodatLending/Models/Shared/Items.cs
-CodatLending/Models/Shared/PhoneNumberType.cs
 CodatLending/Models/Shared/AccountingDirectIncome.cs
 CodatLending/Models/Shared/DirectIncomeLineItem.cs
 CodatLending/Models/Shared/ContactRef.cs
@@ -390,11 +395,6 @@ CodatLending/Models/Shared/DataConnectionStatus.cs
 CodatLending/Models/Shared/DataConnectionError.cs
 CodatLending/Models/Shared/CompanyRequestBody.cs
 CodatLending/Models/Shared/Companies.cs
-CodatLending/Models/Shared/AccountingCompanyInfoAccountingAddress.cs
-CodatLending/Models/Shared/AccountingCompanyInfoPhone.cs
-CodatLending/Models/Shared/AccountingCompanyInfoWeblinkType.cs
-CodatLending/Models/Shared/AccountingCompanyInfoWeblink.cs
-CodatLending/Models/Shared/AccountingCompanyInfo.cs
 CodatLending/Models/Shared/CommerceCompanyInfo.cs
 CodatLending/Models/Shared/ItemsType.cs
 CodatLending/Models/Shared/WebLinksitems.cs
@@ -534,7 +534,7 @@ docs/sdks/codatlending/README.md
 docs/sdks/accountingbankdata/README.md
 docs/sdks/accountspayable/README.md
 docs/sdks/accountsreceivable/README.md
-docs/sdks/banking/README.md
+docs/sdks/bankstatements/README.md
 docs/sdks/companies/README.md
 docs/sdks/companyinfo/README.md
 docs/sdks/connections/README.md
@@ -547,6 +547,8 @@ docs/sdks/managedata/README.md
 docs/sdks/sales/README.md
 docs/sdks/transactions/README.md
 USAGE.md
+docs/models/operations/GetAccountingProfileRequest.md
+docs/models/operations/GetAccountingProfileResponse.md
 docs/models/operations/GetAccountingBankAccountRequest.md
 docs/models/operations/GetAccountingBankAccountResponse.md
 docs/models/operations/ListAccountingBankAccountsRequest.md
@@ -656,8 +658,6 @@ docs/models/operations/ListCompaniesRequest.md
 docs/models/operations/ListCompaniesResponse.md
 docs/models/operations/UpdateCompanyRequest.md
 docs/models/operations/UpdateCompanyResponse.md
-docs/models/operations/GetAccountingProfileRequest.md
-docs/models/operations/GetAccountingProfileResponse.md
 docs/models/operations/GetCommerceProfileRequest.md
 docs/models/operations/GetCommerceProfileResponse.md
 docs/models/operations/CreateConnectionRequestBody.md
@@ -793,6 +793,13 @@ docs/models/operations/ListAccountingJournalsResponse.md
 docs/models/operations/ListAccountingTransfersRequest.md
 docs/models/operations/ListAccountingTransfersResponse.md
 docs/models/shared/ErrorMessage.md
+docs/models/shared/AccountingCompanyInfoAccountingAddress.md
+docs/models/shared/AccountingCompanyInfoPhone.md
+docs/models/shared/AccountingCompanyInfoWeblinkType.md
+docs/models/shared/AccountingCompanyInfoWeblink.md
+docs/models/shared/AccountingCompanyInfo.md
+docs/models/shared/PhoneNumberType.md
+docs/models/shared/AccountingAddressType.md
 docs/models/shared/AccountingBankAccount.md
 docs/models/shared/Metadata.md
 docs/models/shared/AccountingBankAccountType.md
@@ -839,7 +846,6 @@ docs/models/shared/BillPaymentLineLinkType.md
 docs/models/shared/AccountingSupplier.md
 docs/models/shared/SupplierStatus.md
 docs/models/shared/Addressesitems.md
-docs/models/shared/AccountingAddressType.md
 docs/models/shared/Attachments.md
 docs/models/shared/AccountingBillCreditNotes.md
 docs/models/shared/AccountingBillPayments.md
@@ -857,7 +863,6 @@ docs/models/shared/AccountingCustomer.md
 docs/models/shared/CustomerStatus.md
 docs/models/shared/Contact.md
 docs/models/shared/Items.md
-docs/models/shared/PhoneNumberType.md
 docs/models/shared/AccountingDirectIncome.md
 docs/models/shared/DirectIncomeLineItem.md
 docs/models/shared/ContactRef.md
@@ -909,11 +914,6 @@ docs/models/shared/DataConnectionStatus.md
 docs/models/shared/DataConnectionError.md
 docs/models/shared/CompanyRequestBody.md
 docs/models/shared/Companies.md
-docs/models/shared/AccountingCompanyInfoAccountingAddress.md
-docs/models/shared/AccountingCompanyInfoPhone.md
-docs/models/shared/AccountingCompanyInfoWeblinkType.md
-docs/models/shared/AccountingCompanyInfoWeblink.md
-docs/models/shared/AccountingCompanyInfo.md
 docs/models/shared/CommerceCompanyInfo.md
 docs/models/shared/ItemsType.md
 docs/models/shared/WebLinksitems.md

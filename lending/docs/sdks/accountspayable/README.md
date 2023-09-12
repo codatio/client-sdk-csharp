@@ -47,7 +47,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.DownloadBillAttachmentAsync(new DownloadAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "nulla",
+    BillId = "unde",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -93,7 +93,7 @@ var res = await sdk.AccountsPayable.DownloadSupplierAttachmentAsync(new Download
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "corrupti",
+    SupplierId = "nulla",
 });
 
 // handle response
@@ -176,7 +176,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.GetBillAsync(new GetAccountingBillRequest() {
-    BillId = "illum",
+    BillId = "corrupti",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -219,7 +219,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.GetBillAttachmentAsync(new GetAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "vel",
+    BillId = "illum",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -264,7 +264,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.GetBillCreditNoteAsync(new GetAccountingBillCreditNoteRequest() {
-    BillCreditNoteId = "error",
+    BillCreditNoteId = "vel",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -308,7 +308,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.GetBillPaymentAsync(new GetAccountingBillPaymentRequest() {
-    BillPaymentId = "deserunt",
+    BillPaymentId = "error",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -353,7 +353,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.GetSupplierAsync(new GetAccountingSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "suscipit",
+    SupplierId = "deserunt",
 });
 
 // handle response
@@ -397,7 +397,7 @@ var res = await sdk.AccountsPayable.GetSupplierAttachmentAsync(new GetAccounting
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "iure",
+    SupplierId = "suscipit",
 });
 
 // handle response
@@ -474,7 +474,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.ListBillAttachmentsAsync(new ListAccountingBillAttachmentsRequest() {
-    BillId = "magnam",
+    BillId = "iure",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -521,7 +521,7 @@ var res = await sdk.AccountsPayable.ListBillCreditNotesAsync(new ListAccountingB
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "debitis",
+    Query = "magnam",
 });
 
 // handle response
@@ -566,7 +566,7 @@ var res = await sdk.AccountsPayable.ListBillPaymentsAsync(new ListAccountingBill
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "ipsa",
+    Query = "debitis",
 });
 
 // handle response
@@ -611,7 +611,7 @@ var res = await sdk.AccountsPayable.ListBillsAsync(new ListAccountingBillsReques
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "delectus",
+    Query = "ipsa",
 });
 
 // handle response
@@ -654,7 +654,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsPayable.ListSupplierAttachmentsAsync(new ListAccountingSupplierAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "tempora",
+    SupplierId = "delectus",
 });
 
 // handle response
@@ -699,7 +699,7 @@ var res = await sdk.AccountsPayable.ListSuppliersAsync(new ListAccountingSupplie
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "suscipit",
+    Query = "tempora",
 });
 
 // handle response

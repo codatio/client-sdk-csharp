@@ -21,7 +21,7 @@ The Lending API is built on top of the latest accounting, commerce, and banking 
 | Accounts receivable  | Data from a linked accounting platform representing money owed to the business for sold goods or services. |
 | Transactions         | Data from a linked accounting platform representing transactions.                                          |
 | Financial statements | Financial data and reports from a linked accounting platform.                                              |
-| Banking              | Retrieve banking data from linked bank accounts.                                                           |
+| Bank statements              | Retrieve banking data from linked bank accounts.                                                           |
 | Sales                | Retrieve standardized sales data from a linked commerce platform.                                          |
 | Liabilities          | Debt and other liabilities.                                                                                |
 | Data integrity       | Match mutable accounting data with immutable banking data to increase confidence in financial data.        |
@@ -31,4 +31,41 @@ The Lending API is built on top of the latest accounting, commerce, and banking 
 | File upload          | Endpoints to manage uploaded files.                                                                        |
 
 ### Available Operations
+
+* [GetAccountingProfile](#getaccountingprofile) - Get company accounting profile
+
+## GetAccountingProfile
+
+Gets the latest basic info for a company.
+
+### Example Usage
+
+```csharp
+using CodatLending;
+using CodatLending.Models.Shared;
+using CodatLending.Models.Operations;
+
+var sdk = new CodatLendingSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.Codat.Lending.GetAccountingProfileAsync(new GetAccountingProfileRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetAccountingProfileRequest](../../models/operations/GetAccountingProfileRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+
+### Response
+
+**[GetAccountingProfileResponse](../../models/operations/GetAccountingProfileResponse.md)**
 

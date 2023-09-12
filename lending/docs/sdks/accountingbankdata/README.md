@@ -35,7 +35,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountingBankData.GetAccountAsync(new GetAccountingBankAccountRequest() {
-    AccountId = "provident",
+    AccountId = "corrupti",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -83,7 +83,7 @@ var res = await sdk.AccountingBankData.ListAccountsAsync(new ListAccountingBankA
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "distinctio",
+    Query = "provident",
 });
 
 // handle response
@@ -126,13 +126,13 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingBankAccountTransactionsRequest() {
-    AccountId = "quibusdam",
+    AccountId = "distinctio",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "unde",
+    Query = "quibusdam",
 });
 
 // handle response

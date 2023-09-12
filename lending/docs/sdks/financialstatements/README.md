@@ -39,7 +39,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.FinancialStatements.GetAccountAsync(new GetAccountingAccountRequest() {
-    AccountId = "qui",
+    AccountId = "modi",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -157,7 +157,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.FinancialStatements.GetCategorizedBalanceSheetAsync(new GetCategorizedBalanceSheetStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    NumberOfPeriods = 456150,
+    NumberOfPeriods = 736918,
     ReportDate = "29-09-2020",
 });
 
@@ -197,7 +197,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.FinancialStatements.GetCategorizedProfitAndLossAsync(new GetCategorizedProfitAndLossStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    NumberOfPeriods = 216550,
+    NumberOfPeriods = 456150,
     ReportDate = "29-09-2020",
 });
 
@@ -281,7 +281,7 @@ var res = await sdk.FinancialStatements.ListAccountsAsync(new ListAccountingAcco
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "aspernatur",
+    Query = "excepturi",
 });
 
 // handle response

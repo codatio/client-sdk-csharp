@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 33240ea1ce0ce85ba4815fee3c681873
+  docChecksum: 842bc096dd1d244d6b0ec069d58f13e4
   docVersion: prealpha
-  speakeasyVersion: 1.82.0
-  generationVersion: 2.107.0
+  speakeasyVersion: 1.82.5
+  generationVersion: 2.108.3
 generation:
   sdkClassName: Codat.Sync.Expenses
   singleTagPerOp: false
@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.5.0
+  version: 0.5.1
   author: Codat
   description: Push expenses to accounting platforms.
   dotnetVersion: net6.0

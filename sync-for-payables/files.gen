@@ -27,6 +27,12 @@ CodatSyncPayables/Utils/URLBuilder.cs
 CodatSyncPayables/Utils/Utilities.cs
 CodatSyncPayables/CodatSyncPayables.csproj
 CodatSyncPayables.sln
+CodatSyncPayables/Models/Operations/GetAccountingProfileRequest.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationPhone.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationWeblinkType.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationWeblink.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformation.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileResponse.cs
 CodatSyncPayables/Models/Operations/CreateAccountRequest.cs
 CodatSyncPayables/Models/Operations/CreateAccountResponse.cs
 CodatSyncPayables/Models/Operations/GetAccountRequest.cs
@@ -146,6 +152,9 @@ CodatSyncPayables/Models/Operations/GetTrackingCategoryResponse.cs
 CodatSyncPayables/Models/Operations/ListTrackingCategoriesRequest.cs
 CodatSyncPayables/Models/Operations/ListTrackingCategoriesResponse.cs
 CodatSyncPayables/Models/Shared/ErrorMessage.cs
+CodatSyncPayables/Models/Shared/Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType.cs
+CodatSyncPayables/Models/Shared/Addressesitems.cs
+CodatSyncPayables/Models/Shared/AccountingAddressType.cs
 CodatSyncPayables/Models/Shared/CreateAccountResponse.cs
 CodatSyncPayables/Models/Shared/Validation.cs
 CodatSyncPayables/Models/Shared/ValidationItem.cs
@@ -244,7 +253,6 @@ CodatSyncPayables/Models/Shared/CreateSupplierResponse.cs
 CodatSyncPayables/Models/Shared/SupplierAccountingAddress.cs
 CodatSyncPayables/Models/Shared/Supplier.cs
 CodatSyncPayables/Models/Shared/SupplierStatus.cs
-CodatSyncPayables/Models/Shared/AccountingAddressType.cs
 CodatSyncPayables/Models/Shared/Suppliers.cs
 CodatSyncPayables/Models/Shared/UpdateSupplierResponse.cs
 CodatSyncPayables/Models/Shared/TaxRate.cs
@@ -273,6 +281,12 @@ docs/sdks/suppliers/README.md
 docs/sdks/taxrates/README.md
 docs/sdks/trackingcategories/README.md
 USAGE.md
+docs/models/operations/GetAccountingProfileRequest.md
+docs/models/operations/GetAccountingProfileCompanyInformationPhone.md
+docs/models/operations/GetAccountingProfileCompanyInformationWeblinkType.md
+docs/models/operations/GetAccountingProfileCompanyInformationWeblink.md
+docs/models/operations/GetAccountingProfileCompanyInformation.md
+docs/models/operations/GetAccountingProfileResponse.md
 docs/models/operations/CreateAccountRequest.md
 docs/models/operations/CreateAccountResponse.md
 docs/models/operations/GetAccountRequest.md
@@ -392,6 +406,9 @@ docs/models/operations/GetTrackingCategoryResponse.md
 docs/models/operations/ListTrackingCategoriesRequest.md
 docs/models/operations/ListTrackingCategoriesResponse.md
 docs/models/shared/ErrorMessage.md
+docs/models/shared/Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType.md
+docs/models/shared/Addressesitems.md
+docs/models/shared/AccountingAddressType.md
 docs/models/shared/CreateAccountResponse.md
 docs/models/shared/Validation.md
 docs/models/shared/ValidationItem.md
@@ -490,7 +507,6 @@ docs/models/shared/CreateSupplierResponse.md
 docs/models/shared/SupplierAccountingAddress.md
 docs/models/shared/Supplier.md
 docs/models/shared/SupplierStatus.md
-docs/models/shared/AccountingAddressType.md
 docs/models/shared/Suppliers.md
 docs/models/shared/UpdateSupplierResponse.md
 docs/models/shared/TaxRate.md

@@ -41,23 +41,23 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
     BillPayment = new BillPayment() {
         AccountRef = new AccountRef() {
-            Id = "756082d6-8ea1-49f1-9170-51339d08086a",
-            Name = "Mrs. Priscilla Fritsch",
+            Id = "4bdb04f1-5756-4082-968e-a19f1d170513",
+            Name = "Ms. Cora Spencer IV",
         },
-        Currency = "GBP",
-        CurrencyRate = 7710.89M,
+        Currency = "USD",
+        CurrencyRate = 6498.32M,
         Date = "2022-10-23T00:00:00.000Z",
         Id = "3d5a8e00-d108-4045-8823-7f342676cffa",
         Lines = new List<BillPaymentLine>() {
             new BillPaymentLine() {
                 AllocatedOnDate = "2022-10-23T00:00:00.000Z",
-                Amount = 120.36M,
+                Amount = 2519.41M,
                 Links = new List<BillPaymentLineLink>() {
                     new BillPaymentLineLink() {
-                        Amount = 4910.25M,
-                        CurrencyRate = 1154.84M,
-                        Id = "f93f5f06-42da-4c7a-b515-cc413aa63aae",
-                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.BillPayment,
+                        Amount = 324.65M,
+                        CurrencyRate = 2211.61M,
+                        Id = "94c26071-f93f-45f0-a42d-ac7af515cc41",
+                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.Bill,
                     },
                 },
             },
@@ -67,25 +67,25 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Note = "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-        PaymentMethodRef = "vel",
-        Reference = "ducimus",
+        PaymentMethodRef = "id",
+        Reference = "suscipit",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "vel", new Dictionary<string, object>() {
-                    { "labore", "possimus" },
+                { "culpa", new Dictionary<string, object>() {
+                    { "est", "recusandae" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
-            Id = "bb675fd5-e60b-4375-ad4f-6fbee41f3331",
-            SupplierName = "dignissimos",
+            Id = "8d67864d-bb67-45fd-9e60-b375ed4f6fbe",
+            SupplierName = "necessitatibus",
         },
         TotalAmount = 1329.54M,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 950953,
+    TimeoutInMinutes = 296556,
 });
 
 // handle response
@@ -143,7 +143,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.BillPayments.DeleteAsync(new DeleteBillPaymentRequest() {
-    BillPaymentId = "debitis",
+    BillPaymentId = "sunt",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -187,7 +187,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.BillPayments.GetAsync(new GetBillPaymentsRequest() {
-    BillPaymentId = "consectetur",
+    BillPaymentId = "asperiores",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -279,7 +279,7 @@ var res = await sdk.BillPayments.ListAsync(new ListBillPaymentsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "corporis",
+    Query = "adipisci",
 });
 
 // handle response

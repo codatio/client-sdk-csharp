@@ -6,12 +6,50 @@ Initiate and monitor the sync of company data into accounting software.
 
 ### Available Operations
 
+* [Get](#get) - Get sync status
 * [GetLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
 * [GetLatestSync](#getlatestsync) - Latest sync status
 * [GetStatus](#getstatus) - Get sync status
 * [List](#list) - List sync statuses
 * [Request](#request) - Initiate new sync
 * [RequestForDateRange](#requestfordaterange) - Initiate sync for specific range
+
+## Get
+
+Get the sync status for a specified sync
+
+### Example Usage
+
+```csharp
+using CodatSyncCommerce;
+using CodatSyncCommerce.Models.Shared;
+using CodatSyncCommerce.Models.Operations;
+
+var sdk = new CodatSyncCommerceSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.Sync.GetAsync(new GetSyncByIdRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [GetSyncByIdRequest](../../models/operations/GetSyncByIdRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+
+
+### Response
+
+**[GetSyncByIdResponse](../../models/operations/GetSyncByIdResponse.md)**
+
 
 ## GetLastSuccessfulSync
 

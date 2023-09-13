@@ -20,6 +20,7 @@ namespace CodatSyncCommerce
     public interface ICodatSyncCommerceSDK
     {
         public IAdvancedControlsSDK AdvancedControls { get; }
+        public ICompaniesSDK Companies { get; }
         public IConnectionsSDK Connections { get; }
         public IIntegrationsSDK Integrations { get; }
         public ISyncSDK Sync { get; }
@@ -39,13 +40,14 @@ namespace CodatSyncCommerce
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.2";
+        private const string _sdkVersion = "0.4.3";
         private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public IAdvancedControlsSDK AdvancedControls { get; private set; }
+        public ICompaniesSDK Companies { get; private set; }
         public IConnectionsSDK Connections { get; private set; }
         public IIntegrationsSDK Integrations { get; private set; }
         public ISyncSDK Sync { get; private set; }
@@ -68,6 +70,7 @@ namespace CodatSyncCommerce
             };
 
             AdvancedControls = new AdvancedControlsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Companies = new CompaniesSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Connections = new ConnectionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Integrations = new IntegrationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Sync = new SyncSDK(_defaultClient, _securityClient, _serverUrl, Config);

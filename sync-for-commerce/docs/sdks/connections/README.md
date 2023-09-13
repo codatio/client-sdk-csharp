@@ -3,10 +3,7 @@
 ### Available Operations
 
 * [Create](#create) - Create connection
-* [GetSyncFlowUrl](#getsyncflowurl) - Start new sync flow
 * [List](#list) - List connections
-* [UpdateAuthorization](#updateauthorization) - Update authorization
-* [UpdateConnection](#updateconnection) - Update connection
 
 ## Create
 
@@ -29,7 +26,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "provident",
+        PlatformKey = "illum",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -47,44 +44,6 @@ var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
 ### Response
 
 **[CreateConnectionResponse](../../models/operations/CreateConnectionResponse.md)**
-
-
-## GetSyncFlowUrl
-
-Create a new company and connections. Get a URL for Sync Flow, including a one time passcode.
-
-### Example Usage
-
-```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
-
-var sdk = new CodatSyncCommerceSDK(
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
-
-var res = await sdk.Connections.GetSyncFlowUrlAsync(new GetSyncFlowUrlRequest() {
-    AccountingKey = "distinctio",
-    CommerceKey = "quibusdam",
-    MerchantIdentifier = "unde",
-});
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [GetSyncFlowUrlRequest](../../models/operations/GetSyncFlowUrlRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
-
-
-### Response
-
-**[GetSyncFlowUrlResponse](../../models/operations/GetSyncFlowUrlResponse.md)**
 
 
 ## List
@@ -109,7 +68,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "nulla",
+    Query = "vel",
 });
 
 // handle response
@@ -125,84 +84,4 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
 ### Response
 
 **[ListConnectionsResponse](../../models/operations/ListConnectionsResponse.md)**
-
-
-## UpdateAuthorization
-
-Update data connection's authorization.
-
-### Example Usage
-
-```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
-
-var sdk = new CodatSyncCommerceSDK(
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
-
-var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
-    RequestBody = new Dictionary<string, string>() {
-        { "corrupti", "illum" },
-    },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [UpdateConnectionAuthorizationRequest](../../models/operations/UpdateConnectionAuthorizationRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
-
-
-### Response
-
-**[UpdateConnectionAuthorizationResponse](../../models/operations/UpdateConnectionAuthorizationResponse.md)**
-
-
-## UpdateConnection
-
-Update a data connection
-
-### Example Usage
-
-```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
-
-var sdk = new CodatSyncCommerceSDK(
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
-
-var res = await sdk.Connections.UpdateConnectionAsync(new UpdateConnectionRequest() {
-    UpdateConnection = new UpdateConnection() {
-        Status = CodatSyncCommerce.Models.Shared.DataConnectionStatus.Linked,
-    },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [UpdateConnectionRequest](../../models/operations/UpdateConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
-
-
-### Response
-
-**[UpdateConnectionResponse](../../models/operations/UpdateConnectionResponse.md)**
 

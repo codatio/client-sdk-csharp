@@ -19,15 +19,14 @@ namespace CodatSyncCommerce
     using System.Threading.Tasks;
     using System;
 
-    public interface IAdvancedControlsSDK
+    public interface ICompaniesSDK
     {
-        Task<CreateCompanyResponse> CreateCompanyAsync(CreateCompany? request = null);
-        Task<GetConfigurationResponse> GetConfigurationAsync(GetConfigurationRequest? request = null);
-        Task<ListCompaniesResponse> ListCompaniesAsync(ListCompaniesRequest? request = null);
-        Task<SetConfigurationResponse> SetConfigurationAsync(SetConfigurationRequest? request = null);
+        Task<GetSyncFlowUrlResponse> GetSyncFlowUrlAsync(GetSyncFlowUrlRequest? request = null);
+        Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null);
+        Task<UpdateConnectionResponse> UpdateConnectionAsync(UpdateConnectionRequest? request = null);
     }
 
-    public class AdvancedControlsSDK: IAdvancedControlsSDK
+    public class CompaniesSDK: ICompaniesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
@@ -38,7 +37,7 @@ namespace CodatSyncCommerce
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public AdvancedControlsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public CompaniesSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -48,26 +47,72 @@ namespace CodatSyncCommerce
         
 
         /// <summary>
-        /// Create company
+        /// Start new sync flow
         /// 
         /// <remarks>
-        /// Creates a Codat company..
+        /// Create a new company and connections. Get a URL for Sync Flow, including a one time passcode.
         /// </remarks>
         /// </summary>
-        public async Task<CreateCompanyResponse> CreateCompanyAsync(CreateCompany? request = null)
+        public async Task<GetSyncFlowUrlResponse> GetSyncFlowUrlAsync(GetSyncFlowUrlRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = baseUrl + "/companies";
+            var urlString = URLBuilder.Build(baseUrl, "/config/sync/commerce/{commerceKey}/{accountingKey}/start", request);
             
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new GetSyncFlowUrlResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                {
+                    response.SyncFlowUrl = JsonConvert.DeserializeObject<SyncFlowUrl>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        /// <summary>
+        /// Update authorization
+        /// 
+        /// <remarks>
+        /// Update data connection's authorization.
+        /// </remarks>
+        /// </summary>
+        public async Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null)
+        {
+            string baseUrl = _serverUrl;
+            if (baseUrl.EndsWith("/"))
+            {
+                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
+            }
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/authorization", request);
+            
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
+            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            
+            var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "json");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -79,7 +124,7 @@ namespace CodatSyncCommerce
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new CreateCompanyResponse
+            var response = new UpdateConnectionAuthorizationResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -89,7 +134,7 @@ namespace CodatSyncCommerce
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.Company = JsonConvert.DeserializeObject<Company>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.Connection = JsonConvert.DeserializeObject<Connection>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
                 
                 return response;
@@ -99,25 +144,30 @@ namespace CodatSyncCommerce
         
 
         /// <summary>
-        /// Get company configuration
+        /// Update connection
         /// 
         /// <remarks>
-        /// Returns a company's commerce sync configuration'.
+        /// Update a data connection
         /// </remarks>
         /// </summary>
-        public async Task<GetConfigurationResponse> GetConfigurationAsync(GetConfigurationRequest? request = null)
+        public async Task<UpdateConnectionResponse> UpdateConnectionAsync(UpdateConnectionRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = URLBuilder.Build(baseUrl, "/config/companies/{companyId}/sync/commerce", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}", request);
             
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);
             httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
+            var serializedBody = RequestBodySerializer.Serialize(request, "UpdateConnection", "json");
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
             
             var client = _securityClient;
             
@@ -125,7 +175,7 @@ namespace CodatSyncCommerce
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new GetConfigurationResponse
+            var response = new UpdateConnectionResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -135,99 +185,7 @@ namespace CodatSyncCommerce
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.Configuration = JsonConvert.DeserializeObject<Configuration>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        /// <summary>
-        /// List companies
-        /// 
-        /// <remarks>
-        /// Returns a list of companies.
-        /// </remarks>
-        /// </summary>
-        public async Task<ListCompaniesResponse> ListCompaniesAsync(ListCompaniesRequest? request = null)
-        {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
-            var urlString = URLBuilder.Build(baseUrl, "/companies", request);
-            
-
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new ListCompaniesResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
-                {
-                    response.Companies = JsonConvert.DeserializeObject<Companies>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        /// <summary>
-        /// Set configuration
-        /// 
-        /// <remarks>
-        /// Sets a company's commerce sync configuration.
-        /// </remarks>
-        /// </summary>
-        public async Task<SetConfigurationResponse> SetConfigurationAsync(SetConfigurationRequest? request = null)
-        {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
-            var urlString = URLBuilder.Build(baseUrl, "/config/companies/{companyId}/sync/commerce", request);
-            
-
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new SetConfigurationResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
-                {
-                    response.Configuration = JsonConvert.DeserializeObject<Configuration>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.Connection = JsonConvert.DeserializeObject<Connection>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
                 
                 return response;

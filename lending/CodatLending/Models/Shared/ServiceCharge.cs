@@ -26,19 +26,19 @@ namespace CodatLending.Models.Shared
         /// The number of times the charge is charged.
         /// </summary>
         [JsonProperty("quantity")]
-        public int? Quantity { get; set; }
+        public long? Quantity { get; set; }
         
         /// <summary>
         /// Amount of the service charge that is tax.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float? TaxAmount { get; set; }
+        public decimal? TaxAmount { get; set; }
         
         /// <summary>
         /// Percentage rate (from 0 to 100) of any tax applied to the service charge.
         /// </summary>
         [JsonProperty("taxPercentage")]
-        public float? TaxPercentage { get; set; }
+        public decimal? TaxPercentage { get; set; }
         
         /// <summary>
         /// Taxes breakdown as applied to service charges.
@@ -50,7 +50,7 @@ namespace CodatLending.Models.Shared
         /// Total service charge, including taxes.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
         /// <summary>
         /// The type of the service charge.

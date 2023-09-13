@@ -19,10 +19,10 @@ namespace CodatLending.Models.Shared
         /// The unique identitifer of the record being referenced
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("type")]
-        public TransactionSourceType Type { get; set; }
+        public TransactionSourceType Type { get; set; } = default!;
         
     }
     

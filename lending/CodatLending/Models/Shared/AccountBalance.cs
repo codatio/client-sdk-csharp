@@ -19,7 +19,7 @@ namespace CodatLending.Models.Shared
         /// The account's current balance
         /// </summary>
         [JsonProperty("available")]
-        public float? Available { get; set; }
+        public decimal? Available { get; set; }
         
         /// <summary>
         /// The currency of the account
@@ -31,13 +31,13 @@ namespace CodatLending.Models.Shared
         /// Funds that are not yet available in the balance
         /// </summary>
         [JsonProperty("pending")]
-        public float? Pending { get; set; }
+        public decimal? Pending { get; set; }
         
         /// <summary>
         /// Funds reserved as holdings
         /// </summary>
         [JsonProperty("reserved")]
-        public float? Reserved { get; set; }
+        public object? Reserved { get; set; }
         
     }
     

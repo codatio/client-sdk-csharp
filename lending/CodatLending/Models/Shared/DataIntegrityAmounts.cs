@@ -37,13 +37,13 @@ namespace CodatLending.Models.Shared
         /// Highest value of transaction set.
         /// </summary>
         [JsonProperty("max")]
-        public float? Max { get; set; }
+        public decimal? Max { get; set; }
         
         /// <summary>
         /// Lowest value of transaction set.
         /// </summary>
         [JsonProperty("min")]
-        public float? Min { get; set; }
+        public decimal? Min { get; set; }
         
     }
     

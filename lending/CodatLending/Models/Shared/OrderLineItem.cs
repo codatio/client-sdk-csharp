@@ -23,7 +23,7 @@ namespace CodatLending.Models.Shared
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Reference that links the line item to the correct product details.
@@ -46,13 +46,13 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("quantity")]
-        public float? Quantity { get; set; }
+        public decimal? Quantity { get; set; }
         
         /// <summary>
         /// Percentage rate (from 0 to 100) of any sale tax applied to the unit amount.
         /// </summary>
         [JsonProperty("taxPercentage")]
-        public float? TaxPercentage { get; set; }
+        public decimal? TaxPercentage { get; set; }
         
         /// <summary>
         /// Taxes breakdown as applied to order lines.
@@ -64,19 +64,19 @@ namespace CodatLending.Models.Shared
         /// Total price of the line item, including discounts, tax and minus any refunds.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
         /// <summary>
         /// Total amount of tax applied to the line item.
         /// </summary>
         [JsonProperty("totalTaxAmount")]
-        public float? TotalTaxAmount { get; set; }
+        public decimal? TotalTaxAmount { get; set; }
         
         /// <summary>
         /// Price per unit of goods or service.
         /// </summary>
         [JsonProperty("unitPrice")]
-        public float? UnitPrice { get; set; }
+        public decimal? UnitPrice { get; set; }
         
     }
     

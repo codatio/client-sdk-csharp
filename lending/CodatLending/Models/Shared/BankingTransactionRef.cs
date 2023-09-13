@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         public string? AccountName { get; set; }
         
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         [JsonProperty("dataConnectionId")]
         public string? DataConnectionId { get; set; }

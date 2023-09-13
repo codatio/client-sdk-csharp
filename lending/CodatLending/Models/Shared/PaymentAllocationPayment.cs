@@ -67,7 +67,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// Identifier of the allocated payment.
@@ -118,7 +118,7 @@ namespace CodatLending.Models.Shared
         /// Total amount that was paid.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
     }
     

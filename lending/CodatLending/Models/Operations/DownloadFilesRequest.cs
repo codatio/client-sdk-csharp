@@ -16,7 +16,7 @@ namespace CodatLending.Models.Operations
     public class DownloadFilesRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Only download files uploaded on this date.

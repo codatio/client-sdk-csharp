@@ -16,16 +16,16 @@ namespace CodatLending.Models.Operations
     public class GetCommerceDisputeRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// Unique identifier for a dispute.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=disputeId")]
-        public string DisputeId { get; set; }
+        public string DisputeId { get; set; } = default!;
         
     }
     

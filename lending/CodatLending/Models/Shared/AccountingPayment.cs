@@ -751,7 +751,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         [JsonProperty("customerRef")]
         public AccountingCustomerRef? CustomerRef { get; set; }
@@ -781,7 +781,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("date")]
-        public string Date { get; set; }
+        public string Date { get; set; } = default!;
         
         /// <summary>
         /// Identifier for the payment, unique to the company in the accounting platform.
@@ -824,7 +824,7 @@ namespace CodatLending.Models.Shared
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -834,7 +834,7 @@ namespace CodatLending.Models.Shared
         /// Amount of the payment in the payment currency. This value should never change and represents the amount of money paid into the customer's account.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
     }
     

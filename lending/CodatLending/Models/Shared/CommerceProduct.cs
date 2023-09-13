@@ -41,7 +41,7 @@ namespace CodatLending.Models.Shared
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Whether the product represents a gift card or voucher that

@@ -16,16 +16,16 @@ namespace CodatLending.Models.Operations
     public class GetBankingTransactionCategoryRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// The unique identifier for a banking transaction category
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionCategoryId")]
-        public string TransactionCategoryId { get; set; }
+        public string TransactionCategoryId { get; set; } = default!;
         
     }
     

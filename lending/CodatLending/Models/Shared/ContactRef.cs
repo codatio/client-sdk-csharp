@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         public string? DataType { get; set; }
         
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
     }
     

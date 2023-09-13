@@ -105,7 +105,7 @@ namespace CodatLending.Models.Shared
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Reference to the geographic location where the order was placed.
@@ -139,7 +139,7 @@ namespace CodatLending.Models.Shared
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -149,31 +149,31 @@ namespace CodatLending.Models.Shared
         /// Total amount of the order, including tax, net of any discounts and refunds.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
         /// <summary>
         /// Total amount of discount applied to the order.
         /// </summary>
         [JsonProperty("totalDiscount")]
-        public float? TotalDiscount { get; set; }
+        public decimal? TotalDiscount { get; set; }
         
         /// <summary>
         /// Extra amount added to a bill.
         /// </summary>
         [JsonProperty("totalGratuity")]
-        public float? TotalGratuity { get; set; }
+        public decimal? TotalGratuity { get; set; }
         
         /// <summary>
         /// Total amount refunded issued by a merchant on an order (always a negative value).
         /// </summary>
         [JsonProperty("totalRefund")]
-        public float? TotalRefund { get; set; }
+        public decimal? TotalRefund { get; set; }
         
         /// <summary>
         /// Total amount of tax applied to the order.
         /// </summary>
         [JsonProperty("totalTaxAmount")]
-        public float? TotalTaxAmount { get; set; }
+        public decimal? TotalTaxAmount { get; set; }
         
     }
     

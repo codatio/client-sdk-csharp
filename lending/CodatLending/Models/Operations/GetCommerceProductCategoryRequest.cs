@@ -16,16 +16,16 @@ namespace CodatLending.Models.Operations
     public class GetCommerceProductCategoryRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// Unique identifier for a product.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=productId")]
-        public string ProductId { get; set; }
+        public string ProductId { get; set; } = default!;
         
     }
     

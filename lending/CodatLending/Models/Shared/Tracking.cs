@@ -28,7 +28,7 @@ namespace CodatLending.Models.Shared
         public RecordRef? InvoiceTo { get; set; }
         
         [JsonProperty("recordRefs")]
-        public List<RecordRef> RecordRefs { get; set; }
+        public List<RecordRef> RecordRefs { get; set; } = default!;
         
     }
     

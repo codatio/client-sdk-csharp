@@ -69,7 +69,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency { get; set; } = default!;
         
         /// <summary>
         /// Link to the source event(s) which triggered this transaction.
@@ -108,7 +108,7 @@ namespace CodatLending.Models.Shared
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
@@ -132,7 +132,7 @@ namespace CodatLending.Models.Shared
         /// Total transaction amount that is under dispute.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public object? TotalAmount { get; set; }
         
     }
     

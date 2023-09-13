@@ -6,10 +6,10 @@ View company information fetched from the source platform.
 
 ### Available Operations
 
-* [FromAccountingPlatform](#fromaccountingplatform) - Get company info
-* [FromCommercePlatform](#fromcommerceplatform) - Get company info
+* [GetAccountingProfile](#getaccountingprofile) - Get company accounting profile
+* [GetCommerceProfile](#getcommerceprofile) - Get company commerce profile
 
-## FromAccountingPlatform
+## GetAccountingProfile
 
 Gets the latest basic info for a company.
 
@@ -26,7 +26,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.CompanyInfo.FromAccountingPlatformAsync(new GetAccountingCompanyInfoRequest() {
+var res = await sdk.CompanyInfo.GetAccountingProfileAsync(new GetAccountingProfileRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -35,17 +35,17 @@ var res = await sdk.CompanyInfo.FromAccountingPlatformAsync(new GetAccountingCom
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [GetAccountingCompanyInfoRequest](../../models/operations/GetAccountingCompanyInfoRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetAccountingProfileRequest](../../models/operations/GetAccountingProfileRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[GetAccountingCompanyInfoResponse](../../models/operations/GetAccountingCompanyInfoResponse.md)**
+**[GetAccountingProfileResponse](../../models/operations/GetAccountingProfileResponse.md)**
 
 
-## FromCommercePlatform
+## GetCommerceProfile
 
 Retrieve information about the company, as seen in the commerce platform.
 
@@ -64,7 +64,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.CompanyInfo.FromCommercePlatformAsync(new GetCommerceCompanyInfoRequest() {
+var res = await sdk.CompanyInfo.GetCommerceProfileAsync(new GetCommerceProfileRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -74,12 +74,12 @@ var res = await sdk.CompanyInfo.FromCommercePlatformAsync(new GetCommerceCompany
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [GetCommerceCompanyInfoRequest](../../models/operations/GetCommerceCompanyInfoRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [GetCommerceProfileRequest](../../models/operations/GetCommerceProfileRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[GetCommerceCompanyInfoResponse](../../models/operations/GetCommerceCompanyInfoResponse.md)**
+**[GetCommerceProfileResponse](../../models/operations/GetCommerceProfileResponse.md)**
 

@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     public class ProjectRef
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("name")]
         public string? Name { get; set; }

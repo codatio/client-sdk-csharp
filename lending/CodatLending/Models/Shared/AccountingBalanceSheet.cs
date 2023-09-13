@@ -52,7 +52,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -112,7 +112,7 @@ namespace CodatLending.Models.Shared
         /// An array of balance sheet reports.
         /// </summary>
         [JsonProperty("reports")]
-        public List<BalanceSheet> Reports { get; set; }
+        public List<BalanceSheet> Reports { get; set; } = default!;
         
     }
     

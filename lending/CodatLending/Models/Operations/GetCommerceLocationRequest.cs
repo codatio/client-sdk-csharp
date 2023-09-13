@@ -16,16 +16,16 @@ namespace CodatLending.Models.Operations
     public class GetCommerceLocationRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// Unique identifier for a location.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=locationId")]
-        public string LocationId { get; set; }
+        public string LocationId { get; set; } = default!;
         
     }
     

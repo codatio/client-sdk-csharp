@@ -51,16 +51,16 @@ namespace CodatLending.Models.Shared
     public class AccountingInvoice
     {
         [JsonProperty("additionalTaxAmount")]
-        public float? AdditionalTaxAmount { get; set; }
+        public decimal? AdditionalTaxAmount { get; set; }
         
         [JsonProperty("additionalTaxPercentage")]
-        public float? AdditionalTaxPercentage { get; set; }
+        public decimal? AdditionalTaxPercentage { get; set; }
         
         /// <summary>
         /// Amount outstanding on the invoice.
         /// </summary>
         [JsonProperty("amountDue")]
-        public float AmountDue { get; set; }
+        public decimal AmountDue { get; set; } = default!;
         
         /// <summary>
         /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
@@ -108,7 +108,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         [JsonProperty("customerRef")]
         public AccountingCustomerRef? CustomerRef { get; set; }
@@ -117,7 +117,7 @@ namespace CodatLending.Models.Shared
         /// Percentage rate (from 0 to 100) of discounts applied to the invoice. For example: A 5% discount will return a value of `5`, not `0.05`.
         /// </summary>
         [JsonProperty("discountPercentage")]
-        public float? DiscountPercentage { get; set; }
+        public decimal? DiscountPercentage { get; set; }
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -183,7 +183,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("issueDate")]
-        public string IssueDate { get; set; }
+        public string IssueDate { get; set; } = default!;
         
         /// <summary>
         /// An array of line items.
@@ -258,20 +258,20 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("status")]
-        public InvoiceStatus Status { get; set; }
+        public InvoiceStatus Status { get; set; } = default!;
         
         /// <summary>
         /// Total amount of the invoice excluding any taxes.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float? SubTotal { get; set; }
+        public decimal? SubTotal { get; set; }
         
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. 
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
@@ -281,19 +281,19 @@ namespace CodatLending.Models.Shared
         /// Amount of the invoice, inclusive of tax.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; } = default!;
         
         /// <summary>
         /// Numerical value of discounts applied to the invoice.
         /// </summary>
         [JsonProperty("totalDiscount")]
-        public float? TotalDiscount { get; set; }
+        public decimal? TotalDiscount { get; set; }
         
         /// <summary>
         /// Amount of tax on the invoice.
         /// </summary>
         [JsonProperty("totalTaxAmount")]
-        public float TotalTaxAmount { get; set; }
+        public decimal TotalTaxAmount { get; set; } = default!;
         
         [JsonProperty("withholdingTax")]
         public List<WithholdingTaxitems>? WithholdingTax { get; set; }

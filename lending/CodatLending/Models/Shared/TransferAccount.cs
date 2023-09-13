@@ -25,7 +25,7 @@ namespace CodatLending.Models.Shared
         /// The amount transferred between accounts.
         /// </summary>
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         /// <summary>
         /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.

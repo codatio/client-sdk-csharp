@@ -72,13 +72,13 @@ namespace CodatLending.Models.Shared
         /// Total available balance of the bank account as reported by the underlying data source. This may take into account overdrafts or pending transactions for example.
         /// </summary>
         [JsonProperty("availableBalance")]
-        public float? AvailableBalance { get; set; }
+        public decimal? AvailableBalance { get; set; }
         
         /// <summary>
         /// Balance of the bank account.
         /// </summary>
         [JsonProperty("balance")]
-        public float? Balance { get; set; }
+        public decimal? Balance { get; set; }
         
         /// <summary>
         /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
@@ -134,7 +134,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("overdraftLimit")]
-        public float? OverdraftLimit { get; set; }
+        public decimal? OverdraftLimit { get; set; }
         
         /// <summary>
         /// Sort code for the bank account.

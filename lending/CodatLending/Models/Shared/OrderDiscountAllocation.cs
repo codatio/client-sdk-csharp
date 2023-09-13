@@ -25,7 +25,7 @@ namespace CodatLending.Models.Shared
         /// Total amount of discount applied.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
     }
     

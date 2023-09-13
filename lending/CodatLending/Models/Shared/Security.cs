@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     public class Security
     {
         [SpeakeasyMetadata("security:scheme=true,type=apiKey,subType=header,name=Authorization")]
-        public string AuthHeader { get; set; }
+        public string AuthHeader { get; set; } = default!;
         
     }
     

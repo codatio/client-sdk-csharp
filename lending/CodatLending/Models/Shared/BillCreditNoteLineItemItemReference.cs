@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         /// Unique identifier for the item in the accounting platform.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Name of the item in the accounting platform.

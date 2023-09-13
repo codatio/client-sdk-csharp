@@ -23,7 +23,7 @@ namespace CodatLending.Models.Shared
         public List<ProductInventoryLocation>? Locations { get; set; }
         
         [JsonProperty("totalQuantity")]
-        public float? TotalQuantity { get; set; }
+        public decimal? TotalQuantity { get; set; }
         
     }
     

@@ -18,7 +18,7 @@ namespace CodatSyncPayroll.Models.Operations
     public class ListJournalEntriesResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Your `query` parameter was not correctly formed
@@ -33,7 +33,7 @@ namespace CodatSyncPayroll.Models.Operations
         public JournalEntries? JournalEntries { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

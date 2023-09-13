@@ -21,11 +21,11 @@ namespace CodatSyncPayroll
     {
         public IAccountsSDK Accounts { get; }
         public ICompaniesSDK Companies { get; }
+        public ICompanyInfoSDK CompanyInfo { get; }
         public IConnectionsSDK Connections { get; }
         public IJournalEntriesSDK JournalEntries { get; }
         public IJournalsSDK Journals { get; }
         public IManageDataSDK ManageData { get; }
-        public IPushOperationsSDK PushOperations { get; }
         public ITrackingCategoriesSDK TrackingCategories { get; }
     }
     
@@ -42,19 +42,19 @@ namespace CodatSyncPayroll
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.1.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.2.0";
+        private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public IAccountsSDK Accounts { get; private set; }
         public ICompaniesSDK Companies { get; private set; }
+        public ICompanyInfoSDK CompanyInfo { get; private set; }
         public IConnectionsSDK Connections { get; private set; }
         public IJournalEntriesSDK JournalEntries { get; private set; }
         public IJournalsSDK Journals { get; private set; }
         public IManageDataSDK ManageData { get; private set; }
-        public IPushOperationsSDK PushOperations { get; private set; }
         public ITrackingCategoriesSDK TrackingCategories { get; private set; }
 
         public CodatSyncPayrollSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
@@ -75,11 +75,11 @@ namespace CodatSyncPayroll
 
             Accounts = new AccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Companies = new CompaniesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            CompanyInfo = new CompanyInfoSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Connections = new ConnectionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             JournalEntries = new JournalEntriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Journals = new JournalsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             ManageData = new ManageDataSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            PushOperations = new PushOperationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             TrackingCategories = new TrackingCategoriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
         }
     }

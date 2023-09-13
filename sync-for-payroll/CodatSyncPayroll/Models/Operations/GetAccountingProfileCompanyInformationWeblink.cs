@@ -13,10 +13,22 @@ namespace CodatSyncPayroll.Models.Operations
     using Newtonsoft.Json;
     
     
-    public class UnlinkConnectionRequestBody
+    /// <summary>
+    /// Weblink associated with the company.
+    /// </summary>
+    public class GetAccountingProfileCompanyInformationWeblink
     {
-        [JsonProperty("status")]
-        public string? Status { get; set; }
+        /// <summary>
+        /// The type of the weblink.
+        /// </summary>
+        [JsonProperty("type")]
+        public GetAccountingProfileCompanyInformationWeblinkType? Type { get; set; }
+        
+        /// <summary>
+        /// The full URL for the weblink.
+        /// </summary>
+        [JsonProperty("url")]
+        public string? Url { get; set; }
         
     }
     

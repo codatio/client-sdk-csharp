@@ -14,16 +14,13 @@ namespace CodatSyncPayroll.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// OK
-    /// </summary>
     public class PushOption
     {
         [JsonProperty("description")]
         public string? Description { get; set; }
         
         [JsonProperty("displayName")]
-        public string DisplayName { get; set; }
+        public string DisplayName { get; set; } = default!;
         
         [JsonProperty("options")]
         public List<PushOptionChoice>? Options { get; set; }
@@ -32,10 +29,10 @@ namespace CodatSyncPayroll.Models.Shared
         public Dictionary<string, PushOptionProperty>? Properties { get; set; }
         
         [JsonProperty("required")]
-        public bool Required { get; set; }
+        public bool Required { get; set; } = default!;
         
         [JsonProperty("type")]
-        public PushOptionType Type { get; set; }
+        public PushOptionType Type { get; set; } = default!;
         
         [JsonProperty("validation")]
         public PushValidationInfo? Validation { get; set; }

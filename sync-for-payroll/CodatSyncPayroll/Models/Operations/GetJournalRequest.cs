@@ -16,10 +16,10 @@ namespace CodatSyncPayroll.Models.Operations
     public class GetJournalRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=journalId")]
-        public string JournalId { get; set; }
+        public string JournalId { get; set; } = default!;
         
     }
     

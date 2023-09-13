@@ -7,6 +7,7 @@ Journal entries
 ### Available Operations
 
 * [Create](#create) - Create journal entry
+* [Delete](#delete) - Delete journal entry
 * [Get](#get) - Get journal entry
 * [GetCreateModel](#getcreatemodel) - Get create journal entry model
 * [List](#list) - List journal entries
@@ -40,38 +41,30 @@ var sdk = new CodatSyncPayrollSDK(
 var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
-        Description = "molestiae",
-        Id = "cc78ca1b-a928-4fc8-9674-2cb739205929",
+        Description = "placeat",
+        Id = "8796ed15-1a05-4dfc-addf-7cc78ca1ba92",
         JournalLines = new List<JournalLine>() {
             new JournalLine() {
                 AccountRef = new AccountRef() {
-                    Id = "96fea759-6eb1-40fa-aa23-52c5955907af",
-                    Name = "Juan O'Hara",
+                    Id = "8fc81674-2cb7-4392-8592-9396fea7596e",
+                    Name = "Roger Beier",
                 },
-                Currency = "consequuntur",
-                Description = "repellat",
-                NetAmount = 6531.08F,
+                Currency = "mollitia",
+                Description = "laborum",
+                NetAmount = 1709.09M,
                 Tracking = new JournalLineTracking() {
                     RecordRefs = new List<RecordRef>() {
                         new RecordRef() {
-                            DataType = "invoice",
-                            Id = "67739251-aa52-4c3f-9ad0-19da1ffe78f0",
-                        },
-                        new RecordRef() {
-                            DataType = "accountTransaction",
-                            Id = "7b0074f1-5471-4b5e-ae13-b99d488e1e91",
-                        },
-                        new RecordRef() {
-                            DataType = "transfer",
-                            Id = "450ad2ab-d442-4698-82d5-02a94bb4f63c",
+                            DataType = "journalEntry",
+                            Id = "52c59559-07af-4f1a-ba2f-a9467739251a",
                         },
                     },
                 },
             },
         },
         JournalRef = new JournalRef() {
-            Id = "969e9a3e-fa77-4dfb-94cd-66ae395efb9b",
-            Name = "Nelson Lesch",
+            Id = "a52c3f5a-d019-4da1-bfe7-8f097b0074f1",
+            Name = "Miss Valerie Kshlerin",
         },
         Metadata = new Metadata() {
             IsDeleted = false,
@@ -79,14 +72,14 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         PostedOn = "2022-10-23T00:00:00.000Z",
         RecordRef = new JournalEntryRecordReference() {
-            DataType = "invoice",
-            Id = "997074ba-4469-4b6e-a141-959890afa563",
+            DataType = "transfer",
+            Id = "13b99d48-8e1e-491e-850a-d2abd4426980",
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new JournalEntrySupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "nemo", new Dictionary<string, object>() {
-                    { "iure", "doloribus" },
+                { "assumenda", new Dictionary<string, object>() {
+                    { "ipsam", "alias" },
                 } },
             },
         },
@@ -94,7 +87,7 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 260341,
+    TimeoutInMinutes = 677817,
 });
 
 // handle response
@@ -110,6 +103,72 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
 ### Response
 
 **[Models.Operations.CreateJournalEntryResponse](../../models/operations/CreateJournalEntryResponse.md)**
+
+
+## Delete
+
+﻿> **Use with caution**
+>
+>Because journal entries underpin every transaction in an accounting platform, deleting a journal entry can affect every transaction for a given company.
+> 
+> **Before you proceed, make sure you understand the implications of deleting journal entries from an accounting perspective.**
+
+The *Delete journal entry* endpoint allows you to delete a specified journal entry from an accounting platform.
+
+[Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are made in a company's general ledger, or accounts, when transactions are approved.
+
+### Process
+1. Pass the `{journalEntryId}` to the *Delete journal entry* endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete by checking the status of push operation either via
+   1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   2. [Push operation status endpoint](https://docs.codat.io/sync-for-payroll-api#/operations/get-push-operation). 
+   
+   A `Success` status indicates that the journal entry object was deleted from the accounting platform.
+3. (Optional) Check that the journal entry was deleted from the accounting platform.
+
+### Effect on related objects
+
+Be aware that deleting a journal entry from an accounting platform might cause related objects to be modified. For example, if you delete the journal entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration | Soft Deleted | 
+|-------------|--------------|
+| QuickBooks Online | Yes    |       
+
+
+### Example Usage
+
+```csharp
+using CodatSyncPayroll;
+using CodatSyncPayroll.Models.Shared;
+using CodatSyncPayroll.Models.Operations;
+
+var sdk = new CodatSyncPayrollSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.JournalEntries.DeleteAsync(new DeleteJournalEntryRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    JournalEntryId = "excepturi",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [DeleteJournalEntryRequest](../../models/operations/DeleteJournalEntryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+
+### Response
+
+**[DeleteJournalEntryResponse](../../models/operations/DeleteJournalEntryResponse.md)**
 
 
 ## Get
@@ -138,7 +197,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.JournalEntries.GetAsync(new GetJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "maxime",
+    JournalEntryId = "tempora",
 });
 
 // handle response
@@ -229,7 +288,7 @@ var res = await sdk.JournalEntries.ListAsync(new ListJournalEntriesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "deleniti",
+    Query = "facilis",
 });
 
 // handle response

@@ -33,8 +33,8 @@ namespace CodatPlatform
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.107.0";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -293,7 +293,7 @@ namespace CodatPlatform
             var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);
             httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "UpdateConnectionStatus", "json");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;

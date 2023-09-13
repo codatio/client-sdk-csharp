@@ -25,13 +25,13 @@ namespace CodatPlatform.Models.Shared
         /// The current authorization status of the data connection.
         /// </summary>
         [JsonProperty("newStatus")]
-        public ConnectionStatus? NewStatus { get; set; }
+        public DataConnectionStatus? NewStatus { get; set; }
         
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>
         [JsonProperty("oldStatus")]
-        public ConnectionStatus? OldStatus { get; set; }
+        public DataConnectionStatus? OldStatus { get; set; }
         
         /// <summary>
         /// A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys. 

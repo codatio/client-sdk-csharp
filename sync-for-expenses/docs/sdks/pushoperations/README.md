@@ -28,7 +28,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.PushOperations.GetAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "f1a3a2fa-9467-4739-a51a-a52c3f5ad019",
+    PushOperationKey = "2cb73920-5929-4396-bea7-596eb10faaa2",
 });
 
 // handle response
@@ -68,7 +68,7 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "temporibus",
+    Query = "dolorem",
 });
 
 // handle response

@@ -26,7 +26,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// Currency the transaction was recorded in.
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency { get; set; } = default!;
         
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.
@@ -59,13 +59,13 @@ namespace CodatSyncExpenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// Your unique identifier for the transaction.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -92,7 +92,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("issueDate")]
-        public string IssueDate { get; set; }
+        public string IssueDate { get; set; } = default!;
         
         /// <summary>
         /// Array of transaction lines.
@@ -116,7 +116,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// The type of transaction.
         /// </summary>
         [JsonProperty("type")]
-        public ExpenseTransactionType Type { get; set; }
+        public ExpenseTransactionType Type { get; set; } = default!;
         
     }
     

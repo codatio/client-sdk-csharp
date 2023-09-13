@@ -13,9 +13,6 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     
     
-    /// <summary>
-    /// OK
-    /// </summary>
     public class Attachment
     {
         /// <summary>

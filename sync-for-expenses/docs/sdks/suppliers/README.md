@@ -43,7 +43,7 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 673660,
+    TimeoutInMinutes = 358152,
 });
 
 // handle response
@@ -132,7 +132,7 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "reiciendis",
+    Query = "nobis",
 });
 
 // handle response
@@ -183,8 +183,8 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    SupplierId = "EILBDVJVNUAGVKRQ",
-    TimeoutInMinutes = 878194,
+    SupplierId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    TimeoutInMinutes = 607831,
 });
 
 // handle response

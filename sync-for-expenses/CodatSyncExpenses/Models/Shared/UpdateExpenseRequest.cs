@@ -59,13 +59,13 @@ namespace CodatSyncExpenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// Date the transaction was recorded.
         /// </summary>
         [JsonProperty("issueDate")]
-        public string IssueDate { get; set; }
+        public string IssueDate { get; set; } = default!;
         
         /// <summary>
         /// Array of transaction lines.
@@ -86,7 +86,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string? Notes { get; set; }
         
         [JsonProperty("type")]
-        public object Type { get; set; }
+        public object Type { get; set; } = default!;
         
     }
     

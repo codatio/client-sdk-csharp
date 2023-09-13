@@ -16,7 +16,7 @@ namespace CodatSyncExpenses.Models.Shared
     public class Links
     {
         [JsonProperty("current")]
-        public HalRef Current { get; set; }
+        public HalRef Current { get; set; } = default!;
         
         [JsonProperty("next")]
         public HalRef? Next { get; set; }
@@ -25,7 +25,7 @@ namespace CodatSyncExpenses.Models.Shared
         public HalRef? Previous { get; set; }
         
         [JsonProperty("self")]
-        public HalRef Self { get; set; }
+        public HalRef Self { get; set; } = default!;
         
     }
     

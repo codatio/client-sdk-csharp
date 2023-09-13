@@ -13,9 +13,6 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class Transaction
     {
         /// <summary>

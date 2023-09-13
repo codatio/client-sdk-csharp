@@ -17,19 +17,19 @@ namespace CodatSyncExpenses.Models.Shared
     public class ExpenseTransactionLine
     {
         [JsonProperty("accountRef")]
-        public RecordRef AccountRef { get; set; }
+        public RecordRef AccountRef { get; set; } = default!;
         
         /// <summary>
         /// Amount of the line, exclusive of tax.
         /// </summary>
         [JsonProperty("netAmount")]
-        public float NetAmount { get; set; }
+        public decimal NetAmount { get; set; } = default!;
         
         /// <summary>
         /// Amount of tax for the line.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float TaxAmount { get; set; }
+        public decimal TaxAmount { get; set; } = default!;
         
         [JsonProperty("taxRateRef")]
         public RecordRef? TaxRateRef { get; set; }

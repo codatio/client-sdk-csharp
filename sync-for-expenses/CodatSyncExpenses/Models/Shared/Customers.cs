@@ -14,25 +14,22 @@ namespace CodatSyncExpenses.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class Customers
     {
         [JsonProperty("_links")]
-        public Links Links { get; set; }
+        public Links Links { get; set; } = default!;
         
         [JsonProperty("pageNumber")]
-        public int PageNumber { get; set; }
+        public long PageNumber { get; set; } = default!;
         
         [JsonProperty("pageSize")]
-        public int PageSize { get; set; }
+        public long PageSize { get; set; } = default!;
         
         [JsonProperty("results")]
         public List<Customer>? Results { get; set; }
         
         [JsonProperty("totalResults")]
-        public int TotalResults { get; set; }
+        public long TotalResults { get; set; } = default!;
         
     }
     

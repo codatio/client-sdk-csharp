@@ -35,8 +35,8 @@ namespace CodatSyncCommerce
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -52,7 +52,7 @@ namespace CodatSyncCommerce
         
 
         /// <summary>
-        /// Get Sync status
+        /// Get sync status
         /// 
         /// <remarks>
         /// Get the sync status for a specified sync
@@ -65,7 +65,7 @@ namespace CodatSyncCommerce
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/status", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/commerce/syncs/{syncId}/status", request);
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -86,7 +86,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.CompanySyncStatus = JsonConvert.DeserializeObject<CompanySyncStatus>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -95,7 +95,7 @@ namespace CodatSyncCommerce
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -141,7 +141,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.CompanySyncStatus = JsonConvert.DeserializeObject<CompanySyncStatus>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -150,7 +150,7 @@ namespace CodatSyncCommerce
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -196,7 +196,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.CompanySyncStatus = JsonConvert.DeserializeObject<CompanySyncStatus>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -205,7 +205,7 @@ namespace CodatSyncCommerce
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -251,6 +251,28 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                {
+                    response.SyncStatus = JsonConvert.DeserializeObject<SyncStatus>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 400))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                {
+                    response.BadRequest = JsonConvert.DeserializeObject<object>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 404))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                {
+                    response.NotFound = JsonConvert.DeserializeObject<object>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
                 
                 return response;
             }
@@ -293,7 +315,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.CompanySyncStatuses = JsonConvert.DeserializeObject<List<CompanySyncStatus>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -302,7 +324,7 @@ namespace CodatSyncCommerce
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -353,7 +375,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.SyncSummary = JsonConvert.DeserializeObject<SyncSummary>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -404,7 +426,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.SyncSummary = JsonConvert.DeserializeObject<SyncSummary>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }

@@ -14,9 +14,6 @@ namespace CodatSyncCommerce.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class SyncSummary
     {
         /// <summary>
@@ -50,7 +47,7 @@ namespace CodatSyncCommerce.Models.Shared
         public string? ErrorMessage { get; set; }
         
         [JsonProperty("syncDateRangeUtc")]
-        public DateRange? SyncDateRangeUtc { get; set; }
+        public SyncSummarySyncDateRangeUtc? SyncDateRangeUtc { get; set; }
         
         /// <summary>
         /// Exception message for the sync operation.

@@ -16,13 +16,13 @@ namespace CodatSyncCommerce.Models.Operations
     public class GetSyncByIdRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Unique identifier for a sync.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=syncId")]
-        public string SyncId { get; set; }
+        public string SyncId { get; set; } = default!;
         
     }
     

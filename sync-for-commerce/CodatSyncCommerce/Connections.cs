@@ -32,8 +32,8 @@ namespace CodatSyncCommerce
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -90,7 +90,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.Connection = JsonConvert.DeserializeObject<Connection>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -99,7 +99,7 @@ namespace CodatSyncCommerce
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -111,10 +111,10 @@ namespace CodatSyncCommerce
         
 
         /// <summary>
-        /// Retrieve sync flow url
+        /// Start new sync flow
         /// 
         /// <remarks>
-        /// Get a URL for Sync Flow including a one time passcode.
+        /// Create a new company and connections. Get a URL for Sync Flow, including a one time passcode.
         /// </remarks>
         /// </summary>
         public async Task<GetSyncFlowUrlResponse> GetSyncFlowUrlAsync(GetSyncFlowUrlRequest? request = null)
@@ -145,7 +145,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.SyncFlowUrl = JsonConvert.DeserializeObject<SyncFlowUrl>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -191,7 +191,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.Connections = JsonConvert.DeserializeObject<Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -200,7 +200,7 @@ namespace CodatSyncCommerce
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -251,7 +251,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.Connection = JsonConvert.DeserializeObject<Connection>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -302,7 +302,7 @@ namespace CodatSyncCommerce
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.Connection = JsonConvert.DeserializeObject<Connection>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }

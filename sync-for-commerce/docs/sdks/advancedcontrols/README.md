@@ -28,7 +28,8 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
-    Name = "Bob's Burgers",
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
 });
 
 // handle response

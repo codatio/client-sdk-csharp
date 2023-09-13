@@ -13,7 +13,7 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     
     
-    public class DateRange
+    public class SyncSummarySyncDateRangeUtc
     {
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

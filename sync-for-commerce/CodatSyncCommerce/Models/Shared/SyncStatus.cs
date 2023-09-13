@@ -11,48 +11,61 @@
 namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     
-    public class CompanySyncStatus
+    /// <summary>
+    /// The status of syncing for a company and its connections.
+    /// </summary>
+    public class SyncStatus
     {
         /// <summary>
-        /// Unique identifier for your SMB in Codat.
+        /// Unique identifier for the sync in Codat.
         /// </summary>
+        [JsonProperty("commerceSyncId")]
+        public string? CommerceSyncId { get; set; }
+        
         [JsonProperty("companyId")]
-        public string? CompanyId { get; set; }
+        public object? CompanyId { get; set; }
         
         /// <summary>
-        /// Boolean of whether the sync resulted in data being pushed.
+        /// Array of containing objects data connection information for the company.
+        /// </summary>
+        [JsonProperty("dataConnections")]
+        public List<Connection>? DataConnections { get; set; }
+        
+        /// <summary>
+        /// Boolean indicator for data being pushed during a sync operation.
         /// </summary>
         [JsonProperty("dataPushed")]
         public bool? DataPushed { get; set; }
         
         /// <summary>
-        /// Error message of the sync.
+        /// Friendly error message for the sync operation.
         /// </summary>
         [JsonProperty("errorMessage")]
         public string? ErrorMessage { get; set; }
         
         /// <summary>
-        /// Exception message of the sync.
+        /// Exception message for the sync operation.
         /// </summary>
         [JsonProperty("syncExceptionMessage")]
         public string? SyncExceptionMessage { get; set; }
         
         /// <summary>
-        /// Unique identifier of the sync.
+        /// Unique identifier for the sync in Codat.
         /// </summary>
         [JsonProperty("syncId")]
         public string? SyncId { get; set; }
         
         /// <summary>
-        /// Text status of the sync.
+        /// Status of the sync of the company data. This is linked to status code.
         /// </summary>
         [JsonProperty("syncStatus")]
-        public string? SyncStatus { get; set; }
+        public string? SyncStatusValue { get; set; }
         
         /// <summary>
-        /// Status code of the sync.
+        /// Numerical status code sync of the company data.
         /// </summary>
         [JsonProperty("syncStatusCode")]
         public int? SyncStatusCode { get; set; }

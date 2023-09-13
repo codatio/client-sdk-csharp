@@ -62,7 +62,7 @@ namespace CodatSyncCommerce.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("created")]
-        public string Created { get; set; }
+        public string Created { get; set; } = default!;
         
         [JsonProperty("dataConnectionErrors")]
         public List<DataConnectionError>? DataConnectionErrors { get; set; }
@@ -71,19 +71,19 @@ namespace CodatSyncCommerce.Models.Shared
         /// Unique identifier for a company's data connection.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// A Codat ID representing the integration.
         /// </summary>
         [JsonProperty("integrationId")]
-        public string IntegrationId { get; set; }
+        public string IntegrationId { get; set; } = default!;
         
         /// <summary>
         /// A unique four-character ID that identifies the platform of the company's data connection. This ensures continuity if the platform changes its name in the future.
         /// </summary>
         [JsonProperty("integrationKey")]
-        public string IntegrationKey { get; set; }
+        public string IntegrationKey { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -113,28 +113,28 @@ namespace CodatSyncCommerce.Models.Shared
         public string? LastSync { get; set; }
         
         [JsonProperty("linkUrl")]
-        public string LinkUrl { get; set; }
+        public string LinkUrl { get; set; } = default!;
         
         [JsonProperty("platformName")]
-        public string PlatformName { get; set; }
+        public string PlatformName { get; set; } = default!;
         
         /// <summary>
         /// A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.
         /// </summary>
         [JsonProperty("sourceId")]
-        public string SourceId { get; set; }
+        public string SourceId { get; set; } = default!;
         
         /// <summary>
         /// The type of platform of the connection.
         /// </summary>
         [JsonProperty("sourceType")]
-        public ConnectionSourceType SourceType { get; set; }
+        public ConnectionSourceType SourceType { get; set; } = default!;
         
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>
         [JsonProperty("status")]
-        public DataConnectionStatus Status { get; set; }
+        public DataConnectionStatus Status { get; set; } = default!;
         
     }
     

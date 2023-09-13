@@ -16,10 +16,16 @@ namespace CodatSyncCommerce.Models.Shared
     public class CreateCompany
     {
         /// <summary>
-        /// Name of the company in Codat with a partner-commerce data connection.
+        /// Additional information about the company. This can be used to store foreign IDs, references, etc.
+        /// </summary>
+        [JsonProperty("description")]
+        public string? Description { get; set; }
+        
+        /// <summary>
+        /// Name of company being connected.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
     }
     

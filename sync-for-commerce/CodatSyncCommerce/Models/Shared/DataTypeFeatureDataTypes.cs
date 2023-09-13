@@ -17,7 +17,7 @@ namespace CodatSyncCommerce.Models.Shared
     /// <summary>
     /// Available Data types
     /// </summary>
-    public enum DataTypeFeatureDataType
+    public enum DataTypeFeatureDataTypes
     {
     	[JsonProperty("accountTransactions")]
 		AccountTransactions,
@@ -105,25 +105,30 @@ namespace CodatSyncCommerce.Models.Shared
 		CommerceTransactions,
     }
     
-    public static class DataTypeFeatureDataTypeExtension
+    public static class DataTypeFeatureDataTypesExtension
     {
-        public static string Value(this DataTypeFeatureDataType value)
+        public static string Value(this DataTypeFeatureDataTypes value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static DataTypeFeatureDataType ToEnum(this string value)
+        public static DataTypeFeatureDataTypes ToEnum(this string value)
         {
-            foreach(var field in typeof(DataTypeFeatureDataType).GetFields())
+            foreach(var field in typeof(DataTypeFeatureDataTypes).GetFields())
             {
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (DataTypeFeatureDataType)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is DataTypeFeatureDataTypes)
+                    {
+                        return (DataTypeFeatureDataTypes)enumVal;
+                    }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum DataTypeFeatureDataType");
+            throw new Exception($"Unknown value {value} for enum DataTypeFeatureDataTypes");
         }
     }
     

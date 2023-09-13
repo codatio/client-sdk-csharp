@@ -16,10 +16,10 @@ namespace CodatSyncPayables.Models.Operations
     public class GetTrackingCategoryRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=trackingCategoryId")]
-        public string TrackingCategoryId { get; set; }
+        public string TrackingCategoryId { get; set; } = default!;
         
     }
     

@@ -15,7 +15,7 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
     Account = new Account() {
         Currency = "USD",
-        CurrentBalance = 0F,
+        CurrentBalance = 0M,
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
         FullyQualifiedName = "Fixed Asset",
@@ -33,31 +33,15 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
             new AccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "corrupti",
-                    "illum",
-                    "vel",
-                    "error",
+                    "unde",
                 },
-                Property = "deserunt",
-            },
-            new AccountValidDataTypeLinks() {
-                Links = new List<string>() {
-                    "iure",
-                    "magnam",
-                },
-                Property = "debitis",
-            },
-            new AccountValidDataTypeLinks() {
-                Links = new List<string>() {
-                    "delectus",
-                },
-                Property = "tempora",
+                Property = "nulla",
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 383441,
+    TimeoutInMinutes = 544883,
 });
 
 // handle response

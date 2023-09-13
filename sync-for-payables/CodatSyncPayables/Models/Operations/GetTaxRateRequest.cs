@@ -16,10 +16,10 @@ namespace CodatSyncPayables.Models.Operations
     public class GetTaxRateRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=taxRateId")]
-        public string TaxRateId { get; set; }
+        public string TaxRateId { get; set; } = default!;
         
     }
     

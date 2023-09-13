@@ -20,13 +20,13 @@ namespace CodatSyncPayables.Models.Operations
         public BillCreditNote? BillCreditNote { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billCreditNoteId")]
-        public string BillCreditNoteId { get; set; }
+        public string BillCreditNoteId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         /// <summary>
         /// When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting platform, if they're different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.

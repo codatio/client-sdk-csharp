@@ -30,7 +30,7 @@ namespace CodatSyncPayables.Models.Shared
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<SupplierAddresses>? Addresses { get; set; }
+        public List<SupplierAccountingAddress>? Addresses { get; set; }
         
         /// <summary>
         /// Name of the main contact for the supplier.
@@ -81,14 +81,14 @@ namespace CodatSyncPayables.Models.Shared
         /// Status of the supplier.
         /// </summary>
         [JsonProperty("status")]
-        public SupplierStatus Status { get; set; }
+        public SupplierStatus Status { get; set; } = default!;
         
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. 
         /// 
         /// <remarks>
         /// 
-        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]

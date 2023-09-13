@@ -36,8 +36,7 @@ namespace CodatSyncPayables.Utils
                     continue;
                 }
 
-                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>().GetSecurityMetadata();
-
+                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetSecurityMetadata();
                 if (metadata == null)
                 {
                     continue;
@@ -77,8 +76,7 @@ namespace CodatSyncPayables.Utils
                     continue;
                 }
 
-                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>().GetSecurityMetadata();
-
+                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetSecurityMetadata();
                 if (metadata == null || !metadata.Scheme)
                 {
                     continue;
@@ -113,9 +111,7 @@ namespace CodatSyncPayables.Utils
                         continue;
                     }
 
-                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                        .GetSecurityMetadata();
-
+                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetSecurityMetadata();
                     if (metadata == null || metadata.Name == "")
                     {
                         continue;
@@ -137,6 +133,11 @@ namespace CodatSyncPayables.Utils
             object value
         )
         {
+            if (valueMetadata.Name == "")
+            {
+                return;
+            }
+
             switch (schemeMetadata.Type)
             {
                 case "apiKey":
@@ -203,8 +204,7 @@ namespace CodatSyncPayables.Utils
                     continue;
                 }
 
-                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>().GetSecurityMetadata();
-
+                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetSecurityMetadata();
                 if (metadata == null || metadata.Name == "")
                 {
                     continue;

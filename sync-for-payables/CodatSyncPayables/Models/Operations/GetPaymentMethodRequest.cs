@@ -16,10 +16,10 @@ namespace CodatSyncPayables.Models.Operations
     public class GetPaymentMethodRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=paymentMethodId")]
-        public string PaymentMethodId { get; set; }
+        public string PaymentMethodId { get; set; } = default!;
         
     }
     

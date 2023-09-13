@@ -1,25 +1,25 @@
 configVersion: 1.0.0
 management:
-  docChecksum: b7bf802b6746f134e324836b43a62791
+  docChecksum: 20dff07521c517f5ccb59cc5b8ec767c
   docVersion: 3.0.0
-  speakeasyVersion: 1.77.1
-  generationVersion: 2.91.4
+  speakeasyVersion: 1.82.5
+  generationVersion: 2.108.3
 generation:
   sdkClassName: Codat.SyncPayables
   singleTagPerOp: false
   telemetryEnabled: true
 features:
   csharp:
-    core: 2.85.2
+    core: 2.85.6
     deprecations: 2.81.1
-    examples: 2.81.1
+    examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.1.0
+  version: 0.2.0
   author: Codat
-  dotnetVersion: net6.0
   description: Streamline your customers' accounts payable workflow.
+  dotnetVersion: net6.0
   maxMethodParams: 0
   packageName: Codat.Sync.Payables

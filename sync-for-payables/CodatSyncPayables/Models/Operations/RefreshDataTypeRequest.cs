@@ -17,7 +17,7 @@ namespace CodatSyncPayables.Models.Operations
     public class RefreshDataTypeRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Optionally, provide a data connection id to only queue pull operations on that connection.
@@ -29,7 +29,7 @@ namespace CodatSyncPayables.Models.Operations
         /// The key of a Codat data type
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public DataType DataType { get; set; }
+        public DataType DataType { get; set; } = default!;
         
     }
     

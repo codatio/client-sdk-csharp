@@ -19,10 +19,10 @@ namespace CodatSyncPayables.Models.Operations
         /// Unique identifier for an account
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountId")]
-        public string AccountId { get; set; }
+        public string AccountId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

@@ -1,7 +1,5 @@
 # ErrorMessage
 
-Your `query` parameter was not correctly formed
-
 
 ## Fields
 
@@ -9,7 +7,7 @@ Your `query` parameter was not correctly formed
 | ------------------- | ------------------- | ------------------- | ------------------- |
 | `canBeRetried`      | *string*            | :heavy_minus_sign:  | N/A                 |
 | `correlationId`     | *string*            | :heavy_minus_sign:  | N/A                 |
-| `detailedErrorCode` | *int*               | :heavy_minus_sign:  | N/A                 |
+| `detailedErrorCode` | *long*              | :heavy_minus_sign:  | N/A                 |
 | `error`             | *string*            | :heavy_minus_sign:  | N/A                 |
 | `service`           | *string*            | :heavy_minus_sign:  | N/A                 |
-| `statusCode`        | *int*               | :heavy_minus_sign:  | N/A                 |
+| `statusCode`        | *long*              | :heavy_minus_sign:  | N/A                 |

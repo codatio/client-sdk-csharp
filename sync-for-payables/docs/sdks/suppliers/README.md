@@ -40,52 +40,42 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
-        Addresses = new List<SupplierAddresses>() {
-            new SupplierAddresses() {
-                City = "South Pollyshire",
-                Country = "Cayman Islands",
-                Line1 = "aspernatur",
-                Line2 = "sequi",
-                PostalCode = "85913-7808",
-                Region = "inventore",
-                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Billing,
+        Addresses = new List<SupplierAccountingAddress>() {
+            new SupplierAccountingAddress() {
+                City = "Fort Virgilfurt",
+                Country = "Sweden",
+                Line1 = "officia",
+                Line2 = "sed",
+                PostalCode = "09902",
+                Region = "qui",
+                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Unknown,
             },
         },
-        ContactName = "quibusdam",
-        DefaultCurrency = "excepturi",
-        EmailAddress = "nostrum",
-        Id = "9f439e39-266c-4bd9-9f7a-a2b24113695d",
+        ContactName = "necessitatibus",
+        DefaultCurrency = "harum",
+        EmailAddress = "explicabo",
+        Id = "164cf9ab-8366-4c72-bffd-a9e06bee4825",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "01224 658 999",
-        RegistrationNumber = "nisi",
+        Phone = "+44 25691 154789",
+        RegistrationNumber = "voluptatibus",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
+        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "repellat", new Dictionary<string, object>() {
-                    { "eligendi", "quaerat" },
-                    { "veniam", "perspiciatis" },
-                    { "commodi", "dolores" },
-                    { "dicta", "molestiae" },
-                } },
-                { "maxime", new Dictionary<string, object>() {
-                    { "molestias", "quam" },
-                } },
-                { "molestiae", new Dictionary<string, object>() {
-                    { "voluptate", "eum" },
-                    { "consectetur", "velit" },
+                { "officiis", new Dictionary<string, object>() {
+                    { "architecto", "architecto" },
                 } },
             },
         },
-        SupplierName = "tempora",
-        TaxNumber = "aspernatur",
+        SupplierName = "enim",
+        TaxNumber = "optio",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 323569,
+    TimeoutInMinutes = 525951,
 });
 
 // handle response
@@ -129,7 +119,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.GetAsync(new GetSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "incidunt",
+    SupplierId = "perferendis",
 });
 
 // handle response
@@ -220,7 +210,7 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "alias",
+    Query = "facilis",
 });
 
 // handle response
@@ -266,49 +256,44 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
-        Addresses = new List<SupplierAddresses>() {
-            new SupplierAddresses() {
-                City = "Murlworth",
-                Country = "Portugal",
-                Line1 = "minima",
-                Line2 = "cupiditate",
-                PostalCode = "08550",
-                Region = "perspiciatis",
-                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Unknown,
+        Addresses = new List<SupplierAccountingAddress>() {
+            new SupplierAccountingAddress() {
+                City = "Wauwatosa",
+                Country = "Nauru",
+                Line1 = "dicta",
+                Line2 = "quos",
+                PostalCode = "22982",
+                Region = "consequuntur",
+                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "corporis",
-        DefaultCurrency = "ullam",
-        EmailAddress = "molestiae",
-        Id = "389cedba-c7fd-4a39-994d-66bc2ae48063",
+        ContactName = "vero",
+        DefaultCurrency = "doloribus",
+        EmailAddress = "impedit",
+        Id = "ce8f1977-773e-4635-a2a7-b408f05e3d48",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Phone = "01224 658 999",
-        RegistrationNumber = "iste",
+        RegistrationNumber = "est",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         Status = CodatSyncPayables.Models.Shared.SupplierStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "libero", new Dictionary<string, object>() {
-                    { "voluptatibus", "id" },
-                    { "qui", "explicabo" },
-                } },
-                { "accusantium", new Dictionary<string, object>() {
-                    { "nesciunt", "commodi" },
-                    { "molestias", "atque" },
+                { "vitae", new Dictionary<string, object>() {
+                    { "nesciunt", "similique" },
                 } },
             },
         },
-        SupplierName = "explicabo",
-        TaxNumber = "totam",
+        SupplierName = "illo",
+        TaxNumber = "repellat",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    SupplierId = "ipsam",
-    TimeoutInMinutes = 367727,
+    SupplierId = "nemo",
+    TimeoutInMinutes = 987890,
 });
 
 // handle response

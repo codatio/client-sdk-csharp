@@ -24,6 +24,7 @@ namespace CodatSyncPayables
         public IBillPaymentsSDK BillPayments { get; }
         public IBillsSDK Bills { get; }
         public ICompaniesSDK Companies { get; }
+        public ICompanyInfoSDK CompanyInfo { get; }
         public IConnectionsSDK Connections { get; }
         public IJournalEntriesSDK JournalEntries { get; }
         public IJournalsSDK Journals { get; }
@@ -48,8 +49,8 @@ namespace CodatSyncPayables
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.1.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.2.0";
+        private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -59,6 +60,7 @@ namespace CodatSyncPayables
         public IBillPaymentsSDK BillPayments { get; private set; }
         public IBillsSDK Bills { get; private set; }
         public ICompaniesSDK Companies { get; private set; }
+        public ICompanyInfoSDK CompanyInfo { get; private set; }
         public IConnectionsSDK Connections { get; private set; }
         public IJournalEntriesSDK JournalEntries { get; private set; }
         public IJournalsSDK Journals { get; private set; }
@@ -90,6 +92,7 @@ namespace CodatSyncPayables
             BillPayments = new BillPaymentsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Bills = new BillsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Companies = new CompaniesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            CompanyInfo = new CompanyInfoSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Connections = new ConnectionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             JournalEntries = new JournalEntriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Journals = new JournalsSDK(_defaultClient, _securityClient, _serverUrl, Config);

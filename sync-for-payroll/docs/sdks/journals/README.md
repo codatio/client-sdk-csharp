@@ -41,21 +41,21 @@ var res = await sdk.Journals.CreateAsync(new CreateJournalRequest() {
     Journal = new Journal() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
         HasChildren = false,
-        Id = "711e5b7f-d2ed-4028-921c-ddc692601fb5",
-        JournalCode = "voluptate",
+        Id = "4f63c969-e9a3-4efa-b7df-b14cd66ae395",
+        JournalCode = "accusamus",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Gary Streich",
-        ParentId = "perferendis",
+        Name = "Rene Reinger",
+        ParentId = "deleniti",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         Status = CodatSyncPayroll.Models.Shared.JournalStatus.Unknown,
-        Type = "aut",
+        Type = "deserunt",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 764912,
+    TimeoutInMinutes = 394869,
 });
 
 // handle response
@@ -99,7 +99,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.Journals.GetAsync(new GetJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "corporis",
+    JournalId = "vel",
 });
 
 // handle response
@@ -190,7 +190,7 @@ var res = await sdk.Journals.ListAsync(new ListJournalsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "hic",
+    Query = "natus",
 });
 
 // handle response

@@ -1,25 +1,25 @@
 configVersion: 1.0.0
 management:
-  docChecksum: c3f720bffe88d9d0ab90348e67a41fe2
+  docChecksum: 9dbebecfc314c4f46c4e4ee23a46d37d
   docVersion: 3.0.0
-  speakeasyVersion: 1.77.1
-  generationVersion: 2.91.4
+  speakeasyVersion: 1.82.5
+  generationVersion: 2.108.3
 generation:
   sdkClassName: Codat.Sync.Payroll
   singleTagPerOp: false
   telemetryEnabled: true
 features:
   csharp:
-    core: 2.85.2
+    core: 2.85.6
     deprecations: 2.81.1
-    examples: 2.81.1
+    examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.1.0
+  version: 0.2.0
   author: Codat
-  dotnetVersion: net6.0
   description: Push payroll to accounting platforms.
+  dotnetVersion: net6.0
   maxMethodParams: 0
   packageName: Codat.Sync.Payroll

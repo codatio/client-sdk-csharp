@@ -20,7 +20,7 @@ namespace CodatSyncPayroll.Models.Operations
         public CompanyRequestBody? CompanyRequestBody { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

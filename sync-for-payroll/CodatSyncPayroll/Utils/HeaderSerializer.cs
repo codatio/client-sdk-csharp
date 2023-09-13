@@ -17,8 +17,13 @@ namespace CodatSyncPayroll.Utils
 
     internal static class HeaderSerializer
     {
-        public static void PopulateHeaders(ref HttpRequestMessage httpRequest, object request)
+        public static void PopulateHeaders(ref HttpRequestMessage httpRequest, object? request)
         {
+            if (request == null)
+            {
+                return;
+            }
+
             var props = request.GetType().GetProperties();
 
             foreach (var prop in props)
@@ -29,8 +34,8 @@ namespace CodatSyncPayroll.Utils
                     continue;
                 }
 
-                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>().GetHeaderMetadata();
-                if (metadata == null)
+                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetHeaderMetadata();
+                if (metadata == null || metadata.Name == "")
                 {
                     continue;
                 }
@@ -59,7 +64,7 @@ namespace CodatSyncPayroll.Utils
                         continue;
                     }
 
-                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>().GetHeaderMetadata();
+                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetHeaderMetadata();
                     if (metadata == null || metadata.Name == null)
                     {
                         continue;
@@ -84,13 +89,20 @@ namespace CodatSyncPayroll.Utils
 
                 foreach (DictionaryEntry entry in (IDictionary)value)
                 {
+                    var key = entry.Key?.ToString();
+
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     if (explode)
                     {
-                        items.Add($"{entry.Key}={Utilities.ValueToString(entry.Value)}");
+                        items.Add($"{key}={Utilities.ValueToString(entry.Value)}");
                     }
                     else
                     {
-                        items.Add(entry.Key.ToString());
+                        items.Add(key);
                         items.Add(Utilities.ValueToString(entry.Value));
                     }
                 }

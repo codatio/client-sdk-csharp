@@ -70,7 +70,7 @@ namespace CodatSyncPayroll.Models.Shared
         /// Unique identifier for your SMB in Codat.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -103,7 +103,7 @@ namespace CodatSyncPayroll.Models.Shared
         /// The name of the company
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("platform")]
@@ -113,7 +113,7 @@ namespace CodatSyncPayroll.Models.Shared
         /// The `redirect` [Link URL](https://docs.codat.io/auth-flow/authorize-hosted-link) enabling the customer to start their auth flow journey for the company.
         /// </summary>
         [JsonProperty("redirect")]
-        public string Redirect { get; set; }
+        public string Redirect { get; set; } = default!;
         
     }
     

@@ -39,7 +39,6 @@ CodatPlatform/Models/Operations/GetConnectionRequest.cs
 CodatPlatform/Models/Operations/GetConnectionResponse.cs
 CodatPlatform/Models/Operations/ListConnectionsRequest.cs
 CodatPlatform/Models/Operations/ListConnectionsResponse.cs
-CodatPlatform/Models/Operations/UnlinkConnectionRequestBody.cs
 CodatPlatform/Models/Operations/UnlinkConnectionRequest.cs
 CodatPlatform/Models/Operations/UnlinkConnectionResponse.cs
 CodatPlatform/Models/Operations/UpdateConnectionAuthorizationRequest.cs
@@ -97,6 +96,7 @@ CodatPlatform/Models/Shared/Companies.cs
 CodatPlatform/Models/Shared/Links.cs
 CodatPlatform/Models/Shared/HalRef.cs
 CodatPlatform/Models/Shared/Connections.cs
+CodatPlatform/Models/Shared/UpdateConnectionStatus.cs
 CodatPlatform/Models/Shared/Integration.cs
 CodatPlatform/Models/Shared/DataTypeFeature.cs
 CodatPlatform/Models/Shared/SupportedFeature.cs
@@ -144,7 +144,6 @@ CodatPlatform/Models/Shared/Webhooks.cs
 CodatPlatform/Models/Shared/Security.cs
 CodatPlatform/Models/Shared/CompanyDataConnectionStatusChangedWebhookData.cs
 CodatPlatform/Models/Shared/CompanyDataConnectionStatusChangedWebhook.cs
-CodatPlatform/Models/Shared/ConnectionStatus.cs
 CodatPlatform/Models/Shared/DataSyncCompletedWebhookData.cs
 CodatPlatform/Models/Shared/DataSyncCompletedWebhook.cs
 CodatPlatform/Models/Shared/DatasetDataChangedWebhookData.cs
@@ -191,7 +190,6 @@ docs/models/operations/GetConnectionRequest.md
 docs/models/operations/GetConnectionResponse.md
 docs/models/operations/ListConnectionsRequest.md
 docs/models/operations/ListConnectionsResponse.md
-docs/models/operations/UnlinkConnectionRequestBody.md
 docs/models/operations/UnlinkConnectionRequest.md
 docs/models/operations/UnlinkConnectionResponse.md
 docs/models/operations/UpdateConnectionAuthorizationRequest.md
@@ -249,6 +247,7 @@ docs/models/shared/Companies.md
 docs/models/shared/Links.md
 docs/models/shared/HalRef.md
 docs/models/shared/Connections.md
+docs/models/shared/UpdateConnectionStatus.md
 docs/models/shared/Integration.md
 docs/models/shared/DataTypeFeature.md
 docs/models/shared/SupportedFeature.md
@@ -296,7 +295,6 @@ docs/models/shared/Webhooks.md
 docs/models/shared/Security.md
 docs/models/shared/CompanyDataConnectionStatusChangedWebhookData.md
 docs/models/shared/CompanyDataConnectionStatusChangedWebhook.md
-docs/models/shared/ConnectionStatus.md
 docs/models/shared/DataSyncCompletedWebhookData.md
 docs/models/shared/DataSyncCompletedWebhook.md
 docs/models/shared/DatasetDataChangedWebhookData.md

@@ -1,4 +1,4 @@
-# salesPayments
+# Sales.Payments
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesPayments.GetAsync(new GetCommercePaymentRequest() {
+var res = await sdk.Sales.Payments.GetAsync(new GetCommercePaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     PaymentId = "quia",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesPayments.ListAsync(new ListCommercePaymentsRequest() {
+var res = await sdk.Sales.Payments.ListAsync(new ListCommercePaymentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

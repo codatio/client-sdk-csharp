@@ -15,28 +15,28 @@ namespace CodatLending
 
     public interface ITransactionsSDK
     {
-        public ITransactionsAccountTransactionsSDK TransactionsAccountTransactions { get; }
-        public ITransactionsDirectCostsSDK TransactionsDirectCosts { get; }
-        public ITransactionsJournalEntriesSDK TransactionsJournalEntries { get; }
-        public ITransactionsJournalsSDK TransactionsJournals { get; }
-        public ITransactionsTransfersSDK TransactionsTransfers { get; }
+        public ITransactionsAccountTransactionsSDK AccountTransactions { get; }
+        public ITransactionsDirectCostsSDK DirectCosts { get; }
+        public ITransactionsJournalEntriesSDK JournalEntries { get; }
+        public ITransactionsJournalsSDK Journals { get; }
+        public ITransactionsTransfersSDK Transfers { get; }
     }
 
     public class TransactionsSDK: ITransactionsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.109.1";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.109.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public ITransactionsAccountTransactionsSDK TransactionsAccountTransactions { get; private set; }
-        public ITransactionsDirectCostsSDK TransactionsDirectCosts { get; private set; }
-        public ITransactionsJournalEntriesSDK TransactionsJournalEntries { get; private set; }
-        public ITransactionsJournalsSDK TransactionsJournals { get; private set; }
-        public ITransactionsTransfersSDK TransactionsTransfers { get; private set; }
+        public ITransactionsAccountTransactionsSDK AccountTransactions { get; private set; }
+        public ITransactionsDirectCostsSDK DirectCosts { get; private set; }
+        public ITransactionsJournalEntriesSDK JournalEntries { get; private set; }
+        public ITransactionsJournalsSDK Journals { get; private set; }
+        public ITransactionsTransfersSDK Transfers { get; private set; }
 
         public TransactionsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
@@ -44,11 +44,11 @@ namespace CodatLending
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            TransactionsAccountTransactions = new TransactionsAccountTransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            TransactionsDirectCosts = new TransactionsDirectCostsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            TransactionsJournalEntries = new TransactionsJournalEntriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            TransactionsJournals = new TransactionsJournalsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            TransactionsTransfers = new TransactionsTransfersSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            AccountTransactions = new TransactionsAccountTransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            DirectCosts = new TransactionsDirectCostsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            JournalEntries = new TransactionsJournalEntriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Journals = new TransactionsJournalsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Transfers = new TransactionsTransfersSDK(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

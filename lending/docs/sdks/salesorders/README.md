@@ -1,4 +1,4 @@
-# salesOrders
+# Sales.Orders
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesOrders.GetAsync(new GetCommerceOrderRequest() {
+var res = await sdk.Sales.Orders.GetAsync(new GetCommerceOrderRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderId = "quam",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesOrders.ListAsync(new ListCommerceOrdersRequest() {
+var res = await sdk.Sales.Orders.ListAsync(new ListCommerceOrdersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

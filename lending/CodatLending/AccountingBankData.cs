@@ -21,7 +21,7 @@ namespace CodatLending
 
     public interface IAccountingBankDataSDK
     {
-        public IAccountingBankDataAccountsSDK AccountingBankDataAccounts { get; }
+        public IAccountingBankDataAccountsSDK Accounts { get; }
         Task<ListAccountingBankAccountTransactionsResponse> ListTransactionsAsync(ListAccountingBankAccountTransactionsRequest? request = null);
     }
 
@@ -29,13 +29,13 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.109.1";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.109.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IAccountingBankDataAccountsSDK AccountingBankDataAccounts { get; private set; }
+        public IAccountingBankDataAccountsSDK Accounts { get; private set; }
 
         public AccountingBankDataSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
@@ -43,7 +43,7 @@ namespace CodatLending
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            AccountingBankDataAccounts = new AccountingBankDataAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Accounts = new AccountingBankDataAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
 

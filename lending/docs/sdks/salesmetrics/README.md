@@ -1,4 +1,4 @@
-# salesMetrics
+# Sales.Metrics
 
 ### Available Operations
 
@@ -51,7 +51,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesMetrics.GetCustomerRetentionAsync(new GetCommerceCustomerRetentionMetricsRequest() {
+var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(new GetCommerceCustomerRetentionMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
@@ -115,7 +115,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesMetrics.GetLifetimeValueAsync(new GetCommerceLifetimeValueMetricsRequest() {
+var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(new GetCommerceLifetimeValueMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
@@ -180,7 +180,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesMetrics.GetRevenueAsync(new GetCommerceRevenueMetricsRequest() {
+var res = await sdk.Sales.Metrics.GetRevenueAsync(new GetCommerceRevenueMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,

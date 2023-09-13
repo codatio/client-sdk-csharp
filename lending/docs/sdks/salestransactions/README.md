@@ -1,4 +1,4 @@
-# salesTransactions
+# Sales.Transactions
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesTransactions.GetAsync(new GetCommerceTransactionRequest() {
+var res = await sdk.Sales.Transactions.GetAsync(new GetCommerceTransactionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     TransactionId = "possimus",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesTransactions.ListAsync(new ListCommerceTransactionsRequest() {
+var res = await sdk.Sales.Transactions.ListAsync(new ListCommerceTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

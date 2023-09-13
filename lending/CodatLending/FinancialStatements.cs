@@ -15,26 +15,26 @@ namespace CodatLending
 
     public interface IFinancialStatementsSDK
     {
-        public IFinancialStatementsAccountsSDK FinancialStatementsAccounts { get; }
-        public IFinancialStatementsBalanceSheetSDK FinancialStatementsBalanceSheet { get; }
-        public IFinancialStatementsCashFlowSDK FinancialStatementsCashFlow { get; }
-        public IFinancialStatementsProfitAndLossSDK FinancialStatementsProfitAndLoss { get; }
+        public IFinancialStatementsAccountsSDK Accounts { get; }
+        public IFinancialStatementsBalanceSheetSDK BalanceSheet { get; }
+        public IFinancialStatementsCashFlowSDK CashFlow { get; }
+        public IFinancialStatementsProfitAndLossSDK ProfitAndLoss { get; }
     }
 
     public class FinancialStatementsSDK: IFinancialStatementsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.109.1";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.109.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IFinancialStatementsAccountsSDK FinancialStatementsAccounts { get; private set; }
-        public IFinancialStatementsBalanceSheetSDK FinancialStatementsBalanceSheet { get; private set; }
-        public IFinancialStatementsCashFlowSDK FinancialStatementsCashFlow { get; private set; }
-        public IFinancialStatementsProfitAndLossSDK FinancialStatementsProfitAndLoss { get; private set; }
+        public IFinancialStatementsAccountsSDK Accounts { get; private set; }
+        public IFinancialStatementsBalanceSheetSDK BalanceSheet { get; private set; }
+        public IFinancialStatementsCashFlowSDK CashFlow { get; private set; }
+        public IFinancialStatementsProfitAndLossSDK ProfitAndLoss { get; private set; }
 
         public FinancialStatementsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
@@ -42,10 +42,10 @@ namespace CodatLending
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            FinancialStatementsAccounts = new FinancialStatementsAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            FinancialStatementsBalanceSheet = new FinancialStatementsBalanceSheetSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            FinancialStatementsCashFlow = new FinancialStatementsCashFlowSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            FinancialStatementsProfitAndLoss = new FinancialStatementsProfitAndLossSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Accounts = new FinancialStatementsAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            BalanceSheet = new FinancialStatementsBalanceSheetSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            CashFlow = new FinancialStatementsCashFlowSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            ProfitAndLoss = new FinancialStatementsProfitAndLossSDK(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

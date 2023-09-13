@@ -1,4 +1,4 @@
-# bankingAccounts
+# Banking.Accounts
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.BankingAccounts.GetAsync(new GetBankingAccountRequest() {
+var res = await sdk.Banking.Accounts.GetAsync(new GetBankingAccountRequest() {
     AccountId = "totam",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.BankingAccounts.ListAsync(new ListBankingAccountsRequest() {
+var res = await sdk.Banking.Accounts.ListAsync(new ListBankingAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

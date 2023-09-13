@@ -1,4 +1,4 @@
-# salesDisputes
+# Sales.Disputes
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesDisputes.GetAsync(new GetCommerceDisputeRequest() {
+var res = await sdk.Sales.Disputes.GetAsync(new GetCommerceDisputeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     DisputeId = "doloribus",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesDisputes.ListAsync(new ListCommerceDisputesRequest() {
+var res = await sdk.Sales.Disputes.ListAsync(new ListCommerceDisputesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

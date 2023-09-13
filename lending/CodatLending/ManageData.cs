@@ -22,8 +22,8 @@ namespace CodatLending
 
     public interface IManageDataSDK
     {
-        public IManageDataPullOperationsSDK ManageDataPullOperations { get; }
-        public IManageDataRefreshSDK ManageDataRefresh { get; }
+        public IManageDataPullOperationsSDK PullOperations { get; }
+        public IManageDataRefreshSDK Refresh { get; }
         Task<GetDataStatusResponse> GetStatusAsync(GetDataStatusRequest? request = null);
     }
 
@@ -31,14 +31,14 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.109.1";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.109.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IManageDataPullOperationsSDK ManageDataPullOperations { get; private set; }
-        public IManageDataRefreshSDK ManageDataRefresh { get; private set; }
+        public IManageDataPullOperationsSDK PullOperations { get; private set; }
+        public IManageDataRefreshSDK Refresh { get; private set; }
 
         public ManageDataSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
@@ -46,8 +46,8 @@ namespace CodatLending
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            ManageDataPullOperations = new ManageDataPullOperationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            ManageDataRefresh = new ManageDataRefreshSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            PullOperations = new ManageDataPullOperationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Refresh = new ManageDataRefreshSDK(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
 

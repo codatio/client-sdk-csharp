@@ -176,7 +176,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 
 * [List](docs/sdks/bankingaccountbalances/README.md#list) - List account balances
 
-### [bankingAccounts](docs/sdks/bankingaccounts/README.md)
+### [Banking.Accounts](docs/sdks/bankingaccounts/README.md)
 
 * [Get](docs/sdks/bankingaccounts/README.md#get) - Get account
 * [List](docs/sdks/bankingaccounts/README.md#list) - List accounts
@@ -190,7 +190,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/bankingtransactioncategories/README.md#get) - Get transaction category
 * [List](docs/sdks/bankingtransactioncategories/README.md#list) - List transaction categories
 
-### [bankingTransactions](docs/sdks/bankingtransactions/README.md)
+### [Banking.Transactions](docs/sdks/bankingtransactions/README.md)
 
 * [Get](docs/sdks/bankingtransactions/README.md#get) - Get bank transaction
 * [List](docs/sdks/bankingtransactions/README.md#list) - List transactions
@@ -230,28 +230,28 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [DataType](docs/sdks/managedatarefresh/README.md#datatype) - Refresh data type
 
 
-### [salesCustomers](docs/sdks/salescustomers/README.md)
+### [Sales.Customers](docs/sdks/salescustomers/README.md)
 
 * [Get](docs/sdks/salescustomers/README.md#get) - Get customer
 * [List](docs/sdks/salescustomers/README.md#list) - List customers
 
-### [salesDisputes](docs/sdks/salesdisputes/README.md)
+### [Sales.Disputes](docs/sdks/salesdisputes/README.md)
 
 * [Get](docs/sdks/salesdisputes/README.md#get) - Get dispute
 * [List](docs/sdks/salesdisputes/README.md#list) - List disputes
 
-### [salesLocations](docs/sdks/saleslocations/README.md)
+### [Sales.Locations](docs/sdks/saleslocations/README.md)
 
 * [Get](docs/sdks/saleslocations/README.md#get) - Get location
 * [List](docs/sdks/saleslocations/README.md#list) - List locations
 
-### [salesMetrics](docs/sdks/salesmetrics/README.md)
+### [Sales.Metrics](docs/sdks/salesmetrics/README.md)
 
 * [GetCustomerRetention](docs/sdks/salesmetrics/README.md#getcustomerretention) - Get customer retention metrics
 * [GetLifetimeValue](docs/sdks/salesmetrics/README.md#getlifetimevalue) - Get lifetime value metrics
 * [GetRevenue](docs/sdks/salesmetrics/README.md#getrevenue) - Get commerce revenue metrics
 
-### [salesOrders](docs/sdks/salesorders/README.md)
+### [Sales.Orders](docs/sdks/salesorders/README.md)
 
 * [Get](docs/sdks/salesorders/README.md#get) - Get order
 * [List](docs/sdks/salesorders/README.md#list) - List orders
@@ -261,7 +261,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/salespaymentmethods/README.md#get) - Get payment method
 * [List](docs/sdks/salespaymentmethods/README.md#list) - List payment methods
 
-### [salesPayments](docs/sdks/salespayments/README.md)
+### [Sales.Payments](docs/sdks/salespayments/README.md)
 
 * [Get](docs/sdks/salespayments/README.md#get) - Get payment
 * [List](docs/sdks/salespayments/README.md#list) - List payments
@@ -271,17 +271,17 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/salesproductcategories/README.md#get) - Get product category
 * [List](docs/sdks/salesproductcategories/README.md#list) - List product categories
 
-### [salesProducts](docs/sdks/salesproducts/README.md)
+### [Sales.Products](docs/sdks/salesproducts/README.md)
 
 * [Get](docs/sdks/salesproducts/README.md#get) - Get product
 * [List](docs/sdks/salesproducts/README.md#list) - List products
 
-### [salesReports](docs/sdks/salesreports/README.md)
+### [Sales.Reports](docs/sdks/salesreports/README.md)
 
 * [GetOrders](docs/sdks/salesreports/README.md#getorders) - Get orders report
 * [GetRefunds](docs/sdks/salesreports/README.md#getrefunds) - Get refunds report
 
-### [salesTransactions](docs/sdks/salestransactions/README.md)
+### [Sales.Transactions](docs/sdks/salestransactions/README.md)
 
 * [Get](docs/sdks/salestransactions/README.md#get) - Get transaction
 * [List](docs/sdks/salestransactions/README.md#list) - List transactions
@@ -305,12 +305,12 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/transactionsjournalentries/README.md#get) - Get journal entry
 * [List](docs/sdks/transactionsjournalentries/README.md#list) - List journal entries
 
-### [transactionsJournals](docs/sdks/transactionsjournals/README.md)
+### [Transactions.Journals](docs/sdks/transactionsjournals/README.md)
 
 * [Get](docs/sdks/transactionsjournals/README.md#get) - Get journal
 * [List](docs/sdks/transactionsjournals/README.md#list) - List journals
 
-### [transactionsTransfers](docs/sdks/transactionstransfers/README.md)
+### [Transactions.Transfers](docs/sdks/transactionstransfers/README.md)
 
 * [Get](docs/sdks/transactionstransfers/README.md#get) - Get transfer
 * [List](docs/sdks/transactionstransfers/README.md#list) - List transfers

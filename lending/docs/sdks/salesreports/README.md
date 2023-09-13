@@ -1,4 +1,4 @@
-# salesReports
+# Sales.Reports
 
 ### Available Operations
 
@@ -45,7 +45,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesReports.GetOrdersAsync(new GetCommerceOrdersReportRequest() {
+var res = await sdk.Sales.Reports.GetOrdersAsync(new GetCommerceOrdersReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
@@ -111,7 +111,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesReports.GetRefundsAsync(new GetCommerceRefundsReportRequest() {
+var res = await sdk.Sales.Reports.GetRefundsAsync(new GetCommerceRefundsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,

@@ -15,30 +15,30 @@ namespace CodatLending
 
     public interface IAccountsReceivableSDK
     {
-        public IAccountsReceivableCreditNotesSDK AccountsReceivableCreditNotes { get; }
-        public IAccountsReceivableCustomersSDK AccountsReceivableCustomers { get; }
-        public IAccountsReceivableDirectIncomesSDK AccountsReceivableDirectIncomes { get; }
-        public IAccountsReceivableInvoicesSDK AccountsReceivableInvoices { get; }
-        public IAccountsReceivablePaymentsSDK AccountsReceivablePayments { get; }
-        public IAccountsReceivableReportsSDK AccountsReceivableReports { get; }
+        public IAccountsReceivableCreditNotesSDK CreditNotes { get; }
+        public IAccountsReceivableCustomersSDK Customers { get; }
+        public IAccountsReceivableDirectIncomesSDK DirectIncomes { get; }
+        public IAccountsReceivableInvoicesSDK Invoices { get; }
+        public IAccountsReceivablePaymentsSDK Payments { get; }
+        public IAccountsReceivableReportsSDK Reports { get; }
     }
 
     public class AccountsReceivableSDK: IAccountsReceivableSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.109.1";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.109.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IAccountsReceivableCreditNotesSDK AccountsReceivableCreditNotes { get; private set; }
-        public IAccountsReceivableCustomersSDK AccountsReceivableCustomers { get; private set; }
-        public IAccountsReceivableDirectIncomesSDK AccountsReceivableDirectIncomes { get; private set; }
-        public IAccountsReceivableInvoicesSDK AccountsReceivableInvoices { get; private set; }
-        public IAccountsReceivablePaymentsSDK AccountsReceivablePayments { get; private set; }
-        public IAccountsReceivableReportsSDK AccountsReceivableReports { get; private set; }
+        public IAccountsReceivableCreditNotesSDK CreditNotes { get; private set; }
+        public IAccountsReceivableCustomersSDK Customers { get; private set; }
+        public IAccountsReceivableDirectIncomesSDK DirectIncomes { get; private set; }
+        public IAccountsReceivableInvoicesSDK Invoices { get; private set; }
+        public IAccountsReceivablePaymentsSDK Payments { get; private set; }
+        public IAccountsReceivableReportsSDK Reports { get; private set; }
 
         public AccountsReceivableSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
@@ -46,12 +46,12 @@ namespace CodatLending
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            AccountsReceivableCreditNotes = new AccountsReceivableCreditNotesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsReceivableCustomers = new AccountsReceivableCustomersSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsReceivableDirectIncomes = new AccountsReceivableDirectIncomesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsReceivableInvoices = new AccountsReceivableInvoicesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsReceivablePayments = new AccountsReceivablePaymentsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsReceivableReports = new AccountsReceivableReportsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            CreditNotes = new AccountsReceivableCreditNotesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Customers = new AccountsReceivableCustomersSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            DirectIncomes = new AccountsReceivableDirectIncomesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Invoices = new AccountsReceivableInvoicesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Payments = new AccountsReceivablePaymentsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Reports = new AccountsReceivableReportsSDK(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

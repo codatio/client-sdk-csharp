@@ -1,0 +1,16 @@
+# PushOption
+
+OK
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `description`                                                                       | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `displayName`                                                                       | *string*                                                                            | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `options`                                                                           | List<[PushOptionChoice](../../models/shared/PushOptionChoice.md)>                   | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `properties`                                                                        | Dictionary<String, [PushOptionProperty](../../models/shared/PushOptionProperty.md)> | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `required`                                                                          | *bool*                                                                              | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `type`                                                                              | [PushOptionType](../../models/shared/PushOptionType.md)                             | :heavy_check_mark:                                                                  | N/A                                                                                 |
+| `validation`                                                                        | [PushValidationInfo](../../models/shared/PushValidationInfo.md)                     | :heavy_minus_sign:                                                                  | N/A                                                                                 |

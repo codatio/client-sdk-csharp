@@ -11,6 +11,7 @@ generation:
 csharp:
   version: 0.4.0
   author: Codat
+  dotnetVersion: net6.0
   description: Push expenses to accounting platforms.
   maxMethodParams: 0
   packageName: Codat.Sync.Expenses

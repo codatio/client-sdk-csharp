@@ -11,6 +11,7 @@ generation:
 csharp:
   version: 0.3.0
   author: Codat
+  dotnetVersion: net6.0
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform
     into your merchants' accounting platform.
   maxMethodParams: 0

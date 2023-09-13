@@ -19,7 +19,7 @@ namespace CodatBankFeeds.Models.Operations
         public CreateConnectionRequestBody? RequestBody { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

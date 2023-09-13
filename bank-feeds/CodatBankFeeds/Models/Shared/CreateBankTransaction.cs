@@ -13,11 +13,14 @@ namespace CodatBankFeeds.Models.Shared
     using Newtonsoft.Json;
     
     
-    /// <summary>
-    /// A bank feed connection between a source account and a target account.
-    /// </summary>
-    public class BankFeedAccountMapping
+    public class CreateBankTransaction
     {
+        [JsonProperty("amount")]
+        public decimal? Amount { get; set; }
+        
+        [JsonProperty("balance")]
+        public decimal? Balance { get; set; }
+        
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
         /// 
@@ -42,20 +45,14 @@ namespace CodatBankFeeds.Models.Shared
         /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
-        [JsonProperty("feedStartDate")]
-        public string? FeedStartDate { get; set; }
+        [JsonProperty("date")]
+        public string? Date { get; set; }
         
-        /// <summary>
-        /// Unique ID for the source account
-        /// </summary>
-        [JsonProperty("sourceAccountId")]
-        public string? SourceAccountId { get; set; }
+        [JsonProperty("description")]
+        public string? Description { get; set; }
         
-        /// <summary>
-        /// Unique ID for the target account
-        /// </summary>
-        [JsonProperty("targetAccountId")]
-        public string? TargetAccountId { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
         
     }
     

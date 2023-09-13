@@ -18,7 +18,7 @@ namespace CodatBankFeeds.Utils
 
     internal static class URLBuilder
     {
-        public static string Build(string baseUrl, string path, object request)
+        public static string Build(string baseUrl, string path, object? request)
         {
             var url = baseUrl;
 
@@ -67,7 +67,7 @@ namespace CodatBankFeeds.Utils
             return string.Join("&", queries);
         }
 
-        private static Dictionary<string, string> GetPathParameters(object request)
+        private static Dictionary<string, string> GetPathParameters(object? request)
         {
             var parameters = new Dictionary<string, string>();
 
@@ -139,7 +139,7 @@ namespace CodatBankFeeds.Utils
             return parameters;
         }
 
-        private static Dictionary<string, List<string>> TrySerializeQueryParams(object request)
+        private static Dictionary<string, List<string>> TrySerializeQueryParams(object? request)
         {
             var parameters = new Dictionary<string, List<string>>();
 
@@ -164,9 +164,7 @@ namespace CodatBankFeeds.Utils
                     continue;
                 }
 
-                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                    ?.GetQueryParamMetadata();
-
+                var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetQueryParamMetadata();
                 if (metadata == null)
                 {
                     continue;
@@ -286,9 +284,7 @@ namespace CodatBankFeeds.Utils
                         continue;
                     }
 
-                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                        ?.GetPathParamMetadata();
-
+                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetPathParamMetadata();
                     if (metadata == null)
                     {
                         continue;
@@ -312,6 +308,11 @@ namespace CodatBankFeeds.Utils
 
                 foreach (var key in ((IDictionary)value).Keys)
                 {
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     var val = ((IDictionary)value)[key];
 
                     if (explode)
@@ -368,8 +369,7 @@ namespace CodatBankFeeds.Utils
                         continue;
                     }
 
-                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                        ?.GetQueryParamMetadata();
+                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetQueryParamMetadata();
                     if (metadata == null || metadata.Name == null)
                     {
                         continue;
@@ -408,23 +408,30 @@ namespace CodatBankFeeds.Utils
             {
                 var items = new List<string>();
 
-                foreach (var key in ((IDictionary)value).Keys)
+                foreach (var k in ((IDictionary)value).Keys)
                 {
+                    var key = k?.ToString();
+
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     if (explode)
                     {
-                        if (!parameters.ContainsKey(key.ToString()))
+                        if (!parameters.ContainsKey(key))
                         {
-                            parameters.Add(key.ToString(), new List<string>());
+                            parameters.Add(key, new List<string>());
                         }
 
-                        parameters[key.ToString()].Add(
+                        parameters[key].Add(
                             Utilities.ValueToString(((IDictionary)value)[key])
                         );
                     }
                     else
                     {
                         items.Add(
-                            $"{key.ToString()}{delimiter}{Utilities.ValueToString(((IDictionary)value)[key])}"
+                            $"{key}{delimiter}{Utilities.ValueToString(((IDictionary)value)[key])}"
                         );
                     }
                 }
@@ -504,9 +511,7 @@ namespace CodatBankFeeds.Utils
                         continue;
                     }
 
-                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()
-                        ?.GetQueryParamMetadata();
-
+                    var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetQueryParamMetadata();
                     if (metadata == null || metadata.Name == null)
                     {
                         continue;
@@ -514,7 +519,7 @@ namespace CodatBankFeeds.Utils
 
                     var keyName = $"{parentName}[{metadata.Name}]";
 
-                    if (Utilities.IsList(val))
+                    if (val != null && Utilities.IsList(val))
                     {
                         foreach (var v in (IList)val)
                         {
@@ -543,11 +548,16 @@ namespace CodatBankFeeds.Utils
             {
                 foreach (var key in ((IDictionary)value).Keys)
                 {
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     var val = ((IDictionary)value)[key];
 
                     var keyName = $"{parentName}[{key}]";
 
-                    if (Utilities.IsList(val))
+                    if (val != null && Utilities.IsList(val))
                     {
                         foreach (var v in (IList)val)
                         {

@@ -10,22 +10,26 @@
 #nullable enable
 namespace CodatBankFeeds.Models.Operations
 {
+    using CodatBankFeeds.Models.Shared;
     using CodatBankFeeds.Utils;
     
     
-    public class DeleteBankFeedBankAccountRequest
+    public class UpdateSourceAccountRequest
     {
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public SourceAccount? SourceAccount { get; set; }
+        
         /// <summary>
         /// Unique identifier for an account
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountId")]
-        public string AccountId { get; set; }
+        public string AccountId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
     }
     

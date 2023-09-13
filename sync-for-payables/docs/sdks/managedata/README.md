@@ -107,7 +107,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "exercitationem",
+    Query = "delectus",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "7411faf4-b754-44e4-b2e8-02857a5b4046",
+    ConnectionId = "4b7544e4-72e8-4028-97a5-b40463a7d575",
     DataType = CodatSyncPayables.Models.Shared.DataType.Invoices,
 });
 

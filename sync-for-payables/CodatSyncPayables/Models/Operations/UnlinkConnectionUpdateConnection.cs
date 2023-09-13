@@ -10,13 +10,17 @@
 #nullable enable
 namespace CodatSyncPayables.Models.Operations
 {
+    using CodatSyncPayables.Models.Shared;
     using Newtonsoft.Json;
     
     
-    public class UnlinkConnectionRequestBody
+    public class UnlinkConnectionUpdateConnection
     {
+        /// <summary>
+        /// The current authorization status of the data connection.
+        /// </summary>
         [JsonProperty("status")]
-        public string? Status { get; set; }
+        public DataConnectionStatus? Status { get; set; }
         
     }
     

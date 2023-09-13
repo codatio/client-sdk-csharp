@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 299d49c3bea217209c7297db9ab7b9f7
+  docChecksum: 20dff07521c517f5ccb59cc5b8ec767c
   docVersion: 3.0.0
   speakeasyVersion: 1.82.5
   generationVersion: 2.108.3
@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.1.2
+  version: 0.1.3
   author: Codat
   description: Streamline your customers' accounts payable workflow.
   dotnetVersion: net6.0

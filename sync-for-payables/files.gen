@@ -3,6 +3,7 @@ CodatSyncPayables/BillCreditNotes.cs
 CodatSyncPayables/BillPayments.cs
 CodatSyncPayables/Bills.cs
 CodatSyncPayables/Companies.cs
+CodatSyncPayables/CompanyInfo.cs
 CodatSyncPayables/Connections.cs
 CodatSyncPayables/JournalEntries.cs
 CodatSyncPayables/Journals.cs
@@ -27,12 +28,6 @@ CodatSyncPayables/Utils/URLBuilder.cs
 CodatSyncPayables/Utils/Utilities.cs
 CodatSyncPayables/CodatSyncPayables.csproj
 CodatSyncPayables.sln
-CodatSyncPayables/Models/Operations/GetAccountingProfileRequest.cs
-CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationPhone.cs
-CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationWeblinkType.cs
-CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationWeblink.cs
-CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformation.cs
-CodatSyncPayables/Models/Operations/GetAccountingProfileResponse.cs
 CodatSyncPayables/Models/Operations/CreateAccountRequest.cs
 CodatSyncPayables/Models/Operations/CreateAccountResponse.cs
 CodatSyncPayables/Models/Operations/GetAccountRequest.cs
@@ -91,6 +86,12 @@ CodatSyncPayables/Models/Operations/ListCompaniesRequest.cs
 CodatSyncPayables/Models/Operations/ListCompaniesResponse.cs
 CodatSyncPayables/Models/Operations/UpdateCompanyRequest.cs
 CodatSyncPayables/Models/Operations/UpdateCompanyResponse.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileRequest.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationPhone.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationWeblinkType.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformationWeblink.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileCompanyInformation.cs
+CodatSyncPayables/Models/Operations/GetAccountingProfileResponse.cs
 CodatSyncPayables/Models/Operations/CreateConnectionRequestBody.cs
 CodatSyncPayables/Models/Operations/CreateConnectionRequest.cs
 CodatSyncPayables/Models/Operations/CreateConnectionResponse.cs
@@ -100,7 +101,7 @@ CodatSyncPayables/Models/Operations/GetConnectionRequest.cs
 CodatSyncPayables/Models/Operations/GetConnectionResponse.cs
 CodatSyncPayables/Models/Operations/ListConnectionsRequest.cs
 CodatSyncPayables/Models/Operations/ListConnectionsResponse.cs
-CodatSyncPayables/Models/Operations/UnlinkConnectionRequestBody.cs
+CodatSyncPayables/Models/Operations/UnlinkConnectionUpdateConnection.cs
 CodatSyncPayables/Models/Operations/UnlinkConnectionRequest.cs
 CodatSyncPayables/Models/Operations/UnlinkConnectionResponse.cs
 CodatSyncPayables/Models/Operations/CreateJournalEntryRequest.cs
@@ -152,9 +153,6 @@ CodatSyncPayables/Models/Operations/GetTrackingCategoryResponse.cs
 CodatSyncPayables/Models/Operations/ListTrackingCategoriesRequest.cs
 CodatSyncPayables/Models/Operations/ListTrackingCategoriesResponse.cs
 CodatSyncPayables/Models/Shared/ErrorMessage.cs
-CodatSyncPayables/Models/Shared/Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType.cs
-CodatSyncPayables/Models/Shared/Addressesitems.cs
-CodatSyncPayables/Models/Shared/AccountingAddressType.cs
 CodatSyncPayables/Models/Shared/CreateAccountResponse.cs
 CodatSyncPayables/Models/Shared/Validation.cs
 CodatSyncPayables/Models/Shared/ValidationItem.cs
@@ -228,6 +226,9 @@ CodatSyncPayables/Models/Shared/DataConnectionStatus.cs
 CodatSyncPayables/Models/Shared/DataConnectionError.cs
 CodatSyncPayables/Models/Shared/CompanyRequestBody.cs
 CodatSyncPayables/Models/Shared/Companies.cs
+CodatSyncPayables/Models/Shared/Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType.cs
+CodatSyncPayables/Models/Shared/Addressesitems.cs
+CodatSyncPayables/Models/Shared/AccountingAddressType.cs
 CodatSyncPayables/Models/Shared/Connections.cs
 CodatSyncPayables/Models/Shared/CreateJournalEntryResponse.cs
 CodatSyncPayables/Models/Shared/JournalEntryRecordReference.cs
@@ -271,6 +272,7 @@ docs/sdks/billcreditnotes/README.md
 docs/sdks/billpayments/README.md
 docs/sdks/bills/README.md
 docs/sdks/companies/README.md
+docs/sdks/companyinfo/README.md
 docs/sdks/connections/README.md
 docs/sdks/journalentries/README.md
 docs/sdks/journals/README.md
@@ -281,12 +283,6 @@ docs/sdks/suppliers/README.md
 docs/sdks/taxrates/README.md
 docs/sdks/trackingcategories/README.md
 USAGE.md
-docs/models/operations/GetAccountingProfileRequest.md
-docs/models/operations/GetAccountingProfileCompanyInformationPhone.md
-docs/models/operations/GetAccountingProfileCompanyInformationWeblinkType.md
-docs/models/operations/GetAccountingProfileCompanyInformationWeblink.md
-docs/models/operations/GetAccountingProfileCompanyInformation.md
-docs/models/operations/GetAccountingProfileResponse.md
 docs/models/operations/CreateAccountRequest.md
 docs/models/operations/CreateAccountResponse.md
 docs/models/operations/GetAccountRequest.md
@@ -345,6 +341,12 @@ docs/models/operations/ListCompaniesRequest.md
 docs/models/operations/ListCompaniesResponse.md
 docs/models/operations/UpdateCompanyRequest.md
 docs/models/operations/UpdateCompanyResponse.md
+docs/models/operations/GetAccountingProfileRequest.md
+docs/models/operations/GetAccountingProfileCompanyInformationPhone.md
+docs/models/operations/GetAccountingProfileCompanyInformationWeblinkType.md
+docs/models/operations/GetAccountingProfileCompanyInformationWeblink.md
+docs/models/operations/GetAccountingProfileCompanyInformation.md
+docs/models/operations/GetAccountingProfileResponse.md
 docs/models/operations/CreateConnectionRequestBody.md
 docs/models/operations/CreateConnectionRequest.md
 docs/models/operations/CreateConnectionResponse.md
@@ -354,7 +356,7 @@ docs/models/operations/GetConnectionRequest.md
 docs/models/operations/GetConnectionResponse.md
 docs/models/operations/ListConnectionsRequest.md
 docs/models/operations/ListConnectionsResponse.md
-docs/models/operations/UnlinkConnectionRequestBody.md
+docs/models/operations/UnlinkConnectionUpdateConnection.md
 docs/models/operations/UnlinkConnectionRequest.md
 docs/models/operations/UnlinkConnectionResponse.md
 docs/models/operations/CreateJournalEntryRequest.md
@@ -406,9 +408,6 @@ docs/models/operations/GetTrackingCategoryResponse.md
 docs/models/operations/ListTrackingCategoriesRequest.md
 docs/models/operations/ListTrackingCategoriesResponse.md
 docs/models/shared/ErrorMessage.md
-docs/models/shared/Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType.md
-docs/models/shared/Addressesitems.md
-docs/models/shared/AccountingAddressType.md
 docs/models/shared/CreateAccountResponse.md
 docs/models/shared/Validation.md
 docs/models/shared/ValidationItem.md
@@ -482,6 +481,9 @@ docs/models/shared/DataConnectionStatus.md
 docs/models/shared/DataConnectionError.md
 docs/models/shared/CompanyRequestBody.md
 docs/models/shared/Companies.md
+docs/models/shared/Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType.md
+docs/models/shared/Addressesitems.md
+docs/models/shared/AccountingAddressType.md
 docs/models/shared/Connections.md
 docs/models/shared/CreateJournalEntryResponse.md
 docs/models/shared/JournalEntryRecordReference.md

@@ -14,9 +14,6 @@ namespace CodatPlatform.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// OK
-    /// </summary>
     public class SupplementalDataConfiguration
     {
         [JsonProperty("supplementalDataConfig")]

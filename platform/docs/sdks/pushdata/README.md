@@ -76,7 +76,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.PushData.GetOperationAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "74e0f467-cc87-496e-9151-a05dfc2ddf7c",
+    PushOperationKey = "d69a674e-0f46-47cc-8796-ed151a05dfc2",
 });
 
 // handle response
@@ -116,7 +116,7 @@ var res = await sdk.PushData.ListOperationsAsync(new GetCompanyPushHistoryReques
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quod",
+    Query = "at",
 });
 
 // handle response

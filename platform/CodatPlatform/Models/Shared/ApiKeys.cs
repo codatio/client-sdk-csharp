@@ -14,9 +14,6 @@ namespace CodatPlatform.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class ApiKeys
     {
         [JsonProperty("results")]

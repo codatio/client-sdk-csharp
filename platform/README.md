@@ -1,6 +1,4 @@
 # Platform
-    
-
 
 <!-- Start SDK Installation -->
 replace me

@@ -14,13 +14,22 @@ namespace CodatPlatform.Models.Shared
     using System.Collections.Generic;
     
     
-    public class RuleNotifiers
+    public class PushOperations
     {
-        [JsonProperty("emails")]
-        public List<string>? Emails { get; set; }
+        [JsonProperty("_links")]
+        public Links Links { get; set; } = default!;
         
-        [JsonProperty("webhook")]
-        public string? Webhook { get; set; }
+        [JsonProperty("pageNumber")]
+        public long PageNumber { get; set; } = default!;
+        
+        [JsonProperty("pageSize")]
+        public long PageSize { get; set; } = default!;
+        
+        [JsonProperty("results")]
+        public List<PushOperation>? Results { get; set; }
+        
+        [JsonProperty("totalResults")]
+        public long TotalResults { get; set; } = default!;
         
     }
     

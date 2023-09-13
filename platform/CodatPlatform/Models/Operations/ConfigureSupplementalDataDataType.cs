@@ -77,7 +77,12 @@ namespace CodatPlatform.Models.Operations
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (ConfigureSupplementalDataDataType)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is ConfigureSupplementalDataDataType)
+                    {
+                        return (ConfigureSupplementalDataDataType)enumVal;
+                    }
                 }
             }
 

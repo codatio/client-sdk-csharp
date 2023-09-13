@@ -41,21 +41,21 @@ var res = await sdk.Journals.CreateAsync(new CreateJournalRequest() {
     Journal = new Journal() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
         HasChildren = false,
-        Id = "502a94bb-4f63-4c96-9e9a-3efa77dfb14c",
-        JournalCode = "facere",
+        Id = "4f63c969-e9a3-4efa-b7df-b14cd66ae395",
+        JournalCode = "accusamus",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Kayla Thompson",
-        ParentId = "enim",
+        Name = "Rene Reinger",
+        ParentId = "deleniti",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayroll.Models.Shared.JournalStatus.Archived,
-        Type = "quidem",
+        Status = CodatSyncPayroll.Models.Shared.JournalStatus.Unknown,
+        Type = "deserunt",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 588465,
+    TimeoutInMinutes = 394869,
 });
 
 // handle response
@@ -99,7 +99,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.Journals.GetAsync(new GetJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "nam",
+    JournalId = "vel",
 });
 
 // handle response
@@ -190,7 +190,7 @@ var res = await sdk.Journals.ListAsync(new ListJournalsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "id",
+    Query = "natus",
 });
 
 // handle response

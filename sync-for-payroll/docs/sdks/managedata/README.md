@@ -106,7 +106,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.GetPushOperationAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "88f3a669-9707-44ba-8469-b6e214195989",
+    PushOperationKey = "97074ba4-469b-46e2-9419-59890afa563e",
 });
 
 // handle response
@@ -146,7 +146,7 @@ var res = await sdk.ManageData.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "accusantium",
+    Query = "odit",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "mollitia",
+    Query = "nemo",
 });
 
 // handle response
@@ -265,7 +265,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "fa563e25-16fe-44c8-b711-e5b7fd2ed028",
+    ConnectionId = "16fe4c8b-711e-45b7-bd2e-d028921cddc6",
     DataType = CodatSyncPayroll.Models.Shared.DataType.Invoices,
 });
 

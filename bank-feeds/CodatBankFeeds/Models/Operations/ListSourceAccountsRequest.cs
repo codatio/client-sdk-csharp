@@ -10,13 +10,16 @@
 #nullable enable
 namespace CodatBankFeeds.Models.Operations
 {
-    using Newtonsoft.Json;
+    using CodatBankFeeds.Utils;
     
     
-    public class UnlinkConnectionRequestBody
+    public class ListSourceAccountsRequest
     {
-        [JsonProperty("status")]
-        public string? Status { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
+        public string CompanyId { get; set; } = default!;
+        
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
+        public string ConnectionId { get; set; } = default!;
         
     }
     

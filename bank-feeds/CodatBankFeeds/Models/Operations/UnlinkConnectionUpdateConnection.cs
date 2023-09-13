@@ -11,26 +11,16 @@
 namespace CodatBankFeeds.Models.Operations
 {
     using CodatBankFeeds.Models.Shared;
-    using System.Net.Http;
-    using System;
+    using Newtonsoft.Json;
     
     
-    public class DeleteBankFeedBankAccountResponse
+    public class UnlinkConnectionUpdateConnection
     {
-        
-        public string? ContentType { get; set; }
-        
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// The current authorization status of the data connection.
         /// </summary>
-        
-        public ErrorMessage? ErrorMessage { get; set; }
-        
-        
-        public int StatusCode { get; set; }
-        
-        
-        public HttpResponseMessage? RawResponse { get; set; }
+        [JsonProperty("status")]
+        public DataConnectionStatus? Status { get; set; }
         
     }
     

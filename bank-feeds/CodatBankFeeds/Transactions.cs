@@ -30,8 +30,8 @@ namespace CodatBankFeeds
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "0.6.0";
+        private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -47,12 +47,12 @@ namespace CodatBankFeeds
         
 
         /// <summary>
-        /// Create bank account transactions
+        /// Create bank transactions
         /// 
         /// <remarks>
-        /// The *Create bank account transactions* endpoint creates new [bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
+        /// The *Create bank transactions* endpoint creates new [bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
         /// 
-        /// [Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
+        /// [Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
         /// 
         /// **Integration-specific behaviour**
         /// 
@@ -95,7 +95,7 @@ namespace CodatBankFeeds
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.CreateBankTransactionsResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateBankTransactionsResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -104,7 +104,7 @@ namespace CodatBankFeeds
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -150,7 +150,7 @@ namespace CodatBankFeeds
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -159,7 +159,7 @@ namespace CodatBankFeeds
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -205,16 +205,16 @@ namespace CodatBankFeeds
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ListPushOperations = JsonConvert.DeserializeObject<ListPushOperations>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.PushOperations = JsonConvert.DeserializeObject<PushOperations>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
                 
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }

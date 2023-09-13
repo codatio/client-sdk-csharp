@@ -13,7 +13,7 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingRequest() {
-    BankFeedAccountMapping = new BankFeedAccountMapping() {
+    RequestBody = new CreateBankAccountMappingBankFeedAccountMapping() {
         FeedStartDate = "2022-10-23T00:00:00.000Z",
         SourceAccountId = "provident",
         TargetAccountId = "distinctio",

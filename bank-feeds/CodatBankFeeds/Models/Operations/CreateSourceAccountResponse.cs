@@ -15,16 +15,10 @@ namespace CodatBankFeeds.Models.Operations
     using System;
     
     
-    public class CreateBankFeedResponse
+    public class CreateSourceAccountResponse
     {
-        /// <summary>
-        /// Success
-        /// </summary>
         
-        public BankFeedAccount? BankFeedAccount { get; set; }
-        
-        
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// The request made is not valid.
@@ -32,8 +26,14 @@ namespace CodatBankFeeds.Models.Operations
         
         public ErrorMessage? ErrorMessage { get; set; }
         
+        /// <summary>
+        /// Success
+        /// </summary>
         
-        public int StatusCode { get; set; }
+        public SourceAccount? SourceAccount { get; set; }
+        
+        
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

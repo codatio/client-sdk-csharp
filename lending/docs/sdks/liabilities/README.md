@@ -74,7 +74,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Liabilities.ListLoanTransactionsAsync(new ListLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = CodatLending.Models.Operations.ListLoanTransactionsSourceType.Banking,
+    SourceType = CodatLending.Models.Operations.ListLoanTransactionsSourceType.Commerce,
 });
 
 // handle response

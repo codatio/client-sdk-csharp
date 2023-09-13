@@ -10,12 +10,9 @@
 #nullable enable
 namespace CodatLending
 {
-    using CodatLending.Models.Operations;
     using CodatLending.Models.Shared;
     using CodatLending.Utils;
-    using Newtonsoft.Json;
     using System.Collections.Generic;
-    using System.Net.Http.Headers;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System;
@@ -24,16 +21,18 @@ namespace CodatLending
     {
         public IAccountingBankDataSDK AccountingBankData { get; }
         public IAccountsPayableSDK AccountsPayable { get; }
-        public IAccountsReceivableSDK AccountsReceivable { get; }
-        public IBankStatementsSDK BankStatements { get; }
         public ICompaniesSDK Companies { get; }
         public ICompanyInfoSDK CompanyInfo { get; }
         public IConnectionsSDK Connections { get; }
         public IDataIntegritySDK DataIntegrity { get; }
         public IExcelReportsSDK ExcelReports { get; }
         public IFileUploadSDK FileUpload { get; }
-        public IFinancialStatementsSDK FinancialStatements { get; }
         public ILiabilitiesSDK Liabilities { get; }
+        public IAccountingBankDataSDK AccountingBankData { get; }
+        public IAccountsPayableSDK AccountsPayable { get; }
+        public IAccountsReceivableSDK AccountsReceivable { get; }
+        public IBankingSDK Banking { get; }
+        public IFinancialStatementsSDK FinancialStatements { get; }
         public IManageDataSDK ManageData { get; }
         public ISalesSDK Sales { get; }
         public ITransactionsSDK Transactions { get; }
@@ -52,7 +51,7 @@ namespace CodatLending
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.2";
+        private const string _sdkVersion = "0.3.3";
         private const string _sdkGenVersion = "2.108.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
@@ -60,16 +59,18 @@ namespace CodatLending
         private ISpeakeasyHttpClient _securityClient;
         public IAccountingBankDataSDK AccountingBankData { get; private set; }
         public IAccountsPayableSDK AccountsPayable { get; private set; }
-        public IAccountsReceivableSDK AccountsReceivable { get; private set; }
-        public IBankStatementsSDK BankStatements { get; private set; }
         public ICompaniesSDK Companies { get; private set; }
         public ICompanyInfoSDK CompanyInfo { get; private set; }
         public IConnectionsSDK Connections { get; private set; }
         public IDataIntegritySDK DataIntegrity { get; private set; }
         public IExcelReportsSDK ExcelReports { get; private set; }
         public IFileUploadSDK FileUpload { get; private set; }
-        public IFinancialStatementsSDK FinancialStatements { get; private set; }
         public ILiabilitiesSDK Liabilities { get; private set; }
+        public IAccountingBankDataSDK AccountingBankData { get; private set; }
+        public IAccountsPayableSDK AccountsPayable { get; private set; }
+        public IAccountsReceivableSDK AccountsReceivable { get; private set; }
+        public IBankingSDK Banking { get; private set; }
+        public IFinancialStatementsSDK FinancialStatements { get; private set; }
         public IManageDataSDK ManageData { get; private set; }
         public ISalesSDK Sales { get; private set; }
         public ITransactionsSDK Transactions { get; private set; }
@@ -92,73 +93,21 @@ namespace CodatLending
 
             AccountingBankData = new AccountingBankDataSDK(_defaultClient, _securityClient, _serverUrl, Config);
             AccountsPayable = new AccountsPayableSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsReceivable = new AccountsReceivableSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            BankStatements = new BankStatementsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Companies = new CompaniesSDK(_defaultClient, _securityClient, _serverUrl, Config);
             CompanyInfo = new CompanyInfoSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Connections = new ConnectionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             DataIntegrity = new DataIntegritySDK(_defaultClient, _securityClient, _serverUrl, Config);
             ExcelReports = new ExcelReportsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             FileUpload = new FileUploadSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            FinancialStatements = new FinancialStatementsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Liabilities = new LiabilitiesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            AccountingBankData = new AccountingBankDataSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            AccountsPayable = new AccountsPayableSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            AccountsReceivable = new AccountsReceivableSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Banking = new BankingSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            FinancialStatements = new FinancialStatementsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             ManageData = new ManageDataSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Sales = new SalesSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Transactions = new TransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-        }
-
-        /// <summary>
-        /// Get company accounting profile
-        /// 
-        /// <remarks>
-        /// Gets the latest basic info for a company.
-        /// </remarks>
-        /// </summary>
-        public async Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null)
-        {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/info", request);
-            
-
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new GetAccountingProfileResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
-                {
-                    response.AccountingCompanyInfo = JsonConvert.DeserializeObject<AccountingCompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
-            {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
-                }
-                
-                return response;
-            }
-            return response;
         }
     }
 }

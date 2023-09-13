@@ -146,7 +146,7 @@ var res = await sdk.Companies.ListAsync(new ListCompaniesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "dicta",
+    Query = "corrupti",
 });
 
 // handle response

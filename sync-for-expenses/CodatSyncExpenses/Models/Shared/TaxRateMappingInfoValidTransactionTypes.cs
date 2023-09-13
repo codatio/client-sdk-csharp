@@ -48,7 +48,12 @@ namespace CodatSyncExpenses.Models.Shared
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (TaxRateMappingInfoValidTransactionTypes)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is TaxRateMappingInfoValidTransactionTypes)
+                    {
+                        return (TaxRateMappingInfoValidTransactionTypes)enumVal;
+                    }
                 }
             }
 

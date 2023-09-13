@@ -18,7 +18,7 @@ namespace CodatSyncExpenses.Models.Operations
     public class CreateAccountResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// Success
@@ -33,7 +33,7 @@ namespace CodatSyncExpenses.Models.Operations
         public ErrorMessage? ErrorMessage { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

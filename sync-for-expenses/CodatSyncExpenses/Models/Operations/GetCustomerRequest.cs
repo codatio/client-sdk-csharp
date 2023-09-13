@@ -16,10 +16,10 @@ namespace CodatSyncExpenses.Models.Operations
     public class GetCustomerRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customerId")]
-        public string CustomerId { get; set; }
+        public string CustomerId { get; set; } = default!;
         
     }
     

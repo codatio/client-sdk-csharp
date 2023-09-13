@@ -51,7 +51,12 @@ namespace CodatSyncExpenses.Models.Shared
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (ExpenseTransactionType)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is ExpenseTransactionType)
+                    {
+                        return (ExpenseTransactionType)enumVal;
+                    }
                 }
             }
 

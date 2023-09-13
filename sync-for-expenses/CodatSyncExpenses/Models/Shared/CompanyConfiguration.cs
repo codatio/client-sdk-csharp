@@ -13,19 +13,16 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class CompanyConfiguration
     {
         [JsonProperty("bankAccount")]
-        public BankAccount BankAccount { get; set; }
+        public BankAccount BankAccount { get; set; } = default!;
         
         [JsonProperty("customer")]
-        public Customer Customer { get; set; }
+        public Customer Customer { get; set; } = default!;
         
         [JsonProperty("supplier")]
-        public Supplier Supplier { get; set; }
+        public Supplier Supplier { get; set; } = default!;
         
     }
     

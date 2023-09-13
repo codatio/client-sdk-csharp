@@ -16,7 +16,7 @@ namespace CodatSyncExpenses.Models.Operations
     public class ListSyncTransactionsRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Page number. [Read more](https://docs.codat.io/using-the-api/paging).
@@ -34,7 +34,7 @@ namespace CodatSyncExpenses.Models.Operations
         /// Unique identifier for a sync.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=syncId")]
-        public string SyncId { get; set; }
+        public string SyncId { get; set; } = default!;
         
     }
     

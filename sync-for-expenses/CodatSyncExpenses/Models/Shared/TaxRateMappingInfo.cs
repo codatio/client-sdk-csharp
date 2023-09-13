@@ -26,7 +26,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// Effective tax rate.
         /// </summary>
         [JsonProperty("effectiveTaxRate")]
-        public float? EffectiveTaxRate { get; set; }
+        public decimal? EffectiveTaxRate { get; set; }
         
         /// <summary>
         /// Unique identifier of tax rate.
@@ -44,7 +44,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// Total (not compounded) sum of the components of a tax rate.
         /// </summary>
         [JsonProperty("totalTaxRate")]
-        public float? TotalTaxRate { get; set; }
+        public decimal? TotalTaxRate { get; set; }
         
         /// <summary>
         /// Supported transaction types for the account.

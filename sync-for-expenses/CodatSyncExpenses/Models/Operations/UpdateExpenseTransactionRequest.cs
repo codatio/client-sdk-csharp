@@ -20,13 +20,13 @@ namespace CodatSyncExpenses.Models.Operations
         public UpdateExpenseRequest? UpdateExpenseRequest { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// The unique identifier for your SMB's transaction.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")]
-        public string TransactionId { get; set; }
+        public string TransactionId { get; set; } = default!;
         
     }
     

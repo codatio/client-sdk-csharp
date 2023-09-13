@@ -43,7 +43,7 @@ var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 870013,
+    TimeoutInMinutes = 383441,
 });
 
 // handle response
@@ -87,7 +87,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Customers.GetAsync(new GetCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "at",
+    CustomerId = "molestiae",
 });
 
 // handle response
@@ -132,7 +132,7 @@ var res = await sdk.Customers.ListAsync(new ListCustomersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "maiores",
+    Query = "minus",
 });
 
 // handle response
@@ -182,9 +182,9 @@ var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "molestiae",
+    CustomerId = "placeat",
     ForceUpdate = false,
-    TimeoutInMinutes = 799159,
+    TimeoutInMinutes = 528895,
 });
 
 // handle response

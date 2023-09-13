@@ -20,10 +20,10 @@ namespace CodatSyncExpenses.Models.Operations
         public Supplier? Supplier { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }

@@ -16,10 +16,10 @@ namespace CodatLending.Models.Operations
     public class GetAccountingBillPaymentRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billPaymentId")]
-        public string BillPaymentId { get; set; }
+        public string BillPaymentId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

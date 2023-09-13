@@ -33,13 +33,13 @@ namespace CodatLending.Models.Shared
         /// The unique identifier of the account.
         /// </summary>
         [JsonProperty("accountId")]
-        public string AccountId { get; set; }
+        public string AccountId { get; set; } = default!;
         
         /// <summary>
         /// Depending on the data provided by the underlying bank, not all balances are always available.
         /// </summary>
         [JsonProperty("balance")]
-        public AccountBalanceAmounts Balance { get; set; }
+        public AccountBalanceAmounts Balance { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -66,7 +66,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("date")]
-        public string Date { get; set; }
+        public string Date { get; set; } = default!;
         
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }

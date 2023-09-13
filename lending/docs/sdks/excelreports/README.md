@@ -2,7 +2,7 @@
 
 ## Overview
 
-Downloadable reports
+Download reports in Excel format.
 
 ### Available Operations
 
@@ -53,12 +53,20 @@ var res = await sdk.ExcelReports.DownloadAsync(new DownloadExcelReportRequest() 
 
 ## Generate
 
-﻿The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.
+The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.
 
 In response, the endpoint returns the [status](https://docs.codat.io/lending-api#/schemas/ExcelStatus) detailing the current state of the report generation request.
 
-You can [learn more](https://docs.codat.io/lending/excel/overview) about valid Excel report types.
+### Report types
 
+| reportType                                                                           | Description                                                                                                                                   |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| [audit](https://docs.codat.io/lending/excel/audit-report)                            | Identifies inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   || [audit](https://docs.codat.io/lending/excel/audit-report)                            | Identify inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   |
+| [enhancedCashFlow](https://docs.codat.io/lending/excel/enhanced-invoices-report)     | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company's cash flow.  |
+| [enhancedFinancials](https://docs.codat.io/lending/excel/enhanced-financials-report) | Supports decision-making using fully categorized financial statements to allow lenders to automate their underwriting processes.                |
+| [enhancedInvoices](https://docs.codat.io/lending/excel/enhanced-invoices-report)     | Helps verify that payments have been made against historic invoices. Great for invoice finance lenders.                                       |
+
+[Learn more](https://docs.codat.io/lending/excel/overview) about valid Excel report types.
 
 
 
@@ -78,7 +86,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ExcelReports.GenerateAsync(new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedInvoices,
+    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedCashFlow,
 });
 
 // handle response

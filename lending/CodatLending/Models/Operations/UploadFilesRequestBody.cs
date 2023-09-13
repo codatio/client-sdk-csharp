@@ -16,10 +16,10 @@ namespace CodatLending.Models.Operations
     public class UploadFilesRequestBody
     {
         [SpeakeasyMetadata("multipartForm:content")]
-        public byte[] Content { get; set; }
+        public byte[] Content { get; set; } = default!;
         
         [SpeakeasyMetadata("multipartForm:name=requestBody")]
-        public string RequestBody { get; set; }
+        public string RequestBody { get; set; } = default!;
         
     }
     

@@ -17,7 +17,7 @@ namespace CodatLending.Models.Shared
     public class Contact
     {
         [JsonProperty("address")]
-        public AccountingAddress? Address { get; set; }
+        public Addressesitems? Address { get; set; }
         
         /// <summary>
         /// Email of a contact for a customer.
@@ -68,7 +68,7 @@ namespace CodatLending.Models.Shared
         /// Status of customer.
         /// </summary>
         [JsonProperty("status")]
-        public CustomerStatus Status { get; set; }
+        public CustomerStatus Status { get; set; } = default!;
         
     }
     

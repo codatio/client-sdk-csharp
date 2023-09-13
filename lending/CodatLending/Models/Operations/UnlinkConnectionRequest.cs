@@ -16,13 +16,13 @@ namespace CodatLending.Models.Operations
     public class UnlinkConnectionRequest
     {
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public UnlinkConnectionRequestBody? RequestBody { get; set; }
+        public UnlinkConnectionUpdateConnection? RequestBody { get; set; }
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
     }
     

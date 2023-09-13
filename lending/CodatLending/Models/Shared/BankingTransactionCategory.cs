@@ -28,7 +28,7 @@ namespace CodatLending.Models.Shared
         /// The unique identifier of the bank transaction category.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
@@ -37,7 +37,7 @@ namespace CodatLending.Models.Shared
         /// The name of the bank transaction category.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
         
         /// <summary>
         /// The unique identifier of the parent bank transaction category.

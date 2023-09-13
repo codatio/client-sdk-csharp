@@ -19,19 +19,19 @@ namespace CodatLending.Models.Operations
         /// Unique identifier for an attachment
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attachmentId")]
-        public string AttachmentId { get; set; }
+        public string AttachmentId { get; set; } = default!;
         
         /// <summary>
         /// Unique identifier for a bill
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billId")]
-        public string BillId { get; set; }
+        public string BillId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
     }
     

@@ -2,9 +2,9 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Lending</PackageId>
-    <Version>0.2.0</Version>
+    <Version>1.2.0</Version>
     <Authors>Codat</Authors>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>

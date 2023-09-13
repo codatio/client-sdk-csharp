@@ -14,9 +14,6 @@ namespace CodatLending.Models.Shared
     using System;
     
     
-    /// <summary>
-    /// The period unit of time returned.
-    /// </summary>
     public enum PeriodUnit
     {
     	[JsonProperty("Day")]
@@ -43,7 +40,12 @@ namespace CodatLending.Models.Shared
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (PeriodUnit)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is PeriodUnit)
+                    {
+                        return (PeriodUnit)enumVal;
+                    }
                 }
             }
 

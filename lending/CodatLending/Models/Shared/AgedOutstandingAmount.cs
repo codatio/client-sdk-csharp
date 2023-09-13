@@ -20,7 +20,7 @@ namespace CodatLending.Models.Shared
         /// The amount outstanding.
         /// </summary>
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         /// <summary>
         /// Array of details.

@@ -20,16 +20,16 @@ namespace CodatLending.Models.Shared
     public class AccountsReceivableTracking
     {
         [JsonProperty("categoryRefs")]
-        public List<TrackingCategoryRef> CategoryRefs { get; set; }
+        public List<TrackingCategoryRef> CategoryRefs { get; set; } = default!;
         
         [JsonProperty("customerRef")]
         public AccountingCustomerRef? CustomerRef { get; set; }
         
         [JsonProperty("isBilledTo")]
-        public BilledToType1 IsBilledTo { get; set; }
+        public BilledToType1 IsBilledTo { get; set; } = default!;
         
         [JsonProperty("isRebilledTo")]
-        public BilledToType1 IsRebilledTo { get; set; }
+        public BilledToType1 IsRebilledTo { get; set; } = default!;
         
         [JsonProperty("projectRef")]
         public ProjectRef? ProjectRef { get; set; }

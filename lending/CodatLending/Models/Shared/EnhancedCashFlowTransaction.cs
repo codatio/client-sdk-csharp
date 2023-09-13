@@ -25,7 +25,7 @@ namespace CodatLending.Models.Shared
         /// The bank transaction amount.
         /// </summary>
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         [JsonProperty("currency")]
         public string? Currency { get; set; }

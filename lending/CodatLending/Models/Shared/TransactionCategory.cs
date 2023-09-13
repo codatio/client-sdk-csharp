@@ -20,7 +20,7 @@ namespace CodatLending.Models.Shared
         /// Returns the confidence of the suggested category for the transaction. The value is between 0 and 100.
         /// </summary>
         [JsonProperty("confidence")]
-        public float? Confidence { get; set; }
+        public decimal? Confidence { get; set; }
         
         /// <summary>
         /// The suggested category is an ordered array of category levels where each element (or level) is a subcategory of the previous element (or level).

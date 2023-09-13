@@ -47,7 +47,7 @@ namespace CodatLending.Models.Shared
         /// Amount in the payment currency.
         /// </summary>
         [JsonProperty("amount")]
-        public float Amount { get; set; }
+        public decimal Amount { get; set; } = default!;
         
         [JsonProperty("links")]
         public List<PaymentLineLink>? Links { get; set; }

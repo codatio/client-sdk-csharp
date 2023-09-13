@@ -17,13 +17,13 @@ namespace CodatLending.Models.Operations
     public class GetDataIntegritySummariesRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// A key for a Codat data type.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public DataIntegrityDataType DataType { get; set; }
+        public DataIntegrityDataType DataType { get; set; } = default!;
         
         /// <summary>
         /// Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).

@@ -16,10 +16,10 @@ namespace CodatLending.Models.Operations
     public class GetAccountingJournalEntryRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=journalEntryId")]
-        public string JournalEntryId { get; set; }
+        public string JournalEntryId { get; set; } = default!;
         
     }
     

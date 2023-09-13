@@ -17,7 +17,7 @@ namespace CodatLending.Models.Operations
     public class GetAccountingAgedDebtorsReportRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Number of periods to include in the report.

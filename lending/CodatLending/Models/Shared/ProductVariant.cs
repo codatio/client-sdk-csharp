@@ -60,7 +60,7 @@ namespace CodatLending.Models.Shared
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         /// <summary>
         /// Information about the total inventory as well as the locations inventory is in.
@@ -117,7 +117,7 @@ namespace CodatLending.Models.Shared
         /// VAT rate for the product variant if sales taxes are enabled.
         /// </summary>
         [JsonProperty("vatPercentage")]
-        public float? VatPercentage { get; set; }
+        public decimal? VatPercentage { get; set; }
         
     }
     

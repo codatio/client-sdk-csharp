@@ -16,13 +16,13 @@ namespace CodatLending.Models.Operations
     public class ListLoanTransactionsRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// Data source type
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sourceType")]
-        public ListLoanTransactionsSourceType SourceType { get; set; }
+        public ListLoanTransactionsSourceType SourceType { get; set; } = default!;
         
     }
     

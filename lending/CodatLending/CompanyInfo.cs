@@ -21,16 +21,16 @@ namespace CodatLending
 
     public interface ICompanyInfoSDK
     {
-        Task<GetAccountingCompanyInfoResponse> FromAccountingPlatformAsync(GetAccountingCompanyInfoRequest? request = null);
-        Task<GetCommerceCompanyInfoResponse> FromCommercePlatformAsync(GetCommerceCompanyInfoRequest? request = null);
+        Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null);
+        Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest? request = null);
     }
 
     public class CompanyInfoSDK: ICompanyInfoSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.91.4";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.109.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -46,13 +46,13 @@ namespace CodatLending
         
 
         /// <summary>
-        /// Get company info
+        /// Get company accounting profile
         /// 
         /// <remarks>
         /// Gets the latest basic info for a company.
         /// </remarks>
         /// </summary>
-        public async Task<GetAccountingCompanyInfoResponse> FromAccountingPlatformAsync(GetAccountingCompanyInfoRequest? request = null)
+        public async Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -72,7 +72,7 @@ namespace CodatLending
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new GetAccountingCompanyInfoResponse
+            var response = new GetAccountingProfileResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -80,7 +80,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.AccountingCompanyInfo = JsonConvert.DeserializeObject<AccountingCompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -89,7 +89,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -101,7 +101,7 @@ namespace CodatLending
         
 
         /// <summary>
-        /// Get company info
+        /// Get company commerce profile
         /// 
         /// <remarks>
         /// Retrieve information about the company, as seen in the commerce platform.
@@ -109,7 +109,7 @@ namespace CodatLending
         /// This may include information like addresses, tax registration details and social media or website information.
         /// </remarks>
         /// </summary>
-        public async Task<GetCommerceCompanyInfoResponse> FromCommercePlatformAsync(GetCommerceCompanyInfoRequest? request = null)
+        public async Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -129,7 +129,7 @@ namespace CodatLending
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new GetCommerceCompanyInfoResponse
+            var response = new GetCommerceProfileResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -137,7 +137,7 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.CommerceCompanyInfo = JsonConvert.DeserializeObject<CommerceCompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }
@@ -146,7 +146,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
                 }

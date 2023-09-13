@@ -16,10 +16,10 @@ namespace CodatLending.Models.Shared
     public class AccountingPaymentAllocation
     {
         [JsonProperty("allocation")]
-        public AccountingPaymentAllocationAllocation Allocation { get; set; }
+        public AccountingPaymentAllocationAllocation Allocation { get; set; } = default!;
         
         [JsonProperty("payment")]
-        public PaymentAllocationPayment Payment { get; set; }
+        public PaymentAllocationPayment Payment { get; set; } = default!;
         
     }
     

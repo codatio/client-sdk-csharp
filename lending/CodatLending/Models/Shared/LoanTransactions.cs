@@ -14,9 +14,6 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// OK
-    /// </summary>
     public class LoanTransactions
     {
         /// <summary>

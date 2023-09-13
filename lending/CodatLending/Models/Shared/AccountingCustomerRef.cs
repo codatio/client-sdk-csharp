@@ -25,7 +25,7 @@ namespace CodatLending.Models.Shared
         /// `id` from the Customers data type
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
     }
     

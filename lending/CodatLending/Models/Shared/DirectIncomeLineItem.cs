@@ -32,13 +32,13 @@ namespace CodatLending.Models.Shared
         /// Discount amount for the line before tax.
         /// </summary>
         [JsonProperty("discountAmount")]
-        public float? DiscountAmount { get; set; }
+        public decimal? DiscountAmount { get; set; }
         
         /// <summary>
         /// Discount percentage for the line before tax.
         /// </summary>
         [JsonProperty("discountPercentage")]
-        public float? DiscountPercentage { get; set; }
+        public decimal? DiscountPercentage { get; set; }
         
         /// <summary>
         /// Reference to the item the line is linked to.
@@ -55,13 +55,13 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("quantity")]
-        public float Quantity { get; set; }
+        public decimal Quantity { get; set; } = default!;
         
         /// <summary>
         /// The amount of the line, inclusive of discounts, but exclusive of tax.
         /// </summary>
         [JsonProperty("subTotal")]
-        public float? SubTotal { get; set; }
+        public decimal? SubTotal { get; set; }
         
         /// <summary>
         /// The amount of tax for the line.
@@ -71,7 +71,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("taxAmount")]
-        public float? TaxAmount { get; set; }
+        public decimal? TaxAmount { get; set; }
         
         /// <summary>
         /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
@@ -95,7 +95,7 @@ namespace CodatLending.Models.Shared
         /// The total amount of the line, including tax.
         /// </summary>
         [JsonProperty("totalAmount")]
-        public float? TotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         
         /// <summary>
         /// An array of categories against which this direct cost is tracked.
@@ -111,7 +111,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("unitAmount")]
-        public float UnitAmount { get; set; }
+        public decimal UnitAmount { get; set; } = default!;
         
     }
     

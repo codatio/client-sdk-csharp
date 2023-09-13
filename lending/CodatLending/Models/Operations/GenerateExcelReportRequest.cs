@@ -17,13 +17,13 @@ namespace CodatLending.Models.Operations
     public class GenerateExcelReportRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         /// <summary>
         /// The type of report you want to generate and download.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=reportType")]
-        public ExcelReportTypes ReportType { get; set; }
+        public ExcelReportTypes ReportType { get; set; } = default!;
         
     }
     

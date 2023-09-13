@@ -17,7 +17,7 @@ namespace CodatLending.Models.Shared
     public class Payment
     {
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         [JsonProperty("bankingTransactionRefs")]
         public List<BankingTransactionRef>? BankingTransactionRefs { get; set; }
@@ -68,7 +68,7 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

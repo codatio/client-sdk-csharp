@@ -47,7 +47,7 @@ namespace CodatLending.Models.Shared
         /// Base currency of the company in which the profit and loss report is presented.
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; }
+        public string Currency { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -107,13 +107,13 @@ namespace CodatLending.Models.Shared
         /// The basis of a report.
         /// </summary>
         [JsonProperty("reportBasis")]
-        public ReportBasis ReportBasis { get; set; }
+        public ReportBasis ReportBasis { get; set; } = default!;
         
         /// <summary>
         /// An array of profit and loss reports.
         /// </summary>
         [JsonProperty("reports")]
-        public List<ProfitAndLossReport> Reports { get; set; }
+        public List<ProfitAndLossReport> Reports { get; set; } = default!;
         
     }
     

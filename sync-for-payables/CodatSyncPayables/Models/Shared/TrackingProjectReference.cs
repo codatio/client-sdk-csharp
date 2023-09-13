@@ -13,10 +13,10 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     
     
-    public class TrackingProjectRef
+    public class TrackingProjectReference
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("name")]
         public string? Name { get; set; }

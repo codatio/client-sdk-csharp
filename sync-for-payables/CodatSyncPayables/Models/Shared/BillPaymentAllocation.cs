@@ -16,10 +16,10 @@ namespace CodatSyncPayables.Models.Shared
     public class BillPaymentAllocation
     {
         [JsonProperty("allocation")]
-        public BillPaymentAllocationAllocation Allocation { get; set; }
+        public BillPaymentAllocationAllocation Allocation { get; set; } = default!;
         
         [JsonProperty("payment")]
-        public PaymentAllocationPayment Payment { get; set; }
+        public PaymentAllocationPayment Payment { get; set; } = default!;
         
     }
     

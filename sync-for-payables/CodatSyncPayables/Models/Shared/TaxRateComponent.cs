@@ -22,7 +22,7 @@ namespace CodatSyncPayables.Models.Shared
         /// A flag to indicate with the tax is calculated using the principle of compounding. 
         /// </summary>
         [JsonProperty("isCompound")]
-        public bool IsCompound { get; set; }
+        public bool IsCompound { get; set; } = default!;
         
         /// <summary>
         /// Name of the tax rate component.
@@ -34,7 +34,7 @@ namespace CodatSyncPayables.Models.Shared
         /// The rate of the tax rate component, usually a percentage.
         /// </summary>
         [JsonProperty("rate")]
-        public float? Rate { get; set; }
+        public decimal? Rate { get; set; }
         
     }
     

@@ -7,6 +7,7 @@ Bill payments
 ### Available Operations
 
 * [Create](#create) - Create bill payments
+* [Delete](#delete) - Delete bill payment
 * [Get](#get) - Get bill payment
 * [GetCreateModel](#getcreatemodel) - Get create bill payment model
 * [List](#list) - List bill payments
@@ -40,35 +41,23 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
     BillPayment = new BillPayment() {
         AccountRef = new AccountRef() {
-            Id = "18544ec4-2def-4cce-8f19-77773e63562a",
-            Name = "Ms. Verna Gislason",
+            Id = "756082d6-8ea1-49f1-9170-51339d08086a",
+            Name = "Mrs. Priscilla Fritsch",
         },
         Currency = "GBP",
-        CurrencyRate = 3314.52F,
+        CurrencyRate = 7710.89M,
         Date = "2022-10-23T00:00:00.000Z",
         Id = "3d5a8e00-d108-4045-8823-7f342676cffa",
         Lines = new List<BillPaymentLine>() {
             new BillPaymentLine() {
                 AllocatedOnDate = "2022-10-23T00:00:00.000Z",
-                Amount = 3071.73F,
+                Amount = 120.36M,
                 Links = new List<BillPaymentLineLink>() {
                     new BillPaymentLineLink() {
-                        Amount = 9847.73F,
-                        CurrencyRate = 8518.09F,
-                        Id = "af313a1f-5fd9-4425-9c0b-36f25ea944f3",
-                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.Refund,
-                    },
-                    new BillPaymentLineLink() {
-                        Amount = 4483.86F,
-                        CurrencyRate = 3296.51F,
-                        Id = "6c11f6c3-7a51-4262-8383-5bbc05a23a45",
-                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.ManualJournal,
-                    },
-                    new BillPaymentLineLink() {
-                        Amount = 9322.5F,
-                        CurrencyRate = 9555.69F,
-                        Id = "c5fde10a-0ce2-4169-a510-019c6dc5e347",
-                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.Other,
+                        Amount = 4910.25M,
+                        CurrencyRate = 1154.84M,
+                        Id = "f93f5f06-42da-4c7a-b515-cc413aa63aae",
+                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.BillPayment,
                     },
                 },
             },
@@ -78,38 +67,25 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Note = "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-        PaymentMethodRef = "odio",
-        Reference = "natus",
+        PaymentMethodRef = "vel",
+        Reference = "ducimus",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "doloribus", new Dictionary<string, object>() {
-                    { "quidem", "itaque" },
-                    { "laboriosam", "unde" },
-                    { "modi", "perspiciatis" },
-                } },
-                { "hic", new Dictionary<string, object>() {
-                    { "aspernatur", "libero" },
-                    { "nam", "incidunt" },
-                    { "recusandae", "quod" },
-                } },
-                { "id", new Dictionary<string, object>() {
-                    { "autem", "quo" },
-                    { "nesciunt", "illum" },
-                    { "nemo", "illum" },
-                    { "facilis", "non" },
+                { "vel", new Dictionary<string, object>() {
+                    { "labore", "possimus" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
-            Id = "adebd5da-ea4c-4506-a8aa-94c02644cf5e",
-            SupplierName = "unde",
+            Id = "bb675fd5-e60b-4375-ad4f-6fbee41f3331",
+            SupplierName = "dignissimos",
         },
-        TotalAmount = 1329.54F,
+        TotalAmount = 1329.54M,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 860311,
+    TimeoutInMinutes = 950953,
 });
 
 // handle response
@@ -125,6 +101,65 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
 ### Response
 
 **[Models.Operations.CreateBillPaymentResponse](../../models/operations/CreateBillPaymentResponse.md)**
+
+
+## Delete
+
+﻿The *Delete bill payment* endpoint allows you to delete a specified bill payment from an accounting platform.
+
+[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+
+### Process
+1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete operation by checking the status of push operation either via
+    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
+
+   A `Success` status indicates that the bill payment object was deleted from the accounting platform.
+3. (Optional) Check that the bill payment was deleted from the accounting platform.
+
+### Effect on related objects
+Be aware that deleting a bill payment from an accounting platform might cause related objects to be modified.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration | Soft Delete | Details                                                                                             |  
+|-------------|-------------|-----------------------------------------------------------------------------------------------------|
+| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more. |
+
+
+### Example Usage
+
+```csharp
+using CodatSyncPayables;
+using CodatSyncPayables.Models.Shared;
+using CodatSyncPayables.Models.Operations;
+
+var sdk = new CodatSyncPayablesSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.BillPayments.DeleteAsync(new DeleteBillPaymentRequest() {
+    BillPaymentId = "debitis",
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [DeleteBillPaymentRequest](../../models/operations/DeleteBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+
+### Response
+
+**[DeleteBillPaymentResponse](../../models/operations/DeleteBillPaymentResponse.md)**
 
 
 ## Get
@@ -152,7 +187,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.BillPayments.GetAsync(new GetBillPaymentsRequest() {
-    BillPaymentId = "error",
+    BillPaymentId = "consectetur",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -244,7 +279,7 @@ var res = await sdk.BillPayments.ListAsync(new ListBillPaymentsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "mollitia",
+    Query = "corporis",
 });
 
 // handle response

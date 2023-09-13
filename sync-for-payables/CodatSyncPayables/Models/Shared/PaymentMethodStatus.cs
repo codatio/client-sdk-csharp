@@ -41,7 +41,12 @@ namespace CodatSyncPayables.Models.Shared
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (PaymentMethodStatus)field.GetValue(null);
+                    var enumVal = field.GetValue(null);
+
+                    if (enumVal is PaymentMethodStatus)
+                    {
+                        return (PaymentMethodStatus)enumVal;
+                    }
                 }
             }
 

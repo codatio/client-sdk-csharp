@@ -18,7 +18,7 @@ namespace CodatSyncPayables.Models.Operations
     public class UpdateBillCreditNoteResponse
     {
         
-        public string? ContentType { get; set; }
+        public string? ContentType { get; set; } = default!;
         
         /// <summary>
         /// The request made is not valid.
@@ -27,7 +27,7 @@ namespace CodatSyncPayables.Models.Operations
         public ErrorMessage? ErrorMessage { get; set; }
         
         
-        public int StatusCode { get; set; }
+        public int StatusCode { get; set; } = default!;
         
         
         public HttpResponseMessage? RawResponse { get; set; }

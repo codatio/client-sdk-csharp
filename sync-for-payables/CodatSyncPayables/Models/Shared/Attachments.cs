@@ -14,9 +14,6 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class Attachments
     {
         [JsonProperty("attachments")]

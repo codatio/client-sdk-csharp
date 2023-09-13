@@ -25,7 +25,7 @@ namespace CodatSyncPayables.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("amount")]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.
@@ -58,7 +58,7 @@ namespace CodatSyncPayables.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public float? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; }
         
         /// <summary>
         /// Unique identifier of the transaction represented by the link.
@@ -70,7 +70,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Types of links to bill payment lines.
         /// </summary>
         [JsonProperty("type")]
-        public BillPaymentLineLinkType Type { get; set; }
+        public BillPaymentLineLinkType Type { get; set; } = default!;
         
     }
     

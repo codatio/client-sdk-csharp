@@ -23,25 +23,25 @@ namespace CodatSyncPayables.Models.Shared
     public class PullOperation
     {
         [JsonProperty("companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
         [JsonProperty("connectionId")]
-        public string ConnectionId { get; set; }
+        public string ConnectionId { get; set; } = default!;
         
         [JsonProperty("dataType")]
-        public string DataType { get; set; }
+        public string DataType { get; set; } = default!;
         
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("isCompleted")]
-        public bool IsCompleted { get; set; }
+        public bool IsCompleted { get; set; } = default!;
         
         [JsonProperty("isErrored")]
-        public bool IsErrored { get; set; }
+        public bool IsErrored { get; set; } = default!;
         
         [JsonProperty("progress")]
-        public int Progress { get; set; }
+        public long Progress { get; set; } = default!;
         
         /// <summary>
         /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -68,10 +68,10 @@ namespace CodatSyncPayables.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("requested")]
-        public string Requested { get; set; }
+        public string Requested { get; set; } = default!;
         
         [JsonProperty("status")]
-        public PullOperationStatus Status { get; set; }
+        public PullOperationStatus Status { get; set; } = default!;
         
     }
     

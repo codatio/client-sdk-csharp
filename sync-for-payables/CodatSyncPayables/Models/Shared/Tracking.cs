@@ -20,19 +20,19 @@ namespace CodatSyncPayables.Models.Shared
     public class Tracking
     {
         [JsonProperty("categoryRefs")]
-        public List<TrackingCategoryRef> CategoryRefs { get; set; }
+        public List<TrackingCategoryRef> CategoryRefs { get; set; } = default!;
         
         [JsonProperty("customerRef")]
         public TrackingCustomerRef? CustomerRef { get; set; }
         
         [JsonProperty("isBilledTo")]
-        public BilledToType IsBilledTo { get; set; }
+        public BilledToType IsBilledTo { get; set; } = default!;
         
         [JsonProperty("isRebilledTo")]
-        public BilledToType IsRebilledTo { get; set; }
+        public BilledToType IsRebilledTo { get; set; } = default!;
         
         [JsonProperty("projectRef")]
-        public TrackingProjectRef? ProjectRef { get; set; }
+        public TrackingProjectReference? ProjectRef { get; set; }
         
     }
     

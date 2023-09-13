@@ -20,7 +20,7 @@ namespace CodatSyncPayables.Models.Shared
     public class TrackingCategoryRef
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
         
         [JsonProperty("name")]
         public string? Name { get; set; }

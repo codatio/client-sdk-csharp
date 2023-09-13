@@ -47,7 +47,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Amount in the bill payment currency.
         /// </summary>
         [JsonProperty("amount")]
-        public float Amount { get; set; }
+        public decimal Amount { get; set; } = default!;
         
         [JsonProperty("links")]
         public List<BillPaymentLineLink>? Links { get; set; }

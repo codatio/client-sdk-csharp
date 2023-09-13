@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 csharp:
-  version: 0.2.0
+  version: 1.0.0
   author: Codat
   dotnetVersion: net6.0
   description: Make credit decisions backed by enhanced financials, metrics, reports,

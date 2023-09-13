@@ -41,7 +41,7 @@ CodatBankFeeds/Models/Operations/GetConnectionRequest.cs
 CodatBankFeeds/Models/Operations/GetConnectionResponse.cs
 CodatBankFeeds/Models/Operations/ListConnectionsRequest.cs
 CodatBankFeeds/Models/Operations/ListConnectionsResponse.cs
-CodatBankFeeds/Models/Operations/UnlinkConnectionRequestBody.cs
+CodatBankFeeds/Models/Operations/UnlinkConnectionUpdateConnection.cs
 CodatBankFeeds/Models/Operations/UnlinkConnectionRequest.cs
 CodatBankFeeds/Models/Operations/UnlinkConnectionResponse.cs
 CodatBankFeeds/Models/Operations/CreateSourceAccountRequest.cs
@@ -56,7 +56,6 @@ CodatBankFeeds/Models/Operations/ListSourceAccountsRequest.cs
 CodatBankFeeds/Models/Operations/ListSourceAccountsResponse.cs
 CodatBankFeeds/Models/Operations/UpdateSourceAccountRequest.cs
 CodatBankFeeds/Models/Operations/UpdateSourceAccountResponse.cs
-CodatBankFeeds/Models/Operations/CreateBankTransactionsCreateBankAccountTransactions.cs
 CodatBankFeeds/Models/Operations/CreateBankTransactionsRequest.cs
 CodatBankFeeds/Models/Operations/CreateBankTransactionsResponse.cs
 CodatBankFeeds/Models/Operations/GetCreateOperationRequest.cs
@@ -85,11 +84,10 @@ CodatBankFeeds/Models/Shared/ValidationItem.cs
 CodatBankFeeds/Models/Shared/PushOperationStatus.cs
 CodatBankFeeds/Models/Shared/DataType.cs
 CodatBankFeeds/Models/Shared/CreateBankTransactions.cs
-CodatBankFeeds/Models/Shared/CreateBankAccountTransaction.cs
+CodatBankFeeds/Models/Shared/CreateBankTransaction.cs
 CodatBankFeeds/Models/Shared/PushOperationChange.cs
 CodatBankFeeds/Models/Shared/PushChangeType.cs
 CodatBankFeeds/Models/Shared/PushOperationRef.cs
-CodatBankFeeds/Models/Shared/Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction.cs
 CodatBankFeeds/Models/Shared/PushOperation.cs
 CodatBankFeeds/Models/Shared/PushOperations.cs
 CodatBankFeeds/Models/Shared/Security.cs
@@ -123,7 +121,7 @@ docs/models/operations/GetConnectionRequest.md
 docs/models/operations/GetConnectionResponse.md
 docs/models/operations/ListConnectionsRequest.md
 docs/models/operations/ListConnectionsResponse.md
-docs/models/operations/UnlinkConnectionRequestBody.md
+docs/models/operations/UnlinkConnectionUpdateConnection.md
 docs/models/operations/UnlinkConnectionRequest.md
 docs/models/operations/UnlinkConnectionResponse.md
 docs/models/operations/CreateSourceAccountRequest.md
@@ -138,7 +136,6 @@ docs/models/operations/ListSourceAccountsRequest.md
 docs/models/operations/ListSourceAccountsResponse.md
 docs/models/operations/UpdateSourceAccountRequest.md
 docs/models/operations/UpdateSourceAccountResponse.md
-docs/models/operations/CreateBankTransactionsCreateBankAccountTransactions.md
 docs/models/operations/CreateBankTransactionsRequest.md
 docs/models/operations/CreateBankTransactionsResponse.md
 docs/models/operations/GetCreateOperationRequest.md
@@ -167,11 +164,10 @@ docs/models/shared/ValidationItem.md
 docs/models/shared/PushOperationStatus.md
 docs/models/shared/DataType.md
 docs/models/shared/CreateBankTransactions.md
-docs/models/shared/CreateBankAccountTransaction.md
+docs/models/shared/CreateBankTransaction.md
 docs/models/shared/PushOperationChange.md
 docs/models/shared/PushChangeType.md
 docs/models/shared/PushOperationRef.md
-docs/models/shared/Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction.md
 docs/models/shared/PushOperation.md
 docs/models/shared/PushOperations.md
 docs/models/shared/Security.md

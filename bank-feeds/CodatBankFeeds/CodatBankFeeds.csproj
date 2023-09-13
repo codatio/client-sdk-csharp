@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.BankFeeds</PackageId>
-    <Version>0.6.1</Version>
+    <Version>0.6.2</Version>
     <Authors>Codat</Authors>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

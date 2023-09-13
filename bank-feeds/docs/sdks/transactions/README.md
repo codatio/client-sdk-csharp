@@ -37,10 +37,10 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest() {
-    RequestBody = new CreateBankTransactionsCreateBankAccountTransactions() {
+    CreateBankTransactions = new CreateBankTransactions() {
         AccountId = "corporis",
-        Transactions = new List<Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction>() {
-            new Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction() {
+        Transactions = new List<CreateBankTransaction>() {
+            new CreateBankTransaction() {
                 Amount = 1289.26M,
                 Balance = 7506.86M,
                 Date = "2022-10-23T00:00:00.000Z",

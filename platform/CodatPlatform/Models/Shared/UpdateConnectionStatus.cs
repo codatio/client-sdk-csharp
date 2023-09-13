@@ -8,15 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Operations
+namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
     
-    public class UnlinkConnectionRequestBody
+    public class UpdateConnectionStatus
     {
+        /// <summary>
+        /// The current authorization status of the data connection.
+        /// </summary>
         [JsonProperty("status")]
-        public string? Status { get; set; }
+        public DataConnectionStatus? Status { get; set; }
         
     }
     

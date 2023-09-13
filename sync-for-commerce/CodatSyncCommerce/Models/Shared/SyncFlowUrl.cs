@@ -13,9 +13,6 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     
     
-    /// <summary>
-    /// Success
-    /// </summary>
     public class SyncFlowUrl
     {
         /// <summary>

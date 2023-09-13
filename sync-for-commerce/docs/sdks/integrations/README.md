@@ -27,7 +27,7 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.Integrations.GetBrandingAsync(new GetIntegrationBrandingRequest() {
-    PlatformKey = "magnam",
+    PlatformKey = "error",
 });
 
 // handle response
@@ -66,7 +66,7 @@ var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "debitis",
+    Query = "deserunt",
 });
 
 // handle response

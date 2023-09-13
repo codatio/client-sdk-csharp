@@ -19,7 +19,7 @@ namespace CodatSyncCommerce.Models.Operations
         /// PlatformKey
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
-        public string PlatformKey { get; set; }
+        public string PlatformKey { get; set; } = default!;
         
     }
     

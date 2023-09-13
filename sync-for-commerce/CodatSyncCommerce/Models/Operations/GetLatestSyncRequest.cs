@@ -16,7 +16,7 @@ namespace CodatSyncCommerce.Models.Operations
     public class GetLatestSyncRequest
     {
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
         
     }
     

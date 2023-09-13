@@ -16,7 +16,7 @@ namespace CodatSyncCommerce.Models.Shared
     public class SyncRange
     {
         [JsonProperty("dateRange")]
-        public SyncRangeDateRange DateRange { get; set; }
+        public SyncRangeDateRange DateRange { get; set; } = default!;
         
     }
     

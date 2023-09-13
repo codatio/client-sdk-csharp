@@ -52,7 +52,7 @@ CodatSyncExpenses/Models/Operations/GetConnectionRequest.cs
 CodatSyncExpenses/Models/Operations/GetConnectionResponse.cs
 CodatSyncExpenses/Models/Operations/ListConnectionsRequest.cs
 CodatSyncExpenses/Models/Operations/ListConnectionsResponse.cs
-CodatSyncExpenses/Models/Operations/UnlinkConnectionRequestBody.cs
+CodatSyncExpenses/Models/Operations/UnlinkConnectionUpdateConnection.cs
 CodatSyncExpenses/Models/Operations/UnlinkConnectionRequest.cs
 CodatSyncExpenses/Models/Operations/UnlinkConnectionResponse.cs
 CodatSyncExpenses/Models/Operations/CreateCustomerRequest.cs
@@ -224,7 +224,7 @@ docs/models/operations/GetConnectionRequest.md
 docs/models/operations/GetConnectionResponse.md
 docs/models/operations/ListConnectionsRequest.md
 docs/models/operations/ListConnectionsResponse.md
-docs/models/operations/UnlinkConnectionRequestBody.md
+docs/models/operations/UnlinkConnectionUpdateConnection.md
 docs/models/operations/UnlinkConnectionRequest.md
 docs/models/operations/UnlinkConnectionResponse.md
 docs/models/operations/CreateCustomerRequest.md

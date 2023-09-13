@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 842bc096dd1d244d6b0ec069d58f13e4
+  docChecksum: 4a5e3fac2ddbbd42096c049f64dc15ca
   docVersion: prealpha
   speakeasyVersion: 1.82.5
   generationVersion: 2.108.3
@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.5.1
+  version: 0.5.2
   author: Codat
   description: Push expenses to accounting platforms.
   dotnetVersion: net6.0

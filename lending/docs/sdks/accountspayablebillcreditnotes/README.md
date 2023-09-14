@@ -30,7 +30,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayableBillCreditNotes.GetAsync(new GetAccountingBillCreditNoteRequest() {
-    BillCreditNoteId = "vel",
+    BillCreditNoteId = "molestiae",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -76,7 +76,7 @@ var res = await sdk.AccountsPayableBillCreditNotes.ListAsync(new ListAccountingB
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "error",
+    Query = "minus",
 });
 
 // handle response

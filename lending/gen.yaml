@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 263b511a5156f351c951439255061186
+  docChecksum: acfccf3d1d90cfcd2dff9d64c0cb4cdb
   docVersion: 3.0.0
   speakeasyVersion: 1.83.2
   generationVersion: 2.109.3
@@ -18,7 +18,7 @@ features:
     groups: 2.81.1
     nameOverrides: 2.81.1
 csharp:
-  version: 2.0.0
+  version: 2.2.0
   author: Codat
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   dotnetVersion: net6.0

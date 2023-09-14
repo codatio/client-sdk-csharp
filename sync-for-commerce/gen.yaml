@@ -1,7 +1,7 @@
 configVersion: 1.0.0
 management:
   docChecksum: c0acc08add5921c52dad125db9a25813
-  docVersion: "1.1"
+  docVersion: '1.1'
   speakeasyVersion: 1.83.2
   generationVersion: 2.109.3
 generation:
@@ -19,7 +19,8 @@ features:
 csharp:
   version: 0.5.0
   author: Codat
-  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   dotnetVersion: net6.0
+  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform
+    into your merchants' accounting platform.
   maxMethodParams: 0
   packageName: Codat.Sync.Commerce

@@ -33,7 +33,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ExcelReports.DownloadAsync(new DownloadExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedCashFlow,
+    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedFinancials,
 });
 
 // handle response
@@ -86,7 +86,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ExcelReports.GenerateAsync(new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedCashFlow,
+    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedFinancials,
 });
 
 // handle response
@@ -127,7 +127,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ExcelReports.GetStatusAsync(new GetExcelReportGenerationStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = CodatLending.Models.Shared.ExcelReportTypes.Audit,
+    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedCashFlow,
 });
 
 // handle response

@@ -20,7 +20,6 @@ namespace CodatLending
     public interface ICodatLendingSDK
     {
         public IAccountingBankDataSDK AccountingBankData { get; }
-        public IAccountsPayableSDK AccountsPayable { get; }
         public ICompaniesSDK Companies { get; }
         public ICompanyInfoSDK CompanyInfo { get; }
         public IConnectionsSDK Connections { get; }
@@ -28,6 +27,7 @@ namespace CodatLending
         public IExcelReportsSDK ExcelReports { get; }
         public IFileUploadSDK FileUpload { get; }
         public ILiabilitiesSDK Liabilities { get; }
+        public IAccountsPayableSDK AccountsPayable { get; }
         public IAccountsReceivableSDK AccountsReceivable { get; }
         public IBankingSDK Banking { get; }
         public IFinancialStatementsSDK FinancialStatements { get; }
@@ -49,14 +49,13 @@ namespace CodatLending
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.2.0";
+        private const string _sdkVersion = "2.1.0";
         private const string _sdkGenVersion = "2.109.3";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public IAccountingBankDataSDK AccountingBankData { get; private set; }
-        public IAccountsPayableSDK AccountsPayable { get; private set; }
         public ICompaniesSDK Companies { get; private set; }
         public ICompanyInfoSDK CompanyInfo { get; private set; }
         public IConnectionsSDK Connections { get; private set; }
@@ -64,6 +63,7 @@ namespace CodatLending
         public IExcelReportsSDK ExcelReports { get; private set; }
         public IFileUploadSDK FileUpload { get; private set; }
         public ILiabilitiesSDK Liabilities { get; private set; }
+        public IAccountsPayableSDK AccountsPayable { get; private set; }
         public IAccountsReceivableSDK AccountsReceivable { get; private set; }
         public IBankingSDK Banking { get; private set; }
         public IFinancialStatementsSDK FinancialStatements { get; private set; }
@@ -88,7 +88,6 @@ namespace CodatLending
             };
 
             AccountingBankData = new AccountingBankDataSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsPayable = new AccountsPayableSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Companies = new CompaniesSDK(_defaultClient, _securityClient, _serverUrl, Config);
             CompanyInfo = new CompanyInfoSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Connections = new ConnectionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
@@ -96,6 +95,7 @@ namespace CodatLending
             ExcelReports = new ExcelReportsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             FileUpload = new FileUploadSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Liabilities = new LiabilitiesSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            AccountsPayable = new AccountsPayableSDK(_defaultClient, _securityClient, _serverUrl, Config);
             AccountsReceivable = new AccountsReceivableSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Banking = new BankingSDK(_defaultClient, _securityClient, _serverUrl, Config);
             FinancialStatements = new FinancialStatementsSDK(_defaultClient, _securityClient, _serverUrl, Config);

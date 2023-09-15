@@ -28,12 +28,15 @@ namespace CodatSyncCommerce
         Task<UpdateVisibleAccountsSyncFlowResponse> UpdateVisibleAccountsSyncFlowAsync(UpdateVisibleAccountsSyncFlowRequest? request = null);
     }
 
+    /// <summary>
+    /// Configure preferences for any given Sync for Commerce company using sync flow.
+    /// </summary>
     public class SyncFlowSettingsSDK: ISyncFlowSettingsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.109.3";
+        private const string _sdkVersion = "0.6.0";
+        private const string _sdkGenVersion = "2.113.0";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

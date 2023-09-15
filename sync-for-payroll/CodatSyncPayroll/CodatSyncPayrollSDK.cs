@@ -33,6 +33,31 @@ namespace CodatSyncPayroll
     {
     }
 
+    /// <summary>
+    /// Sync for Payroll: The API for Sync for Payroll. 
+    /// 
+    /// <remarks>
+    /// 
+    /// Sync for Payroll is an API and a set of supporting tools built to help integrate your customers' payroll data from their HR and payroll platforms into their accounting platforms and to support its reconciliation.
+    /// 
+    /// [Explore product](https://docs.codat.io/payroll/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+    /// 
+    /// ---
+    /// 
+    /// ## Endpoints
+    /// 
+    /// | Endpoints            | Description                                                                                                |
+    /// |:---------------------|:-----------------------------------------------------------------------------------------------------------|
+    /// | Companies            | Create and manage your SMB users' companies.                                                               |
+    /// | Connections          | Create new and manage existing data connections for a company.                                             |
+    /// | Accounts             | Get, create, and update Accounts.                                                           |
+    /// | Journal entries      | Get, create, and update Journal entries.                                                           |
+    /// | Journals             | Get, create, and update Journals.                                                           |
+    /// | Tracking categories  | Get, create, and update Tracking Categories for additional categorization of payroll components.                                                           |
+    /// | Company info         | View company profile from the source platform.                                                             |
+    /// | Manage data          | Control how data is retrieved from an integration.                                                         |
+    /// </remarks>
+    /// </summary>
     public class CodatSyncPayrollSDK: ICodatSyncPayrollSDK
     {
         public SDKConfig Config { get; private set; }
@@ -42,19 +67,43 @@ namespace CodatSyncPayroll
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.109.3";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.113.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
+        /// <summary>
+        /// Accounts
+        /// </summary>
         public IAccountsSDK Accounts { get; private set; }
+        /// <summary>
+        /// Create and manage your Codat companies.
+        /// </summary>
         public ICompaniesSDK Companies { get; private set; }
+        /// <summary>
+        /// View company information fetched from the source platform.
+        /// </summary>
         public ICompanyInfoSDK CompanyInfo { get; private set; }
+        /// <summary>
+        /// Manage your companies' data connections.
+        /// </summary>
         public IConnectionsSDK Connections { get; private set; }
+        /// <summary>
+        /// Journal entries
+        /// </summary>
         public IJournalEntriesSDK JournalEntries { get; private set; }
+        /// <summary>
+        /// Journals
+        /// </summary>
         public IJournalsSDK Journals { get; private set; }
+        /// <summary>
+        /// Asynchronously retrieve data from an integration to refresh data in Codat.
+        /// </summary>
         public IManageDataSDK ManageData { get; private set; }
+        /// <summary>
+        /// Tracking categories
+        /// </summary>
         public ITrackingCategoriesSDK TrackingCategories { get; private set; }
 
         public CodatSyncPayrollSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)

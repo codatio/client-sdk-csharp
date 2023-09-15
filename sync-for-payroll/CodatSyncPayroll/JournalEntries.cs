@@ -28,12 +28,15 @@ namespace CodatSyncPayroll
         Task<ListJournalEntriesResponse> ListAsync(ListJournalEntriesRequest? request = null);
     }
 
+    /// <summary>
+    /// Journal entries
+    /// </summary>
     public class JournalEntriesSDK: IJournalEntriesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.3.0";
-        private const string _sdkGenVersion = "2.109.3";
+        private const string _sdkVersion = "0.4.0";
+        private const string _sdkGenVersion = "2.113.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

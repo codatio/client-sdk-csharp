@@ -30,7 +30,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableDirectIncomes.DownloadAttachmentAsync(new DownloadAccountingDirectIncomeAttachmentRequest() {
+var res = await sdk.AccountsReceivable.DirectIncomes.DownloadAttachmentAsync(new DownloadAccountingDirectIncomeAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -76,7 +76,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableDirectIncomes.GetAsync(new GetAccountingDirectIncomeRequest() {
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(new GetAccountingDirectIncomeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     DirectIncomeId = "molestiae",
@@ -119,7 +119,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableDirectIncomes.GetAttachmentAsync(new GetAccountingDirectIncomeAttachmentRequest() {
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAttachmentAsync(new GetAccountingDirectIncomeAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -164,7 +164,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableDirectIncomes.ListAsync(new ListAccountingDirectIncomesRequest() {
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(new ListAccountingDirectIncomesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
@@ -210,7 +210,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableDirectIncomes.ListAttachmentsAsync(new ListAccountingDirectIncomeAttachmentsRequest() {
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAttachmentsAsync(new ListAccountingDirectIncomeAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     DirectIncomeId = "totam",

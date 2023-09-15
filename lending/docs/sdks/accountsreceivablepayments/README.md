@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivablePayments.GetAsync(new GetAccountingPaymentRequest() {
+var res = await sdk.AccountsReceivable.Payments.GetAsync(new GetAccountingPaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PaymentId = "deleniti",
 });
@@ -71,7 +71,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivablePayments.ListAsync(new ListAccountingPaymentsRequest() {
+var res = await sdk.AccountsReceivable.Payments.ListAsync(new ListAccountingPaymentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,

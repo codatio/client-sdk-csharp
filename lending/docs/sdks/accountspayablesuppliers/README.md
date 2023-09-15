@@ -30,7 +30,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableSuppliers.DownloadAttachmentAsync(new DownloadAccountingSupplierAttachmentRequest() {
+var res = await sdk.AccountsPayable.Suppliers.DownloadAttachmentAsync(new DownloadAccountingSupplierAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -76,7 +76,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableSuppliers.GetAsync(new GetAccountingSupplierRequest() {
+var res = await sdk.AccountsPayable.Suppliers.GetAsync(new GetAccountingSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SupplierId = "quis",
 });
@@ -118,7 +118,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableSuppliers.GetAttachmentAsync(new GetAccountingSupplierAttachmentRequest() {
+var res = await sdk.AccountsPayable.Suppliers.GetAttachmentAsync(new GetAccountingSupplierAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -162,7 +162,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableSuppliers.ListAsync(new ListAccountingSuppliersRequest() {
+var res = await sdk.AccountsPayable.Suppliers.ListAsync(new ListAccountingSuppliersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
@@ -207,7 +207,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableSuppliers.ListAttachmentsAsync(new ListAccountingSupplierAttachmentsRequest() {
+var res = await sdk.AccountsPayable.Suppliers.ListAttachmentsAsync(new ListAccountingSupplierAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     SupplierId = "perferendis",

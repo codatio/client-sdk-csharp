@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesProductCategories.GetAsync(new GetCommerceProductCategoryRequest() {
+var res = await sdk.Sales.ProductCategories.GetAsync(new GetCommerceProductCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ProductId = "vitae",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.SalesProductCategories.ListAsync(new ListCommerceProductCategoriesRequest() {
+var res = await sdk.Sales.ProductCategories.ListAsync(new ListCommerceProductCategoriesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

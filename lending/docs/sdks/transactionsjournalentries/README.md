@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.TransactionsJournalEntries.GetAsync(new GetAccountingJournalEntryRequest() {
+var res = await sdk.Transactions.JournalEntries.GetAsync(new GetAccountingJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     JournalEntryId = "vero",
 });
@@ -71,7 +71,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.TransactionsJournalEntries.ListAsync(new ListAccountingJournalEntriesRequest() {
+var res = await sdk.Transactions.JournalEntries.ListAsync(new ListAccountingJournalEntriesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,

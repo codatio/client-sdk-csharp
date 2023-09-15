@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableBillCreditNotes.GetAsync(new GetAccountingBillCreditNoteRequest() {
+var res = await sdk.AccountsPayable.BillCreditNotes.GetAsync(new GetAccountingBillCreditNoteRequest() {
     BillCreditNoteId = "molestiae",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -71,7 +71,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableBillCreditNotes.ListAsync(new ListAccountingBillCreditNotesRequest() {
+var res = await sdk.AccountsPayable.BillCreditNotes.ListAsync(new ListAccountingBillCreditNotesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,

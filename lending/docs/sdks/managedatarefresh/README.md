@@ -26,7 +26,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.ManageDataRefresh.AllDataTypesAsync(new RefreshAllDataTypesRequest() {
+var res = await sdk.ManageData.Refresh.AllDataTypesAsync(new RefreshAllDataTypesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -64,7 +64,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.ManageDataRefresh.DataTypeAsync(new RefreshDataTypeRequest() {
+var res = await sdk.ManageData.Refresh.DataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "29396fea-7596-4eb1-8faa-a2352c595590",
     DataType = CodatLending.Models.Shared.DataType.Invoices,

@@ -30,7 +30,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableCustomers.DownloadAttachmentAsync(new DownloadAccountingCustomerAttachmentRequest() {
+var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(new DownloadAccountingCustomerAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -76,7 +76,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableCustomers.GetAsync(new GetAccountingCustomerRequest() {
+var res = await sdk.AccountsReceivable.Customers.GetAsync(new GetAccountingCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CustomerId = "quo",
 });
@@ -118,7 +118,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableCustomers.GetAttachmentAsync(new GetAccountingCustomerAttachmentRequest() {
+var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(new GetAccountingCustomerAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -162,7 +162,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableCustomers.ListAsync(new ListAccountingCustomersRequest() {
+var res = await sdk.AccountsReceivable.Customers.ListAsync(new ListAccountingCustomersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
@@ -207,7 +207,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableCustomers.ListAttachmentsAsync(new ListAccountingCustomerAttachmentsRequest() {
+var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(new ListAccountingCustomerAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     CustomerId = "at",

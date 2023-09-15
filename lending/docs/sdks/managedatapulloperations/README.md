@@ -22,7 +22,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.ManageDataPullOperations.GetAsync(new GetPullOperationRequest() {
+var res = await sdk.ManageData.PullOperations.GetAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DatasetId = "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
 });
@@ -59,7 +59,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.ManageDataPullOperations.ListAsync(new ListPullOperationsRequest() {
+var res = await sdk.ManageData.PullOperations.ListAsync(new ListPullOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,

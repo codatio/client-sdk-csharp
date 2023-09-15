@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.FinancialStatementsAccounts.GetAsync(new GetAccountingAccountRequest() {
+var res = await sdk.FinancialStatements.Accounts.GetAsync(new GetAccountingAccountRequest() {
     AccountId = "cum",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -70,7 +70,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.FinancialStatementsAccounts.ListAsync(new ListAccountingAccountsRequest() {
+var res = await sdk.FinancialStatements.Accounts.ListAsync(new ListAccountingAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,

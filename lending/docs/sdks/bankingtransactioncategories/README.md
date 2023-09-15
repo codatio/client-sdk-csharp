@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.BankingTransactionCategories.GetAsync(new GetBankingTransactionCategoryRequest() {
+var res = await sdk.Banking.TransactionCategories.GetAsync(new GetBankingTransactionCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     TransactionCategoryId = "molestiae",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.BankingTransactionCategories.ListAsync(new ListBankingTransactionCategoriesRequest() {
+var res = await sdk.Banking.TransactionCategories.ListAsync(new ListBankingTransactionCategoriesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

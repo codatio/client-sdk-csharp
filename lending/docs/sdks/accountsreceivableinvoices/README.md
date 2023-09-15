@@ -32,7 +32,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableInvoices.DownloadAttachmentAsync(new DownloadAccountingInvoiceAttachmentRequest() {
+var res = await sdk.AccountsReceivable.Invoices.DownloadAttachmentAsync(new DownloadAccountingInvoiceAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -71,7 +71,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableInvoices.DownloadPdfAsync(new DownloadAccountingInvoicePdfRequest() {
+var res = await sdk.AccountsReceivable.Invoices.DownloadPdfAsync(new DownloadAccountingInvoicePdfRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     InvoiceId = "dolorum",
 });
@@ -114,7 +114,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableInvoices.GetAsync(new GetAccountingInvoiceRequest() {
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(new GetAccountingInvoiceRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     InvoiceId = "dicta",
 });
@@ -156,7 +156,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableInvoices.GetAttachmentAsync(new GetAccountingInvoiceAttachmentRequest() {
+var res = await sdk.AccountsReceivable.Invoices.GetAttachmentAsync(new GetAccountingInvoiceAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -206,7 +206,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableInvoices.ListAsync(new ListAccountingInvoicesRequest() {
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(new ListAccountingInvoicesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
@@ -251,7 +251,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableInvoices.ListAttachmentsAsync(new ListAccountingInvoiceAttachmentsRequest() {
+var res = await sdk.AccountsReceivable.Invoices.ListAttachmentsAsync(new ListAccountingInvoiceAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     InvoiceId = "occaecati",
@@ -289,7 +289,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableInvoices.ListReconciledAsync(new ListReconciledInvoicesRequest() {
+var res = await sdk.AccountsReceivable.Invoices.ListReconciledAsync(new ListReconciledInvoicesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Page = 1,
     PageSize = 100,

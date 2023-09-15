@@ -25,12 +25,15 @@ namespace CodatBankFeeds
         Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest? request = null);
     }
 
+    /// <summary>
+    /// Bank feed bank account mapping.
+    /// </summary>
     public class AccountMappingSDK: IAccountMappingSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.7.0";
-        private const string _sdkGenVersion = "2.109.3";
+        private const string _sdkVersion = "0.8.0";
+        private const string _sdkGenVersion = "2.113.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

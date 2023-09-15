@@ -25,7 +25,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableReports.GetAgedCreditorsAsync(new GetAccountingAgedCreditorsReportRequest() {
+var res = await sdk.AccountsReceivable.Reports.GetAgedCreditorsAsync(new GetAccountingAgedCreditorsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     NumberOfPeriods = 12,
     PeriodLengthDays = 30,
@@ -65,7 +65,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableReports.GetAgedDebtorsAsync(new GetAccountingAgedDebtorsReportRequest() {
+var res = await sdk.AccountsReceivable.Reports.GetAgedDebtorsAsync(new GetAccountingAgedDebtorsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     NumberOfPeriods = 12,
     PeriodLengthDays = 30,
@@ -104,7 +104,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableReports.IsAgedCreditorsAvailableAsync(new IsAgedCreditorsReportAvailableRequest() {
+var res = await sdk.AccountsReceivable.Reports.IsAgedCreditorsAvailableAsync(new IsAgedCreditorsReportAvailableRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -140,7 +140,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableReports.IsAgedDebtorsAvailableAsync(new IsAgedDebtorsReportAvailableRequest() {
+var res = await sdk.AccountsReceivable.Reports.IsAgedDebtorsAvailableAsync(new IsAgedDebtorsReportAvailableRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 

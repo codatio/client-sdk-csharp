@@ -22,7 +22,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.FinancialStatementsBalanceSheet.GetAsync(new GetAccountingBalanceSheetRequest() {
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(new GetAccountingBalanceSheetRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PeriodLength = 4,
     PeriodsToCompare = 20,
@@ -63,7 +63,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.FinancialStatementsBalanceSheet.GetCategorizedAccountsAsync(new GetCategorizedBalanceSheetStatementRequest() {
+var res = await sdk.FinancialStatements.BalanceSheet.GetCategorizedAccountsAsync(new GetCategorizedBalanceSheetStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     NumberOfPeriods = 568434,
     ReportDate = "29-09-2020",

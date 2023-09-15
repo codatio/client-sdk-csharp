@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.TransactionsAccountTransactions.GetAsync(new GetAccountingAccountTransactionRequest() {
+var res = await sdk.Transactions.AccountTransactions.GetAsync(new GetAccountingAccountTransactionRequest() {
     AccountTransactionId = "quasi",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -72,7 +72,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.TransactionsAccountTransactions.ListAsync(new ListAccountingAccountTransactionsRequest() {
+var res = await sdk.Transactions.AccountTransactions.ListAsync(new ListAccountingAccountTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",

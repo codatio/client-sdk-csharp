@@ -30,7 +30,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableBills.DownloadAttachmentAsync(new DownloadAccountingBillAttachmentRequest() {
+var res = await sdk.AccountsPayable.Bills.DownloadAttachmentAsync(new DownloadAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     BillId = "iusto",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -76,7 +76,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableBills.GetAsync(new GetAccountingBillRequest() {
+var res = await sdk.AccountsPayable.Bills.GetAsync(new GetAccountingBillRequest() {
     BillId = "excepturi",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -118,7 +118,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableBills.GetAttachmentAsync(new GetAccountingBillAttachmentRequest() {
+var res = await sdk.AccountsPayable.Bills.GetAttachmentAsync(new GetAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     BillId = "nisi",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -162,7 +162,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableBills.ListAsync(new ListAccountingBillsRequest() {
+var res = await sdk.AccountsPayable.Bills.ListAsync(new ListAccountingBillsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
@@ -207,7 +207,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsPayableBills.ListAttachmentsAsync(new ListAccountingBillAttachmentsRequest() {
+var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(new ListAccountingBillAttachmentsRequest() {
     BillId = "temporibus",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

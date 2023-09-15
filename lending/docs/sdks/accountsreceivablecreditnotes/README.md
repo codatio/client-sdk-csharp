@@ -29,7 +29,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableCreditNotes.GetAsync(new GetAccountingCreditNoteRequest() {
+var res = await sdk.AccountsReceivable.CreditNotes.GetAsync(new GetAccountingCreditNoteRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CreditNoteId = "ipsam",
 });
@@ -71,7 +71,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.AccountsReceivableCreditNotes.ListAsync(new ListAccountingCreditNotesRequest() {
+var res = await sdk.AccountsReceivable.CreditNotes.ListAsync(new ListAccountingCreditNotesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,

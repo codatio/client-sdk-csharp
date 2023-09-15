@@ -33,6 +33,19 @@ namespace CodatPlatform
     {
     }
 
+    /// <summary>
+    /// Platform API: Platform API
+    /// 
+    /// <remarks>
+    /// An API for the common components of all of Codat's products.
+    /// 
+    /// These end points cover creating and managing your companies, data connections, and integrations.
+    /// 
+    /// [Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies)
+    /// 
+    /// [See our OpenAPI spec](https://github.com/codatio/oas) 
+    /// </remarks>
+    /// </summary>
     public class CodatPlatformSDK: ICodatPlatformSDK
     {
         public SDKConfig Config { get; private set; }
@@ -42,19 +55,43 @@ namespace CodatPlatform
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.109.3";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.113.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
+        /// <summary>
+        /// Create and manage your Codat companies.
+        /// </summary>
         public ICompaniesSDK Companies { get; private set; }
+        /// <summary>
+        /// Manage your companies' data connections.
+        /// </summary>
         public IConnectionsSDK Connections { get; private set; }
+        /// <summary>
+        /// View and manage your available integrations in Codat.
+        /// </summary>
         public IIntegrationsSDK Integrations { get; private set; }
+        /// <summary>
+        /// View push options and get push statuses.
+        /// </summary>
         public IPushDataSDK PushData { get; private set; }
+        /// <summary>
+        /// Asynchronously retrieve data from an integration to refresh data in Codat.
+        /// </summary>
         public IRefreshDataSDK RefreshData { get; private set; }
+        /// <summary>
+        /// Manage your Codat instance.
+        /// </summary>
         public ISettingsSDK Settings { get; private set; }
+        /// <summary>
+        /// View and configure supplemental data for supported data types.
+        /// </summary>
         public ISupplementalDataSDK SupplementalData { get; private set; }
+        /// <summary>
+        /// Manage webhooks, rules, and events.
+        /// </summary>
         public IWebhooksSDK Webhooks { get; private set; }
 
         public CodatPlatformSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)

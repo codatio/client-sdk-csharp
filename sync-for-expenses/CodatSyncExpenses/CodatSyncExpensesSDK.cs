@@ -36,6 +36,22 @@ namespace CodatSyncExpenses
     {
     }
 
+    /// <summary>
+    /// Sync for Expenses: The API for Sync for Expenses.
+    /// 
+    /// <remarks>
+    /// 
+    /// Sync for Expenses is an API and a set of supporting tools. It has been built to
+    /// enable corporate card and expense management platforms to provide high-quality
+    /// integrations with multiple accounting platforms through a standardized API.
+    /// 
+    /// [Read more...](https://docs.codat.io/sync-for-expenses/overview)
+    /// 
+    /// [See our OpenAPI spec](https://github.com/codatio/oas)
+    /// 
+    /// Not seeing the endpoints you're expecting? We've [reorganized our products](https://docs.codat.io/updates/230901-new-products), and you may be using a [different version of Sync for Commerce](https://docs.codat.io/sync-for-expenses-v1-api#/).
+    /// </remarks>
+    /// </summary>
     public class CodatSyncExpensesSDK: ICodatSyncExpensesSDK
     {
         public SDKConfig Config { get; private set; }
@@ -45,22 +61,55 @@ namespace CodatSyncExpenses
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.7.0";
-        private const string _sdkGenVersion = "2.109.3";
+        private const string _sdkVersion = "0.8.0";
+        private const string _sdkGenVersion = "2.113.0";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
+        /// <summary>
+        /// Accounts
+        /// </summary>
         public IAccountsSDK Accounts { get; private set; }
+        /// <summary>
+        /// Create and manage your Codat companies.
+        /// </summary>
         public ICompaniesSDK Companies { get; private set; }
+        /// <summary>
+        /// Manage mapping options and sync configuration.
+        /// </summary>
         public IConfigurationSDK Configuration { get; private set; }
+        /// <summary>
+        /// Create and manage partner expense connection.
+        /// </summary>
         public IConnectionsSDK Connections { get; private set; }
+        /// <summary>
+        /// Customers
+        /// </summary>
         public ICustomersSDK Customers { get; private set; }
+        /// <summary>
+        /// Create expense datasets and upload receipts.
+        /// </summary>
         public IExpensesSDK Expenses { get; private set; }
+        /// <summary>
+        /// Asynchronously retrieve data from an integration to refresh data in Codat.
+        /// </summary>
         public IManageDataSDK ManageData { get; private set; }
+        /// <summary>
+        /// Access create, update and delete operations made to an SMB's data connection.
+        /// </summary>
         public IPushOperationsSDK PushOperations { get; private set; }
+        /// <summary>
+        /// Suppliers
+        /// </summary>
         public ISuppliersSDK Suppliers { get; private set; }
+        /// <summary>
+        /// Trigger and monitor expense syncs to accounting software.
+        /// </summary>
         public ISyncSDK Sync { get; private set; }
+        /// <summary>
+        /// Retrieve the status of transactions within a sync.
+        /// </summary>
         public ITransactionStatusSDK TransactionStatus { get; private set; }
 
         public CodatSyncExpensesSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)

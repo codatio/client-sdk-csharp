@@ -28,12 +28,15 @@ namespace CodatSyncCommerce
         Task<UpdateConnectionResponse> UpdateConnectionAsync(UpdateConnectionRequest? request = null);
     }
 
+    /// <summary>
+    /// Create new and manage existing Sync for Commerce connections using the Sync flow UI.
+    /// </summary>
     public class ConnectionsSDK: IConnectionsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.109.3";
+        private const string _sdkVersion = "0.6.0";
+        private const string _sdkGenVersion = "2.113.0";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

@@ -12,15 +12,13 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class AccountingInvoiceSalesOrderReference
     {
+
         [JsonProperty("dataType")]
         public string? DataType { get; set; }
-        
+
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
     }
-    
 }

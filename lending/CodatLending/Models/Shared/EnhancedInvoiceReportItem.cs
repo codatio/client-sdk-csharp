@@ -13,147 +13,145 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class EnhancedInvoiceReportItem
     {
+
         [JsonProperty("amountDue")]
         public decimal? AmountDue { get; set; }
-        
+
         /// <summary>
-        /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ## Unknown currencies
-        /// 
-        /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
-        /// 
+        /// <br/>
+        /// ## Unknown currencies<br/>
+        /// <br/>
+        /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
+        /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
-        
+
         [JsonProperty("customerRef")]
         public LendingCustomerRef? CustomerRef { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("dueDate")]
         public string? DueDate { get; set; }
-        
+
         /// <summary>
         /// ID of the invoice, which may be a GUID but it may be something else depending on the accounting platdform
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         [JsonProperty("invoiceNumber")]
         public string? InvoiceNumber { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("issueDate")]
         public string? IssueDate { get; set; }
-        
+
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("paidOnDate")]
         public string? PaidOnDate { get; set; }
-        
+
         [JsonProperty("payments")]
         public List<Payment>? Payments { get; set; }
-        
+
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
-        
+
         /// <summary>
-        /// Current state of the invoice:
+        /// Current state of the invoice:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// - `Draft` - Invoice hasn't been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.
-        /// - `Submitted` - Invoice is no longer a draft. It has been processed and, or, sent to the customer. In this state, it will impact the ledger. It also has no payments made against it (amountDue == totalAmount).
-        /// - `PartiallyPaid` - The balance paid against the invoice is positive, but less than the total invoice amount (0 < amountDue < totalAmount).
-        /// - `Paid` - Invoice is paid in full. This includes if the invoice has been credited or overpaid (amountDue == 0).
-        /// - `Void` - An invoice can become Void when it's deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
+        /// <br/>
+        /// - `Draft` - Invoice hasn&apos;t been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.<br/>
+        /// - `Submitted` - Invoice is no longer a draft. It has been processed and, or, sent to the customer. In this state, it will impact the ledger. It also has no payments made against it (amountDue == totalAmount).<br/>
+        /// - `PartiallyPaid` - The balance paid against the invoice is positive, but less than the total invoice amount (0 &lt; amountDue &lt; totalAmount).<br/>
+        /// - `Paid` - Invoice is paid in full. This includes if the invoice has been credited or overpaid (amountDue == 0).<br/>
+        /// - `Void` - An invoice can become Void when it&apos;s deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
         /// </remarks>
         /// </summary>
         [JsonProperty("status")]
         public InvoiceStatus? Status { get; set; }
-        
+
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
-        
     }
-    
 }

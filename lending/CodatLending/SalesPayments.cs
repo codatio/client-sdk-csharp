@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface ISalesPaymentsSDK
     {
+
+        /// <summary>
+        /// Get payment
+        /// 
+        /// <remarks>
+        /// The *Get payment* endpoint returns a single payment for a given paymentId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/Payment">Payments</a> contain details of all payments made by customers to the company.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-payments">coverage explorer</a> for integrations that support getting a specific payment.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetCommercePaymentResponse> GetAsync(GetCommercePaymentRequest? request = null);
+
+        /// <summary>
+        /// List payments
+        /// 
+        /// <remarks>
+        /// The *List payments* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Payment">payments</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/Payment">Payments</a> contain details of all payments made by customers to the company.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListCommercePaymentsResponse> ListAsync(ListCommercePaymentsRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get payment
-        /// 
-        /// <remarks>
-        /// The *Get payment* endpoint returns a single payment for a given paymentId.
-        /// 
-        /// [Payments](https://docs.codat.io/commerce-api#/schemas/Payment) contain details of all payments made by customers to the company.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-payments) for integrations that support getting a specific payment.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCommercePaymentResponse> GetAsync(GetCommercePaymentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List payments
-        /// 
-        /// <remarks>
-        /// The *List payments* endpoint returns a list of [payments](https://docs.codat.io/commerce-api#/schemas/Payment) for a given company's connection.
-        /// 
-        /// [Payments](https://docs.codat.io/commerce-api#/schemas/Payment) contain details of all payments made by customers to the company.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListCommercePaymentsResponse> ListAsync(ListCommercePaymentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

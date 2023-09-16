@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface IAccountingBankDataAccountsSDK
     {
+
+        /// <summary>
+        /// Get bank account
+        /// 
+        /// <remarks>
+        /// The *Get bank account* endpoint returns a single account for a given accountId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts">coverage explorer</a> for integrations that support getting a specific bank account.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingBankAccountResponse> GetAsync(GetAccountingBankAccountRequest? request = null);
+
+        /// <summary>
+        /// List bank accounts
+        /// 
+        /// <remarks>
+        /// The *List bank accounts* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/BankAccount">bank accounts</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingBankAccountsResponse> ListAsync(ListAccountingBankAccountsRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get bank account
-        /// 
-        /// <remarks>
-        /// The *Get bank account* endpoint returns a single account for a given accountId.
-        /// 
-        /// [Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support getting a specific bank account.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingBankAccountResponse> GetAsync(GetAccountingBankAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List bank accounts
-        /// 
-        /// <remarks>
-        /// The *List bank accounts* endpoint returns a list of [bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company's connection.
-        /// 
-        /// [Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingBankAccountsResponse> ListAsync(ListAccountingBankAccountsRequest? request = null)
         {
             string baseUrl = _serverUrl;

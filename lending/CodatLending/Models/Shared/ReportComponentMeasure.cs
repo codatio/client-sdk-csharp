@@ -12,18 +12,16 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class ReportComponentMeasure
     {
+
         [JsonProperty("index")]
         public long? Index { get; set; }
-        
+
         [JsonProperty("measureDisplayName")]
         public string? MeasureDisplayName { get; set; }
-        
+
         [JsonProperty("value")]
         public decimal? Value { get; set; }
-        
     }
-    
 }

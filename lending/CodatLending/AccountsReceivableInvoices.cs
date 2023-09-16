@@ -21,12 +21,100 @@ namespace CodatLending
 
     public interface IAccountsReceivableInvoicesSDK
     {
+
+        /// <summary>
+        /// Download invoice attachment
+        /// 
+        /// <remarks>
+        /// The *Download invoice attachment* endpoint downloads a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support downloading an invoice attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<DownloadAccountingInvoiceAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingInvoiceAttachmentRequest? request = null);
+
+        /// <summary>
+        /// Get invoice as PDF
+        /// 
+        /// <remarks>
+        /// Download invoice as a pdf.
+        /// </remarks>
+        /// </summary>
         Task<DownloadAccountingInvoicePdfResponse> DownloadPdfAsync(DownloadAccountingInvoicePdfRequest? request = null);
+
+        /// <summary>
+        /// Get invoice
+        /// 
+        /// <remarks>
+        /// The *Get invoice* endpoint returns a single invoice for a given invoiceId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support getting a specific invoice.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingInvoiceResponse> GetAsync(GetAccountingInvoiceRequest? request = null);
+
+        /// <summary>
+        /// Get invoice attachment
+        /// 
+        /// <remarks>
+        /// The *Get invoice attachment* endpoint returns a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support getting an invoice attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingInvoiceAttachmentResponse> GetAttachmentAsync(GetAccountingInvoiceAttachmentRequest? request = null);
+
+        /// <summary>
+        /// List invoices
+        /// 
+        /// <remarks>
+        /// The *List invoices* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">invoices</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     <br/>
+        /// ### Useful queries<br/>
+        /// <br/>
+        /// - Outstanding invoices - `query = amountDue &gt; 0`<br/>
+        /// - Invoices due after a certain date: `query = dueDate &gt; 2021-01-28`<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/using-the-api/querying">Read more about querying</a>.
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingInvoicesResponse> ListAsync(ListAccountingInvoicesRequest? request = null);
+
+        /// <summary>
+        /// List invoice attachments
+        /// 
+        /// <remarks>
+        /// The *List invoice attachments* endpoint returns a list of attachments available to download for given `invoiceId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support listing invoice attachments.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingInvoiceAttachmentsResponse> ListAttachmentsAsync(ListAccountingInvoiceAttachmentsRequest? request = null);
+
+        /// <summary>
+        /// List reconciled invoices
+        /// 
+        /// <remarks>
+        /// Gets a list of invoices linked to the corresponding banking transaction
+        /// </remarks>
+        /// </summary>
         Task<ListReconciledInvoicesResponse> ListReconciledAsync(ListReconciledInvoicesRequest? request = null);
     }
 
@@ -34,8 +122,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,18 +138,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download invoice attachment
-        /// 
-        /// <remarks>
-        /// The *Download invoice attachment* endpoint downloads a specific attachment for a given `invoiceId` and `attachmentId`.
-        /// 
-        /// [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support downloading an invoice attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadAccountingInvoiceAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingInvoiceAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -110,13 +186,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get invoice as PDF
-        /// 
-        /// <remarks>
-        /// Download invoice as a pdf.
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadAccountingInvoicePdfResponse> DownloadPdfAsync(DownloadAccountingInvoicePdfRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -156,19 +225,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get invoice
-        /// 
-        /// <remarks>
-        /// The *Get invoice* endpoint returns a single invoice for a given invoiceId.
-        /// 
-        /// [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support getting a specific invoice.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingInvoiceResponse> GetAsync(GetAccountingInvoiceRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -217,18 +273,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get invoice attachment
-        /// 
-        /// <remarks>
-        /// The *Get invoice attachment* endpoint returns a specific attachment for a given `invoiceId` and `attachmentId`.
-        /// 
-        /// [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support getting an invoice attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingInvoiceAttachmentResponse> GetAttachmentAsync(GetAccountingInvoiceAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -277,24 +321,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List invoices
-        /// 
-        /// <remarks>
-        /// The *List invoices* endpoint returns a list of [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) for a given company's connection.
-        /// 
-        /// [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// ### Useful queries
-        /// 
-        /// - Outstanding invoices - `query = amountDue > 0`
-        /// - Invoices due after a certain date: `query = dueDate > 2021-01-28`
-        /// 
-        /// [Read more about querying](https://docs.codat.io/using-the-api/querying).
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingInvoicesResponse> ListAsync(ListAccountingInvoicesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -343,18 +369,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List invoice attachments
-        /// 
-        /// <remarks>
-        /// The *List invoice attachments* endpoint returns a list of attachments available to download for given `invoiceId`.
-        /// 
-        /// [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support listing invoice attachments.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingInvoiceAttachmentsResponse> ListAttachmentsAsync(ListAccountingInvoiceAttachmentsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -403,13 +417,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List reconciled invoices
-        /// 
-        /// <remarks>
-        /// Gets a list of invoices linked to the corresponding banking transaction
-        /// </remarks>
-        /// </summary>
         public async Task<ListReconciledInvoicesResponse> ListReconciledAsync(ListReconciledInvoicesRequest? request = null)
         {
             string baseUrl = _serverUrl;

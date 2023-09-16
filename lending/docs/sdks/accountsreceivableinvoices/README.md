@@ -1,4 +1,4 @@
-# accountsReceivableInvoices
+# AccountsReceivable.Invoices
 
 ### Available Operations
 

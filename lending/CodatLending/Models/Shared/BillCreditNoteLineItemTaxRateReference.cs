@@ -12,42 +12,40 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
-    /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
+    /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// Found on:
-    /// 
-    /// - Bill line items
-    /// - Bill Credit Note line items
-    /// - Credit Note line items
-    /// - Direct incomes line items
-    /// - Invoice line items
+    /// <br/>
+    /// Found on:<br/>
+    /// <br/>
+    /// - Bill line items<br/>
+    /// - Bill Credit Note line items<br/>
+    /// - Credit Note line items<br/>
+    /// - Direct incomes line items<br/>
+    /// - Invoice line items<br/>
     /// - Items
     /// </remarks>
     /// </summary>
     public class BillCreditNoteLineItemTaxRateReference
     {
+
         /// <summary>
         /// Applicable tax rate.
         /// </summary>
         [JsonProperty("effectiveTaxRate")]
         public decimal? EffectiveTaxRate { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for the tax rate in the accounting platform.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         /// <summary>
         /// Name of the tax rate in the accounting platform.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

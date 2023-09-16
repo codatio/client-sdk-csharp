@@ -21,10 +21,77 @@ namespace CodatLending
 
     public interface IAccountsPayableSuppliersSDK
     {
+
+        /// <summary>
+        /// Download supplier attachment
+        /// 
+        /// <remarks>
+        /// The *Download supplier attachment* endpoint downloads a specific attachment for a given `supplierId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support downloading a supplier attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<DownloadAccountingSupplierAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingSupplierAttachmentRequest? request = null);
+
+        /// <summary>
+        /// Get supplier
+        /// 
+        /// <remarks>
+        /// The *Get supplier* endpoint returns a single supplier for a given supplierId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support getting a specific supplier.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingSupplierResponse> GetAsync(GetAccountingSupplierRequest? request = null);
+
+        /// <summary>
+        /// Get supplier attachment
+        /// 
+        /// <remarks>
+        /// The *Get supplier attachment* endpoint returns a specific attachment for a given `supplierId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support getting a supplier attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingSupplierAttachmentResponse> GetAttachmentAsync(GetAccountingSupplierAttachmentRequest? request = null);
+
+        /// <summary>
+        /// List suppliers
+        /// 
+        /// <remarks>
+        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingSuppliersResponse> ListAsync(ListAccountingSuppliersRequest? request = null);
+
+        /// <summary>
+        /// List supplier attachments
+        /// 
+        /// <remarks>
+        /// The *List supplier attachments* endpoint returns a list of attachments available to download for given `supplierId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support listing supplier attachments.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingSupplierAttachmentsResponse> ListAttachmentsAsync(ListAccountingSupplierAttachmentsRequest? request = null);
     }
 
@@ -32,8 +99,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,18 +115,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download supplier attachment
-        /// 
-        /// <remarks>
-        /// The *Download supplier attachment* endpoint downloads a specific attachment for a given `supplierId` and `attachmentId`.
-        /// 
-        /// [Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support downloading a supplier attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadAccountingSupplierAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingSupplierAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -108,20 +163,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get supplier
-        /// 
-        /// <remarks>
-        /// The *Get supplier* endpoint returns a single supplier for a given supplierId.
-        /// 
-        /// [Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support getting a specific supplier.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingSupplierResponse> GetAsync(GetAccountingSupplierRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -170,18 +211,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get supplier attachment
-        /// 
-        /// <remarks>
-        /// The *Get supplier attachment* endpoint returns a specific attachment for a given `supplierId` and `attachmentId`.
-        /// 
-        /// [Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support getting a supplier attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingSupplierAttachmentResponse> GetAttachmentAsync(GetAccountingSupplierAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -230,18 +259,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List suppliers
-        /// 
-        /// <remarks>
-        /// The *List suppliers* endpoint returns a list of [suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) for a given company's connection.
-        /// 
-        /// [Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingSuppliersResponse> ListAsync(ListAccountingSuppliersRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -290,18 +307,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List supplier attachments
-        /// 
-        /// <remarks>
-        /// The *List supplier attachments* endpoint returns a list of attachments available to download for given `supplierId`.
-        /// 
-        /// [Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support listing supplier attachments.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingSupplierAttachmentsResponse> ListAttachmentsAsync(ListAccountingSupplierAttachmentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

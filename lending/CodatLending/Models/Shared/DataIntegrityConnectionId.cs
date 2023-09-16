@@ -13,21 +13,19 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class DataIntegrityConnectionId
     {
+
         /// <summary>
         /// An array of strings. The connection IDs for the type specified in the url.
         /// </summary>
         [JsonProperty("source")]
         public List<string>? Source { get; set; }
-        
+
         /// <summary>
         /// An array of strings. The connection IDs for the type being matched to.
         /// </summary>
         [JsonProperty("target")]
         public List<string>? Target { get; set; }
-        
     }
-    
 }

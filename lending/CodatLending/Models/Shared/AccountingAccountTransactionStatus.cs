@@ -13,22 +13,21 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The status of the account transaction.
     /// </summary>
     public enum AccountingAccountTransactionStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Unreconciled")]
-		Unreconciled,
-		[JsonProperty("Reconciled")]
-		Reconciled,
-		[JsonProperty("Void")]
-		Void,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Unreconciled")]
+        Unreconciled,
+        [JsonProperty("Reconciled")]
+        Reconciled,
+        [JsonProperty("Void")]
+        Void,
     }
-    
+
     public static class AccountingAccountTransactionStatusExtension
     {
         public static string Value(this AccountingAccountTransactionStatus value)
@@ -55,5 +54,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountingAccountTransactionStatus");
         }
     }
-    
 }

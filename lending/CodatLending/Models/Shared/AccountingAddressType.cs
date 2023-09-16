@@ -13,20 +13,19 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the address
     /// </summary>
     public enum AccountingAddressType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Billing")]
-		Billing,
-		[JsonProperty("Delivery")]
-		Delivery,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Billing")]
+        Billing,
+        [JsonProperty("Delivery")]
+        Delivery,
     }
-    
+
     public static class AccountingAddressTypeExtension
     {
         public static string Value(this AccountingAddressType value)
@@ -53,5 +52,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountingAddressType");
         }
     }
-    
 }

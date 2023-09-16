@@ -21,6 +21,14 @@ namespace CodatLending
 
     public interface IFinancialStatementsCashFlowSDK
     {
+
+        /// <summary>
+        /// Get cash flow statement
+        /// 
+        /// <remarks>
+        /// Gets the latest cash flow statement for a company.
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingCashFlowStatementResponse> GetAsync(GetAccountingCashFlowStatementRequest? request = null);
     }
 
@@ -28,8 +36,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -44,13 +52,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get cash flow statement
-        /// 
-        /// <remarks>
-        /// Gets the latest cash flow statement for a company.
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingCashFlowStatementResponse> GetAsync(GetAccountingCashFlowStatementRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -21,9 +21,41 @@ namespace CodatLending
 
     public interface IAccountsReceivableReportsSDK
     {
+
+        /// <summary>
+        /// Aged creditors report
+        /// 
+        /// <remarks>
+        /// Returns aged creditors report for company that shows the total balance owed by a business to its suppliers over time.
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingAgedCreditorsReportResponse> GetAgedCreditorsAsync(GetAccountingAgedCreditorsReportRequest? request = null);
+
+        /// <summary>
+        /// Aged debtors report
+        /// 
+        /// <remarks>
+        /// Returns aged debtors report for company that shows the total outstanding balance due from customers to the business over time.
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingAgedDebtorsReportResponse> GetAgedDebtorsAsync(GetAccountingAgedDebtorsReportRequest? request = null);
+
+        /// <summary>
+        /// Aged creditors report available
+        /// 
+        /// <remarks>
+        /// Indicates whether the aged creditor report is available for the company.
+        /// </remarks>
+        /// </summary>
         Task<IsAgedCreditorsReportAvailableResponse> IsAgedCreditorsAvailableAsync(IsAgedCreditorsReportAvailableRequest? request = null);
+
+        /// <summary>
+        /// Aged debtors report available
+        /// 
+        /// <remarks>
+        /// Indicates whether the aged debtors report is available for the company.
+        /// </remarks>
+        /// </summary>
         Task<IsAgedDebtorsReportAvailableResponse> IsAgedDebtorsAvailableAsync(IsAgedDebtorsReportAvailableRequest? request = null);
     }
 
@@ -31,8 +63,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -47,13 +79,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Aged creditors report
-        /// 
-        /// <remarks>
-        /// Returns aged creditors report for company that shows the total balance owed by a business to its suppliers over time.
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingAgedCreditorsReportResponse> GetAgedCreditorsAsync(GetAccountingAgedCreditorsReportRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -102,13 +127,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Aged debtors report
-        /// 
-        /// <remarks>
-        /// Returns aged debtors report for company that shows the total outstanding balance due from customers to the business over time.
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingAgedDebtorsReportResponse> GetAgedDebtorsAsync(GetAccountingAgedDebtorsReportRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -157,13 +175,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Aged creditors report available
-        /// 
-        /// <remarks>
-        /// Indicates whether the aged creditor report is available for the company.
-        /// </remarks>
-        /// </summary>
         public async Task<IsAgedCreditorsReportAvailableResponse> IsAgedCreditorsAvailableAsync(IsAgedCreditorsReportAvailableRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -203,13 +214,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Aged debtors report available
-        /// 
-        /// <remarks>
-        /// Indicates whether the aged debtors report is available for the company.
-        /// </remarks>
-        /// </summary>
         public async Task<IsAgedDebtorsReportAvailableResponse> IsAgedDebtorsAvailableAsync(IsAgedDebtorsReportAvailableRequest? request = null)
         {
             string baseUrl = _serverUrl;

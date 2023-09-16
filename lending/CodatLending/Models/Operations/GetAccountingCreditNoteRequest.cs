@@ -12,15 +12,13 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class GetAccountingCreditNoteRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=creditNoteId")]
         public string CreditNoteId { get; set; } = default!;
-        
     }
-    
 }

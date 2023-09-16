@@ -13,22 +13,21 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the service charge.
     /// </summary>
     public enum ServiceChargeType
     {
-    	[JsonProperty("Generic")]
-		Generic,
-		[JsonProperty("Shipping")]
-		Shipping,
-		[JsonProperty("Overpayment")]
-		Overpayment,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Generic")]
+        Generic,
+        [JsonProperty("Shipping")]
+        Shipping,
+        [JsonProperty("Overpayment")]
+        Overpayment,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class ServiceChargeTypeExtension
     {
         public static string Value(this ServiceChargeType value)
@@ -55,5 +54,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum ServiceChargeType");
         }
     }
-    
 }

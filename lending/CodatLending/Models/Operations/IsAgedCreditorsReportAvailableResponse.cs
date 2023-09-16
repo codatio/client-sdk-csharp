@@ -13,24 +13,18 @@ namespace CodatLending.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class IsAgedCreditorsReportAvailableResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public bool? IsAgedCreditorsReportAvailable200ApplicationJSONBoolean { get; set; }
-        
     }
-    
 }

@@ -21,10 +21,77 @@ namespace CodatLending
 
     public interface IAccountsReceivableCustomersSDK
     {
+
+        /// <summary>
+        /// Download customer attachment
+        /// 
+        /// <remarks>
+        /// The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support downloading a customer attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<DownloadAccountingCustomerAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingCustomerAttachmentRequest? request = null);
+
+        /// <summary>
+        /// Get customer
+        /// 
+        /// <remarks>
+        /// The *Get customer* endpoint returns a single customer for a given customerId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support getting a specific customer.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingCustomerResponse> GetAsync(GetAccountingCustomerRequest? request = null);
+
+        /// <summary>
+        /// Get customer attachment
+        /// 
+        /// <remarks>
+        /// The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support getting a customer attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingCustomerAttachmentResponse> GetAttachmentAsync(GetAccountingCustomerAttachmentRequest? request = null);
+
+        /// <summary>
+        /// List customers
+        /// 
+        /// <remarks>
+        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingCustomersResponse> ListAsync(ListAccountingCustomersRequest? request = null);
+
+        /// <summary>
+        /// List customer attachments
+        /// 
+        /// <remarks>
+        /// The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support listing customer attachments.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingCustomerAttachmentsResponse> ListAttachmentsAsync(ListAccountingCustomerAttachmentsRequest? request = null);
     }
 
@@ -32,8 +99,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,18 +115,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download customer attachment
-        /// 
-        /// <remarks>
-        /// The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
-        /// 
-        /// [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadAccountingCustomerAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingCustomerAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -108,20 +163,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get customer
-        /// 
-        /// <remarks>
-        /// The *Get customer* endpoint returns a single customer for a given customerId.
-        /// 
-        /// [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingCustomerResponse> GetAsync(GetAccountingCustomerRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -170,18 +211,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get customer attachment
-        /// 
-        /// <remarks>
-        /// The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
-        /// 
-        /// [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingCustomerAttachmentResponse> GetAttachmentAsync(GetAccountingCustomerAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -230,18 +259,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List customers
-        /// 
-        /// <remarks>
-        /// The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
-        /// 
-        /// [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingCustomersResponse> ListAsync(ListAccountingCustomersRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -290,18 +307,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List customer attachments
-        /// 
-        /// <remarks>
-        /// The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.
-        /// 
-        /// [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support listing customer attachments.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingCustomerAttachmentsResponse> ListAttachmentsAsync(ListAccountingCustomerAttachmentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

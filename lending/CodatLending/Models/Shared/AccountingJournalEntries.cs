@@ -13,24 +13,22 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class AccountingJournalEntries
     {
+
         [JsonProperty("_links")]
         public Links Links { get; set; } = default!;
-        
+
         [JsonProperty("pageNumber")]
         public long PageNumber { get; set; } = default!;
-        
+
         [JsonProperty("pageSize")]
         public long PageSize { get; set; } = default!;
-        
+
         [JsonProperty("results")]
         public List<AccountingJournalEntry>? Results { get; set; }
-        
+
         [JsonProperty("totalResults")]
         public long TotalResults { get; set; } = default!;
-        
     }
-    
 }

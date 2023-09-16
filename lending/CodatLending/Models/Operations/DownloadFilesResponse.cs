@@ -14,30 +14,23 @@ namespace CodatLending.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class DownloadFilesResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public byte[]? Data { get; set; }
-        
+
         /// <summary>
         /// The request made is not valid.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

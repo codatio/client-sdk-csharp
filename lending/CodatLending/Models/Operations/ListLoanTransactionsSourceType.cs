@@ -13,20 +13,19 @@ namespace CodatLending.Models.Operations
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Data source type
     /// </summary>
     public enum ListLoanTransactionsSourceType
     {
-    	[JsonProperty("banking")]
-		Banking,
-		[JsonProperty("commerce")]
-		Commerce,
-		[JsonProperty("accounting")]
-		Accounting,
+        [JsonProperty("banking")]
+        Banking,
+        [JsonProperty("commerce")]
+        Commerce,
+        [JsonProperty("accounting")]
+        Accounting,
     }
-    
+
     public static class ListLoanTransactionsSourceTypeExtension
     {
         public static string Value(this ListLoanTransactionsSourceType value)
@@ -53,5 +52,4 @@ namespace CodatLending.Models.Operations
             throw new Exception($"Unknown value {value} for enum ListLoanTransactionsSourceType");
         }
     }
-    
 }

@@ -21,7 +21,25 @@ namespace CodatLending
 
     public interface IFinancialStatementsBalanceSheetSDK
     {
+
+        /// <summary>
+        /// Get balance sheet
+        /// 
+        /// <remarks>
+        /// Gets the latest balance sheet for a company.
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingBalanceSheetResponse> GetAsync(GetAccountingBalanceSheetRequest? request = null);
+
+        /// <summary>
+        /// Get categorized balance sheet statement
+        /// 
+        /// <remarks>
+        /// The *Get categorized balance sheet statement* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.<br/>
+        /// <br/>
+        /// Codat suggests a category for each account automatically, but you can <a href="https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts">change it</a> to a more suitable one.
+        /// </remarks>
+        /// </summary>
         Task<GetCategorizedBalanceSheetStatementResponse> GetCategorizedAccountsAsync(GetCategorizedBalanceSheetStatementRequest? request = null);
     }
 
@@ -29,8 +47,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,13 +63,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get balance sheet
-        /// 
-        /// <remarks>
-        /// Gets the latest balance sheet for a company.
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingBalanceSheetResponse> GetAsync(GetAccountingBalanceSheetRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -100,15 +111,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get categorized balance sheet statement
-        /// 
-        /// <remarks>
-        /// The *Get categorized balance sheet statement* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
-        /// 
-        /// Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
-        /// </remarks>
-        /// </summary>
         public async Task<GetCategorizedBalanceSheetStatementResponse> GetCategorizedAccountsAsync(GetCategorizedBalanceSheetStatementRequest? request = null)
         {
             string baseUrl = _serverUrl;

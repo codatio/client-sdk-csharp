@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface IAccountsReceivableCreditNotesSDK
     {
+
+        /// <summary>
+        /// Get credit note
+        /// 
+        /// <remarks>
+        /// The *Get credit note* endpoint returns a single credit note for a given creditNoteId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">Credit notes</a> are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=creditNotes">coverage explorer</a> for integrations that support getting a specific credit note.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingCreditNoteResponse> GetAsync(GetAccountingCreditNoteRequest? request = null);
+
+        /// <summary>
+        /// List credit notes
+        /// 
+        /// <remarks>
+        /// The *List credit notes* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">credit notes</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">Credit notes</a> are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingCreditNotesResponse> ListAsync(ListAccountingCreditNotesRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get credit note
-        /// 
-        /// <remarks>
-        /// The *Get credit note* endpoint returns a single credit note for a given creditNoteId.
-        /// 
-        /// [Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote) are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support getting a specific credit note.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingCreditNoteResponse> GetAsync(GetAccountingCreditNoteRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List credit notes
-        /// 
-        /// <remarks>
-        /// The *List credit notes* endpoint returns a list of [credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote) for a given company's connection.
-        /// 
-        /// [Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote) are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingCreditNotesResponse> ListAsync(ListAccountingCreditNotesRequest? request = null)
         {
             string baseUrl = _serverUrl;

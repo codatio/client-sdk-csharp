@@ -21,7 +21,23 @@ namespace CodatLending
 
     public interface IManageDataPullOperationsSDK
     {
+
+        /// <summary>
+        /// Get pull operation
+        /// 
+        /// <remarks>
+        /// Retrieve information about a single dataset or pull operation.
+        /// </remarks>
+        /// </summary>
         Task<GetPullOperationResponse> GetAsync(GetPullOperationRequest? request = null);
+
+        /// <summary>
+        /// List pull operations
+        /// 
+        /// <remarks>
+        /// Gets the pull operation history (datasets) for a given company.
+        /// </remarks>
+        /// </summary>
         Task<ListPullOperationsResponse> ListAsync(ListPullOperationsRequest? request = null);
     }
 
@@ -29,8 +45,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,13 +61,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get pull operation
-        /// 
-        /// <remarks>
-        /// Retrieve information about a single dataset or pull operation.
-        /// </remarks>
-        /// </summary>
         public async Task<GetPullOperationResponse> GetAsync(GetPullOperationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -100,13 +109,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List pull operations
-        /// 
-        /// <remarks>
-        /// Gets the pull operation history (datasets) for a given company.
-        /// </remarks>
-        /// </summary>
         public async Task<ListPullOperationsResponse> ListAsync(ListPullOperationsRequest? request = null)
         {
             string baseUrl = _serverUrl;

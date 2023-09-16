@@ -21,7 +21,29 @@ namespace CodatLending
 
     public interface IManageDataRefreshSDK
     {
+
+        /// <summary>
+        /// Refresh all data
+        /// 
+        /// <remarks>
+        /// Refreshes all data types with `fetch on first link` set to `true` for a given company.<br/>
+        /// <br/>
+        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/core-concepts/data-type-settings">Read more</a> about data type settings and `fetch on first link`.
+        /// </remarks>
+        /// </summary>
         Task<RefreshAllDataTypesResponse> AllDataTypesAsync(RefreshAllDataTypesRequest? request = null);
+
+        /// <summary>
+        /// Refresh data type
+        /// 
+        /// <remarks>
+        /// Refreshes a given data type for a given company.<br/>
+        /// <br/>
+        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
+        /// </remarks>
+        /// </summary>
         Task<RefreshDataTypeResponse> DataTypeAsync(RefreshDataTypeRequest? request = null);
     }
 
@@ -29,8 +51,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,17 +67,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Refresh all data
-        /// 
-        /// <remarks>
-        /// Refreshes all data types with `fetch on first link` set to `true` for a given company.
-        /// 
-        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
-        /// 
-        /// [Read more](https://docs.codat.io/core-concepts/data-type-settings) about data type settings and `fetch on first link`.
-        /// </remarks>
-        /// </summary>
         public async Task<RefreshAllDataTypesResponse> AllDataTypesAsync(RefreshAllDataTypesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -100,15 +111,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Refresh data type
-        /// 
-        /// <remarks>
-        /// Refreshes a given data type for a given company.
-        /// 
-        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
-        /// </remarks>
-        /// </summary>
         public async Task<RefreshDataTypeResponse> DataTypeAsync(RefreshDataTypeRequest? request = null)
         {
             string baseUrl = _serverUrl;

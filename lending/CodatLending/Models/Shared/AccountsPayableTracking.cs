@@ -13,27 +13,25 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
     /// Categories, and a project and customer, against which the item is tracked.
     /// </summary>
     public class AccountsPayableTracking
     {
+
         [JsonProperty("categoryRefs")]
         public List<TrackingCategoryRef> CategoryRefs { get; set; } = default!;
-        
+
         [JsonProperty("customerRef")]
         public AccountingCustomerRef? CustomerRef { get; set; }
-        
+
         [JsonProperty("isBilledTo")]
         public BilledToType IsBilledTo { get; set; } = default!;
-        
+
         [JsonProperty("isRebilledTo")]
         public BilledToType IsRebilledTo { get; set; } = default!;
-        
+
         [JsonProperty("projectRef")]
         public ProjectRef? ProjectRef { get; set; }
-        
     }
-    
 }

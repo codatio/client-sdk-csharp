@@ -12,21 +12,19 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class ListAccountingDirectCostAttachmentsRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
+
         /// <summary>
         /// Unique identifier for a direct cost
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=directCostId")]
         public string DirectCostId { get; set; } = default!;
-        
     }
-    
 }

@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface ISalesPaymentMethodsSDK
     {
+
+        /// <summary>
+        /// Get payment method
+        /// 
+        /// <remarks>
+        /// The *Get payment method* endpoint returns a single payment method for a given paymentMethodId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/PaymentMethod">Payment methods</a> represent the payment method(s) used to make payments.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-paymentMethods">coverage explorer</a> for integrations that support getting a specific payment method.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetCommercePaymentMethodResponse> GetAsync(GetCommercePaymentMethodRequest? request = null);
+
+        /// <summary>
+        /// List payment methods
+        /// 
+        /// <remarks>
+        /// The *List payment methods* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/PaymentMethod">payment methods</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/PaymentMethod">Payment methods</a> represent the payment method(s) used to make payments.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListCommercePaymentMethodsResponse> ListAsync(ListCommercePaymentMethodsRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get payment method
-        /// 
-        /// <remarks>
-        /// The *Get payment method* endpoint returns a single payment method for a given paymentMethodId.
-        /// 
-        /// [Payment methods](https://docs.codat.io/commerce-api#/schemas/PaymentMethod) represent the payment method(s) used to make payments.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-paymentMethods) for integrations that support getting a specific payment method.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCommercePaymentMethodResponse> GetAsync(GetCommercePaymentMethodRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List payment methods
-        /// 
-        /// <remarks>
-        /// The *List payment methods* endpoint returns a list of [payment methods](https://docs.codat.io/commerce-api#/schemas/PaymentMethod) for a given company's connection.
-        /// 
-        /// [Payment methods](https://docs.codat.io/commerce-api#/schemas/PaymentMethod) represent the payment method(s) used to make payments.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListCommercePaymentMethodsResponse> ListAsync(ListCommercePaymentMethodsRequest? request = null)
         {
             string baseUrl = _serverUrl;

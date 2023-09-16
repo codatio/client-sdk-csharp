@@ -12,24 +12,22 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Reference that links the line item to the specific version of product that has been ordered.
     /// </summary>
     public class ProductVariantRef
     {
+
         /// <summary>
         /// The unique identitifer of the product variant being referenced.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         /// <summary>
         /// Name of the product variant being referenced.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

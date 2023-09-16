@@ -13,20 +13,19 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the weblink.
     /// </summary>
     public enum AccountingCompanyInfoWeblinkType
     {
-    	[JsonProperty("Website")]
-		Website,
-		[JsonProperty("Social")]
-		Social,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Website")]
+        Website,
+        [JsonProperty("Social")]
+        Social,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class AccountingCompanyInfoWeblinkTypeExtension
     {
         public static string Value(this AccountingCompanyInfoWeblinkType value)
@@ -53,5 +52,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountingCompanyInfoWeblinkType");
         }
     }
-    
 }

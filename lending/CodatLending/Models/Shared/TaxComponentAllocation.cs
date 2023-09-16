@@ -12,21 +12,19 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class TaxComponentAllocation
     {
+
         /// <summary>
         /// Tax amount on order line sale as available from source commerce platform.
         /// </summary>
         [JsonProperty("rate")]
         public decimal? Rate { get; set; }
-        
+
         /// <summary>
         /// Taxes rates reference object depending on the rates being available on source commerce package.
         /// </summary>
         [JsonProperty("taxComponentRef")]
         public TaxComponentRef? TaxComponentRef { get; set; }
-        
     }
-    
 }

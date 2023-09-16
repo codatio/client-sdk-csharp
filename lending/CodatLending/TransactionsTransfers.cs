@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface ITransactionsTransfersSDK
     {
+
+        /// <summary>
+        /// Get transfer
+        /// 
+        /// <remarks>
+        /// The *Get transfer* endpoint returns a single transfer for a given transferId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Transfer">Transfers</a> record the movement of money between two bank accounts, or between a bank account and a nominal account.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=transfers">coverage explorer</a> for integrations that support getting a specific transfer.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingTransferResponse> GetAsync(GetAccountingTransferRequest? request = null);
+
+        /// <summary>
+        /// List transfers
+        /// 
+        /// <remarks>
+        /// The *List transfers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Transfer">transfers</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Transfer">Transfers</a> record the movement of money between two bank accounts, or between a bank account and a nominal account.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingTransfersResponse> ListAsync(ListAccountingTransfersRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get transfer
-        /// 
-        /// <remarks>
-        /// The *Get transfer* endpoint returns a single transfer for a given transferId.
-        /// 
-        /// [Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support getting a specific transfer.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingTransferResponse> GetAsync(GetAccountingTransferRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List transfers
-        /// 
-        /// <remarks>
-        /// The *List transfers* endpoint returns a list of [transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company's connection.
-        /// 
-        /// [Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingTransfersResponse> ListAsync(ListAccountingTransfersRequest? request = null)
         {
             string baseUrl = _serverUrl;

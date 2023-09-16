@@ -12,87 +12,85 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
-    /// > **Accessing Bank Accounts through Banking API**
+    /// &amp;gt; **Accessing Bank Accounts through Banking API**&lt;br/&gt;
     /// 
     /// <remarks>
-    /// > 
-    /// > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. 
-    /// >
-    /// > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/banking-api#/operations/list-all-banking-transactions)
-    /// 
-    /// > View the coverage for bank transactions in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions" target="_blank">Data coverage explorer</a>.
-    /// 
-    /// ## Overview
-    /// 
-    /// Transactional banking data for a specific company and account.
-    /// 
-    /// Bank transactions include the:
-    /// * Amount of the transaction.
-    /// * Current account balance.
+    /// &gt; <br/>
+    /// &gt; This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. <br/>
+    /// &gt;<br/>
+    /// &gt; To view bank account data through the Banking API, please refer to the new datatype <a href="https://docs.codat.io/banking-api#/operations/list-all-banking-transactions">here</a><br/>
+    /// <br/>
+    /// &gt; View the coverage for bank transactions in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankTransactions&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// <br/>
+    /// ## Overview<br/>
+    /// <br/>
+    /// Transactional banking data for a specific company and account.<br/>
+    /// <br/>
+    /// Bank transactions include the:<br/>
+    /// * Amount of the transaction.<br/>
+    /// * Current account balance.<br/>
     /// * Transaction type, for example, credit, debit, or transfer.
     /// </remarks>
     /// </summary>
     public class AccountingBankTransaction
     {
+
         [JsonProperty("accountId")]
         public string? AccountId { get; set; }
-        
+
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
-        
+
         [JsonProperty("balance")]
         public decimal? Balance { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("clearedOnDate")]
         public string? ClearedOnDate { get; set; }
-        
+
         [JsonProperty("description")]
         public string? Description { get; set; }
-        
+
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
-        
+
         [JsonProperty("reconciled")]
         public bool? Reconciled { get; set; }
-        
+
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
-        
+
         /// <summary>
         /// Type of transaction for the bank statement line
         /// </summary>
         [JsonProperty("transactionType")]
         public BankTransactionType? TransactionType { get; set; }
-        
     }
-    
 }

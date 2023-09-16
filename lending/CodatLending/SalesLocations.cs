@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface ISalesLocationsSDK
     {
+
+        /// <summary>
+        /// Get location
+        /// 
+        /// <remarks>
+        /// The *Get location* endpoint returns a single location for a given locationId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/Location">Locations</a> hold information on the geographic location at which stocks of <a href="https://docs.codat.io/commerce-api#/schemas/Product">products</a> may be held or where <a href="https://docs.codat.io/commerce-api#/schemas/Order">orders</a> were placed.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-locations">coverage explorer</a> for integrations that support getting a specific location.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetCommerceLocationResponse> GetAsync(GetCommerceLocationRequest? request = null);
+
+        /// <summary>
+        /// List locations
+        /// 
+        /// <remarks>
+        /// The *List locations* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Location">locations</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/Location">Locations</a> hold information on the geographic location at which stocks of <a href="https://docs.codat.io/commerce-api#/schemas/Product">products</a> may be held or where <a href="https://docs.codat.io/commerce-api#/schemas/Order">orders</a> were placed.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListCommerceLocationsResponse> ListAsync(ListCommerceLocationsRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get location
-        /// 
-        /// <remarks>
-        /// The *Get location* endpoint returns a single location for a given locationId.
-        /// 
-        /// [Locations](https://docs.codat.io/commerce-api#/schemas/Location) hold information on the geographic location at which stocks of [products](https://docs.codat.io/commerce-api#/schemas/Product) may be held or where [orders](https://docs.codat.io/commerce-api#/schemas/Order) were placed.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-locations) for integrations that support getting a specific location.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCommerceLocationResponse> GetAsync(GetCommerceLocationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List locations
-        /// 
-        /// <remarks>
-        /// The *List locations* endpoint returns a list of [locations](https://docs.codat.io/commerce-api#/schemas/Location) for a given company's connection.
-        /// 
-        /// [Locations](https://docs.codat.io/commerce-api#/schemas/Location) hold information on the geographic location at which stocks of [products](https://docs.codat.io/commerce-api#/schemas/Product) may be held or where [orders](https://docs.codat.io/commerce-api#/schemas/Order) were placed.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListCommerceLocationsResponse> ListAsync(ListCommerceLocationsRequest? request = null)
         {
             string baseUrl = _serverUrl;

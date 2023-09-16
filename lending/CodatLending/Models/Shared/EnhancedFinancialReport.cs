@@ -13,18 +13,16 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class EnhancedFinancialReport
     {
+
         [JsonProperty("reportInfo")]
         public EnhancedReportInfo? ReportInfo { get; set; }
-        
+
         /// <summary>
         /// An array of report items.
         /// </summary>
         [JsonProperty("reportItems")]
         public List<EnhancedFinancialReportReportItem>? ReportItems { get; set; }
-        
     }
-    
 }

@@ -13,15 +13,13 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class DataSource
     {
+
         /// <summary>
         /// An array containing bank account data for each connected banking data source that have the following data types enabled: `banking-accounts`, `banking-transactions`.
         /// </summary>
         [JsonProperty("accounts")]
         public List<Accounts>? Accounts { get; set; }
-        
     }
-    
 }

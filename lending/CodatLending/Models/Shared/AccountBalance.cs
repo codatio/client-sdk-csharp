@@ -12,33 +12,31 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class AccountBalance
     {
+
         /// <summary>
-        /// The account's current balance
+        /// The account&amp;apos;s current balance
         /// </summary>
         [JsonProperty("available")]
         public decimal? Available { get; set; }
-        
+
         /// <summary>
         /// The currency of the account
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
-        
+
         /// <summary>
         /// Funds that are not yet available in the balance
         /// </summary>
         [JsonProperty("pending")]
         public decimal? Pending { get; set; }
-        
+
         /// <summary>
         /// Funds reserved as holdings
         /// </summary>
         [JsonProperty("reserved")]
         public object? Reserved { get; set; }
-        
     }
-    
 }

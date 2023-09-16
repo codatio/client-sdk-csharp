@@ -12,15 +12,13 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class WithholdingTaxitems
     {
+
         [JsonProperty("amount")]
         public decimal Amount { get; set; } = default!;
-        
+
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
-        
     }
-    
 }

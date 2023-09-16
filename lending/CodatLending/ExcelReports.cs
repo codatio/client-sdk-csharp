@@ -19,22 +19,70 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface IExcelReportsSDK
-    {
-        Task<DownloadExcelReportResponse> DownloadAsync(DownloadExcelReportRequest? request = null);
-        Task<GenerateExcelReportResponse> GenerateAsync(GenerateExcelReportRequest? request = null);
-        Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(GetExcelReportGenerationStatusRequest? request = null);
-    }
-
     /// <summary>
     /// Download reports in Excel format.
     /// </summary>
+    public interface IExcelReportsSDK
+    {
+
+        /// <summary>
+        /// Download Excel report
+        /// 
+        /// <remarks>
+        /// The *Download Excel report* endpoint downloads the latest successfully generated Excel report of a specified report type for a given company. <br/>
+        /// <br/>
+        /// The downloadable Excel file is returned in the response. You can save it to your local machine.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/lending/excel/overview">learn more</a> about valid Excel report types.
+        /// </remarks>
+        /// </summary>
+        Task<DownloadExcelReportResponse> DownloadAsync(DownloadExcelReportRequest? request = null);
+
+        /// <summary>
+        /// Generate Excel report
+        /// 
+        /// <remarks>
+        /// The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.<br/>
+        /// <br/>
+        /// In response, the endpoint returns the <a href="https://docs.codat.io/lending-api#/schemas/ExcelStatus">status</a> detailing the current state of the report generation request.<br/>
+        /// <br/>
+        /// ### Report types<br/>
+        /// <br/>
+        /// | reportType                                                                           | Description                                                                                                                                   |<br/>
+        /// |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | <a href="https://docs.codat.io/lending/excel/audit-report">audit</a>                            | Identifies inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   || <a href="https://docs.codat.io/lending/excel/audit-report">audit</a>                            | Identify inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   |<br/>
+        /// | <a href="https://docs.codat.io/lending/excel/enhanced-invoices-report">enhancedCashFlow</a>     | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company&apos;s cash flow.  |<br/>
+        /// | <a href="https://docs.codat.io/lending/excel/enhanced-financials-report">enhancedFinancials</a> | Supports decision-making using fully categorized financial statements to allow lenders to automate their underwriting processes.                |<br/>
+        /// | <a href="https://docs.codat.io/lending/excel/enhanced-invoices-report">enhancedInvoices</a>     | Helps verify that payments have been made against historic invoices. Great for invoice finance lenders.                                       |<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending/excel/overview">Learn more</a> about valid Excel report types.<br/>
+        /// <br/>
+        /// <br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GenerateExcelReportResponse> GenerateAsync(GenerateExcelReportRequest? request = null);
+
+        /// <summary>
+        /// Get Excel report status
+        /// 
+        /// <remarks>
+        /// The *Get Excel report status* returns the status of the report mostly recently requested for Excel generation. It does not return the status of any historical report requests. <br/>
+        /// <br/>
+        /// Poll this endpoint to check the progress of the report once you have requested its generation. This will not affect the generation of the report. <br/>
+        /// <br/>
+        /// When the report generation completes successfully, the `inProgress` property will be marked as `false` and the `success` field will be marked as `true`.
+        /// </remarks>
+        /// </summary>
+        Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(GetExcelReportGenerationStatusRequest? request = null);
+    }
+
     public class ExcelReportsSDK: IExcelReportsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,17 +97,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download Excel report
-        /// 
-        /// <remarks>
-        /// The *Download Excel report* endpoint downloads the latest successfully generated Excel report of a specified report type for a given company. 
-        /// 
-        /// The downloadable Excel file is returned in the response. You can save it to your local machine.
-        /// 
-        /// You can [learn more](https://docs.codat.io/lending/excel/overview) about valid Excel report types.
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadExcelReportResponse> DownloadAsync(DownloadExcelReportRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -108,29 +145,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Generate Excel report
-        /// 
-        /// <remarks>
-        /// The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.
-        /// 
-        /// In response, the endpoint returns the [status](https://docs.codat.io/lending-api#/schemas/ExcelStatus) detailing the current state of the report generation request.
-        /// 
-        /// ### Report types
-        /// 
-        /// | reportType                                                                           | Description                                                                                                                                   |
-        /// |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-        /// | [audit](https://docs.codat.io/lending/excel/audit-report)                            | Identifies inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   || [audit](https://docs.codat.io/lending/excel/audit-report)                            | Identify inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   |
-        /// | [enhancedCashFlow](https://docs.codat.io/lending/excel/enhanced-invoices-report)     | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company's cash flow.  |
-        /// | [enhancedFinancials](https://docs.codat.io/lending/excel/enhanced-financials-report) | Supports decision-making using fully categorized financial statements to allow lenders to automate their underwriting processes.                |
-        /// | [enhancedInvoices](https://docs.codat.io/lending/excel/enhanced-invoices-report)     | Helps verify that payments have been made against historic invoices. Great for invoice finance lenders.                                       |
-        /// 
-        /// [Learn more](https://docs.codat.io/lending/excel/overview) about valid Excel report types.
-        /// 
-        /// 
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GenerateExcelReportResponse> GenerateAsync(GenerateExcelReportRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -179,17 +193,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get Excel report status
-        /// 
-        /// <remarks>
-        /// The *Get Excel report status* returns the status of the report mostly recently requested for Excel generation. It does not return the status of any historical report requests. 
-        /// 
-        /// Poll this endpoint to check the progress of the report once you have requested its generation. This will not affect the generation of the report. 
-        /// 
-        /// When the report generation completes successfully, the `inProgress` property will be marked as `false` and the `success` field will be marked as `true`.
-        /// </remarks>
-        /// </summary>
         public async Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(GetExcelReportGenerationStatusRequest? request = null)
         {
             string baseUrl = _serverUrl;

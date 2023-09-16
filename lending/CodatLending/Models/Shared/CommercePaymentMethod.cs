@@ -12,41 +12,39 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
-    /// A Payment Method represents the payment method(s) used to make payments.
+    /// A Payment Method represents the payment method(s) used to make payments.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-paymentMethods) for this data type.
+    /// <br/>
+    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-paymentMethods">data coverage</a> for this data type.
     /// </remarks>
     /// </summary>
     public class CommercePaymentMethod
     {
+
         /// <summary>
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
-        
+
         /// <summary>
         /// The name of the PaymentMethod
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
+
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
-        
+
         /// <summary>
         /// Status of the Payment Method
         /// </summary>
         [JsonProperty("status")]
         public PaymentMethodStatus? Status { get; set; }
-        
     }
-    
 }

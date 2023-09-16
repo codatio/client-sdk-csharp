@@ -21,10 +21,77 @@ namespace CodatLending
 
     public interface ITransactionsDirectCostsSDK
     {
+
+        /// <summary>
+        /// Download direct cost attachment
+        /// 
+        /// <remarks>
+        /// The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> are purchases of items that are paid off at the point of the purchase.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directCosts">coverage explorer</a> for integrations that support downloading a direct cost attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<DownloadAccountingDirectCostAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectCostAttachmentRequest? request = null);
+
+        /// <summary>
+        /// Get direct cost
+        /// 
+        /// <remarks>
+        /// The *Get direct cost* endpoint returns a single direct cost for a given directCostId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> are purchases of items that are paid off at the point of the purchase.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directCosts">coverage explorer</a> for integrations that support getting a specific direct cost.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingDirectCostResponse> GetAsync(GetAccountingDirectCostRequest? request = null);
+
+        /// <summary>
+        /// Get direct cost attachment
+        /// 
+        /// <remarks>
+        /// The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> are purchases of items that are paid off at the point of the purchase.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directCosts">coverage explorer</a> for integrations that support getting a direct cost attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingDirectCostAttachmentResponse> GetAttachmentAsync(GetAccountingDirectCostAttachmentRequest? request = null);
+
+        /// <summary>
+        /// List direct costs
+        /// 
+        /// <remarks>
+        /// The *List direct costs* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">direct costs</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> are purchases of items that are paid off at the point of the purchase.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingDirectCostsResponse> ListAsync(ListAccountingDirectCostsRequest? request = null);
+
+        /// <summary>
+        /// List direct cost attachments
+        /// 
+        /// <remarks>
+        /// The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> are purchases of items that are paid off at the point of the purchase.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directCosts">coverage explorer</a> for integrations that support listing direct cost attachments.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingDirectCostAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectCostAttachmentsRequest? request = null);
     }
 
@@ -32,8 +99,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,18 +115,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download direct cost attachment
-        /// 
-        /// <remarks>
-        /// The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.
-        /// 
-        /// [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support downloading a direct cost attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadAccountingDirectCostAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectCostAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -108,20 +163,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get direct cost
-        /// 
-        /// <remarks>
-        /// The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
-        /// 
-        /// [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a specific direct cost.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingDirectCostResponse> GetAsync(GetAccountingDirectCostRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -170,18 +211,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get direct cost attachment
-        /// 
-        /// <remarks>
-        /// The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.
-        /// 
-        /// [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a direct cost attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingDirectCostAttachmentResponse> GetAttachmentAsync(GetAccountingDirectCostAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -230,18 +259,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List direct costs
-        /// 
-        /// <remarks>
-        /// The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) for a given company's connection.
-        /// 
-        /// [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingDirectCostsResponse> ListAsync(ListAccountingDirectCostsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -290,18 +307,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List direct cost attachments
-        /// 
-        /// <remarks>
-        /// The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
-        /// 
-        /// [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support listing direct cost attachments.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingDirectCostAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectCostAttachmentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

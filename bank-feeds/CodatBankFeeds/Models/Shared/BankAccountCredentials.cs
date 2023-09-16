@@ -12,24 +12,22 @@ namespace CodatBankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Result of generate credentials
     /// </summary>
     public class BankAccountCredentials
     {
+
         /// <summary>
         /// Password to enable the bank feeds platform to securely retrieve transactions.
         /// </summary>
         [JsonProperty("password")]
         public string? Password { get; set; }
-        
+
         /// <summary>
         /// Username used by the bank feeds platform to retrieve transactions
         /// </summary>
         [JsonProperty("username")]
         public string? Username { get; set; }
-        
     }
-    
 }

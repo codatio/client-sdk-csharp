@@ -13,15 +13,13 @@ namespace CodatBankFeeds.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class CreateBankTransactions
     {
+
         [JsonProperty("accountId")]
         public string? AccountId { get; set; }
-        
+
         [JsonProperty("transactions")]
         public List<CreateBankTransaction>? Transactions { get; set; }
-        
     }
-    
 }

@@ -19,21 +19,47 @@ namespace CodatBankFeeds
     using System.Threading.Tasks;
     using System;
 
-    public interface IAccountMappingSDK
-    {
-        Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest? request = null);
-        Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest? request = null);
-    }
-
     /// <summary>
     /// Bank feed bank account mapping.
     /// </summary>
+    public interface IAccountMappingSDK
+    {
+
+        /// <summary>
+        /// Create bank feed account mapping
+        /// 
+        /// <remarks>
+        /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting platform (target account).<br/>
+        /// <br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).<br/>
+        /// <br/>
+        /// To find valid target account options, first call list bank feed account mappings.<br/>
+        /// <br/>
+        /// This endpoint is only needed if building an account management UI.
+        /// </remarks>
+        /// </summary>
+        Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest? request = null);
+
+        /// <summary>
+        /// List bank feed account mappings
+        /// 
+        /// <remarks>
+        /// The *List bank account mappings* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
+        /// <br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).<br/>
+        /// <br/>
+        /// This endpoint is only needed if building an account management UI.
+        /// </remarks>
+        /// </summary>
+        Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest? request = null);
+    }
+
     public class AccountMappingSDK: IAccountMappingSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.8.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,19 +74,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Create bank feed account mapping
-        /// 
-        /// <remarks>
-        /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting platform (target account).
-        /// 
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).
-        /// 
-        /// To find valid target account options, first call list bank feed account mappings.
-        /// 
-        /// This endpoint is only needed if building an account management UI.
-        /// </remarks>
-        /// </summary>
         public async Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -114,17 +127,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// List bank feed account mappings
-        /// 
-        /// <remarks>
-        /// The *List bank account mappings* endpoint returns information about a source bank account and any current or potential target mapping accounts.
-        /// 
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).
-        /// 
-        /// This endpoint is only needed if building an account management UI.
-        /// </remarks>
-        /// </summary>
         public async Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest? request = null)
         {
             string baseUrl = _serverUrl;

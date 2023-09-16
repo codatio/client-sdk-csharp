@@ -12,15 +12,13 @@ namespace CodatBankFeeds.Models.Operations
 {
     using CodatBankFeeds.Utils;
     
-    
     public class DeleteConnectionRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

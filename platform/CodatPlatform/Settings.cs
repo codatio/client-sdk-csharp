@@ -19,26 +19,105 @@ namespace CodatPlatform
     using System.Threading.Tasks;
     using System;
 
-    public interface ISettingsSDK
-    {
-        Task<CreateApiKeyResponse> CreateApiKeyAsync(CreateApiKey? request = null);
-        Task<DeleteApiKeyResponse> DeleteApiKeyAsync(DeleteApiKeyRequest? request = null);
-        Task<GetProfileResponse> GetProfileAsync();
-        Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync();
-        Task<ListApiKeysResponse> ListApiKeysAsync();
-        Task<UpdateProfileResponse> UpdateProfileAsync(Profile? request = null);
-        Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(UpdateProfileSyncSettingsRequestBody? request = null);
-    }
-
     /// <summary>
     /// Manage your Codat instance.
     /// </summary>
+    public interface ISettingsSDK
+    {
+
+        /// <summary>
+        /// Create API key
+        /// 
+        /// <remarks>
+        /// Use the *Create API keys* endpoint to generate a new API key for your client.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/codat-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
+        /// <br/>
+        /// ### Tips and pitfalls<br/>
+        /// <br/>
+        /// * Your first API key is created for you. Access this key via <a href="https://app.codat.io/developers/api-keys">Codat&apos;s Portal</a>.<br/>
+        /// * If you require multiple API keys, perform multiple calls to the *Create API keys* endpoint. <br/>
+        /// * The number of API keys is limited to 10. If you have reached the maximum amount of keys, use the *Delete API key* endpoint to delete an unused key first.
+        /// </remarks>
+        /// </summary>
+        Task<CreateApiKeyResponse> CreateApiKeyAsync(CreateApiKey? request = null);
+
+        /// <summary>
+        /// Delete api key
+        /// 
+        /// <remarks>
+        /// Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
+        /// <br/>
+        /// ### Tips and pitfalls<br/>
+        /// <br/>
+        /// * It is possible to delete the last remaining API key. If this happens, a new key can be created via the <a href="https://app.codat.io/developers/api-keys">API key management page</a> of the Portal.<br/>
+        /// * It is possible to delete the API key used to authenticate the *Delete API key* request.
+        /// </remarks>
+        /// </summary>
+        Task<DeleteApiKeyResponse> DeleteApiKeyAsync(DeleteApiKeyRequest? request = null);
+
+        /// <summary>
+        /// Get profile
+        /// 
+        /// <remarks>
+        /// Fetch your Codat profile.
+        /// </remarks>
+        /// </summary>
+        Task<GetProfileResponse> GetProfileAsync();
+
+        /// <summary>
+        /// Get sync settings
+        /// 
+        /// <remarks>
+        /// Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
+        /// </remarks>
+        /// </summary>
+        Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync();
+
+        /// <summary>
+        /// List API keys
+        /// 
+        /// <remarks>
+        /// Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.
+        /// </remarks>
+        /// </summary>
+        Task<ListApiKeysResponse> ListApiKeysAsync();
+
+        /// <summary>
+        /// Update profile
+        /// 
+        /// <remarks>
+        /// Update your Codat profile
+        /// </remarks>
+        /// </summary>
+        Task<UpdateProfileResponse> UpdateProfileAsync(Profile? request = null);
+
+        /// <summary>
+        /// Update all sync settings
+        /// 
+        /// <remarks>
+        /// Update sync settings for all data types.
+        /// </remarks>
+        /// </summary>
+        Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(UpdateProfileSyncSettingsRequestBody? request = null);
+    }
+
     public class SettingsSDK: ISettingsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.5.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -53,23 +132,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Create API key
-        /// 
-        /// <remarks>
-        /// Use the *Create API keys* endpoint to generate a new API key for your client.
-        /// 
-        /// [API keys](https://docs.codat.io/codat-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
-        /// 
-        /// You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
-        /// 
-        /// ### Tips and pitfalls
-        /// 
-        /// * Your first API key is created for you. Access this key via [Codat's Portal](https://app.codat.io/developers/api-keys).
-        /// * If you require multiple API keys, perform multiple calls to the *Create API keys* endpoint. 
-        /// * The number of API keys is limited to 10. If you have reached the maximum amount of keys, use the *Delete API key* endpoint to delete an unused key first.
-        /// </remarks>
-        /// </summary>
         public async Task<CreateApiKeyResponse> CreateApiKeyAsync(CreateApiKey? request = null)
         {
             string baseUrl = _serverUrl;
@@ -123,22 +185,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Delete api key
-        /// 
-        /// <remarks>
-        /// Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.
-        /// 
-        /// [API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
-        /// 
-        /// You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
-        /// 
-        /// ### Tips and pitfalls
-        /// 
-        /// * It is possible to delete the last remaining API key. If this happens, a new key can be created via the [API key management page](https://app.codat.io/developers/api-keys) of the Portal.
-        /// * It is possible to delete the API key used to authenticate the *Delete API key* request.
-        /// </remarks>
-        /// </summary>
         public async Task<DeleteApiKeyResponse> DeleteApiKeyAsync(DeleteApiKeyRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -183,13 +229,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get profile
-        /// 
-        /// <remarks>
-        /// Fetch your Codat profile.
-        /// </remarks>
-        /// </summary>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetProfileResponse> GetProfileAsync()
         {
@@ -239,13 +278,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get sync settings
-        /// 
-        /// <remarks>
-        /// Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
-        /// </remarks>
-        /// </summary>
         public async Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync()
         {
             string baseUrl = _serverUrl;
@@ -294,17 +326,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// List API keys
-        /// 
-        /// <remarks>
-        /// Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.
-        /// 
-        /// [API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
-        /// 
-        /// You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
-        /// </remarks>
-        /// </summary>
         public async Task<ListApiKeysResponse> ListApiKeysAsync()
         {
             string baseUrl = _serverUrl;
@@ -353,13 +374,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Update profile
-        /// 
-        /// <remarks>
-        /// Update your Codat profile
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateProfileResponse> UpdateProfileAsync(Profile? request = null)
         {
             string baseUrl = _serverUrl;
@@ -413,13 +427,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Update all sync settings
-        /// 
-        /// <remarks>
-        /// Update sync settings for all data types.
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(UpdateProfileSyncSettingsRequestBody? request = null)
         {
             string baseUrl = _serverUrl;

@@ -12,45 +12,43 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Webhook request body for a push operation status change.
     /// </summary>
     public class PushOperationStatusChangedWebhook
     {
+
         /// <summary>
         /// Unique identifier of the webhook event.
         /// </summary>
         [JsonProperty("AlertId")]
         public string? AlertId { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for your SMB in Codat.
         /// </summary>
         [JsonProperty("CompanyId")]
         public string? CompanyId { get; set; }
-        
+
         [JsonProperty("Data")]
         public PushOperationStatusChangedWebhookData? Data { get; set; }
-        
+
         /// <summary>
         /// A human readable message about the webhook.
         /// </summary>
         [JsonProperty("Message")]
         public string? Message { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for the rule.
         /// </summary>
         [JsonProperty("RuleId")]
         public string? RuleId { get; set; }
-        
+
         /// <summary>
         /// The type of rule.
         /// </summary>
         [JsonProperty("Type")]
         public string? Type { get; set; }
-        
     }
-    
 }

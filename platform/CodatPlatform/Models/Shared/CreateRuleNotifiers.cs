@@ -13,15 +13,13 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class CreateRuleNotifiers
     {
+
         [JsonProperty("emails")]
         public List<string>? Emails { get; set; }
-        
+
         [JsonProperty("webhook")]
         public string? Webhook { get; set; }
-        
     }
-    
 }

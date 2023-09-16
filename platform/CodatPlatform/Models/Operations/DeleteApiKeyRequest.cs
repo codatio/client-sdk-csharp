@@ -12,15 +12,13 @@ namespace CodatPlatform.Models.Operations
 {
     using CodatPlatform.Utils;
     
-    
     public class DeleteApiKeyRequest
     {
+
         /// <summary>
         /// Unique identifier for api key.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiKeyId")]
         public string ApiKeyId { get; set; } = default!;
-        
     }
-    
 }

@@ -12,24 +12,22 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Image reference.
     /// </summary>
     public class ImageReference
     {
+
         /// <summary>
         /// Alternative text when image is not available.
         /// </summary>
         [JsonProperty("alt")]
         public string? Alt { get; set; }
-        
+
         /// <summary>
         /// Source URL for image.
         /// </summary>
         [JsonProperty("src")]
         public string? Src { get; set; }
-        
     }
-    
 }

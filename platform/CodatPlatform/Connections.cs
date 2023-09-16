@@ -19,25 +19,76 @@ namespace CodatPlatform
     using System.Threading.Tasks;
     using System;
 
+    /// <summary>
+    /// Manage your companies&amp;apos; data connections.
+    /// </summary>
     public interface IConnectionsSDK
     {
+
+        /// <summary>
+        /// Create connection
+        /// 
+        /// <remarks>
+        /// Creates a connection for the company by providing a valid `platformKey`. <br/>
+        /// <br/>
+        /// Use the <a href="https://docs.codat.io/codat-api#/operations/list-integrations">List Integrations</a> endpoint to access valid platform keys. 
+        /// </remarks>
+        /// </summary>
         Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null);
+
+        /// <summary>
+        /// Delete connection
+        /// 
+        /// <remarks>
+        /// Revoke and remove a connection from a company.<br/>
+        /// This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
+        /// </remarks>
+        /// </summary>
         Task<DeleteConnectionResponse> DeleteAsync(DeleteConnectionRequest? request = null);
+
+        /// <summary>
+        /// Get connection
+        /// 
+        /// <remarks>
+        /// Returns a specific connection for a company when valid identifiers are provided. If the identifiers are for a deleted company and/or connection, a not found response is returned.
+        /// </remarks>
+        /// </summary>
         Task<GetConnectionResponse> GetAsync(GetConnectionRequest? request = null);
+
+        /// <summary>
+        /// List connections
+        /// 
+        /// <remarks>
+        /// List the connections for a company.
+        /// </remarks>
+        /// </summary>
         Task<ListConnectionsResponse> ListAsync(ListConnectionsRequest? request = null);
+
+        /// <summary>
+        /// Unlink connection
+        /// 
+        /// <remarks>
+        /// This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
+        /// </remarks>
+        /// </summary>
         Task<UnlinkConnectionResponse> UnlinkAsync(UnlinkConnectionRequest? request = null);
+
+        /// <summary>
+        /// Update authorization
+        /// 
+        /// <remarks>
+        /// Update data connection&apos;s authorization.
+        /// </remarks>
+        /// </summary>
         Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null);
     }
 
-    /// <summary>
-    /// Manage your companies' data connections.
-    /// </summary>
     public class ConnectionsSDK: IConnectionsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.5.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -52,15 +103,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Create connection
-        /// 
-        /// <remarks>
-        /// Creates a connection for the company by providing a valid `platformKey`. 
-        /// 
-        /// Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-integrations) endpoint to access valid platform keys. 
-        /// </remarks>
-        /// </summary>
         public async Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -114,14 +156,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Delete connection
-        /// 
-        /// <remarks>
-        /// Revoke and remove a connection from a company.
-        /// This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
-        /// </remarks>
-        /// </summary>
         public async Task<DeleteConnectionResponse> DeleteAsync(DeleteConnectionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -166,13 +200,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get connection
-        /// 
-        /// <remarks>
-        /// Returns a specific connection for a company when valid identifiers are provided. If the identifiers are for a deleted company and/or connection, a not found response is returned.
-        /// </remarks>
-        /// </summary>
         public async Task<GetConnectionResponse> GetAsync(GetConnectionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -221,13 +248,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// List connections
-        /// 
-        /// <remarks>
-        /// List the connections for a company.
-        /// </remarks>
-        /// </summary>
         public async Task<ListConnectionsResponse> ListAsync(ListConnectionsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -276,13 +296,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Unlink connection
-        /// 
-        /// <remarks>
-        /// This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
-        /// </remarks>
-        /// </summary>
         public async Task<UnlinkConnectionResponse> UnlinkAsync(UnlinkConnectionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -336,13 +349,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Update authorization
-        /// 
-        /// <remarks>
-        /// Update data connection's authorization.
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -19,22 +19,46 @@ namespace CodatPlatform
     using System.Threading.Tasks;
     using System;
 
-    public interface IIntegrationsSDK
-    {
-        Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest? request = null);
-        Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest? request = null);
-        Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null);
-    }
-
     /// <summary>
     /// View and manage your available integrations in Codat.
     /// </summary>
+    public interface IIntegrationsSDK
+    {
+
+        /// <summary>
+        /// Get integration
+        /// 
+        /// <remarks>
+        /// Get single integration, by platformKey
+        /// </remarks>
+        /// </summary>
+        Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest? request = null);
+
+        /// <summary>
+        /// Get branding
+        /// 
+        /// <remarks>
+        /// Get branding for platform.
+        /// </remarks>
+        /// </summary>
+        Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest? request = null);
+
+        /// <summary>
+        /// List integrations
+        /// 
+        /// <remarks>
+        /// List your available integrations
+        /// </remarks>
+        /// </summary>
+        Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null);
+    }
+
     public class IntegrationsSDK: IIntegrationsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.5.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,13 +73,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get integration
-        /// 
-        /// <remarks>
-        /// Get single integration, by platformKey
-        /// </remarks>
-        /// </summary>
         public async Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -104,13 +121,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get branding
-        /// 
-        /// <remarks>
-        /// Get branding for platform.
-        /// </remarks>
-        /// </summary>
         public async Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -159,13 +169,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// List integrations
-        /// 
-        /// <remarks>
-        /// List your available integrations
-        /// </remarks>
-        /// </summary>
         public async Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null)
         {
             string baseUrl = _serverUrl;

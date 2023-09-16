@@ -12,27 +12,25 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class PushOptionChoice
     {
+
         [JsonProperty("description")]
         public string? Description { get; set; }
-        
+
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
-        
+
         [JsonProperty("required")]
         public bool? Required { get; set; }
-        
+
         [JsonProperty("type")]
         public PushOptionType? Type { get; set; }
-        
+
         /// <summary>
         /// Allowed value for field.
         /// </summary>
         [JsonProperty("value")]
         public string? Value { get; set; }
-        
     }
-    
 }

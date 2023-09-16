@@ -13,27 +13,26 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum PushOptionType
     {
-    	[JsonProperty("Array")]
-		Array,
-		[JsonProperty("Object")]
-		Object,
-		[JsonProperty("String")]
-		String,
-		[JsonProperty("Number")]
-		Number,
-		[JsonProperty("Boolean")]
-		Boolean,
-		[JsonProperty("DateTime")]
-		DateTime,
-		[JsonProperty("File")]
-		File,
-		[JsonProperty("MultiPart")]
-		MultiPart,
+        [JsonProperty("Array")]
+        Array,
+        [JsonProperty("Object")]
+        Object,
+        [JsonProperty("String")]
+        String,
+        [JsonProperty("Number")]
+        Number,
+        [JsonProperty("Boolean")]
+        Boolean,
+        [JsonProperty("DateTime")]
+        DateTime,
+        [JsonProperty("File")]
+        File,
+        [JsonProperty("MultiPart")]
+        MultiPart,
     }
-    
+
     public static class PushOptionTypeExtension
     {
         public static string Value(this PushOptionType value)
@@ -60,5 +59,4 @@ namespace CodatPlatform.Models.Shared
             throw new Exception($"Unknown value {value} for enum PushOptionType");
         }
     }
-    
 }

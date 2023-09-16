@@ -19,22 +19,46 @@ namespace CodatPlatform
     using System.Threading.Tasks;
     using System;
 
-    public interface IWebhooksSDK
-    {
-        Task<CreateRuleResponse> CreateAsync(CreateRule? request = null);
-        Task<GetWebhookResponse> GetAsync(GetWebhookRequest? request = null);
-        Task<ListRulesResponse> ListAsync(ListRulesRequest? request = null);
-    }
-
     /// <summary>
     /// Manage webhooks, rules, and events.
     /// </summary>
+    public interface IWebhooksSDK
+    {
+
+        /// <summary>
+        /// Create webhook
+        /// 
+        /// <remarks>
+        /// Create a new webhook configuration
+        /// </remarks>
+        /// </summary>
+        Task<CreateRuleResponse> CreateAsync(CreateRule? request = null);
+
+        /// <summary>
+        /// Get webhook
+        /// 
+        /// <remarks>
+        /// Get a single webhook
+        /// </remarks>
+        /// </summary>
+        Task<GetWebhookResponse> GetAsync(GetWebhookRequest? request = null);
+
+        /// <summary>
+        /// List webhooks
+        /// 
+        /// <remarks>
+        /// List webhooks that you are subscribed to.
+        /// </remarks>
+        /// </summary>
+        Task<ListRulesResponse> ListAsync(ListRulesRequest? request = null);
+    }
+
     public class WebhooksSDK: IWebhooksSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.5.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,13 +73,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Create webhook
-        /// 
-        /// <remarks>
-        /// Create a new webhook configuration
-        /// </remarks>
-        /// </summary>
         public async Task<CreateRuleResponse> CreateAsync(CreateRule? request = null)
         {
             string baseUrl = _serverUrl;
@@ -109,13 +126,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get webhook
-        /// 
-        /// <remarks>
-        /// Get a single webhook
-        /// </remarks>
-        /// </summary>
         public async Task<GetWebhookResponse> GetAsync(GetWebhookRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -164,13 +174,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// List webhooks
-        /// 
-        /// <remarks>
-        /// List webhooks that you are subscribed to.
-        /// </remarks>
-        /// </summary>
         public async Task<ListRulesResponse> ListAsync(ListRulesRequest? request = null)
         {
             string baseUrl = _serverUrl;

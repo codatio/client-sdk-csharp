@@ -12,27 +12,25 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class DatasetStatusChangedErrorWebhookData
     {
+
         /// <summary>
         /// Data type the sync completed for.
         /// </summary>
         [JsonProperty("dataType")]
         public string? DataType { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for the dataset that completed its sync.
         /// </summary>
         [JsonProperty("datasetId")]
         public string? DatasetId { get; set; }
-        
+
         /// <summary>
-        /// The current status of the dataset's sync.
+        /// The current status of the dataset&amp;apos;s sync.
         /// </summary>
         [JsonProperty("datasetStatus")]
         public string? DatasetStatus { get; set; }
-        
     }
-    
 }

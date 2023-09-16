@@ -14,25 +14,23 @@ namespace CodatPlatform.Models.Operations
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
-    /// Include a `syncSetting` object for each data type.
+    /// Include a `syncSetting` object for each data type.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// `syncFromWindow`, `syncFromUTC` & `monthsToSync` only need to be included if you wish to set a value for them.
+    /// `syncFromWindow`, `syncFromUTC` &amp; `monthsToSync` only need to be included if you wish to set a value for them.
     /// </remarks>
     /// </summary>
     public class UpdateProfileSyncSettingsRequestBody
     {
+
         [JsonProperty("clientId")]
         public string ClientId { get; set; } = default!;
-        
+
         [JsonProperty("overridesDefaults")]
         public bool OverridesDefaults { get; set; } = default!;
-        
+
         [JsonProperty("settings")]
         public List<SyncSetting> Settings { get; set; } = default!;
-        
     }
-    
 }

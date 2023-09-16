@@ -12,21 +12,19 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class DataSyncCompletedWebhookData
     {
+
         /// <summary>
         /// Data type the sync completed for.
         /// </summary>
         [JsonProperty("dataType")]
         public string? DataType { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for the dataset that completed its sync.
         /// </summary>
         [JsonProperty("datasetId")]
         public string? DatasetId { get; set; }
-        
     }
-    
 }

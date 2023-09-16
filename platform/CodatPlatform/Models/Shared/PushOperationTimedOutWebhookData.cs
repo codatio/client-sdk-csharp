@@ -12,21 +12,19 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class PushOperationTimedOutWebhookData
     {
+
         /// <summary>
         /// Data type used in the push operation.
         /// </summary>
         [JsonProperty("dataType")]
         public string? DataType { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for the push operation.
         /// </summary>
         [JsonProperty("pushOperationKey")]
         public string? PushOperationKey { get; set; }
-        
     }
-    
 }

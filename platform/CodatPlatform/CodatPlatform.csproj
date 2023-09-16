@@ -2,11 +2,12 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Platform</PackageId>
-    <Version>0.5.0</Version>
+    <Version>0.5.1</Version>
     <Authors>Codat</Authors>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

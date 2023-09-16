@@ -12,24 +12,22 @@ namespace CodatSyncExpenses.Models.Operations
 {
     using CodatSyncExpenses.Utils;
     
-    
     public class GetSyncTransactionRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
         /// Unique identifier for a sync.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=syncId")]
         public string SyncId { get; set; } = default!;
-        
+
         /// <summary>
-        /// The unique identifier for your SMB's transaction.
+        /// The unique identifier for your SMB&amp;apos;s transaction.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")]
         public string TransactionId { get; set; } = default!;
-        
     }
-    
 }

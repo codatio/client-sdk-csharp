@@ -12,12 +12,10 @@ namespace CodatSyncExpenses.Models.Operations
 {
     using CodatSyncExpenses.Utils;
     
-    
     public class RefreshAllDataTypesRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

@@ -19,22 +19,46 @@ namespace CodatSyncExpenses
     using System.Threading.Tasks;
     using System;
 
-    public interface IExpensesSDK
-    {
-        Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null);
-        Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null);
-        Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null);
-    }
-
     /// <summary>
     /// Create expense datasets and upload receipts.
     /// </summary>
+    public interface IExpensesSDK
+    {
+
+        /// <summary>
+        /// Create expense transaction
+        /// 
+        /// <remarks>
+        /// Create an expense transaction
+        /// </remarks>
+        /// </summary>
+        Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null);
+
+        /// <summary>
+        /// Update expense-transactions
+        /// 
+        /// <remarks>
+        /// Update an expense transaction
+        /// </remarks>
+        /// </summary>
+        Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null);
+
+        /// <summary>
+        /// Upload attachment
+        /// 
+        /// <remarks>
+        /// Creates an attachment in the accounting software against the given transactionId
+        /// </remarks>
+        /// </summary>
+        Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null);
+    }
+
     public class ExpensesSDK: IExpensesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.8.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,13 +73,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Create expense transaction
-        /// 
-        /// <remarks>
-        /// Create an expense transaction
-        /// </remarks>
-        /// </summary>
         public async Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -109,13 +126,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Update expense-transactions
-        /// 
-        /// <remarks>
-        /// Update an expense transaction
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -169,13 +179,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Upload attachment
-        /// 
-        /// <remarks>
-        /// Creates an attachment in the accounting software against the given transactionId
-        /// </remarks>
-        /// </summary>
         public async Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -14,30 +14,23 @@ namespace CodatSyncExpenses.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class CreateExpenseTransactionResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public CreateExpenseResponse? CreateExpenseResponse { get; set; }
-        
+
         /// <summary>
         /// The request made is not valid.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

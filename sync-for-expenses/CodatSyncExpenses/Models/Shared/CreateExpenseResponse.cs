@@ -12,15 +12,13 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class CreateExpenseResponse
     {
+
         /// <summary>
         /// Unique id of dataset created
         /// </summary>
         [JsonProperty("datasetId")]
         public string? DatasetId { get; set; }
-        
     }
-    
 }

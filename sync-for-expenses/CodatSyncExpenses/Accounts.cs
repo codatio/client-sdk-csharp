@@ -19,20 +19,37 @@ namespace CodatSyncExpenses
     using System.Threading.Tasks;
     using System;
 
-    public interface IAccountsSDK
-    {
-        Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null);
-    }
-
     /// <summary>
     /// Accounts
     /// </summary>
+    public interface IAccountsSDK
+    {
+
+        /// <summary>
+        /// Create account
+        /// 
+        /// <remarks>
+        /// The *Create account* endpoint creates a new <a href="https://docs.codat.io/accounting-api#/schemas/Account">account</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Account">Accounts</a> are the categories a business uses to record accounting transactions.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=chartOfAccounts">coverage explorer</a> for integrations that support creating an account.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null);
+    }
+
     public class AccountsSDK: IAccountsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.8.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -47,22 +64,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Create account
-        /// 
-        /// <remarks>
-        /// The *Create account* endpoint creates a new [account](https://docs.codat.io/accounting-api#/schemas/Account) for a given company's connection.
-        /// 
-        /// [Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;

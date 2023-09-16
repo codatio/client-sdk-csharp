@@ -14,30 +14,23 @@ namespace CodatSyncExpenses.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class ListCustomersResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public Customers? Customers { get; set; }
-        
+
         /// <summary>
         /// Your `query` parameter was not correctly formed
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

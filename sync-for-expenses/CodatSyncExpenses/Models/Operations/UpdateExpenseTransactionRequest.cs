@@ -13,21 +13,19 @@ namespace CodatSyncExpenses.Models.Operations
     using CodatSyncExpenses.Models.Shared;
     using CodatSyncExpenses.Utils;
     
-    
     public class UpdateExpenseTransactionRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public UpdateExpenseRequest? UpdateExpenseRequest { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
-        /// The unique identifier for your SMB's transaction.
+        /// The unique identifier for your SMB&amp;apos;s transaction.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")]
         public string TransactionId { get; set; } = default!;
-        
     }
-    
 }

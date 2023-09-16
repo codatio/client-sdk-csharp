@@ -67,11 +67,11 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 ## Available Resources and Operations
 
 
-### [accounts](docs/sdks/accounts/README.md)
+### [Accounts](docs/sdks/accounts/README.md)
 
 * [Create](docs/sdks/accounts/README.md#create) - Create account
 
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [Create](docs/sdks/companies/README.md#create) - Create company
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -79,13 +79,13 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
-### [configuration](docs/sdks/configuration/README.md)
+### [Configuration](docs/sdks/configuration/README.md)
 
 * [Get](docs/sdks/configuration/README.md#get) - Get company configuration
 * [GetMappingOptions](docs/sdks/configuration/README.md#getmappingoptions) - Mapping options
 * [Set](docs/sdks/configuration/README.md#set) - Set company configuration
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
 * [CreatePartnerExpenseConnection](docs/sdks/connections/README.md#createpartnerexpenseconnection) - Create Partner Expense connection
@@ -94,20 +94,20 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [customers](docs/sdks/customers/README.md)
+### [Customers](docs/sdks/customers/README.md)
 
 * [Create](docs/sdks/customers/README.md#create) - Create customer
 * [Get](docs/sdks/customers/README.md#get) - Get customer
 * [List](docs/sdks/customers/README.md#list) - List customers
 * [Update](docs/sdks/customers/README.md#update) - Update customer
 
-### [expenses](docs/sdks/expenses/README.md)
+### [Expenses](docs/sdks/expenses/README.md)
 
 * [Create](docs/sdks/expenses/README.md#create) - Create expense transaction
 * [Update](docs/sdks/expenses/README.md#update) - Update expense-transactions
 * [UploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
 
-### [manageData](docs/sdks/managedata/README.md)
+### [ManageData](docs/sdks/managedata/README.md)
 
 * [Get](docs/sdks/managedata/README.md#get) - Get data status
 * [GetPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
@@ -115,19 +115,19 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [RefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [RefreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
-### [pushOperations](docs/sdks/pushoperations/README.md)
+### [PushOperations](docs/sdks/pushoperations/README.md)
 
 * [Get](docs/sdks/pushoperations/README.md#get) - Get push operation
 * [List](docs/sdks/pushoperations/README.md#list) - List push operations
 
-### [suppliers](docs/sdks/suppliers/README.md)
+### [Suppliers](docs/sdks/suppliers/README.md)
 
 * [Create](docs/sdks/suppliers/README.md#create) - Create supplier
 * [Get](docs/sdks/suppliers/README.md#get) - Get supplier
 * [List](docs/sdks/suppliers/README.md#list) - List suppliers
 * [Update](docs/sdks/suppliers/README.md#update) - Update supplier
 
-### [sync](docs/sdks/sync/README.md)
+### [Sync](docs/sdks/sync/README.md)
 
 * [Get](docs/sdks/sync/README.md#get) - Get Sync status
 * [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
@@ -135,7 +135,7 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [InitiateSync](docs/sdks/sync/README.md#initiatesync) - Initiate sync
 * [List](docs/sdks/sync/README.md#list) - List sync statuses
 
-### [transactionStatus](docs/sdks/transactionstatus/README.md)
+### [TransactionStatus](docs/sdks/transactionstatus/README.md)
 
 * [Get](docs/sdks/transactionstatus/README.md#get) - Get Sync Transaction
 * [List](docs/sdks/transactionstatus/README.md#list) - List sync transactions

@@ -13,20 +13,19 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Status of customer.
     /// </summary>
     public enum CustomerStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Active")]
-		Active,
-		[JsonProperty("Archived")]
-		Archived,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Active")]
+        Active,
+        [JsonProperty("Archived")]
+        Archived,
     }
-    
+
     public static class CustomerStatusExtension
     {
         public static string Value(this CustomerStatus value)
@@ -53,5 +52,4 @@ namespace CodatSyncExpenses.Models.Shared
             throw new Exception($"Unknown value {value} for enum CustomerStatus");
         }
     }
-    
 }

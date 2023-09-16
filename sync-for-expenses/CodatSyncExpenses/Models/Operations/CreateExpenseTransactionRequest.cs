@@ -13,15 +13,13 @@ namespace CodatSyncExpenses.Models.Operations
     using CodatSyncExpenses.Models.Shared;
     using CodatSyncExpenses.Utils;
     
-    
     public class CreateExpenseTransactionRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CreateExpenseRequest? CreateExpenseRequest { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

@@ -13,24 +13,23 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Type of the account.
     /// </summary>
     public enum AccountMappingInfoAccountType
     {
-    	[JsonProperty("Asset")]
-		Asset,
-		[JsonProperty("Liability")]
-		Liability,
-		[JsonProperty("Income")]
-		Income,
-		[JsonProperty("Expense")]
-		Expense,
-		[JsonProperty("Equity")]
-		Equity,
+        [JsonProperty("Asset")]
+        Asset,
+        [JsonProperty("Liability")]
+        Liability,
+        [JsonProperty("Income")]
+        Income,
+        [JsonProperty("Expense")]
+        Expense,
+        [JsonProperty("Equity")]
+        Equity,
     }
-    
+
     public static class AccountMappingInfoAccountTypeExtension
     {
         public static string Value(this AccountMappingInfoAccountType value)
@@ -57,5 +56,4 @@ namespace CodatSyncExpenses.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountMappingInfoAccountType");
         }
     }
-    
 }

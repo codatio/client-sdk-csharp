@@ -19,24 +19,123 @@ namespace CodatSyncPayroll
     using System.Threading.Tasks;
     using System;
 
-    public interface IJournalEntriesSDK
-    {
-        Task<Models.Operations.CreateJournalEntryResponse> CreateAsync(CreateJournalEntryRequest? request = null);
-        Task<DeleteJournalEntryResponse> DeleteAsync(DeleteJournalEntryRequest? request = null);
-        Task<GetJournalEntryResponse> GetAsync(GetJournalEntryRequest? request = null);
-        Task<GetCreateJournalEntryModelResponse> GetCreateModelAsync(GetCreateJournalEntryModelRequest? request = null);
-        Task<ListJournalEntriesResponse> ListAsync(ListJournalEntriesRequest? request = null);
-    }
-
     /// <summary>
     /// Journal entries
     /// </summary>
+    public interface IJournalEntriesSDK
+    {
+
+        /// <summary>
+        /// Create journal entry
+        /// 
+        /// <remarks>
+        /// The *Create journal entry* endpoint creates a new <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">journal entry</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payroll-api#/operations/get-create-journalEntries-model">Get create journal entry model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries">coverage explorer</a> for integrations that support creating a journal entry.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateJournalEntryResponse> CreateAsync(CreateJournalEntryRequest? request = null);
+
+        /// <summary>
+        /// Delete journal entry
+        /// 
+        /// <remarks>
+        /// &gt; **Use with caution**<br/>
+        /// &gt;<br/>
+        /// &gt;Because journal entries underpin every transaction in an accounting platform, deleting a journal entry can affect every transaction for a given company.<br/>
+        /// &gt; <br/>
+        /// &gt; **Before you proceed, make sure you understand the implications of deleting journal entries from an accounting perspective.**<br/>
+        /// <br/>
+        /// The *Delete journal entry* endpoint allows you to delete a specified journal entry from an accounting platform.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">Journal entries</a> are made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// ### Process<br/>
+        /// 1. Pass the `{journalEntryId}` to the *Delete journal entry* endpoint and store the `pushOperationKey` returned.<br/>
+        /// 2. Check the status of the delete by checking the status of push operation either via<br/>
+        ///    1. <a href="https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed">Push operation webhook</a> (advised),<br/>
+        ///    2. <a href="https://docs.codat.io/sync-for-payroll-api#/operations/get-push-operation">Push operation status endpoint</a>. <br/>
+        ///    <br/>
+        ///    A `Success` status indicates that the journal entry object was deleted from the accounting platform.<br/>
+        /// 3. (Optional) Check that the journal entry was deleted from the accounting platform.<br/>
+        /// <br/>
+        /// ### Effect on related objects<br/>
+        /// <br/>
+        /// Be aware that deleting a journal entry from an accounting platform might cause related objects to be modified. For example, if you delete the journal entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.<br/>
+        /// <br/>
+        /// ## Integration specifics<br/>
+        /// Integrations that support soft delete do not permanently delete the object in the accounting platform.<br/>
+        /// <br/>
+        /// | Integration | Soft Deleted | <br/>
+        /// |-------------|--------------|<br/>
+        /// | QuickBooks Online | Yes    |       <br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<DeleteJournalEntryResponse> DeleteAsync(DeleteJournalEntryRequest? request = null);
+
+        /// <summary>
+        /// Get journal entry
+        /// 
+        /// <remarks>
+        /// The *Get journal entry* endpoint returns a single journal entry for a given `journalEntryId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries">coverage explorer</a> for integrations that support getting a specific journal entry.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetJournalEntryResponse> GetAsync(GetJournalEntryRequest? request = null);
+
+        /// <summary>
+        /// Get create journal entry model
+        /// 
+        /// <remarks>
+        /// The *Get create journal entry model* endpoint returns the expected data for the request payload when creating a <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">journal entry</a> for a given company and integration.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// See the *response examples* for integration-specific indicative models.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries">coverage explorer</a> for integrations that support creating a journal entry.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateJournalEntryModelResponse> GetCreateModelAsync(GetCreateJournalEntryModelRequest? request = null);
+
+        /// <summary>
+        /// List journal entries
+        /// 
+        /// <remarks>
+        /// The *List journal entries* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">journal entries</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
+        Task<ListJournalEntriesResponse> ListAsync(ListJournalEntriesRequest? request = null);
+    }
+
     public class JournalEntriesSDK: IJournalEntriesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.4.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,22 +150,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Create journal entry
-        /// 
-        /// <remarks>
-        /// The *Create journal entry* endpoint creates a new [journal entry](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) for a given company's connection.
-        /// 
-        /// [Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create journal entry model](https://docs.codat.io/sync-for-payroll-api#/operations/get-create-journalEntries-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating a journal entry.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateJournalEntryResponse> CreateAsync(CreateJournalEntryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -120,42 +203,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Delete journal entry
-        /// 
-        /// <remarks>
-        /// > **Use with caution**
-        /// >
-        /// >Because journal entries underpin every transaction in an accounting platform, deleting a journal entry can affect every transaction for a given company.
-        /// > 
-        /// > **Before you proceed, make sure you understand the implications of deleting journal entries from an accounting perspective.**
-        /// 
-        /// The *Delete journal entry* endpoint allows you to delete a specified journal entry from an accounting platform.
-        /// 
-        /// [Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// ### Process
-        /// 1. Pass the `{journalEntryId}` to the *Delete journal entry* endpoint and store the `pushOperationKey` returned.
-        /// 2. Check the status of the delete by checking the status of push operation either via
-        ///    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
-        ///    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payroll-api#/operations/get-push-operation). 
-        ///    
-        ///    A `Success` status indicates that the journal entry object was deleted from the accounting platform.
-        /// 3. (Optional) Check that the journal entry was deleted from the accounting platform.
-        /// 
-        /// ### Effect on related objects
-        /// 
-        /// Be aware that deleting a journal entry from an accounting platform might cause related objects to be modified. For example, if you delete the journal entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
-        /// 
-        /// ## Integration specifics
-        /// Integrations that support soft delete do not permanently delete the object in the accounting platform.
-        /// 
-        /// | Integration | Soft Deleted | 
-        /// |-------------|--------------|
-        /// | QuickBooks Online | Yes    |       
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DeleteJournalEntryResponse> DeleteAsync(DeleteJournalEntryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -204,20 +251,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Get journal entry
-        /// 
-        /// <remarks>
-        /// The *Get journal entry* endpoint returns a single journal entry for a given `journalEntryId`.
-        /// 
-        /// [Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support getting a specific journal entry.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetJournalEntryResponse> GetAsync(GetJournalEntryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -266,22 +299,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Get create journal entry model
-        /// 
-        /// <remarks>
-        /// The *Get create journal entry model* endpoint returns the expected data for the request payload when creating a [journal entry](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) for a given company and integration.
-        /// 
-        /// [Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// See the *response examples* for integration-specific indicative models.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating a journal entry.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateJournalEntryModelResponse> GetCreateModelAsync(GetCreateJournalEntryModelRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -330,18 +347,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// List journal entries
-        /// 
-        /// <remarks>
-        /// The *List journal entries* endpoint returns a list of [journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) for a given company's connection.
-        /// 
-        /// [Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListJournalEntriesResponse> ListAsync(ListJournalEntriesRequest? request = null)
         {
             string baseUrl = _serverUrl;

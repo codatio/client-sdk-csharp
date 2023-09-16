@@ -12,15 +12,13 @@ namespace CodatSyncPayroll.Models.Operations
 {
     using CodatSyncPayroll.Utils;
     
-    
     public class CreateConnectionRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CreateConnectionRequestBody? RequestBody { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

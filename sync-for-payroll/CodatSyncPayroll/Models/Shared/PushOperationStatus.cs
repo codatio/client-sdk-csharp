@@ -13,22 +13,21 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The status of the push operation.
     /// </summary>
     public enum PushOperationStatus
     {
-    	[JsonProperty("Pending")]
-		Pending,
-		[JsonProperty("Failed")]
-		Failed,
-		[JsonProperty("Success")]
-		Success,
-		[JsonProperty("TimedOut")]
-		TimedOut,
+        [JsonProperty("Pending")]
+        Pending,
+        [JsonProperty("Failed")]
+        Failed,
+        [JsonProperty("Success")]
+        Success,
+        [JsonProperty("TimedOut")]
+        TimedOut,
     }
-    
+
     public static class PushOperationStatusExtension
     {
         public static string Value(this PushOperationStatus value)
@@ -55,5 +54,4 @@ namespace CodatSyncPayroll.Models.Shared
             throw new Exception($"Unknown value {value} for enum PushOperationStatus");
         }
     }
-    
 }

@@ -19,23 +19,84 @@ namespace CodatSyncPayroll
     using System.Threading.Tasks;
     using System;
 
-    public interface IAccountsSDK
-    {
-        Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null);
-        Task<GetAccountResponse> GetAsync(GetAccountRequest? request = null);
-        Task<GetCreateAccountsModelResponse> GetCreateModelAsync(GetCreateAccountsModelRequest? request = null);
-        Task<ListAccountsResponse> ListAsync(ListAccountsRequest? request = null);
-    }
-
     /// <summary>
     /// Accounts
     /// </summary>
+    public interface IAccountsSDK
+    {
+
+        /// <summary>
+        /// Create account
+        /// 
+        /// <remarks>
+        /// The *Create account* endpoint creates a new <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">account</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">Accounts</a> are the categories a business uses to record accounting transactions.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payroll-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=chartOfAccounts">coverage explorer</a> for integrations that support creating an account.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null);
+
+        /// <summary>
+        /// Get account
+        /// 
+        /// <remarks>
+        /// The *Get account* endpoint returns a single account for a given `accountId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">Accounts</a> are the categories a business uses to record accounting transactions.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=chartOfAccounts">coverage explorer</a> for integrations that support getting a specific account.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetAccountResponse> GetAsync(GetAccountRequest? request = null);
+
+        /// <summary>
+        /// Get create account model
+        /// 
+        /// <remarks>
+        ///   The *Get create account model* endpoint returns the expected data for the request payload when creating an <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">account</a> for a given company and integration.<br/>
+        ///     <br/>
+        ///     <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">Accounts</a> are the categories a business uses to record accounting transactions.<br/>
+        ///     <br/>
+        ///     **Integration-specific behaviour**<br/>
+        ///     <br/>
+        ///     See the *response examples* for integration-specific indicative models.<br/>
+        ///     <br/>
+        ///     Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=chartOfAccounts">coverage explorer</a> for integrations that support creating an account.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateAccountsModelResponse> GetCreateModelAsync(GetCreateAccountsModelRequest? request = null);
+
+        /// <summary>
+        /// List accounts
+        /// 
+        /// <remarks>
+        /// The *List accounts* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">accounts</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">Accounts</a> are the categories a business uses to record accounting transactions.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// </summary>
+        Task<ListAccountsResponse> ListAsync(ListAccountsRequest? request = null);
+    }
+
     public class AccountsSDK: IAccountsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.4.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,22 +111,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Create account
-        /// 
-        /// <remarks>
-        /// The *Create account* endpoint creates a new [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company's connection.
-        /// 
-        /// [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/sync-for-payroll-api#/operations/get-create-chartOfAccounts-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -119,20 +164,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Get account
-        /// 
-        /// <remarks>
-        /// The *Get account* endpoint returns a single account for a given `accountId`.
-        /// 
-        /// [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support getting a specific account.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountResponse> GetAsync(GetAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -181,22 +212,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Get create account model
-        /// 
-        /// <remarks>
-        ///   The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company and integration.
-        ///     
-        ///     [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
-        ///     
-        ///     **Integration-specific behaviour**
-        ///     
-        ///     See the *response examples* for integration-specific indicative models.
-        ///     
-        ///     Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateAccountsModelResponse> GetCreateModelAsync(GetCreateAccountsModelRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -245,17 +260,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// List accounts
-        /// 
-        /// <remarks>
-        /// The *List accounts* endpoint returns a list of [accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company's connection.
-        /// 
-        /// [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountsResponse> ListAsync(ListAccountsRequest? request = null)
         {
             string baseUrl = _serverUrl;

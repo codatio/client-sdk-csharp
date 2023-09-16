@@ -13,24 +13,23 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of platform of the connection.
     /// </summary>
     public enum ConnectionSourceType
     {
-    	[JsonProperty("Accounting")]
-		Accounting,
-		[JsonProperty("Banking")]
-		Banking,
-		[JsonProperty("Commerce")]
-		Commerce,
-		[JsonProperty("Other")]
-		Other,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Accounting")]
+        Accounting,
+        [JsonProperty("Banking")]
+        Banking,
+        [JsonProperty("Commerce")]
+        Commerce,
+        [JsonProperty("Other")]
+        Other,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class ConnectionSourceTypeExtension
     {
         public static string Value(this ConnectionSourceType value)
@@ -57,5 +56,4 @@ namespace CodatSyncPayroll.Models.Shared
             throw new Exception($"Unknown value {value} for enum ConnectionSourceType");
         }
     }
-    
 }

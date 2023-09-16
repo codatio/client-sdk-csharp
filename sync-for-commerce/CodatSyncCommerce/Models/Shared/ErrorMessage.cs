@@ -12,27 +12,25 @@ namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class ErrorMessage
     {
+
         [JsonProperty("canBeRetried")]
         public string? CanBeRetried { get; set; }
-        
+
         [JsonProperty("correlationId")]
         public string? CorrelationId { get; set; }
-        
+
         [JsonProperty("detailedErrorCode")]
         public long? DetailedErrorCode { get; set; }
-        
+
         [JsonProperty("error")]
         public string? Error { get; set; }
-        
+
         [JsonProperty("service")]
         public string? Service { get; set; }
-        
+
         [JsonProperty("statusCode")]
         public long? StatusCode { get; set; }
-        
     }
-    
 }

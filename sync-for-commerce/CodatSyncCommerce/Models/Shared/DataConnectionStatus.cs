@@ -13,22 +13,21 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The current authorization status of the data connection.
     /// </summary>
     public enum DataConnectionStatus
     {
-    	[JsonProperty("PendingAuth")]
-		PendingAuth,
-		[JsonProperty("Linked")]
-		Linked,
-		[JsonProperty("Unlinked")]
-		Unlinked,
-		[JsonProperty("Deauthorized")]
-		Deauthorized,
+        [JsonProperty("PendingAuth")]
+        PendingAuth,
+        [JsonProperty("Linked")]
+        Linked,
+        [JsonProperty("Unlinked")]
+        Unlinked,
+        [JsonProperty("Deauthorized")]
+        Deauthorized,
     }
-    
+
     public static class DataConnectionStatusExtension
     {
         public static string Value(this DataConnectionStatus value)
@@ -55,5 +54,4 @@ namespace CodatSyncCommerce.Models.Shared
             throw new Exception($"Unknown value {value} for enum DataConnectionStatus");
         }
     }
-    
 }

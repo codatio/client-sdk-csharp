@@ -12,21 +12,19 @@ namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class Option
     {
+
         /// <summary>
         /// Unique identifier for the option.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         /// <summary>
         /// Name value of the option.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

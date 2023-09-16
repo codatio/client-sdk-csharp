@@ -13,18 +13,16 @@ namespace CodatSyncCommerce.Models.Operations
     using CodatSyncCommerce.Utils;
     using System.Collections.Generic;
     
-    
     public class UpdateConnectionAuthorizationRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Dictionary<string, string>? RequestBody { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

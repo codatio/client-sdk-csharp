@@ -12,12 +12,10 @@ namespace CodatSyncCommerce.Models.Operations
 {
     using CodatSyncCommerce.Utils;
     
-    
     public class GetConfigurationRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

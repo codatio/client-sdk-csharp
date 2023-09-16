@@ -12,15 +12,13 @@ namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class Grouping
     {
+
         [JsonProperty("groupingLevels")]
         public GroupingLevels? GroupingLevels { get; set; }
-        
+
         [JsonProperty("groupingPeriod")]
         public GroupingPeriod? GroupingPeriod { get; set; }
-        
     }
-    
 }

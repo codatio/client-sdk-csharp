@@ -13,21 +13,19 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class InvoiceLevelSelection
     {
+
         /// <summary>
         /// Options for grouping sales.
         /// </summary>
         [JsonProperty("groupByOptions")]
         public List<string>? GroupByOptions { get; set; }
-        
+
         /// <summary>
         /// Selected array of grouping options.
         /// </summary>
         [JsonProperty("selectedGroupByOptions")]
         public List<string>? SelectedGroupByOptions { get; set; }
-        
     }
-    
 }

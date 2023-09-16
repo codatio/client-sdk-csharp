@@ -13,21 +13,19 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class GroupingPeriod
     {
+
         /// <summary>
         /// Array of grouping period options.
         /// </summary>
         [JsonProperty("groupingPeriodOptions")]
         public List<string>? GroupingPeriodOptions { get; set; }
-        
+
         /// <summary>
         /// Grouping period i.e. Daily sales.
         /// </summary>
         [JsonProperty("selectedGroupingPeriod")]
         public string? SelectedGroupingPeriod { get; set; }
-        
     }
-    
 }

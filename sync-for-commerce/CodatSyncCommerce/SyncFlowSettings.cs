@@ -20,23 +20,55 @@ namespace CodatSyncCommerce
     using System.Threading.Tasks;
     using System;
 
-    public interface ISyncFlowSettingsSDK
-    {
-        Task<GetConfigTextSyncFlowResponse> GetConfigTextSyncFlowAsync();
-        Task<GetVisibleAccountsResponse> GetVisibleAccountsAsync(GetVisibleAccountsRequest? request = null);
-        Task<UpdateConfigTextSyncFlowResponse> UpdateConfigTextSyncFlowAsync(Dictionary<string, Localization>? request = null);
-        Task<UpdateVisibleAccountsSyncFlowResponse> UpdateVisibleAccountsSyncFlowAsync(UpdateVisibleAccountsSyncFlowRequest? request = null);
-    }
-
     /// <summary>
     /// Configure preferences for any given Sync for Commerce company using sync flow.
     /// </summary>
+    public interface ISyncFlowSettingsSDK
+    {
+
+        /// <summary>
+        /// Get preferences for text fields
+        /// 
+        /// <remarks>
+        /// Return preferences set for the text fields on sync flow.
+        /// </remarks>
+        /// </summary>
+        Task<GetConfigTextSyncFlowResponse> GetConfigTextSyncFlowAsync();
+
+        /// <summary>
+        /// List visible accounts
+        /// 
+        /// <remarks>
+        /// Return accounts which are visible on sync flow.
+        /// </remarks>
+        /// </summary>
+        Task<GetVisibleAccountsResponse> GetVisibleAccountsAsync(GetVisibleAccountsRequest? request = null);
+
+        /// <summary>
+        /// Update preferences for text fields
+        /// 
+        /// <remarks>
+        /// Set preferences for the text fields on sync flow.
+        /// </remarks>
+        /// </summary>
+        Task<UpdateConfigTextSyncFlowResponse> UpdateConfigTextSyncFlowAsync(Dictionary<string, Localization>? request = null);
+
+        /// <summary>
+        /// Update visible accounts
+        /// 
+        /// <remarks>
+        /// Update which accounts are visible on sync flow.
+        /// </remarks>
+        /// </summary>
+        Task<UpdateVisibleAccountsSyncFlowResponse> UpdateVisibleAccountsSyncFlowAsync(UpdateVisibleAccountsSyncFlowRequest? request = null);
+    }
+
     public class SyncFlowSettingsSDK: ISyncFlowSettingsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.6.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,13 +83,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Get preferences for text fields
-        /// 
-        /// <remarks>
-        /// Return preferences set for the text fields on sync flow.
-        /// </remarks>
-        /// </summary>
         public async Task<GetConfigTextSyncFlowResponse> GetConfigTextSyncFlowAsync()
         {
             string baseUrl = _serverUrl;
@@ -97,13 +122,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// List visible accounts
-        /// 
-        /// <remarks>
-        /// Return accounts which are visible on sync flow.
-        /// </remarks>
-        /// </summary>
         public async Task<GetVisibleAccountsResponse> GetVisibleAccountsAsync(GetVisibleAccountsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -143,13 +161,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Update preferences for text fields
-        /// 
-        /// <remarks>
-        /// Set preferences for the text fields on sync flow.
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateConfigTextSyncFlowResponse> UpdateConfigTextSyncFlowAsync(Dictionary<string, Localization>? request = null)
         {
             string baseUrl = _serverUrl;
@@ -194,13 +205,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Update visible accounts
-        /// 
-        /// <remarks>
-        /// Update which accounts are visible on sync flow.
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateVisibleAccountsSyncFlowResponse> UpdateVisibleAccountsSyncFlowAsync(UpdateVisibleAccountsSyncFlowRequest? request = null)
         {
             string baseUrl = _serverUrl;

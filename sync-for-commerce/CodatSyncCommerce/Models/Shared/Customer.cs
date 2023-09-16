@@ -13,21 +13,19 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class Customer
     {
+
         /// <summary>
         /// List of customer options from the list of customer records on the accounting software.
         /// </summary>
         [JsonProperty("customerOptions")]
         public List<Option>? CustomerOptions { get; set; }
-        
+
         /// <summary>
         /// Selected customer id from the list of customer records on the accounting software.
         /// </summary>
         [JsonProperty("selectedCustomerId")]
         public string? SelectedCustomerId { get; set; }
-        
     }
-    
 }

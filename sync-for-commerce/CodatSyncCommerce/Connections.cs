@@ -19,24 +19,66 @@ namespace CodatSyncCommerce
     using System.Threading.Tasks;
     using System;
 
-    public interface IConnectionsSDK
-    {
-        Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null);
-        Task<GetSyncFlowUrlResponse> GetSyncFlowUrlAsync(GetSyncFlowUrlRequest? request = null);
-        Task<ListConnectionsResponse> ListAsync(ListConnectionsRequest? request = null);
-        Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null);
-        Task<UpdateConnectionResponse> UpdateConnectionAsync(UpdateConnectionRequest? request = null);
-    }
-
     /// <summary>
     /// Create new and manage existing Sync for Commerce connections using the Sync flow UI.
     /// </summary>
+    public interface IConnectionsSDK
+    {
+
+        /// <summary>
+        /// Create connection
+        /// 
+        /// <remarks>
+        /// Creates a connection for the company by providing a valid `platformKey`. <br/>
+        /// <br/>
+        /// Use the <a href="https://docs.codat.io/sync-for-commerce-api#/operations/list-integrations">List Integrations</a> endpoint to access valid platform keys. 
+        /// </remarks>
+        /// </summary>
+        Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null);
+
+        /// <summary>
+        /// Start new sync flow
+        /// 
+        /// <remarks>
+        /// Create a new company and connections. Get a URL for Sync Flow, including a one time passcode.
+        /// </remarks>
+        /// </summary>
+        Task<GetSyncFlowUrlResponse> GetSyncFlowUrlAsync(GetSyncFlowUrlRequest? request = null);
+
+        /// <summary>
+        /// List connections
+        /// 
+        /// <remarks>
+        /// List the connections for a company.
+        /// </remarks>
+        /// </summary>
+        Task<ListConnectionsResponse> ListAsync(ListConnectionsRequest? request = null);
+
+        /// <summary>
+        /// Update authorization
+        /// 
+        /// <remarks>
+        /// Update data connection&apos;s authorization.
+        /// </remarks>
+        /// </summary>
+        Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null);
+
+        /// <summary>
+        /// Update connection
+        /// 
+        /// <remarks>
+        /// Update a data connection
+        /// </remarks>
+        /// </summary>
+        Task<UpdateConnectionResponse> UpdateConnectionAsync(UpdateConnectionRequest? request = null);
+    }
+
     public class ConnectionsSDK: IConnectionsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.6.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,15 +93,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Create connection
-        /// 
-        /// <remarks>
-        /// Creates a connection for the company by providing a valid `platformKey`. 
-        /// 
-        /// Use the [List Integrations](https://docs.codat.io/sync-for-commerce-api#/operations/list-integrations) endpoint to access valid platform keys. 
-        /// </remarks>
-        /// </summary>
         public async Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -113,13 +146,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Start new sync flow
-        /// 
-        /// <remarks>
-        /// Create a new company and connections. Get a URL for Sync Flow, including a one time passcode.
-        /// </remarks>
-        /// </summary>
         public async Task<GetSyncFlowUrlResponse> GetSyncFlowUrlAsync(GetSyncFlowUrlRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -159,13 +185,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// List connections
-        /// 
-        /// <remarks>
-        /// List the connections for a company.
-        /// </remarks>
-        /// </summary>
         public async Task<ListConnectionsResponse> ListAsync(ListConnectionsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -214,13 +233,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Update authorization
-        /// 
-        /// <remarks>
-        /// Update data connection's authorization.
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -265,13 +277,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Update connection
-        /// 
-        /// <remarks>
-        /// Update a data connection
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateConnectionResponse> UpdateConnectionAsync(UpdateConnectionRequest? request = null)
         {
             string baseUrl = _serverUrl;

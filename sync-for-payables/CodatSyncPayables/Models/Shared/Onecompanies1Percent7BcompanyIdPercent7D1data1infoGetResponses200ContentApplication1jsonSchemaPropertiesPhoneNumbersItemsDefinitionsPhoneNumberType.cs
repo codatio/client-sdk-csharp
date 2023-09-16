@@ -13,24 +13,23 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of phone number
     /// </summary>
     public enum Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType
     {
-    	[JsonProperty("Primary")]
-		Primary,
-		[JsonProperty("Landline")]
-		Landline,
-		[JsonProperty("Mobile")]
-		Mobile,
-		[JsonProperty("Fax")]
-		Fax,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Primary")]
+        Primary,
+        [JsonProperty("Landline")]
+        Landline,
+        [JsonProperty("Mobile")]
+        Mobile,
+        [JsonProperty("Fax")]
+        Fax,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberTypeExtension
     {
         public static string Value(this Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType value)
@@ -57,5 +56,4 @@ namespace CodatSyncPayables.Models.Shared
             throw new Exception($"Unknown value {value} for enum Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType");
         }
     }
-    
 }

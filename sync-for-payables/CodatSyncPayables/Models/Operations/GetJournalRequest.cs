@@ -12,15 +12,13 @@ namespace CodatSyncPayables.Models.Operations
 {
     using CodatSyncPayables.Utils;
     
-    
     public class GetJournalRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=journalId")]
         public string JournalId { get; set; } = default!;
-        
     }
-    
 }

@@ -19,24 +19,103 @@ namespace CodatSyncPayables
     using System.Threading.Tasks;
     using System;
 
-    public interface ISuppliersSDK
-    {
-        Task<Models.Operations.CreateSupplierResponse> CreateAsync(CreateSupplierRequest? request = null);
-        Task<GetSupplierResponse> GetAsync(GetSupplierRequest? request = null);
-        Task<GetCreateUpdateSupplierModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateSupplierModelRequest? request = null);
-        Task<ListSuppliersResponse> ListAsync(ListSuppliersRequest? request = null);
-        Task<Models.Operations.UpdateSupplierResponse> UpdateAsync(UpdateSupplierRequest? request = null);
-    }
-
     /// <summary>
     /// Suppliers
     /// </summary>
+    public interface ISuppliersSDK
+    {
+
+        /// <summary>
+        /// Create supplier
+        /// 
+        /// <remarks>
+        /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating a supplier.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateSupplierResponse> CreateAsync(CreateSupplierRequest? request = null);
+
+        /// <summary>
+        /// Get supplier
+        /// 
+        /// <remarks>
+        /// The *Get supplier* endpoint returns a single supplier for a given `supplierId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support getting a specific supplier.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetSupplierResponse> GetAsync(GetSupplierRequest? request = null);
+
+        /// <summary>
+        /// Get create/update supplier model
+        /// 
+        /// <remarks>
+        /// The *Get create/update supplier model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a> for a given company and integration.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// See the *response examples* for integration-specific indicative models.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating and updating a supplier.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateUpdateSupplierModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateSupplierModelRequest? request = null);
+
+        /// <summary>
+        /// List suppliers
+        /// 
+        /// <remarks>
+        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
+        Task<ListSuppliersResponse> ListAsync(ListSuppliersRequest? request = null);
+
+        /// <summary>
+        /// Update supplier
+        /// 
+        /// <remarks>
+        /// The *Update supplier* endpoint updates an existing <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating a supplier.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.UpdateSupplierResponse> UpdateAsync(UpdateSupplierRequest? request = null);
+    }
+
     public class SuppliersSDK: ISuppliersSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.4.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,22 +130,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Create supplier
-        /// 
-        /// <remarks>
-        /// The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
-        /// 
-        /// [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-suppliers-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating a supplier.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateSupplierResponse> CreateAsync(CreateSupplierRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -120,20 +183,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get supplier
-        /// 
-        /// <remarks>
-        /// The *Get supplier* endpoint returns a single supplier for a given `supplierId`.
-        /// 
-        /// [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support getting a specific supplier.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetSupplierResponse> GetAsync(GetSupplierRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -182,22 +231,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get create/update supplier model
-        /// 
-        /// <remarks>
-        /// The *Get create/update supplier model* endpoint returns the expected data for the request payload when creating and updating a [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company and integration.
-        /// 
-        /// [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// See the *response examples* for integration-specific indicative models.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating and updating a supplier.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateUpdateSupplierModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateSupplierModelRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -246,18 +279,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// List suppliers
-        /// 
-        /// <remarks>
-        /// The *List suppliers* endpoint returns a list of [suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
-        /// 
-        /// [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListSuppliersResponse> ListAsync(ListSuppliersRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -306,22 +327,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Update supplier
-        /// 
-        /// <remarks>
-        /// The *Update supplier* endpoint updates an existing [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
-        /// 
-        /// [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-suppliers-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating a supplier.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.UpdateSupplierResponse> UpdateAsync(UpdateSupplierRequest? request = null)
         {
             string baseUrl = _serverUrl;

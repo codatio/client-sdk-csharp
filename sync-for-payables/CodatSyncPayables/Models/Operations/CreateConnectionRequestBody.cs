@@ -12,12 +12,10 @@ namespace CodatSyncPayables.Models.Operations
 {
     using Newtonsoft.Json;
     
-    
     public class CreateConnectionRequestBody
     {
+
         [JsonProperty("platformKey")]
         public string? PlatformKey { get; set; }
-        
     }
-    
 }

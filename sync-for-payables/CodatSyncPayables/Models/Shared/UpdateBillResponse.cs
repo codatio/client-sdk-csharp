@@ -14,145 +14,143 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     using System;
     
-    
     public class UpdateBillResponse
     {
+
         /// <summary>
         /// Contains a single entry that communicates which record has changed and the manner in which it changed. 
         /// </summary>
         [JsonProperty("changes")]
         public List<PushOperationChange>? Changes { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for your SMB in Codat.
         /// </summary>
         [JsonProperty("companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("completedOnUtc")]
         public string? CompletedOnUtc { get; set; }
-        
+
         /// <summary>
-        /// > **Invoices or bills?**
+        /// &amp;gt; **Invoices or bills?**&lt;br/&gt;
         /// 
         /// <remarks>
-        /// >
-        /// > We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company has received an invoice, and owes money to someone else (accounts payable) we call this a Bill.
-        /// >
-        /// > See [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) for the accounts receivable equivalent of bills.
-        /// 
-        /// View the coverage for bills in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills" target="_blank">Data coverage explorer</a>.
-        /// 
-        /// ## Overview
-        /// 
-        /// In Codat, a bill contains details of:
-        /// * When the bill was recorded in the accounting system.
-        /// * How much the bill is for and the currency of the amount.
-        /// * Who the bill was received from — the *supplier*.
-        /// * What the bill is for — the *line items*.
-        /// 
-        /// Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's *expenses*.
-        /// 
-        /// You can find these types of transactions in our [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) data model.
+        /// &gt;<br/>
+        /// &gt; We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company has received an invoice, and owes money to someone else (accounts payable) we call this a Bill.<br/>
+        /// &gt;<br/>
+        /// &gt; See <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> for the accounts receivable equivalent of bills.<br/>
+        /// <br/>
+        /// View the coverage for bills in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+        /// <br/>
+        /// ## Overview<br/>
+        /// <br/>
+        /// In Codat, a bill contains details of:<br/>
+        /// * When the bill was recorded in the accounting system.<br/>
+        /// * How much the bill is for and the currency of the amount.<br/>
+        /// * Who the bill was received from — the *supplier*.<br/>
+        /// * What the bill is for — the *line items*.<br/>
+        /// <br/>
+        /// Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s *expenses*.<br/>
+        /// <br/>
+        /// You can find these types of transactions in our <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> data model.
         /// </remarks>
         /// </summary>
         [JsonProperty("data")]
         public Bill? Data { get; set; }
-        
+
         /// <summary>
-        /// Unique identifier for a company's data connection.
+        /// Unique identifier for a company&amp;apos;s data connection.
         /// </summary>
         [JsonProperty("dataConnectionKey")]
         public string DataConnectionKey { get; set; } = default!;
-        
+
         /// <summary>
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
         public DataType? DataType { get; set; }
-        
+
         [JsonProperty("errorMessage")]
         public string? ErrorMessage { get; set; }
-        
+
         /// <summary>
         /// A unique identifier generated by Codat to represent this single push operation. This identifier can be used to track the status of the push, and should be persisted.
         /// </summary>
         [JsonProperty("pushOperationKey")]
         public string PushOperationKey { get; set; } = default!;
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("requestedOnUtc")]
         public string RequestedOnUtc { get; set; } = default!;
-        
+
         /// <summary>
         /// The status of the push operation.
         /// </summary>
         [JsonProperty("status")]
         public PushOperationStatus Status { get; set; } = default!;
-        
+
         [JsonProperty("statusCode")]
         public long StatusCode { get; set; } = default!;
-        
+
         [JsonProperty("timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }
-        
+
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("timeoutInSeconds")]
         public int? TimeoutInSeconds { get; set; }
-        
+
         /// <summary>
         /// A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
         /// </summary>
         [JsonProperty("validation")]
         public Validation? Validation { get; set; }
-        
     }
-    
 }

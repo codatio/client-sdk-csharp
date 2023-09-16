@@ -19,21 +19,55 @@ namespace CodatSyncPayables
     using System.Threading.Tasks;
     using System;
 
-    public interface IJournalEntriesSDK
-    {
-        Task<Models.Operations.CreateJournalEntryResponse> CreateAsync(CreateJournalEntryRequest? request = null);
-        Task<GetCreateJournalEntryModelResponse> GetCreateModelAsync(GetCreateJournalEntryModelRequest? request = null);
-    }
-
     /// <summary>
     /// Journal entries
     /// </summary>
+    public interface IJournalEntriesSDK
+    {
+
+        /// <summary>
+        /// Create journal entry
+        /// 
+        /// <remarks>
+        /// The *Create journal entry* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry">journal entry</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-journalEntries-model">Get create journal entry model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries">coverage explorer</a> for integrations that support creating a journal entry.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateJournalEntryResponse> CreateAsync(CreateJournalEntryRequest? request = null);
+
+        /// <summary>
+        /// Get create journal entry model
+        /// 
+        /// <remarks>
+        /// The *Get create journal entry model* endpoint returns the expected data for the request payload when creating a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry">journal entry</a> for a given company and integration.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// See the *response examples* for integration-specific indicative models.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries">coverage explorer</a> for integrations that support creating a journal entry.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateJournalEntryModelResponse> GetCreateModelAsync(GetCreateJournalEntryModelRequest? request = null);
+    }
+
     public class JournalEntriesSDK: IJournalEntriesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.4.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,22 +82,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Create journal entry
-        /// 
-        /// <remarks>
-        /// The *Create journal entry* endpoint creates a new [journal entry](https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry) for a given company's connection.
-        /// 
-        /// [Journal entries](https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create journal entry model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-journalEntries-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating a journal entry.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateJournalEntryResponse> CreateAsync(CreateJournalEntryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -117,22 +135,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get create journal entry model
-        /// 
-        /// <remarks>
-        /// The *Get create journal entry model* endpoint returns the expected data for the request payload when creating a [journal entry](https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry) for a given company and integration.
-        /// 
-        /// [Journal entries](https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// See the *response examples* for integration-specific indicative models.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating a journal entry.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateJournalEntryModelResponse> GetCreateModelAsync(GetCreateJournalEntryModelRequest? request = null)
         {
             string baseUrl = _serverUrl;

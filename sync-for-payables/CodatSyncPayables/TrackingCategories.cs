@@ -19,21 +19,49 @@ namespace CodatSyncPayables
     using System.Threading.Tasks;
     using System;
 
-    public interface ITrackingCategoriesSDK
-    {
-        Task<GetTrackingCategoryResponse> GetAsync(GetTrackingCategoryRequest? request = null);
-        Task<ListTrackingCategoriesResponse> ListAsync(ListTrackingCategoriesRequest? request = null);
-    }
-
     /// <summary>
     /// Tracking categories
     /// </summary>
+    public interface ITrackingCategoriesSDK
+    {
+
+        /// <summary>
+        /// Get tracking categories
+        /// 
+        /// <remarks>
+        /// The *Get tracking category* endpoint returns a single tracking category for a given `trackingCategoryId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/TrackingCategory">Tracking categories</a> are used to monitor cost centres and control budgets that sit outside the standard set of accounts.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=trackingCategories">coverage explorer</a> for integrations that support getting a specific tracking category.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetTrackingCategoryResponse> GetAsync(GetTrackingCategoryRequest? request = null);
+
+        /// <summary>
+        /// List tracking categories
+        /// 
+        /// <remarks>
+        /// The *List tracking categories* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/TrackingCategory">tracking categories</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/TrackingCategory">Tracking categories</a> are used to monitor cost centres and control budgets that sit outside the standard set of accounts.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
+        Task<ListTrackingCategoriesResponse> ListAsync(ListTrackingCategoriesRequest? request = null);
+    }
+
     public class TrackingCategoriesSDK: ITrackingCategoriesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.4.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,20 +76,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get tracking categories
-        /// 
-        /// <remarks>
-        /// The *Get tracking category* endpoint returns a single tracking category for a given `trackingCategoryId`.
-        /// 
-        /// [Tracking categories](https://docs.codat.io/sync-for-payables-api#/schemas/TrackingCategory) are used to monitor cost centres and control budgets that sit outside the standard set of accounts.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=trackingCategories) for integrations that support getting a specific tracking category.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetTrackingCategoryResponse> GetAsync(GetTrackingCategoryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -110,18 +124,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// List tracking categories
-        /// 
-        /// <remarks>
-        /// The *List tracking categories* endpoint returns a list of [tracking categories](https://docs.codat.io/sync-for-payables-api#/schemas/TrackingCategory) for a given company's connection.
-        /// 
-        /// [Tracking categories](https://docs.codat.io/sync-for-payables-api#/schemas/TrackingCategory) are used to monitor cost centres and control budgets that sit outside the standard set of accounts.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListTrackingCategoriesResponse> ListAsync(ListTrackingCategoriesRequest? request = null)
         {
             string baseUrl = _serverUrl;

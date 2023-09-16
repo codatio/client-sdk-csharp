@@ -12,24 +12,22 @@ namespace CodatSyncPayables.Models.Operations
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Weblink associated with the company.
     /// </summary>
     public class GetAccountingProfileCompanyInformationWeblink
     {
+
         /// <summary>
         /// The type of the weblink.
         /// </summary>
         [JsonProperty("type")]
         public GetAccountingProfileCompanyInformationWeblinkType? Type { get; set; }
-        
+
         /// <summary>
         /// The full URL for the weblink.
         /// </summary>
         [JsonProperty("url")]
         public string? Url { get; set; }
-        
     }
-    
 }

@@ -19,24 +19,103 @@ namespace CodatSyncPayables
     using System.Threading.Tasks;
     using System;
 
-    public interface IBillCreditNotesSDK
-    {
-        Task<Models.Operations.CreateBillCreditNoteResponse> CreateAsync(CreateBillCreditNoteRequest? request = null);
-        Task<GetBillCreditNoteResponse> GetAsync(GetBillCreditNoteRequest? request = null);
-        Task<GetCreateUpdateBillCreditNoteModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBillCreditNoteModelRequest? request = null);
-        Task<ListBillCreditNotesResponse> ListAsync(ListBillCreditNotesRequest? request = null);
-        Task<Models.Operations.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest? request = null);
-    }
-
     /// <summary>
     /// Bill credit notes
     /// </summary>
+    public interface IBillCreditNotesSDK
+    {
+
+        /// <summary>
+        /// Create bill credit note
+        /// 
+        /// <remarks>
+        /// The *Create bill credit note* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit note</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model">Get create/update bill credit note model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support creating a bill credit note.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateBillCreditNoteResponse> CreateAsync(CreateBillCreditNoteRequest? request = null);
+
+        /// <summary>
+        /// Get bill credit note
+        /// 
+        /// <remarks>
+        /// The *Get bill credit note* endpoint returns a single bill credit note for a given `billCreditNoteId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support getting a specific bill credit note.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetBillCreditNoteResponse> GetAsync(GetBillCreditNoteRequest? request = null);
+
+        /// <summary>
+        /// Get create/update bill credit note model
+        /// 
+        /// <remarks>
+        /// The *Get create/update bill credit note model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit note</a> for a given company and integration.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// See the *response examples* for integration-specific indicative models.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support creating and updating a bill credit note.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateUpdateBillCreditNoteModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBillCreditNoteModelRequest? request = null);
+
+        /// <summary>
+        /// List bill credit notes
+        /// 
+        /// <remarks>
+        /// The *List bill credit notes* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit notes</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
+        Task<ListBillCreditNotesResponse> ListAsync(ListBillCreditNotesRequest? request = null);
+
+        /// <summary>
+        /// Update bill credit note
+        /// 
+        /// <remarks>
+        /// The *Update bill credit note* endpoint updates an existing <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit note</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model">Get create/update bill credit note model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support creating a bill credit note.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest? request = null);
+    }
+
     public class BillCreditNotesSDK: IBillCreditNotesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.4.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,22 +130,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Create bill credit note
-        /// 
-        /// <remarks>
-        /// The *Create bill credit note* endpoint creates a new [bill credit note](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company's connection.
-        /// 
-        /// [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating a bill credit note.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateBillCreditNoteResponse> CreateAsync(CreateBillCreditNoteRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -120,20 +183,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get bill credit note
-        /// 
-        /// <remarks>
-        /// The *Get bill credit note* endpoint returns a single bill credit note for a given `billCreditNoteId`.
-        /// 
-        /// [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support getting a specific bill credit note.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetBillCreditNoteResponse> GetAsync(GetBillCreditNoteRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -182,22 +231,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get create/update bill credit note model
-        /// 
-        /// <remarks>
-        /// The *Get create/update bill credit note model* endpoint returns the expected data for the request payload when creating and updating a [bill credit note](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company and integration.
-        /// 
-        /// [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// See the *response examples* for integration-specific indicative models.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating and updating a bill credit note.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateUpdateBillCreditNoteModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBillCreditNoteModelRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -246,18 +279,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// List bill credit notes
-        /// 
-        /// <remarks>
-        /// The *List bill credit notes* endpoint returns a list of [bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company's connection.
-        /// 
-        /// [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListBillCreditNotesResponse> ListAsync(ListBillCreditNotesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -306,22 +327,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Update bill credit note
-        /// 
-        /// <remarks>
-        /// The *Update bill credit note* endpoint updates an existing [bill credit note](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company's connection.
-        /// 
-        /// [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating a bill credit note.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest? request = null)
         {
             string baseUrl = _serverUrl;

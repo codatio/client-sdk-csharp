@@ -19,20 +19,28 @@ namespace CodatSyncPayables
     using System.Threading.Tasks;
     using System;
 
-    public interface ICompanyInfoSDK
-    {
-        Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null);
-    }
-
     /// <summary>
     /// View company information fetched from the source platform.
     /// </summary>
+    public interface ICompanyInfoSDK
+    {
+
+        /// <summary>
+        /// Get company accounting profile
+        /// 
+        /// <remarks>
+        /// Gets the latest basic info for a company.
+        /// </remarks>
+        /// </summary>
+        Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null);
+    }
+
     public class CompanyInfoSDK: ICompanyInfoSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "0.4.1";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -47,13 +55,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get company accounting profile
-        /// 
-        /// <remarks>
-        /// Gets the latest basic info for a company.
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null)
         {
             string baseUrl = _serverUrl;

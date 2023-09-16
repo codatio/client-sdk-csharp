@@ -14,30 +14,23 @@ namespace CodatSyncPayables.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class DeleteBillResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Your API request was not properly authorized.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public PushOperation? PushOperation { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

@@ -13,21 +13,19 @@ namespace CodatSyncPayables.Models.Operations
     using CodatSyncPayables.Models.Shared;
     using CodatSyncPayables.Utils;
     
-    
     public class CreateBillRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Bill? Bill { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }
-        
     }
-    
 }

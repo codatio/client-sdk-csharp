@@ -1,4 +1,4 @@
-# suppliers
+# Suppliers
 
 ## Overview
 
@@ -40,8 +40,8 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
-        Addresses = new List<SupplierAccountingAddress>() {
-            new SupplierAccountingAddress() {
+        Addresses = new List<Address>() {
+            new Address() {
                 City = "Fort Virgilfurt",
                 Country = "Sweden",
                 Line1 = "officia",
@@ -256,8 +256,8 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
-        Addresses = new List<SupplierAccountingAddress>() {
-            new SupplierAccountingAddress() {
+        Addresses = new List<Address>() {
+            new Address() {
                 City = "Wauwatosa",
                 Country = "Nauru",
                 Line1 = "dicta",

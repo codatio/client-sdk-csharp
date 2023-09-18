@@ -12,24 +12,22 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
     /// </summary>
     public class AccountRef
     {
+
         /// <summary>
-        /// 'id' from the Accounts data type.
+        /// &amp;apos;id&amp;apos; from the Accounts data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         /// <summary>
-        /// 'name' from the Accounts data type.
+        /// &amp;apos;name&amp;apos; from the Accounts data type.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

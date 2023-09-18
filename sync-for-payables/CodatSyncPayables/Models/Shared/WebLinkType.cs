@@ -8,50 +8,48 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Operations
+namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the weblink.
     /// </summary>
-    public enum GetAccountingProfileCompanyInformationWeblinkType
+    public enum WebLinkType
     {
-    	[JsonProperty("Website")]
-		Website,
-		[JsonProperty("Social")]
-		Social,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Website")]
+        Website,
+        [JsonProperty("Social")]
+        Social,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
-    public static class GetAccountingProfileCompanyInformationWeblinkTypeExtension
+
+    public static class WebLinkTypeExtension
     {
-        public static string Value(this GetAccountingProfileCompanyInformationWeblinkType value)
+        public static string Value(this WebLinkType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static GetAccountingProfileCompanyInformationWeblinkType ToEnum(this string value)
+        public static WebLinkType ToEnum(this string value)
         {
-            foreach(var field in typeof(GetAccountingProfileCompanyInformationWeblinkType).GetFields())
+            foreach(var field in typeof(WebLinkType).GetFields())
             {
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is GetAccountingProfileCompanyInformationWeblinkType)
+                    if (enumVal is WebLinkType)
                     {
-                        return (GetAccountingProfileCompanyInformationWeblinkType)enumVal;
+                        return (WebLinkType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum GetAccountingProfileCompanyInformationWeblinkType");
+            throw new Exception($"Unknown value {value} for enum WebLinkType");
         }
     }
-    
 }

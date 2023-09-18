@@ -13,26 +13,25 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Current state of the bill credit note
     /// </summary>
     public enum BillCreditNoteStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Draft")]
-		Draft,
-		[JsonProperty("Submitted")]
-		Submitted,
-		[JsonProperty("Paid")]
-		Paid,
-		[JsonProperty("Void")]
-		Void,
-		[JsonProperty("PartiallyPaid")]
-		PartiallyPaid,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Draft")]
+        Draft,
+        [JsonProperty("Submitted")]
+        Submitted,
+        [JsonProperty("Paid")]
+        Paid,
+        [JsonProperty("Void")]
+        Void,
+        [JsonProperty("PartiallyPaid")]
+        PartiallyPaid,
     }
-    
+
     public static class BillCreditNoteStatusExtension
     {
         public static string Value(this BillCreditNoteStatus value)
@@ -59,5 +58,4 @@ namespace CodatSyncPayables.Models.Shared
             throw new Exception($"Unknown value {value} for enum BillCreditNoteStatus");
         }
     }
-    
 }

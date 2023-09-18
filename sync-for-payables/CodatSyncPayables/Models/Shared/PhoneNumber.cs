@@ -8,28 +8,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Operations
+namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
-    /// <summary>
-    /// Weblink associated with the company.
-    /// </summary>
-    public class GetAccountingProfileCompanyInformationWeblink
+    public class PhoneNumber
     {
+
         /// <summary>
-        /// The type of the weblink.
+        /// A phone number.
+        /// </summary>
+        [JsonProperty("number")]
+        public string Number { get; set; } = default!;
+
+        /// <summary>
+        /// The type of phone number
         /// </summary>
         [JsonProperty("type")]
-        public GetAccountingProfileCompanyInformationWeblinkType? Type { get; set; }
-        
-        /// <summary>
-        /// The full URL for the weblink.
-        /// </summary>
-        [JsonProperty("url")]
-        public string? Url { get; set; }
-        
+        public PhoneNumberType Type { get; set; } = default!;
     }
-    
 }

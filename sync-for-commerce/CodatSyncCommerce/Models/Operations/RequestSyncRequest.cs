@@ -13,15 +13,13 @@ namespace CodatSyncCommerce.Models.Operations
     using CodatSyncCommerce.Models.Shared;
     using CodatSyncCommerce.Utils;
     
-    
     public class RequestSyncRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public SyncToLatestArgs? SyncToLatestArgs { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

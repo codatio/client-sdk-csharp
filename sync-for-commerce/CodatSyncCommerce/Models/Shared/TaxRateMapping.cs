@@ -13,21 +13,19 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class TaxRateMapping
     {
+
         /// <summary>
         /// Selected tax rate id from the list of tax rates on the accounting software.
         /// </summary>
         [JsonProperty("selectedAccountingTaxRateId")]
         public string? SelectedAccountingTaxRateId { get; set; }
-        
+
         /// <summary>
         /// Selected tax component id from the list of tax components on the commerce software.
         /// </summary>
         [JsonProperty("selectedCommerceTaxRateIds")]
         public List<string>? SelectedCommerceTaxRateIds { get; set; }
-        
     }
-    
 }

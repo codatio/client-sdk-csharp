@@ -12,12 +12,10 @@ namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class SyncRange
     {
+
         [JsonProperty("dateRange")]
         public SyncRangeDateRange DateRange { get; set; } = default!;
-        
     }
-    
 }

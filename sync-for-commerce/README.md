@@ -39,14 +39,14 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 ## Available Resources and Operations
 
 
-### [advancedControls](docs/sdks/advancedcontrols/README.md)
+### [AdvancedControls](docs/sdks/advancedcontrols/README.md)
 
 * [CreateCompany](docs/sdks/advancedcontrols/README.md#createcompany) - Create company
 * [GetConfiguration](docs/sdks/advancedcontrols/README.md#getconfiguration) - Get company configuration
 * [ListCompanies](docs/sdks/advancedcontrols/README.md#listcompanies) - List companies
 * [SetConfiguration](docs/sdks/advancedcontrols/README.md#setconfiguration) - Set configuration
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
 * [GetSyncFlowUrl](docs/sdks/connections/README.md#getsyncflowurl) - Start new sync flow
@@ -54,12 +54,12 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 * [UpdateConnection](docs/sdks/connections/README.md#updateconnection) - Update connection
 
-### [integrations](docs/sdks/integrations/README.md)
+### [Integrations](docs/sdks/integrations/README.md)
 
 * [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
 * [List](docs/sdks/integrations/README.md#list) - List integrations
 
-### [sync](docs/sdks/sync/README.md)
+### [Sync](docs/sdks/sync/README.md)
 
 * [Get](docs/sdks/sync/README.md#get) - Get sync status
 * [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
@@ -69,7 +69,7 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [Request](docs/sdks/sync/README.md#request) - Initiate new sync
 * [RequestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
 
-### [syncFlowSettings](docs/sdks/syncflowsettings/README.md)
+### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
 
 * [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
 * [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts

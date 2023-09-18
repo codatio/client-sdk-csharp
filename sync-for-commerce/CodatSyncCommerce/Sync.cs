@@ -20,26 +20,82 @@ namespace CodatSyncCommerce
     using System.Threading.Tasks;
     using System;
 
-    public interface ISyncSDK
-    {
-        Task<GetSyncByIdResponse> GetAsync(GetSyncByIdRequest? request = null);
-        Task<GetLastSuccessfulSyncResponse> GetLastSuccessfulSyncAsync(GetLastSuccessfulSyncRequest? request = null);
-        Task<GetLatestSyncResponse> GetLatestSyncAsync(GetLatestSyncRequest? request = null);
-        Task<GetSyncStatusResponse> GetStatusAsync(GetSyncStatusRequest? request = null);
-        Task<ListSyncsResponse> ListAsync(ListSyncsRequest? request = null);
-        Task<RequestSyncResponse> RequestAsync(RequestSyncRequest? request = null);
-        Task<RequestSyncForDateRangeResponse> RequestForDateRangeAsync(RequestSyncForDateRangeRequest? request = null);
-    }
-
     /// <summary>
     /// Initiate and monitor the sync of company data into accounting software.
     /// </summary>
+    public interface ISyncSDK
+    {
+
+        /// <summary>
+        /// Get sync status
+        /// 
+        /// <remarks>
+        /// Get the sync status for a specified sync
+        /// </remarks>
+        /// </summary>
+        Task<GetSyncByIdResponse> GetAsync(GetSyncByIdRequest? request = null);
+
+        /// <summary>
+        /// Last successful sync
+        /// 
+        /// <remarks>
+        /// Gets the status of the last successful sync
+        /// </remarks>
+        /// </summary>
+        Task<GetLastSuccessfulSyncResponse> GetLastSuccessfulSyncAsync(GetLastSuccessfulSyncRequest? request = null);
+
+        /// <summary>
+        /// Latest sync status
+        /// 
+        /// <remarks>
+        /// Gets the latest sync status
+        /// </remarks>
+        /// </summary>
+        Task<GetLatestSyncResponse> GetLatestSyncAsync(GetLatestSyncRequest? request = null);
+
+        /// <summary>
+        /// Get sync status
+        /// 
+        /// <remarks>
+        /// Gets a list of sync statuses.
+        /// </remarks>
+        /// </summary>
+        Task<GetSyncStatusResponse> GetStatusAsync(GetSyncStatusRequest? request = null);
+
+        /// <summary>
+        /// List sync statuses
+        /// 
+        /// <remarks>
+        /// Gets a list of sync statuses
+        /// </remarks>
+        /// </summary>
+        Task<ListSyncsResponse> ListAsync(ListSyncsRequest? request = null);
+
+        /// <summary>
+        /// Initiate new sync
+        /// 
+        /// <remarks>
+        /// Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.\r\nIf there was no previously successful sync, the start date in the config is used.
+        /// </remarks>
+        /// </summary>
+        Task<RequestSyncResponse> RequestAsync(RequestSyncRequest? request = null);
+
+        /// <summary>
+        /// Initiate sync for specific range
+        /// 
+        /// <remarks>
+        /// Initiate a sync for the specified start date to the specified finish date in the request payload.
+        /// </remarks>
+        /// </summary>
+        Task<RequestSyncForDateRangeResponse> RequestForDateRangeAsync(RequestSyncForDateRangeRequest? request = null);
+    }
+
     public class SyncSDK: ISyncSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -54,13 +110,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Get sync status
-        /// 
-        /// <remarks>
-        /// Get the sync status for a specified sync
-        /// </remarks>
-        /// </summary>
         public async Task<GetSyncByIdResponse> GetAsync(GetSyncByIdRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -109,13 +158,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Last successful sync
-        /// 
-        /// <remarks>
-        /// Gets the status of the last successful sync
-        /// </remarks>
-        /// </summary>
         public async Task<GetLastSuccessfulSyncResponse> GetLastSuccessfulSyncAsync(GetLastSuccessfulSyncRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -164,13 +206,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Latest sync status
-        /// 
-        /// <remarks>
-        /// Gets the latest sync status
-        /// </remarks>
-        /// </summary>
         public async Task<GetLatestSyncResponse> GetLatestSyncAsync(GetLatestSyncRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -219,13 +254,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Get sync status
-        /// 
-        /// <remarks>
-        /// Gets a list of sync statuses.
-        /// </remarks>
-        /// </summary>
         public async Task<GetSyncStatusResponse> GetStatusAsync(GetSyncStatusRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -283,13 +311,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// List sync statuses
-        /// 
-        /// <remarks>
-        /// Gets a list of sync statuses
-        /// </remarks>
-        /// </summary>
         public async Task<ListSyncsResponse> ListAsync(ListSyncsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -338,13 +359,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Initiate new sync
-        /// 
-        /// <remarks>
-        /// Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.\r\nIf there was no previously successful sync, the start date in the config is used.
-        /// </remarks>
-        /// </summary>
         public async Task<RequestSyncResponse> RequestAsync(RequestSyncRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -389,13 +403,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Initiate sync for specific range
-        /// 
-        /// <remarks>
-        /// Initiate a sync for the specified start date to the specified finish date in the request payload.
-        /// </remarks>
-        /// </summary>
         public async Task<RequestSyncForDateRangeResponse> RequestForDateRangeAsync(RequestSyncForDateRangeRequest? request = null)
         {
             string baseUrl = _serverUrl;

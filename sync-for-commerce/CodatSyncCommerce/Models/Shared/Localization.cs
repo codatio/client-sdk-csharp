@@ -12,18 +12,16 @@ namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class Localization
     {
+
         [JsonProperty("required")]
         public bool? Required { get; set; }
-        
+
         /// <summary>
         /// Value of the property.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
-        
     }
-    
 }

@@ -13,42 +13,40 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
     /// G/L account object for configuration.
     /// </summary>
     public class ConfigAccount
     {
+
         /// <summary>
         /// Object containing account options.
         /// </summary>
         [JsonProperty("accountOptions")]
         public List<AccountOption>? AccountOptions { get; set; }
-        
+
         /// <summary>
         /// Descriprtive text for sales configuration section.
         /// </summary>
         [JsonProperty("descriptionText")]
         public string? DescriptionText { get; set; }
-        
+
         /// <summary>
         /// Label text for sales configuration section.
         /// </summary>
         [JsonProperty("labelText")]
         public string? LabelText { get; set; }
-        
+
         /// <summary>
         /// Required section to be configured for sync.
         /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; }
-        
+
         /// <summary>
         /// Selected account id from the list of available accounts.
         /// </summary>
         [JsonProperty("selectedAccountId")]
         public string? SelectedAccountId { get; set; }
-        
     }
-    
 }

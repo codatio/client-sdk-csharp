@@ -13,21 +13,19 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
     /// Describes support for a given datatype and associated operations
     /// </summary>
     public class DataTypeFeature
     {
+
         /// <summary>
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
         public DataTypeFeatureDataTypes? DataType { get; set; }
-        
+
         [JsonProperty("supportedFeatures")]
         public List<SupportedFeature> SupportedFeatures { get; set; } = default!;
-        
     }
-    
 }

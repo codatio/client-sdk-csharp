@@ -12,18 +12,16 @@ namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Logo branding references.
     /// </summary>
     public class BrandingLogo
     {
+
         [JsonProperty("full")]
         public BrandingImage? Full { get; set; }
-        
+
         [JsonProperty("square")]
         public BrandingImage? Square { get; set; }
-        
     }
-    
 }

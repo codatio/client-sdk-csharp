@@ -14,24 +14,18 @@ namespace CodatSyncCommerce.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class ListIntegrationsResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public Integrations? Integrations { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

@@ -14,24 +14,18 @@ namespace CodatSyncCommerce.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class GetConfigurationResponse
     {
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public Configuration? Configuration { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

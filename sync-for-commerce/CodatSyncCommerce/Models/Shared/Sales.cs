@@ -13,33 +13,31 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class Sales
     {
+
         [JsonProperty("accounts")]
         public Dictionary<string, ConfigAccount>? Accounts { get; set; }
-        
+
         [JsonProperty("grouping")]
         public Grouping? Grouping { get; set; }
-        
+
         [JsonProperty("invoiceStatus")]
         public InvoiceStatus? InvoiceStatus { get; set; }
-        
+
         [JsonProperty("newTaxRates")]
         public NewTaxRates? NewTaxRates { get; set; }
-        
+
         [JsonProperty("salesCustomer")]
         public Customer? SalesCustomer { get; set; }
-        
+
         /// <summary>
         /// Boolean indicator for syncing sales.
         /// </summary>
         [JsonProperty("syncSales")]
         public bool? SyncSales { get; set; }
-        
+
         [JsonProperty("taxRates")]
         public Dictionary<string, TaxRateAmount>? TaxRates { get; set; }
-        
     }
-    
 }

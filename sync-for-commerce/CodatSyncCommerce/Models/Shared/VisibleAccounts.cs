@@ -13,15 +13,13 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class VisibleAccounts
     {
+
         /// <summary>
         /// Visible accounts on sync flow.
         /// </summary>
         [JsonProperty("visibleAccounts")]
         public List<string>? VisibleAccountsValue { get; set; }
-        
     }
-    
 }

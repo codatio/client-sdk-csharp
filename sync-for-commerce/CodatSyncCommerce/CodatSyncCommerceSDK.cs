@@ -17,12 +17,44 @@ namespace CodatSyncCommerce
     using System.Threading.Tasks;
     using System;
 
+    /// <summary>
+    /// Sync for Commerce: The API for Sync for Commerce. &lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// Sync for Commerce automatically replicates and reconciles sales data from a merchant’s source PoS, Payments, and eCommerce systems into their accounting software. This eliminates manual processing by merchants and transforms their ability to run and grow their business.<br/>
+    ///   <br/>
+    /// <a href="https://docs.codat.io/commerce/overview">Read More...</a><br/>
+    /// <br/>
+    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-commerce-v1-api#/">different version of Sync for Commerce</a>.
+    /// </remarks>
+    /// </summary>
     public interface ICodatSyncCommerceSDK
     {
+
+        /// <summary>
+        /// Advanced company management and sync preferences.
+        /// </summary>
         public IAdvancedControlsSDK AdvancedControls { get; }
+
+        /// <summary>
+        /// Create new and manage existing Sync for Commerce connections using the Sync flow UI.
+        /// </summary>
         public IConnectionsSDK Connections { get; }
+
+        /// <summary>
+        /// View useful information about codat&amp;apos;s integrations.
+        /// </summary>
         public IIntegrationsSDK Integrations { get; }
+
+        /// <summary>
+        /// Initiate and monitor the sync of company data into accounting software.
+        /// </summary>
         public ISyncSDK Sync { get; }
+
+        /// <summary>
+        /// Configure preferences for any given Sync for Commerce company using sync flow.
+        /// </summary>
         public ISyncFlowSettingsSDK SyncFlowSettings { get; }
     }
     
@@ -30,18 +62,6 @@ namespace CodatSyncCommerce
     {
     }
 
-    /// <summary>
-    /// Sync for Commerce: The API for Sync for Commerce. 
-    /// 
-    /// <remarks>
-    /// 
-    /// Sync for Commerce automatically replicates and reconciles sales data from a merchant’s source PoS, Payments, and eCommerce systems into their accounting software. This eliminates manual processing by merchants and transforms their ability to run and grow their business.
-    ///   
-    /// [Read More...](https://docs.codat.io/commerce/overview)
-    /// 
-    /// Not seeing the endpoints you're expecting? We've [reorganized our products](https://docs.codat.io/updates/230901-new-products), and you may be using a [different version of Sync for Commerce](https://docs.codat.io/sync-for-commerce-v1-api#/).
-    /// </remarks>
-    /// </summary>
     public class CodatSyncCommerceSDK: ICodatSyncCommerceSDK
     {
         public SDKConfig Config { get; private set; }
@@ -51,31 +71,16 @@ namespace CodatSyncCommerce
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        /// <summary>
-        /// Advanced company management and sync preferences.
-        /// </summary>
         public IAdvancedControlsSDK AdvancedControls { get; private set; }
-        /// <summary>
-        /// Create new and manage existing Sync for Commerce connections using the Sync flow UI.
-        /// </summary>
         public IConnectionsSDK Connections { get; private set; }
-        /// <summary>
-        /// View useful information about codat's integrations.
-        /// </summary>
         public IIntegrationsSDK Integrations { get; private set; }
-        /// <summary>
-        /// Initiate and monitor the sync of company data into accounting software.
-        /// </summary>
         public ISyncSDK Sync { get; private set; }
-        /// <summary>
-        /// Configure preferences for any given Sync for Commerce company using sync flow.
-        /// </summary>
         public ISyncFlowSettingsSDK SyncFlowSettings { get; private set; }
 
         public CodatSyncCommerceSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)

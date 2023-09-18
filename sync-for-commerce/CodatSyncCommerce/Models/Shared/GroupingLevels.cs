@@ -12,15 +12,13 @@ namespace CodatSyncCommerce.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class GroupingLevels
     {
+
         [JsonProperty("invoiceLevel")]
         public InvoiceLevelSelection? InvoiceLevel { get; set; }
-        
+
         [JsonProperty("invoiceLineLevel")]
         public InvoiceLineLevelSelection? InvoiceLineLevel { get; set; }
-        
     }
-    
 }

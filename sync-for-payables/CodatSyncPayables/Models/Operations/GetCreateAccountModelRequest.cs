@@ -12,15 +12,13 @@ namespace CodatSyncPayables.Models.Operations
 {
     using CodatSyncPayables.Utils;
     
-    
     public class GetCreateAccountModelRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

@@ -12,30 +12,28 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// A tax rate can be made up of multiple sub taxes, often called components of the tax.
     /// </summary>
     public class TaxRateComponent
     {
+
         /// <summary>
         /// A flag to indicate with the tax is calculated using the principle of compounding. 
         /// </summary>
         [JsonProperty("isCompound")]
         public bool IsCompound { get; set; } = default!;
-        
+
         /// <summary>
         /// Name of the tax rate component.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
+
         /// <summary>
         /// The rate of the tax rate component, usually a percentage.
         /// </summary>
         [JsonProperty("rate")]
         public decimal? Rate { get; set; }
-        
     }
-    
 }

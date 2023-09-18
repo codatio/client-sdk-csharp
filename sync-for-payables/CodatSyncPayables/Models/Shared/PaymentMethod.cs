@@ -12,52 +12,50 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
-    /// > View the coverage for payment methods in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=paymentMethods" target="_blank">Data coverage explorer</a>.
+    /// &amp;gt; View the coverage for payment methods in the &amp;lt;a className=&amp;quot;external&amp;quot; href=&amp;quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;amp;dataType=paymentMethods&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Data coverage explorer&amp;lt;/a&amp;gt;.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// ## Overview
-    /// 
-    /// A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
+    /// <br/>
+    /// ## Overview<br/>
+    /// <br/>
+    /// A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill Payments</a> and <a href="https://docs.codat.io/accounting-api#/schemas/Payment">Payments</a>.
     /// </remarks>
     /// </summary>
     public class PaymentMethod
     {
+
         /// <summary>
         /// Unique identifier for the payment method.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         [JsonProperty("metadata")]
         public Metadata? Metadata { get; set; }
-        
+
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
-        
+
         /// <summary>
         /// Name of the payment method.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
+
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
-        
+
         /// <summary>
         /// Status of the Payment Method.
         /// </summary>
         [JsonProperty("status")]
         public PaymentMethodStatus? Status { get; set; }
-        
+
         /// <summary>
         /// Method of payment.
         /// </summary>
         [JsonProperty("type")]
         public PaymentMethodType? Type { get; set; }
-        
     }
-    
 }

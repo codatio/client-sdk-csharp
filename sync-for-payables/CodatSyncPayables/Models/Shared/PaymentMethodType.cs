@@ -13,28 +13,27 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Method of payment.
     /// </summary>
     public enum PaymentMethodType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Cash")]
-		Cash,
-		[JsonProperty("Check")]
-		Check,
-		[JsonProperty("CreditCard")]
-		CreditCard,
-		[JsonProperty("DebitCard")]
-		DebitCard,
-		[JsonProperty("BankTransfer")]
-		BankTransfer,
-		[JsonProperty("Other")]
-		Other,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Cash")]
+        Cash,
+        [JsonProperty("Check")]
+        Check,
+        [JsonProperty("CreditCard")]
+        CreditCard,
+        [JsonProperty("DebitCard")]
+        DebitCard,
+        [JsonProperty("BankTransfer")]
+        BankTransfer,
+        [JsonProperty("Other")]
+        Other,
     }
-    
+
     public static class PaymentMethodTypeExtension
     {
         public static string Value(this PaymentMethodType value)
@@ -61,5 +60,4 @@ namespace CodatSyncPayables.Models.Shared
             throw new Exception($"Unknown value {value} for enum PaymentMethodType");
         }
     }
-    
 }

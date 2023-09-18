@@ -12,15 +12,13 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class Items
     {
+
         [JsonProperty("allocation")]
         public ItemsAllocation Allocation { get; set; } = default!;
-        
+
         [JsonProperty("payment")]
         public PaymentAllocationPayment Payment { get; set; } = default!;
-        
     }
-    
 }

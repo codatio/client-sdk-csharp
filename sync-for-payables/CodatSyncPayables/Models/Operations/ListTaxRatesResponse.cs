@@ -14,30 +14,23 @@ namespace CodatSyncPayables.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class ListTaxRatesResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Your `query` parameter was not correctly formed
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public TaxRates? TaxRates { get; set; }
-        
     }
-    
 }

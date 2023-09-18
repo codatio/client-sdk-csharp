@@ -13,12 +13,10 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class Attachments
     {
+
         [JsonProperty("attachments")]
         public List<Attachment>? AttachmentsValue { get; set; }
-        
     }
-    
 }

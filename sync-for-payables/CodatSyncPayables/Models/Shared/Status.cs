@@ -13,20 +13,19 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Current state of the tracking category.
     /// </summary>
     public enum Status
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Active")]
-		Active,
-		[JsonProperty("Archived")]
-		Archived,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Active")]
+        Active,
+        [JsonProperty("Archived")]
+        Archived,
     }
-    
+
     public static class StatusExtension
     {
         public static string Value(this Status value)
@@ -53,5 +52,4 @@ namespace CodatSyncPayables.Models.Shared
             throw new Exception($"Unknown value {value} for enum Status");
         }
     }
-    
 }

@@ -12,15 +12,13 @@ namespace CodatSyncPayables.Models.Operations
 {
     using CodatSyncPayables.Utils;
     
-    
     public class UploadBillAttachmentRequestBody
     {
+
         [SpeakeasyMetadata("multipartForm:content")]
         public byte[] Content { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("multipartForm:name=requestBody")]
         public string RequestBody { get; set; } = default!;
-        
     }
-    
 }

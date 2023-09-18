@@ -12,15 +12,13 @@ namespace CodatSyncPayables.Models.Operations
 {
     using CodatSyncPayables.Utils;
     
-    
     public class DeleteBillPaymentRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billPaymentId")]
         public string BillPaymentId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

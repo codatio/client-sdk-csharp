@@ -12,15 +12,13 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class SupportedFeature
     {
+
         [JsonProperty("featureState")]
         public FeatureState FeatureState { get; set; } = default!;
-        
+
         [JsonProperty("featureType")]
         public FeatureType FeatureType { get; set; } = default!;
-        
     }
-    
 }

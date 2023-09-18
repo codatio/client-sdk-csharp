@@ -13,24 +13,22 @@ namespace CodatPlatform.Models.Operations
     using CodatPlatform.Models.Shared;
     using CodatPlatform.Utils;
     
-    
     public class ConfigureSupplementalDataRequest
     {
+
         /// <summary>
         /// The configuration for the specified platform and data type.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public SupplementalDataConfiguration? SupplementalDataConfiguration { get; set; }
-        
+
         /// <summary>
         /// Data types that support supplemental data
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
         public ConfigureSupplementalDataDataType DataType { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
         public string PlatformKey { get; set; } = default!;
-        
     }
-    
 }

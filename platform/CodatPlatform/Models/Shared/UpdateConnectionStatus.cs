@@ -12,15 +12,13 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class UpdateConnectionStatus
     {
+
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>
         [JsonProperty("status")]
         public DataConnectionStatus? Status { get; set; }
-        
     }
-    
 }

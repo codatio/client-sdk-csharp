@@ -13,23 +13,22 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum FeatureState
     {
-    	[JsonProperty("Release")]
-		Release,
-		[JsonProperty("Alpha")]
-		Alpha,
-		[JsonProperty("Beta")]
-		Beta,
-		[JsonProperty("Deprecated")]
-		Deprecated,
-		[JsonProperty("NotSupported")]
-		NotSupported,
-		[JsonProperty("NotImplemented")]
-		NotImplemented,
+        [JsonProperty("Release")]
+        Release,
+        [JsonProperty("Alpha")]
+        Alpha,
+        [JsonProperty("Beta")]
+        Beta,
+        [JsonProperty("Deprecated")]
+        Deprecated,
+        [JsonProperty("NotSupported")]
+        NotSupported,
+        [JsonProperty("NotImplemented")]
+        NotImplemented,
     }
-    
+
     public static class FeatureStateExtension
     {
         public static string Value(this FeatureState value)
@@ -56,5 +55,4 @@ namespace CodatPlatform.Models.Shared
             throw new Exception($"Unknown value {value} for enum FeatureState");
         }
     }
-    
 }

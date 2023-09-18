@@ -13,18 +13,16 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class SyncSettings
     {
+
         [JsonProperty("clientId")]
         public string? ClientId { get; set; }
-        
+
         [JsonProperty("overridesDefaults")]
         public bool? OverridesDefaults { get; set; }
-        
+
         [JsonProperty("settings")]
         public List<SyncSetting>? Settings { get; set; }
-        
     }
-    
 }

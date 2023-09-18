@@ -12,15 +12,13 @@ namespace CodatPlatform.Models.Operations
 {
     using CodatPlatform.Utils;
     
-    
     public class GetWebhookRequest
     {
+
         /// <summary>
         /// Unique ID of the webhook or rule.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=ruleId")]
         public string RuleId { get; set; } = default!;
-        
     }
-    
 }

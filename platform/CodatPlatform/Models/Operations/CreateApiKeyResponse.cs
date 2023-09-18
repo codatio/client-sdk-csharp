@@ -14,30 +14,23 @@ namespace CodatPlatform.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class CreateApiKeyResponse
     {
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public ApiKeyDetails? ApiKeyDetails { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Bad Request
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

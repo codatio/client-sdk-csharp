@@ -14,24 +14,18 @@ namespace CodatPlatform.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class UpdateConnectionAuthorizationResponse
     {
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public Connection? Connection { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

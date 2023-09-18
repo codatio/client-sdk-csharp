@@ -12,63 +12,61 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Webhook request body to notify the completion of a data sync.
     /// </summary>
     public class DataSyncCompletedWebhook
     {
+
         /// <summary>
         /// Unique identifier of the webhook event.
         /// </summary>
         [JsonProperty("AlertId")]
         public string? AlertId { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for your client in Codat.
         /// </summary>
         [JsonProperty("ClientId")]
         public string? ClientId { get; set; }
-        
+
         /// <summary>
         /// Name of your client in Codat.
         /// </summary>
         [JsonProperty("ClientName")]
         public string? ClientName { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for your SMB in Codat.
         /// </summary>
         [JsonProperty("CompanyId")]
         public string? CompanyId { get; set; }
-        
+
         [JsonProperty("Data")]
         public DataSyncCompletedWebhookData? Data { get; set; }
-        
+
         /// <summary>
-        /// Unique identifier for a company's data connection.
+        /// Unique identifier for a company&amp;apos;s data connection.
         /// </summary>
         [JsonProperty("DataConnectionId")]
         public string? DataConnectionId { get; set; }
-        
+
         /// <summary>
         /// A human readable message about the webhook.
         /// </summary>
         [JsonProperty("Message")]
         public string? Message { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for the rule.
         /// </summary>
         [JsonProperty("RuleId")]
         public string? RuleId { get; set; }
-        
+
         /// <summary>
         /// The type of rule.
         /// </summary>
-        [JsonProperty("Type")]
-        public string? Type { get; set; }
-        
+        [JsonProperty("RuleType")]
+        public string? RuleType { get; set; }
     }
-    
 }

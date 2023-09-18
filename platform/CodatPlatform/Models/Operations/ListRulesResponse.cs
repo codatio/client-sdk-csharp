@@ -14,30 +14,23 @@ namespace CodatPlatform.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class ListRulesResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Your `query` parameter was not correctly formed
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public Webhooks? Webhooks { get; set; }
-        
     }
-    
 }

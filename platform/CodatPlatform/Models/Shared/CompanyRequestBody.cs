@@ -12,21 +12,19 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class CompanyRequestBody
     {
+
         /// <summary>
         /// Additional information about the company. This can be used to store foreign IDs, references, etc.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
-        
+
         /// <summary>
         /// Name of company being connected.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
-        
     }
-    
 }

@@ -13,21 +13,20 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum PushChangeType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Created")]
-		Created,
-		[JsonProperty("Modified")]
-		Modified,
-		[JsonProperty("Deleted")]
-		Deleted,
-		[JsonProperty("AttachmentUploaded")]
-		AttachmentUploaded,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Created")]
+        Created,
+        [JsonProperty("Modified")]
+        Modified,
+        [JsonProperty("Deleted")]
+        Deleted,
+        [JsonProperty("AttachmentUploaded")]
+        AttachmentUploaded,
     }
-    
+
     public static class PushChangeTypeExtension
     {
         public static string Value(this PushChangeType value)
@@ -54,5 +53,4 @@ namespace CodatPlatform.Models.Shared
             throw new Exception($"Unknown value {value} for enum PushChangeType");
         }
     }
-    
 }

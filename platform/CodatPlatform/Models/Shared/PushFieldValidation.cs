@@ -12,18 +12,16 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class PushFieldValidation
     {
+
         [JsonProperty("details")]
         public string Details { get; set; } = default!;
-        
+
         [JsonProperty("field")]
         public string? Field { get; set; }
-        
+
         [JsonProperty("ref")]
         public string? Ref { get; set; }
-        
     }
-    
 }

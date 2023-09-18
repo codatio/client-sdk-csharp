@@ -19,21 +19,44 @@ namespace CodatPlatform
     using System.Threading.Tasks;
     using System;
 
-    public interface ISupplementalDataSDK
-    {
-        Task<ConfigureSupplementalDataResponse> ConfigureAsync(ConfigureSupplementalDataRequest? request = null);
-        Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(GetSupplementalDataConfigurationRequest? request = null);
-    }
-
     /// <summary>
     /// View and configure supplemental data for supported data types.
     /// </summary>
+    public interface ISupplementalDataSDK
+    {
+
+        /// <summary>
+        /// Configure
+        /// 
+        /// <remarks>
+        /// The *Configure* endpoint allows you to maintain or change configuration required to return supplemental data for each integration and data type combination.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/using-the-api/additional-data">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// See the *examples* for integration-specific frequently requested properties.
+        /// </remarks>
+        /// </summary>
+        Task<ConfigureSupplementalDataResponse> ConfigureAsync(ConfigureSupplementalDataRequest? request = null);
+
+        /// <summary>
+        /// Get configuration
+        /// 
+        /// <remarks>
+        /// The *Get configuration* endpoint returns supplemental data configuration previously created for each integration and data type combination.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/using-the-api/additional-data">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.
+        /// </remarks>
+        /// </summary>
+        Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(GetSupplementalDataConfigurationRequest? request = null);
+    }
+
     public class SupplementalDataSDK: ISupplementalDataSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,18 +71,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Configure
-        /// 
-        /// <remarks>
-        /// The *Configure* endpoint allows you to maintain or change configuration required to return supplemental data for each integration and data type combination.
-        /// 
-        /// [Supplemental data](https://docs.codat.io/using-the-api/additional-data) is additional data you can include in Codat's standard data types.
-        /// 
-        /// **Integration-specific behaviour**
-        /// See the *examples* for integration-specific frequently requested properties.
-        /// </remarks>
-        /// </summary>
         public async Task<ConfigureSupplementalDataResponse> ConfigureAsync(ConfigureSupplementalDataRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -109,15 +120,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get configuration
-        /// 
-        /// <remarks>
-        /// The *Get configuration* endpoint returns supplemental data configuration previously created for each integration and data type combination.
-        /// 
-        /// [Supplemental data](https://docs.codat.io/using-the-api/additional-data) is additional data you can include in Codat's standard data types.
-        /// </remarks>
-        /// </summary>
         public async Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(GetSupplementalDataConfigurationRequest? request = null)
         {
             string baseUrl = _serverUrl;

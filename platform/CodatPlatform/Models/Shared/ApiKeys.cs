@@ -13,12 +13,10 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class ApiKeys
     {
+
         [JsonProperty("results")]
         public List<ApiKeyDetails>? Results { get; set; }
-        
     }
-    
 }

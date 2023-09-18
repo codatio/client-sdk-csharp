@@ -12,12 +12,10 @@ namespace CodatPlatform.Models.Operations
 {
     using CodatPlatform.Utils;
     
-    
     public class GetCompanyRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

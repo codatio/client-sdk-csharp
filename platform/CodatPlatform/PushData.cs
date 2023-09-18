@@ -19,22 +19,55 @@ namespace CodatPlatform
     using System.Threading.Tasks;
     using System;
 
-    public interface IPushDataSDK
-    {
-        Task<GetCreateUpdateModelOptionsByDataTypeResponse> GetModelOptionsAsync(GetCreateUpdateModelOptionsByDataTypeRequest? request = null);
-        Task<GetPushOperationResponse> GetOperationAsync(GetPushOperationRequest? request = null);
-        Task<GetCompanyPushHistoryResponse> ListOperationsAsync(GetCompanyPushHistoryRequest? request = null);
-    }
-
     /// <summary>
     /// View push options and get push statuses.
     /// </summary>
+    public interface IPushDataSDK
+    {
+
+        /// <summary>
+        /// Get push options
+        /// 
+        /// <remarks>
+        /// This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information. <br/>
+        /// <br/>
+        /// Before pushing data into accounting software, it is often necessary to collect some details from the user as to how they would like the data to be inserted. This includes names and amounts on transactional entities, but also factors such as categorisation of entities, which is often handled differently between different accounting packages. A good example of this is specifying where on the balance sheet/profit and loss reports the user would like a newly-created nominal account to appear.<br/>
+        /// <br/>
+        /// Codat tries not to limit users to pushing to a very limited number of standard categories, so we have implemented &quot;options&quot; endpoints, which allow us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.<br/>
+        /// <br/>
+        /// <br/>
+        /// &gt; **Supported Integrations**<br/>
+        /// &gt; <br/>
+        /// &gt; Check out our <a href="https://knowledge.codat.io/">coverage explorer</a> for integrations that support push (POST/PUT methods).
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateUpdateModelOptionsByDataTypeResponse> GetModelOptionsAsync(GetCreateUpdateModelOptionsByDataTypeRequest? request = null);
+
+        /// <summary>
+        /// Get push operation
+        /// 
+        /// <remarks>
+        /// Retrieve push operation.
+        /// </remarks>
+        /// </summary>
+        Task<GetPushOperationResponse> GetOperationAsync(GetPushOperationRequest? request = null);
+
+        /// <summary>
+        /// List push operations
+        /// 
+        /// <remarks>
+        /// List push operation records.
+        /// </remarks>
+        /// </summary>
+        Task<GetCompanyPushHistoryResponse> ListOperationsAsync(GetCompanyPushHistoryRequest? request = null);
+    }
+
     public class PushDataSDK: IPushDataSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,22 +82,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get push options
-        /// 
-        /// <remarks>
-        /// This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information. 
-        /// 
-        /// Before pushing data into accounting software, it is often necessary to collect some details from the user as to how they would like the data to be inserted. This includes names and amounts on transactional entities, but also factors such as categorisation of entities, which is often handled differently between different accounting packages. A good example of this is specifying where on the balance sheet/profit and loss reports the user would like a newly-created nominal account to appear.
-        /// 
-        /// Codat tries not to limit users to pushing to a very limited number of standard categories, so we have implemented "options" endpoints, which allow us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.
-        /// 
-        /// 
-        /// > **Supported Integrations**
-        /// > 
-        /// > Check out our [coverage explorer](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateUpdateModelOptionsByDataTypeResponse> GetModelOptionsAsync(GetCreateUpdateModelOptionsByDataTypeRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -113,13 +130,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// Get push operation
-        /// 
-        /// <remarks>
-        /// Retrieve push operation.
-        /// </remarks>
-        /// </summary>
         public async Task<GetPushOperationResponse> GetOperationAsync(GetPushOperationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -168,13 +178,6 @@ namespace CodatPlatform
         }
         
 
-        /// <summary>
-        /// List push operations
-        /// 
-        /// <remarks>
-        /// List push operation records.
-        /// </remarks>
-        /// </summary>
         public async Task<GetCompanyPushHistoryResponse> ListOperationsAsync(GetCompanyPushHistoryRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -13,12 +13,10 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class SupplementalDataConfiguration
     {
+
         [JsonProperty("supplementalDataConfig")]
         public Dictionary<string, SupplementalDataConfigurationSupplementalDataSourceConfiguration>? SupplementalDataConfig { get; set; }
-        
     }
-    
 }

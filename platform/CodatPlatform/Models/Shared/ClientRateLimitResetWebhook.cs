@@ -12,45 +12,49 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
-    /// Webhook request body for a company's data connection status changed.
+    /// Webhook request body for a client that has had their rate limit reset.
     /// </summary>
-    public class CompanyDataConnectionStatusChangedWebhook
+    public class ClientRateLimitResetWebhook
     {
+
         /// <summary>
         /// Unique identifier of the webhook event.
         /// </summary>
         [JsonProperty("AlertId")]
         public string? AlertId { get; set; }
-        
+
         /// <summary>
-        /// Unique identifier for your SMB in Codat.
+        /// Unique identifier for your client in Codat.
         /// </summary>
-        [JsonProperty("CompanyId")]
-        public string? CompanyId { get; set; }
-        
+        [JsonProperty("ClientId")]
+        public string? ClientId { get; set; }
+
+        /// <summary>
+        /// Name of your client in Codat.
+        /// </summary>
+        [JsonProperty("ClientName")]
+        public string? ClientName { get; set; }
+
         [JsonProperty("Data")]
-        public CompanyDataConnectionStatusChangedWebhookData? Data { get; set; }
-        
+        public ClientRateLimitResetWebhookData? Data { get; set; }
+
         /// <summary>
         /// A human readable message about the webhook.
         /// </summary>
         [JsonProperty("Message")]
         public string? Message { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for the rule.
         /// </summary>
         [JsonProperty("RuleId")]
         public string? RuleId { get; set; }
-        
+
         /// <summary>
         /// The type of rule.
         /// </summary>
-        [JsonProperty("Type")]
-        public string? Type { get; set; }
-        
+        [JsonProperty("RuleType")]
+        public string? RuleType { get; set; }
     }
-    
 }

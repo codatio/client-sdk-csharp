@@ -12,18 +12,16 @@ namespace CodatPlatform.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Details of the API key.
     /// </summary>
     public class CreateApiKey
     {
+
         /// <summary>
         /// A meaningful name assigned to the API key.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

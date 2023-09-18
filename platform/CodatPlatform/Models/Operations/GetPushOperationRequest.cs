@@ -12,18 +12,16 @@ namespace CodatPlatform.Models.Operations
 {
     using CodatPlatform.Utils;
     
-    
     public class GetPushOperationRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
         /// Push operation key.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=pushOperationKey")]
         public string PushOperationKey { get; set; } = default!;
-        
     }
-    
 }

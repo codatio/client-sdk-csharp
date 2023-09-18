@@ -13,30 +13,28 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
-    /// The client's defined name for the object.
+    /// The client&amp;apos;s defined name for the object.
     /// </summary>
     public class SupplementalDataConfigurationSupplementalDataSourceConfiguration
     {
+
         /// <summary>
         /// The underlying endpoint of the source system which the configuration is targeting. 
         /// </summary>
         [JsonProperty("dataSource")]
         public string? DataSource { get; set; }
-        
+
         /// <summary>
         /// The additional properties that are required when pulling records.
         /// </summary>
         [JsonProperty("pullData")]
         public Dictionary<string, string>? PullData { get; set; }
-        
+
         /// <summary>
         /// The additional properties that are required to create and/or update records.
         /// </summary>
         [JsonProperty("pushData")]
         public Dictionary<string, string>? PushData { get; set; }
-        
     }
-    
 }

@@ -13,18 +13,16 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class NewPayments
     {
+
         [JsonProperty("accounts")]
         public Dictionary<string, ConfigAccount>? Accounts { get; set; }
-        
+
         /// <summary>
         /// Boolean indicator for syncing payments.
         /// </summary>
         [JsonProperty("syncPayments")]
         public bool? SyncPayments { get; set; }
-        
     }
-    
 }

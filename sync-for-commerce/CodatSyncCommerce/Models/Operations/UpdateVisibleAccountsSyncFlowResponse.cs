@@ -14,24 +14,18 @@ namespace CodatSyncCommerce.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class UpdateVisibleAccountsSyncFlowResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public VisibleAccounts? VisibleAccounts { get; set; }
-        
     }
-    
 }

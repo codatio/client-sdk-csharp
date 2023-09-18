@@ -19,23 +19,55 @@ namespace CodatSyncCommerce
     using System.Threading.Tasks;
     using System;
 
-    public interface IAdvancedControlsSDK
-    {
-        Task<CreateCompanyResponse> CreateCompanyAsync(CreateCompany? request = null);
-        Task<GetConfigurationResponse> GetConfigurationAsync(GetConfigurationRequest? request = null);
-        Task<ListCompaniesResponse> ListCompaniesAsync(ListCompaniesRequest? request = null);
-        Task<SetConfigurationResponse> SetConfigurationAsync(SetConfigurationRequest? request = null);
-    }
-
     /// <summary>
     /// Advanced company management and sync preferences.
     /// </summary>
+    public interface IAdvancedControlsSDK
+    {
+
+        /// <summary>
+        /// Create company
+        /// 
+        /// <remarks>
+        /// Creates a Codat company..
+        /// </remarks>
+        /// </summary>
+        Task<CreateCompanyResponse> CreateCompanyAsync(CreateCompany? request = null);
+
+        /// <summary>
+        /// Get company configuration
+        /// 
+        /// <remarks>
+        /// Returns a company&apos;s commerce sync configuration&apos;.
+        /// </remarks>
+        /// </summary>
+        Task<GetConfigurationResponse> GetConfigurationAsync(GetConfigurationRequest? request = null);
+
+        /// <summary>
+        /// List companies
+        /// 
+        /// <remarks>
+        /// Returns a list of companies.
+        /// </remarks>
+        /// </summary>
+        Task<ListCompaniesResponse> ListCompaniesAsync(ListCompaniesRequest? request = null);
+
+        /// <summary>
+        /// Set configuration
+        /// 
+        /// <remarks>
+        /// Sets a company&apos;s commerce sync configuration.
+        /// </remarks>
+        /// </summary>
+        Task<SetConfigurationResponse> SetConfigurationAsync(SetConfigurationRequest? request = null);
+    }
+
     public class AdvancedControlsSDK: IAdvancedControlsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,13 +82,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Create company
-        /// 
-        /// <remarks>
-        /// Creates a Codat company..
-        /// </remarks>
-        /// </summary>
         public async Task<CreateCompanyResponse> CreateCompanyAsync(CreateCompany? request = null)
         {
             string baseUrl = _serverUrl;
@@ -101,13 +126,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Get company configuration
-        /// 
-        /// <remarks>
-        /// Returns a company's commerce sync configuration'.
-        /// </remarks>
-        /// </summary>
         public async Task<GetConfigurationResponse> GetConfigurationAsync(GetConfigurationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -147,13 +165,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// List companies
-        /// 
-        /// <remarks>
-        /// Returns a list of companies.
-        /// </remarks>
-        /// </summary>
         public async Task<ListCompaniesResponse> ListCompaniesAsync(ListCompaniesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -193,13 +204,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Set configuration
-        /// 
-        /// <remarks>
-        /// Sets a company's commerce sync configuration.
-        /// </remarks>
-        /// </summary>
         public async Task<SetConfigurationResponse> SetConfigurationAsync(SetConfigurationRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -115,6 +115,8 @@ CodatSyncCommerce/Models/Shared/SyncRange.cs
 CodatSyncCommerce/Models/Shared/Localization.cs
 CodatSyncCommerce/Models/Shared/VisibleAccounts.cs
 CodatSyncCommerce/Models/Shared/Security.cs
+CodatSyncCommerce/Models/Shared/SyncConnectionDeletedWebhook.cs
+CodatSyncCommerce/Models/Webhooks/SyncConnectionDeletedResponse.cs
 docs/sdks/codatsynccommerce/README.md
 docs/sdks/advancedcontrols/README.md
 docs/sdks/connections/README.md
@@ -219,4 +221,6 @@ docs/models/shared/SyncRange.md
 docs/models/shared/Localization.md
 docs/models/shared/VisibleAccounts.md
 docs/models/shared/Security.md
+docs/models/shared/SyncConnectionDeletedWebhook.md
+docs/models/webhooks/SyncConnectionDeletedResponse.md
 .gitattributes

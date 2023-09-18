@@ -13,31 +13,30 @@ namespace CodatSyncCommerce.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum FeatureType
     {
-    	[JsonProperty("Get")]
-		Get,
-		[JsonProperty("Post")]
-		Post,
-		[JsonProperty("Categorization")]
-		Categorization,
-		[JsonProperty("Delete")]
-		Delete,
-		[JsonProperty("Put")]
-		Put,
-		[JsonProperty("GetAsPdf")]
-		GetAsPdf,
-		[JsonProperty("DownloadAttachment")]
-		DownloadAttachment,
-		[JsonProperty("GetAttachment")]
-		GetAttachment,
-		[JsonProperty("GetAttachments")]
-		GetAttachments,
-		[JsonProperty("UploadAttachment")]
-		UploadAttachment,
+        [JsonProperty("Get")]
+        Get,
+        [JsonProperty("Post")]
+        Post,
+        [JsonProperty("Categorization")]
+        Categorization,
+        [JsonProperty("Delete")]
+        Delete,
+        [JsonProperty("Put")]
+        Put,
+        [JsonProperty("GetAsPdf")]
+        GetAsPdf,
+        [JsonProperty("DownloadAttachment")]
+        DownloadAttachment,
+        [JsonProperty("GetAttachment")]
+        GetAttachment,
+        [JsonProperty("GetAttachments")]
+        GetAttachments,
+        [JsonProperty("UploadAttachment")]
+        UploadAttachment,
     }
-    
+
     public static class FeatureTypeExtension
     {
         public static string Value(this FeatureType value)
@@ -64,5 +63,4 @@ namespace CodatSyncCommerce.Models.Shared
             throw new Exception($"Unknown value {value} for enum FeatureType");
         }
     }
-    
 }

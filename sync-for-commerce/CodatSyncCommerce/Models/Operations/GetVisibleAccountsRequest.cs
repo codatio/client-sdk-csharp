@@ -12,15 +12,13 @@ namespace CodatSyncCommerce.Models.Operations
 {
     using CodatSyncCommerce.Utils;
     
-    
     public class GetVisibleAccountsRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=clientId")]
         public string ClientId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
         public string PlatformKey { get; set; } = default!;
-        
     }
-    
 }

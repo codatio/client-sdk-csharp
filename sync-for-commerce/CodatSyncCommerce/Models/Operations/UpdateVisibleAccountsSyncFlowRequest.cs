@@ -13,15 +13,13 @@ namespace CodatSyncCommerce.Models.Operations
     using CodatSyncCommerce.Models.Shared;
     using CodatSyncCommerce.Utils;
     
-    
     public class UpdateVisibleAccountsSyncFlowRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public VisibleAccounts? VisibleAccounts { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
         public string PlatformKey { get; set; } = default!;
-        
     }
-    
 }

@@ -12,15 +12,13 @@ namespace CodatSyncCommerce.Models.Operations
 {
     using CodatSyncCommerce.Utils;
     
-    
     public class GetIntegrationBrandingRequest
     {
+
         /// <summary>
         /// PlatformKey
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
         public string PlatformKey { get; set; } = default!;
-        
     }
-    
 }

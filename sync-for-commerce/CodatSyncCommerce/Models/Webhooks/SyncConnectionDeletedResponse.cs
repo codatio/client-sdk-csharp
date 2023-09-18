@@ -8,13 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Operations
+namespace CodatSyncCommerce.Models.Webhooks
 {
-    using CodatSyncCommerce.Models.Shared;
     using System.Net.Http;
     using System;
     
-    public class GetVisibleAccountsResponse
+    public class SyncConnectionDeletedResponse
     {
 
         public string? ContentType { get; set; } = default!;
@@ -22,10 +21,5 @@ namespace CodatSyncCommerce.Models.Operations
         public int StatusCode { get; set; } = default!;
 
         public HttpResponseMessage? RawResponse { get; set; }
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        public VisibleAccounts? VisibleAccounts { get; set; }
     }
 }

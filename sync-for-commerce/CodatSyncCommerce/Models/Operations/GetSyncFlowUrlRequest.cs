@@ -12,27 +12,25 @@ namespace CodatSyncCommerce.Models.Operations
 {
     using CodatSyncCommerce.Utils;
     
-    
     public class GetSyncFlowUrlRequest
     {
+
         /// <summary>
         /// Accounting platform key
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountingKey")]
         public string AccountingKey { get; set; } = default!;
-        
+
         /// <summary>
         /// Commerce platform key
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=commerceKey")]
         public string CommerceKey { get; set; } = default!;
-        
+
         /// <summary>
         /// Identifier for your merchant, can be the merchant name or Codat company id.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=merchantIdentifier")]
         public string? MerchantIdentifier { get; set; }
-        
     }
-    
 }

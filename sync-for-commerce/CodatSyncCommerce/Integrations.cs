@@ -19,21 +19,37 @@ namespace CodatSyncCommerce
     using System.Threading.Tasks;
     using System;
 
+    /// <summary>
+    /// View useful information about codat&amp;apos;s integrations.
+    /// </summary>
     public interface IIntegrationsSDK
     {
+
+        /// <summary>
+        /// Get branding for an integration
+        /// 
+        /// <remarks>
+        /// Retrieve Integration branding assets.
+        /// </remarks>
+        /// </summary>
         Task<GetIntegrationBrandingResponse> GetBrandingAsync(GetIntegrationBrandingRequest? request = null);
+
+        /// <summary>
+        /// List integrations
+        /// 
+        /// <remarks>
+        /// Retrieve a list of available integrations support by data type and state of release.
+        /// </remarks>
+        /// </summary>
         Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null);
     }
 
-    /// <summary>
-    /// View useful information about codat's integrations.
-    /// </summary>
     public class IntegrationsSDK: IIntegrationsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,13 +64,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// Get branding for an integration
-        /// 
-        /// <remarks>
-        /// Retrieve Integration branding assets.
-        /// </remarks>
-        /// </summary>
         public async Task<GetIntegrationBrandingResponse> GetBrandingAsync(GetIntegrationBrandingRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -94,13 +103,6 @@ namespace CodatSyncCommerce
         }
         
 
-        /// <summary>
-        /// List integrations
-        /// 
-        /// <remarks>
-        /// Retrieve a list of available integrations support by data type and state of release.
-        /// </remarks>
-        /// </summary>
         public async Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -13,15 +13,13 @@ namespace CodatSyncPayroll.Models.Operations
     using CodatSyncPayroll.Models.Shared;
     using Newtonsoft.Json;
     
-    
     public class UnlinkConnectionUpdateConnection
     {
+
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>
         [JsonProperty("status")]
         public DataConnectionStatus? Status { get; set; }
-        
     }
-    
 }

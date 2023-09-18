@@ -13,15 +13,13 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class PushValidationInfo
     {
+
         [JsonProperty("information")]
         public List<PushFieldValidation>? Information { get; set; }
-        
+
         [JsonProperty("warnings")]
         public List<PushFieldValidation>? Warnings { get; set; }
-        
     }
-    
 }

@@ -12,18 +12,16 @@ namespace CodatSyncPayroll.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class PushOperationRef
     {
+
         /// <summary>
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
         public DataType? DataType { get; set; }
-        
+
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
     }
-    
 }

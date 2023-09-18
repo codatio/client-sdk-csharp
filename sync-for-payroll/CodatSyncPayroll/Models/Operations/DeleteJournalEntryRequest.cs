@@ -12,15 +12,13 @@ namespace CodatSyncPayroll.Models.Operations
 {
     using CodatSyncPayroll.Utils;
     
-    
     public class DeleteJournalEntryRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=journalEntryId")]
         public string JournalEntryId { get; set; } = default!;
-        
     }
-    
 }

@@ -13,20 +13,19 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the address
     /// </summary>
     public enum Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesAddressesItemsDefinitionsAccountingAddressType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Billing")]
-		Billing,
-		[JsonProperty("Delivery")]
-		Delivery,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Billing")]
+        Billing,
+        [JsonProperty("Delivery")]
+        Delivery,
     }
-    
+
     public static class Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesAddressesItemsDefinitionsAccountingAddressTypeExtension
     {
         public static string Value(this Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesAddressesItemsDefinitionsAccountingAddressType value)
@@ -53,5 +52,4 @@ namespace CodatSyncPayroll.Models.Shared
             throw new Exception($"Unknown value {value} for enum Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesAddressesItemsDefinitionsAccountingAddressType");
         }
     }
-    
 }

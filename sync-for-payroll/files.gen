@@ -152,6 +152,12 @@ CodatSyncPayroll/Models/Shared/Status.cs
 CodatSyncPayroll/Models/Shared/TrackingCategories.cs
 CodatSyncPayroll/Models/Shared/TrackingCategory.cs
 CodatSyncPayroll/Models/Shared/Security.cs
+CodatSyncPayroll/Models/Shared/ClientRateLimitReachedWebhook.cs
+CodatSyncPayroll/Models/Shared/ClientRateLimitReachedWebhookData.cs
+CodatSyncPayroll/Models/Shared/ClientRateLimitResetWebhook.cs
+CodatSyncPayroll/Models/Shared/ClientRateLimitResetWebhookData.cs
+CodatSyncPayroll/Models/Webhooks/ClientRateLimitReachedResponse.cs
+CodatSyncPayroll/Models/Webhooks/ClientRateLimitResetResponse.cs
 docs/sdks/codatsyncpayroll/README.md
 docs/sdks/accounts/README.md
 docs/sdks/companies/README.md
@@ -293,4 +299,10 @@ docs/models/shared/Status.md
 docs/models/shared/TrackingCategories.md
 docs/models/shared/TrackingCategory.md
 docs/models/shared/Security.md
+docs/models/shared/ClientRateLimitReachedWebhook.md
+docs/models/shared/ClientRateLimitReachedWebhookData.md
+docs/models/shared/ClientRateLimitResetWebhook.md
+docs/models/shared/ClientRateLimitResetWebhookData.md
+docs/models/webhooks/ClientRateLimitReachedResponse.md
+docs/models/webhooks/ClientRateLimitResetResponse.md
 .gitattributes

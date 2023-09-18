@@ -13,21 +13,19 @@ namespace CodatSyncPayroll.Models.Operations
     using CodatSyncPayroll.Models.Shared;
     using Newtonsoft.Json;
     
-    
     public class GetAccountingProfileCompanyInformationPhone
     {
+
         /// <summary>
         /// A phone number.
         /// </summary>
         [JsonProperty("number")]
         public string Number { get; set; } = default!;
-        
+
         /// <summary>
         /// The type of phone number
         /// </summary>
         [JsonProperty("type")]
         public Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType Type { get; set; } = default!;
-        
     }
-    
 }

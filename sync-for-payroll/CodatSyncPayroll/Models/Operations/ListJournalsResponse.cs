@@ -14,30 +14,23 @@ namespace CodatSyncPayroll.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class ListJournalsResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Your `query` parameter was not correctly formed
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public Journals? Journals { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

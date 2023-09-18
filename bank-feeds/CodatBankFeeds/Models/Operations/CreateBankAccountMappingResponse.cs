@@ -14,30 +14,23 @@ namespace CodatBankFeeds.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class CreateBankAccountMappingResponse
     {
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public BankFeedAccountMappingResponse? BankFeedAccountMappingResponse { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// The request made is not valid.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

@@ -13,15 +13,13 @@ namespace CodatBankFeeds.Models.Operations
     using CodatBankFeeds.Models.Shared;
     using CodatBankFeeds.Utils;
     
-    
     public class UpdateCompanyRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CompanyRequestBody? CompanyRequestBody { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

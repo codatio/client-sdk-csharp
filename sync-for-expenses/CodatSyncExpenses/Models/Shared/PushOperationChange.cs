@@ -12,18 +12,16 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class PushOperationChange
     {
+
         [JsonProperty("attachmentId")]
         public string? AttachmentId { get; set; }
-        
+
         [JsonProperty("recordRef")]
         public PushOperationRef? RecordRef { get; set; }
-        
+
         [JsonProperty("type")]
         public PushChangeType? Type { get; set; }
-        
     }
-    
 }

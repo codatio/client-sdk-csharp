@@ -13,57 +13,56 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum PullOperationStatus
     {
-    	[JsonProperty("Initial")]
-		Initial,
-		[JsonProperty("Queued")]
-		Queued,
-		[JsonProperty("Fetching")]
-		Fetching,
-		[JsonProperty("MapQueued")]
-		MapQueued,
-		[JsonProperty("Mapping")]
-		Mapping,
-		[JsonProperty("Complete")]
-		Complete,
-		[JsonProperty("FetchError")]
-		FetchError,
-		[JsonProperty("MapError")]
-		MapError,
-		[JsonProperty("InternalError")]
-		InternalError,
-		[JsonProperty("ProcessingQueued")]
-		ProcessingQueued,
-		[JsonProperty("Processing")]
-		Processing,
-		[JsonProperty("ProcessingError")]
-		ProcessingError,
-		[JsonProperty("ValidationQueued")]
-		ValidationQueued,
-		[JsonProperty("Validating")]
-		Validating,
-		[JsonProperty("ValidationError")]
-		ValidationError,
-		[JsonProperty("AuthError")]
-		AuthError,
-		[JsonProperty("Cancelled")]
-		Cancelled,
-		[JsonProperty("Routing")]
-		Routing,
-		[JsonProperty("RoutingError")]
-		RoutingError,
-		[JsonProperty("NotSupported")]
-		NotSupported,
-		[JsonProperty("RateLimitError")]
-		RateLimitError,
-		[JsonProperty("PermissionsError")]
-		PermissionsError,
-		[JsonProperty("PrerequisiteNotMet")]
-		PrerequisiteNotMet,
+        [JsonProperty("Initial")]
+        Initial,
+        [JsonProperty("Queued")]
+        Queued,
+        [JsonProperty("Fetching")]
+        Fetching,
+        [JsonProperty("MapQueued")]
+        MapQueued,
+        [JsonProperty("Mapping")]
+        Mapping,
+        [JsonProperty("Complete")]
+        Complete,
+        [JsonProperty("FetchError")]
+        FetchError,
+        [JsonProperty("MapError")]
+        MapError,
+        [JsonProperty("InternalError")]
+        InternalError,
+        [JsonProperty("ProcessingQueued")]
+        ProcessingQueued,
+        [JsonProperty("Processing")]
+        Processing,
+        [JsonProperty("ProcessingError")]
+        ProcessingError,
+        [JsonProperty("ValidationQueued")]
+        ValidationQueued,
+        [JsonProperty("Validating")]
+        Validating,
+        [JsonProperty("ValidationError")]
+        ValidationError,
+        [JsonProperty("AuthError")]
+        AuthError,
+        [JsonProperty("Cancelled")]
+        Cancelled,
+        [JsonProperty("Routing")]
+        Routing,
+        [JsonProperty("RoutingError")]
+        RoutingError,
+        [JsonProperty("NotSupported")]
+        NotSupported,
+        [JsonProperty("RateLimitError")]
+        RateLimitError,
+        [JsonProperty("PermissionsError")]
+        PermissionsError,
+        [JsonProperty("PrerequisiteNotMet")]
+        PrerequisiteNotMet,
     }
-    
+
     public static class PullOperationStatusExtension
     {
         public static string Value(this PullOperationStatus value)
@@ -90,5 +89,4 @@ namespace CodatSyncExpenses.Models.Shared
             throw new Exception($"Unknown value {value} for enum PullOperationStatus");
         }
     }
-    
 }

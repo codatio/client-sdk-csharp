@@ -13,24 +13,22 @@ namespace CodatSyncExpenses.Models.Operations
     using CodatSyncExpenses.Models.Shared;
     using CodatSyncExpenses.Utils;
     
-    
     public class RefreshDataTypeRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
         /// Optionally, provide a data connection id to only queue pull operations on that connection.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=connectionId")]
         public string? ConnectionId { get; set; }
-        
+
         /// <summary>
         /// The key of a Codat data type
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
         public DataType DataType { get; set; } = default!;
-        
     }
-    
 }

@@ -13,18 +13,17 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Type of transaction that has been processed e.g. Expense or Bank Feed.
     /// </summary>
     public enum IntegrationType
     {
-    	[JsonProperty("expenses")]
-		Expenses,
-		[JsonProperty("bankfeeds")]
-		Bankfeeds,
+        [JsonProperty("expenses")]
+        Expenses,
+        [JsonProperty("bankfeeds")]
+        Bankfeeds,
     }
-    
+
     public static class IntegrationTypeExtension
     {
         public static string Value(this IntegrationType value)
@@ -51,5 +50,4 @@ namespace CodatSyncExpenses.Models.Shared
             throw new Exception($"Unknown value {value} for enum IntegrationType");
         }
     }
-    
 }

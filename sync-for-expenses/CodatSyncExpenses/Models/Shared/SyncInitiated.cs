@@ -12,12 +12,10 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class SyncInitiated
     {
+
         [JsonProperty("syncId")]
         public string? SyncId { get; set; }
-        
     }
-    
 }

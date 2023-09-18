@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 0.5.0
+  version: 1.0.0
   author: Codat
   description: Manage the building blocks of Codat, including companies, connections, and more.
   dotnetVersion: net6.0

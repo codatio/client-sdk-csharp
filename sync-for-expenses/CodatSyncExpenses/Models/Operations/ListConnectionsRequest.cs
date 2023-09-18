@@ -12,36 +12,34 @@ namespace CodatSyncExpenses.Models.Operations
 {
     using CodatSyncExpenses.Utils;
     
-    
     public class ListConnectionsRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
-        /// Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
+        /// Field to order results by. &lt;a href=&quot;https://docs.codat.io/using-the-api/ordering-results&quot;&gt;Read more&lt;/a&gt;.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=orderBy")]
         public string? OrderBy { get; set; }
-        
+
         /// <summary>
-        /// Page number. [Read more](https://docs.codat.io/using-the-api/paging).
+        /// Page number. &lt;a href=&quot;https://docs.codat.io/using-the-api/paging&quot;&gt;Read more&lt;/a&gt;.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=page")]
         public int? Page { get; set; }
-        
+
         /// <summary>
-        /// Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
+        /// Number of records to return in a page. &lt;a href=&quot;https://docs.codat.io/using-the-api/paging&quot;&gt;Read more&lt;/a&gt;.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=pageSize")]
         public int? PageSize { get; set; }
-        
+
         /// <summary>
-        /// Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
+        /// Codat query string. &lt;a href=&quot;https://docs.codat.io/using-the-api/querying&quot;&gt;Read more&lt;/a&gt;.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=query")]
         public string? Query { get; set; }
-        
     }
-    
 }

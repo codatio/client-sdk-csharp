@@ -13,45 +13,43 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class TaxRateMappingInfo
     {
+
         /// <summary>
         /// Code for the tax rate from the accounting platform.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
-        
+
         /// <summary>
         /// Effective tax rate.
         /// </summary>
         [JsonProperty("effectiveTaxRate")]
         public decimal? EffectiveTaxRate { get; set; }
-        
+
         /// <summary>
         /// Unique identifier of tax rate.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         /// <summary>
         /// Name of the tax rate in the accounting platform.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
+
         /// <summary>
         /// Total (not compounded) sum of the components of a tax rate.
         /// </summary>
         [JsonProperty("totalTaxRate")]
         public decimal? TotalTaxRate { get; set; }
-        
+
         /// <summary>
         /// Supported transaction types for the account.
         /// </summary>
         [JsonProperty("validTransactionTypes")]
         public List<TaxRateMappingInfoValidTransactionTypes>? ValidTransactionTypes { get; set; }
-        
     }
-    
 }

@@ -19,21 +19,37 @@ namespace CodatSyncExpenses
     using System.Threading.Tasks;
     using System;
 
-    public interface ITransactionStatusSDK
-    {
-        Task<GetSyncTransactionResponse> GetAsync(GetSyncTransactionRequest? request = null);
-        Task<ListSyncTransactionsResponse> ListAsync(ListSyncTransactionsRequest? request = null);
-    }
-
     /// <summary>
     /// Retrieve the status of transactions within a sync.
     /// </summary>
+    public interface ITransactionStatusSDK
+    {
+
+        /// <summary>
+        /// Get Sync Transaction
+        /// 
+        /// <remarks>
+        /// Gets the status of a transaction for a sync
+        /// </remarks>
+        /// </summary>
+        Task<GetSyncTransactionResponse> GetAsync(GetSyncTransactionRequest? request = null);
+
+        /// <summary>
+        /// List sync transactions
+        /// 
+        /// <remarks>
+        /// Gets the transactions and status for a sync
+        /// </remarks>
+        /// </summary>
+        Task<ListSyncTransactionsResponse> ListAsync(ListSyncTransactionsRequest? request = null);
+    }
+
     public class TransactionStatusSDK: ITransactionStatusSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,13 +64,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Get Sync Transaction
-        /// 
-        /// <remarks>
-        /// Gets the status of a transaction for a sync
-        /// </remarks>
-        /// </summary>
         public async Task<GetSyncTransactionResponse> GetAsync(GetSyncTransactionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -103,13 +112,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// List sync transactions
-        /// 
-        /// <remarks>
-        /// Gets the transactions and status for a sync
-        /// </remarks>
-        /// </summary>
         public async Task<ListSyncTransactionsResponse> ListAsync(ListSyncTransactionsRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -12,15 +12,13 @@ namespace CodatSyncExpenses.Models.Operations
 {
     using CodatSyncExpenses.Utils;
     
-    
     public class UploadExpenseAttachmentRequestBody
     {
+
         [SpeakeasyMetadata("multipartForm:content")]
         public byte[] Content { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("multipartForm:name=requestBody")]
         public string RequestBody { get; set; } = default!;
-        
     }
-    
 }

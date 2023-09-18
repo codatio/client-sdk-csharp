@@ -19,24 +19,69 @@ namespace CodatSyncExpenses
     using System.Threading.Tasks;
     using System;
 
-    public interface ICompaniesSDK
-    {
-        Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null);
-        Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest? request = null);
-        Task<GetCompanyResponse> GetAsync(GetCompanyRequest? request = null);
-        Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null);
-        Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest? request = null);
-    }
-
     /// <summary>
     /// Create and manage your Codat companies.
     /// </summary>
+    public interface ICompaniesSDK
+    {
+
+        /// <summary>
+        /// Create company
+        /// 
+        /// <remarks>
+        /// Creates a new company that can be used to assign connections to. <br/>
+        /// <br/>
+        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.<br/>
+        /// <br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null);
+
+        /// <summary>
+        /// Delete a company
+        /// 
+        /// <remarks>
+        /// <br/>
+        /// Permanently deletes a company, its connections and any cached data. This operation is irreversible. If the company ID does not exist an error is returned.
+        /// </remarks>
+        /// </summary>
+        Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest? request = null);
+
+        /// <summary>
+        /// Get company
+        /// 
+        /// <remarks>
+        /// Returns the company for a valid identifier. If the identifier is for a deleted company, a not found response is returned.
+        /// </remarks>
+        /// </summary>
+        Task<GetCompanyResponse> GetAsync(GetCompanyRequest? request = null);
+
+        /// <summary>
+        /// List companies
+        /// 
+        /// <remarks>
+        /// Returns a list of your companies. The company schema contains a list of <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Connection">connections</a> related to the company.
+        /// </remarks>
+        /// </summary>
+        Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null);
+
+        /// <summary>
+        /// Update company
+        /// 
+        /// <remarks>
+        /// Updates both the name and description of the company.
+        /// </remarks>
+        /// </summary>
+        Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest? request = null);
+    }
+
     public class CompaniesSDK: ICompaniesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,17 +96,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Create company
-        /// 
-        /// <remarks>
-        /// Creates a new company that can be used to assign connections to. 
-        /// 
-        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
-        /// 
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null)
         {
             string baseUrl = _serverUrl;
@@ -115,14 +149,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Delete a company
-        /// 
-        /// <remarks>
-        /// 
-        /// Permanently deletes a company, its connections and any cached data. This operation is irreversible. If the company ID does not exist an error is returned.
-        /// </remarks>
-        /// </summary>
         public async Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -167,13 +193,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Get company
-        /// 
-        /// <remarks>
-        /// Returns the company for a valid identifier. If the identifier is for a deleted company, a not found response is returned.
-        /// </remarks>
-        /// </summary>
         public async Task<GetCompanyResponse> GetAsync(GetCompanyRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -222,13 +241,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// List companies
-        /// 
-        /// <remarks>
-        /// Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/sync-for-expenses-api#/schemas/Connection) related to the company.
-        /// </remarks>
-        /// </summary>
         public async Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -277,13 +289,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Update company
-        /// 
-        /// <remarks>
-        /// Updates both the name and description of the company.
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest? request = null)
         {
             string baseUrl = _serverUrl;

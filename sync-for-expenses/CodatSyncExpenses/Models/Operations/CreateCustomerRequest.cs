@@ -13,21 +13,19 @@ namespace CodatSyncExpenses.Models.Operations
     using CodatSyncExpenses.Models.Shared;
     using CodatSyncExpenses.Utils;
     
-    
     public class CreateCustomerRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Customer? Customer { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }
-        
     }
-    
 }

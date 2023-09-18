@@ -13,24 +13,23 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Status of the transaction.
     /// </summary>
     public enum TransactionStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Pending")]
-		Pending,
-		[JsonProperty("ValidationError")]
-		ValidationError,
-		[JsonProperty("Completed")]
-		Completed,
-		[JsonProperty("PushError")]
-		PushError,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Pending")]
+        Pending,
+        [JsonProperty("ValidationError")]
+        ValidationError,
+        [JsonProperty("Completed")]
+        Completed,
+        [JsonProperty("PushError")]
+        PushError,
     }
-    
+
     public static class TransactionStatusExtension
     {
         public static string Value(this TransactionStatus value)
@@ -57,5 +56,4 @@ namespace CodatSyncExpenses.Models.Shared
             throw new Exception($"Unknown value {value} for enum TransactionStatus");
         }
     }
-    
 }

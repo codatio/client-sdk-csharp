@@ -12,15 +12,13 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class RecordRef
     {
+
         /// <summary>
         /// identifier of linked reference from mapping options.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
     }
-    
 }

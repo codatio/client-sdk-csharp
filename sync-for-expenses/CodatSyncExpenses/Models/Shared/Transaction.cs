@@ -12,33 +12,31 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class Transaction
     {
+
         /// <summary>
         /// Type of transaction that has been processed e.g. Expense or Bank Feed.
         /// </summary>
         [JsonProperty("integrationType")]
         public IntegrationType? IntegrationType { get; set; }
-        
+
         /// <summary>
         /// Metadata such as validation errors or the resulting record created in the accounting software.
         /// </summary>
         [JsonProperty("message")]
         public string? Message { get; set; }
-        
+
         /// <summary>
         /// Status of the transaction.
         /// </summary>
         [JsonProperty("status")]
         public TransactionStatus? Status { get; set; }
-        
+
         /// <summary>
         /// Your unique idenfier of the transaction.
         /// </summary>
         [JsonProperty("transactionId")]
         public string? TransactionId { get; set; }
-        
     }
-    
 }

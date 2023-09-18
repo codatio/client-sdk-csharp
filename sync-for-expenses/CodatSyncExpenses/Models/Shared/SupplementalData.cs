@@ -13,20 +13,18 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
-    /// Supplemental data is additional data you can include in our standard data types. 
+    /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+    /// <br/>
+    /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
     /// </remarks>
     /// </summary>
     public class SupplementalData
     {
+
         [JsonProperty("content")]
         public Dictionary<string, Dictionary<string, object>>? Content { get; set; }
-        
     }
-    
 }

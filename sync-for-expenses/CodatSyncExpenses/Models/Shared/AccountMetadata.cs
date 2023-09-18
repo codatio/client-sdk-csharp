@@ -12,15 +12,13 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class AccountMetadata
     {
+
         /// <summary>
         /// Indicates whether the record has been deleted in the third-party system this record originated from.
         /// </summary>
         [JsonProperty("isDeleted")]
         public bool? IsDeleted { get; set; }
-        
     }
-    
 }

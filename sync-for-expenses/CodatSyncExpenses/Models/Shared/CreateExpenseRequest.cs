@@ -13,12 +13,10 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class CreateExpenseRequest
     {
+
         [JsonProperty("items")]
         public List<ExpenseTransaction>? Items { get; set; }
-        
     }
-    
 }

@@ -1,4 +1,4 @@
-# configuration
+# Configuration
 
 ## Overview
 
@@ -104,96 +104,11 @@ var res = await sdk.Configuration.SetAsync(new SetCompanyConfigurationRequest() 
         BankAccount = new BankAccount() {
             Id = "32",
         },
-        Customer = new Customer() {
-            Addresses = new List<Items>() {
-                new Items() {
-                    City = "Fort Donnybury",
-                    Country = "Kyrgyz Republic",
-                    Line1 = "minus",
-                    Line2 = "placeat",
-                    PostalCode = "45398-0306",
-                    Region = "perferendis",
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
-                },
-            },
-            ContactName = "repellendus",
-            Contacts = new List<Contact>() {
-                new Contact() {
-                    Address = new Items() {
-                        City = "San Antonio",
-                        Country = "Burundi",
-                        Line1 = "at",
-                        Line2 = "at",
-                        PostalCode = "47845-7617",
-                        Region = "officia",
-                        Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
-                    },
-                    Email = "Kale_Welch10@gmail.com",
-                    ModifiedDate = "2022-10-23T00:00:00.000Z",
-                    Name = "Pauline Dibbert",
-                    Phone = new List<ContactPhone>() {
-                        new ContactPhone() {
-                            Number = "(877) 492-8687",
-                            Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Landline,
-                        },
-                    },
-                    Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Active,
-                },
-            },
-            CustomerName = "aspernatur",
-            DefaultCurrency = "GBP",
-            EmailAddress = "ad",
-            Id = "929396fe-a759-46eb-90fa-aa2352c59559",
-            Metadata = new Metadata() {
-                IsDeleted = false,
-            },
-            ModifiedDate = "2022-10-23T00:00:00.000Z",
-            Phone = "799.262.6196 x524",
-            RegistrationNumber = "quam",
-            SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-            Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
-            SupplementalData = new SupplementalData() {
-                Content = new Dictionary<string, Dictionary<string, object>>() {
-                    { "error", new Dictionary<string, object>() {
-                        { "quia", "quis" },
-                    } },
-                },
-            },
-            TaxNumber = "vitae",
+        Customer = new CustomerDetails() {
+            Id = "0f467cc8-796e-4d15-9a05-dfc2ddf7cc78",
         },
-        Supplier = new Supplier() {
-            Addresses = new List<SupplierAccountingAddress>() {
-                new SupplierAccountingAddress() {
-                    City = "O'Konborough",
-                    Country = "Burkina Faso",
-                    Line1 = "quo",
-                    Line2 = "sequi",
-                    PostalCode = "36800-6860",
-                    Region = "reiciendis",
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
-                },
-            },
-            ContactName = "vero",
-            DefaultCurrency = "nihil",
-            EmailAddress = "praesentium",
-            Id = "f097b007-4f15-4471-b5e6-e13b99d488e1",
-            Metadata = new Metadata() {
-                IsDeleted = false,
-            },
-            ModifiedDate = "2022-10-23T00:00:00.000Z",
-            Phone = "(877) 492-8687",
-            RegistrationNumber = "veritatis",
-            SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-            Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Unknown,
-            SupplementalData = new SupplierSupplementalData() {
-                Content = new Dictionary<string, Dictionary<string, object>>() {
-                    { "enim", new Dictionary<string, object>() {
-                        { "consequatur", "est" },
-                    } },
-                },
-            },
-            SupplierName = "quibusdam",
-            TaxNumber = "explicabo",
+        Supplier = new SupplierDetails() {
+            Id = "ca1ba928-fc81-4674-acb7-39205929396f",
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",

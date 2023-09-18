@@ -12,21 +12,19 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class ContactRef
     {
+
         /// <summary>
         /// The type of contact.
         /// </summary>
         [JsonProperty("contactType")]
         public ContactRefContactType? ContactType { get; set; }
-        
+
         /// <summary>
         /// Identifier of supplier or customer.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
     }
-    
 }

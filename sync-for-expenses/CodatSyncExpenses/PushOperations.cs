@@ -19,21 +19,37 @@ namespace CodatSyncExpenses
     using System.Threading.Tasks;
     using System;
 
+    /// <summary>
+    /// Access create, update and delete operations made to an SMB&amp;apos;s data connection.
+    /// </summary>
     public interface IPushOperationsSDK
     {
+
+        /// <summary>
+        /// Get push operation
+        /// 
+        /// <remarks>
+        /// Retrieve push operation.
+        /// </remarks>
+        /// </summary>
         Task<GetPushOperationResponse> GetAsync(GetPushOperationRequest? request = null);
+
+        /// <summary>
+        /// List push operations
+        /// 
+        /// <remarks>
+        /// List push operation records.
+        /// </remarks>
+        /// </summary>
         Task<ListPushOperationsResponse> ListAsync(ListPushOperationsRequest? request = null);
     }
 
-    /// <summary>
-    /// Access create, update and delete operations made to an SMB's data connection.
-    /// </summary>
     public class PushOperationsSDK: IPushOperationsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,13 +64,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Get push operation
-        /// 
-        /// <remarks>
-        /// Retrieve push operation.
-        /// </remarks>
-        /// </summary>
         public async Task<GetPushOperationResponse> GetAsync(GetPushOperationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -103,13 +112,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// List push operations
-        /// 
-        /// <remarks>
-        /// List push operation records.
-        /// </remarks>
-        /// </summary>
         public async Task<ListPushOperationsResponse> ListAsync(ListPushOperationsRequest? request = null)
         {
             string baseUrl = _serverUrl;

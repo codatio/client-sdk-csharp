@@ -12,15 +12,13 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class UpdateExpenseRequestBankAccountReference
     {
+
         /// <summary>
         /// Identifier of the bank account.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
     }
-    
 }

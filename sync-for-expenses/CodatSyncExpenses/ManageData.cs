@@ -20,24 +20,70 @@ namespace CodatSyncExpenses
     using System.Threading.Tasks;
     using System;
 
-    public interface IManageDataSDK
-    {
-        Task<GetDataStatusResponse> GetAsync(GetDataStatusRequest? request = null);
-        Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest? request = null);
-        Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null);
-        Task<RefreshAllDataTypesResponse> RefreshAllDataTypesAsync(RefreshAllDataTypesRequest? request = null);
-        Task<RefreshDataTypeResponse> RefreshDataTypeAsync(RefreshDataTypeRequest? request = null);
-    }
-
     /// <summary>
     /// Asynchronously retrieve data from an integration to refresh data in Codat.
     /// </summary>
+    public interface IManageDataSDK
+    {
+
+        /// <summary>
+        /// Get data status
+        /// 
+        /// <remarks>
+        /// Get the state of each data type for a company
+        /// </remarks>
+        /// </summary>
+        Task<GetDataStatusResponse> GetAsync(GetDataStatusRequest? request = null);
+
+        /// <summary>
+        /// Get pull operation
+        /// 
+        /// <remarks>
+        /// Retrieve information about a single dataset or pull operation.
+        /// </remarks>
+        /// </summary>
+        Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest? request = null);
+
+        /// <summary>
+        /// List pull operations
+        /// 
+        /// <remarks>
+        /// Gets the pull operation history (datasets) for a given company.
+        /// </remarks>
+        /// </summary>
+        Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null);
+
+        /// <summary>
+        /// Refresh all data
+        /// 
+        /// <remarks>
+        /// Refreshes all data types with `fetch on first link` set to `true` for a given company.<br/>
+        /// <br/>
+        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/core-concepts/data-type-settings">Read more</a> about data type settings and `fetch on first link`.
+        /// </remarks>
+        /// </summary>
+        Task<RefreshAllDataTypesResponse> RefreshAllDataTypesAsync(RefreshAllDataTypesRequest? request = null);
+
+        /// <summary>
+        /// Refresh data type
+        /// 
+        /// <remarks>
+        /// Refreshes a given data type for a given company.<br/>
+        /// <br/>
+        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
+        /// </remarks>
+        /// </summary>
+        Task<RefreshDataTypeResponse> RefreshDataTypeAsync(RefreshDataTypeRequest? request = null);
+    }
+
     public class ManageDataSDK: IManageDataSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -52,13 +98,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Get data status
-        /// 
-        /// <remarks>
-        /// Get the state of each data type for a company
-        /// </remarks>
-        /// </summary>
         public async Task<GetDataStatusResponse> GetAsync(GetDataStatusRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,13 +146,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Get pull operation
-        /// 
-        /// <remarks>
-        /// Retrieve information about a single dataset or pull operation.
-        /// </remarks>
-        /// </summary>
         public async Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -162,13 +194,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// List pull operations
-        /// 
-        /// <remarks>
-        /// Gets the pull operation history (datasets) for a given company.
-        /// </remarks>
-        /// </summary>
         public async Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -217,17 +242,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Refresh all data
-        /// 
-        /// <remarks>
-        /// Refreshes all data types with `fetch on first link` set to `true` for a given company.
-        /// 
-        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
-        /// 
-        /// [Read more](https://docs.codat.io/core-concepts/data-type-settings) about data type settings and `fetch on first link`.
-        /// </remarks>
-        /// </summary>
         public async Task<RefreshAllDataTypesResponse> RefreshAllDataTypesAsync(RefreshAllDataTypesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -272,15 +286,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Refresh data type
-        /// 
-        /// <remarks>
-        /// Refreshes a given data type for a given company.
-        /// 
-        /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
-        /// </remarks>
-        /// </summary>
         public async Task<RefreshDataTypeResponse> RefreshDataTypeAsync(RefreshDataTypeRequest? request = null)
         {
             string baseUrl = _serverUrl;

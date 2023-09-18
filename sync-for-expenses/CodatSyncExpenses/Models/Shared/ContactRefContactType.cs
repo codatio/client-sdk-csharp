@@ -13,16 +13,15 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of contact.
     /// </summary>
     public enum ContactRefContactType
     {
-    	[JsonProperty("Supplier")]
-		Supplier,
+        [JsonProperty("Supplier")]
+        Supplier,
     }
-    
+
     public static class ContactRefContactTypeExtension
     {
         public static string Value(this ContactRefContactType value)
@@ -49,5 +48,4 @@ namespace CodatSyncExpenses.Models.Shared
             throw new Exception($"Unknown value {value} for enum ContactRefContactType");
         }
     }
-    
 }

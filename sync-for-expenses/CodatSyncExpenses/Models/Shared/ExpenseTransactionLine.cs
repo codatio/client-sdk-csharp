@@ -13,30 +13,28 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class ExpenseTransactionLine
     {
+
         [JsonProperty("accountRef")]
         public RecordRef AccountRef { get; set; } = default!;
-        
+
         /// <summary>
         /// Amount of the line, exclusive of tax.
         /// </summary>
         [JsonProperty("netAmount")]
         public decimal NetAmount { get; set; } = default!;
-        
+
         /// <summary>
         /// Amount of tax for the line.
         /// </summary>
         [JsonProperty("taxAmount")]
         public decimal TaxAmount { get; set; } = default!;
-        
+
         [JsonProperty("taxRateRef")]
         public RecordRef? TaxRateRef { get; set; }
-        
+
         [JsonProperty("trackingRefs")]
         public List<RecordRef>? TrackingRefs { get; set; }
-        
     }
-    
 }

@@ -13,12 +13,10 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class InitiateSync
     {
+
         [JsonProperty("datasetIds")]
         public List<string>? DatasetIds { get; set; }
-        
     }
-    
 }

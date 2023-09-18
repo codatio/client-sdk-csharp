@@ -1,4 +1,4 @@
-# pushOperations
+# PushOperations
 
 ## Overview
 
@@ -28,7 +28,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.PushOperations.GetAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "0d446ce2-af7a-473c-b3be-453f870b326b",
+    PushOperationKey = "6b0d5f0d-30c5-4fbb-a587-053202c73d5f",
 });
 
 // handle response
@@ -68,7 +68,7 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "voluptas",
+    Query = "recusandae",
 });
 
 // handle response

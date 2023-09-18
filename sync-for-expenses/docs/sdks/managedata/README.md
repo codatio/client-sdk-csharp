@@ -1,4 +1,4 @@
-# manageData
+# ManageData
 
 ## Overview
 
@@ -107,7 +107,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "fugiat",
+    Query = "in",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "1ba77a89-ebf7-437a-a420-3ce5e6a95d8a",
+    ConnectionId = "11e5b7fd-2ed0-4289-a1cd-dc692601fb57",
     DataType = CodatSyncExpenses.Models.Shared.DataType.Invoices,
 });
 

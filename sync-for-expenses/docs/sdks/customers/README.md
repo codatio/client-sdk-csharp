@@ -1,4 +1,4 @@
-# customers
+# Customers
 
 ## Overview
 
@@ -41,63 +41,63 @@ var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<Items>() {
             new Items() {
-                City = "West Christa",
-                Country = "Iceland",
-                Line1 = "cupiditate",
-                Line2 = "quos",
-                PostalCode = "18301",
-                Region = "dolorum",
+                City = "New Humberto",
+                Country = "Trinidad and Tobago",
+                Line1 = "quidem",
+                Line2 = "architecto",
+                PostalCode = "96661",
+                Region = "dolorem",
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "tempora",
+        ContactName = "explicabo",
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    City = "Riceboro",
-                    Country = "Vanuatu",
-                    Line1 = "eum",
-                    Line2 = "non",
-                    PostalCode = "53585-6289",
-                    Region = "dolorum",
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+                    City = "Halvorsonstead",
+                    Country = "Guinea",
+                    Line1 = "minima",
+                    Line2 = "excepturi",
+                    PostalCode = "46991",
+                    Region = "mollitia",
+                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
                 },
-                Email = "Rose.Wolff29@yahoo.com",
+                Email = "Caroline_Ziemann@yahoo.com",
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Name = "Nathaniel Hyatt",
+                Name = "Claudia Krajcik",
                 Phone = new List<ContactPhone>() {
                     new ContactPhone() {
                         Number = "+44 25691 154789",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Mobile,
+                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Landline,
                     },
                 },
                 Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
             },
         },
-        CustomerName = "accusamus",
-        DefaultCurrency = "EUR",
-        EmailAddress = "quidem",
-        Id = "9ba88f3a-6699-4707-8ba4-469b6e214195",
+        CustomerName = "laborum",
+        DefaultCurrency = "USD",
+        EmailAddress = "enim",
+        Id = "2c3f5ad0-19da-41ff-a78f-097b0074f154",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "606-963-4281 x3049",
-        RegistrationNumber = "debitis",
+        Phone = "(738) 590-2655",
+        RegistrationNumber = "pariatur",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
+        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "deleniti", new Dictionary<string, object>() {
-                    { "facilis", "in" },
+                { "rem", new Dictionary<string, object>() {
+                    { "voluptates", "quasi" },
                 } },
             },
         },
-        TaxNumber = "architecto",
+        TaxNumber = "repudiandae",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 99569,
+    TimeoutInMinutes = 575947,
 });
 
 // handle response
@@ -141,7 +141,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Customers.GetAsync(new GetCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "repudiandae",
+    CustomerId = "veritatis",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var res = await sdk.Customers.ListAsync(new ListCustomersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "ullam",
+    Query = "itaque",
 });
 
 // handle response
@@ -234,65 +234,65 @@ var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<Items>() {
             new Items() {
-                City = "Kossworth",
-                Country = "Sudan",
-                Line1 = "sed",
-                Line2 = "saepe",
-                PostalCode = "01561-1788",
-                Region = "maxime",
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+                City = "West Adele",
+                Country = "Norway",
+                Line1 = "quibusdam",
+                Line2 = "explicabo",
+                PostalCode = "78221-3550",
+                Region = "magni",
+                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "excepturi",
+        ContactName = "ipsam",
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    City = "South Alexanneton",
-                    Country = "Wallis and Futuna",
-                    Line1 = "quidem",
-                    Line2 = "ipsam",
-                    PostalCode = "47083",
-                    Region = "voluptatibus",
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
+                    City = "East Marianostead",
+                    Country = "Estonia",
+                    Line1 = "facilis",
+                    Line2 = "tempore",
+                    PostalCode = "94275",
+                    Region = "aliquid",
+                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
                 },
-                Email = "Darian.Anderson94@hotmail.com",
+                Email = "Kianna89@hotmail.com",
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Name = "Ernest Hayes",
+                Name = "Arnold Kirlin",
                 Phone = new List<ContactPhone>() {
                     new ContactPhone() {
-                        Number = "+44 25691 154789",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Landline,
+                        Number = "01224 658 999",
+                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Primary,
                     },
                 },
                 Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
             },
         },
-        CustomerName = "eos",
-        DefaultCurrency = "GBP",
-        EmailAddress = "dolores",
-        Id = "c73d5fe9-b90c-4289-89b3-fe49a8d9cbf4",
+        CustomerName = "cumque",
+        DefaultCurrency = "EUR",
+        EmailAddress = "ea",
+        Id = "6ae395ef-b9ba-488f-ba66-997074ba4469",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "1-322-329-5744 x926",
-        RegistrationNumber = "numquam",
+        Phone = "1-911-405-3555 x069",
+        RegistrationNumber = "mollitia",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
+        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "ipsa", new Dictionary<string, object>() {
-                    { "iure", "odio" },
+                { "dolor", new Dictionary<string, object>() {
+                    { "necessitatibus", "odit" },
                 } },
             },
         },
-        TaxNumber = "quaerat",
+        TaxNumber = "nemo",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "accusamus",
+    CustomerId = "quasi",
     ForceUpdate = false,
-    TimeoutInMinutes = 696344,
+    TimeoutInMinutes = 435865,
 });
 
 // handle response

@@ -19,22 +19,46 @@ namespace CodatSyncExpenses
     using System.Threading.Tasks;
     using System;
 
-    public interface IConfigurationSDK
-    {
-        Task<GetCompanyConfigurationResponse> GetAsync(GetCompanyConfigurationRequest? request = null);
-        Task<GetMappingOptionsResponse> GetMappingOptionsAsync(GetMappingOptionsRequest? request = null);
-        Task<SetCompanyConfigurationResponse> SetAsync(SetCompanyConfigurationRequest? request = null);
-    }
-
     /// <summary>
     /// Manage mapping options and sync configuration.
     /// </summary>
+    public interface IConfigurationSDK
+    {
+
+        /// <summary>
+        /// Get company configuration
+        /// 
+        /// <remarks>
+        /// Gets a companies expense sync configuration
+        /// </remarks>
+        /// </summary>
+        Task<GetCompanyConfigurationResponse> GetAsync(GetCompanyConfigurationRequest? request = null);
+
+        /// <summary>
+        /// Mapping options
+        /// 
+        /// <remarks>
+        /// Gets the expense mapping options for a companies accounting software
+        /// </remarks>
+        /// </summary>
+        Task<GetMappingOptionsResponse> GetMappingOptionsAsync(GetMappingOptionsRequest? request = null);
+
+        /// <summary>
+        /// Set company configuration
+        /// 
+        /// <remarks>
+        /// Sets a companies expense sync configuration
+        /// </remarks>
+        /// </summary>
+        Task<SetCompanyConfigurationResponse> SetAsync(SetCompanyConfigurationRequest? request = null);
+    }
+
     public class ConfigurationSDK: IConfigurationSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,13 +73,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Get company configuration
-        /// 
-        /// <remarks>
-        /// Gets a companies expense sync configuration
-        /// </remarks>
-        /// </summary>
         public async Task<GetCompanyConfigurationResponse> GetAsync(GetCompanyConfigurationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -104,13 +121,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Mapping options
-        /// 
-        /// <remarks>
-        /// Gets the expense mapping options for a companies accounting software
-        /// </remarks>
-        /// </summary>
         public async Task<GetMappingOptionsResponse> GetMappingOptionsAsync(GetMappingOptionsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -159,13 +169,6 @@ namespace CodatSyncExpenses
         }
         
 
-        /// <summary>
-        /// Set company configuration
-        /// 
-        /// <remarks>
-        /// Sets a companies expense sync configuration
-        /// </remarks>
-        /// </summary>
         public async Task<SetCompanyConfigurationResponse> SetAsync(SetCompanyConfigurationRequest? request = null)
         {
             string baseUrl = _serverUrl;

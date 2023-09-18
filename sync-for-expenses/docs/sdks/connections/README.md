@@ -1,4 +1,4 @@
-# connections
+# Connections
 
 ## Overview
 
@@ -34,7 +34,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "deserunt",
+        PlatformKey = "saepe",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -187,7 +187,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "distinctio",
+    Query = "fuga",
 });
 
 // handle response
@@ -224,7 +224,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Connections.UnlinkAsync(new UnlinkConnectionRequest() {
     RequestBody = new UnlinkConnectionUpdateConnection() {
-        Status = CodatSyncExpenses.Models.Shared.DataConnectionStatus.Deauthorized,
+        Status = CodatSyncExpenses.Models.Shared.DataConnectionStatus.Linked,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

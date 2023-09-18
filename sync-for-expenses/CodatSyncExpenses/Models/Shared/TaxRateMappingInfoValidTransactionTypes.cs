@@ -13,27 +13,26 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum TaxRateMappingInfoValidTransactionTypes
     {
-    	[JsonProperty("Payment")]
-		Payment,
-		[JsonProperty("Refund")]
-		Refund,
-		[JsonProperty("Reward")]
-		Reward,
-		[JsonProperty("Chargeback")]
-		Chargeback,
-		[JsonProperty("TransferIn")]
-		TransferIn,
-		[JsonProperty("TransferOut")]
-		TransferOut,
-		[JsonProperty("AdjustmentIn")]
-		AdjustmentIn,
-		[JsonProperty("AdjustmentOut")]
-		AdjustmentOut,
+        [JsonProperty("Payment")]
+        Payment,
+        [JsonProperty("Refund")]
+        Refund,
+        [JsonProperty("Reward")]
+        Reward,
+        [JsonProperty("Chargeback")]
+        Chargeback,
+        [JsonProperty("TransferIn")]
+        TransferIn,
+        [JsonProperty("TransferOut")]
+        TransferOut,
+        [JsonProperty("AdjustmentIn")]
+        AdjustmentIn,
+        [JsonProperty("AdjustmentOut")]
+        AdjustmentOut,
     }
-    
+
     public static class TaxRateMappingInfoValidTransactionTypesExtension
     {
         public static string Value(this TaxRateMappingInfoValidTransactionTypes value)
@@ -60,5 +59,4 @@ namespace CodatSyncExpenses.Models.Shared
             throw new Exception($"Unknown value {value} for enum TaxRateMappingInfoValidTransactionTypes");
         }
     }
-    
 }

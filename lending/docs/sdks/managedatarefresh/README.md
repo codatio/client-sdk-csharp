@@ -1,4 +1,4 @@
-# manageDataRefresh
+# ManageData.Refresh
 
 ### Available Operations
 

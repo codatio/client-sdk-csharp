@@ -1,4 +1,4 @@
-# salesProductCategories
+# Sales.ProductCategories
 
 ### Available Operations
 

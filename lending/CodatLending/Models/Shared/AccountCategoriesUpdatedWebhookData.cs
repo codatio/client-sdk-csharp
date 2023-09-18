@@ -12,24 +12,13 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
-    /// <summary>
-    /// Weblink associated with the company.
-    /// </summary>
-    public class AccountingCompanyInfoWeblink
+    public class AccountCategoriesUpdatedWebhookData
     {
+
         /// <summary>
-        /// The type of the weblink.
+        /// The date on which this account categories were last modified in Codat.
         /// </summary>
-        [JsonProperty("type")]
-        public AccountingCompanyInfoWeblinkType? Type { get; set; }
-        
-        /// <summary>
-        /// The full URL for the weblink.
-        /// </summary>
-        [JsonProperty("url")]
-        public string? Url { get; set; }
-        
+        [JsonProperty("modifiedDate")]
+        public string? ModifiedDate { get; set; }
     }
-    
 }

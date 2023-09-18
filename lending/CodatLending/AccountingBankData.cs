@@ -19,21 +19,36 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface IAccountingBankDataSDK
-    {
-        public IAccountingBankDataAccountsSDK Accounts { get; }
-        Task<ListAccountingBankAccountTransactionsResponse> ListTransactionsAsync(ListAccountingBankAccountTransactionsRequest? request = null);
-    }
-
     /// <summary>
     /// Access bank transactions from an accounting platform.
     /// </summary>
+    public interface IAccountingBankDataSDK
+    {
+        public IAccountingBankDataAccountsSDK Accounts { get; }
+
+        /// <summary>
+        /// List bank account transactions
+        /// 
+        /// <remarks>
+        /// The *List account bank transactions* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">bank account transactions</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankTransactions">coverage explorer</a> for integrations that support listing bank transactions.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<ListAccountingBankAccountTransactionsResponse> ListTransactionsAsync(ListAccountingBankAccountTransactionsRequest? request = null);
+    }
+
     public class AccountingBankDataSDK: IAccountingBankDataSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,20 +65,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List bank account transactions
-        /// 
-        /// <remarks>
-        /// The *List account bank transactions* endpoint returns a list of [bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) for a given company's connection.
-        /// 
-        /// [Bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support listing bank transactions.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingBankAccountTransactionsResponse> ListTransactionsAsync(ListAccountingBankAccountTransactionsRequest? request = null)
         {
             string baseUrl = _serverUrl;

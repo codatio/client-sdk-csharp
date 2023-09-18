@@ -13,27 +13,25 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class CommerceReportComponent
     {
+
         [JsonProperty("components")]
         public List<CommerceReportComponent>? Components { get; set; }
-        
+
         [JsonProperty("dimension")]
         public long? Dimension { get; set; }
-        
+
         [JsonProperty("dimensionDisplayName")]
         public string? DimensionDisplayName { get; set; }
-        
+
         [JsonProperty("item")]
         public long? Item { get; set; }
-        
+
         [JsonProperty("itemDisplayName")]
         public string? ItemDisplayName { get; set; }
-        
+
         [JsonProperty("measures")]
         public List<ReportComponentMeasure>? Measures { get; set; }
-        
     }
-    
 }

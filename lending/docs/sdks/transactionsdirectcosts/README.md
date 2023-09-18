@@ -1,4 +1,4 @@
-# transactionsDirectCosts
+# Transactions.DirectCosts
 
 ### Available Operations
 

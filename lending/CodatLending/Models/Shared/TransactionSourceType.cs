@@ -13,21 +13,20 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum TransactionSourceType
     {
-    	[JsonProperty("Fee")]
-		Fee,
-		[JsonProperty("Order")]
-		Order,
-		[JsonProperty("Payment")]
-		Payment,
-		[JsonProperty("ServiceCharge")]
-		ServiceCharge,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Fee")]
+        Fee,
+        [JsonProperty("Order")]
+        Order,
+        [JsonProperty("Payment")]
+        Payment,
+        [JsonProperty("ServiceCharge")]
+        ServiceCharge,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class TransactionSourceTypeExtension
     {
         public static string Value(this TransactionSourceType value)
@@ -54,5 +53,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum TransactionSourceType");
         }
     }
-    
 }

@@ -13,18 +13,16 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class EnhancedReportAccountCategory
     {
+
         [JsonProperty("levels")]
         public List<AccountCategoryLevel>? Levels { get; set; }
-        
+
         /// <summary>
-        /// Returns a status of "Suggested" or "Confirmed". If an account has a confirmed category, it will replace any suggested category returned.
+        /// Returns a status of &amp;quot;Suggested&amp;quot; or &amp;quot;Confirmed&amp;quot;. If an account has a confirmed category, it will replace any suggested category returned.
         /// </summary>
         [JsonProperty("status")]
         public string? Status { get; set; }
-        
     }
-    
 }

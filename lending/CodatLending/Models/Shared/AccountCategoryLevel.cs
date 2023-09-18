@@ -12,24 +12,22 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// An object containing an ordered list of account category levels.
     /// </summary>
     public class AccountCategoryLevel
     {
+
         /// <summary>
         /// Confidence level of the category. This will only be populated where `status` is `Suggested`.
         /// </summary>
         [JsonProperty("confidence")]
         public decimal? Confidence { get; set; }
-        
+
         /// <summary>
         /// Account category name.
         /// </summary>
         [JsonProperty("levelName")]
         public string? LevelName { get; set; }
-        
     }
-    
 }

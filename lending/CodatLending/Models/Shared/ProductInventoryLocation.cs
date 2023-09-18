@@ -12,18 +12,16 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class ProductInventoryLocation
     {
+
         /// <summary>
         /// Reference to the geographic location where the order was placed.
         /// </summary>
         [JsonProperty("locationRef")]
         public LocationRef? LocationRef { get; set; }
-        
+
         [JsonProperty("quantity")]
         public decimal? Quantity { get; set; }
-        
     }
-    
 }

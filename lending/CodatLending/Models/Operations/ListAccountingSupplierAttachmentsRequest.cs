@@ -12,21 +12,19 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class ListAccountingSupplierAttachmentsRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
+
         /// <summary>
         /// Unique identifier for a supplier
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=supplierId")]
         public string SupplierId { get; set; } = default!;
-        
     }
-    
 }

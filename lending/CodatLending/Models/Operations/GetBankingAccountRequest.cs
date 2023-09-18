@@ -12,21 +12,19 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class GetBankingAccountRequest
     {
+
         /// <summary>
         /// Unique identifier for an account
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountId")]
         public string AccountId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

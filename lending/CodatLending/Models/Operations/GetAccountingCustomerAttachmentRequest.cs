@@ -12,24 +12,22 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class GetAccountingCustomerAttachmentRequest
     {
+
         /// <summary>
         /// Unique identifier for an attachment
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attachmentId")]
         public string AttachmentId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customerId")]
         public string CustomerId { get; set; } = default!;
-        
     }
-    
 }

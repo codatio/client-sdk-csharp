@@ -21,10 +21,77 @@ namespace CodatLending
 
     public interface IAccountsReceivableDirectIncomesSDK
     {
+
+        /// <summary>
+        /// Download direct income attachment
+        /// 
+        /// <remarks>
+        /// The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectIncome">Direct incomes</a> are sales of items directly to a customer where payment is received at the point of the sale.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directIncomes">coverage explorer</a> for integrations that support downloading a direct income attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<DownloadAccountingDirectIncomeAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectIncomeAttachmentRequest? request = null);
+
+        /// <summary>
+        /// Get direct income
+        /// 
+        /// <remarks>
+        /// The *Get direct income* endpoint returns a single direct income for a given directIncomeId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectIncome">Direct incomes</a> are sales of items directly to a customer where payment is received at the point of the sale.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directIncomes">coverage explorer</a> for integrations that support getting a specific direct income.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingDirectIncomeResponse> GetAsync(GetAccountingDirectIncomeRequest? request = null);
+
+        /// <summary>
+        /// Get direct income attachment
+        /// 
+        /// <remarks>
+        /// The *Get direct income attachment* endpoint returns a specific attachment for a given `directIncomeId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectIncome">Direct incomes</a> are sales of items directly to a customer where payment is received at the point of the sale.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directIncomes">coverage explorer</a> for integrations that support getting a direct income attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingDirectIncomeAttachmentResponse> GetAttachmentAsync(GetAccountingDirectIncomeAttachmentRequest? request = null);
+
+        /// <summary>
+        /// List direct incomes
+        /// 
+        /// <remarks>
+        /// The *List direct incomes* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/DirectIncome">direct incomes</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectIncome">Direct incomes</a> are sales of items directly to a customer where payment is received at the point of the sale.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingDirectIncomesResponse> ListAsync(ListAccountingDirectIncomesRequest? request = null);
+
+        /// <summary>
+        /// List direct income attachments
+        /// 
+        /// <remarks>
+        /// The *List direct income attachments* endpoint returns a list of attachments available to download for given `directIncomeId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/DirectIncome">Direct incomes</a> are sales of items directly to a customer where payment is received at the point of the sale.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directIncomes">coverage explorer</a> for integrations that support listing direct income attachments.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingDirectIncomeAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectIncomeAttachmentsRequest? request = null);
     }
 
@@ -32,8 +99,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,18 +115,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download direct income attachment
-        /// 
-        /// <remarks>
-        /// The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.
-        /// 
-        /// [Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support downloading a direct income attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadAccountingDirectIncomeAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectIncomeAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -108,20 +163,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get direct income
-        /// 
-        /// <remarks>
-        /// The *Get direct income* endpoint returns a single direct income for a given directIncomeId.
-        /// 
-        /// [Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support getting a specific direct income.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingDirectIncomeResponse> GetAsync(GetAccountingDirectIncomeRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -170,18 +211,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get direct income attachment
-        /// 
-        /// <remarks>
-        /// The *Get direct income attachment* endpoint returns a specific attachment for a given `directIncomeId` and `attachmentId`.
-        /// 
-        /// [Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support getting a direct income attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingDirectIncomeAttachmentResponse> GetAttachmentAsync(GetAccountingDirectIncomeAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -230,18 +259,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List direct incomes
-        /// 
-        /// <remarks>
-        /// The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) for a given company's connection.
-        /// 
-        /// [Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingDirectIncomesResponse> ListAsync(ListAccountingDirectIncomesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -290,18 +307,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List direct income attachments
-        /// 
-        /// <remarks>
-        /// The *List direct income attachments* endpoint returns a list of attachments available to download for given `directIncomeId`.
-        /// 
-        /// [Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support listing direct income attachments.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingDirectIncomeAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectIncomeAttachmentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

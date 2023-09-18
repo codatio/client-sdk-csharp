@@ -21,6 +21,18 @@ namespace CodatLending
 
     public interface IBankingCategorizedStatementSDK
     {
+
+        /// <summary>
+        /// Get categorized bank statement
+        /// 
+        /// <remarks>
+        /// &gt; **Categorization engine**<br/>
+        /// &gt; <br/>
+        /// &gt; The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.<br/>
+        /// <br/>
+        /// The _Get categorized bank statement_ endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company&apos;s banking data sources.
+        /// </remarks>
+        /// </summary>
         Task<GetCategorizedBankStatementResponse> GetAsync(GetCategorizedBankStatementRequest? request = null);
     }
 
@@ -28,8 +40,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -44,17 +56,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get categorized bank statement
-        /// 
-        /// <remarks>
-        /// > **Categorization engine**
-        /// > 
-        /// > The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
-        /// 
-        /// The _Get categorized bank statement_ endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
-        /// </remarks>
-        /// </summary>
         public async Task<GetCategorizedBankStatementResponse> GetAsync(GetCategorizedBankStatementRequest? request = null)
         {
             string baseUrl = _serverUrl;

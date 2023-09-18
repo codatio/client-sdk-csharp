@@ -21,7 +21,25 @@ namespace CodatLending
 
     public interface IFinancialStatementsProfitAndLossSDK
     {
+
+        /// <summary>
+        /// Get profit and loss
+        /// 
+        /// <remarks>
+        /// Gets the latest profit and loss for a company.
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingProfitAndLossResponse> GetAsync(GetAccountingProfitAndLossRequest? request = null);
+
+        /// <summary>
+        /// Get categorized profit and loss statement
+        /// 
+        /// <remarks>
+        /// The *Get categorized profit and loss statement* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.<br/>
+        /// <br/>
+        /// Codat suggests a category for each account automatically, but you can <a href="https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts">change it</a> to a more suitable one.
+        /// </remarks>
+        /// </summary>
         Task<GetCategorizedProfitAndLossStatementResponse> GetCategorizedAccountsAsync(GetCategorizedProfitAndLossStatementRequest? request = null);
     }
 
@@ -29,8 +47,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,13 +63,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get profit and loss
-        /// 
-        /// <remarks>
-        /// Gets the latest profit and loss for a company.
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingProfitAndLossResponse> GetAsync(GetAccountingProfitAndLossRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -100,15 +111,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get categorized profit and loss statement
-        /// 
-        /// <remarks>
-        /// The *Get categorized profit and loss statement* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.
-        /// 
-        /// Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
-        /// </remarks>
-        /// </summary>
         public async Task<GetCategorizedProfitAndLossStatementResponse> GetCategorizedAccountsAsync(GetCategorizedProfitAndLossStatementRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -13,26 +13,25 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Status of the payment.
     /// </summary>
     public enum PaymentStatus
     {
-    	[JsonProperty("Pending")]
-		Pending,
-		[JsonProperty("Authorized")]
-		Authorized,
-		[JsonProperty("Paid")]
-		Paid,
-		[JsonProperty("Failed")]
-		Failed,
-		[JsonProperty("Cancelled")]
-		Cancelled,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Pending")]
+        Pending,
+        [JsonProperty("Authorized")]
+        Authorized,
+        [JsonProperty("Paid")]
+        Paid,
+        [JsonProperty("Failed")]
+        Failed,
+        [JsonProperty("Cancelled")]
+        Cancelled,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class PaymentStatusExtension
     {
         public static string Value(this PaymentStatus value)
@@ -59,5 +58,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum PaymentStatus");
         }
     }
-    
 }

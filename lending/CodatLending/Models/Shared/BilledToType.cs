@@ -13,19 +13,18 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum BilledToType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("NotApplicable")]
-		NotApplicable,
-		[JsonProperty("Customer")]
-		Customer,
-		[JsonProperty("Project")]
-		Project,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("NotApplicable")]
+        NotApplicable,
+        [JsonProperty("Customer")]
+        Customer,
+        [JsonProperty("Project")]
+        Project,
     }
-    
+
     public static class BilledToTypeExtension
     {
         public static string Value(this BilledToType value)
@@ -52,5 +51,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum BilledToType");
         }
     }
-    
 }

@@ -1,4 +1,4 @@
-# accountsReceivableCreditNotes
+# AccountsReceivable.CreditNotes
 
 ### Available Operations
 

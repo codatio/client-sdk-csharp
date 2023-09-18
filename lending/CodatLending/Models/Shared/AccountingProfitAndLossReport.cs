@@ -13,108 +13,106 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
-    /// > **Language tip:** Profit and loss statement is also referred to as **income statement** under US GAAP (Generally Accepted Accounting Principles).
+    /// &amp;gt; **Language tip:** Profit and loss statement is also referred to as **income statement** under US GAAP (Generally Accepted Accounting Principles).&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// > View the coverage for profit and loss in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=profitAndLoss" target="_blank">Data coverage explorer</a>.
-    /// 
-    /// ## Overview
-    /// 
-    /// The purpose of a profit and loss report is to present the financial performance of a company over a specified time period.
-    /// 
-    /// A profit and loss report shows a company's total income and expenses for a specified period of time and whether a profit or loss has been made.
-    /// 
-    /// > **Profit and loss or balance sheet?**  
-    /// > Profit and loss reports summarise the total revenue, expenses, and profit or loss over a specified time period. A balance sheet report presents all assets, liability, and equity for a given date.
-    /// 
-    /// 
-    /// **Structure of this report**  
-    /// This report will reflect the structure and line descriptions that the business has set in their own accounting platform.
-    /// 
-    /// **History**  
-    /// By default, Codat pulls (up to) 24 months of profit and loss history for a company. You can adjust this to fetch more history, where available, by updating the `monthsToSync` value for `profitAndLoss` on the [data type settings endpoint](https://docs.codat.io/lending-api#/operations/post-profile-syncSettings).
-    /// 
-    /// **Want to pull this in a standardised structure?**  
-    /// Our [Enhanced Financials](https://docs.codat.io/assess/reports/enhanced-financials/financials) endpoints provide the same report under standardized headings, allowing you to pull it in the same format for all of your business customers.
+    /// <br/>
+    /// &gt; View the coverage for profit and loss in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=profitAndLoss&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// <br/>
+    /// ## Overview<br/>
+    /// <br/>
+    /// The purpose of a profit and loss report is to present the financial performance of a company over a specified time period.<br/>
+    /// <br/>
+    /// A profit and loss report shows a company&apos;s total income and expenses for a specified period of time and whether a profit or loss has been made.<br/>
+    /// <br/>
+    /// &gt; **Profit and loss or balance sheet?**  <br/>
+    /// &gt; Profit and loss reports summarise the total revenue, expenses, and profit or loss over a specified time period. A balance sheet report presents all assets, liability, and equity for a given date.<br/>
+    /// <br/>
+    /// <br/>
+    /// **Structure of this report**  <br/>
+    /// This report will reflect the structure and line descriptions that the business has set in their own accounting platform.<br/>
+    /// <br/>
+    /// **History**  <br/>
+    /// By default, Codat pulls (up to) 24 months of profit and loss history for a company. You can adjust this to fetch more history, where available, by updating the `monthsToSync` value for `profitAndLoss` on the <a href="https://docs.codat.io/lending-api#/operations/post-profile-syncSettings">data type settings endpoint</a>.<br/>
+    /// <br/>
+    /// **Want to pull this in a standardised structure?**  <br/>
+    /// Our <a href="https://docs.codat.io/assess/reports/enhanced-financials/financials">Enhanced Financials</a> endpoints provide the same report under standardized headings, allowing you to pull it in the same format for all of your business customers.
     /// </remarks>
     /// </summary>
     public class AccountingProfitAndLossReport
     {
+
         /// <summary>
         /// Base currency of the company in which the profit and loss report is presented.
         /// </summary>
         [JsonProperty("currency")]
         public string Currency { get; set; } = default!;
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("earliestAvailableMonth")]
         public string? EarliestAvailableMonth { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("mostRecentAvailableMonth")]
         public string? MostRecentAvailableMonth { get; set; }
-        
+
         /// <summary>
         /// The basis of a report.
         /// </summary>
         [JsonProperty("reportBasis")]
         public ReportBasis ReportBasis { get; set; } = default!;
-        
+
         /// <summary>
         /// An array of profit and loss reports.
         /// </summary>
         [JsonProperty("reports")]
         public List<ProfitAndLossReport> Reports { get; set; } = default!;
-        
     }
-    
 }

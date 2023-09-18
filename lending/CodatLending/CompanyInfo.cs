@@ -19,21 +19,39 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface ICompanyInfoSDK
-    {
-        Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null);
-        Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest? request = null);
-    }
-
     /// <summary>
     /// View company information fetched from the source platform.
     /// </summary>
+    public interface ICompanyInfoSDK
+    {
+
+        /// <summary>
+        /// Get company accounting profile
+        /// 
+        /// <remarks>
+        /// Gets the latest basic info for a company.
+        /// </remarks>
+        /// </summary>
+        Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null);
+
+        /// <summary>
+        /// Get company commerce profile
+        /// 
+        /// <remarks>
+        /// Retrieve information about the company, as seen in the commerce platform.<br/>
+        /// <br/>
+        /// This may include information like addresses, tax registration details and social media or website information.
+        /// </remarks>
+        /// </summary>
+        Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest? request = null);
+    }
+
     public class CompanyInfoSDK: ICompanyInfoSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,13 +66,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get company accounting profile
-        /// 
-        /// <remarks>
-        /// Gets the latest basic info for a company.
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -103,15 +114,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get company commerce profile
-        /// 
-        /// <remarks>
-        /// Retrieve information about the company, as seen in the commerce platform.
-        /// 
-        /// This may include information like addresses, tax registration details and social media or website information.
-        /// </remarks>
-        /// </summary>
         public async Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest? request = null)
         {
             string baseUrl = _serverUrl;

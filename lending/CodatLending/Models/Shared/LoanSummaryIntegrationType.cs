@@ -13,20 +13,19 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The integration type begin referred to.
     /// </summary>
     public enum LoanSummaryIntegrationType
     {
-    	[JsonProperty("Accounting")]
-		Accounting,
-		[JsonProperty("Banking")]
-		Banking,
-		[JsonProperty("Commerce")]
-		Commerce,
+        [JsonProperty("Accounting")]
+        Accounting,
+        [JsonProperty("Banking")]
+        Banking,
+        [JsonProperty("Commerce")]
+        Commerce,
     }
-    
+
     public static class LoanSummaryIntegrationTypeExtension
     {
         public static string Value(this LoanSummaryIntegrationType value)
@@ -53,5 +52,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum LoanSummaryIntegrationType");
         }
     }
-    
 }

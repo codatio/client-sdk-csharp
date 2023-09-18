@@ -45,16 +45,16 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 ## Available Resources and Operations
 
 
-### [accountingBankData](docs/sdks/accountingbankdata/README.md)
+### [AccountingBankData](docs/sdks/accountingbankdata/README.md)
 
 * [ListTransactions](docs/sdks/accountingbankdata/README.md#listtransactions) - List bank account transactions
 
-### [accountingBankDataAccounts](docs/sdks/accountingbankdataaccounts/README.md)
+### [AccountingBankData.Accounts](docs/sdks/accountingbankdataaccounts/README.md)
 
 * [Get](docs/sdks/accountingbankdataaccounts/README.md#get) - Get bank account
 * [List](docs/sdks/accountingbankdataaccounts/README.md#list) - List bank accounts
 
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [Create](docs/sdks/companies/README.md#create) - Create company
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -62,12 +62,12 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
-### [companyInfo](docs/sdks/companyinfo/README.md)
+### [CompanyInfo](docs/sdks/companyinfo/README.md)
 
 * [GetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 * [GetCommerceProfile](docs/sdks/companyinfo/README.md#getcommerceprofile) - Get company commerce profile
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
 * [Delete](docs/sdks/connections/README.md#delete) - Delete connection
@@ -75,41 +75,41 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [dataIntegrity](docs/sdks/dataintegrity/README.md)
+### [DataIntegrity](docs/sdks/dataintegrity/README.md)
 
 * [Details](docs/sdks/dataintegrity/README.md#details) - List data integrity details
 * [Status](docs/sdks/dataintegrity/README.md#status) - Get data integrity status
 * [Summaries](docs/sdks/dataintegrity/README.md#summaries) - Get data integrity summaries
 
-### [excelReports](docs/sdks/excelreports/README.md)
+### [ExcelReports](docs/sdks/excelreports/README.md)
 
 * [Download](docs/sdks/excelreports/README.md#download) - Download Excel report
 * [Generate](docs/sdks/excelreports/README.md#generate) - Generate Excel report
 * [GetStatus](docs/sdks/excelreports/README.md#getstatus) - Get Excel report status
 
-### [fileUpload](docs/sdks/fileupload/README.md)
+### [FileUpload](docs/sdks/fileupload/README.md)
 
 * [Download](docs/sdks/fileupload/README.md#download) - Download all files for a company
 * [ListUploaded](docs/sdks/fileupload/README.md#listuploaded) - List all files uploaded by a company
 * [Upload](docs/sdks/fileupload/README.md#upload) - Upload files for a company
 
-### [liabilities](docs/sdks/liabilities/README.md)
+### [Liabilities](docs/sdks/liabilities/README.md)
 
 * [GetLoanSummary](docs/sdks/liabilities/README.md#getloansummary) - Get loan summaries
 * [ListLoanTransactions](docs/sdks/liabilities/README.md#listloantransactions) - List loan transactions
 
 
-### [accountsPayableBillCreditNotes](docs/sdks/accountspayablebillcreditnotes/README.md)
+### [AccountsPayable.BillCreditNotes](docs/sdks/accountspayablebillcreditnotes/README.md)
 
 * [Get](docs/sdks/accountspayablebillcreditnotes/README.md#get) - Get bill credit note
 * [List](docs/sdks/accountspayablebillcreditnotes/README.md#list) - List bill credit notes
 
-### [accountsPayableBillPayments](docs/sdks/accountspayablebillpayments/README.md)
+### [AccountsPayable.BillPayments](docs/sdks/accountspayablebillpayments/README.md)
 
 * [Get](docs/sdks/accountspayablebillpayments/README.md#get) - Get bill payment
 * [List](docs/sdks/accountspayablebillpayments/README.md#list) - List bill payments
 
-### [accountsPayableBills](docs/sdks/accountspayablebills/README.md)
+### [AccountsPayable.Bills](docs/sdks/accountspayablebills/README.md)
 
 * [DownloadAttachment](docs/sdks/accountspayablebills/README.md#downloadattachment) - Download bill attachment
 * [Get](docs/sdks/accountspayablebills/README.md#get) - Get bill
@@ -117,7 +117,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/accountspayablebills/README.md#list) - List bills
 * [ListAttachments](docs/sdks/accountspayablebills/README.md#listattachments) - List bill attachments
 
-### [accountsPayableSuppliers](docs/sdks/accountspayablesuppliers/README.md)
+### [AccountsPayable.Suppliers](docs/sdks/accountspayablesuppliers/README.md)
 
 * [DownloadAttachment](docs/sdks/accountspayablesuppliers/README.md#downloadattachment) - Download supplier attachment
 * [Get](docs/sdks/accountspayablesuppliers/README.md#get) - Get supplier
@@ -126,12 +126,12 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [ListAttachments](docs/sdks/accountspayablesuppliers/README.md#listattachments) - List supplier attachments
 
 
-### [accountsReceivableCreditNotes](docs/sdks/accountsreceivablecreditnotes/README.md)
+### [AccountsReceivable.CreditNotes](docs/sdks/accountsreceivablecreditnotes/README.md)
 
 * [Get](docs/sdks/accountsreceivablecreditnotes/README.md#get) - Get credit note
 * [List](docs/sdks/accountsreceivablecreditnotes/README.md#list) - List credit notes
 
-### [accountsReceivableCustomers](docs/sdks/accountsreceivablecustomers/README.md)
+### [AccountsReceivable.Customers](docs/sdks/accountsreceivablecustomers/README.md)
 
 * [DownloadAttachment](docs/sdks/accountsreceivablecustomers/README.md#downloadattachment) - Download customer attachment
 * [Get](docs/sdks/accountsreceivablecustomers/README.md#get) - Get customer
@@ -139,7 +139,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/accountsreceivablecustomers/README.md#list) - List customers
 * [ListAttachments](docs/sdks/accountsreceivablecustomers/README.md#listattachments) - List customer attachments
 
-### [accountsReceivableDirectIncomes](docs/sdks/accountsreceivabledirectincomes/README.md)
+### [AccountsReceivable.DirectIncomes](docs/sdks/accountsreceivabledirectincomes/README.md)
 
 * [DownloadAttachment](docs/sdks/accountsreceivabledirectincomes/README.md#downloadattachment) - Download direct income attachment
 * [Get](docs/sdks/accountsreceivabledirectincomes/README.md#get) - Get direct income
@@ -147,7 +147,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/accountsreceivabledirectincomes/README.md#list) - List direct incomes
 * [ListAttachments](docs/sdks/accountsreceivabledirectincomes/README.md#listattachments) - List direct income attachments
 
-### [accountsReceivableInvoices](docs/sdks/accountsreceivableinvoices/README.md)
+### [AccountsReceivable.Invoices](docs/sdks/accountsreceivableinvoices/README.md)
 
 * [DownloadAttachment](docs/sdks/accountsreceivableinvoices/README.md#downloadattachment) - Download invoice attachment
 * [DownloadPdf](docs/sdks/accountsreceivableinvoices/README.md#downloadpdf) - Get invoice as PDF
@@ -157,12 +157,12 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [ListAttachments](docs/sdks/accountsreceivableinvoices/README.md#listattachments) - List invoice attachments
 * [ListReconciled](docs/sdks/accountsreceivableinvoices/README.md#listreconciled) - List reconciled invoices
 
-### [accountsReceivablePayments](docs/sdks/accountsreceivablepayments/README.md)
+### [AccountsReceivable.Payments](docs/sdks/accountsreceivablepayments/README.md)
 
 * [Get](docs/sdks/accountsreceivablepayments/README.md#get) - Get payment
 * [List](docs/sdks/accountsreceivablepayments/README.md#list) - List payments
 
-### [accountsReceivableReports](docs/sdks/accountsreceivablereports/README.md)
+### [AccountsReceivable.Reports](docs/sdks/accountsreceivablereports/README.md)
 
 * [GetAgedCreditors](docs/sdks/accountsreceivablereports/README.md#getagedcreditors) - Aged creditors report
 * [GetAgedDebtors](docs/sdks/accountsreceivablereports/README.md#getageddebtors) - Aged debtors report
@@ -170,7 +170,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [IsAgedDebtorsAvailable](docs/sdks/accountsreceivablereports/README.md#isageddebtorsavailable) - Aged debtors report available
 
 
-### [bankingAccountBalances](docs/sdks/bankingaccountbalances/README.md)
+### [Banking.AccountBalances](docs/sdks/bankingaccountbalances/README.md)
 
 * [List](docs/sdks/bankingaccountbalances/README.md#list) - List account balances
 
@@ -179,11 +179,11 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/bankingaccounts/README.md#get) - Get account
 * [List](docs/sdks/bankingaccounts/README.md#list) - List accounts
 
-### [bankingCategorizedStatement](docs/sdks/bankingcategorizedstatement/README.md)
+### [Banking.CategorizedStatement](docs/sdks/bankingcategorizedstatement/README.md)
 
 * [Get](docs/sdks/bankingcategorizedstatement/README.md#get) - Get categorized bank statement
 
-### [bankingTransactionCategories](docs/sdks/bankingtransactioncategories/README.md)
+### [Banking.TransactionCategories](docs/sdks/bankingtransactioncategories/README.md)
 
 * [Get](docs/sdks/bankingtransactioncategories/README.md#get) - Get transaction category
 * [List](docs/sdks/bankingtransactioncategories/README.md#list) - List transaction categories
@@ -194,35 +194,35 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/bankingtransactions/README.md#list) - List transactions
 
 
-### [financialStatementsAccounts](docs/sdks/financialstatementsaccounts/README.md)
+### [FinancialStatements.Accounts](docs/sdks/financialstatementsaccounts/README.md)
 
 * [Get](docs/sdks/financialstatementsaccounts/README.md#get) - Get account
 * [List](docs/sdks/financialstatementsaccounts/README.md#list) - List accounts
 
-### [financialStatementsBalanceSheet](docs/sdks/financialstatementsbalancesheet/README.md)
+### [FinancialStatements.BalanceSheet](docs/sdks/financialstatementsbalancesheet/README.md)
 
 * [Get](docs/sdks/financialstatementsbalancesheet/README.md#get) - Get balance sheet
 * [GetCategorizedAccounts](docs/sdks/financialstatementsbalancesheet/README.md#getcategorizedaccounts) - Get categorized balance sheet statement
 
-### [financialStatementsCashFlow](docs/sdks/financialstatementscashflow/README.md)
+### [FinancialStatements.CashFlow](docs/sdks/financialstatementscashflow/README.md)
 
 * [Get](docs/sdks/financialstatementscashflow/README.md#get) - Get cash flow statement
 
-### [financialStatementsProfitAndLoss](docs/sdks/financialstatementsprofitandloss/README.md)
+### [FinancialStatements.ProfitAndLoss](docs/sdks/financialstatementsprofitandloss/README.md)
 
 * [Get](docs/sdks/financialstatementsprofitandloss/README.md#get) - Get profit and loss
 * [GetCategorizedAccounts](docs/sdks/financialstatementsprofitandloss/README.md#getcategorizedaccounts) - Get categorized profit and loss statement
 
-### [manageData](docs/sdks/managedata/README.md)
+### [ManageData](docs/sdks/managedata/README.md)
 
 * [GetStatus](docs/sdks/managedata/README.md#getstatus) - Get data status
 
-### [manageDataPullOperations](docs/sdks/managedatapulloperations/README.md)
+### [ManageData.PullOperations](docs/sdks/managedatapulloperations/README.md)
 
 * [Get](docs/sdks/managedatapulloperations/README.md#get) - Get pull operation
 * [List](docs/sdks/managedatapulloperations/README.md#list) - List pull operations
 
-### [manageDataRefresh](docs/sdks/managedatarefresh/README.md)
+### [ManageData.Refresh](docs/sdks/managedatarefresh/README.md)
 
 * [AllDataTypes](docs/sdks/managedatarefresh/README.md#alldatatypes) - Refresh all data
 * [DataType](docs/sdks/managedatarefresh/README.md#datatype) - Refresh data type
@@ -254,7 +254,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/salesorders/README.md#get) - Get order
 * [List](docs/sdks/salesorders/README.md#list) - List orders
 
-### [salesPaymentMethods](docs/sdks/salespaymentmethods/README.md)
+### [Sales.PaymentMethods](docs/sdks/salespaymentmethods/README.md)
 
 * [Get](docs/sdks/salespaymentmethods/README.md#get) - Get payment method
 * [List](docs/sdks/salespaymentmethods/README.md#list) - List payment methods
@@ -264,7 +264,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/salespayments/README.md#get) - Get payment
 * [List](docs/sdks/salespayments/README.md#list) - List payments
 
-### [salesProductCategories](docs/sdks/salesproductcategories/README.md)
+### [Sales.ProductCategories](docs/sdks/salesproductcategories/README.md)
 
 * [Get](docs/sdks/salesproductcategories/README.md#get) - Get product category
 * [List](docs/sdks/salesproductcategories/README.md#list) - List product categories
@@ -285,12 +285,12 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/salestransactions/README.md#list) - List transactions
 
 
-### [transactionsAccountTransactions](docs/sdks/transactionsaccounttransactions/README.md)
+### [Transactions.AccountTransactions](docs/sdks/transactionsaccounttransactions/README.md)
 
 * [Get](docs/sdks/transactionsaccounttransactions/README.md#get) - Get account transaction
 * [List](docs/sdks/transactionsaccounttransactions/README.md#list) - List account transactions
 
-### [transactionsDirectCosts](docs/sdks/transactionsdirectcosts/README.md)
+### [Transactions.DirectCosts](docs/sdks/transactionsdirectcosts/README.md)
 
 * [DownloadAttachment](docs/sdks/transactionsdirectcosts/README.md#downloadattachment) - Download direct cost attachment
 * [Get](docs/sdks/transactionsdirectcosts/README.md#get) - Get direct cost
@@ -298,7 +298,7 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [List](docs/sdks/transactionsdirectcosts/README.md#list) - List direct costs
 * [ListAttachments](docs/sdks/transactionsdirectcosts/README.md#listattachments) - List direct cost attachments
 
-### [transactionsJournalEntries](docs/sdks/transactionsjournalentries/README.md)
+### [Transactions.JournalEntries](docs/sdks/transactionsjournalentries/README.md)
 
 * [Get](docs/sdks/transactionsjournalentries/README.md#get) - Get journal entry
 * [List](docs/sdks/transactionsjournalentries/README.md#list) - List journal entries

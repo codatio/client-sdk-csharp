@@ -12,21 +12,19 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class AgedOutstandingAmountDetail
     {
+
         /// <summary>
         /// The amount outstanding.
         /// </summary>
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
-        
+
         /// <summary>
         /// Name of data type with outstanding amount for given period.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

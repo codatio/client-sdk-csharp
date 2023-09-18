@@ -1,4 +1,4 @@
-# accountsPayableBillCreditNotes
+# AccountsPayable.BillCreditNotes
 
 ### Available Operations
 

@@ -13,15 +13,13 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class EnhancedCashFlowItem
     {
+
         /// <summary>
         /// An array of transaction data.
         /// </summary>
         [JsonProperty("transactions")]
         public List<EnhancedCashFlowTransaction>? Transactions { get; set; }
-        
     }
-    
 }

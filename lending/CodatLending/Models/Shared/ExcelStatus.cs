@@ -12,78 +12,76 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class ExcelStatus
     {
+
         /// <summary>
         /// Error details in case the report generation request was unsuccessful.
         /// </summary>
         [JsonProperty("errorMessage")]
         public string? ErrorMessage { get; set; }
-        
+
         /// <summary>
         /// The file size in Bytes is populated upon successful generation of the report.
         /// </summary>
         [JsonProperty("fileSize")]
         public long? FileSize { get; set; }
-        
+
         /// <summary>
         /// When true, the request was successful and the report is being generated. If false, the request was unsuccessful and the report is not being generated.
         /// </summary>
         [JsonProperty("inProgress")]
         public bool? InProgress { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("lastGenerated")]
         public string? LastGenerated { get; set; }
-        
+
         /// <summary>
         /// A unique ID generated for this request.
         /// </summary>
         [JsonProperty("lastInvocationId")]
         public string? LastInvocationId { get; set; }
-        
+
         /// <summary>
         /// The date and time of when a successful request was queued for the most recent report.
         /// </summary>
         [JsonProperty("queued")]
         public string? Queued { get; set; }
-        
+
         /// <summary>
         /// The type of the report requested in the query string.
         /// </summary>
         [JsonProperty("reportType")]
         public ExcelReportTypes? ReportType { get; set; }
-        
+
         /// <summary>
         /// True if the requested report was successfully queued and false if the requested report was not able to be queued.
         /// </summary>
         [JsonProperty("success")]
         public bool? Success { get; set; }
-        
     }
-    
 }

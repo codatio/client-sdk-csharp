@@ -13,24 +13,23 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the address
     /// </summary>
     public enum CommerceAddressType
     {
-    	[JsonProperty("Billing")]
-		Billing,
-		[JsonProperty("Delivery")]
-		Delivery,
-		[JsonProperty("Order")]
-		Order,
-		[JsonProperty("Inventory")]
-		Inventory,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Billing")]
+        Billing,
+        [JsonProperty("Delivery")]
+        Delivery,
+        [JsonProperty("Order")]
+        Order,
+        [JsonProperty("Inventory")]
+        Inventory,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class CommerceAddressTypeExtension
     {
         public static string Value(this CommerceAddressType value)
@@ -57,5 +56,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum CommerceAddressType");
         }
     }
-    
 }

@@ -12,21 +12,19 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class OrderDiscountAllocation
     {
+
         /// <summary>
         /// Name of the discount in the commerce or point of sale platform.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
+
         /// <summary>
         /// Total amount of discount applied.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
-        
     }
-    
 }

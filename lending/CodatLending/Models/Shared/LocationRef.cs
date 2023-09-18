@@ -12,24 +12,22 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Reference to the geographic location where the order was placed.
     /// </summary>
     public class LocationRef
     {
+
         /// <summary>
         /// The unique identitifer of the location being referenced.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         /// <summary>
         /// Name of the location being referenced.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

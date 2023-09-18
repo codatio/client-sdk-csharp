@@ -13,19 +13,18 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum ReportItemsLoanTransactionType
     {
-    	[JsonProperty("Investment")]
-		Investment,
-		[JsonProperty("Repayment")]
-		Repayment,
-		[JsonProperty("Interest")]
-		Interest,
-		[JsonProperty("AccuredInterest")]
-		AccuredInterest,
+        [JsonProperty("Investment")]
+        Investment,
+        [JsonProperty("Repayment")]
+        Repayment,
+        [JsonProperty("Interest")]
+        Interest,
+        [JsonProperty("AccuredInterest")]
+        AccuredInterest,
     }
-    
+
     public static class ReportItemsLoanTransactionTypeExtension
     {
         public static string Value(this ReportItemsLoanTransactionType value)
@@ -52,5 +51,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum ReportItemsLoanTransactionType");
         }
     }
-    
 }

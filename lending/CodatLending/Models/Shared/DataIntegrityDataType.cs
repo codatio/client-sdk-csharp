@@ -13,19 +13,18 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum DataIntegrityDataType
     {
-    	[JsonProperty("banking-accounts")]
-		BankingAccounts,
-		[JsonProperty("banking-transactions")]
-		BankingTransactions,
-		[JsonProperty("bankAccounts")]
-		BankAccounts,
-		[JsonProperty("accountTransactions")]
-		AccountTransactions,
+        [JsonProperty("banking-accounts")]
+        BankingAccounts,
+        [JsonProperty("banking-transactions")]
+        BankingTransactions,
+        [JsonProperty("bankAccounts")]
+        BankAccounts,
+        [JsonProperty("accountTransactions")]
+        AccountTransactions,
     }
-    
+
     public static class DataIntegrityDataTypeExtension
     {
         public static string Value(this DataIntegrityDataType value)
@@ -52,5 +51,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum DataIntegrityDataType");
         }
     }
-    
 }

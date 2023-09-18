@@ -19,21 +19,47 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface ILiabilitiesSDK
-    {
-        Task<GetLoanSummaryResponse> GetLoanSummaryAsync(GetLoanSummaryRequest? request = null);
-        Task<ListLoanTransactionsResponse> ListLoanTransactionsAsync(ListLoanTransactionsRequest? request = null);
-    }
-
     /// <summary>
     /// Debt and other liabilities.
     /// </summary>
+    public interface ILiabilitiesSDK
+    {
+
+        /// <summary>
+        /// Get loan summaries
+        /// 
+        /// <remarks>
+        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified in each integration.<br/>
+        /// <br/>
+        /// The endpoint returns a list of a company&apos;s <a href="https://docs.codat.io/lending-api#/schemas/LoanSummary">loan summaries</a> for each valid data connection.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetLoanSummaryResponse> GetLoanSummaryAsync(GetLoanSummaryRequest? request = null);
+
+        /// <summary>
+        /// List loan transactions
+        /// 
+        /// <remarks>
+        /// The *List loan transactions* endpoint returns all <a href="https://docs.codat.io/lending-api#/schemas/LoanTransactions">loan transactions</a> identified from a company&apos;s accounting, banking, and commerce integrations.<br/>
+        /// <br/>
+        /// This detail gives analysts a better idea of the loan obligations a company may have.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<ListLoanTransactionsResponse> ListLoanTransactionsAsync(ListLoanTransactionsRequest? request = null);
+    }
+
     public class LiabilitiesSDK: ILiabilitiesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,18 +74,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get loan summaries
-        /// 
-        /// <remarks>
-        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified in each integration.
-        /// 
-        /// The endpoint returns a list of a company's [loan summaries](https://docs.codat.io/lending-api#/schemas/LoanSummary) for each valid data connection.
-        /// 
-        /// Make sure you have [synced a company](https://docs.codat.io/lending-api#/operations/refresh-company-data) recently before calling the endpoint.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetLoanSummaryResponse> GetLoanSummaryAsync(GetLoanSummaryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -108,18 +122,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List loan transactions
-        /// 
-        /// <remarks>
-        /// The *List loan transactions* endpoint returns all [loan transactions](https://docs.codat.io/lending-api#/schemas/LoanTransactions) identified from a company's accounting, banking, and commerce integrations.
-        /// 
-        /// This detail gives analysts a better idea of the loan obligations a company may have.
-        /// 
-        /// Make sure you have [synced a company](https://docs.codat.io/lending-api#/operations/refresh-company-data) recently before calling the endpoint.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListLoanTransactionsResponse> ListLoanTransactionsAsync(ListLoanTransactionsRequest? request = null)
         {
             string baseUrl = _serverUrl;

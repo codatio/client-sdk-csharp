@@ -13,12 +13,10 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class DataIntegrityStatuses
     {
+
         [JsonProperty("metadata")]
         public List<DataIntegrityStatus>? Metadata { get; set; }
-        
     }
-    
 }

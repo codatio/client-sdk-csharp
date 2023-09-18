@@ -13,20 +13,19 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Accounting method used when aggregating the report data. In this case, `Cash`.
     /// </summary>
     public enum ReportBasis
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Accrual")]
-		Accrual,
-		[JsonProperty("Cash")]
-		Cash,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Accrual")]
+        Accrual,
+        [JsonProperty("Cash")]
+        Cash,
     }
-    
+
     public static class ReportBasisExtension
     {
         public static string Value(this ReportBasis value)
@@ -53,5 +52,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum ReportBasis");
         }
     }
-    
 }

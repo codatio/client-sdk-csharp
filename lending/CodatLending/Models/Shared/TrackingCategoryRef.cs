@@ -13,18 +13,16 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// References a category against which the item is tracked.
     /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
     public class TrackingCategoryRef
     {
+
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

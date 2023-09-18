@@ -14,24 +14,18 @@ namespace CodatLending.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class GetBankingTransactionCategoryResponse
     {
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public BankingTransactionCategory? BankingTransactionCategory { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

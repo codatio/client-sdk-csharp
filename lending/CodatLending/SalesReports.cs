@@ -21,7 +21,70 @@ namespace CodatLending
 
     public interface ISalesReportsSDK
     {
+
+        /// <summary>
+        /// Get orders report
+        /// 
+        /// <remarks>
+        /// The *Get orders report* endpoint returns the number of orders, total value, and average order value for a specific company&apos;s commerce connection over one or more periods of time.<br/>
+        /// <br/>
+        /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// <br/>
+        /// Learn more about the formulas used to calculate the order metrics <a href="https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available">here</a>.<br/>
+        /// <br/>
+        /// Refer to the <a href="https://docs.codat.io/lending/commerce-metrics/reporting-structure">commerce reporting structure</a> page for more details on commerce reports in Lending.<br/>
+        /// <br/>
+        /// #### Response structure<br/>
+        /// <br/>
+        /// The Orders report&apos;s dimensions and measures are:<br/>
+        /// <br/>
+        /// | Index         | Dimensions     |<br/>
+        /// |---------------|----------------|<br/>
+        /// |   `index` = 0 | Period         |<br/>
+        /// |   `index` = 1 | Order metrics  |<br/>
+        /// <br/>
+        /// | Index         | Measures   |<br/>
+        /// |---------------|------------|<br/>
+        /// | `index` = 0   | Count      |<br/>
+        /// | `index` = 1   | Value      |<br/>
+        /// <br/>
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetCommerceOrdersReportResponse> GetOrdersAsync(GetCommerceOrdersReportRequest? request = null);
+
+        /// <summary>
+        /// Get refunds report
+        /// 
+        /// <remarks>
+        /// The *Get refunds report* endpoint returns the number and total value of refunds and the refund rate for a specific company&apos;s commerce connection over one or more periods of time.<br/>
+        /// <br/>
+        /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// <br/>
+        /// Learn more about the formulas used to calculate the refunds metrics <a href="https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available">here</a>.<br/>
+        /// <br/>
+        /// Refer to the <a href="https://docs.codat.io/lending/commerce-metrics/reporting-structure">commerce reporting structure</a> page for more details on commerce reports in Lending.<br/>
+        /// <br/>
+        /// #### Response structure<br/>
+        /// <br/>
+        /// The Refunds report&apos;s dimensions and measures are:<br/>
+        /// <br/>
+        /// | Index          | Dimensions     |<br/>
+        /// |----------------|----------------|<br/>
+        /// | `index` = 0    | Period         |<br/>
+        /// | `index` = 1    | Refund metrics |<br/>
+        /// <br/>
+        /// | Index          | Measures    |<br/>
+        /// |----------------|------------|<br/>
+        /// | `index` = 0    | Count      |<br/>
+        /// | `index` = 1    | Value      |<br/>
+        /// | `index` = 2    | Percentage |<br/>
+        /// <br/>
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetCommerceRefundsReportResponse> GetRefundsAsync(GetCommerceRefundsReportRequest? request = null);
     }
 
@@ -29,8 +92,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,36 +108,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get orders report
-        /// 
-        /// <remarks>
-        /// The *Get orders report* endpoint returns the number of orders, total value, and average order value for a specific company's commerce connection over one or more periods of time.
-        /// 
-        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
-        /// 
-        /// Learn more about the formulas used to calculate the order metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
-        /// 
-        /// Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
-        /// 
-        /// #### Response structure
-        /// 
-        /// The Orders report's dimensions and measures are:
-        /// 
-        /// | Index         | Dimensions     |
-        /// |---------------|----------------|
-        /// |   `index` = 0 | Period         |
-        /// |   `index` = 1 | Order metrics  |
-        /// 
-        /// | Index         | Measures   |
-        /// |---------------|------------|
-        /// | `index` = 0   | Count      |
-        /// | `index` = 1   | Value      |
-        /// 
-        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCommerceOrdersReportResponse> GetOrdersAsync(GetCommerceOrdersReportRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -123,37 +156,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get refunds report
-        /// 
-        /// <remarks>
-        /// The *Get refunds report* endpoint returns the number and total value of refunds and the refund rate for a specific company's commerce connection over one or more periods of time.
-        /// 
-        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
-        /// 
-        /// Learn more about the formulas used to calculate the refunds metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
-        /// 
-        /// Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
-        /// 
-        /// #### Response structure
-        /// 
-        /// The Refunds report's dimensions and measures are:
-        /// 
-        /// | Index          | Dimensions     |
-        /// |----------------|----------------|
-        /// | `index` = 0    | Period         |
-        /// | `index` = 1    | Refund metrics |
-        /// 
-        /// | Index          | Measures    |
-        /// |----------------|------------|
-        /// | `index` = 0    | Count      |
-        /// | `index` = 1    | Value      |
-        /// | `index` = 2    | Percentage |
-        /// 
-        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCommerceRefundsReportResponse> GetRefundsAsync(GetCommerceRefundsReportRequest? request = null)
         {
             string baseUrl = _serverUrl;

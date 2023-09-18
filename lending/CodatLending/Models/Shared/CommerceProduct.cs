@@ -13,56 +13,54 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
-    /// A Product is an item in the company's inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.
+    /// A Product is an item in the company&amp;apos;s inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-products) for this data type.
+    /// <br/>
+    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-products">data coverage</a> for this data type.<br/>
     /// 
     /// </remarks>
     /// </summary>
     public class CommerceProduct
     {
+
         /// <summary>
         /// Retail category that the product is assigned to
         /// </summary>
         [JsonProperty("categorization")]
         public string? Categorization { get; set; }
-        
+
         /// <summary>
         /// Description of the product recorded in the commerce or point of sale platform.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
-        
+
         /// <summary>
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         /// <summary>
-        /// Whether the product represents a gift card or voucher that
+        /// Whether the product represents a gift card or voucher that&lt;br/&gt;
         /// 
         /// <remarks>
-        /// can be redeemed in the commerce or POS platform
+        /// can be redeemed in the commerce or POS platform<br/>
         /// 
         /// </remarks>
         /// </summary>
         [JsonProperty("isGiftCard")]
         public bool? IsGiftCard { get; set; }
-        
+
         /// <summary>
         /// Name of the product in the commerce or POS system
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
+
         [JsonProperty("variants")]
         public List<ProductVariant>? Variants { get; set; }
-        
     }
-    
 }

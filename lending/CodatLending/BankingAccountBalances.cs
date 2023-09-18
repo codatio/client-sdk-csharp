@@ -21,6 +21,19 @@ namespace CodatLending
 
     public interface IBankingAccountBalancesSDK
     {
+
+        /// <summary>
+        /// List account balances
+        /// 
+        /// <remarks>
+        /// The *List account balances* endpoint returns a list of <a href="https://docs.codat.io/banking-api#/schemas/AccountBalance">account balances</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/banking-api#/schemas/AccountBalance">Account balances</a> are balances for a bank account, including end-of-day batch balance or running balances per transaction.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListBankingAccountBalancesResponse> ListAsync(ListBankingAccountBalancesRequest? request = null);
     }
 
@@ -28,8 +41,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -44,18 +57,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List account balances
-        /// 
-        /// <remarks>
-        /// The *List account balances* endpoint returns a list of [account balances](https://docs.codat.io/banking-api#/schemas/AccountBalance) for a given company's connection.
-        /// 
-        /// [Account balances](https://docs.codat.io/banking-api#/schemas/AccountBalance) are balances for a bank account, including end-of-day batch balance or running balances per transaction.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListBankingAccountBalancesResponse> ListAsync(ListBankingAccountBalancesRequest? request = null)
         {
             string baseUrl = _serverUrl;

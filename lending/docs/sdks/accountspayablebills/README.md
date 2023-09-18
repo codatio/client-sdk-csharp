@@ -1,4 +1,4 @@
-# accountsPayableBills
+# AccountsPayable.Bills
 
 ### Available Operations
 

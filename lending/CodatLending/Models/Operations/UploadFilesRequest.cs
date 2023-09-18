@@ -12,18 +12,16 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class UploadFilesRequest
     {
+
         [SpeakeasyMetadata("multipartForm:file request:mediaType=multipart/form-data")]
         public UploadFilesRequestBody? RequestBody { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

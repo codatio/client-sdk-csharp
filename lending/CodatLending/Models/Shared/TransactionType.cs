@@ -13,41 +13,40 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
-    /// The type of the platform transaction:  
+    /// The type of the platform transaction:  &lt;br/&gt;
     /// 
     /// <remarks>
-    /// - `Unknown`  
-    /// - `FailedPayout` — Failed transfer of funds from the seller's merchant account to their bank account.  
-    /// - `Payment` — Credit and debit card payments.  
-    /// - `PaymentFee` — Payment provider's fee on each card payment.  
-    /// - `PaymentFeeRefund` — Payment provider's fee that has been refunded to the seller.  
-    /// - `Payout` — Transfer of funds from the seller's merchant account to their bank account.  
-    /// - `Refund` — Refunds to a customer's credit or debit card.  
-    /// - `Transfer` — Secure transfer of funds to the seller's bank account.  
+    /// - `Unknown`  <br/>
+    /// - `FailedPayout` — Failed transfer of funds from the seller&apos;s merchant account to their bank account.  <br/>
+    /// - `Payment` — Credit and debit card payments.  <br/>
+    /// - `PaymentFee` — Payment provider&apos;s fee on each card payment.  <br/>
+    /// - `PaymentFeeRefund` — Payment provider&apos;s fee that has been refunded to the seller.  <br/>
+    /// - `Payout` — Transfer of funds from the seller&apos;s merchant account to their bank account.  <br/>
+    /// - `Refund` — Refunds to a customer&apos;s credit or debit card.  <br/>
+    /// - `Transfer` — Secure transfer of funds to the seller&apos;s bank account.  
     /// </remarks>
     /// </summary>
     public enum TransactionType
     {
-    	[JsonProperty("Payment")]
-		Payment,
-		[JsonProperty("Refund")]
-		Refund,
-		[JsonProperty("Payout")]
-		Payout,
-		[JsonProperty("FailedPayout")]
-		FailedPayout,
-		[JsonProperty("Transfer")]
-		Transfer,
-		[JsonProperty("PaymentFee")]
-		PaymentFee,
-		[JsonProperty("PaymentFeeRefund")]
-		PaymentFeeRefund,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Payment")]
+        Payment,
+        [JsonProperty("Refund")]
+        Refund,
+        [JsonProperty("Payout")]
+        Payout,
+        [JsonProperty("FailedPayout")]
+        FailedPayout,
+        [JsonProperty("Transfer")]
+        Transfer,
+        [JsonProperty("PaymentFee")]
+        PaymentFee,
+        [JsonProperty("PaymentFeeRefund")]
+        PaymentFeeRefund,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class TransactionTypeExtension
     {
         public static string Value(this TransactionType value)
@@ -74,5 +73,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum TransactionType");
         }
     }
-    
 }

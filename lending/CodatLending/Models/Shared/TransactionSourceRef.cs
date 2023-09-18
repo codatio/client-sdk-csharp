@@ -12,18 +12,16 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class TransactionSourceRef
     {
+
         /// <summary>
         /// The unique identitifer of the record being referenced
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         [JsonProperty("type")]
         public TransactionSourceType Type { get; set; } = default!;
-        
     }
-    
 }

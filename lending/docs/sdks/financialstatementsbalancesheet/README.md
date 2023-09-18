@@ -1,4 +1,4 @@
-# financialStatementsBalanceSheet
+# FinancialStatements.BalanceSheet
 
 ### Available Operations
 

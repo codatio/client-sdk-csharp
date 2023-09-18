@@ -12,18 +12,16 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class GetAccountingAccountTransactionRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountTransactionId")]
         public string AccountTransactionId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

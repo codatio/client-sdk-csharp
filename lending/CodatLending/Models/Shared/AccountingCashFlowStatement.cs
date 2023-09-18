@@ -13,114 +13,112 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
-    /// > View the coverage for cash flow statement in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=cashFlowStatement" target="_blank">Data coverage explorer</a>.
+    /// &amp;gt; View the coverage for cash flow statement in the &amp;lt;a className=&amp;quot;external&amp;quot; href=&amp;quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;amp;dataType=cashFlowStatement&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Data coverage explorer&amp;lt;/a&amp;gt;.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// > **Operating activities only**  
-    /// > 
-    /// > Currently, the cash flow statement shows cash that flows into and out of the company from operating activities *only*. Operating activities generate cash from the sale of goods or services.
-    /// 
-    /// ## Overview
-    /// 
-    /// A cash flow statement is a financial report that records all cash that is received or spent by a company during a given period. It gives you a clearer picture of the company’s performance, and their ability to pay creditors and finance growth.
-    /// 
-    /// > **Cash flow statement or balance sheet?**
-    /// > 
-    /// > Look at the cash flow statement to understand a company's ability to pay its bills. Although the balance sheet may show healthy earnings at a specific point in time, the cash flow statement allows you to see whether the company is meeting its financial commitments, such as paying creditors or its employees.
+    /// <br/>
+    /// &gt; **Operating activities only**  <br/>
+    /// &gt; <br/>
+    /// &gt; Currently, the cash flow statement shows cash that flows into and out of the company from operating activities *only*. Operating activities generate cash from the sale of goods or services.<br/>
+    /// <br/>
+    /// ## Overview<br/>
+    /// <br/>
+    /// A cash flow statement is a financial report that records all cash that is received or spent by a company during a given period. It gives you a clearer picture of the company’s performance, and their ability to pay creditors and finance growth.<br/>
+    /// <br/>
+    /// &gt; **Cash flow statement or balance sheet?**<br/>
+    /// &gt; <br/>
+    /// &gt; Look at the cash flow statement to understand a company&apos;s ability to pay its bills. Although the balance sheet may show healthy earnings at a specific point in time, the cash flow statement allows you to see whether the company is meeting its financial commitments, such as paying creditors or its employees.
     /// </remarks>
     /// </summary>
     public class AccountingCashFlowStatement
     {
+
         /// <summary>
-        /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ## Unknown currencies
-        /// 
-        /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
-        /// 
+        /// <br/>
+        /// ## Unknown currencies<br/>
+        /// <br/>
+        /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
+        /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string Currency { get; set; } = default!;
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("earliestAvailableMonth")]
         public string? EarliestAvailableMonth { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("mostRecentAvailableMonth")]
         public string? MostRecentAvailableMonth { get; set; }
-        
+
         /// <summary>
         /// Accounting method used when aggregating the report data. In this case, `Cash`.
         /// </summary>
         [JsonProperty("reportBasis")]
         public ReportBasis ReportBasis { get; set; } = default!;
-        
+
         /// <summary>
         /// Accounting method used to prepare the cash flow statement.
         /// </summary>
         [JsonProperty("reportInput")]
         public ReportInput ReportInput { get; set; } = default!;
-        
+
         /// <summary>
         /// Array of cash flow statements.
         /// </summary>
         [JsonProperty("reports")]
         public List<CashFlowStatement> Reports { get; set; } = default!;
-        
     }
-    
 }

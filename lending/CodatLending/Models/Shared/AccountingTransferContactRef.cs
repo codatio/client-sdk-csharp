@@ -12,18 +12,16 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// The customer or supplier for the transfer, if available.
     /// </summary>
     public class AccountingTransferContactRef
     {
+
         [JsonProperty("dataType")]
         public string? DataType { get; set; }
-        
+
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
     }
-    
 }

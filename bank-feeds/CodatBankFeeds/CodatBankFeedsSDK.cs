@@ -17,12 +17,54 @@ namespace CodatBankFeeds
     using System.Threading.Tasks;
     using System;
 
+    /// <summary>
+    /// Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.&lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting package.<br/>
+    /// <br/>
+    /// <a href="https://docs.codat.io/bank-feeds-api/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <br/>
+    /// ---<br/>
+    /// <br/>
+    /// ## Endpoints<br/>
+    /// <br/>
+    /// | Endpoints | Description |<br/>
+    /// | :- | :- |<br/>
+    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Connections | Create new and manage existing data connections for a company. |<br/>
+    /// | Source accounts | Provide and manage lists of source bank accounts.   |<br/>
+    /// | Transactions | Create new bank account transactions for a company&apos;s connections, and see previous operations. |<br/>
+    /// | Account mapping | Extra functionality for building an account management UI |
+    /// </remarks>
+    /// </summary>
     public interface ICodatBankFeedsSDK
     {
+
+        /// <summary>
+        /// Bank feed bank account mapping.
+        /// </summary>
         public IAccountMappingSDK AccountMapping { get; }
+
+        /// <summary>
+        /// Create and manage your Codat companies.
+        /// </summary>
         public ICompaniesSDK Companies { get; }
+
+        /// <summary>
+        /// Manage your companies&amp;apos; data connections.
+        /// </summary>
         public IConnectionsSDK Connections { get; }
+
+        /// <summary>
+        /// Source accounts act as a bridge to bank accounts in accounting software.
+        /// </summary>
         public ISourceAccountsSDK SourceAccounts { get; }
+
+        /// <summary>
+        /// Transactions represent debits and credits from a source account.
+        /// </summary>
         public ITransactionsSDK Transactions { get; }
     }
     
@@ -30,28 +72,6 @@ namespace CodatBankFeeds
     {
     }
 
-    /// <summary>
-    /// Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.
-    /// 
-    /// <remarks>
-    /// 
-    /// A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting package.
-    /// 
-    /// [Explore product](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
-    /// 
-    /// ---
-    /// 
-    /// ## Endpoints
-    /// 
-    /// | Endpoints | Description |
-    /// | :- | :- |
-    /// | Companies | Create and manage your SMB users' companies. |
-    /// | Connections | Create new and manage existing data connections for a company. |
-    /// | Source accounts | Provide and manage lists of source bank accounts.   |
-    /// | Transactions | Create new bank account transactions for a company's connections, and see previous operations. |
-    /// | Account mapping | Extra functionality for building an account management UI |
-    /// </remarks>
-    /// </summary>
     public class CodatBankFeedsSDK: ICodatBankFeedsSDK
     {
         public SDKConfig Config { get; private set; }
@@ -61,31 +81,16 @@ namespace CodatBankFeeds
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        /// <summary>
-        /// Bank feed bank account mapping.
-        /// </summary>
         public IAccountMappingSDK AccountMapping { get; private set; }
-        /// <summary>
-        /// Create and manage your Codat companies.
-        /// </summary>
         public ICompaniesSDK Companies { get; private set; }
-        /// <summary>
-        /// Manage your companies' data connections.
-        /// </summary>
         public IConnectionsSDK Connections { get; private set; }
-        /// <summary>
-        /// Source accounts act as a bridge to bank accounts in accounting software.
-        /// </summary>
         public ISourceAccountsSDK SourceAccounts { get; private set; }
-        /// <summary>
-        /// Transactions represent debits and credits from a source account.
-        /// </summary>
         public ITransactionsSDK Transactions { get; private set; }
 
         public CodatBankFeedsSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)

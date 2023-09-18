@@ -19,25 +19,105 @@ namespace CodatBankFeeds
     using System.Threading.Tasks;
     using System;
 
-    public interface ISourceAccountsSDK
-    {
-        Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest? request = null);
-        Task<DeleteSourceAccountResponse> DeleteAsync(DeleteSourceAccountRequest? request = null);
-        Task<DeleteBankFeedCredentialsResponse> DeleteCredentialsAsync(DeleteBankFeedCredentialsRequest? request = null);
-        Task<GenerateCredentialsResponse> GenerateCredentialsAsync(GenerateCredentialsRequest request);
-        Task<ListSourceAccountsResponse> ListAsync(ListSourceAccountsRequest? request = null);
-        Task<UpdateSourceAccountResponse> UpdateAsync(UpdateSourceAccountRequest? request = null);
-    }
-
     /// <summary>
     /// Source accounts act as a bridge to bank accounts in accounting software.
     /// </summary>
+    public interface ISourceAccountsSDK
+    {
+
+        /// <summary>
+        /// Create source account
+        /// 
+        /// <remarks>
+        /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat&apos;s domain. The company can then map the source account to an existing or new target account in their accounting software.<br/>
+        /// <br/>
+        /// #### Account Mapping Variability<br/>
+        /// <br/>
+        /// The method of mapping the source account to the target account varies depending on the accounting package your company uses.<br/>
+        /// <br/>
+        /// #### Mapping Options:<br/>
+        /// <br/>
+        /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
+        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat&apos;s provided user interface for mapping.<br/>
+        /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
+        /// <br/>
+        /// ### Integration specific behaviour<br/>
+        /// <br/>
+        /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |<br/>
+        /// | --------------------- | ----------- | ---------------- | --------------------------- |<br/>
+        /// | Xero                  | ✅          | ✅               |                             |<br/>
+        /// | FreeAgent             | ✅          | ✅               |                             |<br/>
+        /// | QuickBooks Online     |             |                  | ✅                          |<br/>
+        /// | Sage                  |             |                  | ✅                          |<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest? request = null);
+
+        /// <summary>
+        /// Delete source account
+        /// 
+        /// <remarks>
+        /// The _Delete source account_ endpoint enables you to remove a source account.<br/>
+        /// <br/>
+        /// Removing a source account will also remove any mapping between the source bank feed bank accounts and the target bankfeed bank account.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<DeleteSourceAccountResponse> DeleteAsync(DeleteSourceAccountRequest? request = null);
+
+        /// <summary>
+        /// Delete all source account credentials
+        /// 
+        /// <remarks>
+        /// The _Delete Bank Account Credentials_ endpoint serves as a comprehensive mechanism for revoking all existing authorization credentials that a company employs to establish its Bank Feed connection.<br/>
+        /// <br/>
+        /// In cases where multiple credential sets have been generated, a single API call to this endpoint revokes all of them.
+        /// </remarks>
+        /// </summary>
+        Task<DeleteBankFeedCredentialsResponse> DeleteCredentialsAsync(DeleteBankFeedCredentialsRequest? request = null);
+
+        /// <summary>
+        /// Generate source account credentials
+        /// 
+        /// <remarks>
+        /// The _Generate Bank Account Credentials_ endpoint can be used to generate credentials for QuickBooks Online to use for authentication of the Bank Feed in their portal, each time this is used a new set of credentials will be generated.<br/>
+        /// <br/>
+        /// The old credentials will still be valid until the revoke credentials endpoint is used, which will revoke all credentials associated to the data connection.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GenerateCredentialsResponse> GenerateCredentialsAsync(GenerateCredentialsRequest request);
+
+        /// <summary>
+        /// List source accounts
+        /// 
+        /// <remarks>
+        /// The _List source accounts_ endpoint returns a list of <a href="https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount">source accounts</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount">source accounts</a> are the bank&apos;s bank account within Codat&apos;s domain from which transactions are synced into the accounting platform.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<ListSourceAccountsResponse> ListAsync(ListSourceAccountsRequest? request = null);
+
+        /// <summary>
+        /// Update source account
+        /// 
+        /// <remarks>
+        /// The _Update source account_ endpoint updates a single source account for a single data connection connected to a single company.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<UpdateSourceAccountResponse> UpdateAsync(UpdateSourceAccountRequest? request = null);
+    }
+
     public class SourceAccountsSDK: ISourceAccountsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -52,33 +132,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Create source account
-        /// 
-        /// <remarks>
-        /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
-        /// 
-        /// #### Account Mapping Variability
-        /// 
-        /// The method of mapping the source account to the target account varies depending on the accounting package your company uses.
-        /// 
-        /// #### Mapping Options:
-        /// 
-        /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
-        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
-        /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
-        /// 
-        /// ### Integration specific behaviour
-        /// 
-        /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
-        /// | --------------------- | ----------- | ---------------- | --------------------------- |
-        /// | Xero                  | ✅          | ✅               |                             |
-        /// | FreeAgent             | ✅          | ✅               |                             |
-        /// | QuickBooks Online     |             |                  | ✅                          |
-        /// | Sage                  |             |                  | ✅                          |
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -132,16 +185,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Delete source account
-        /// 
-        /// <remarks>
-        /// The _Delete source account_ endpoint enables you to remove a source account.
-        /// 
-        /// Removing a source account will also remove any mapping between the source bank feed bank accounts and the target bankfeed bank account.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DeleteSourceAccountResponse> DeleteAsync(DeleteSourceAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -186,15 +229,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Delete all source account credentials
-        /// 
-        /// <remarks>
-        /// The _Delete Bank Account Credentials_ endpoint serves as a comprehensive mechanism for revoking all existing authorization credentials that a company employs to establish its Bank Feed connection.
-        /// 
-        /// In cases where multiple credential sets have been generated, a single API call to this endpoint revokes all of them.
-        /// </remarks>
-        /// </summary>
         public async Task<DeleteBankFeedCredentialsResponse> DeleteCredentialsAsync(DeleteBankFeedCredentialsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -239,16 +273,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Generate source account credentials
-        /// 
-        /// <remarks>
-        /// The _Generate Bank Account Credentials_ endpoint can be used to generate credentials for QuickBooks Online to use for authentication of the Bank Feed in their portal, each time this is used a new set of credentials will be generated.
-        /// 
-        /// The old credentials will still be valid until the revoke credentials endpoint is used, which will revoke all credentials associated to the data connection.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GenerateCredentialsResponse> GenerateCredentialsAsync(GenerateCredentialsRequest request)
         {
             string baseUrl = _serverUrl;
@@ -306,16 +330,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// List source accounts
-        /// 
-        /// <remarks>
-        /// The _List source accounts_ endpoint returns a list of [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
-        /// 
-        /// [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListSourceAccountsResponse> ListAsync(ListSourceAccountsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -364,14 +378,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Update source account
-        /// 
-        /// <remarks>
-        /// The _Update source account_ endpoint updates a single source account for a single data connection connected to a single company.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<UpdateSourceAccountResponse> UpdateAsync(UpdateSourceAccountRequest? request = null)
         {
             string baseUrl = _serverUrl;

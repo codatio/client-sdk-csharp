@@ -91,6 +91,12 @@ CodatBankFeeds/Models/Shared/PushOperationRef.cs
 CodatBankFeeds/Models/Shared/PushOperation.cs
 CodatBankFeeds/Models/Shared/PushOperations.cs
 CodatBankFeeds/Models/Shared/Security.cs
+CodatBankFeeds/Models/Shared/ClientRateLimitReachedWebhook.cs
+CodatBankFeeds/Models/Shared/ClientRateLimitReachedWebhookData.cs
+CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhook.cs
+CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhookData.cs
+CodatBankFeeds/Models/Webhooks/ClientRateLimitReachedResponse.cs
+CodatBankFeeds/Models/Webhooks/ClientRateLimitResetResponse.cs
 docs/sdks/codatbankfeeds/README.md
 docs/sdks/accountmapping/README.md
 docs/sdks/companies/README.md
@@ -171,4 +177,10 @@ docs/models/shared/PushOperationRef.md
 docs/models/shared/PushOperation.md
 docs/models/shared/PushOperations.md
 docs/models/shared/Security.md
+docs/models/shared/ClientRateLimitReachedWebhook.md
+docs/models/shared/ClientRateLimitReachedWebhookData.md
+docs/models/shared/ClientRateLimitResetWebhook.md
+docs/models/shared/ClientRateLimitResetWebhookData.md
+docs/models/webhooks/ClientRateLimitReachedResponse.md
+docs/models/webhooks/ClientRateLimitResetResponse.md
 .gitattributes

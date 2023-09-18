@@ -12,36 +12,34 @@ namespace CodatBankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// The result from POSTing a Bank Account mapping.
     /// </summary>
     public class BankFeedAccountMappingResponse
     {
+
         /// <summary>
         /// Error returned during the post request
         /// </summary>
         [JsonProperty("Error")]
         public string? Error { get; set; }
-        
+
         /// <summary>
         /// Status of the POST request.
         /// </summary>
         [JsonProperty("Status")]
         public string? Status { get; set; }
-        
+
         /// <summary>
         /// Unique ID for the source account.
         /// </summary>
         [JsonProperty("sourceAccountId")]
         public string? SourceAccountId { get; set; }
-        
+
         /// <summary>
         /// Unique ID for the target account.
         /// </summary>
         [JsonProperty("targetAccountId")]
         public string? TargetAccountId { get; set; }
-        
     }
-    
 }

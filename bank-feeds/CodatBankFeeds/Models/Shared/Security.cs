@@ -12,12 +12,10 @@ namespace CodatBankFeeds.Models.Shared
 {
     using CodatBankFeeds.Utils;
     
-    
     public class Security
     {
+
         [SpeakeasyMetadata("security:scheme=true,type=apiKey,subType=header,name=Authorization")]
         public string AuthHeader { get; set; } = default!;
-        
     }
-    
 }

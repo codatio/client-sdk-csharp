@@ -19,22 +19,55 @@ namespace CodatBankFeeds
     using System.Threading.Tasks;
     using System;
 
-    public interface ITransactionsSDK
-    {
-        Task<Models.Operations.CreateBankTransactionsResponse> CreateAsync(CreateBankTransactionsRequest? request = null);
-        Task<GetCreateOperationResponse> GetCreateOperationAsync(GetCreateOperationRequest? request = null);
-        Task<ListCreateOperationsResponse> ListCreateOperationsAsync(ListCreateOperationsRequest? request = null);
-    }
-
     /// <summary>
     /// Transactions represent debits and credits from a source account.
     /// </summary>
+    public interface ITransactionsSDK
+    {
+
+        /// <summary>
+        /// Create bank transactions
+        /// 
+        /// <remarks>
+        /// The *Create bank transactions* endpoint creates new <a href="https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions">bank transactions</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions">Bank transactions</a> are records of monetary amounts that have moved in and out of an SMB&apos;s bank account.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/bank-feeds-api#/operations/get-create-bankTransactions-model">Get create bank transaction model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankTransactions">coverage explorer</a> for integrations that support creating a bank account transactions.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateBankTransactionsResponse> CreateAsync(CreateBankTransactionsRequest? request = null);
+
+        /// <summary>
+        /// Get create operation
+        /// 
+        /// <remarks>
+        /// Retrieve push operation.
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateOperationResponse> GetCreateOperationAsync(GetCreateOperationRequest? request = null);
+
+        /// <summary>
+        /// List create operations
+        /// 
+        /// <remarks>
+        /// List create operations.
+        /// </remarks>
+        /// </summary>
+        Task<ListCreateOperationsResponse> ListCreateOperationsAsync(ListCreateOperationsRequest? request = null);
+    }
+
     public class TransactionsSDK: ITransactionsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -49,22 +82,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Create bank transactions
-        /// 
-        /// <remarks>
-        /// The *Create bank transactions* endpoint creates new [bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
-        /// 
-        /// [Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bankTransactions-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating a bank account transactions.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateBankTransactionsResponse> CreateAsync(CreateBankTransactionsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -118,13 +135,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// Get create operation
-        /// 
-        /// <remarks>
-        /// Retrieve push operation.
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateOperationResponse> GetCreateOperationAsync(GetCreateOperationRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -173,13 +183,6 @@ namespace CodatBankFeeds
         }
         
 
-        /// <summary>
-        /// List create operations
-        /// 
-        /// <remarks>
-        /// List create operations.
-        /// </remarks>
-        /// </summary>
         public async Task<ListCreateOperationsResponse> ListCreateOperationsAsync(ListCreateOperationsRequest? request = null)
         {
             string baseUrl = _serverUrl;

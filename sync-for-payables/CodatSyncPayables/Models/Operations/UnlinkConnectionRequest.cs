@@ -12,18 +12,16 @@ namespace CodatSyncPayables.Models.Operations
 {
     using CodatSyncPayables.Utils;
     
-    
     public class UnlinkConnectionRequest
     {
+
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public UnlinkConnectionUpdateConnection? RequestBody { get; set; }
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

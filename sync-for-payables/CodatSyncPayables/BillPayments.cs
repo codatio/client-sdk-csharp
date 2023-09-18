@@ -19,24 +19,116 @@ namespace CodatSyncPayables
     using System.Threading.Tasks;
     using System;
 
-    public interface IBillPaymentsSDK
-    {
-        Task<Models.Operations.CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest? request = null);
-        Task<DeleteBillPaymentResponse> DeleteAsync(DeleteBillPaymentRequest? request = null);
-        Task<GetBillPaymentsResponse> GetAsync(GetBillPaymentsRequest? request = null);
-        Task<GetCreateBillPaymentModelResponse> GetCreateModelAsync(GetCreateBillPaymentModelRequest? request = null);
-        Task<ListBillPaymentsResponse> ListAsync(ListBillPaymentsRequest? request = null);
-    }
-
     /// <summary>
     /// Bill payments
     /// </summary>
+    public interface IBillPaymentsSDK
+    {
+
+        /// <summary>
+        /// Create bill payments
+        /// 
+        /// <remarks>
+        /// The *Create bill payment* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">bill payment</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-billPayments-model">Get create bill payment model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billPayments">coverage explorer</a> for integrations that support creating a bill payment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest? request = null);
+
+        /// <summary>
+        /// Delete bill payment
+        /// 
+        /// <remarks>
+        /// The *Delete bill payment* endpoint allows you to delete a specified bill payment from an accounting platform.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <br/>
+        /// ### Process<br/>
+        /// 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.<br/>
+        /// 2. Check the status of the delete operation by checking the status of push operation either via<br/>
+        ///     1. <a href="https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed">Push operation webhook</a> (advised),<br/>
+        ///     2. <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation">Push operation status endpoint</a>.<br/>
+        /// <br/>
+        ///    A `Success` status indicates that the bill payment object was deleted from the accounting platform.<br/>
+        /// 3. (Optional) Check that the bill payment was deleted from the accounting platform.<br/>
+        /// <br/>
+        /// ### Effect on related objects<br/>
+        /// Be aware that deleting a bill payment from an accounting platform might cause related objects to be modified.<br/>
+        /// <br/>
+        /// ## Integration specifics<br/>
+        /// Integrations that support soft delete do not permanently delete the object in the accounting platform.<br/>
+        /// <br/>
+        /// | Integration | Soft Delete | Details                                                                                             |  <br/>
+        /// |-------------|-------------|-----------------------------------------------------------------------------------------------------|<br/>
+        /// | Oracle NetSuite   | No          | See <a href="/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works">here</a> to learn more. |<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<DeleteBillPaymentResponse> DeleteAsync(DeleteBillPaymentRequest? request = null);
+
+        /// <summary>
+        /// Get bill payment
+        /// 
+        /// <remarks>
+        /// The *Get bill payment* endpoint returns a single bill payment for a given `billPaymentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billPayments">coverage explorer</a> for integrations that support getting a specific bill payment.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetBillPaymentsResponse> GetAsync(GetBillPaymentsRequest? request = null);
+
+        /// <summary>
+        /// Get create bill payment model
+        /// 
+        /// <remarks>
+        /// The *Get create bill payment model* endpoint returns the expected data for the request payload when creating a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">bill payment</a> for a given company and integration.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// See the *response examples* for integration-specific indicative models.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billPayments">coverage explorer</a> for integrations that support creating a bill payment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateBillPaymentModelResponse> GetCreateModelAsync(GetCreateBillPaymentModelRequest? request = null);
+
+        /// <summary>
+        /// List bill payments
+        /// 
+        /// <remarks>
+        /// The *List bill payments* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">bill payments</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
+        Task<ListBillPaymentsResponse> ListAsync(ListBillPaymentsRequest? request = null);
+    }
+
     public class BillPaymentsSDK: IBillPaymentsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,22 +143,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Create bill payments
-        /// 
-        /// <remarks>
-        /// The *Create bill payment* endpoint creates a new [bill payment](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company's connection.
-        /// 
-        /// [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create bill payment model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-billPayments-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating a bill payment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -120,35 +196,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Delete bill payment
-        /// 
-        /// <remarks>
-        /// The *Delete bill payment* endpoint allows you to delete a specified bill payment from an accounting platform.
-        /// 
-        /// [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-        /// 
-        /// ### Process
-        /// 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
-        /// 2. Check the status of the delete operation by checking the status of push operation either via
-        ///     1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
-        ///     2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
-        /// 
-        ///    A `Success` status indicates that the bill payment object was deleted from the accounting platform.
-        /// 3. (Optional) Check that the bill payment was deleted from the accounting platform.
-        /// 
-        /// ### Effect on related objects
-        /// Be aware that deleting a bill payment from an accounting platform might cause related objects to be modified.
-        /// 
-        /// ## Integration specifics
-        /// Integrations that support soft delete do not permanently delete the object in the accounting platform.
-        /// 
-        /// | Integration | Soft Delete | Details                                                                                             |  
-        /// |-------------|-------------|-----------------------------------------------------------------------------------------------------|
-        /// | Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more. |
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DeleteBillPaymentResponse> DeleteAsync(DeleteBillPaymentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -197,20 +244,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get bill payment
-        /// 
-        /// <remarks>
-        /// The *Get bill payment* endpoint returns a single bill payment for a given `billPaymentId`.
-        /// 
-        /// [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support getting a specific bill payment.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetBillPaymentsResponse> GetAsync(GetBillPaymentsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -259,22 +292,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get create bill payment model
-        /// 
-        /// <remarks>
-        /// The *Get create bill payment model* endpoint returns the expected data for the request payload when creating a [bill payment](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company and integration.
-        /// 
-        /// [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// See the *response examples* for integration-specific indicative models.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating a bill payment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateBillPaymentModelResponse> GetCreateModelAsync(GetCreateBillPaymentModelRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -323,18 +340,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// List bill payments
-        /// 
-        /// <remarks>
-        /// The *List bill payments* endpoint returns a list of [bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company's connection.
-        /// 
-        /// [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListBillPaymentsResponse> ListAsync(ListBillPaymentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

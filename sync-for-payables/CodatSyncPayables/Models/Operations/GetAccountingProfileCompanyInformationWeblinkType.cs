@@ -13,20 +13,19 @@ namespace CodatSyncPayables.Models.Operations
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the weblink.
     /// </summary>
     public enum GetAccountingProfileCompanyInformationWeblinkType
     {
-    	[JsonProperty("Website")]
-		Website,
-		[JsonProperty("Social")]
-		Social,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Website")]
+        Website,
+        [JsonProperty("Social")]
+        Social,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class GetAccountingProfileCompanyInformationWeblinkTypeExtension
     {
         public static string Value(this GetAccountingProfileCompanyInformationWeblinkType value)
@@ -53,5 +52,4 @@ namespace CodatSyncPayables.Models.Operations
             throw new Exception($"Unknown value {value} for enum GetAccountingProfileCompanyInformationWeblinkType");
         }
     }
-    
 }

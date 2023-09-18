@@ -12,12 +12,10 @@ namespace CodatSyncPayables.Models.Shared
 {
     using CodatSyncPayables.Utils;
     
-    
     public class Security
     {
+
         [SpeakeasyMetadata("security:scheme=true,type=apiKey,subType=header,name=Authorization")]
         public string AuthHeader { get; set; } = default!;
-        
     }
-    
 }

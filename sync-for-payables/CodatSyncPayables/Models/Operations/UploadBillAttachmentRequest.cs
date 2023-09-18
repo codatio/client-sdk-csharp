@@ -12,24 +12,22 @@ namespace CodatSyncPayables.Models.Operations
 {
     using CodatSyncPayables.Utils;
     
-    
     public class UploadBillAttachmentRequest
     {
+
         [SpeakeasyMetadata("multipartForm:file request:mediaType=multipart/form-data")]
         public UploadBillAttachmentRequestBody? RequestBody { get; set; }
-        
+
         /// <summary>
         /// Unique identifier for a bill
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billId")]
         public string BillId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

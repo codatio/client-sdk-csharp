@@ -12,15 +12,13 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class BillWithholdingTax
     {
+
         [JsonProperty("amount")]
         public decimal Amount { get; set; } = default!;
-        
+
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
-        
     }
-    
 }

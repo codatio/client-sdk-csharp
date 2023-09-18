@@ -14,30 +14,23 @@ namespace CodatSyncPayables.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class CreateJournalResponse
     {
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Success
         /// </summary>
-        
         public Models.Shared.CreateJournalResponse? CreateJournalResponseValue { get; set; }
-        
+
         /// <summary>
         /// The request made is not valid.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

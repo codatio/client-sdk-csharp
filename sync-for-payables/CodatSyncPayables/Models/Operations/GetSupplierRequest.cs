@@ -12,18 +12,16 @@ namespace CodatSyncPayables.Models.Operations
 {
     using CodatSyncPayables.Utils;
     
-    
     public class GetSupplierRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
         /// Unique identifier for a supplier
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=supplierId")]
         public string SupplierId { get; set; } = default!;
-        
     }
-    
 }

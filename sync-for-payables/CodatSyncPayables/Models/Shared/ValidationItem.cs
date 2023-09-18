@@ -12,18 +12,16 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class ValidationItem
     {
+
         [JsonProperty("itemId")]
         public string? ItemId { get; set; }
-        
+
         [JsonProperty("message")]
         public string? Message { get; set; }
-        
+
         [JsonProperty("validatorName")]
         public string? ValidatorName { get; set; }
-        
     }
-    
 }

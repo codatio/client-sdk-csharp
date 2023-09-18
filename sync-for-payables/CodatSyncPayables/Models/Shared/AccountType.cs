@@ -13,26 +13,25 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Type of account
     /// </summary>
     public enum AccountType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Asset")]
-		Asset,
-		[JsonProperty("Expense")]
-		Expense,
-		[JsonProperty("Income")]
-		Income,
-		[JsonProperty("Liability")]
-		Liability,
-		[JsonProperty("Equity")]
-		Equity,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Asset")]
+        Asset,
+        [JsonProperty("Expense")]
+        Expense,
+        [JsonProperty("Income")]
+        Income,
+        [JsonProperty("Liability")]
+        Liability,
+        [JsonProperty("Equity")]
+        Equity,
     }
-    
+
     public static class AccountTypeExtension
     {
         public static string Value(this AccountType value)
@@ -59,5 +58,4 @@ namespace CodatSyncPayables.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountType");
         }
     }
-    
 }

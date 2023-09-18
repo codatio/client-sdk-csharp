@@ -19,21 +19,49 @@ namespace CodatSyncPayables
     using System.Threading.Tasks;
     using System;
 
-    public interface IPaymentMethodsSDK
-    {
-        Task<GetPaymentMethodResponse> GetAsync(GetPaymentMethodRequest? request = null);
-        Task<ListPaymentMethodsResponse> ListAsync(ListPaymentMethodsRequest? request = null);
-    }
-
     /// <summary>
     /// Payment methods
     /// </summary>
+    public interface IPaymentMethodsSDK
+    {
+
+        /// <summary>
+        /// Get payment method
+        /// 
+        /// <remarks>
+        /// The *Get payment method* endpoint returns a single payment method for a given `paymentMethodId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/PaymentMethod">Payment methods</a> are used to pay a Bill. Payment Methods are referenced on <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill Payments</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Payment">Payments</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=paymentMethods">coverage explorer</a> for integrations that support getting a specific payment method.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetPaymentMethodResponse> GetAsync(GetPaymentMethodRequest? request = null);
+
+        /// <summary>
+        /// List payment methods
+        /// 
+        /// <remarks>
+        /// The *List payment methods* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/PaymentMethod">payment methods</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/PaymentMethod">Payment methods</a> are used to pay a Bill. Payment Methods are referenced on <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill Payments</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Payment">Payments</a>.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
+        Task<ListPaymentMethodsResponse> ListAsync(ListPaymentMethodsRequest? request = null);
+    }
+
     public class PaymentMethodsSDK: IPaymentMethodsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,20 +76,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// Get payment method
-        /// 
-        /// <remarks>
-        /// The *Get payment method* endpoint returns a single payment method for a given `paymentMethodId`.
-        /// 
-        /// [Payment methods](https://docs.codat.io/sync-for-payables-api#/schemas/PaymentMethod) are used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/sync-for-payables-api#/schemas/Payment).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=paymentMethods) for integrations that support getting a specific payment method.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetPaymentMethodResponse> GetAsync(GetPaymentMethodRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -110,18 +124,6 @@ namespace CodatSyncPayables
         }
         
 
-        /// <summary>
-        /// List payment methods
-        /// 
-        /// <remarks>
-        /// The *List payment methods* endpoint returns a list of [payment methods](https://docs.codat.io/sync-for-payables-api#/schemas/PaymentMethod) for a given company's connection.
-        /// 
-        /// [Payment methods](https://docs.codat.io/sync-for-payables-api#/schemas/PaymentMethod) are used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/sync-for-payables-api#/schemas/Payment).
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListPaymentMethodsResponse> ListAsync(ListPaymentMethodsRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -67,14 +67,14 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 ## Available Resources and Operations
 
 
-### [accounts](docs/sdks/accounts/README.md)
+### [Accounts](docs/sdks/accounts/README.md)
 
 * [Create](docs/sdks/accounts/README.md#create) - Create account
 * [Get](docs/sdks/accounts/README.md#get) - Get account
 * [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
 * [List](docs/sdks/accounts/README.md#list) - List accounts
 
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [Create](docs/sdks/companies/README.md#create) - Create company
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -82,11 +82,11 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
-### [companyInfo](docs/sdks/companyinfo/README.md)
+### [CompanyInfo](docs/sdks/companyinfo/README.md)
 
 * [GetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
 * [Delete](docs/sdks/connections/README.md#delete) - Delete connection
@@ -94,7 +94,7 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [journalEntries](docs/sdks/journalentries/README.md)
+### [JournalEntries](docs/sdks/journalentries/README.md)
 
 * [Create](docs/sdks/journalentries/README.md#create) - Create journal entry
 * [Delete](docs/sdks/journalentries/README.md#delete) - Delete journal entry
@@ -102,14 +102,14 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [GetCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
 * [List](docs/sdks/journalentries/README.md#list) - List journal entries
 
-### [journals](docs/sdks/journals/README.md)
+### [Journals](docs/sdks/journals/README.md)
 
 * [Create](docs/sdks/journals/README.md#create) - Create journal
 * [Get](docs/sdks/journals/README.md#get) - Get journal
 * [GetCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
 * [List](docs/sdks/journals/README.md#list) - List journals
 
-### [manageData](docs/sdks/managedata/README.md)
+### [ManageData](docs/sdks/managedata/README.md)
 
 * [GetDataStatus](docs/sdks/managedata/README.md#getdatastatus) - Get data status
 * [GetPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
@@ -119,7 +119,7 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [RefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [RefreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
-### [trackingCategories](docs/sdks/trackingcategories/README.md)
+### [TrackingCategories](docs/sdks/trackingcategories/README.md)
 
 * [Get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 * [List](docs/sdks/trackingcategories/README.md#list) - List tracking categories

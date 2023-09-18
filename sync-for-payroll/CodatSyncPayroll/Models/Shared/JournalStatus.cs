@@ -13,20 +13,19 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Current journal status.
     /// </summary>
     public enum JournalStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Active")]
-		Active,
-		[JsonProperty("Archived")]
-		Archived,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Active")]
+        Active,
+        [JsonProperty("Archived")]
+        Archived,
     }
-    
+
     public static class JournalStatusExtension
     {
         public static string Value(this JournalStatus value)
@@ -53,5 +52,4 @@ namespace CodatSyncPayroll.Models.Shared
             throw new Exception($"Unknown value {value} for enum JournalStatus");
         }
     }
-    
 }

@@ -12,18 +12,16 @@ namespace CodatSyncPayroll.Models.Operations
 {
     using CodatSyncPayroll.Utils;
     
-    
     public class GetAccountRequest
     {
+
         /// <summary>
         /// Unique identifier for an account
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountId")]
         public string AccountId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
     }
-    
 }

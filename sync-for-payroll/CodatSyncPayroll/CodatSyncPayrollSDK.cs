@@ -17,15 +17,72 @@ namespace CodatSyncPayroll
     using System.Threading.Tasks;
     using System;
 
+    /// <summary>
+    /// Sync for Payroll: The API for Sync for Payroll. &lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// Sync for Payroll is an API and a set of supporting tools built to help integrate your customers&apos; payroll data from their HR and payroll platforms into their accounting platforms and to support its reconciliation.<br/>
+    /// <br/>
+    /// <a href="https://docs.codat.io/payroll/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <br/>
+    /// ---<br/>
+    /// <br/>
+    /// ## Endpoints<br/>
+    /// <br/>
+    /// | Endpoints            | Description                                                                                                |<br/>
+    /// |:---------------------|:-----------------------------------------------------------------------------------------------------------|<br/>
+    /// | Companies            | Create and manage your SMB users&apos; companies.                                                               |<br/>
+    /// | Connections          | Create new and manage existing data connections for a company.                                             |<br/>
+    /// | Accounts             | Get, create, and update Accounts.                                                           |<br/>
+    /// | Journal entries      | Get, create, and update Journal entries.                                                           |<br/>
+    /// | Journals             | Get, create, and update Journals.                                                           |<br/>
+    /// | Tracking categories  | Get, create, and update Tracking Categories for additional categorization of payroll components.                                                           |<br/>
+    /// | Company info         | View company profile from the source platform.                                                             |<br/>
+    /// | Manage data          | Control how data is retrieved from an integration.                                                         |
+    /// </remarks>
+    /// </summary>
     public interface ICodatSyncPayrollSDK
     {
+
+        /// <summary>
+        /// Accounts
+        /// </summary>
         public IAccountsSDK Accounts { get; }
+
+        /// <summary>
+        /// Create and manage your Codat companies.
+        /// </summary>
         public ICompaniesSDK Companies { get; }
+
+        /// <summary>
+        /// View company information fetched from the source platform.
+        /// </summary>
         public ICompanyInfoSDK CompanyInfo { get; }
+
+        /// <summary>
+        /// Manage your companies&amp;apos; data connections.
+        /// </summary>
         public IConnectionsSDK Connections { get; }
+
+        /// <summary>
+        /// Journal entries
+        /// </summary>
         public IJournalEntriesSDK JournalEntries { get; }
+
+        /// <summary>
+        /// Journals
+        /// </summary>
         public IJournalsSDK Journals { get; }
+
+        /// <summary>
+        /// Asynchronously retrieve data from an integration to refresh data in Codat.
+        /// </summary>
         public IManageDataSDK ManageData { get; }
+
+        /// <summary>
+        /// Tracking categories
+        /// </summary>
         public ITrackingCategoriesSDK TrackingCategories { get; }
     }
     
@@ -33,31 +90,6 @@ namespace CodatSyncPayroll
     {
     }
 
-    /// <summary>
-    /// Sync for Payroll: The API for Sync for Payroll. 
-    /// 
-    /// <remarks>
-    /// 
-    /// Sync for Payroll is an API and a set of supporting tools built to help integrate your customers' payroll data from their HR and payroll platforms into their accounting platforms and to support its reconciliation.
-    /// 
-    /// [Explore product](https://docs.codat.io/payroll/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
-    /// 
-    /// ---
-    /// 
-    /// ## Endpoints
-    /// 
-    /// | Endpoints            | Description                                                                                                |
-    /// |:---------------------|:-----------------------------------------------------------------------------------------------------------|
-    /// | Companies            | Create and manage your SMB users' companies.                                                               |
-    /// | Connections          | Create new and manage existing data connections for a company.                                             |
-    /// | Accounts             | Get, create, and update Accounts.                                                           |
-    /// | Journal entries      | Get, create, and update Journal entries.                                                           |
-    /// | Journals             | Get, create, and update Journals.                                                           |
-    /// | Tracking categories  | Get, create, and update Tracking Categories for additional categorization of payroll components.                                                           |
-    /// | Company info         | View company profile from the source platform.                                                             |
-    /// | Manage data          | Control how data is retrieved from an integration.                                                         |
-    /// </remarks>
-    /// </summary>
     public class CodatSyncPayrollSDK: ICodatSyncPayrollSDK
     {
         public SDKConfig Config { get; private set; }
@@ -67,43 +99,19 @@ namespace CodatSyncPayroll
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        /// <summary>
-        /// Accounts
-        /// </summary>
         public IAccountsSDK Accounts { get; private set; }
-        /// <summary>
-        /// Create and manage your Codat companies.
-        /// </summary>
         public ICompaniesSDK Companies { get; private set; }
-        /// <summary>
-        /// View company information fetched from the source platform.
-        /// </summary>
         public ICompanyInfoSDK CompanyInfo { get; private set; }
-        /// <summary>
-        /// Manage your companies' data connections.
-        /// </summary>
         public IConnectionsSDK Connections { get; private set; }
-        /// <summary>
-        /// Journal entries
-        /// </summary>
         public IJournalEntriesSDK JournalEntries { get; private set; }
-        /// <summary>
-        /// Journals
-        /// </summary>
         public IJournalsSDK Journals { get; private set; }
-        /// <summary>
-        /// Asynchronously retrieve data from an integration to refresh data in Codat.
-        /// </summary>
         public IManageDataSDK ManageData { get; private set; }
-        /// <summary>
-        /// Tracking categories
-        /// </summary>
         public ITrackingCategoriesSDK TrackingCategories { get; private set; }
 
         public CodatSyncPayrollSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)

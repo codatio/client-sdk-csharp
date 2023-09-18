@@ -14,30 +14,23 @@ namespace CodatSyncPayroll.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class UpdateCompanyResponse
     {
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public Company? Company { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Your API request was not properly authorized.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

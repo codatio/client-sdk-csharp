@@ -13,22 +13,21 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Status of the account
     /// </summary>
     public enum AccountStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Active")]
-		Active,
-		[JsonProperty("Archived")]
-		Archived,
-		[JsonProperty("Pending")]
-		Pending,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Active")]
+        Active,
+        [JsonProperty("Archived")]
+        Archived,
+        [JsonProperty("Pending")]
+        Pending,
     }
-    
+
     public static class AccountStatusExtension
     {
         public static string Value(this AccountStatus value)
@@ -55,5 +54,4 @@ namespace CodatSyncPayroll.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountStatus");
         }
     }
-    
 }

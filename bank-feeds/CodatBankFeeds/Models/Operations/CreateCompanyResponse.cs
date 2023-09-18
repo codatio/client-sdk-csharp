@@ -14,30 +14,23 @@ namespace CodatBankFeeds.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class CreateCompanyResponse
     {
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public Company? Company { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// The request made is not valid.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

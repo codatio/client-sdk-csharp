@@ -45,12 +45,12 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 ## Available Resources and Operations
 
 
-### [accountMapping](docs/sdks/accountmapping/README.md)
+### [AccountMapping](docs/sdks/accountmapping/README.md)
 
 * [Create](docs/sdks/accountmapping/README.md#create) - Create bank feed account mapping
 * [Get](docs/sdks/accountmapping/README.md#get) - List bank feed account mappings
 
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [Create](docs/sdks/companies/README.md#create) - Create company
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -58,7 +58,7 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
 * [Delete](docs/sdks/connections/README.md#delete) - Delete connection
@@ -66,7 +66,7 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [sourceAccounts](docs/sdks/sourceaccounts/README.md)
+### [SourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [Create](docs/sdks/sourceaccounts/README.md#create) - Create source account
 * [Delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
@@ -75,7 +75,7 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 * [List](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 * [Update](docs/sdks/sourceaccounts/README.md#update) - Update source account
 
-### [transactions](docs/sdks/transactions/README.md)
+### [Transactions](docs/sdks/transactions/README.md)
 
 * [Create](docs/sdks/transactions/README.md#create) - Create bank transactions
 * [GetCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation

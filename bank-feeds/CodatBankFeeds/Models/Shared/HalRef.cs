@@ -12,12 +12,10 @@ namespace CodatBankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class HalRef
     {
+
         [JsonProperty("href")]
         public string? Href { get; set; }
-        
     }
-    
 }

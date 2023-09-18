@@ -12,21 +12,19 @@ namespace CodatSyncPayroll.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class Links
     {
+
         [JsonProperty("current")]
         public HalRef Current { get; set; } = default!;
-        
+
         [JsonProperty("next")]
         public HalRef? Next { get; set; }
-        
+
         [JsonProperty("previous")]
         public HalRef? Previous { get; set; }
-        
+
         [JsonProperty("self")]
         public HalRef Self { get; set; } = default!;
-        
     }
-    
 }

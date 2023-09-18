@@ -12,15 +12,13 @@ namespace CodatSyncPayroll.Models.Operations
 {
     using CodatSyncPayroll.Utils;
     
-    
     public class GetCreateJournalEntryModelRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-        
     }
-    
 }

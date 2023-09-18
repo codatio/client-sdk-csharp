@@ -19,23 +19,85 @@ namespace CodatSyncPayroll
     using System.Threading.Tasks;
     using System;
 
-    public interface IJournalsSDK
-    {
-        Task<Models.Operations.CreateJournalResponse> CreateAsync(CreateJournalRequest? request = null);
-        Task<GetJournalResponse> GetAsync(GetJournalRequest? request = null);
-        Task<GetCreateJournalModelResponse> GetCreateModelAsync(GetCreateJournalModelRequest? request = null);
-        Task<ListJournalsResponse> ListAsync(ListJournalsRequest? request = null);
-    }
-
     /// <summary>
     /// Journals
     /// </summary>
+    public interface IJournalsSDK
+    {
+
+        /// <summary>
+        /// Create journal
+        /// 
+        /// <remarks>
+        /// The *Create journal* endpoint creates a new <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">journal</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">Journals</a> are used to record all the financial transactions of a company.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payroll-api#/operations/get-create-journals-model">Get create journal model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journals">coverage explorer</a> for integrations that support creating a journal.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<Models.Operations.CreateJournalResponse> CreateAsync(CreateJournalRequest? request = null);
+
+        /// <summary>
+        /// Get journal
+        /// 
+        /// <remarks>
+        /// The *Get journal* endpoint returns a single journal for a given `journalId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">Journals</a> are used to record all the financial transactions of a company.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journals">coverage explorer</a> for integrations that support getting a specific journal.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetJournalResponse> GetAsync(GetJournalRequest? request = null);
+
+        /// <summary>
+        /// Get create journal model
+        /// 
+        /// <remarks>
+        /// The *Get create journal model* endpoint returns the expected data for the request payload when creating a <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">journal</a> for a given company and integration.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">Journals</a> are used to record all the financial transactions of a company.<br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// See the *response examples* for integration-specific indicative models.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journals">coverage explorer</a> for integrations that support creating a journal.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCreateJournalModelResponse> GetCreateModelAsync(GetCreateJournalModelRequest? request = null);
+
+        /// <summary>
+        /// List journals
+        /// 
+        /// <remarks>
+        /// The *List journals* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">journals</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">Journals</a> are used to record all the financial transactions of a company.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
+        Task<ListJournalsResponse> ListAsync(ListJournalsRequest? request = null);
+    }
+
     public class JournalsSDK: IJournalsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "1.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,22 +112,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Create journal
-        /// 
-        /// <remarks>
-        /// The *Create journal* endpoint creates a new [journal](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) for a given company's connection.
-        /// 
-        /// [Journals](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) are used to record all the financial transactions of a company.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// Required data may vary by integration. To see what data to post, first call [Get create journal model](https://docs.codat.io/sync-for-payroll-api#/operations/get-create-journals-model).
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating a journal.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<Models.Operations.CreateJournalResponse> CreateAsync(CreateJournalRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -119,20 +165,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Get journal
-        /// 
-        /// <remarks>
-        /// The *Get journal* endpoint returns a single journal for a given `journalId`.
-        /// 
-        /// [Journals](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) are used to record all the financial transactions of a company.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support getting a specific journal.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetJournalResponse> GetAsync(GetJournalRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -181,22 +213,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// Get create journal model
-        /// 
-        /// <remarks>
-        /// The *Get create journal model* endpoint returns the expected data for the request payload when creating a [journal](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) for a given company and integration.
-        /// 
-        /// [Journals](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) are used to record all the financial transactions of a company.
-        /// 
-        /// **Integration-specific behaviour**
-        /// 
-        /// See the *response examples* for integration-specific indicative models.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating a journal.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCreateJournalModelResponse> GetCreateModelAsync(GetCreateJournalModelRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -245,18 +261,6 @@ namespace CodatSyncPayroll
         }
         
 
-        /// <summary>
-        /// List journals
-        /// 
-        /// <remarks>
-        /// The *List journals* endpoint returns a list of [journals](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) for a given company's connection.
-        /// 
-        /// [Journals](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) are used to record all the financial transactions of a company.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListJournalsResponse> ListAsync(ListJournalsRequest? request = null)
         {
             string baseUrl = _serverUrl;

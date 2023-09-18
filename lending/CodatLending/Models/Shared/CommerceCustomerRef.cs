@@ -12,24 +12,22 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Reference to the customer that placed the order.
     /// </summary>
     public class CommerceCustomerRef
     {
+
         /// <summary>
         /// The unique identitifer of the customer being referenced
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         /// <summary>
         /// Name of the customer being referenced.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

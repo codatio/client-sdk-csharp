@@ -13,50 +13,49 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Type of transaction for the bank statement line
     /// </summary>
     public enum BankTransactionType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Credit")]
-		Credit,
-		[JsonProperty("Debit")]
-		Debit,
-		[JsonProperty("Int")]
-		Int,
-		[JsonProperty("Div")]
-		Div,
-		[JsonProperty("Fee")]
-		Fee,
-		[JsonProperty("SerChg")]
-		SerChg,
-		[JsonProperty("Dep")]
-		Dep,
-		[JsonProperty("Atm")]
-		Atm,
-		[JsonProperty("Pos")]
-		Pos,
-		[JsonProperty("Xfer")]
-		Xfer,
-		[JsonProperty("Check")]
-		Check,
-		[JsonProperty("Payment")]
-		Payment,
-		[JsonProperty("Cash")]
-		Cash,
-		[JsonProperty("DirectDep")]
-		DirectDep,
-		[JsonProperty("DirectDebit")]
-		DirectDebit,
-		[JsonProperty("RepeatPmt")]
-		RepeatPmt,
-		[JsonProperty("Other")]
-		Other,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Credit")]
+        Credit,
+        [JsonProperty("Debit")]
+        Debit,
+        [JsonProperty("Int")]
+        Int,
+        [JsonProperty("Div")]
+        Div,
+        [JsonProperty("Fee")]
+        Fee,
+        [JsonProperty("SerChg")]
+        SerChg,
+        [JsonProperty("Dep")]
+        Dep,
+        [JsonProperty("Atm")]
+        Atm,
+        [JsonProperty("Pos")]
+        Pos,
+        [JsonProperty("Xfer")]
+        Xfer,
+        [JsonProperty("Check")]
+        Check,
+        [JsonProperty("Payment")]
+        Payment,
+        [JsonProperty("Cash")]
+        Cash,
+        [JsonProperty("DirectDep")]
+        DirectDep,
+        [JsonProperty("DirectDebit")]
+        DirectDebit,
+        [JsonProperty("RepeatPmt")]
+        RepeatPmt,
+        [JsonProperty("Other")]
+        Other,
     }
-    
+
     public static class BankTransactionTypeExtension
     {
         public static string Value(this BankTransactionType value)
@@ -83,5 +82,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum BankTransactionType");
         }
     }
-    
 }

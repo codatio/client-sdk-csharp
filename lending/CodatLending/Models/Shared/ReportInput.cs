@@ -13,20 +13,19 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Accounting method used to prepare the cash flow statement.
     /// </summary>
     public enum ReportInput
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Indirect")]
-		Indirect,
-		[JsonProperty("Direct")]
-		Direct,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Indirect")]
+        Indirect,
+        [JsonProperty("Direct")]
+        Direct,
     }
-    
+
     public static class ReportInputExtension
     {
         public static string Value(this ReportInput value)
@@ -53,5 +52,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum ReportInput");
         }
     }
-    
 }

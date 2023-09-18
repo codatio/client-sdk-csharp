@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface IAccountsPayableBillPaymentsSDK
     {
+
+        /// <summary>
+        /// Get bill payment
+        /// 
+        /// <remarks>
+        /// The *Get bill payment* endpoint returns a single bill payment for a given billPaymentId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billPayments">coverage explorer</a> for integrations that support getting a specific bill payment.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingBillPaymentResponse> GetAsync(GetAccountingBillPaymentRequest? request = null);
+
+        /// <summary>
+        /// List bill payments
+        /// 
+        /// <remarks>
+        /// The *List bill payments* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">bill payments</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingBillPaymentsResponse> ListAsync(ListAccountingBillPaymentsRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get bill payment
-        /// 
-        /// <remarks>
-        /// The *Get bill payment* endpoint returns a single bill payment for a given billPaymentId.
-        /// 
-        /// [Bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support getting a specific bill payment.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingBillPaymentResponse> GetAsync(GetAccountingBillPaymentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List bill payments
-        /// 
-        /// <remarks>
-        /// The *List bill payments* endpoint returns a list of [bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) for a given company's connection.
-        /// 
-        /// [Bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingBillPaymentsResponse> ListAsync(ListAccountingBillPaymentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

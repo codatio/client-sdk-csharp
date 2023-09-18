@@ -13,23 +13,22 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum CreditNoteStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Draft")]
-		Draft,
-		[JsonProperty("Submitted")]
-		Submitted,
-		[JsonProperty("Paid")]
-		Paid,
-		[JsonProperty("Void")]
-		Void,
-		[JsonProperty("PartiallyPaid")]
-		PartiallyPaid,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Draft")]
+        Draft,
+        [JsonProperty("Submitted")]
+        Submitted,
+        [JsonProperty("Paid")]
+        Paid,
+        [JsonProperty("Void")]
+        Void,
+        [JsonProperty("PartiallyPaid")]
+        PartiallyPaid,
     }
-    
+
     public static class CreditNoteStatusExtension
     {
         public static string Value(this CreditNoteStatus value)
@@ -56,5 +55,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum CreditNoteStatus");
         }
     }
-    
 }

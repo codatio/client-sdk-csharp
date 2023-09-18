@@ -13,34 +13,33 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Types of links to bill payment lines.
     /// </summary>
     public enum BillPaymentLineLinkType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Unlinked")]
-		Unlinked,
-		[JsonProperty("Bill")]
-		Bill,
-		[JsonProperty("Other")]
-		Other,
-		[JsonProperty("CreditNote")]
-		CreditNote,
-		[JsonProperty("BillPayment")]
-		BillPayment,
-		[JsonProperty("PaymentOnAccount")]
-		PaymentOnAccount,
-		[JsonProperty("Refund")]
-		Refund,
-		[JsonProperty("ManualJournal")]
-		ManualJournal,
-		[JsonProperty("Discount")]
-		Discount,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Unlinked")]
+        Unlinked,
+        [JsonProperty("Bill")]
+        Bill,
+        [JsonProperty("Other")]
+        Other,
+        [JsonProperty("CreditNote")]
+        CreditNote,
+        [JsonProperty("BillPayment")]
+        BillPayment,
+        [JsonProperty("PaymentOnAccount")]
+        PaymentOnAccount,
+        [JsonProperty("Refund")]
+        Refund,
+        [JsonProperty("ManualJournal")]
+        ManualJournal,
+        [JsonProperty("Discount")]
+        Discount,
     }
-    
+
     public static class BillPaymentLineLinkTypeExtension
     {
         public static string Value(this BillPaymentLineLinkType value)
@@ -67,5 +66,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum BillPaymentLineLinkType");
         }
     }
-    
 }

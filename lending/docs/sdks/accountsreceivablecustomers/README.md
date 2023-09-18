@@ -1,4 +1,4 @@
-# accountsReceivableCustomers
+# AccountsReceivable.Customers
 
 ### Available Operations
 

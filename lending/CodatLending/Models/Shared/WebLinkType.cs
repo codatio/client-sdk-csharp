@@ -13,45 +13,43 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the weblink.
     /// </summary>
-    public enum ItemsType
+    public enum WebLinkType
     {
-    	[JsonProperty("Website")]
-		Website,
-		[JsonProperty("Social")]
-		Social,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Website")]
+        Website,
+        [JsonProperty("Social")]
+        Social,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
-    public static class ItemsTypeExtension
+
+    public static class WebLinkTypeExtension
     {
-        public static string Value(this ItemsType value)
+        public static string Value(this WebLinkType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static ItemsType ToEnum(this string value)
+        public static WebLinkType ToEnum(this string value)
         {
-            foreach(var field in typeof(ItemsType).GetFields())
+            foreach(var field in typeof(WebLinkType).GetFields())
             {
                 var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is ItemsType)
+                    if (enumVal is WebLinkType)
                     {
-                        return (ItemsType)enumVal;
+                        return (WebLinkType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum ItemsType");
+            throw new Exception($"Unknown value {value} for enum WebLinkType");
         }
     }
-    
 }

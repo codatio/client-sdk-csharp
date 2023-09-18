@@ -13,19 +13,18 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum PeriodUnit
     {
-    	[JsonProperty("Day")]
-		Day,
-		[JsonProperty("Week")]
-		Week,
-		[JsonProperty("Month")]
-		Month,
-		[JsonProperty("Year")]
-		Year,
+        [JsonProperty("Day")]
+        Day,
+        [JsonProperty("Week")]
+        Week,
+        [JsonProperty("Month")]
+        Month,
+        [JsonProperty("Year")]
+        Year,
     }
-    
+
     public static class PeriodUnitExtension
     {
         public static string Value(this PeriodUnit value)
@@ -52,5 +51,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum PeriodUnit");
         }
     }
-    
 }

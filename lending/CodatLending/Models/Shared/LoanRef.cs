@@ -12,27 +12,25 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class LoanRef
     {
+
         /// <summary>
         /// The dataConnectionId the object being referred to is associated with.
         /// </summary>
         [JsonProperty("dataConnectionId")]
         public string? DataConnectionId { get; set; }
-        
+
         /// <summary>
         /// The id of the object being referred to.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         /// <summary>
         /// The object type data is referring to, e.g. Account.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }
-        
     }
-    
 }

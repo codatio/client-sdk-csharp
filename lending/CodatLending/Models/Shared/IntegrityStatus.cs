@@ -13,22 +13,21 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The current status of the most recently run matching algorithm.
     /// </summary>
     public enum IntegrityStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("DoesNotExist")]
-		DoesNotExist,
-		[JsonProperty("Error")]
-		Error,
-		[JsonProperty("Complete")]
-		Complete,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("DoesNotExist")]
+        DoesNotExist,
+        [JsonProperty("Error")]
+        Error,
+        [JsonProperty("Complete")]
+        Complete,
     }
-    
+
     public static class IntegrityStatusExtension
     {
         public static string Value(this IntegrityStatus value)
@@ -55,5 +54,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum IntegrityStatus");
         }
     }
-    
 }

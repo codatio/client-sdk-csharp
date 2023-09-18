@@ -13,22 +13,21 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of the report requested in the query string.
     /// </summary>
     public enum ExcelReportTypes
     {
-    	[JsonProperty("audit")]
-		Audit,
-		[JsonProperty("enhancedFinancials")]
-		EnhancedFinancials,
-		[JsonProperty("enhancedInvoices")]
-		EnhancedInvoices,
-		[JsonProperty("enhancedCashFlow")]
-		EnhancedCashFlow,
+        [JsonProperty("audit")]
+        Audit,
+        [JsonProperty("enhancedFinancials")]
+        EnhancedFinancials,
+        [JsonProperty("enhancedInvoices")]
+        EnhancedInvoices,
+        [JsonProperty("enhancedCashFlow")]
+        EnhancedCashFlow,
     }
-    
+
     public static class ExcelReportTypesExtension
     {
         public static string Value(this ExcelReportTypes value)
@@ -55,5 +54,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum ExcelReportTypes");
         }
     }
-    
 }

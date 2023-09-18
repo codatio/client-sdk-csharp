@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface ISalesTransactionsSDK
     {
+
+        /// <summary>
+        /// Get transaction
+        /// 
+        /// <remarks>
+        /// The *Get transaction* endpoint returns a single transaction for a given transactionId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/Transaction">Transactions</a> detail all financial affairs recorded in the commerce or point of sale system.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-transactions">coverage explorer</a> for integrations that support getting a specific transaction.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetCommerceTransactionResponse> GetAsync(GetCommerceTransactionRequest? request = null);
+
+        /// <summary>
+        /// List transactions
+        /// 
+        /// <remarks>
+        /// The *List transactions* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Transaction">transactions</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/commerce-api#/schemas/Transaction">Transactions</a> detail all financial affairs recorded in the commerce or point of sale system.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListCommerceTransactionsResponse> ListAsync(ListCommerceTransactionsRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get transaction
-        /// 
-        /// <remarks>
-        /// The *Get transaction* endpoint returns a single transaction for a given transactionId.
-        /// 
-        /// [Transactions](https://docs.codat.io/commerce-api#/schemas/Transaction) detail all financial affairs recorded in the commerce or point of sale system.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-transactions) for integrations that support getting a specific transaction.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetCommerceTransactionResponse> GetAsync(GetCommerceTransactionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List transactions
-        /// 
-        /// <remarks>
-        /// The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/commerce-api#/schemas/Transaction) for a given company's connection.
-        /// 
-        /// [Transactions](https://docs.codat.io/commerce-api#/schemas/Transaction) detail all financial affairs recorded in the commerce or point of sale system.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListCommerceTransactionsResponse> ListAsync(ListCommerceTransactionsRequest? request = null)
         {
             string baseUrl = _serverUrl;

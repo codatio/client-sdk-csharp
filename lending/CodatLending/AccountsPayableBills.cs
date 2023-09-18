@@ -21,10 +21,77 @@ namespace CodatLending
 
     public interface IAccountsPayableBillsSDK
     {
+
+        /// <summary>
+        /// Download bill attachment
+        /// 
+        /// <remarks>
+        /// The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support downloading a bill attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<DownloadAccountingBillAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingBillAttachmentRequest? request = null);
+
+        /// <summary>
+        /// Get bill
+        /// 
+        /// <remarks>
+        /// The *Get bill* endpoint returns a single bill for a given billId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support getting a specific bill.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingBillResponse> GetAsync(GetAccountingBillRequest? request = null);
+
+        /// <summary>
+        /// Get bill attachment
+        /// 
+        /// <remarks>
+        /// The *Get bill attachment* endpoint returns a specific attachment for a given `billId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support getting a bill attachment.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingBillAttachmentResponse> GetAttachmentAsync(GetAccountingBillAttachmentRequest? request = null);
+
+        /// <summary>
+        /// List bills
+        /// 
+        /// <remarks>
+        /// The *List bills* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingBillsResponse> ListAsync(ListAccountingBillsRequest? request = null);
+
+        /// <summary>
+        /// List bill attachments
+        /// 
+        /// <remarks>
+        /// The *List bill attachments* endpoint returns a list of attachments available to download for a given `billId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support listing bill attachments.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingBillAttachmentsResponse> ListAttachmentsAsync(ListAccountingBillAttachmentsRequest? request = null);
     }
 
@@ -32,8 +99,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,18 +115,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download bill attachment
-        /// 
-        /// <remarks>
-        /// The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
-        /// 
-        /// [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadAccountingBillAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingBillAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -108,20 +163,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get bill
-        /// 
-        /// <remarks>
-        /// The *Get bill* endpoint returns a single bill for a given billId.
-        /// 
-        /// [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support getting a specific bill.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingBillResponse> GetAsync(GetAccountingBillRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -170,18 +211,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get bill attachment
-        /// 
-        /// <remarks>
-        /// The *Get bill attachment* endpoint returns a specific attachment for a given `billId` and `attachmentId`.
-        /// 
-        /// [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support getting a bill attachment.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingBillAttachmentResponse> GetAttachmentAsync(GetAccountingBillAttachmentRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -230,18 +259,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List bills
-        /// 
-        /// <remarks>
-        /// The *List bills* endpoint returns a list of [bills](https://docs.codat.io/accounting-api#/schemas/Bill) for a given company's connection.
-        /// 
-        /// [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingBillsResponse> ListAsync(ListAccountingBillsRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -290,18 +307,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List bill attachments
-        /// 
-        /// <remarks>
-        /// The *List bill attachments* endpoint returns a list of attachments available to download for a given `billId`.
-        /// 
-        /// [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support listing bill attachments.
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingBillAttachmentsResponse> ListAttachmentsAsync(ListAccountingBillAttachmentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

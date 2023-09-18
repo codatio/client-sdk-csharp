@@ -13,28 +13,27 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Type of account
     /// </summary>
     public enum AccountIdentifierType
     {
-    	[JsonProperty("Account")]
-		Account,
-		[JsonProperty("Card")]
-		Card,
-		[JsonProperty("Credit")]
-		Credit,
-		[JsonProperty("Depository")]
-		Depository,
-		[JsonProperty("Investment")]
-		Investment,
-		[JsonProperty("Loan")]
-		Loan,
-		[JsonProperty("Other")]
-		Other,
+        [JsonProperty("Account")]
+        Account,
+        [JsonProperty("Card")]
+        Card,
+        [JsonProperty("Credit")]
+        Credit,
+        [JsonProperty("Depository")]
+        Depository,
+        [JsonProperty("Investment")]
+        Investment,
+        [JsonProperty("Loan")]
+        Loan,
+        [JsonProperty("Other")]
+        Other,
     }
-    
+
     public static class AccountIdentifierTypeExtension
     {
         public static string Value(this AccountIdentifierType value)
@@ -61,5 +60,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountIdentifierType");
         }
     }
-    
 }

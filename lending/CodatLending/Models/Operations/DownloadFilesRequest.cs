@@ -12,18 +12,16 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    
     public class DownloadFilesRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
         /// Only download files uploaded on this date.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=date")]
         public string? Date { get; set; }
-        
     }
-    
 }

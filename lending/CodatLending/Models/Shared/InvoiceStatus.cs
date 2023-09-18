@@ -13,35 +13,34 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
-    /// Current state of the invoice:
+    /// Current state of the invoice:&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// - `Draft` - Invoice hasn't been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.
-    /// - `Submitted` - Invoice is no longer a draft. It has been processed and, or, sent to the customer. In this state, it will impact the ledger. It also has no payments made against it (amountDue == totalAmount).
-    /// - `PartiallyPaid` - The balance paid against the invoice is positive, but less than the total invoice amount (0 < amountDue < totalAmount).
-    /// - `Paid` - Invoice is paid in full. This includes if the invoice has been credited or overpaid (amountDue == 0).
-    /// - `Void` - An invoice can become Void when it's deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
+    /// <br/>
+    /// - `Draft` - Invoice hasn&apos;t been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.<br/>
+    /// - `Submitted` - Invoice is no longer a draft. It has been processed and, or, sent to the customer. In this state, it will impact the ledger. It also has no payments made against it (amountDue == totalAmount).<br/>
+    /// - `PartiallyPaid` - The balance paid against the invoice is positive, but less than the total invoice amount (0 &lt; amountDue &lt; totalAmount).<br/>
+    /// - `Paid` - Invoice is paid in full. This includes if the invoice has been credited or overpaid (amountDue == 0).<br/>
+    /// - `Void` - An invoice can become Void when it&apos;s deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
     /// </remarks>
     /// </summary>
     public enum InvoiceStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Draft")]
-		Draft,
-		[JsonProperty("Submitted")]
-		Submitted,
-		[JsonProperty("PartiallyPaid")]
-		PartiallyPaid,
-		[JsonProperty("Paid")]
-		Paid,
-		[JsonProperty("Void")]
-		Void,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Draft")]
+        Draft,
+        [JsonProperty("Submitted")]
+        Submitted,
+        [JsonProperty("PartiallyPaid")]
+        PartiallyPaid,
+        [JsonProperty("Paid")]
+        Paid,
+        [JsonProperty("Void")]
+        Void,
     }
-    
+
     public static class InvoiceStatusExtension
     {
         public static string Value(this InvoiceStatus value)
@@ -68,5 +67,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum InvoiceStatus");
         }
     }
-    
 }

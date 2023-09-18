@@ -20,22 +20,52 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface IFileUploadSDK
-    {
-        Task<DownloadFilesResponse> DownloadAsync(DownloadFilesRequest? request = null);
-        Task<ListFilesResponse> ListUploadedAsync(ListFilesRequest? request = null);
-        Task<UploadFilesResponse> UploadAsync(UploadFilesRequest? request = null);
-    }
-
     /// <summary>
     /// Endpoints to manage uploaded files.
     /// </summary>
+    public interface IFileUploadSDK
+    {
+
+        /// <summary>
+        /// Download all files for a company
+        /// 
+        /// <remarks>
+        /// The *Download files* endpoint downloads all files that have  been uploaded by to SMB to Codat. A `date` may be specified to download any files uploaded on the date provided.
+        /// </remarks>
+        /// </summary>
+        Task<DownloadFilesResponse> DownloadAsync(DownloadFilesRequest? request = null);
+
+        /// <summary>
+        /// List all files uploaded by a company
+        /// 
+        /// <remarks>
+        /// The *List files* endpoint returns a list of all files uploaded to Codat by the SMB. 
+        /// </remarks>
+        /// </summary>
+        Task<ListFilesResponse> ListUploadedAsync(ListFilesRequest? request = null);
+
+        /// <summary>
+        /// Upload files for a company
+        /// 
+        /// <remarks>
+        /// The *Upload files* endpoint uploads multiple files provided by the SMB to Codat. This may include personal identity documents, pitch decks, contracts, or files with accounting and banking data.<br/>
+        /// <br/>
+        /// Uploaded files must meet the following requirements:<br/>
+        /// <br/>
+        /// - Up to 20 files can be uploaded at a time.<br/>
+        /// - PDF, XLS, XLSX, XLSB, CSV, DOC, DOCX, PPT, PPTX, JPEG, JPG, and PNG files can be uploaded.<br/>
+        /// - Each file can be up to 10MB in size.
+        /// </remarks>
+        /// </summary>
+        Task<UploadFilesResponse> UploadAsync(UploadFilesRequest? request = null);
+    }
+
     public class FileUploadSDK: IFileUploadSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,13 +80,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Download all files for a company
-        /// 
-        /// <remarks>
-        /// The *Download files* endpoint downloads all files that have  been uploaded by to SMB to Codat. A `date` may be specified to download any files uploaded on the date provided.
-        /// </remarks>
-        /// </summary>
         public async Task<DownloadFilesResponse> DownloadAsync(DownloadFilesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -105,13 +128,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List all files uploaded by a company
-        /// 
-        /// <remarks>
-        /// The *List files* endpoint returns a list of all files uploaded to Codat by the SMB. 
-        /// </remarks>
-        /// </summary>
         public async Task<ListFilesResponse> ListUploadedAsync(ListFilesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -160,19 +176,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Upload files for a company
-        /// 
-        /// <remarks>
-        /// The *Upload files* endpoint uploads multiple files provided by the SMB to Codat. This may include personal identity documents, pitch decks, contracts, or files with accounting and banking data.
-        /// 
-        /// Uploaded files must meet the following requirements:
-        /// 
-        /// - Up to 20 files can be uploaded at a time.
-        /// - PDF, XLS, XLSX, XLSB, CSV, DOC, DOCX, PPT, PPTX, JPEG, JPG, and PNG files can be uploaded.
-        /// - Each file can be up to 10MB in size.
-        /// </remarks>
-        /// </summary>
         public async Task<UploadFilesResponse> UploadAsync(UploadFilesRequest? request = null)
         {
             string baseUrl = _serverUrl;

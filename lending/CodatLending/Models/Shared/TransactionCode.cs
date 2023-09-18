@@ -13,44 +13,43 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Code to identify the underlying transaction.
     /// </summary>
     public enum TransactionCode
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Fee")]
-		Fee,
-		[JsonProperty("Payment")]
-		Payment,
-		[JsonProperty("Cash")]
-		Cash,
-		[JsonProperty("Transfer")]
-		Transfer,
-		[JsonProperty("Interest")]
-		Interest,
-		[JsonProperty("Cashback")]
-		Cashback,
-		[JsonProperty("Cheque")]
-		Cheque,
-		[JsonProperty("DirectDebit")]
-		DirectDebit,
-		[JsonProperty("Purchase")]
-		Purchase,
-		[JsonProperty("StandingOrder")]
-		StandingOrder,
-		[JsonProperty("Adjustment")]
-		Adjustment,
-		[JsonProperty("Credit")]
-		Credit,
-		[JsonProperty("Other")]
-		Other,
-		[JsonProperty("NotSupported")]
-		NotSupported,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Fee")]
+        Fee,
+        [JsonProperty("Payment")]
+        Payment,
+        [JsonProperty("Cash")]
+        Cash,
+        [JsonProperty("Transfer")]
+        Transfer,
+        [JsonProperty("Interest")]
+        Interest,
+        [JsonProperty("Cashback")]
+        Cashback,
+        [JsonProperty("Cheque")]
+        Cheque,
+        [JsonProperty("DirectDebit")]
+        DirectDebit,
+        [JsonProperty("Purchase")]
+        Purchase,
+        [JsonProperty("StandingOrder")]
+        StandingOrder,
+        [JsonProperty("Adjustment")]
+        Adjustment,
+        [JsonProperty("Credit")]
+        Credit,
+        [JsonProperty("Other")]
+        Other,
+        [JsonProperty("NotSupported")]
+        NotSupported,
     }
-    
+
     public static class TransactionCodeExtension
     {
         public static string Value(this TransactionCode value)
@@ -77,5 +76,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum TransactionCode");
         }
     }
-    
 }

@@ -12,21 +12,19 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class CommerceRecordRef
     {
+
         /// <summary>
         /// The unique identitifer of the record being referenced
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         /// <summary>
         /// The type of record being referenced.
         /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; } = default!;
-        
     }
-    
 }

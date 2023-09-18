@@ -13,18 +13,16 @@ namespace CodatLending.Models.Operations
     using CodatLending.Models.Shared;
     using CodatLending.Utils;
     
-    
     public class GetDataIntegrityStatusRequest
     {
+
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
-        
+
         /// <summary>
         /// A key for a Codat data type.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
         public DataIntegrityDataType DataType { get; set; } = default!;
-        
     }
-    
 }

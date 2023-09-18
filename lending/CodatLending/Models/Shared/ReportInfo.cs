@@ -12,48 +12,46 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// Report additional information, which is specific to Assess reports
     /// </summary>
     public class ReportInfo
     {
+
         /// <summary>
         /// The name of the company being queried.
         /// </summary>
         [JsonProperty("companyName")]
         public string? CompanyName { get; set; }
-        
+
         /// <summary>
         /// Date the report was generated
         /// </summary>
         [JsonProperty("generatedDate")]
         public string? GeneratedDate { get; set; }
-        
+
         /// <summary>
         /// The number of the page queried.
         /// </summary>
         [JsonProperty("pageNumber")]
         public long? PageNumber { get; set; }
-        
+
         /// <summary>
         /// The number of transactions returned per page.
         /// </summary>
         [JsonProperty("pageSize")]
         public long? PageSize { get; set; }
-        
+
         /// <summary>
         /// Name of the report
         /// </summary>
         [JsonProperty("reportName")]
         public string? ReportName { get; set; }
-        
+
         /// <summary>
         /// The total number of transactions available for a company for the period specified in the query string.
         /// </summary>
         [JsonProperty("totalResults")]
         public long? TotalResults { get; set; }
-        
     }
-    
 }

@@ -12,36 +12,34 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class TransferAccount
     {
+
         /// <summary>
         /// Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
         /// </summary>
         [JsonProperty("accountRef")]
         public AccountRef? AccountRef { get; set; }
-        
+
         /// <summary>
         /// The amount transferred between accounts.
         /// </summary>
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
-        
+
         /// <summary>
-        /// The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ## Unknown currencies
-        /// 
-        /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
-        /// 
+        /// <br/>
+        /// ## Unknown currencies<br/>
+        /// <br/>
+        /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
+        /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
-        
     }
-    
 }

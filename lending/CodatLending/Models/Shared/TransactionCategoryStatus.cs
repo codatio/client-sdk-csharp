@@ -13,17 +13,16 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum TransactionCategoryStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Active")]
-		Active,
-		[JsonProperty("Archived")]
-		Archived,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Active")]
+        Active,
+        [JsonProperty("Archived")]
+        Archived,
     }
-    
+
     public static class TransactionCategoryStatusExtension
     {
         public static string Value(this TransactionCategoryStatus value)
@@ -50,5 +49,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum TransactionCategoryStatus");
         }
     }
-    
 }

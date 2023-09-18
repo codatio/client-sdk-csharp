@@ -13,12 +13,10 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class DataIntegritySummaries
     {
+
         [JsonProperty("summaries")]
         public List<DataIntegritySummary>? Summaries { get; set; }
-        
     }
-    
 }

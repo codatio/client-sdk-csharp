@@ -12,24 +12,22 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
     /// The bank or other financial institution providing the account.
     /// </summary>
     public class AccountInstitution
     {
+
         /// <summary>
-        /// The institution's ID, according to the provider.
+        /// The institution&amp;apos;s ID, according to the provider.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         /// <summary>
-        /// The institution's name, according to the underlying provider.
+        /// The institution&amp;apos;s name, according to the underlying provider.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
-        
     }
-    
 }

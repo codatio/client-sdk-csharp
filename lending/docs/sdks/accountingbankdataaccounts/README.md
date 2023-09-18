@@ -1,4 +1,4 @@
-# accountingBankDataAccounts
+# AccountingBankData.Accounts
 
 ### Available Operations
 

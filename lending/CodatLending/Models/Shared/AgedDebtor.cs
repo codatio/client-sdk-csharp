@@ -13,27 +13,25 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class AgedDebtor
     {
+
         /// <summary>
         /// Array of aged debtors by currency.
         /// </summary>
         [JsonProperty("agedCurrencyOutstanding")]
         public List<AgedCurrencyOutstanding>? AgedCurrencyOutstanding { get; set; }
-        
+
         /// <summary>
         /// Customer ID of the aged debtor.
         /// </summary>
         [JsonProperty("customerId")]
         public string? CustomerId { get; set; }
-        
+
         /// <summary>
         /// Customer name of the aged debtor.
         /// </summary>
         [JsonProperty("customerName")]
         public string? CustomerName { get; set; }
-        
     }
-    
 }

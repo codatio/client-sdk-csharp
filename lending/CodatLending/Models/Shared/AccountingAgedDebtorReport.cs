@@ -13,106 +13,104 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
-    /// The Aged Debtors report shows the total outstanding balance due from customers to the business over time. 
+    /// The Aged Debtors report shows the total outstanding balance due from customers to the business over time. &lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// You can generate it for a company based on recently synced data from your customers' accounting platforms. The report is available in the **Reports** tab in the Codat portal.
-    /// 
-    /// Total assets or liabilities are grouped into 30-day periods for each customer, up to the current date. You can adjust the report date, period length, and number of periods to show on each report. The data can be grouped by customer or currency.
-    /// 
-    /// > It is not guaranteed that write-offs are included in the Aged Debtors report.
-    /// 
-    /// ## Underlying data
-    /// 
-    /// The Aged Debtors report is generated from a set of required data types: [Customers](https://docs.codat.io/accounting-api#/schemas/Customer), [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice), [Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote), and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
-    /// 
-    /// To generate the report, the underlying data types must have been synced within 24 hours of each other. Otherwise an error is displayed when you try to run the report. Sync the required data types by clicking the link in the error, and then run the report again.
-    /// 
-    /// > The Aged Debtors report runs based on the **issue dates** of the underlying data types rather than the due date.
-    /// 
-    /// ## Accessing the Aged Debtors report in Portal
-    /// 
-    /// Apart from returning the report via the API as JSON and query, you can also return the Aged Debtors report in the Codat portal.
-    /// 
-    /// 1. In the navigation bar, click **Companies**.
-    /// 2. Click the name of the company you want to generate the report for. The company's data page is displayed.
-    /// 3. Click the **Accounting** tab then click **Reports**.
-    /// 4. Select **Aged Debtors**.
-    /// 5. _(Optional)_ Edit the default reporting parameters.
-    ///    a. You can change the report date in the **Date** box. By default, the report includes transactions that occurred up to, but not including, today's date. To include transactions for today, enter tomorrow's date. 
-    ///    b. In the **Period Length Days** box, select the default period length for each column (the default is 30 days).
-    ///    b. In the **Number of Periods** box, enter the number of periods to show as columns in the report (the default is 4 periods).
-    /// 6. To run the report, click **Load aged debtors**.
-    /// 7. The report is generated and displayed at the bottom of the page.
-    /// 
+    /// <br/>
+    /// You can generate it for a company based on recently synced data from your customers&apos; accounting platforms. The report is available in the **Reports** tab in the Codat portal.<br/>
+    /// <br/>
+    /// Total assets or liabilities are grouped into 30-day periods for each customer, up to the current date. You can adjust the report date, period length, and number of periods to show on each report. The data can be grouped by customer or currency.<br/>
+    /// <br/>
+    /// &gt; It is not guaranteed that write-offs are included in the Aged Debtors report.<br/>
+    /// <br/>
+    /// ## Underlying data<br/>
+    /// <br/>
+    /// The Aged Debtors report is generated from a set of required data types: <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a>, <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a>, <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">Credit notes</a>, and <a href="https://docs.codat.io/accounting-api#/schemas/Payment">Payments</a>.<br/>
+    /// <br/>
+    /// To generate the report, the underlying data types must have been synced within 24 hours of each other. Otherwise an error is displayed when you try to run the report. Sync the required data types by clicking the link in the error, and then run the report again.<br/>
+    /// <br/>
+    /// &gt; The Aged Debtors report runs based on the **issue dates** of the underlying data types rather than the due date.<br/>
+    /// <br/>
+    /// ## Accessing the Aged Debtors report in Portal<br/>
+    /// <br/>
+    /// Apart from returning the report via the API as JSON and query, you can also return the Aged Debtors report in the Codat portal.<br/>
+    /// <br/>
+    /// 1. In the navigation bar, click **Companies**.<br/>
+    /// 2. Click the name of the company you want to generate the report for. The company&apos;s data page is displayed.<br/>
+    /// 3. Click the **Accounting** tab then click **Reports**.<br/>
+    /// 4. Select **Aged Debtors**.<br/>
+    /// 5. _(Optional)_ Edit the default reporting parameters.<br/>
+    ///    a. You can change the report date in the **Date** box. By default, the report includes transactions that occurred up to, but not including, today&apos;s date. To include transactions for today, enter tomorrow&apos;s date. <br/>
+    ///    b. In the **Period Length Days** box, select the default period length for each column (the default is 30 days).<br/>
+    ///    b. In the **Number of Periods** box, enter the number of periods to show as columns in the report (the default is 4 periods).<br/>
+    /// 6. To run the report, click **Load aged debtors**.<br/>
+    /// 7. The report is generated and displayed at the bottom of the page.<br/>
+    /// <br/>
     /// The report will be grouped per supplier and depending on the periods requested. The details indicates whether the amounts owed come from outstanding invoices or credit notes.
     /// </remarks>
     /// </summary>
     public class AccountingAgedDebtorReport
     {
+
         /// <summary>
         /// Array of aged debtors.
         /// </summary>
         [JsonProperty("data")]
         public List<AgedDebtor>? Data { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("generated")]
         public string? Generated { get; set; }
-        
+
         /// <summary>
-        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// ```
-        /// 2020-10-08T22:40:50Z
-        /// 2021-01-01T00:00:00
-        /// ```
-        /// 
-        /// 
-        /// 
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-        /// 
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-        /// - Unqualified local time: `2021-11-15T01:00:00`
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`
-        /// 
-        /// > Time zones
-        /// > 
-        /// > Not all dates from Codat will contain information about time zones.  
-        /// > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+        /// <br/>
+        /// ```<br/>
+        /// 2020-10-08T22:40:50Z<br/>
+        /// 2021-01-01T00:00:00<br/>
+        /// ```<br/>
+        /// <br/>
+        /// <br/>
+        /// <br/>
+        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
+        /// <br/>
+        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
+        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
+        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
+        /// <br/>
+        /// &gt; Time zones<br/>
+        /// &gt; <br/>
+        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
+        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
         [JsonProperty("reportDate")]
         public string? ReportDate { get; set; }
-        
     }
-    
 }

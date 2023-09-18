@@ -13,25 +13,24 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
-    /// The type of transactions and balances on the account.  
+    /// The type of transactions and balances on the account.  &lt;br/&gt;
     /// 
     /// <remarks>
-    /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  
+    /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>
     /// For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
     /// </remarks>
     /// </summary>
     public enum AccountingBankAccountType
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Credit")]
-		Credit,
-		[JsonProperty("Debit")]
-		Debit,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Credit")]
+        Credit,
+        [JsonProperty("Debit")]
+        Debit,
     }
-    
+
     public static class AccountingBankAccountTypeExtension
     {
         public static string Value(this AccountingBankAccountType value)
@@ -58,5 +57,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum AccountingBankAccountType");
         }
     }
-    
 }

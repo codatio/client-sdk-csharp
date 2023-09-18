@@ -24,6 +24,14 @@ namespace CodatLending
     {
         public IManageDataPullOperationsSDK PullOperations { get; }
         public IManageDataRefreshSDK Refresh { get; }
+
+        /// <summary>
+        /// Get data status
+        /// 
+        /// <remarks>
+        /// Get the state of each data type for a company
+        /// </remarks>
+        /// </summary>
         Task<GetDataStatusResponse> GetStatusAsync(GetDataStatusRequest? request = null);
     }
 
@@ -31,8 +39,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,13 +59,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get data status
-        /// 
-        /// <remarks>
-        /// Get the state of each data type for a company
-        /// </remarks>
-        /// </summary>
         public async Task<GetDataStatusResponse> GetStatusAsync(GetDataStatusRequest? request = null)
         {
             string baseUrl = _serverUrl;

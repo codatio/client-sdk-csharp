@@ -1,4 +1,4 @@
-# transactionsAccountTransactions
+# Transactions.AccountTransactions
 
 ### Available Operations
 

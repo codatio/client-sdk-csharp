@@ -13,71 +13,69 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class OrderLineItem
     {
+
         [JsonProperty("discountAllocations")]
         public List<OrderDiscountAllocation>? DiscountAllocations { get; set; }
-        
+
         /// <summary>
         /// A unique, persistent identifier for this record
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
+
         /// <summary>
         /// Reference that links the line item to the correct product details.
         /// </summary>
         [JsonProperty("productRef")]
         public ProductRef? ProductRef { get; set; }
-        
+
         /// <summary>
         /// Reference that links the line item to the specific version of product that has been ordered.
         /// </summary>
         [JsonProperty("productVariantRef")]
         public ProductVariantRef? ProductVariantRef { get; set; }
-        
+
         /// <summary>
-        /// Number of units of the product sold.
+        /// Number of units of the product sold.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// For refunds, quantity is a negative value.
+        /// For refunds, quantity is a negative value.<br/>
         /// 
         /// </remarks>
         /// </summary>
         [JsonProperty("quantity")]
         public decimal? Quantity { get; set; }
-        
+
         /// <summary>
         /// Percentage rate (from 0 to 100) of any sale tax applied to the unit amount.
         /// </summary>
         [JsonProperty("taxPercentage")]
         public decimal? TaxPercentage { get; set; }
-        
+
         /// <summary>
         /// Taxes breakdown as applied to order lines.
         /// </summary>
         [JsonProperty("taxes")]
         public List<TaxComponentAllocation>? Taxes { get; set; }
-        
+
         /// <summary>
         /// Total price of the line item, including discounts, tax and minus any refunds.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
-        
+
         /// <summary>
         /// Total amount of tax applied to the line item.
         /// </summary>
         [JsonProperty("totalTaxAmount")]
         public decimal? TotalTaxAmount { get; set; }
-        
+
         /// <summary>
         /// Price per unit of goods or service.
         /// </summary>
         [JsonProperty("unitPrice")]
         public decimal? UnitPrice { get; set; }
-        
     }
-    
 }

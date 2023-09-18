@@ -12,21 +12,19 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class DataIntegritySummary
     {
+
         [JsonProperty("byAmount")]
         public DataIntegrityByAmount? ByAmount { get; set; }
-        
+
         [JsonProperty("byCount")]
         public DataIntegrityByCount? ByCount { get; set; }
-        
+
         /// <summary>
-        /// The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
+        /// The data type which the data type in the URL has been matched against. For example, if you&amp;apos;ve matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }
-        
     }
-    
 }

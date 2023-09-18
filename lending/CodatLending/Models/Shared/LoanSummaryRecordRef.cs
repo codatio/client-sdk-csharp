@@ -12,33 +12,31 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class LoanSummaryRecordRef
     {
+
         /// <summary>
         /// The dataConnectionId the object being referred to is associated with.
         /// </summary>
         [JsonProperty("dataConnectionId")]
         public string? DataConnectionId { get; set; }
-        
+
         /// <summary>
         /// The id of the object being referred to.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
+
         /// <summary>
         /// The integration type begin referred to.
         /// </summary>
         [JsonProperty("integrationType")]
         public LoanSummaryIntegrationType? IntegrationType { get; set; }
-        
+
         /// <summary>
         /// The datatype being referred to.
         /// </summary>
         [JsonProperty("recordRefType")]
         public LoanSummaryRecordRefType? RecordRefType { get; set; }
-        
     }
-    
 }

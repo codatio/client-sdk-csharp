@@ -12,12 +12,10 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class CommerceReportDimensionItems
     {
+
         [JsonProperty("index")]
         public long? Index { get; set; }
-        
     }
-    
 }

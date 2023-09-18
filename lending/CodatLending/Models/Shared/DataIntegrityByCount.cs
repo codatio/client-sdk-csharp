@@ -12,33 +12,31 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class DataIntegrityByCount
     {
+
         /// <summary>
         /// The percentage of records of the type specified in the route which have a match.
         /// </summary>
         [JsonProperty("matchPercentage")]
         public decimal? MatchPercentage { get; set; }
-        
+
         /// <summary>
         /// The number of records of the type specified in the route which do have a match.
         /// </summary>
         [JsonProperty("matched")]
         public decimal? Matched { get; set; }
-        
+
         /// <summary>
         /// The total of unmatched and matched.
         /// </summary>
         [JsonProperty("total")]
         public decimal? Total { get; set; }
-        
+
         /// <summary>
-        /// The number of records of the type specified in the route which don't have a match.
+        /// The number of records of the type specified in the route which don&amp;apos;t have a match.
         /// </summary>
         [JsonProperty("unmatched")]
         public decimal? Unmatched { get; set; }
-        
     }
-    
 }

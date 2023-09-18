@@ -12,29 +12,27 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     /// <summary>
-    /// Links the current record to the underlying record or data type that created it. 
+    /// Links the current record to the underlying record or data type that created it. &lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
+    /// <br/>
     /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model. 
     /// </remarks>
     /// </summary>
     public class RecordRef
     {
+
         /// <summary>
-        /// Allowed name of the 'dataType'.
+        /// Allowed name of the &amp;apos;dataType&amp;apos;.
         /// </summary>
         [JsonProperty("dataType")]
         public string? DataType { get; set; }
-        
+
         /// <summary>
-        /// 'id' of the underlying record or data type.
+        /// &amp;apos;id&amp;apos; of the underlying record or data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
-        
     }
-    
 }

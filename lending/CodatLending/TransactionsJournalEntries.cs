@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface ITransactionsJournalEntriesSDK
     {
+
+        /// <summary>
+        /// Get journal entry
+        /// 
+        /// <remarks>
+        /// The *Get journal entry* endpoint returns a single journal entry for a given journalEntryId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries">coverage explorer</a> for integrations that support getting a specific journal entry.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingJournalEntryResponse> GetAsync(GetAccountingJournalEntryRequest? request = null);
+
+        /// <summary>
+        /// List journal entries
+        /// 
+        /// <remarks>
+        /// The *List journal entries* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">journal entries</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingJournalEntriesResponse> ListAsync(ListAccountingJournalEntriesRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get journal entry
-        /// 
-        /// <remarks>
-        /// The *Get journal entry* endpoint returns a single journal entry for a given journalEntryId.
-        /// 
-        /// [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support getting a specific journal entry.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingJournalEntryResponse> GetAsync(GetAccountingJournalEntryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List journal entries
-        /// 
-        /// <remarks>
-        /// The *List journal entries* endpoint returns a list of [journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) for a given company's connection.
-        /// 
-        /// [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingJournalEntriesResponse> ListAsync(ListAccountingJournalEntriesRequest? request = null)
         {
             string baseUrl = _serverUrl;

@@ -8,19 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace CodatLending.Models.Webhooks
 {
-    using Newtonsoft.Json;
+    using System.Net.Http;
+    using System;
     
-    
-    public class WithholdingTaxitems
+    public class ClientRateLimitResetResponse
     {
-        [JsonProperty("amount")]
-        public decimal Amount { get; set; } = default!;
-        
-        [JsonProperty("name")]
-        public string Name { get; set; } = default!;
-        
+
+        public string? ContentType { get; set; } = default!;
+
+        public int StatusCode { get; set; } = default!;
+
+        public HttpResponseMessage? RawResponse { get; set; }
     }
-    
 }

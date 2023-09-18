@@ -12,21 +12,13 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class Items
     {
-        /// <summary>
-        /// A phone number.
-        /// </summary>
-        [JsonProperty("number")]
-        public string Number { get; set; } = default!;
-        
-        /// <summary>
-        /// The type of phone number
-        /// </summary>
-        [JsonProperty("type")]
-        public PhoneNumberType Type { get; set; } = default!;
-        
+
+        [JsonProperty("amount")]
+        public decimal Amount { get; set; } = default!;
+
+        [JsonProperty("name")]
+        public string Name { get; set; } = default!;
     }
-    
 }

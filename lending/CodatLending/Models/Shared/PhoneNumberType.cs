@@ -13,24 +13,23 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The type of phone number
     /// </summary>
     public enum PhoneNumberType
     {
-    	[JsonProperty("Primary")]
-		Primary,
-		[JsonProperty("Landline")]
-		Landline,
-		[JsonProperty("Mobile")]
-		Mobile,
-		[JsonProperty("Fax")]
-		Fax,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Primary")]
+        Primary,
+        [JsonProperty("Landline")]
+        Landline,
+        [JsonProperty("Mobile")]
+        Mobile,
+        [JsonProperty("Fax")]
+        Fax,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class PhoneNumberTypeExtension
     {
         public static string Value(this PhoneNumberType value)
@@ -57,5 +56,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum PhoneNumberType");
         }
     }
-    
 }

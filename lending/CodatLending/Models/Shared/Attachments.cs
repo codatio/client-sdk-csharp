@@ -13,12 +13,10 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class Attachments
     {
+
         [JsonProperty("attachments")]
         public List<AccountingAttachment>? AttachmentsValue { get; set; }
-        
     }
-    
 }

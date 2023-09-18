@@ -12,21 +12,19 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class AccountingCustomerRef
     {
+
         /// <summary>
         /// `customerName` from the Customer data type
         /// </summary>
         [JsonProperty("companyName")]
         public string? CompanyName { get; set; }
-        
+
         /// <summary>
         /// `id` from the Customers data type
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
     }
-    
 }

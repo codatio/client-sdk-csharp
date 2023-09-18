@@ -13,20 +13,19 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// The datatype being referred to.
     /// </summary>
     public enum LoanSummaryRecordRefType
     {
-    	[JsonProperty("accounts")]
-		Accounts,
-		[JsonProperty("banking-accounts")]
-		BankingAccounts,
-		[JsonProperty("commerce-transactions")]
-		CommerceTransactions,
+        [JsonProperty("accounts")]
+        Accounts,
+        [JsonProperty("banking-accounts")]
+        BankingAccounts,
+        [JsonProperty("commerce-transactions")]
+        CommerceTransactions,
     }
-    
+
     public static class LoanSummaryRecordRefTypeExtension
     {
         public static string Value(this LoanSummaryRecordRefType value)
@@ -53,5 +52,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum LoanSummaryRecordRefType");
         }
     }
-    
 }

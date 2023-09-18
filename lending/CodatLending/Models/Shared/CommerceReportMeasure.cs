@@ -12,21 +12,19 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class CommerceReportMeasure
     {
+
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
-        
+
         [JsonProperty("index")]
         public long? Index { get; set; }
-        
+
         [JsonProperty("type")]
         public string? Type { get; set; }
-        
+
         [JsonProperty("units")]
         public string? Units { get; set; }
-        
     }
-    
 }

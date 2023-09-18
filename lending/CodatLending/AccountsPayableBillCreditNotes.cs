@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface IAccountsPayableBillCreditNotesSDK
     {
+
+        /// <summary>
+        /// Get bill credit note
+        /// 
+        /// <remarks>
+        /// The *Get bill credit note* endpoint returns a single bill credit note for a given billCreditNoteId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support getting a specific bill credit note.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingBillCreditNoteResponse> GetAsync(GetAccountingBillCreditNoteRequest? request = null);
+
+        /// <summary>
+        /// List bill credit notes
+        /// 
+        /// <remarks>
+        /// The *List bill credit notes* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">bill credit notes</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingBillCreditNotesResponse> ListAsync(ListAccountingBillCreditNotesRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get bill credit note
-        /// 
-        /// <remarks>
-        /// The *Get bill credit note* endpoint returns a single bill credit note for a given billCreditNoteId.
-        /// 
-        /// [Bill credit notes](https://docs.codat.io/accounting-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support getting a specific bill credit note.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingBillCreditNoteResponse> GetAsync(GetAccountingBillCreditNoteRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List bill credit notes
-        /// 
-        /// <remarks>
-        /// The *List bill credit notes* endpoint returns a list of [bill credit notes](https://docs.codat.io/accounting-api#/schemas/BillCreditNote) for a given company's connection.
-        /// 
-        /// [Bill credit notes](https://docs.codat.io/accounting-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingBillCreditNotesResponse> ListAsync(ListAccountingBillCreditNotesRequest? request = null)
         {
             string baseUrl = _serverUrl;

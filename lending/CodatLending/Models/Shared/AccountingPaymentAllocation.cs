@@ -12,15 +12,13 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class AccountingPaymentAllocation
     {
+
         [JsonProperty("allocation")]
         public AccountingPaymentAllocationAllocation Allocation { get; set; } = default!;
-        
+
         [JsonProperty("payment")]
         public PaymentAllocationPayment Payment { get; set; } = default!;
-        
     }
-    
 }

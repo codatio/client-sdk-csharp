@@ -13,38 +13,37 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Type of payment.
     /// </summary>
     public enum PaymentType
     {
-    	[JsonProperty("Cash")]
-		Cash,
-		[JsonProperty("Card")]
-		Card,
-		[JsonProperty("Invoice")]
-		Invoice,
-		[JsonProperty("OnlineCard")]
-		OnlineCard,
-		[JsonProperty("Swish")]
-		Swish,
-		[JsonProperty("Vipps")]
-		Vipps,
-		[JsonProperty("Mobile")]
-		Mobile,
-		[JsonProperty("StoreCredit")]
-		StoreCredit,
-		[JsonProperty("Paypal")]
-		Paypal,
-		[JsonProperty("Custom")]
-		Custom,
-		[JsonProperty("Prepaid")]
-		Prepaid,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Cash")]
+        Cash,
+        [JsonProperty("Card")]
+        Card,
+        [JsonProperty("Invoice")]
+        Invoice,
+        [JsonProperty("OnlineCard")]
+        OnlineCard,
+        [JsonProperty("Swish")]
+        Swish,
+        [JsonProperty("Vipps")]
+        Vipps,
+        [JsonProperty("Mobile")]
+        Mobile,
+        [JsonProperty("StoreCredit")]
+        StoreCredit,
+        [JsonProperty("Paypal")]
+        Paypal,
+        [JsonProperty("Custom")]
+        Custom,
+        [JsonProperty("Prepaid")]
+        Prepaid,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class PaymentTypeExtension
     {
         public static string Value(this PaymentType value)
@@ -71,5 +70,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum PaymentType");
         }
     }
-    
 }

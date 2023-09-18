@@ -1,4 +1,4 @@
-# bankingCategorizedStatement
+# Banking.CategorizedStatement
 
 ### Available Operations
 

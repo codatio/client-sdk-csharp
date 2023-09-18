@@ -12,33 +12,31 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    
     public class DataIntegrityStatus
     {
+
         /// <summary>
         /// Only returned for transactions. For accounts, there is nothing returned.
         /// </summary>
         [JsonProperty("amounts")]
         public DataIntegrityAmounts? Amounts { get; set; }
-        
+
         [JsonProperty("connectionIds")]
         public DataIntegrityConnectionId? ConnectionIds { get; set; }
-        
+
         /// <summary>
         /// Only returned for transactions. For accounts, there is nothing returned.
         /// </summary>
         [JsonProperty("dates")]
         public DataIntegrityDates? Dates { get; set; }
-        
+
         [JsonProperty("statusInfo")]
         public DataIntegrityStatusInfo? StatusInfo { get; set; }
-        
+
         /// <summary>
-        /// The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
+        /// The data type which the data type in the URL has been matched against. For example, if you&amp;apos;ve matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }
-        
     }
-    
 }

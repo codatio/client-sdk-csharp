@@ -14,30 +14,23 @@ namespace CodatLending.Models.Operations
     using System.Net.Http;
     using System;
     
-    
     public class GetCommerceProfileResponse
     {
+
         /// <summary>
         /// OK
         /// </summary>
-        
         public CommerceCompanyInfo? CommerceCompanyInfo { get; set; }
-        
-        
+
         public string? ContentType { get; set; } = default!;
-        
+
         /// <summary>
         /// Your API request was not properly authorized.
         /// </summary>
-        
         public ErrorMessage? ErrorMessage { get; set; }
-        
-        
+
         public int StatusCode { get; set; } = default!;
-        
-        
+
         public HttpResponseMessage? RawResponse { get; set; }
-        
     }
-    
 }

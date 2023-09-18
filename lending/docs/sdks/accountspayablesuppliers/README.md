@@ -1,4 +1,4 @@
-# accountsPayableSuppliers
+# AccountsPayable.Suppliers
 
 ### Available Operations
 

@@ -13,24 +13,22 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     public class LoanTransactions
     {
+
         /// <summary>
         /// If there are no errors, an empty array is returned.
         /// </summary>
         [JsonProperty("errors")]
         public List<object>? Errors { get; set; }
-        
+
         [JsonProperty("reportInfo")]
         public LoanTransactionsReportInfo? ReportInfo { get; set; }
-        
+
         /// <summary>
         /// Contains object of reporting properties. The loan ref will reference a different object depending on the integration type.
         /// </summary>
         [JsonProperty("reportItems")]
         public List<ReportItems>? ReportItems { get; set; }
-        
     }
-    
 }

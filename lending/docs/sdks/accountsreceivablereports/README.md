@@ -1,4 +1,4 @@
-# accountsReceivableReports
+# AccountsReceivable.Reports
 
 ### Available Operations
 

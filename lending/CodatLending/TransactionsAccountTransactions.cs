@@ -21,7 +21,35 @@ namespace CodatLending
 
     public interface ITransactionsAccountTransactionsSDK
     {
+
+        /// <summary>
+        /// Get account transaction
+        /// 
+        /// <remarks>
+        /// The *Get account transaction* endpoint returns a single account transaction for a given accountTransactionId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">Account transactions</a> represent bank activity within an accounting platform. All transactions that go through a bank account are recorded as account transactions.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=accountTransactions">coverage explorer</a> for integrations that support getting a specific account transaction.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
         Task<GetAccountingAccountTransactionResponse> GetAsync(GetAccountingAccountTransactionRequest? request = null);
+
+        /// <summary>
+        /// List account transactions
+        /// 
+        /// <remarks>
+        /// The *List account transactions* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">account transactions</a> for a given company&apos;s connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">Account transactions</a> represent bank activity within an accounting platform. All transactions that go through a bank account are recorded as account transactions.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
+        /// </remarks>
+        /// </summary>
         Task<ListAccountingAccountTransactionsResponse> ListAsync(ListAccountingAccountTransactionsRequest? request = null);
     }
 
@@ -29,8 +57,8 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.113.0";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.116.0";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,20 +73,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// Get account transaction
-        /// 
-        /// <remarks>
-        /// The *Get account transaction* endpoint returns a single account transaction for a given accountTransactionId.
-        /// 
-        /// [Account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) represent bank activity within an accounting platform. All transactions that go through a bank account are recorded as account transactions.
-        /// 
-        /// Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=accountTransactions) for integrations that support getting a specific account transaction.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        /// 
-        /// </remarks>
-        /// </summary>
         public async Task<GetAccountingAccountTransactionResponse> GetAsync(GetAccountingAccountTransactionRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,18 +121,6 @@ namespace CodatLending
         }
         
 
-        /// <summary>
-        /// List account transactions
-        /// 
-        /// <remarks>
-        /// The *List account transactions* endpoint returns a list of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) for a given company's connection.
-        /// 
-        /// [Account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) represent bank activity within an accounting platform. All transactions that go through a bank account are recorded as account transactions.
-        /// 
-        /// Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-        ///     
-        /// </remarks>
-        /// </summary>
         public async Task<ListAccountingAccountTransactionsResponse> ListAsync(ListAccountingAccountTransactionsRequest? request = null)
         {
             string baseUrl = _serverUrl;

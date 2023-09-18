@@ -13,36 +13,35 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     /// <summary>
     /// Current status of the dispute
     /// </summary>
     public enum DisputeStatus
     {
-    	[JsonProperty("Won")]
-		Won,
-		[JsonProperty("Lost")]
-		Lost,
-		[JsonProperty("Accepted")]
-		Accepted,
-		[JsonProperty("Processing")]
-		Processing,
-		[JsonProperty("ChargeRefunded")]
-		ChargeRefunded,
-		[JsonProperty("EvidenceRequired")]
-		EvidenceRequired,
-		[JsonProperty("InquiryEvidenceRequired")]
-		InquiryEvidenceRequired,
-		[JsonProperty("InquiryProcessing")]
-		InquiryProcessing,
-		[JsonProperty("InquiryClosed")]
-		InquiryClosed,
-		[JsonProperty("WaitingThirdParty")]
-		WaitingThirdParty,
-		[JsonProperty("Unknown")]
-		Unknown,
+        [JsonProperty("Won")]
+        Won,
+        [JsonProperty("Lost")]
+        Lost,
+        [JsonProperty("Accepted")]
+        Accepted,
+        [JsonProperty("Processing")]
+        Processing,
+        [JsonProperty("ChargeRefunded")]
+        ChargeRefunded,
+        [JsonProperty("EvidenceRequired")]
+        EvidenceRequired,
+        [JsonProperty("InquiryEvidenceRequired")]
+        InquiryEvidenceRequired,
+        [JsonProperty("InquiryProcessing")]
+        InquiryProcessing,
+        [JsonProperty("InquiryClosed")]
+        InquiryClosed,
+        [JsonProperty("WaitingThirdParty")]
+        WaitingThirdParty,
+        [JsonProperty("Unknown")]
+        Unknown,
     }
-    
+
     public static class DisputeStatusExtension
     {
         public static string Value(this DisputeStatus value)
@@ -69,5 +68,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum DisputeStatus");
         }
     }
-    
 }

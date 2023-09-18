@@ -13,17 +13,16 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
-    
     public enum ProductVariantStatus
     {
-    	[JsonProperty("Unknown")]
-		Unknown,
-		[JsonProperty("Published")]
-		Published,
-		[JsonProperty("Unpublished")]
-		Unpublished,
+        [JsonProperty("Unknown")]
+        Unknown,
+        [JsonProperty("Published")]
+        Published,
+        [JsonProperty("Unpublished")]
+        Unpublished,
     }
-    
+
     public static class ProductVariantStatusExtension
     {
         public static string Value(this ProductVariantStatus value)
@@ -50,5 +49,4 @@ namespace CodatLending.Models.Shared
             throw new Exception($"Unknown value {value} for enum ProductVariantStatus");
         }
     }
-    
 }

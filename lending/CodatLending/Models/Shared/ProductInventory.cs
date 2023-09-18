@@ -13,18 +13,16 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    
     /// <summary>
     /// Information about the total inventory as well as the locations inventory is in.
     /// </summary>
     public class ProductInventory
     {
+
         [JsonProperty("locations")]
         public List<ProductInventoryLocation>? Locations { get; set; }
-        
+
         [JsonProperty("totalQuantity")]
         public decimal? TotalQuantity { get; set; }
-        
     }
-    
 }

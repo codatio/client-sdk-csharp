@@ -14,103 +14,101 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     using System;
     
-    
     public class InvoiceLineItem
     {
+
         /// <summary>
         /// Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
         /// </summary>
         [JsonProperty("accountRef")]
         public AccountRef? AccountRef { get; set; }
-        
+
         /// <summary>
         /// Friendly name of the goods or services provided.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
-        
+
         /// <summary>
         /// Numerical value of any discounts applied.
         /// </summary>
         [JsonProperty("discountAmount")]
         public decimal? DiscountAmount { get; set; }
-        
+
         /// <summary>
         /// Percentage rate (from 0 to 100) of any discounts applied to the unit amount.
         /// </summary>
         [JsonProperty("discountPercentage")]
         public decimal? DiscountPercentage { get; set; }
-        
+
         [JsonProperty("isDirectIncome")]
         public bool? IsDirectIncome { get; set; }
-        
+
         /// <summary>
         /// Reference to the item the line is linked to.
         /// </summary>
         [JsonProperty("itemRef")]
         public ItemRef? ItemRef { get; set; }
-        
+
         /// <summary>
         /// Number of units of goods or services provided.
         /// </summary>
         [JsonProperty("quantity")]
         public decimal Quantity { get; set; } = default!;
-        
+
         /// <summary>
         /// Amount of the line, inclusive of discounts but exclusive of tax.
         /// </summary>
         [JsonProperty("subTotal")]
         public decimal? SubTotal { get; set; }
-        
+
         /// <summary>
         /// Amount of tax for the line.
         /// </summary>
         [JsonProperty("taxAmount")]
         public decimal? TaxAmount { get; set; }
-        
+
         /// <summary>
-        /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
+        /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// Found on:
-        /// 
-        /// - Bill line items
-        /// - Bill Credit Note line items
-        /// - Credit Note line items
-        /// - Direct incomes line items
-        /// - Invoice line items
+        /// <br/>
+        /// Found on:<br/>
+        /// <br/>
+        /// - Bill line items<br/>
+        /// - Bill Credit Note line items<br/>
+        /// - Credit Note line items<br/>
+        /// - Direct incomes line items<br/>
+        /// - Invoice line items<br/>
         /// - Items
         /// </remarks>
         /// </summary>
         [JsonProperty("taxRateRef")]
         public TaxRateRef? TaxRateRef { get; set; }
-        
+
         /// <summary>
         /// Total amount of the line, including tax. When pushing invoices to Xero, the total amount is exclusive of tax to allow automatic calculations if a tax rate or tax amount is not specified.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
-        
+
         /// <summary>
         /// Categories, and a project and customer, against which the item is tracked.
         /// </summary>
         [JsonProperty("tracking")]
         public AccountsReceivableTracking? Tracking { get; set; }
-        
+
         /// <summary>
         /// Reference to the tracking categories to which the line item is linked.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("trackingCategoryRefs")]
         public List<TrackingCategoryRef>? TrackingCategoryRefs { get; set; }
-        
+
         /// <summary>
         /// Price of each unit of goods or services.
         /// </summary>
         [JsonProperty("unitAmount")]
         public decimal UnitAmount { get; set; } = default!;
-        
     }
-    
 }

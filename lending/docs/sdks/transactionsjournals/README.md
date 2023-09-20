@@ -31,7 +31,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Transactions.Journals.GetAsync(new GetAccountingJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "praesentium",
+    JournalId = "similique",
 });
 
 // handle response
@@ -76,7 +76,7 @@ var res = await sdk.Transactions.Journals.ListAsync(new ListAccountingJournalsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "voluptatibus",
+    Query = "tempora",
 });
 
 // handle response

@@ -95,6 +95,7 @@ namespace CodatLending
         public IAccountsReceivableSDK AccountsReceivable { get; }
         public IBankingSDK Banking { get; }
         public IFinancialStatementsSDK FinancialStatements { get; }
+        public ILoanWritebackSDK LoanWriteback { get; }
         public IManageDataSDK ManageData { get; }
         public ISalesSDK Sales { get; }
         public ITransactionsSDK Transactions { get; }
@@ -113,8 +114,8 @@ namespace CodatLending
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.2.1";
-        private const string _sdkGenVersion = "2.118.1";
+        private const string _sdkVersion = "3.3.0";
+        private const string _sdkGenVersion = "2.122.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -131,6 +132,7 @@ namespace CodatLending
         public IAccountsReceivableSDK AccountsReceivable { get; private set; }
         public IBankingSDK Banking { get; private set; }
         public IFinancialStatementsSDK FinancialStatements { get; private set; }
+        public ILoanWritebackSDK LoanWriteback { get; private set; }
         public IManageDataSDK ManageData { get; private set; }
         public ISalesSDK Sales { get; private set; }
         public ITransactionsSDK Transactions { get; private set; }
@@ -163,6 +165,7 @@ namespace CodatLending
             AccountsReceivable = new AccountsReceivableSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Banking = new BankingSDK(_defaultClient, _securityClient, _serverUrl, Config);
             FinancialStatements = new FinancialStatementsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            LoanWriteback = new LoanWritebackSDK(_defaultClient, _securityClient, _serverUrl, Config);
             ManageData = new ManageDataSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Sales = new SalesSDK(_defaultClient, _securityClient, _serverUrl, Config);
             Transactions = new TransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);

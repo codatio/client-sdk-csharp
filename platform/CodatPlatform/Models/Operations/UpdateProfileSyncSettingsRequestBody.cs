@@ -28,7 +28,7 @@ namespace CodatPlatform.Models.Operations
         public string ClientId { get; set; } = default!;
 
         [JsonProperty("overridesDefaults")]
-        public bool OverridesDefaults { get; set; } = default!;
+        public bool? OverridesDefaults { get; set; }
 
         [JsonProperty("settings")]
         public List<SyncSetting> Settings { get; set; } = default!;

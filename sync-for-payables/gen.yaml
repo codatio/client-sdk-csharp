@@ -19,7 +19,7 @@ features:
 csharp:
   version: 1.1.0
   author: Codat
-  description: Streamline your customers' accounts payable workflow.
   dotnetVersion: net6.0
+  description: Streamline your customers' accounts payable workflow.
   maxMethodParams: 0
   packageName: Codat.Sync.Payables

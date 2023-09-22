@@ -41,21 +41,21 @@ var res = await sdk.Journals.CreateAsync(new CreateJournalRequest() {
     Journal = new Journal() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
         HasChildren = false,
-        Id = "981d4c70-0b60-47f3-893c-73b9da3f2ced",
-        JournalCode = "laborum",
+        Id = "00b607f3-c93c-473b-9da3-f2ceda7e23f2",
+        JournalCode = "explicabo",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Clarence Feeney Sr.",
-        ParentId = "exercitationem",
+        Name = "Dr. Elaine Bernhard",
+        ParentId = "delectus",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.JournalStatus.Unknown,
-        Type = "ab",
+        Status = CodatSyncPayables.Models.Shared.JournalStatus.Archived,
+        Type = "in",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 72754,
+    TimeoutInMinutes = 349993,
 });
 
 // handle response
@@ -99,7 +99,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Journals.GetAsync(new GetJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "hic",
+    JournalId = "labore",
 });
 
 // handle response
@@ -190,7 +190,7 @@ var res = await sdk.Journals.ListAsync(new ListJournalsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "deserunt",
+    Query = "numquam",
 });
 
 // handle response

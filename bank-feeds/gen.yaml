@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 3eb0f99edd359c8e932479051a25a5f4
+  docChecksum: 6381d6dc4eba16c0b27f54e40081ff12
   docVersion: 3.0.0
-  speakeasyVersion: 1.88.1
-  generationVersion: 2.122.1
+  speakeasyVersion: 1.90.0
+  generationVersion: 2.125.1
 generation:
   sdkClassName: Codat.BankFeeds
   singleTagPerOp: false
@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 1.1.1
+  version: 1.1.2
   author: Codat
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
   dotnetVersion: net6.0

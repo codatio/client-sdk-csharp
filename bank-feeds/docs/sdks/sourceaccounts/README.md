@@ -52,16 +52,16 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
-        AccountName = "deserunt",
-        AccountNumber = "suscipit",
-        AccountType = "iure",
-        Balance = 2975.34M,
-        Currency = "EUR",
+        AccountName = "magnam",
+        AccountNumber = "debitis",
+        AccountType = "ipsa",
+        Balance = 9636.63M,
+        Currency = "GBP",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
-        Id = "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
+        Id = "7cc8796e-d151-4a05-9fc2-ddf7cc78ca1b",
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        SortCode = "dicta",
-        Status = "nam",
+        SortCode = "occaecati",
+        Status = "fugit",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -183,7 +183,7 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredentialsRequest() {
-    RequestBody = "occaecati as bytes <<<>>>",
+    RequestBody = "hic as bytes <<<>>>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -263,18 +263,18 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
-        AccountName = "fugit",
-        AccountNumber = "deleniti",
-        AccountType = "hic",
-        Balance = 7586.16M,
+        AccountName = "optio",
+        AccountNumber = "totam",
+        AccountType = "beatae",
+        Balance = 4146.62M,
         Currency = "USD",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
-        Id = "6742cb73-9205-4929-b96f-ea7596eb10fa",
+        Id = "2cb73920-5929-4396-bea7-596eb10faaa2",
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        SortCode = "laborum",
-        Status = "dolores",
+        SortCode = "corporis",
+        Status = "explicabo",
     },
-    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    AccountId = "EILBDVJVNUAGVKRQ",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

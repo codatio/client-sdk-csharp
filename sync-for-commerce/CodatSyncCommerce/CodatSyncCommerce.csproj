@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Sync.Commerce</PackageId>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Authors>Codat</Authors>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

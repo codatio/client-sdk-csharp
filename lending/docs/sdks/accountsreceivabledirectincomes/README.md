@@ -34,7 +34,7 @@ var res = await sdk.AccountsReceivable.DirectIncomes.DownloadAttachmentAsync(new
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "maiores",
+    DirectIncomeId = "quod",
 });
 
 // handle response
@@ -79,7 +79,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(new GetAccountingDirectIncomeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "molestiae",
+    DirectIncomeId = "quod",
 });
 
 // handle response
@@ -123,8 +123,8 @@ var res = await sdk.AccountsReceivable.DirectIncomes.GetAttachmentAsync(new GetA
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "quod",
-    TimeoutInMinutes = 800911,
+    DirectIncomeId = "esse",
+    TimeoutInMinutes = 520478,
 });
 
 // handle response
@@ -170,7 +170,7 @@ var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(new ListAccountin
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "esse",
+    Query = "porro",
 });
 
 // handle response
@@ -213,7 +213,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsReceivable.DirectIncomes.ListAttachmentsAsync(new ListAccountingDirectIncomeAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "totam",
+    DirectIncomeId = "dolorum",
 });
 
 // handle response

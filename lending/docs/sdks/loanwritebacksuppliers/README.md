@@ -35,42 +35,42 @@ var res = await sdk.LoanWriteback.Suppliers.CreateAsync(new CreateSupplierReques
     AccountingSupplier = new AccountingSupplier() {
         Addresses = new List<AccountingAddress>() {
             new AccountingAddress() {
-                City = "Ankundingworth",
-                Country = "Guadeloupe",
-                Line1 = "nulla",
-                Line2 = "fugit",
-                PostalCode = "99474-0623",
-                Region = "ea",
-                Type = CodatLending.Models.Shared.AccountingAddressType.Unknown,
+                City = "Fort Faehaven",
+                Country = "Cameroon",
+                Line1 = "porro",
+                Line2 = "maiores",
+                PostalCode = "47406-2341",
+                Region = "vel",
+                Type = CodatLending.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "vel",
-        DefaultCurrency = "possimus",
-        EmailAddress = "magnam",
-        Id = "36813f16-d9f5-4fce-ac55-6146c3e250fb",
+        ContactName = "magnam",
+        DefaultCurrency = "ratione",
+        EmailAddress = "ex",
+        Id = "813f16d9-f5fc-4e6c-9561-46c3e250fb00",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "+44 25691 154789",
-        RegistrationNumber = "deleniti",
+        Phone = "01224 658 999",
+        RegistrationNumber = "aliquam",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatLending.Models.Shared.SupplierStatus.Unknown,
+        Status = CodatLending.Models.Shared.SupplierStatus.Archived,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "fugit", new Dictionary<string, object>() {
-                    { "accusamus", "inventore" },
+                { "inventore", new Dictionary<string, object>() {
+                    { "non", "et" },
                 } },
             },
         },
-        SupplierName = "non",
-        TaxNumber = "et",
+        SupplierName = "dolorum",
+        TaxNumber = "laborum",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    TimeoutInMinutes = 677412,
+    TimeoutInMinutes = 810424,
 });
 
 // handle response

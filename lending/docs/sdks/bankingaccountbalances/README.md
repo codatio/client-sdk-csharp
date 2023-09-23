@@ -32,7 +32,7 @@ var res = await sdk.Banking.AccountBalances.ListAsync(new ListBankingAccountBala
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "optio",
+    Query = "beatae",
 });
 
 // handle response

@@ -32,29 +32,29 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.BankAccounts.CreateAsync(new CreateBankAccountRequest() {
     AccountingBankAccount = new AccountingBankAccount() {
-        AccountName = "saepe",
-        AccountNumber = "fuga",
+        AccountName = "in",
+        AccountNumber = "corporis",
         AccountType = CodatLending.Models.Shared.AccountingBankAccountType.Credit,
-        AvailableBalance = 3595.08M,
-        Balance = 6130.64M,
-        Currency = "USD",
-        IBan = "saepe",
-        Id = "b10faaa2-352c-4595-9907-aff1a3a2fa94",
-        Institution = "commodi",
+        AvailableBalance = 4370.32M,
+        Balance = 9023.49M,
+        Currency = "EUR",
+        IBan = "architecto",
+        Id = "0faaa235-2c59-4559-87af-f1a3a2fa9467",
+        Institution = "molestiae",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        NominalCode = "molestiae",
-        OverdraftLimit = 2444.25M,
-        SortCode = "error",
+        NominalCode = "error",
+        OverdraftLimit = 1589.69M,
+        SortCode = "quis",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    TimeoutInMinutes = 338007,
+    TimeoutInMinutes = 674752,
 });
 
 // handle response

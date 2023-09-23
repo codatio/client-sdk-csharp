@@ -33,23 +33,23 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.BankTransactions.CreateAsync(new CreateBankTransactionsRequest() {
     AccountingCreateBankTransactions = new AccountingCreateBankTransactions() {
-        AccountId = "vitae",
+        AccountId = "animi",
         Transactions = new List<CreateBankAccountTransaction>() {
             new CreateBankAccountTransaction() {
-                Amount = 6747.52M,
-                Balance = 6563.3M,
+                Amount = 3172.02M,
+                Balance = 1381.83M,
                 Date = "2022-10-23T00:00:00.000Z",
-                Description = "odit",
-                Id = "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
+                Description = "sequi",
+                Id = "f5ad019d-a1ff-4e78-b097-b0074f15471b",
             },
         },
     },
-    AccountId = "dicta",
+    AccountId = "enim",
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    TimeoutInMinutes = 688661,
+    TimeoutInMinutes = 880476,
 });
 
 // handle response
@@ -94,7 +94,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.LoanWriteback.BankTransactions.GetCreateModelAsync(new GetCreateBankTransactionsModelRequest() {
-    AccountId = "enim",
+    AccountId = "commodi",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

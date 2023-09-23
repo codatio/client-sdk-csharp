@@ -64,7 +64,7 @@ var res = await sdk.ManageData.PullOperations.ListAsync(new ListPullOperationsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "consequuntur",
+    Query = "repellendus",
 });
 
 // handle response

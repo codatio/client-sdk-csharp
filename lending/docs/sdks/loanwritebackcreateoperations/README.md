@@ -24,7 +24,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.CreateOperations.GetAsync(new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "e6e13b99-d488-4e1e-91e4-50ad2abd4426",
+    PushOperationKey = "e13b99d4-88e1-4e91-a450-ad2abd442698",
 });
 
 // handle response
@@ -64,7 +64,7 @@ var res = await sdk.LoanWriteback.CreateOperations.ListAsync(new ListCreateOpera
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "cupiditate",
+    Query = "perferendis",
 });
 
 // handle response

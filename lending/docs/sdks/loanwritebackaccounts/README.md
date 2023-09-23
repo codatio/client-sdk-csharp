@@ -52,9 +52,9 @@ var res = await sdk.LoanWriteback.Accounts.CreateAsync(new CreateAccountRequest(
         ValidDatatypeLinks = new List<AccountingAccountValidDataTypeLinks>() {
             new AccountingAccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "natus",
+                    "hic",
                 },
-                Property = "laboriosam",
+                Property = "saepe",
             },
         },
     },
@@ -62,7 +62,7 @@ var res = await sdk.LoanWriteback.Accounts.CreateAsync(new CreateAccountRequest(
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    TimeoutInMinutes = 943749,
+    TimeoutInMinutes = 681820,
 });
 
 // handle response

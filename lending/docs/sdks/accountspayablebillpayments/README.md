@@ -30,7 +30,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.BillPayments.GetAsync(new GetAccountingBillPaymentRequest() {
-    BillPaymentId = "placeat",
+    BillPaymentId = "iusto",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -76,7 +76,7 @@ var res = await sdk.AccountsPayable.BillPayments.ListAsync(new ListAccountingBil
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "voluptatum",
+    Query = "excepturi",
 });
 
 // handle response

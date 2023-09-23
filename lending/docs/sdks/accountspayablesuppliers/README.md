@@ -34,7 +34,7 @@ var res = await sdk.AccountsPayable.Suppliers.DownloadAttachmentAsync(new Downlo
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "ab",
+    SupplierId = "veritatis",
 });
 
 // handle response
@@ -78,7 +78,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.Suppliers.GetAsync(new GetAccountingSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "quis",
+    SupplierId = "deserunt",
 });
 
 // handle response
@@ -122,7 +122,7 @@ var res = await sdk.AccountsPayable.Suppliers.GetAttachmentAsync(new GetAccounti
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "veritatis",
+    SupplierId = "perferendis",
 });
 
 // handle response
@@ -167,7 +167,7 @@ var res = await sdk.AccountsPayable.Suppliers.ListAsync(new ListAccountingSuppli
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "deserunt",
+    Query = "ipsam",
 });
 
 // handle response
@@ -210,7 +210,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsPayable.Suppliers.ListAttachmentsAsync(new ListAccountingSupplierAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "perferendis",
+    SupplierId = "repellendus",
 });
 
 // handle response

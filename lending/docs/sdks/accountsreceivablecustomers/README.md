@@ -34,7 +34,7 @@ var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(new Dow
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "sapiente",
+    CustomerId = "odit",
 });
 
 // handle response
@@ -78,7 +78,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Customers.GetAsync(new GetAccountingCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "quo",
+    CustomerId = "at",
 });
 
 // handle response
@@ -122,7 +122,7 @@ var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(new GetAccou
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "odit",
+    CustomerId = "at",
 });
 
 // handle response
@@ -167,7 +167,7 @@ var res = await sdk.AccountsReceivable.Customers.ListAsync(new ListAccountingCus
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "at",
+    Query = "maiores",
 });
 
 // handle response
@@ -210,7 +210,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(new ListAccountingCustomerAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "at",
+    CustomerId = "molestiae",
 });
 
 // handle response

@@ -28,7 +28,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.PushOperations.GetAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "6b0d5f0d-30c5-4fbb-a587-053202c73d5f",
+    PushOperationKey = "d30c5fbb-2587-4053-a02c-73d5fe9b90c2",
 });
 
 // handle response
@@ -68,7 +68,7 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "recusandae",
+    Query = "blanditiis",
 });
 
 // handle response

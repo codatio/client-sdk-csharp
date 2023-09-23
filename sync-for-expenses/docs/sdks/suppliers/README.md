@@ -41,40 +41,40 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<SupplierAccountingAddress>() {
             new SupplierAccountingAddress() {
-                City = "Purdystead",
-                Country = "Antarctica (the territory South of 60 deg S)",
-                Line1 = "porro",
-                Line2 = "consequuntur",
-                PostalCode = "60562-9926",
-                Region = "dolorum",
+                City = "Beattystead",
+                Country = "Peru",
+                Line1 = "adipisci",
+                Line2 = "asperiores",
+                PostalCode = "26658-5779",
+                Region = "quaerat",
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "pariatur",
-        DefaultCurrency = "provident",
-        EmailAddress = "nobis",
-        Id = "bf486333-23f9-4b77-b3a4-100674ebf692",
+        ContactName = "aliquid",
+        DefaultCurrency = "dolorem",
+        EmailAddress = "dolorem",
+        Id = "323f9b77-f3a4-4100-a74e-bf69280d1ba7",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "+44 25691 154789",
-        RegistrationNumber = "fugiat",
+        Phone = "01224 658 999",
+        RegistrationNumber = "deleniti",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Archived,
         SupplementalData = new SupplierSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "dolorum", new Dictionary<string, object>() {
-                    { "iusto", "voluptate" },
+                { "distinctio", new Dictionary<string, object>() {
+                    { "asperiores", "nihil" },
                 } },
             },
         },
-        SupplierName = "dolorum",
-        TaxNumber = "deleniti",
+        SupplierName = "ipsum",
+        TaxNumber = "voluptate",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 607045,
+    TimeoutInMinutes = 663078,
 });
 
 // handle response
@@ -163,7 +163,7 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "distinctio",
+    Query = "eius",
 });
 
 // handle response
@@ -211,42 +211,42 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<SupplierAccountingAddress>() {
             new SupplierAccountingAddress() {
-                City = "Lake Havasu City",
-                Country = "Croatia",
-                Line1 = "voluptate",
-                Line2 = "id",
-                PostalCode = "21027-8393",
-                Region = "deserunt",
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+                City = "North Daphnefort",
+                Country = "Thailand",
+                Line1 = "ad",
+                Line2 = "saepe",
+                PostalCode = "65385",
+                Region = "similique",
+                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
             },
         },
-        ContactName = "minima",
-        DefaultCurrency = "repellendus",
-        EmailAddress = "totam",
-        Id = "a0d446ce-2af7-4a73-8f3b-e453f870b326",
+        ContactName = "at",
+        DefaultCurrency = "quaerat",
+        EmailAddress = "tempora",
+        Id = "6ce2af7a-73cf-43be-853f-870b326b5a73",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "(877) 492-8687",
-        RegistrationNumber = "deserunt",
+        Phone = "+44 25691 154789",
+        RegistrationNumber = "cupiditate",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Unknown,
+        Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Archived,
         SupplementalData = new SupplierSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "incidunt", new Dictionary<string, object>() {
-                    { "qui", "cupiditate" },
+                { "soluta", new Dictionary<string, object>() {
+                    { "dicta", "laborum" },
                 } },
             },
         },
-        SupplierName = "maxime",
-        TaxNumber = "pariatur",
+        SupplierName = "totam",
+        TaxNumber = "incidunt",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    SupplierId = "7110701885",
-    TimeoutInMinutes = 117531,
+    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    TimeoutInMinutes = 174909,
 });
 
 // handle response

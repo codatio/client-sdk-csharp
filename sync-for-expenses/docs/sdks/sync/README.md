@@ -141,7 +141,7 @@ var sdk = new CodatSyncExpensesSDK(
 var res = await sdk.Sync.InitiateSyncAsync(new InitiateSyncRequest() {
     InitiateSync = new InitiateSync() {
         DatasetIds = new List<string>() {
-            "a8422bb6-79d2-4322-b15b-f0cbb1e31b8b",
+            "bb679d23-2271-45bf-8cbb-1e31b8b90f34",
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",

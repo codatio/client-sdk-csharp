@@ -107,7 +107,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "in",
+    Query = "repellat",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "11e5b7fd-2ed0-4289-a1cd-dc692601fb57",
+    ConnectionId = "d2ed0289-21cd-4dc6-9260-1fb576b0d5f0",
     DataType = CodatSyncExpenses.Models.Shared.DataType.Invoices,
 });
 

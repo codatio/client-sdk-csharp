@@ -74,7 +74,7 @@ namespace CodatSyncPayables
         /// <br/>
         /// &gt; **Supported Integrations**<br/>
         /// &gt; <br/>
-        /// &gt; This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our <a href="https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api">public roadmap</a> to see what we&apos;re building next, and to submit ideas for new features.
+        /// &gt; This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
         /// </remarks>
         /// </summary>
         Task<DeleteBillResponse> DeleteAsync(DeleteBillRequest? request = null);
@@ -239,7 +239,7 @@ namespace CodatSyncPayables
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.2.0";
+        private const string _sdkVersion = "1.2.1";
         private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

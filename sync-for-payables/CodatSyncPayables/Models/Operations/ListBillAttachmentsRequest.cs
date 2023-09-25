@@ -16,14 +16,20 @@ namespace CodatSyncPayables.Models.Operations
     {
 
         /// <summary>
-        /// Unique identifier for a bill
+        /// Unique identifier for a bill.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billId")]
         public string BillId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a connection.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
     }

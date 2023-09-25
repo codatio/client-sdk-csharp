@@ -15,9 +15,15 @@ namespace CodatSyncPayables.Models.Operations
     public class GetBillCreditNoteRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a bill credit note.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billCreditNoteId")]
         public string BillCreditNoteId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
     }

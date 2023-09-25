@@ -149,13 +149,13 @@ namespace CodatSyncPayables.Models.Shared
     {
 
         /// <summary>
-        /// Boolean value indicating whether this category has SubCategories
+        /// Boolean value indicating whether this category has SubCategories.
         /// </summary>
         [JsonProperty("hasChildren")]
         public bool? HasChildren { get; set; }
 
         /// <summary>
-        /// The identifier for the item, unique per tracking category
+        /// The identifier for the item, unique per tracking category.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
@@ -164,13 +164,13 @@ namespace CodatSyncPayables.Models.Shared
         public string? ModifiedDate { get; set; }
 
         /// <summary>
-        /// The name of the tracking category
+        /// The name of the tracking category.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The identifier for this item&amp;apos;s immediate parent
+        /// The identifier for this item&amp;apos;s immediate parent.
         /// </summary>
         [JsonProperty("parentId")]
         public string? ParentId { get; set; }

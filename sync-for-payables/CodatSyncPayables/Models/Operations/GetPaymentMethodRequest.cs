@@ -15,9 +15,15 @@ namespace CodatSyncPayables.Models.Operations
     public class GetPaymentMethodRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a payment method.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=paymentMethodId")]
         public string PaymentMethodId { get; set; } = default!;
     }

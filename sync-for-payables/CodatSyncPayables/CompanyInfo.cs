@@ -35,12 +35,15 @@ namespace CodatSyncPayables
         Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null);
     }
 
+    /// <summary>
+    /// View company information fetched from the source platform.
+    /// </summary>
     public class CompanyInfoSDK: ICompanyInfoSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.2.0";
-        private const string _sdkGenVersion = "2.125.1";
+        private const string _sdkVersion = "1.3.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -85,7 +88,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.CompanyInfo = JsonConvert.DeserializeObject<CompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.CompanyInfo = JsonConvert.DeserializeObject<CompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -94,7 +97,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

@@ -39,9 +39,15 @@ namespace CodatSyncPayables.Models.Shared
         [JsonProperty("discountAmount")]
         public decimal? DiscountAmount { get; set; }
 
+        /// <summary>
+        /// Percentage rate of any discount applied to the bill.
+        /// </summary>
         [JsonProperty("discountPercentage")]
         public decimal? DiscountPercentage { get; set; }
 
+        /// <summary>
+        /// The bill is a direct cost if `True`.
+        /// </summary>
         [JsonProperty("isDirectCost")]
         public bool? IsDirectCost { get; set; }
 

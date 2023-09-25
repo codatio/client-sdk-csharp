@@ -15,6 +15,9 @@ namespace CodatSyncPayables.Models.Shared
     public class DataConnectionError
     {
 
+        /// <summary>
+        /// A brief message about the error.
+        /// </summary>
         [JsonProperty("errorMessage")]
         public string? ErrorMessage { get; set; }
 
@@ -45,9 +48,15 @@ namespace CodatSyncPayables.Models.Shared
         [JsonProperty("erroredOnUtc")]
         public string? ErroredOnUtc { get; set; }
 
+        /// <summary>
+        /// The HTTP status code returned by the error.
+        /// </summary>
         [JsonProperty("statusCode")]
         public string? StatusCode { get; set; }
 
+        /// <summary>
+        /// A non-numeric status code/text.
+        /// </summary>
         [JsonProperty("statusText")]
         public string? StatusText { get; set; }
     }

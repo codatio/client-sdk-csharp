@@ -15,15 +15,27 @@ namespace CodatLending.Models.Shared
     public class BankingTransactionRef
     {
 
+        /// <summary>
+        /// Unique identifier of the bank transaction&amp;apos;s account.
+        /// </summary>
         [JsonProperty("accountId")]
         public string? AccountId { get; set; }
 
+        /// <summary>
+        /// Name given to account.
+        /// </summary>
         [JsonProperty("accountName")]
         public string? AccountName { get; set; }
 
+        /// <summary>
+        /// Bank transaction amount.
+        /// </summary>
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the bank transaction&amp;apos;s connection.
+        /// </summary>
         [JsonProperty("dataConnectionId")]
         public string? DataConnectionId { get; set; }
 
@@ -54,9 +66,15 @@ namespace CodatLending.Models.Shared
         [JsonProperty("date")]
         public string? Date { get; set; }
 
+        /// <summary>
+        /// Description given to bank transaction.
+        /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// Unique identifier for the bank transaction.
+        /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
     }

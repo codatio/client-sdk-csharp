@@ -16,6 +16,9 @@ namespace CodatLending.Models.Shared
     public class EnhancedInvoiceReportItem
     {
 
+        /// <summary>
+        /// Invoice&amp;apos;s total amount due.
+        /// </summary>
         [JsonProperty("amountDue")]
         public decimal? AmountDue { get; set; }
 
@@ -65,11 +68,14 @@ namespace CodatLending.Models.Shared
         public string? DueDate { get; set; }
 
         /// <summary>
-        /// ID of the invoice, which may be a GUID but it may be something else depending on the accounting platdform
+        /// ID of the invoice, which may be a GUID but it may be something else depending on the accounting platform.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Invoice number.
+        /// </summary>
         [JsonProperty("invoiceNumber")]
         public string? InvoiceNumber { get; set; }
 
@@ -151,6 +157,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("status")]
         public InvoiceStatus? Status { get; set; }
 
+        /// <summary>
+        /// Invoice&amp;apos;s total amount.
+        /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
     }

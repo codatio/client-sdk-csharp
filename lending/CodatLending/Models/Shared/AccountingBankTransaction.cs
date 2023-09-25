@@ -36,12 +36,21 @@ namespace CodatLending.Models.Shared
     public class AccountingBankTransaction
     {
 
+        /// <summary>
+        /// Unique identifier to the `accountId` the bank transactions originates from.
+        /// </summary>
         [JsonProperty("accountId")]
         public string? AccountId { get; set; }
 
+        /// <summary>
+        /// The amount transacted in the bank transaction.
+        /// </summary>
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
 
+        /// <summary>
+        /// The remaining balance in the account with ID `accountId`.
+        /// </summary>
         [JsonProperty("balance")]
         public decimal? Balance { get; set; }
 
@@ -72,15 +81,24 @@ namespace CodatLending.Models.Shared
         [JsonProperty("clearedOnDate")]
         public string? ClearedOnDate { get; set; }
 
+        /// <summary>
+        /// Description of the bank transaction.
+        /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// Identifier for the bank transaction, unique to the company in the accounting platform.
+        /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
+        /// <summary>
+        /// `True` if the bank transaction has been &lt;a href=&quot;https://www.xero.com/uk/guides/what-is-bank-reconciliation/&quot;&gt;reconciled&lt;/a&gt; in the accounting platform.
+        /// </summary>
         [JsonProperty("reconciled")]
         public bool? Reconciled { get; set; }
 
@@ -88,7 +106,7 @@ namespace CodatLending.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Type of transaction for the bank statement line
+        /// Type of transaction for the bank statement line.
         /// </summary>
         [JsonProperty("transactionType")]
         public BankTransactionType? TransactionType { get; set; }

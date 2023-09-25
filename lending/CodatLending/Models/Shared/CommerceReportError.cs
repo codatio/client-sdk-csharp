@@ -16,12 +16,21 @@ namespace CodatLending.Models.Shared
     public class CommerceReportError
     {
 
+        /// <summary>
+        /// Additional details on the error.
+        /// </summary>
         [JsonProperty("details")]
         public Dictionary<string, List<string>>? Details { get; set; }
 
+        /// <summary>
+        /// Message returned by error.
+        /// </summary>
         [JsonProperty("message")]
         public string? Message { get; set; }
 
+        /// <summary>
+        /// The type of error.
+        /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }
     }

@@ -136,6 +136,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
+        /// <summary>
+        /// An optional note on the direct income that can be used to assign the direct income with a reference ID in your application.
+        /// </summary>
         [JsonProperty("note")]
         public string? Note { get; set; }
 

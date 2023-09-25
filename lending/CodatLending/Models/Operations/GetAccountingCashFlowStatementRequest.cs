@@ -15,6 +15,9 @@ namespace CodatLending.Models.Operations
     public class GetAccountingCashFlowStatementRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
@@ -30,6 +33,9 @@ namespace CodatLending.Models.Operations
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=periodsToCompare")]
         public int PeriodsToCompare { get; set; } = default!;
 
+        /// <summary>
+        /// The month the report starts from.
+        /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=startMonth")]
         public string? StartMonth { get; set; }
     }

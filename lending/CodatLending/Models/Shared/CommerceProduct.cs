@@ -26,7 +26,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// Retail category that the product is assigned to
+        /// Retail category that the product is assigned to e.g. `Hardware`.
         /// </summary>
         [JsonProperty("categorization")]
         public string? Categorization { get; set; }
@@ -47,7 +47,7 @@ namespace CodatLending.Models.Shared
         /// Whether the product represents a gift card or voucher that&lt;br/&gt;
         /// 
         /// <remarks>
-        /// can be redeemed in the commerce or POS platform<br/>
+        /// can be redeemed in the commerce or POS platform.<br/>
         /// 
         /// </remarks>
         /// </summary>

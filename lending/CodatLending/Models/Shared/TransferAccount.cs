@@ -12,6 +12,9 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
+    /// <summary>
+    /// Account details of the account sending or receiving the transfer.
+    /// </summary>
     public class TransferAccount
     {
 

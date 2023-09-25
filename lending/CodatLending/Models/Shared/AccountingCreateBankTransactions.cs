@@ -16,6 +16,9 @@ namespace CodatLending.Models.Shared
     public class AccountingCreateBankTransactions
     {
 
+        /// <summary>
+        /// Unique identifier for a bank account.
+        /// </summary>
         [JsonProperty("accountId")]
         public string? AccountId { get; set; }
 

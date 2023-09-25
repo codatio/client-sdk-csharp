@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Report additional information, which is specific to Assess reports
+    /// Report additional information, which is specific to Lending API reports.
     /// </summary>
     public class ReportInfo
     {
@@ -25,7 +25,7 @@ namespace CodatLending.Models.Shared
         public string? CompanyName { get; set; }
 
         /// <summary>
-        /// Date the report was generated
+        /// Date the report was generated.
         /// </summary>
         [JsonProperty("generatedDate")]
         public string? GeneratedDate { get; set; }
@@ -43,7 +43,7 @@ namespace CodatLending.Models.Shared
         public long? PageSize { get; set; }
 
         /// <summary>
-        /// Name of the report
+        /// Name of the report.
         /// </summary>
         [JsonProperty("reportName")]
         public string? ReportName { get; set; }

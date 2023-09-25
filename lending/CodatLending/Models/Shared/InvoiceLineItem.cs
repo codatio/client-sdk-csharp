@@ -41,6 +41,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("discountPercentage")]
         public decimal? DiscountPercentage { get; set; }
 
+        /// <summary>
+        /// The invoice is a direct income if `True`.
+        /// </summary>
         [JsonProperty("isDirectIncome")]
         public bool? IsDirectIncome { get; set; }
 

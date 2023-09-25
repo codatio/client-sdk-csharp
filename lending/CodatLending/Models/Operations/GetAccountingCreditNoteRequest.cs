@@ -15,9 +15,15 @@ namespace CodatLending.Models.Operations
     public class GetAccountingCreditNoteRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a credit note.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=creditNoteId")]
         public string CreditNoteId { get; set; } = default!;
     }

@@ -15,11 +15,14 @@ namespace CodatLending.Models.Operations
     public class GetPullOperationRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Unique ID of a dataset or pull operation.
+        /// Unique identifier for the dataset that completed its sync.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=datasetId")]
         public string DatasetId { get; set; } = default!;

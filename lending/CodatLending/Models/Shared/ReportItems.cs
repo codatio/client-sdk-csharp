@@ -54,6 +54,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("loanRef")]
         public LoanRef? LoanRef { get; set; }
 
+        /// <summary>
+        /// The type of loan transaction.
+        /// </summary>
         [JsonProperty("loanTransactionType")]
         public ReportItemsLoanTransactionType? LoanTransactionType { get; set; }
     }

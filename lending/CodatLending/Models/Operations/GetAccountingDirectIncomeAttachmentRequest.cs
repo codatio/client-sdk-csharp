@@ -16,23 +16,32 @@ namespace CodatLending.Models.Operations
     {
 
         /// <summary>
-        /// Unique identifier for an attachment
+        /// Unique identifier for an attachment.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attachmentId")]
         public string AttachmentId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a connection.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for a direct income
+        /// Unique identifier for a direct income.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=directIncomeId")]
         public string DirectIncomeId { get; set; } = default!;
 
+        /// <summary>
+        /// Time limit for the push operation to complete before it is timed out.
+        /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }
     }

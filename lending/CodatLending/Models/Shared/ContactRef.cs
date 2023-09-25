@@ -18,9 +18,15 @@ namespace CodatLending.Models.Shared
     public class ContactRef
     {
 
+        /// <summary>
+        /// Available Data types
+        /// </summary>
         [JsonProperty("dataType")]
-        public string? DataType { get; set; }
+        public DataType? DataType { get; set; }
 
+        /// <summary>
+        /// Unique identifier for a customer or supplier.
+        /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
     }

@@ -33,9 +33,15 @@ namespace CodatLending.Models.Shared
     public class AccountingCreditNote
     {
 
+        /// <summary>
+        /// Additional tax amount applied to credit note.
+        /// </summary>
         [JsonProperty("additionalTaxAmount")]
         public decimal? AdditionalTaxAmount { get; set; }
 
+        /// <summary>
+        /// Percentage rate of any additional tax applied to the credit note.
+        /// </summary>
         [JsonProperty("additionalTaxPercentage")]
         public decimal? AdditionalTaxPercentage { get; set; }
 
@@ -192,6 +198,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
 
+        /// <summary>
+        /// Current state of the credit note.
+        /// </summary>
         [JsonProperty("status")]
         public CreditNoteStatus Status { get; set; } = default!;
 

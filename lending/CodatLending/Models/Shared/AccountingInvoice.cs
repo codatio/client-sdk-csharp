@@ -50,9 +50,15 @@ namespace CodatLending.Models.Shared
     public class AccountingInvoice
     {
 
+        /// <summary>
+        /// Additional tax amount applied to invoice.
+        /// </summary>
         [JsonProperty("additionalTaxAmount")]
         public decimal? AdditionalTaxAmount { get; set; }
 
+        /// <summary>
+        /// Percentage rate of any additional tax applied to the invoice.
+        /// </summary>
         [JsonProperty("additionalTaxPercentage")]
         public decimal? AdditionalTaxPercentage { get; set; }
 

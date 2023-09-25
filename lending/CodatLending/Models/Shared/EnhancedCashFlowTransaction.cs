@@ -27,6 +27,18 @@ namespace CodatLending.Models.Shared
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
 
+        /// <summary>
+        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// 
+        /// <remarks>
+        /// <br/>
+        /// ## Unknown currencies<br/>
+        /// <br/>
+        /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
+        /// <br/>
+        /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
+        /// </remarks>
+        /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
 

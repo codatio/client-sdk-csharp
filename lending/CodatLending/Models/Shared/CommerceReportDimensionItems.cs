@@ -15,6 +15,9 @@ namespace CodatLending.Models.Shared
     public class CommerceReportDimensionItems
     {
 
+        /// <summary>
+        /// The dimension&amp;apos;s items index.
+        /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }
     }

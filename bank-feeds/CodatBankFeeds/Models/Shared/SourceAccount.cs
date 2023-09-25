@@ -19,25 +19,25 @@ namespace CodatBankFeeds.Models.Shared
     {
 
         /// <summary>
-        /// The bank account name
+        /// The bank account name.
         /// </summary>
         [JsonProperty("accountName")]
         public string? AccountName { get; set; }
 
         /// <summary>
-        /// The account number
+        /// The account number.
         /// </summary>
         [JsonProperty("accountNumber")]
         public string? AccountNumber { get; set; }
 
         /// <summary>
-        /// The type of bank account e.g. Credit
+        /// The type of bank account e.g. Credit.
         /// </summary>
         [JsonProperty("accountType")]
         public string? AccountType { get; set; }
 
         /// <summary>
-        /// The latest balance for the bank account
+        /// The latest balance for the bank account.
         /// </summary>
         [JsonProperty("balance")]
         public decimal? Balance { get; set; }
@@ -85,7 +85,7 @@ namespace CodatBankFeeds.Models.Shared
         public string? FeedStartDate { get; set; }
 
         /// <summary>
-        /// Unique ID for the bank account
+        /// Unique ID for the bank account.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -118,11 +118,14 @@ namespace CodatBankFeeds.Models.Shared
         public string? ModifiedDate { get; set; }
 
         /// <summary>
-        /// The sort code
+        /// The sort code.
         /// </summary>
         [JsonProperty("sortCode")]
         public string? SortCode { get; set; }
 
+        /// <summary>
+        /// Status of the source account.
+        /// </summary>
         [JsonProperty("status")]
         public string? Status { get; set; }
     }

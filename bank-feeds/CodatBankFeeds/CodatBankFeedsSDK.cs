@@ -72,6 +72,28 @@ namespace CodatBankFeeds
     {
     }
 
+    /// <summary>
+    /// Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.&lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting package.<br/>
+    /// <br/>
+    /// <a href="https://docs.codat.io/bank-feeds-api/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <br/>
+    /// ---<br/>
+    /// <br/>
+    /// ## Endpoints<br/>
+    /// <br/>
+    /// | Endpoints | Description |<br/>
+    /// | :- | :- |<br/>
+    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Connections | Create new and manage existing data connections for a company. |<br/>
+    /// | Source accounts | Provide and manage lists of source bank accounts.   |<br/>
+    /// | Transactions | Create new bank account transactions for a company&apos;s connections, and see previous operations. |<br/>
+    /// | Account mapping | Extra functionality for building an account management UI |
+    /// </remarks>
+    /// </summary>
     public class CodatBankFeedsSDK: ICodatBankFeedsSDK
     {
         public SDKConfig Config { get; private set; }
@@ -81,8 +103,8 @@ namespace CodatBankFeeds
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "2.1.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

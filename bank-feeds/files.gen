@@ -97,12 +97,6 @@ CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhook.cs
 CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhookData.cs
 CodatBankFeeds/Models/Webhooks/ClientRateLimitReachedResponse.cs
 CodatBankFeeds/Models/Webhooks/ClientRateLimitResetResponse.cs
-docs/sdks/codatbankfeeds/README.md
-docs/sdks/accountmapping/README.md
-docs/sdks/companies/README.md
-docs/sdks/connections/README.md
-docs/sdks/sourceaccounts/README.md
-docs/sdks/transactions/README.md
 USAGE.md
 docs/models/operations/CreateBankAccountMappingBankFeedAccountMapping.md
 docs/models/operations/CreateBankAccountMappingRequest.md
@@ -183,4 +177,10 @@ docs/models/shared/ClientRateLimitResetWebhook.md
 docs/models/shared/ClientRateLimitResetWebhookData.md
 docs/models/webhooks/ClientRateLimitReachedResponse.md
 docs/models/webhooks/ClientRateLimitResetResponse.md
+docs/sdks/codatbankfeeds/README.md
+docs/sdks/accountmapping/README.md
+docs/sdks/companies/README.md
+docs/sdks/connections/README.md
+docs/sdks/sourceaccounts/README.md
+docs/sdks/transactions/README.md
 .gitattributes

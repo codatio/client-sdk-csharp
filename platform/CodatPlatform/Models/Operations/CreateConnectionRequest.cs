@@ -18,6 +18,9 @@ namespace CodatPlatform.Models.Operations
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CreateConnectionRequestBody? RequestBody { get; set; }
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
     }

@@ -18,15 +18,24 @@ namespace CodatPlatform.Models.Shared
     public class Webhook
     {
 
+        /// <summary>
+        /// Unique identifier for your SMB in Codat.
+        /// </summary>
         [JsonProperty("companyId")]
         public string? CompanyId { get; set; }
 
+        /// <summary>
+        /// Unique identifier for the configured notification.
+        /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         [JsonProperty("notifiers")]
-        public WebhookNotifiers Notifiers { get; set; } = default!;
+        public WebhookNotifier Notifiers { get; set; } = default!;
 
+        /// <summary>
+        /// The type of webhook.
+        /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; } = default!;
     }

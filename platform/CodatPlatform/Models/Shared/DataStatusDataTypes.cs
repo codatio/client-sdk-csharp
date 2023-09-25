@@ -16,7 +16,7 @@ namespace CodatPlatform.Models.Shared
     /// <summary>
     /// Available Data types
     /// </summary>
-    public enum SyncSettingDataTypes
+    public enum DataStatusDataTypes
     {
         [JsonProperty("accountTransactions")]
         AccountTransactions,
@@ -104,30 +104,36 @@ namespace CodatPlatform.Models.Shared
         CommerceTransactions,
     }
 
-    public static class SyncSettingDataTypesExtension
+    public static class DataStatusDataTypesExtension
     {
-        public static string Value(this SyncSettingDataTypes value)
+        public static string Value(this DataStatusDataTypes value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static SyncSettingDataTypes ToEnum(this string value)
+        public static DataStatusDataTypes ToEnum(this string value)
         {
-            foreach(var field in typeof(SyncSettingDataTypes).GetFields())
+            foreach(var field in typeof(DataStatusDataTypes).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is SyncSettingDataTypes)
+                    if (enumVal is DataStatusDataTypes)
                     {
-                        return (SyncSettingDataTypes)enumVal;
+                        return (DataStatusDataTypes)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum SyncSettingDataTypes");
+            throw new Exception($"Unknown value {value} for enum DataStatusDataTypes");
         }
     }
 }

@@ -19,6 +19,9 @@ namespace CodatPlatform.Models.Shared
     public class Integration
     {
 
+        /// <summary>
+        /// The name of the data provider.
+        /// </summary>
         [JsonProperty("dataProvidedBy")]
         public string? DataProvidedBy { get; set; }
 
@@ -26,7 +29,7 @@ namespace CodatPlatform.Models.Shared
         public List<DataTypeFeature>? DatatypeFeatures { get; set; }
 
         /// <summary>
-        /// Whether this integration is enabled for your customers to use
+        /// Whether this integration is enabled for your customers to use.
         /// </summary>
         [JsonProperty("enabled")]
         public bool Enabled { get; set; } = default!;
@@ -37,21 +40,33 @@ namespace CodatPlatform.Models.Shared
         [JsonProperty("integrationId")]
         public string? IntegrationId { get; set; }
 
+        /// <summary>
+        /// `True` if the integration is currently in beta release.
+        /// </summary>
         [JsonProperty("isBeta")]
         public bool? IsBeta { get; set; }
 
+        /// <summary>
+        /// `True` if the integration is to an application installed and run locally on an SMBs computer.
+        /// </summary>
         [JsonProperty("isOfflineConnector")]
         public bool? IsOfflineConnector { get; set; }
 
         /// <summary>
-        /// A unique 4-letter key to represent a platform in each integration. View &lt;a href=&quot;https://docs.codat.io/integrations/accounting/accounting-platform-keys&quot;&gt;accounting&lt;/a&gt;, &lt;a href=&quot;https://docs.codat.io/integrations/banking/banking-platform-keys&quot;&gt;banking&lt;/a&gt;, and &lt;a href=&quot;https://docs.codat.io/integrations/commerce/commerce-platform-keys&quot;&gt;commerce&lt;/a&gt; platform keys. 
+        /// A unique 4-letter key to represent a platform in each integration. View &lt;a href=&quot;https://docs.codat.io/integrations/accounting/overview#platform-keys&quot;&gt;accounting&lt;/a&gt;, &lt;a href=&quot;https://docs.codat.io/integrations/banking/overview#platform-keys&quot;&gt;banking&lt;/a&gt;, and &lt;a href=&quot;https://docs.codat.io/integrations/commerce/overview#platform-keys&quot;&gt;commerce&lt;/a&gt; platform keys.
         /// </summary>
         [JsonProperty("key")]
         public string Key { get; set; } = default!;
 
+        /// <summary>
+        /// Static url for integration&amp;apos;s logo.
+        /// </summary>
         [JsonProperty("logoUrl")]
         public string LogoUrl { get; set; } = default!;
 
+        /// <summary>
+        /// Name of integration.
+        /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
 

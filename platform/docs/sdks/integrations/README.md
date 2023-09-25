@@ -103,7 +103,7 @@ var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "corrupti",
+    Query = "nulla",
 });
 
 // handle response

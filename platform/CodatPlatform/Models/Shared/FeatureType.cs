@@ -13,6 +13,9 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     using System;
     
+    /// <summary>
+    /// The type of feature.
+    /// </summary>
     public enum FeatureType
     {
         [JsonProperty("Get")]
@@ -48,7 +51,13 @@ namespace CodatPlatform.Models.Shared
         {
             foreach(var field in typeof(FeatureType).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

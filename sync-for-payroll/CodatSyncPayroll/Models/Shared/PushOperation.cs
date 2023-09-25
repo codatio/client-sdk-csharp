@@ -68,6 +68,9 @@ namespace CodatSyncPayroll.Models.Shared
         [JsonProperty("dataType")]
         public DataType? DataType { get; set; }
 
+        /// <summary>
+        /// A message about the error.
+        /// </summary>
         [JsonProperty("errorMessage")]
         public string? ErrorMessage { get; set; }
 
@@ -110,12 +113,21 @@ namespace CodatSyncPayroll.Models.Shared
         [JsonProperty("status")]
         public PushOperationStatus Status { get; set; } = default!;
 
+        /// <summary>
+        /// Push status code.
+        /// </summary>
         [JsonProperty("statusCode")]
         public long StatusCode { get; set; } = default!;
 
+        /// <summary>
+        /// Number of minutes the push operation must complete within before it times out.
+        /// </summary>
         [JsonProperty("timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }
 
+        /// <summary>
+        /// Number of seconds the push operation must complete within before it times out.
+        /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("timeoutInSeconds")]
         public int? TimeoutInSeconds { get; set; }

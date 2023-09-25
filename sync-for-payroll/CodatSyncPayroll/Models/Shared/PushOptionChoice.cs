@@ -15,15 +15,27 @@ namespace CodatSyncPayroll.Models.Shared
     public class PushOptionChoice
     {
 
+        /// <summary>
+        /// A description of the property.
+        /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// The property&amp;apos;s display name.
+        /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
 
+        /// <summary>
+        /// The property is required if `True`.
+        /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; }
 
+        /// <summary>
+        /// The option type.
+        /// </summary>
         [JsonProperty("type")]
         public PushOptionType? Type { get; set; }
 

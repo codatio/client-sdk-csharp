@@ -52,16 +52,16 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
-        AccountName = "deserunt",
-        AccountNumber = "suscipit",
-        AccountType = "iure",
-        Balance = 2975.34M,
+        AccountName = "iure",
+        AccountNumber = "magnam",
+        AccountType = "debitis",
+        Balance = 567.13M,
         Currency = "EUR",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
-        Id = "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
+        Id = "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        SortCode = "dicta",
-        Status = "nam",
+        SortCode = "officia",
+        Status = "occaecati",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -103,7 +103,7 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.SourceAccounts.DeleteAsync(new DeleteSourceAccountRequest() {
-    AccountId = "7110701885",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -183,7 +183,7 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredentialsRequest() {
-    RequestBody = "occaecati as bytes <<<>>>",
+    RequestBody = "deleniti as bytes <<<>>>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -263,16 +263,16 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
-        AccountName = "fugit",
-        AccountNumber = "deleniti",
-        AccountType = "hic",
-        Balance = 7586.16M,
+        AccountName = "hic",
+        AccountNumber = "optio",
+        AccountType = "totam",
+        Balance = 1059.07M,
         Currency = "USD",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
-        Id = "6742cb73-9205-4929-b96f-ea7596eb10fa",
+        Id = "42cb7392-0592-4939-afea-7596eb10faaa",
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        SortCode = "laborum",
-        Status = "dolores",
+        SortCode = "dolorem",
+        Status = "corporis",
     },
     AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",

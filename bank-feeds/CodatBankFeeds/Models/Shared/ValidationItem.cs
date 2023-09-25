@@ -15,12 +15,21 @@ namespace CodatBankFeeds.Models.Shared
     public class ValidationItem
     {
 
+        /// <summary>
+        /// Unique identifier for a validation item.
+        /// </summary>
         [JsonProperty("itemId")]
         public string? ItemId { get; set; }
 
+        /// <summary>
+        /// A message outlining validation item&amp;apos;s issue.
+        /// </summary>
         [JsonProperty("message")]
         public string? Message { get; set; }
 
+        /// <summary>
+        /// Name of validator.
+        /// </summary>
         [JsonProperty("validatorName")]
         public string? ValidatorName { get; set; }
     }

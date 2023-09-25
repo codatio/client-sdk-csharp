@@ -54,6 +54,9 @@ namespace CodatBankFeeds.Models.Shared
         [JsonProperty("created")]
         public string? Created { get; set; }
 
+        /// <summary>
+        /// Name of user that created the company in Codat.
+        /// </summary>
         [JsonProperty("createdByUserName")]
         public string? CreatedByUserName { get; set; }
 
@@ -105,6 +108,9 @@ namespace CodatBankFeeds.Models.Shared
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
 
+        /// <summary>
+        /// `platformKeys` name used when creating the company.
+        /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("platform")]
         public string? Platform { get; set; }

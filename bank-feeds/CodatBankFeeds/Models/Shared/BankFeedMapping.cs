@@ -85,6 +85,9 @@ namespace CodatBankFeeds.Models.Shared
         [JsonProperty("sourceCurrency")]
         public string? SourceCurrency { get; set; }
 
+        /// <summary>
+        /// The status.
+        /// </summary>
         [JsonProperty("status")]
         public string? Status { get; set; }
 

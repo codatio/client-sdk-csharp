@@ -38,22 +38,22 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest() {
     CreateBankTransactions = new CreateBankTransactions() {
-        AccountId = "corporis",
+        AccountId = "nobis",
         Transactions = new List<CreateBankTransaction>() {
             new CreateBankTransaction() {
-                Amount = 1289.26M,
-                Balance = 7506.86M,
+                Amount = 3154.28M,
+                Balance = 6078.31M,
                 Date = "2022-10-23T00:00:00.000Z",
-                Description = "omnis",
-                Id = "55907aff-1a3a-42fa-9467-739251aa52c3",
+                Description = "minima",
+                Id = "907aff1a-3a2f-4a94-a773-9251aa52c3f5",
             },
         },
     },
-    AccountId = "EILBDVJVNUAGVKRQ",
+    AccountId = "7110701885",
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 368725,
+    TimeoutInMinutes = 820994,
 });
 
 // handle response
@@ -90,7 +90,7 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.Transactions.GetCreateOperationAsync(new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "ad019da1-ffe7-48f0-97b0-074f15471b5e",
+    PushOperationKey = "019da1ff-e78f-4097-b007-4f15471b5e6e",
 });
 
 // handle response
@@ -130,7 +130,7 @@ var res = await sdk.Transactions.ListCreateOperationsAsync(new ListCreateOperati
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "commodi",
+    Query = "quae",
 });
 
 // handle response

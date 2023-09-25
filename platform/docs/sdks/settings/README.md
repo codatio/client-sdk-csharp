@@ -135,7 +135,7 @@ var res = await sdk.Settings.GetProfileAsync();
 
 ## GetSyncSettings
 
-Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
+Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings) for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
 
 ### Example Usage
 
@@ -253,17 +253,17 @@ var sdk = new CodatPlatformSDK(
 );
 
 var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettingsRequestBody() {
-    ClientId = "367f7975-267b-439b-90c6-a6040ee680f3",
+    ClientId = "07aff1a3-a2fa-4946-b739-251aa52c3f5a",
     OverridesDefaults = false,
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
-            DataType = CodatPlatform.Models.Shared.SyncSettingDataTypes.Invoices,
+            DataType = CodatPlatform.Models.Shared.DataType.Invoices,
             FetchOnFirstLink = false,
             IsLocked = false,
             MonthsToSync = 24,
             SyncFromUtc = "2022-10-23T00:00:00.000Z",
             SyncFromWindow = 24,
-            SyncOrder = 612096,
+            SyncOrder = 13571,
             SyncSchedule = 24,
         },
     },

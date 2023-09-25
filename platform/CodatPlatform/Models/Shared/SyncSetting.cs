@@ -22,7 +22,7 @@ namespace CodatPlatform.Models.Shared
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
-        public SyncSettingDataTypes DataType { get; set; } = default!;
+        public DataType DataType { get; set; } = default!;
 
         /// <summary>
         /// Whether this data type should be queued after a company has authorized a connection.
@@ -30,6 +30,9 @@ namespace CodatPlatform.Models.Shared
         [JsonProperty("fetchOnFirstLink")]
         public bool FetchOnFirstLink { get; set; } = default!;
 
+        /// <summary>
+        /// `True` if the &lt;a href=&quot;https://docs.codat.io/knowledge-base/advanced-sync-settings&quot;&gt;sync setting&lt;/a&gt; is locked.
+        /// </summary>
         [JsonProperty("isLocked")]
         public bool? IsLocked { get; set; }
 
@@ -67,11 +70,14 @@ namespace CodatPlatform.Models.Shared
         public string? SyncFromUtc { get; set; }
 
         /// <summary>
-        /// Number of months of data to be fetched. Set this *or* `syncFromUTC`
+        /// Number of months of data to be fetched. Set this *or* `syncFromUTC`.
         /// </summary>
         [JsonProperty("syncFromWindow")]
         public long? SyncFromWindow { get; set; }
 
+        /// <summary>
+        /// The sync in which data types are queued for a sync.
+        /// </summary>
         [JsonProperty("syncOrder")]
         public long SyncOrder { get; set; } = default!;
 

@@ -27,14 +27,14 @@ var sdk = new CodatPlatformSDK(
 );
 
 var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
-    CompanyId = "39b73b17-cc2e-429e-915d-71654e9dcd1e",
-    Notifiers = new CreateRuleNotifiers() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Notifiers = new WebhookNotifier() {
         Emails = new List<string>() {
             "info@client.com",
         },
         Webhook = "https://webhook.client.com",
     },
-    Type = "iste",
+    Type = "voluptatibus",
 });
 
 // handle response
@@ -109,7 +109,7 @@ var res = await sdk.Webhooks.ListAsync(new ListRulesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "iure",
+    Query = "vero",
 });
 
 // handle response

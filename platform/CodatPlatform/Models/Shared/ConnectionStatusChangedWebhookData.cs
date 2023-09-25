@@ -34,7 +34,7 @@ namespace CodatPlatform.Models.Shared
         public DataConnectionStatus? OldStatus { get; set; }
 
         /// <summary>
-        /// A unique 4-letter key to represent a platform in each integration. View &lt;a href=&quot;https://docs.codat.io/integrations/accounting/accounting-platform-keys&quot;&gt;accounting&lt;/a&gt;, &lt;a href=&quot;https://docs.codat.io/integrations/banking/banking-platform-keys&quot;&gt;banking&lt;/a&gt;, and &lt;a href=&quot;https://docs.codat.io/integrations/commerce/commerce-platform-keys&quot;&gt;commerce&lt;/a&gt; platform keys. 
+        /// A unique 4-letter key to represent a platform in each integration. View &lt;a href=&quot;https://docs.codat.io/integrations/accounting/overview#platform-keys&quot;&gt;accounting&lt;/a&gt;, &lt;a href=&quot;https://docs.codat.io/integrations/banking/overview#platform-keys&quot;&gt;banking&lt;/a&gt;, and &lt;a href=&quot;https://docs.codat.io/integrations/commerce/overview#platform-keys&quot;&gt;commerce&lt;/a&gt; platform keys.
         /// </summary>
         [JsonProperty("platformKey")]
         public string? PlatformKey { get; set; }

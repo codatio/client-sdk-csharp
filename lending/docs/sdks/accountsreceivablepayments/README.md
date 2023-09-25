@@ -31,7 +31,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Payments.GetAsync(new GetAccountingPaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PaymentId = "deleniti",
+    PaymentId = "hic",
 });
 
 // handle response
@@ -76,7 +76,7 @@ var res = await sdk.AccountsReceivable.Payments.ListAsync(new ListAccountingPaym
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "hic",
+    Query = "optio",
 });
 
 // handle response

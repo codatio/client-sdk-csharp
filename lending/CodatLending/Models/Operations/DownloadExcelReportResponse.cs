@@ -19,6 +19,9 @@ namespace CodatLending.Models.Operations
 
         public byte[]? Body { get; set; }
 
+        /// <summary>
+        /// HTTP response content type for this operation
+        /// </summary>
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
@@ -26,8 +29,14 @@ namespace CodatLending.Models.Operations
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 
+        /// <summary>
+        /// HTTP response status code for this operation
+        /// </summary>
         public int StatusCode { get; set; } = default!;
 
+        /// <summary>
+        /// Raw HTTP response; suitable for custom response parsing
+        /// </summary>
         public HttpResponseMessage? RawResponse { get; set; }
     }
 }

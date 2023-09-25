@@ -13,6 +13,9 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
+    /// <summary>
+    /// Current state of the credit note.
+    /// </summary>
     public enum CreditNoteStatus
     {
         [JsonProperty("Unknown")]
@@ -40,7 +43,13 @@ namespace CodatLending.Models.Shared
         {
             foreach(var field in typeof(CreditNoteStatus).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

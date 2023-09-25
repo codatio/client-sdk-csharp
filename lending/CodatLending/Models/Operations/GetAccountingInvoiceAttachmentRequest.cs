@@ -16,19 +16,25 @@ namespace CodatLending.Models.Operations
     {
 
         /// <summary>
-        /// Unique identifier for an attachment
+        /// Unique identifier for an attachment.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=attachmentId")]
         public string AttachmentId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a connection.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for an invoice
+        /// Unique identifier for an invoice.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=invoiceId")]
         public string InvoiceId { get; set; } = default!;

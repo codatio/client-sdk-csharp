@@ -19,15 +19,27 @@ namespace CodatLending.Models.Shared
         [JsonProperty("components")]
         public List<CommerceReportComponent>? Components { get; set; }
 
+        /// <summary>
+        /// The component&amp;apos;s dimension.
+        /// </summary>
         [JsonProperty("dimension")]
         public long? Dimension { get; set; }
 
+        /// <summary>
+        /// The component&amp;apos;s display name.
+        /// </summary>
         [JsonProperty("dimensionDisplayName")]
         public string? DimensionDisplayName { get; set; }
 
+        /// <summary>
+        /// The component&amp;apos;s item number.
+        /// </summary>
         [JsonProperty("item")]
         public long? Item { get; set; }
 
+        /// <summary>
+        /// The component&amp;apos;s item display name.
+        /// </summary>
         [JsonProperty("itemDisplayName")]
         public string? ItemDisplayName { get; set; }
 

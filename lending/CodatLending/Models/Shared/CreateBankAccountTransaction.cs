@@ -15,9 +15,15 @@ namespace CodatLending.Models.Shared
     public class CreateBankAccountTransaction
     {
 
+        /// <summary>
+        /// The amount transacted in the bank transaction.
+        /// </summary>
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
 
+        /// <summary>
+        /// The remaining balance in the account with ID `accountId`.
+        /// </summary>
         [JsonProperty("balance")]
         public decimal? Balance { get; set; }
 
@@ -48,9 +54,15 @@ namespace CodatLending.Models.Shared
         [JsonProperty("date")]
         public string? Date { get; set; }
 
+        /// <summary>
+        /// Description of the bank transaction.
+        /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// Identifier for the bank account transaction, unique for the company in the accounting platform.
+        /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
     }

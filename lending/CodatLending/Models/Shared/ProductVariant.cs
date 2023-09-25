@@ -104,6 +104,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
 
+        /// <summary>
+        /// The status of the product variant.
+        /// </summary>
         [JsonProperty("status")]
         public ProductVariantStatus? Status { get; set; }
 

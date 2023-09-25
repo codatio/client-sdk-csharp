@@ -69,6 +69,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// Account details of the account sending or receiving the transfer.
+        /// </summary>
         [JsonProperty("from")]
         public TransferAccount? From { get; set; }
 
@@ -98,6 +101,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }
 
+        /// <summary>
+        /// Account details of the account sending or receiving the transfer.
+        /// </summary>
         [JsonProperty("to")]
         public TransferAccount? To { get; set; }
 

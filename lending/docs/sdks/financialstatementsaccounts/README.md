@@ -30,7 +30,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.FinancialStatements.Accounts.GetAsync(new GetAccountingAccountRequest() {
-    AccountId = "cum",
+    AccountId = "esse",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -75,7 +75,7 @@ var res = await sdk.FinancialStatements.Accounts.ListAsync(new ListAccountingAcc
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "esse",
+    Query = "ipsum",
 });
 
 // handle response

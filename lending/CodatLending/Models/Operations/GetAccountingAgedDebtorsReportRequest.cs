@@ -16,6 +16,9 @@ namespace CodatLending.Models.Operations
     public class GetAccountingAgedDebtorsReportRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 

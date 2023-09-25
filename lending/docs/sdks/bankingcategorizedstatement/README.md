@@ -29,7 +29,7 @@ var res = await sdk.Banking.CategorizedStatement.GetAsync(new GetCategorizedBank
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Page = 1,
     PageSize = 100,
-    Query = "commodi",
+    Query = "molestiae",
 });
 
 // handle response

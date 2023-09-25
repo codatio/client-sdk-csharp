@@ -30,6 +30,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("currency")]
         public string? Currency { get; set; }
 
+        /// <summary>
+        /// The product variant&amp;apos;s unit price.
+        /// </summary>
         [JsonProperty("unitPrice")]
         public decimal? UnitPrice { get; set; }
     }

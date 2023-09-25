@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System;
     
     /// <summary>
-    /// Type of transaction for the bank statement line
+    /// Type of transaction for the bank statement line.
     /// </summary>
     public enum BankTransactionType
     {
@@ -67,7 +67,13 @@ namespace CodatLending.Models.Shared
         {
             foreach(var field in typeof(BankTransactionType).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

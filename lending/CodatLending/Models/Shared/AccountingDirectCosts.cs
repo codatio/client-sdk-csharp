@@ -19,15 +19,24 @@ namespace CodatLending.Models.Shared
         [JsonProperty("_links")]
         public Links Links { get; set; } = default!;
 
+        /// <summary>
+        /// Current page number.
+        /// </summary>
         [JsonProperty("pageNumber")]
         public long PageNumber { get; set; } = default!;
 
+        /// <summary>
+        /// Number of items to return in results array.
+        /// </summary>
         [JsonProperty("pageSize")]
         public long PageSize { get; set; } = default!;
 
         [JsonProperty("results")]
         public List<AccountingDirectCost>? Results { get; set; }
 
+        /// <summary>
+        /// Total number of items.
+        /// </summary>
         [JsonProperty("totalResults")]
         public long TotalResults { get; set; } = default!;
     }

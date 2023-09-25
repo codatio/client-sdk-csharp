@@ -33,11 +33,11 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.Accounts.CreateAsync(new CreateAccountRequest() {
     AccountingAccount = new AccountingAccount() {
-        Currency = "USD",
+        Currency = "GBP",
         CurrentBalance = 0M,
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Cash On Hand",
+        FullyQualifiedName = "Fixed Asset",
         Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
         IsBankAccount = false,
         Metadata = new Metadata() {
@@ -52,17 +52,16 @@ var res = await sdk.LoanWriteback.Accounts.CreateAsync(new CreateAccountRequest(
         ValidDatatypeLinks = new List<AccountingAccountValidDataTypeLinks>() {
             new AccountingAccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "natus",
+                    "laboriosam",
                 },
-                Property = "laboriosam",
+                Property = "hic",
             },
         },
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    ForceUpdate = false,
-    TimeoutInMinutes = 943749,
+    TimeoutInMinutes = 902599,
 });
 
 // handle response

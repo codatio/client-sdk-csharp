@@ -24,7 +24,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ManageData.PullOperations.GetAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+    DatasetId = "f0642dac-7af5-415c-8413-aa63aae8d678",
 });
 
 // handle response
@@ -64,7 +64,7 @@ var res = await sdk.ManageData.PullOperations.ListAsync(new ListPullOperationsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "consequuntur",
+    Query = "vel",
 });
 
 // handle response

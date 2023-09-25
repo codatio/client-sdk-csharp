@@ -16,13 +16,13 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// `customerName` from the Customer data type
+        /// `customerName` from the Customer data type.
         /// </summary>
         [JsonProperty("customerName")]
         public string? CustomerName { get; set; }
 
         /// <summary>
-        /// `id` from the Customers data type
+        /// `id` from the Customers data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

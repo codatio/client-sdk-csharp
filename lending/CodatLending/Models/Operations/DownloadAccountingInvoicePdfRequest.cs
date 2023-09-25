@@ -15,11 +15,14 @@ namespace CodatLending.Models.Operations
     public class DownloadAccountingInvoicePdfRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for an invoice
+        /// Unique identifier for an invoice.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=invoiceId")]
         public string InvoiceId { get; set; } = default!;

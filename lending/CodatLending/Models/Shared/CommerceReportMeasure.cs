@@ -15,15 +15,27 @@ namespace CodatLending.Models.Shared
     public class CommerceReportMeasure
     {
 
+        /// <summary>
+        /// The measure&amp;apos;s display name.
+        /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
 
+        /// <summary>
+        /// The measure&amp;apos;s index.
+        /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }
 
+        /// <summary>
+        /// The measure&amp;apos;s type.
+        /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }
 
+        /// <summary>
+        /// The measure&amp;apos;s units e.g. percentage (%).
+        /// </summary>
         [JsonProperty("units")]
         public string? Units { get; set; }
     }

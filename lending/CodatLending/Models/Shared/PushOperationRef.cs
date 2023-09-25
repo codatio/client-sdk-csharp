@@ -21,6 +21,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("dataType")]
         public DataType? DataType { get; set; }
 
+        /// <summary>
+        /// Unique identifier for a push operation.
+        /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
     }

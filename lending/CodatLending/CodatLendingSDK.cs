@@ -105,6 +105,38 @@ namespace CodatLending
     {
     }
 
+    /// <summary>
+    /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&amp;apos; latest data from accounting, banking, and commerce platforms they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.&lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// The Lending API is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.<br/>
+    /// <br/>
+    /// <a href="https://docs.codat.io/lending/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <br/>
+    /// ---<br/>
+    /// <br/>
+    /// ## Endpoints<br/>
+    /// <br/>
+    /// | Endpoints            | Description                                                                                                |<br/>
+    /// |:---------------------|:-----------------------------------------------------------------------------------------------------------|<br/>
+    /// | Companies            | Create and manage your SMB users&apos; companies.                                                               |<br/>
+    /// | Connections          | Create new and manage existing data connections for a company.                                             |<br/>
+    /// | Bank statements      | Retrieve banking data from linked bank accounts.                                                           |<br/>
+    /// | Sales                | Retrieve standardized sales data from a linked commerce platform.                                          |<br/>
+    /// | Financial statements | Financial data and reports from a linked accounting platform.                                              |<br/>
+    /// | Liabilities          | Debt and other liabilities.                                                                                |<br/>
+    /// | Accounts payable     | Data from a linked accounting platform representing money the business owes money to its suppliers.        |<br/>
+    /// | Accounts receivable  | Data from a linked accounting platform representing money owed to the business for sold goods or services. |<br/>
+    /// | Transactions         | Data from a linked accounting platform representing transactions.                                          |<br/>
+    /// | Data integrity       | Match mutable accounting data with immutable banking data to increase confidence in financial data.        |<br/>
+    /// | Company info         | View company profile from the source platform.                                                             |<br/>
+    /// | Excel reports        | Download reports in Excel format.                                                                          |<br/>
+    /// | Categories           | Manage Codat&apos;s automatic account categorization functionality.                                             |<br/>
+    /// | Manage data          | Control how data is retrieved from an integration.                                                         |<br/>
+    /// | File upload          | Endpoints to manage uploaded files.                                                                        |
+    /// </remarks>
+    /// </summary>
     public class CodatLendingSDK: ICodatLendingSDK
     {
         public SDKConfig Config { get; private set; }
@@ -114,8 +146,8 @@ namespace CodatLending
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.3.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "3.4.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

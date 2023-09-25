@@ -22,24 +22,45 @@ namespace CodatLending.Models.Shared
     public class PullOperation
     {
 
+        /// <summary>
+        /// Unique identifier of the company associated to this pull operation.
+        /// </summary>
         [JsonProperty("companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier of the connection associated to this pull operation.
+        /// </summary>
         [JsonProperty("connectionId")]
         public string ConnectionId { get; set; } = default!;
 
+        /// <summary>
+        /// Available Data types
+        /// </summary>
         [JsonProperty("dataType")]
-        public string DataType { get; set; } = default!;
+        public DataType DataType { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier of the pull operation.
+        /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
+        /// <summary>
+        /// `True` if the pull operation completed successfully.
+        /// </summary>
         [JsonProperty("isCompleted")]
         public bool IsCompleted { get; set; } = default!;
 
+        /// <summary>
+        /// `True` if the pull operation entered an error state.
+        /// </summary>
         [JsonProperty("isErrored")]
         public bool IsErrored { get; set; } = default!;
 
+        /// <summary>
+        /// An integer signifying the progress of the pull operation.
+        /// </summary>
         [JsonProperty("progress")]
         public long Progress { get; set; } = default!;
 
@@ -70,6 +91,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("requested")]
         public string Requested { get; set; } = default!;
 
+        /// <summary>
+        /// The current status of the pull operation.
+        /// </summary>
         [JsonProperty("status")]
         public PullOperationStatus Status { get; set; } = default!;
     }

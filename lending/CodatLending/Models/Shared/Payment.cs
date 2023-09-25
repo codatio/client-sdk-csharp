@@ -16,6 +16,9 @@ namespace CodatLending.Models.Shared
     public class Payment
     {
 
+        /// <summary>
+        /// Payment amount.
+        /// </summary>
         [JsonProperty("amount")]
         public decimal? Amount { get; set; }
 
@@ -98,11 +101,14 @@ namespace CodatLending.Models.Shared
         public string? Date { get; set; }
 
         /// <summary>
-        /// ID of the invoice, which may be a GUID but it may be something else depending on the accounting platform
+        /// ID of the invoice, which may be a GUID but it may be something else depending on the accounting platform.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// The type of payment.
+        /// </summary>
         [JsonProperty("paymentType")]
         public string? PaymentType { get; set; }
     }

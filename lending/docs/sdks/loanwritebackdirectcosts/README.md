@@ -34,7 +34,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(new CreateDirectCostRequest() {
     AccountingDirectCost = new AccountingDirectCost() {
         ContactRef = new ContactRef() {
-            DataType = "quos",
+            DataType = CodatLending.Models.Shared.DataType.Invoices,
             Id = "02d502a9-4bb4-4f63-8969-e9a3efa77dfb",
         },
         Currency = "GBP",
@@ -128,7 +128,6 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(new CreateDirectCostRe
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    ForceUpdate = false,
     TimeoutInMinutes = 617877,
 });
 

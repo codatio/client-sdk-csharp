@@ -69,7 +69,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+    DatasetId = "4469b6e2-1419-4598-90af-a563e2516fe4",
 });
 
 // handle response
@@ -106,7 +106,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.GetPushOperationAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "97074ba4-469b-46e2-9419-59890afa563e",
+    PushOperationKey = "c8b711e5-b7fd-42ed-8289-21cddc692601",
 });
 
 // handle response
@@ -146,7 +146,7 @@ var res = await sdk.ManageData.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "odit",
+    Query = "maiores",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "nemo",
+    Query = "quidem",
 });
 
 // handle response
@@ -265,7 +265,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "16fe4c8b-711e-45b7-bd2e-d028921cddc6",
+    ConnectionId = "576b0d5f-0d30-4c5f-bb25-87053202c73d",
     DataType = CodatSyncPayroll.Models.Shared.DataType.Invoices,
 });
 

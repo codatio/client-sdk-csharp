@@ -15,9 +15,15 @@ namespace CodatSyncPayroll.Models.Operations
     public class GetJournalEntryRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a journal entry.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=journalEntryId")]
         public string JournalEntryId { get; set; } = default!;
     }

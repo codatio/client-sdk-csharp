@@ -90,6 +90,31 @@ namespace CodatSyncPayroll
     {
     }
 
+    /// <summary>
+    /// Sync for Payroll: The API for Sync for Payroll. &lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// Sync for Payroll is an API and a set of supporting tools built to help integrate your customers&apos; payroll data from their HR and payroll platforms into their accounting platforms and to support its reconciliation.<br/>
+    /// <br/>
+    /// <a href="https://docs.codat.io/payroll/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <br/>
+    /// ---<br/>
+    /// <br/>
+    /// ## Endpoints<br/>
+    /// <br/>
+    /// | Endpoints            | Description                                                                                                |<br/>
+    /// |:---------------------|:-----------------------------------------------------------------------------------------------------------|<br/>
+    /// | Companies            | Create and manage your SMB users&apos; companies.                                                               |<br/>
+    /// | Connections          | Create new and manage existing data connections for a company.                                             |<br/>
+    /// | Accounts             | Get, create, and update Accounts.                                                           |<br/>
+    /// | Journal entries      | Get, create, and update Journal entries.                                                           |<br/>
+    /// | Journals             | Get, create, and update Journals.                                                           |<br/>
+    /// | Tracking categories  | Get, create, and update Tracking Categories for additional categorization of payroll components.                                                           |<br/>
+    /// | Company info         | View company profile from the source platform.                                                             |<br/>
+    /// | Manage data          | Control how data is retrieved from an integration.                                                         |
+    /// </remarks>
+    /// </summary>
     public class CodatSyncPayrollSDK: ICodatSyncPayrollSDK
     {
         public SDKConfig Config { get; private set; }
@@ -99,8 +124,8 @@ namespace CodatSyncPayroll
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.2.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "1.3.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

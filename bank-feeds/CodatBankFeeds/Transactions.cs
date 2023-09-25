@@ -62,12 +62,15 @@ namespace CodatBankFeeds
         Task<ListCreateOperationsResponse> ListCreateOperationsAsync(ListCreateOperationsRequest? request = null);
     }
 
+    /// <summary>
+    /// Transactions represent debits and credits from a source account.
+    /// </summary>
     public class TransactionsSDK: ITransactionsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -117,7 +120,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.CreateBankTransactionsResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateBankTransactionsResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.CreateBankTransactionsResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateBankTransactionsResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -126,7 +129,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -165,7 +168,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -174,7 +177,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -213,7 +216,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.PushOperations = JsonConvert.DeserializeObject<PushOperations>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.PushOperations = JsonConvert.DeserializeObject<PushOperations>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -222,7 +225,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

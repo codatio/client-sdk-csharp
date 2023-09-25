@@ -41,30 +41,30 @@ var sdk = new CodatSyncPayrollSDK(
 var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
-        Description = "placeat",
-        Id = "8796ed15-1a05-4dfc-addf-7cc78ca1ba92",
+        Description = "temporibus",
+        Id = "151a05df-c2dd-4f7c-878c-a1ba928fc816",
         JournalLines = new List<JournalLine>() {
             new JournalLine() {
                 AccountRef = new AccountRef() {
-                    Id = "8fc81674-2cb7-4392-8592-9396fea7596e",
-                    Name = "Roger Beier",
+                    Id = "742cb739-2059-4293-96fe-a7596eb10faa",
+                    Name = "Ernest Ebert",
                 },
-                Currency = "mollitia",
-                Description = "laborum",
-                NetAmount = 1709.09M,
+                Currency = "nobis",
+                Description = "enim",
+                NetAmount = 6078.31M,
                 Tracking = new JournalLineTracking() {
                     RecordRefs = new List<RecordRef>() {
                         new RecordRef() {
-                            DataType = "journalEntry",
-                            Id = "52c59559-07af-4f1a-ba2f-a9467739251a",
+                            DataType = "invoice",
+                            Id = "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
                         },
                     },
                 },
             },
         },
         JournalRef = new JournalRef() {
-            Id = "a52c3f5a-d019-4da1-bfe7-8f097b0074f1",
-            Name = "Miss Valerie Kshlerin",
+            Id = "5ad019da-1ffe-478f-897b-0074f15471b5",
+            Name = "Mrs. Leslie VonRueden",
         },
         Metadata = new Metadata() {
             IsDeleted = false,
@@ -73,21 +73,22 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
         PostedOn = "2022-10-23T00:00:00.000Z",
         RecordRef = new JournalEntryRecordReference() {
             DataType = "transfer",
-            Id = "13b99d48-8e1e-491e-850a-d2abd4426980",
+            Id = "488e1e91-e450-4ad2-abd4-4269802d502a",
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new JournalEntrySupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "assumenda", new Dictionary<string, object>() {
-                    { "ipsam", "alias" },
+                { "tempora", new Dictionary<string, object>() {
+                    { "facilis", "tempore" },
                 } },
             },
         },
         UpdatedOn = "2022-10-23T00:00:00.000Z",
     },
+    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 677817,
+    TimeoutInMinutes = 962189,
 });
 
 // handle response
@@ -152,8 +153,11 @@ var sdk = new CodatSyncPayrollSDK(
 );
 
 var res = await sdk.JournalEntries.DeleteAsync(new DeleteJournalEntryRequest() {
+    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "excepturi",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    JournalEntryId = "eum",
+    TimeoutInMinutes = 248753,
 });
 
 // handle response
@@ -197,7 +201,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.JournalEntries.GetAsync(new GetJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "tempora",
+    JournalEntryId = "eligendi",
 });
 
 // handle response
@@ -288,7 +292,7 @@ var res = await sdk.JournalEntries.ListAsync(new ListJournalEntriesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "facilis",
+    Query = "sint",
 });
 
 // handle response

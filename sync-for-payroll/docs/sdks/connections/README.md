@@ -33,7 +33,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "tempora",
+        PlatformKey = "gbol",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -150,7 +150,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "suscipit",
+    Query = "excepturi",
 });
 
 // handle response

@@ -112,9 +112,15 @@ namespace CodatSyncPayroll.Models.Shared
         [JsonProperty("lastSync")]
         public string? LastSync { get; set; }
 
+        /// <summary>
+        /// The link URL your customers can use to authorize access to their business application.
+        /// </summary>
         [JsonProperty("linkUrl")]
         public string LinkUrl { get; set; } = default!;
 
+        /// <summary>
+        /// Name of integration connected to company.
+        /// </summary>
         [JsonProperty("platformName")]
         public string PlatformName { get; set; } = default!;
 

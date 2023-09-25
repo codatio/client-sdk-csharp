@@ -17,6 +17,9 @@ namespace CodatSyncPayroll.Models.Operations
     public class GetPullOperationResponse
     {
 
+        /// <summary>
+        /// HTTP response content type for this operation
+        /// </summary>
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
@@ -29,8 +32,14 @@ namespace CodatSyncPayroll.Models.Operations
         /// </summary>
         public PullOperation? PullOperation { get; set; }
 
+        /// <summary>
+        /// HTTP response status code for this operation
+        /// </summary>
         public int StatusCode { get; set; } = default!;
 
+        /// <summary>
+        /// Raw HTTP response; suitable for custom response parsing
+        /// </summary>
         public HttpResponseMessage? RawResponse { get; set; }
     }
 }

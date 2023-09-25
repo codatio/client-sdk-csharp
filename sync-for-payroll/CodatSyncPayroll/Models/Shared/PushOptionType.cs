@@ -13,6 +13,9 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     using System;
     
+    /// <summary>
+    /// The option type.
+    /// </summary>
     public enum PushOptionType
     {
         [JsonProperty("Array")]
@@ -44,7 +47,13 @@ namespace CodatSyncPayroll.Models.Shared
         {
             foreach(var field in typeof(PushOptionType).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

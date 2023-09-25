@@ -80,6 +80,35 @@ namespace CodatSyncPayables
         Task<DeleteBillResponse> DeleteAsync(DeleteBillRequest? request = null);
 
         /// <summary>
+        /// Delete bill attachment
+        /// 
+        /// <remarks>
+        /// The *Delete bill attachment* endpoint allows you to delete a specified bill attachment from an accounting platform.  <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices<br/>
+        /// that represent the SMB&apos;s financial obligations to their supplier for a<br/>
+        /// purchase of goods or services. <br/>
+        /// <br/>
+        /// ### Process  <br/>
+        /// <br/>
+        /// 1. Pass the `{billId}` and `{attachmentId}` to the *Delete bill attachment* endpoint and store the `pushOperationKey` returned. <br/>
+        /// <br/>
+        /// 2. Check the status of the delete operation by checking the status of push operation either via <br/>
+        /// <br/>
+        /// 1. <a href="https://docs.codat.io/introduction/webhookscore-rules-types#push-operation-status-has-changed">Push operation webhook</a> (advised), <br/>
+        /// <br/>
+        /// 2. <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation">Push operation status endpoint</a>. A `Success` status indicates that the bill attachment object was deleted from the accounting platform. <br/>
+        /// <br/>
+        /// 3. (Optional) Check that the bill attachment was deleted from the accounting platform. <br/>
+        /// <br/>
+        /// &gt;**Supported Integrations**<br/>
+        /// &gt;<br/>
+        /// &gt;This functionality is currently only supported for our QuickBooks Online integration. 
+        /// </remarks>
+        /// </summary>
+        Task<DeleteBillAttachmentResponse> DeleteAttachmentAsync(DeleteBillAttachmentRequest? request = null);
+
+        /// <summary>
         /// Download bill attachment
         /// 
         /// <remarks>
@@ -210,8 +239,8 @@ namespace CodatSyncPayables
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -300,6 +329,54 @@ namespace CodatSyncPayables
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
             var response = new DeleteBillResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                {
+                    response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        public async Task<DeleteBillAttachmentResponse> DeleteAttachmentAsync(DeleteBillAttachmentRequest? request = null)
+        {
+            string baseUrl = _serverUrl;
+            if (baseUrl.EndsWith("/"))
+            {
+                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
+            }
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}/attachments/{attachmentId}", request);
+            
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
+            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new DeleteBillAttachmentResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,

@@ -20,14 +20,20 @@ namespace CodatSyncPayables.Models.Operations
         public Bill? Bill { get; set; }
 
         /// <summary>
-        /// Unique identifier for a bill
+        /// Unique identifier for a bill.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billId")]
         public string BillId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a connection.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
 
@@ -37,6 +43,9 @@ namespace CodatSyncPayables.Models.Operations
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=forceUpdate")]
         public bool? ForceUpdate { get; set; }
 
+        /// <summary>
+        /// Time limit for the push operation to complete before it is timed out.
+        /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }
     }

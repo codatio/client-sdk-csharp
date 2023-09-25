@@ -28,7 +28,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.PushOperations.GetAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "ad7334ec-1b78-41b3-aa08-088d100efada",
+    PushOperationKey = "a200ef04-22eb-4216-8cf9-ab8366c723ff",
 });
 
 // handle response
@@ -68,7 +68,7 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "sed",
+    Query = "nulla",
 });
 
 // handle response

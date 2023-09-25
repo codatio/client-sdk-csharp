@@ -19,9 +19,15 @@ namespace CodatSyncPayables.Models.Shared
     public class TrackingCategoryRef
     {
 
+        /// <summary>
+        /// Unique identifier to the tracking category.
+        /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
+        /// <summary>
+        /// Name of tracking category.
+        /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
     }

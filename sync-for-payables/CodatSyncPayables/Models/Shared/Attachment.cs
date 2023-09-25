@@ -21,7 +21,7 @@ namespace CodatSyncPayables.Models.Shared
     /// &gt; <br/>
     /// &gt; If a company is authorized, you can query the Codat API to read, download, and upload attachments without requiring a fresh sync of data.<br/>
     /// <br/>
-    /// Unlike other data types, Codat doesn&apos;t support sync settings for attachments.<br/>
+    /// Unlike other data types, Codat doesn&apos;t support <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a> for attachments.<br/>
     /// <br/>
     /// Note that different integrations have different requirements to file size and extension of attachments.<br/>
     /// <br/>

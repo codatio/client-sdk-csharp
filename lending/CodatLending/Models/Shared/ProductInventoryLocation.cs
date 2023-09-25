@@ -21,6 +21,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("locationRef")]
         public LocationRef? LocationRef { get; set; }
 
+        /// <summary>
+        /// The quantity of stock remaining at location.
+        /// </summary>
         [JsonProperty("quantity")]
         public decimal? Quantity { get; set; }
     }

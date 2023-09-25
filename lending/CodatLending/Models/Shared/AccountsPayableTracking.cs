@@ -25,9 +25,15 @@ namespace CodatLending.Models.Shared
         [JsonProperty("customerRef")]
         public AccountingCustomerRef? CustomerRef { get; set; }
 
+        /// <summary>
+        /// Defines if the invoice or credit note is billed/rebilled to a project or customer.
+        /// </summary>
         [JsonProperty("isBilledTo")]
         public BilledToType IsBilledTo { get; set; } = default!;
 
+        /// <summary>
+        /// Defines if the invoice or credit note is billed/rebilled to a project or customer.
+        /// </summary>
         [JsonProperty("isRebilledTo")]
         public BilledToType IsRebilledTo { get; set; } = default!;
 

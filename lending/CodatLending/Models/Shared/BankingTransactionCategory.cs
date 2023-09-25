@@ -48,6 +48,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
 
+        /// <summary>
+        /// The status of the transaction category.
+        /// </summary>
         [JsonProperty("status")]
         public TransactionCategoryStatus? Status { get; set; }
     }

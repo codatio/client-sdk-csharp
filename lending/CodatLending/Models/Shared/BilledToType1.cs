@@ -13,6 +13,9 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
+    /// <summary>
+    /// Defines if the bill or bill credit note is billed/rebilled to a project.
+    /// </summary>
     public enum BilledToType1
     {
         [JsonProperty("Unknown")]
@@ -34,7 +37,13 @@ namespace CodatLending.Models.Shared
         {
             foreach(var field in typeof(BilledToType1).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

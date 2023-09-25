@@ -30,7 +30,7 @@ namespace CodatLending.Models.Shared
         public List<DataSource>? DataSources { get; set; }
 
         /// <summary>
-        /// Report additional information, which is specific to Assess reports
+        /// Report additional information, which is specific to Lending API reports.
         /// </summary>
         [JsonProperty("reportInfo")]
         public ReportInfo? ReportInfo { get; set; }

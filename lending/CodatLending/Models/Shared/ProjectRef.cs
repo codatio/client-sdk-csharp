@@ -15,9 +15,15 @@ namespace CodatLending.Models.Shared
     public class ProjectRef
     {
 
+        /// <summary>
+        /// Unique identifier to the project reference.
+        /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
+        /// <summary>
+        /// The project&amp;apos;s name.
+        /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
     }

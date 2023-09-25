@@ -15,9 +15,15 @@ namespace CodatLending.Models.Operations
     public class GetAccountingBillPaymentRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a bill payment.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=billPaymentId")]
         public string BillPaymentId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
     }

@@ -13,6 +13,9 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     using System;
     
+    /// <summary>
+    /// The type of loan transaction.
+    /// </summary>
     public enum ReportItemsLoanTransactionType
     {
         [JsonProperty("Investment")]
@@ -36,7 +39,13 @@ namespace CodatLending.Models.Shared
         {
             foreach(var field in typeof(ReportItemsLoanTransactionType).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

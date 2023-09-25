@@ -15,14 +15,20 @@ namespace CodatLending.Models.Operations
     public class ListAccountingDirectIncomeAttachmentsRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a connection.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for a direct income
+        /// Unique identifier for a direct income.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=directIncomeId")]
         public string DirectIncomeId { get; set; } = default!;

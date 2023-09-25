@@ -15,12 +15,21 @@ namespace CodatLending.Models.Shared
     public class File
     {
 
+        /// <summary>
+        /// An optional display name for the file.
+        /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
 
+        /// <summary>
+        /// The file&amp;apos;s name.
+        /// </summary>
         [JsonProperty("fileName")]
         public string? FileName { get; set; }
 
+        /// <summary>
+        /// The source of the file uploaded.
+        /// </summary>
         [JsonProperty("sourceType")]
         public string? SourceType { get; set; }
 

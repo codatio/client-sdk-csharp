@@ -15,9 +15,15 @@ namespace CodatLending.Models.Shared
     public class AccountingInvoiceSalesOrderReference
     {
 
+        /// <summary>
+        /// Available Data types
+        /// </summary>
         [JsonProperty("dataType")]
-        public string? DataType { get; set; }
+        public DataType? DataType { get; set; }
 
+        /// <summary>
+        /// Unique identifier to a record in `dataType`.
+        /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
     }

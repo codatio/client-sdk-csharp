@@ -65,7 +65,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.FinancialStatements.ProfitAndLoss.GetCategorizedAccountsAsync(new GetCategorizedProfitAndLossStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    NumberOfPeriods = 324141,
+    NumberOfPeriods = 617636,
     ReportDate = "29-09-2020",
 });
 

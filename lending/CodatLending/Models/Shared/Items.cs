@@ -15,9 +15,15 @@ namespace CodatLending.Models.Shared
     public class Items
     {
 
+        /// <summary>
+        /// Amount of tax withheld.
+        /// </summary>
         [JsonProperty("amount")]
         public decimal Amount { get; set; } = default!;
 
+        /// <summary>
+        /// Name assigned to withheld tax.
+        /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
     }

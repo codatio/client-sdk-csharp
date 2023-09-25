@@ -15,12 +15,21 @@ namespace CodatLending.Models.Operations
     public class GetAccountingAccountTransactionRequest
     {
 
+        /// <summary>
+        /// Unique identifier for an account transaction.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=accountTransactionId")]
         public string AccountTransactionId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a connection.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
     }

@@ -21,6 +21,9 @@ namespace CodatLending.Models.Shared
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
+        /// <summary>
+        /// The type of source the transaction arose.
+        /// </summary>
         [JsonProperty("type")]
         public TransactionSourceType Type { get; set; } = default!;
     }

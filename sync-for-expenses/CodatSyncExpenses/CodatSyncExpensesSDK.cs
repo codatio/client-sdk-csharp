@@ -96,6 +96,22 @@ namespace CodatSyncExpenses
     {
     }
 
+    /// <summary>
+    /// Sync for Expenses: The API for Sync for Expenses.&lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// Sync for Expenses is an API and a set of supporting tools. It has been built to<br/>
+    /// enable corporate card and expense management platforms to provide high-quality<br/>
+    /// integrations with multiple accounting platforms through a standardized API.<br/>
+    /// <br/>
+    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Read more...</a><br/>
+    /// <br/>
+    /// <a href="https://github.com/codatio/oas">See our OpenAPI spec</a><br/>
+    /// <br/>
+    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Sync for Commerce</a>.
+    /// </remarks>
+    /// </summary>
     public class CodatSyncExpensesSDK: ICodatSyncExpensesSDK
     {
         public SDKConfig Config { get; private set; }
@@ -105,8 +121,8 @@ namespace CodatSyncExpenses
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "2.1.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

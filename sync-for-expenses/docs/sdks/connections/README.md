@@ -7,7 +7,7 @@ Create and manage partner expense connection.
 ### Available Operations
 
 * [Create](#create) - Create connection
-* [CreatePartnerExpenseConnection](#createpartnerexpenseconnection) - Create Partner Expense connection
+* [CreatePartnerExpenseConnection](#createpartnerexpenseconnection) - Create partner expense connection
 * [Delete](#delete) - Delete connection
 * [Get](#get) - Get connection
 * [List](#list) - List connections
@@ -34,7 +34,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "saepe",
+        PlatformKey = "gbol",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -56,7 +56,7 @@ var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
 
 ## CreatePartnerExpenseConnection
 
-Creates a Partner Expense data connection
+Creates a partner expense data connection
 
 ### Example Usage
 
@@ -187,7 +187,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "fuga",
+    Query = "quidem",
 });
 
 // handle response
@@ -224,7 +224,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Connections.UnlinkAsync(new UnlinkConnectionRequest() {
     RequestBody = new UnlinkConnectionUpdateConnection() {
-        Status = CodatSyncExpenses.Models.Shared.DataConnectionStatus.Linked,
+        Status = CodatSyncExpenses.Models.Shared.DataConnectionStatus.PendingAuth,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

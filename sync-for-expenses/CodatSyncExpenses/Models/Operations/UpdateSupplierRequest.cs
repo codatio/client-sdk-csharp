@@ -19,9 +19,21 @@ namespace CodatSyncExpenses.Models.Operations
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Supplier? Supplier { get; set; }
 
+        /// <summary>
+        /// Allow a sync upon push completion.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=allowSyncOnPushComplete")]
+        public bool? AllowSyncOnPushComplete { get; set; }
+
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a connection.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
 
@@ -32,11 +44,14 @@ namespace CodatSyncExpenses.Models.Operations
         public bool? ForceUpdate { get; set; }
 
         /// <summary>
-        /// Unique identifier for a supplier
+        /// Unique identifier for a supplier.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=supplierId")]
         public string SupplierId { get; set; } = default!;
 
+        /// <summary>
+        /// Time limit for the push operation to complete before it is timed out.
+        /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
         public int? TimeoutInMinutes { get; set; }
     }

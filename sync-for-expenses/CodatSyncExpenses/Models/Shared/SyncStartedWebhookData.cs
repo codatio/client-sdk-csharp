@@ -69,6 +69,9 @@ namespace CodatSyncExpenses.Models.Shared
         [JsonProperty("SyncDateRangeStartUtc")]
         public string? SyncDateRangeStartUtc { get; set; }
 
+        /// <summary>
+        /// Unique identifier for the failed sync.
+        /// </summary>
         [JsonProperty("syncId")]
         public string? SyncId { get; set; }
 

@@ -15,6 +15,9 @@ namespace CodatSyncExpenses.Models.Shared
     public class SyncInitiated
     {
 
+        /// <summary>
+        /// Unique identifier for the sync initiated.
+        /// </summary>
         [JsonProperty("syncId")]
         public string? SyncId { get; set; }
     }

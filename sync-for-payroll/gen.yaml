@@ -19,7 +19,7 @@ features:
 csharp:
   version: 2.0.0
   author: Codat
-  description: Push payroll to accounting platforms.
   dotnetVersion: net6.0
+  description: Push payroll to accounting platforms.
   maxMethodParams: 0
   packageName: Codat.Sync.Payroll

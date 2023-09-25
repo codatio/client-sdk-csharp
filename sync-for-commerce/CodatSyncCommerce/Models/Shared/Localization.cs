@@ -15,6 +15,9 @@ namespace CodatSyncCommerce.Models.Shared
     public class Localization
     {
 
+        /// <summary>
+        /// `True` if required.
+        /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; }
 

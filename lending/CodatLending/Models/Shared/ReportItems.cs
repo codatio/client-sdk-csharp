@@ -51,6 +51,12 @@ namespace CodatLending.Models.Shared
         [JsonProperty("itemRef")]
         public DefinitionsitemRef? ItemRef { get; set; }
 
+        /// <summary>
+        /// The name of lender providing the loan.
+        /// </summary>
+        [JsonProperty("lenderName")]
+        public string? LenderName { get; set; }
+
         [JsonProperty("loanRef")]
         public LoanRef? LoanRef { get; set; }
 

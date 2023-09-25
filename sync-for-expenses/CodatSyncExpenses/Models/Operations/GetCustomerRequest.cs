@@ -15,9 +15,15 @@ namespace CodatSyncExpenses.Models.Operations
     public class GetCustomerRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a customer.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customerId")]
         public string CustomerId { get; set; } = default!;
     }

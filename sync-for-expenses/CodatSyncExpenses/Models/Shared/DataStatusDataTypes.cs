@@ -16,7 +16,7 @@ namespace CodatSyncExpenses.Models.Shared
     /// <summary>
     /// Available Data types
     /// </summary>
-    public enum DataType
+    public enum DataStatusDataTypes
     {
         [JsonProperty("accountTransactions")]
         AccountTransactions,
@@ -104,16 +104,16 @@ namespace CodatSyncExpenses.Models.Shared
         CommerceTransactions,
     }
 
-    public static class DataTypeExtension
+    public static class DataStatusDataTypesExtension
     {
-        public static string Value(this DataType value)
+        public static string Value(this DataStatusDataTypes value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static DataType ToEnum(this string value)
+        public static DataStatusDataTypes ToEnum(this string value)
         {
-            foreach(var field in typeof(DataType).GetFields())
+            foreach(var field in typeof(DataStatusDataTypes).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -126,14 +126,14 @@ namespace CodatSyncExpenses.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is DataType)
+                    if (enumVal is DataStatusDataTypes)
                     {
-                        return (DataType)enumVal;
+                        return (DataStatusDataTypes)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum DataType");
+            throw new Exception($"Unknown value {value} for enum DataStatusDataTypes");
         }
     }
 }

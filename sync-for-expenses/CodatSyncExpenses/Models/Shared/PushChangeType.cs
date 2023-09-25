@@ -13,6 +13,9 @@ namespace CodatSyncExpenses.Models.Shared
     using Newtonsoft.Json;
     using System;
     
+    /// <summary>
+    /// Type of change being applied to record in third party platform.
+    /// </summary>
     public enum PushChangeType
     {
         [JsonProperty("Unknown")]
@@ -38,7 +41,13 @@ namespace CodatSyncExpenses.Models.Shared
         {
             foreach(var field in typeof(PushChangeType).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

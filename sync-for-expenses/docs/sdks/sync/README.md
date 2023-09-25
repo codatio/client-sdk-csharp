@@ -6,7 +6,7 @@ Trigger and monitor expense syncs to accounting software.
 
 ### Available Operations
 
-* [Get](#get) - Get Sync status
+* [Get](#get) - Get sync status
 * [GetLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
 * [GetLatestSync](#getlatestsync) - Latest sync status
 * [InitiateSync](#initiatesync) - Initiate sync
@@ -141,7 +141,7 @@ var sdk = new CodatSyncExpensesSDK(
 var res = await sdk.Sync.InitiateSyncAsync(new InitiateSyncRequest() {
     InitiateSync = new InitiateSync() {
         DatasetIds = new List<string>() {
-            "a8422bb6-79d2-4322-b15b-f0cbb1e31b8b",
+            "90f3443a-1108-4e0a-9cf4-b921879fce95",
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",

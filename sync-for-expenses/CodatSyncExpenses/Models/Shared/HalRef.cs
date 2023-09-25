@@ -15,6 +15,9 @@ namespace CodatSyncExpenses.Models.Shared
     public class HalRef
     {
 
+        /// <summary>
+        /// Uri hypertext reference.
+        /// </summary>
         [JsonProperty("href")]
         public string? Href { get; set; }
     }

@@ -18,6 +18,9 @@ namespace CodatSyncExpenses.Models.Operations
         [SpeakeasyMetadata("multipartForm:file request:mediaType=multipart/form-data")]
         public UploadExpenseAttachmentRequestBody? RequestBody { get; set; }
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 

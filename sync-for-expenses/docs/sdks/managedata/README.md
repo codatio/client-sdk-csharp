@@ -67,7 +67,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+    DatasetId = "fd2ed028-921c-4ddc-a926-01fb576b0d5f",
 });
 
 // handle response
@@ -107,7 +107,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "in",
+    Query = "perferendis",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "11e5b7fd-2ed0-4289-a1cd-dc692601fb57",
+    ConnectionId = "d30c5fbb-2587-4053-a02c-73d5fe9b90c2",
     DataType = CodatSyncExpenses.Models.Shared.DataType.Invoices,
 });
 

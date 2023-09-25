@@ -63,12 +63,15 @@ namespace CodatSyncCommerce
         Task<UpdateVisibleAccountsSyncFlowResponse> UpdateVisibleAccountsSyncFlowAsync(UpdateVisibleAccountsSyncFlowRequest? request = null);
     }
 
+    /// <summary>
+    /// Configure preferences for any given Sync for Commerce company using sync flow.
+    /// </summary>
     public class SyncFlowSettingsSDK: ISyncFlowSettingsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "2.1.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -113,7 +116,7 @@ namespace CodatSyncCommerce
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.LocalizationInfo = JsonConvert.DeserializeObject<Dictionary<string, Localization>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.LocalizationInfo = JsonConvert.DeserializeObject<Dictionary<string, Localization>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -152,7 +155,7 @@ namespace CodatSyncCommerce
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.VisibleAccounts = JsonConvert.DeserializeObject<VisibleAccounts>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.VisibleAccounts = JsonConvert.DeserializeObject<VisibleAccounts>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -196,7 +199,7 @@ namespace CodatSyncCommerce
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.LocalizationInfo = JsonConvert.DeserializeObject<Dictionary<string, Localization>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.LocalizationInfo = JsonConvert.DeserializeObject<Dictionary<string, Localization>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -240,7 +243,7 @@ namespace CodatSyncCommerce
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.VisibleAccounts = JsonConvert.DeserializeObject<VisibleAccounts>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.VisibleAccounts = JsonConvert.DeserializeObject<VisibleAccounts>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

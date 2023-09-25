@@ -73,7 +73,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.RefreshData.ByDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "df7cc78c-a1ba-4928-bc81-6742cb739205",
+    ConnectionId = "ddf7cc78-ca1b-4a92-8fc8-16742cb73920",
     DataType = CodatPlatform.Models.Shared.DataType.Invoices,
 });
 
@@ -147,7 +147,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.RefreshData.GetPullOperationAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+    DatasetId = "5929396f-ea75-496e-b10f-aaa2352c5955",
 });
 
 // handle response
@@ -187,7 +187,7 @@ var res = await sdk.RefreshData.ListPullOperationsAsync(new ListPullOperationsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "natus",
+    Query = "excepturi",
 });
 
 // handle response

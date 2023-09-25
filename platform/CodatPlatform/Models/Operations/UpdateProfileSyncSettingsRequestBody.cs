@@ -24,11 +24,17 @@ namespace CodatPlatform.Models.Operations
     public class UpdateProfileSyncSettingsRequestBody
     {
 
+        /// <summary>
+        /// Unique identifier for your client in Codat.
+        /// </summary>
         [JsonProperty("clientId")]
         public string ClientId { get; set; } = default!;
 
+        /// <summary>
+        /// Set to `True` if you want to override default &lt;a href=&quot;https://docs.codat.io/knowledge-base/advanced-sync-settings&quot;&gt;sync settings&lt;/a&gt;.
+        /// </summary>
         [JsonProperty("overridesDefaults")]
-        public bool OverridesDefaults { get; set; } = default!;
+        public bool? OverridesDefaults { get; set; }
 
         [JsonProperty("settings")]
         public List<SyncSetting> Settings { get; set; } = default!;

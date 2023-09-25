@@ -78,6 +78,19 @@ namespace CodatPlatform
     {
     }
 
+    /// <summary>
+    /// Platform API: Platform API
+    /// 
+    /// <remarks>
+    /// An API for the common components of all of Codat&apos;s products.<br/>
+    /// <br/>
+    /// These end points cover creating and managing your companies, data connections, and integrations.<br/>
+    /// <br/>
+    /// <a href="https://docs.codat.io/core-concepts/companies">Read about the building blocks of Codat...</a><br/>
+    /// <br/>
+    /// <a href="https://github.com/codatio/oas">See our OpenAPI spec</a> 
+    /// </remarks>
+    /// </summary>
     public class CodatPlatformSDK: ICodatPlatformSDK
     {
         public SDKConfig Config { get; private set; }
@@ -87,8 +100,8 @@ namespace CodatPlatform
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

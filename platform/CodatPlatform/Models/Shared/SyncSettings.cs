@@ -16,9 +16,15 @@ namespace CodatPlatform.Models.Shared
     public class SyncSettings
     {
 
+        /// <summary>
+        /// Unique identifier for your client in Codat.
+        /// </summary>
         [JsonProperty("clientId")]
         public string? ClientId { get; set; }
 
+        /// <summary>
+        /// Set to `True` if you want to override the default &lt;a href=&quot;https://docs.codat.io/knowledge-base/advanced-sync-settings&quot;&gt;sync settings&lt;/a&gt;.
+        /// </summary>
         [JsonProperty("overridesDefaults")]
         public bool? OverridesDefaults { get; set; }
 

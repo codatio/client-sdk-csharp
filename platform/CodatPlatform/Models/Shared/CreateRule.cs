@@ -18,12 +18,18 @@ namespace CodatPlatform.Models.Shared
     public class CreateRule
     {
 
+        /// <summary>
+        /// Unique identifier for your SMB in Codat.
+        /// </summary>
         [JsonProperty("companyId")]
         public string? CompanyId { get; set; }
 
         [JsonProperty("notifiers")]
-        public CreateRuleNotifiers Notifiers { get; set; } = default!;
+        public WebhookNotifier Notifiers { get; set; } = default!;
 
+        /// <summary>
+        /// The type of webhook.
+        /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; } = default!;
     }

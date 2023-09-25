@@ -44,12 +44,15 @@ namespace CodatSyncExpenses
         Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null);
     }
 
+    /// <summary>
+    /// Accounts
+    /// </summary>
     public class AccountsSDK: IAccountsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -99,7 +102,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.CreateAccountResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateAccountResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.CreateAccountResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateAccountResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -108,7 +111,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

@@ -15,6 +15,9 @@ namespace CodatSyncExpenses.Models.Shared
     public class UpdateExpenseResponse
     {
 
+        /// <summary>
+        /// Unique identifier for the update expense sync.
+        /// </summary>
         [JsonProperty("syncId")]
         public string? SyncId { get; set; }
     }

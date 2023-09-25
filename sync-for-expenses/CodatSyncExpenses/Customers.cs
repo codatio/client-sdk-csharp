@@ -92,12 +92,15 @@ namespace CodatSyncExpenses
         Task<Models.Operations.UpdateCustomerResponse> UpdateAsync(UpdateCustomerRequest? request = null);
     }
 
+    /// <summary>
+    /// Customers
+    /// </summary>
     public class CustomersSDK: ICustomersSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "1.2.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -147,7 +150,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.CreateCustomerResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateCustomerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.CreateCustomerResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateCustomerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -156,7 +159,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -195,7 +198,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.Customer = JsonConvert.DeserializeObject<Customer>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.Customer = JsonConvert.DeserializeObject<Customer>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -204,7 +207,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -243,7 +246,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.Customers = JsonConvert.DeserializeObject<Customers>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.Customers = JsonConvert.DeserializeObject<Customers>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -252,7 +255,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -296,7 +299,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.UpdateCustomerResponseValue = JsonConvert.DeserializeObject<Models.Shared.UpdateCustomerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.UpdateCustomerResponseValue = JsonConvert.DeserializeObject<Models.Shared.UpdateCustomerResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -305,7 +308,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

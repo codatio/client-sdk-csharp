@@ -16,6 +16,9 @@ namespace CodatSyncExpenses.Models.Operations
     public class RefreshDataTypeRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 

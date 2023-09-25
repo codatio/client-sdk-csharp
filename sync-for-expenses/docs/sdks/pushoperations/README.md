@@ -28,7 +28,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.PushOperations.GetAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "6b0d5f0d-30c5-4fbb-a587-053202c73d5f",
+    PushOperationKey = "8909b3fe-49a8-4d9c-bf48-633323f9b77f",
 });
 
 // handle response
@@ -68,7 +68,7 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "recusandae",
+    Query = "amet",
 });
 
 // handle response

@@ -18,11 +18,17 @@ namespace CodatSyncExpenses.Models.Shared
     public class DataStatus
     {
 
+        /// <summary>
+        /// The current status of the dataset in Codat&amp;apos;s cache.
+        /// </summary>
         [JsonProperty("currentStatus")]
         public string CurrentStatus { get; set; } = default!;
 
+        /// <summary>
+        /// Available Data types
+        /// </summary>
         [JsonProperty("dataType")]
-        public string DataType { get; set; } = default!;
+        public DataStatusDataTypes DataType { get; set; } = default!;
 
         /// <summary>
         /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
@@ -51,9 +57,15 @@ namespace CodatSyncExpenses.Models.Shared
         [JsonProperty("lastSuccessfulSync")]
         public string LastSuccessfulSync { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for the most recent successful sync of data type.
+        /// </summary>
         [JsonProperty("latestSuccessfulSyncId")]
         public string? LatestSuccessfulSyncId { get; set; }
 
+        /// <summary>
+        /// Unique identifier for most recent sync of data type.
+        /// </summary>
         [JsonProperty("latestSyncId")]
         public string? LatestSyncId { get; set; }
     }

@@ -56,8 +56,8 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(new GetVisibleAccountsRequest() {
-    ClientId = "e0f467cc-8796-4ed1-91a0-5dfc2ddf7cc7",
-    PlatformKey = "8ca1ba92-8fc8-4167-82cb-739205929396",
+    ClientId = "74e0f467-cc87-496e-9151-a05dfc2ddf7c",
+    PlatformKey = "gbol",
 });
 
 // handle response
@@ -92,9 +92,9 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(new Dictionary<string, Localization>() {
-    { "hic", new Localization() {
+    { "quod", new Localization() {
         Required = false,
-        Text = "saepe",
+        Text = "esse",
     } },
 });
 
@@ -133,10 +133,10 @@ var sdk = new CodatSyncCommerceSDK(
 var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(new UpdateVisibleAccountsSyncFlowRequest() {
     VisibleAccounts = new VisibleAccounts() {
         VisibleAccounts = new List<string>() {
-            "fuga",
+            "totam",
         },
     },
-    PlatformKey = "7596eb10-faaa-4235-ac59-55907aff1a3a",
+    PlatformKey = "gbol",
 });
 
 // handle response

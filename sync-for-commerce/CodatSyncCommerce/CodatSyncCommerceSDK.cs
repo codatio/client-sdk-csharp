@@ -62,6 +62,18 @@ namespace CodatSyncCommerce
     {
     }
 
+    /// <summary>
+    /// Sync for Commerce: The API for Sync for Commerce. &lt;br/&gt;
+    /// 
+    /// <remarks>
+    /// <br/>
+    /// Sync for Commerce automatically replicates and reconciles sales data from a merchant’s source PoS, Payments, and eCommerce systems into their accounting software. This eliminates manual processing by merchants and transforms their ability to run and grow their business.<br/>
+    ///   <br/>
+    /// <a href="https://docs.codat.io/commerce/overview">Read More...</a><br/>
+    /// <br/>
+    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-commerce-v1-api#/">different version of Sync for Commerce</a>.
+    /// </remarks>
+    /// </summary>
     public class CodatSyncCommerceSDK: ICodatSyncCommerceSDK
     {
         public SDKConfig Config { get; private set; }
@@ -71,8 +83,8 @@ namespace CodatSyncCommerce
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.1.0";
-        private const string _sdkGenVersion = "2.116.0";
+        private const string _sdkVersion = "2.1.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

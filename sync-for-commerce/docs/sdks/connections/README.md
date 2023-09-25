@@ -33,7 +33,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "provident",
+        PlatformKey = "gbol",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
@@ -71,9 +71,9 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.Connections.GetSyncFlowUrlAsync(new GetSyncFlowUrlRequest() {
-    AccountingKey = "distinctio",
-    CommerceKey = "quibusdam",
-    MerchantIdentifier = "unde",
+    AccountingKey = "provident",
+    CommerceKey = "distinctio",
+    MerchantIdentifier = "quibusdam",
 });
 
 // handle response
@@ -113,7 +113,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "nulla",
+    Query = "unde",
 });
 
 // handle response
@@ -150,7 +150,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
-        { "corrupti", "illum" },
+        { "nulla", "corrupti" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -190,7 +190,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.UpdateConnectionAsync(new UpdateConnectionRequest() {
     UpdateConnection = new UpdateConnection() {
-        Status = CodatSyncCommerce.Models.Shared.DataConnectionStatus.Linked,
+        Status = CodatSyncCommerce.Models.Shared.DataConnectionStatus.Deauthorized,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

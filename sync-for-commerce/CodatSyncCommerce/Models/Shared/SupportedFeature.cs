@@ -15,9 +15,15 @@ namespace CodatSyncCommerce.Models.Shared
     public class SupportedFeature
     {
 
+        /// <summary>
+        /// The current release state of the feature.
+        /// </summary>
         [JsonProperty("featureState")]
         public FeatureState FeatureState { get; set; } = default!;
 
+        /// <summary>
+        /// The type of feature.
+        /// </summary>
         [JsonProperty("featureType")]
         public FeatureType FeatureType { get; set; } = default!;
     }

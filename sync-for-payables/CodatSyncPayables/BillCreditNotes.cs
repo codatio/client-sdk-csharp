@@ -110,12 +110,15 @@ namespace CodatSyncPayables
         Task<Models.Operations.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest? request = null);
     }
 
+    /// <summary>
+    /// Bill credit notes
+    /// </summary>
     public class BillCreditNotesSDK: IBillCreditNotesSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "1.2.0";
-        private const string _sdkGenVersion = "2.125.1";
+        private const string _sdkVersion = "2.1.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -165,7 +168,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.CreateBillCreditNoteResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.CreateBillCreditNoteResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -174,7 +177,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -213,7 +216,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.BillCreditNote = JsonConvert.DeserializeObject<BillCreditNote>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.BillCreditNote = JsonConvert.DeserializeObject<BillCreditNote>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -222,7 +225,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -261,7 +264,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.PushOption = JsonConvert.DeserializeObject<PushOption>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.PushOption = JsonConvert.DeserializeObject<PushOption>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -270,7 +273,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -309,7 +312,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.BillCreditNotes = JsonConvert.DeserializeObject<BillCreditNotes>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.BillCreditNotes = JsonConvert.DeserializeObject<BillCreditNotes>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -318,7 +321,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -362,7 +365,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.UpdateBillCreditNoteResponseValue = JsonConvert.DeserializeObject<Models.Shared.UpdateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.UpdateBillCreditNoteResponseValue = JsonConvert.DeserializeObject<Models.Shared.UpdateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -371,7 +374,7 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

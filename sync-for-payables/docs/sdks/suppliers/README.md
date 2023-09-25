@@ -42,40 +42,40 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
-                City = "North Tadshire",
-                Country = "Anguilla",
-                Line1 = "incidunt",
-                Line2 = "qui",
-                PostalCode = "86113",
-                Region = "modi",
+                City = "Mosciskiside",
+                Country = "Armenia",
+                Line1 = "nisi",
+                Line2 = "rerum",
+                PostalCode = "92513-7197",
+                Region = "quae",
                 Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "voluptatibus",
-        DefaultCurrency = "molestias",
-        EmailAddress = "officia",
-        Id = "b8366c72-3ffd-4a9e-86be-e4825c1fc0e1",
+        ContactName = "architecto",
+        DefaultCurrency = "architecto",
+        EmailAddress = "enim",
+        Id = "c80bff91-8544-4ec4-adef-cce8f1977773",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "+44 25691 154789",
-        RegistrationNumber = "optio",
+        Phone = "(877) 492-8687",
+        RegistrationNumber = "neque",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Unknown,
+        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "facilis", new Dictionary<string, object>() {
-                    { "reiciendis", "a" },
+                { "consequuntur", new Dictionary<string, object>() {
+                    { "officia", "reprehenderit" },
                 } },
             },
         },
-        SupplierName = "iste",
-        TaxNumber = "dicta",
+        SupplierName = "distinctio",
+        TaxNumber = "eius",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 552439,
+    TimeoutInMinutes = 56372,
 });
 
 // handle response
@@ -119,7 +119,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.GetAsync(new GetSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "ullam",
+    SupplierId = "rem",
 });
 
 // handle response
@@ -210,7 +210,7 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "dolore",
+    Query = "maiores",
 });
 
 // handle response
@@ -258,42 +258,42 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
-                City = "Fort Rafael",
-                Country = "Eritrea",
-                Line1 = "consequuntur",
-                Line2 = "assumenda",
-                PostalCode = "97785-9054",
-                Region = "esse",
-                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Billing,
+                City = "West Suzanneberg",
+                Country = "Solomon Islands",
+                Line1 = "aliquam",
+                Line2 = "quos",
+                PostalCode = "86921-2609",
+                Region = "nemo",
+                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "odio",
-        DefaultCurrency = "nesciunt",
-        EmailAddress = "debitis",
-        Id = "63562a7b-408f-405e-bd48-fdaf313a1f5f",
+        ContactName = "possimus",
+        DefaultCurrency = "unde",
+        EmailAddress = "incidunt",
+        Id = "259c0b36-f25e-4a94-8f3b-756c11f6c37a",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "(877) 492-8687",
-        RegistrationNumber = "incidunt",
+        Phone = "+44 25691 154789",
+        RegistrationNumber = "qui",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
+        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "cupiditate", new Dictionary<string, object>() {
-                    { "optio", "alias" },
+                { "incidunt", new Dictionary<string, object>() {
+                    { "adipisci", "praesentium" },
                 } },
             },
         },
-        SupplierName = "quidem",
-        TaxNumber = "nesciunt",
+        SupplierName = "dolor",
+        TaxNumber = "exercitationem",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    SupplierId = "commodi",
-    TimeoutInMinutes = 956124,
+    SupplierId = "expedita",
+    TimeoutInMinutes = 706411,
 });
 
 // handle response

@@ -15,9 +15,15 @@ namespace CodatSyncPayables.Models.Operations
     public class GetTaxRateRequest
     {
 
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
+        /// <summary>
+        /// Unique identifier for a tax rate.
+        /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=taxRateId")]
         public string TaxRateId { get; set; } = default!;
     }

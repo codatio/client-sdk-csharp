@@ -13,6 +13,9 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System;
     
+    /// <summary>
+    /// Defines if the invoice or credit note is billed/rebilled to a project or customer.
+    /// </summary>
     public enum BilledToType
     {
         [JsonProperty("Unknown")]
@@ -36,7 +39,13 @@ namespace CodatSyncPayables.Models.Shared
         {
             foreach(var field in typeof(BilledToType).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     var enumVal = field.GetValue(null);

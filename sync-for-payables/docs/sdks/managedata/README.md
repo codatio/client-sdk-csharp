@@ -67,7 +67,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+    DatasetId = "4e472e80-2857-4a5b-8046-3a7d575f1400",
 });
 
 // handle response
@@ -107,7 +107,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "repudiandae",
+    Query = "eveniet",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "472e8028-57a5-4b40-863a-7d575f1400e7",
+    ConnectionId = "764ad733-4ec1-4b78-9b36-a08088d100ef",
     DataType = CodatSyncPayables.Models.Shared.DataType.Invoices,
 });
 

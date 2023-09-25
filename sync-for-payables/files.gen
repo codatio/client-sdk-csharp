@@ -243,6 +243,7 @@ CodatSyncPayables/Models/Shared/CreateJournalResponse.cs
 CodatSyncPayables/Models/Shared/Journal.cs
 CodatSyncPayables/Models/Shared/JournalStatus.cs
 CodatSyncPayables/Models/Shared/Journals.cs
+CodatSyncPayables/Models/Shared/DataStatusDataTypes.cs
 CodatSyncPayables/Models/Shared/DataStatus.cs
 CodatSyncPayables/Models/Shared/PullOperationStatus.cs
 CodatSyncPayables/Models/Shared/PullOperation.cs
@@ -489,6 +490,7 @@ docs/models/shared/CreateJournalResponse.md
 docs/models/shared/Journal.md
 docs/models/shared/JournalStatus.md
 docs/models/shared/Journals.md
+docs/models/shared/DataStatusDataTypes.md
 docs/models/shared/DataStatus.md
 docs/models/shared/PullOperationStatus.md
 docs/models/shared/PullOperation.md

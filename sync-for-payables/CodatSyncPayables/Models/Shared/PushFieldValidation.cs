@@ -15,12 +15,21 @@ namespace CodatSyncPayables.Models.Shared
     public class PushFieldValidation
     {
 
+        /// <summary>
+        /// Details on the validation issue.
+        /// </summary>
         [JsonProperty("details")]
         public string Details { get; set; } = default!;
 
+        /// <summary>
+        /// Field name that resulted in the validation issue.
+        /// </summary>
         [JsonProperty("field")]
         public string? Field { get; set; }
 
+        /// <summary>
+        /// Unique reference identifier for the validation issue.
+        /// </summary>
         [JsonProperty("ref")]
         public string? Ref { get; set; }
     }

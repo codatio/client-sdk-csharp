@@ -63,7 +63,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// <br/>
         /// ## Overview<br/>
         /// <br/>
-        /// From the **Suppliers** endpoints, you can retrieve a list of <a href="https://docs.codat.io/accounting-api#/operations/list-suppliers">all the suppliers for a company</a>. Suppliers&apos; data links to accounts payable <a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a>.
+        /// From the **Suppliers** endpoints, you can retrieve a list of <a href="https://docs.codat.io/sync-for-expenses-api#/operations/list-suppliers">all the suppliers for a company</a>. Suppliers&apos; data links to accounts payable <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Bill">bills</a>.
         /// </remarks>
         /// </summary>
         [JsonProperty("data")]

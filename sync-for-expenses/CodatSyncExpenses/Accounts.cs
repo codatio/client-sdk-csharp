@@ -29,13 +29,13 @@ namespace CodatSyncExpenses
         /// Create account
         /// 
         /// <remarks>
-        /// The *Create account* endpoint creates a new <a href="https://docs.codat.io/accounting-api#/schemas/Account">account</a> for a given company&apos;s connection.<br/>
+        /// The *Create account* endpoint creates a new <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Account">account</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Account">Accounts</a> are the categories a business uses to record accounting transactions.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Account">Accounts</a> are the categories a business uses to record accounting transactions.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=chartOfAccounts">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -51,7 +51,7 @@ namespace CodatSyncExpenses
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
+        private const string _sdkVersion = "2.1.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";

@@ -29,13 +29,13 @@ namespace CodatSyncExpenses
         /// Create customer
         /// 
         /// <remarks>
-        /// The *Create customer* endpoint creates a new <a href="https://docs.codat.io/accounting-api#/schemas/Customer">customer</a> for a given company&apos;s connection.<br/>
+        /// The *Create customer* endpoint creates a new <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">customer</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -49,7 +49,7 @@ namespace CodatSyncExpenses
         /// <remarks>
         /// The *Get customer* endpoint returns a single customer for a given customerId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support getting a specific customer.<br/>
         /// <br/>
@@ -63,9 +63,9 @@ namespace CodatSyncExpenses
         /// List customers
         /// 
         /// <remarks>
-        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
+        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -77,13 +77,13 @@ namespace CodatSyncExpenses
         /// Update customer
         /// 
         /// <remarks>
-        /// The *Update customer* endpoint updates an existing <a href="https://docs.codat.io/accounting-api#/schemas/Customer">customer</a> for a given company&apos;s connection.<br/>
+        /// The *Update customer* endpoint updates an existing <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">customer</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -99,7 +99,7 @@ namespace CodatSyncExpenses
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
+        private const string _sdkVersion = "2.1.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";

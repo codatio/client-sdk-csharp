@@ -29,13 +29,13 @@ namespace CodatSyncExpenses
         /// Create supplier
         /// 
         /// <remarks>
-        /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
+        /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -49,7 +49,7 @@ namespace CodatSyncExpenses
         /// <remarks>
         /// The *Get supplier* endpoint returns a single supplier for a given supplierId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support getting a specific supplier.<br/>
         /// <br/>
@@ -63,9 +63,9 @@ namespace CodatSyncExpenses
         /// List suppliers
         /// 
         /// <remarks>
-        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
+        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -77,13 +77,13 @@ namespace CodatSyncExpenses
         /// Update supplier
         /// 
         /// <remarks>
-        /// The *Update supplier* endpoint updates an existing <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
+        /// The *Update supplier* endpoint updates an existing <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -99,7 +99,7 @@ namespace CodatSyncExpenses
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
+        private const string _sdkVersion = "2.1.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "prealpha";
         private string _serverUrl = "";

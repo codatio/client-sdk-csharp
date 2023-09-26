@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 3bdb94e374e69bab293949e981666ea6
+  docChecksum: 99f5db1b47bbb5b4b7cf26303cc62321
   docVersion: 3.0.0
   speakeasyVersion: 1.91.0
   generationVersion: 2.129.1
@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.1.0
+  version: 2.1.1
   author: Codat
   description: Push payroll to accounting platforms.
   dotnetVersion: net6.0

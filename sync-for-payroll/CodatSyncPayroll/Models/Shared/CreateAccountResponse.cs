@@ -79,7 +79,7 @@ namespace CodatSyncPayroll.Models.Shared
         /// At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided. <br/>
         /// <br/>
         /// To determine the list of allowed categories for a specific integration, you can: <br/>
-        /// - Follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide and use the <a href="https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
+        /// - Follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide and use the <a href="https://docs.codat.io/sync-for-payroll-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
         /// - Refer to the integration&apos;s own documentation. <br/>
         /// <br/>
         /// &gt; **Accounts with no category**<br/>

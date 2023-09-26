@@ -57,7 +57,7 @@ namespace CodatSyncPayroll.Models.Shared
         public string? CompletedOnUtc { get; set; }
 
         /// <summary>
-        /// &amp;gt; **Language tip:** For line items, or individual transactions, of a company&amp;apos;s financial documents, refer to the &lt;a href=&quot;https://docs.codat.io/accounting-api#/schemas/JournalEntry&quot;&gt;Journal entries&lt;/a&gt; data type&lt;br/&gt;
+        /// &amp;gt; **Language tip:** For line items, or individual transactions, of a company&amp;apos;s financial documents, refer to the &lt;a href=&quot;https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry&quot;&gt;Journal entries&lt;/a&gt; data type&lt;br/&gt;
         /// 
         /// <remarks>
         /// <br/>
@@ -65,7 +65,7 @@ namespace CodatSyncPayroll.Models.Shared
         /// <br/>
         /// ## Overview<br/>
         /// <br/>
-        /// In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">journal entry</a>. These entries are used to create the general ledger, which is then used to create the financial statements of a business.<br/>
+        /// In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">journal entry</a>. These entries are used to create the general ledger, which is then used to create the financial statements of a business.<br/>
         /// <br/>
         /// When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.<br/>
         /// <br/>

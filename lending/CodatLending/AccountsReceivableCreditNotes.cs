@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get credit note* endpoint returns a single credit note for a given creditNoteId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">Credit notes</a> are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/CreditNote">Credit notes</a> are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=creditNotes">coverage explorer</a> for integrations that support getting a specific credit note.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List credit notes
         /// 
         /// <remarks>
-        /// The *List credit notes* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">credit notes</a> for a given company&apos;s connection.<br/>
+        /// The *List credit notes* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/CreditNote">credit notes</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">Credit notes</a> are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/CreditNote">Credit notes</a> are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

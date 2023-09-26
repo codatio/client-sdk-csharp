@@ -26,13 +26,13 @@ namespace CodatLending
         /// Create bank account transactions
         /// 
         /// <remarks>
-        /// The *Create bank account transactions* endpoint creates new <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">bank account transactions</a> for a given company&apos;s connection.<br/>
+        /// The *Create bank account transactions* endpoint creates new <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-bankTransactions-model">Get create bank transaction model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model">Get create bank transaction model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankTransactions">coverage explorer</a> for integrations that support creating a bank account transactions.<br/>
         /// 
@@ -44,9 +44,9 @@ namespace CodatLending
         /// Get create bank account transactions model
         /// 
         /// <remarks>
-        /// The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">bank account transactions</a> for a given company and integration.<br/>
+        /// The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company and integration.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
@@ -63,7 +63,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

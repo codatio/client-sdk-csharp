@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get bill payment* endpoint returns a single bill payment for a given billPaymentId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billPayments">coverage explorer</a> for integrations that support getting a specific bill payment.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List bill payments
         /// 
         /// <remarks>
-        /// The *List bill payments* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">bill payments</a> for a given company&apos;s connection.<br/>
+        /// The *List bill payments* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/BillPayment">bill payments</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any customer accounts payable account.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

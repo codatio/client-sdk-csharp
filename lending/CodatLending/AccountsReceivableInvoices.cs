@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Download invoice attachment* endpoint downloads a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support downloading an invoice attachment.<br/>
         /// 
@@ -51,7 +51,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get invoice* endpoint returns a single invoice for a given invoiceId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support getting a specific invoice.<br/>
         /// <br/>
@@ -66,7 +66,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get invoice attachment* endpoint returns a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support getting an invoice attachment.<br/>
         /// 
@@ -78,9 +78,9 @@ namespace CodatLending
         /// List invoices
         /// 
         /// <remarks>
-        /// The *List invoices* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">invoices</a> for a given company&apos;s connection.<br/>
+        /// The *List invoices* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Invoice">invoices</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     <br/>
@@ -100,7 +100,7 @@ namespace CodatLending
         /// <remarks>
         /// The *List invoice attachments* endpoint returns a list of attachments available to download for given `invoiceId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices">coverage explorer</a> for integrations that support listing invoice attachments.<br/>
         /// 
@@ -122,7 +122,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

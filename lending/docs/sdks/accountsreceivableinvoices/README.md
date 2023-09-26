@@ -14,7 +14,7 @@
 
 The *Download invoice attachment* endpoint downloads a specific attachment for a given `invoiceId` and `attachmentId`.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support downloading an invoice attachment.
 
@@ -95,7 +95,7 @@ var res = await sdk.AccountsReceivable.Invoices.DownloadPdfAsync(new DownloadAcc
 
 The *Get invoice* endpoint returns a single invoice for a given invoiceId.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support getting a specific invoice.
 
@@ -138,7 +138,7 @@ var res = await sdk.AccountsReceivable.Invoices.GetAsync(new GetAccountingInvoic
 
 The *Get invoice attachment* endpoint returns a specific attachment for a given `invoiceId` and `attachmentId`.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support getting an invoice attachment.
 
@@ -180,9 +180,9 @@ var res = await sdk.AccountsReceivable.Invoices.GetAttachmentAsync(new GetAccoun
 
 ## List
 
-The *List invoices* endpoint returns a list of [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) for a given company's connection.
+The *List invoices* endpoint returns a list of [invoices](https://docs.codat.io/lending-api#/schemas/Invoice) for a given company's connection.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -233,7 +233,7 @@ var res = await sdk.AccountsReceivable.Invoices.ListAsync(new ListAccountingInvo
 
 The *List invoice attachments* endpoint returns a list of attachments available to download for given `invoiceId`.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support listing invoice attachments.
 

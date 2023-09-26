@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support downloading a customer attachment.<br/>
         /// 
@@ -42,7 +42,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get customer* endpoint returns a single customer for a given customerId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support getting a specific customer.<br/>
         /// <br/>
@@ -58,7 +58,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support getting a customer attachment.<br/>
         /// 
@@ -70,9 +70,9 @@ namespace CodatLending
         /// List customers
         /// 
         /// <remarks>
-        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
+        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -86,7 +86,7 @@ namespace CodatLending
         /// <remarks>
         /// The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support listing customer attachments.<br/>
         /// 
@@ -99,7 +99,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

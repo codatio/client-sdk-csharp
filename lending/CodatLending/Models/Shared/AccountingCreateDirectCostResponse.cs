@@ -73,7 +73,7 @@ namespace CodatLending.Models.Shared
         ///   * Withdrawing money from a bank account <br/>
         ///   * Writing a cheque<br/>
         /// <br/>
-        /// Direct costs is a child data type of <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">account transactions</a>.
+        /// Direct costs is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.
         /// </remarks>
         /// </summary>
         [JsonProperty("data")]

@@ -26,13 +26,13 @@ namespace CodatLending
         /// Create supplier
         /// 
         /// <remarks>
-        /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
+        /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/lending-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -44,9 +44,9 @@ namespace CodatLending
         /// Get create/update supplier model
         /// 
         /// <remarks>
-        /// The *Get create/update supplier model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a> for a given company and integration.<br/>
+        /// The *Get create/update supplier model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/lending-api#/schemas/Supplier">supplier</a> for a given company and integration.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
@@ -63,7 +63,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

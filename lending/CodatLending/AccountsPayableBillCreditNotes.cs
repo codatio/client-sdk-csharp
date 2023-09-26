@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get bill credit note* endpoint returns a single bill credit note for a given billCreditNoteId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support getting a specific bill credit note.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List bill credit notes
         /// 
         /// <remarks>
-        /// The *List bill credit notes* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">bill credit notes</a> for a given company&apos;s connection.<br/>
+        /// The *List bill credit notes* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/BillCreditNote">bill credit notes</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

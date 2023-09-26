@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Language tip:** For the top-level record of a company&amp;apos;s financial transactions, refer to the &lt;a href=&quot;https://docs.codat.io/accounting-api#/schemas/Journal&quot;&gt;Journals&lt;/a&gt; data type&lt;br/&gt;
+    /// &amp;gt; **Language tip:** For the top-level record of a company&amp;apos;s financial transactions, refer to the &lt;a href=&quot;https://docs.codat.io/lending-api#/schemas/Journal&quot;&gt;Journals&lt;/a&gt; data type&lt;br/&gt;
     /// 
     /// <remarks>
     /// <br/>
@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// A journal entry report shows the entries made in a company&apos;s general ledger, or <a href="https://docs.codat.io/accounting-api#/schemas/Account">accounts</a>, when transactions are approved. The journal line items for each journal entry should balance.<br/>
+    /// A journal entry report shows the entries made in a company&apos;s general ledger, or <a href="https://docs.codat.io/lending-api#/schemas/Account">accounts</a>, when transactions are approved. The journal line items for each journal entry should balance.<br/>
     /// <br/>
     /// A journal entry line item is a single transaction line on the journal entry. For example: <br/>
     /// <br/>

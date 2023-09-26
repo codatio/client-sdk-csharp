@@ -6,7 +6,7 @@
 
 Think of a credit note as a voucher issued to a customer. It is a reduction that can be applied against one or multiple invoices. A credit note can either reduce the amount owed or cancel out an invoice entirely.
 
-In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable. 
+In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/lending-api#/schemas/Customer) accounts receivable. 
 
 It contains details of:
 * The amount of credit remaining and its status.

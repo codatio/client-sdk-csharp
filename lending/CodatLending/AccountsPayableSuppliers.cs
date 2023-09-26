@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Download supplier attachment* endpoint downloads a specific attachment for a given `supplierId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support downloading a supplier attachment.<br/>
         /// 
@@ -42,7 +42,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get supplier* endpoint returns a single supplier for a given supplierId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support getting a specific supplier.<br/>
         /// <br/>
@@ -58,7 +58,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get supplier attachment* endpoint returns a specific attachment for a given `supplierId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support getting a supplier attachment.<br/>
         /// 
@@ -70,9 +70,9 @@ namespace CodatLending
         /// List suppliers
         /// 
         /// <remarks>
-        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
+        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -86,7 +86,7 @@ namespace CodatLending
         /// <remarks>
         /// The *List supplier attachments* endpoint returns a list of attachments available to download for given `supplierId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support listing supplier attachments.<br/>
         /// 
@@ -99,7 +99,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

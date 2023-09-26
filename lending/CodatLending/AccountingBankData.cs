@@ -30,9 +30,9 @@ namespace CodatLending
         /// List bank account transactions
         /// 
         /// <remarks>
-        /// The *List account bank transactions* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">bank account transactions</a> for a given company&apos;s connection.<br/>
+        /// The *List account bank transactions* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankTransactions">coverage explorer</a> for integrations that support listing bank transactions.<br/>
         /// <br/>
@@ -50,7 +50,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

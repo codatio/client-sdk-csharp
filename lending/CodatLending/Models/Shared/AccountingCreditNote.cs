@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
     /// <br/>
     /// Think of a credit note as a voucher issued to a customer. It is a reduction that can be applied against one or multiple invoices. A credit note can either reduce the amount owed or cancel out an invoice entirely.<br/>
     /// <br/>
-    /// In the Codat system a credit note is issued to a <a href="https://docs.codat.io/accounting-api#/schemas/Customer">customer&apos;s</a> accounts receivable. <br/>
+    /// In the Codat system a credit note is issued to a <a href="https://docs.codat.io/lending-api#/schemas/Customer">customer&apos;s</a> accounts receivable. <br/>
     /// <br/>
     /// It contains details of:<br/>
     /// * The amount of credit remaining and its status.<br/>

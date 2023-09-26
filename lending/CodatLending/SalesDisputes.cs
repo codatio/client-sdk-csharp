@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get dispute* endpoint returns a single dispute for a given disputeId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Dispute">Disputes</a> are created when a customer is unsatisfied with their purchase or believe they have been charged incorrectly.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Dispute">Disputes</a> are created when a customer is unsatisfied with their purchase or believe they have been charged incorrectly.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-disputes">coverage explorer</a> for integrations that support getting a specific dispute.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List disputes
         /// 
         /// <remarks>
-        /// The *List disputes* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Dispute">disputes</a> for a given company&apos;s connection.<br/>
+        /// The *List disputes* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Dispute">disputes</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Dispute">Disputes</a> are created when a customer is unsatisfied with their purchase or believe they have been charged incorrectly.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Dispute">Disputes</a> are created when a customer is unsatisfied with their purchase or believe they have been charged incorrectly.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

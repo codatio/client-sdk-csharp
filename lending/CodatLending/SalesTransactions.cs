@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get transaction* endpoint returns a single transaction for a given transactionId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Transaction">Transactions</a> detail all financial affairs recorded in the commerce or point of sale system.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Transaction">Transactions</a> detail all financial affairs recorded in the commerce or point of sale system.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-transactions">coverage explorer</a> for integrations that support getting a specific transaction.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List transactions
         /// 
         /// <remarks>
-        /// The *List transactions* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Transaction">transactions</a> for a given company&apos;s connection.<br/>
+        /// The *List transactions* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Transaction">transactions</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Transaction">Transactions</a> detail all financial affairs recorded in the commerce or point of sale system.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Transaction">Transactions</a> detail all financial affairs recorded in the commerce or point of sale system.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

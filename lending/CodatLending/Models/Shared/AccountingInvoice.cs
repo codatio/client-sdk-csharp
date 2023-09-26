@@ -20,13 +20,13 @@ namespace CodatLending.Models.Shared
     /// &gt;<br/>
     /// &gt; We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company issued an invoice, and is owed money (accounts receivable) we call this an Invoice.<br/>
     /// &gt;<br/>
-    /// &gt; See <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> for the accounts payable equivalent of bills.<br/>
+    /// &gt; See <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a> for the accounts payable equivalent of bills.<br/>
     /// <br/>
     /// View the coverage for invoices in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// An invoice is an itemized record of goods sold or services provided to a <a href="https://docs.codat.io/accounting-api#/schemas/Customer">customer</a>.<br/>
+    /// An invoice is an itemized record of goods sold or services provided to a <a href="https://docs.codat.io/lending-api#/schemas/Customer">customer</a>.<br/>
     /// <br/>
     /// In Codat, an invoice contains details of:<br/>
     /// <br/>
@@ -34,11 +34,11 @@ namespace CodatLending.Models.Shared
     /// - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in. <br/>
     /// - Who the invoice has been raised to; the _customer_.<br/>
     /// - The breakdown of what the invoice is for; the _line items_.<br/>
-    /// - Any <a href="https://docs.codat.io/accounting-api#/schemas/Payment">payments</a> assigned to the invoice; the _payment allocations_.<br/>
+    /// - Any <a href="https://docs.codat.io/lending-api#/schemas/Payment">payments</a> assigned to the invoice; the _payment allocations_.<br/>
     /// <br/>
     /// &gt; **Invoice PDF downloads**  <br/>
     /// &gt;<br/>
-    /// &gt; You can &lt;a className=&quot;external&quot; href=&quot;https://docs.codat.io/accounting-api#/operations/get-invoice-pdf&quot; target=&quot;_blank&quot;&gt;download a PDF version&lt;/a&gt; of an invoice for supported integrations.<br/>
+    /// &gt; You can &lt;a className=&quot;external&quot; href=&quot;https://docs.codat.io/lending-api#/operations/get-invoice-pdf&quot; target=&quot;_blank&quot;&gt;download a PDF version&lt;/a&gt; of an invoice for supported integrations.<br/>
     /// &gt; <br/>
     /// &gt; The filename will be invoice-{number}.pdf.<br/>
     /// <br/>

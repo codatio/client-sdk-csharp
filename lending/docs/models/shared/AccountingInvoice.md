@@ -4,13 +4,13 @@
 >
 > We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company issued an invoice, and is owed money (accounts receivable) we call this an Invoice.
 >
-> See [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) for the accounts payable equivalent of bills.
+> See [Bills](https://docs.codat.io/lending-api#/schemas/Bill) for the accounts payable equivalent of bills.
 
 View the coverage for invoices in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices" target="_blank">Data coverage explorer</a>.
 
 ## Overview
 
-An invoice is an itemized record of goods sold or services provided to a [customer](https://docs.codat.io/accounting-api#/schemas/Customer).
+An invoice is an itemized record of goods sold or services provided to a [customer](https://docs.codat.io/lending-api#/schemas/Customer).
 
 In Codat, an invoice contains details of:
 
@@ -18,11 +18,11 @@ In Codat, an invoice contains details of:
 - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in. 
 - Who the invoice has been raised to; the _customer_.
 - The breakdown of what the invoice is for; the _line items_.
-- Any [payments](https://docs.codat.io/accounting-api#/schemas/Payment) assigned to the invoice; the _payment allocations_.
+- Any [payments](https://docs.codat.io/lending-api#/schemas/Payment) assigned to the invoice; the _payment allocations_.
 
 > **Invoice PDF downloads**  
 >
-> You can <a className="external" href="https://docs.codat.io/accounting-api#/operations/get-invoice-pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.
+> You can <a className="external" href="https://docs.codat.io/lending-api#/operations/get-invoice-pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.
 > 
 > The filename will be invoice-{number}.pdf.
 

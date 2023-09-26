@@ -1,5 +1,11 @@
 name: Release Lending library
 'on':
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force release of SDKs
+        type: boolean
+        default: false
   push:
     paths:
     - lending/RELEASES.md

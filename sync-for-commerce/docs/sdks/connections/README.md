@@ -16,7 +16,7 @@ Create new and manage existing Sync for Commerce connections using the Sync flow
 
 ﻿Creates a connection for the company by providing a valid `platformKey`. 
 
-Use the [List Integrations](https://docs.codat.io/sync-for-commerce-api#/operations/list-integrations) endpoint to access valid platform keys. 
+Use the [List Integrations](https://docs.codat.io/sync-for-sync-for-commerce-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
 ### Example Usage
 

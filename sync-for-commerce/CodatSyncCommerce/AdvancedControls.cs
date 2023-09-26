@@ -69,7 +69,7 @@ namespace CodatSyncCommerce
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
+        private const string _sdkVersion = "2.1.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";

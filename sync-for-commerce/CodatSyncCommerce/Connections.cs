@@ -31,7 +31,7 @@ namespace CodatSyncCommerce
         /// <remarks>
         /// Creates a connection for the company by providing a valid `platformKey`. <br/>
         /// <br/>
-        /// Use the <a href="https://docs.codat.io/sync-for-commerce-api#/operations/list-integrations">List Integrations</a> endpoint to access valid platform keys. 
+        /// Use the <a href="https://docs.codat.io/sync-for-sync-for-commerce-api#/operations/list-integrations">List Integrations</a> endpoint to access valid platform keys. 
         /// </remarks>
         /// </summary>
         Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null);
@@ -80,7 +80,7 @@ namespace CodatSyncCommerce
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
+        private const string _sdkVersion = "2.1.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "1.1";
         private string _serverUrl = "";

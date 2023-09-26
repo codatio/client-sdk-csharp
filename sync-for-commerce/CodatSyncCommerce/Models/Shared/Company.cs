@@ -15,7 +15,7 @@ namespace CodatSyncCommerce.Models.Shared
     using System;
     
     /// <summary>
-    /// In Codat, a company represents a business sharing access to their data. Each company can have multiple &lt;a href=&quot;https://docs.codat.io/sync-for-commerce-api#/schemas/Connection&quot;&gt;connections&lt;/a&gt; to different data sources such as one connection to &lt;a href=&quot;https://docs.codat.io/integrations/accounting/xero/accounting-xero&quot;&gt;Xero&lt;/a&gt; for accounting data, two connections to &lt;a href=&quot;https://docs.codat.io/integrations/banking/plaid/banking-plaid&quot;&gt;Plaid&lt;/a&gt; for two bank accounts and a connection to &lt;a href=&quot;https://docs.codat.io/integrations/commerce/zettle/commerce-zettle&quot;&gt;Zettle&lt;/a&gt; for POS data.&lt;br/&gt;
+    /// In Codat, a company represents a business sharing access to their data. Each company can have multiple &lt;a href=&quot;https://docs.codat.io/sync-for-sync-for-commerce-api#/schemas/Connection&quot;&gt;connections&lt;/a&gt; to different data sources such as one connection to &lt;a href=&quot;https://docs.codat.io/integrations/accounting/xero/accounting-xero&quot;&gt;Xero&lt;/a&gt; for accounting data, two connections to &lt;a href=&quot;https://docs.codat.io/integrations/banking/plaid/banking-plaid&quot;&gt;Plaid&lt;/a&gt; for two bank accounts and a connection to &lt;a href=&quot;https://docs.codat.io/integrations/commerce/zettle/commerce-zettle&quot;&gt;Zettle&lt;/a&gt; for POS data.&lt;br/&gt;
     /// 
     /// <remarks>
     /// <br/>

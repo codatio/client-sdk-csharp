@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 4e02b8d832e97024941ad0c057056b7a
+  docChecksum: 8c98eef70ca98a975bed0f84ad9cd374
   docVersion: "1.1"
   speakeasyVersion: 1.91.0
   generationVersion: 2.129.1
@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.1.0
+  version: 2.1.1
   author: Codat
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   dotnetVersion: net6.0

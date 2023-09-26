@@ -184,7 +184,7 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
 
 The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
 
 ### Process 
 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.
@@ -249,7 +249,7 @@ var res = await sdk.Bills.DeleteAsync(new DeleteBillRequest() {
 
 The *Delete bill attachment* endpoint allows you to delete a specified bill attachment from an accounting platform.  
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices
+[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices
 that represent the SMB's financial obligations to their supplier for a
 purchase of goods or services. 
 

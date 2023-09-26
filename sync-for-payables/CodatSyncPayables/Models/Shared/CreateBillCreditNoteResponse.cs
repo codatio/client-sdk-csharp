@@ -61,7 +61,7 @@ namespace CodatSyncPayables.Models.Shared
         /// 
         /// <remarks>
         /// &gt; <br/>
-        /// &gt; In Codat, bill credit notes represent accounts payable only. For accounts receivable, see <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">Credit notes</a>.<br/>
+        /// &gt; In Codat, bill credit notes represent accounts payable only. For accounts receivable, see <a href="https://docs.codat.io/sync-for-payables-api#/schemas/CreditNote">Credit notes</a>.<br/>
         /// <br/>
         /// View the coverage for bill credit notes in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
         /// <br/>
@@ -69,11 +69,11 @@ namespace CodatSyncPayables.Models.Shared
         /// <br/>
         /// A bill credit note is issued by a supplier for the purpose of recording credit. For example, if a supplier was unable to fulfil an order that was placed by a business, or delivered damaged goods, they would issue a bill credit note. A bill credit note reduces the amount a business owes to the supplier. It can be refunded to the business or used to pay off future bills.<br/>
         /// <br/>
-        /// In the Codat API, a bill credit note is an accounts payable record issued by a <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a>. <br/>
+        /// In the Codat API, a bill credit note is an accounts payable record issued by a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a>. <br/>
         /// <br/>
         /// A bill credit note includes details of:<br/>
         /// * The original and remaining credit.<br/>
-        /// * Any allocations of the credit against other records, such as <a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a>.<br/>
+        /// * Any allocations of the credit against other records, such as <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bills</a>.<br/>
         /// * The supplier that issued the bill credit note.
         /// </remarks>
         /// </summary>

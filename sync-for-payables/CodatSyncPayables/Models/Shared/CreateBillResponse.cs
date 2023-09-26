@@ -63,7 +63,7 @@ namespace CodatSyncPayables.Models.Shared
         /// &gt;<br/>
         /// &gt; We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company has received an invoice, and owes money to someone else (accounts payable) we call this a Bill.<br/>
         /// &gt;<br/>
-        /// &gt; See <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">Invoices</a> for the accounts receivable equivalent of bills.<br/>
+        /// &gt; See <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Invoice">Invoices</a> for the accounts receivable equivalent of bills.<br/>
         /// <br/>
         /// View the coverage for bills in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
         /// <br/>
@@ -77,7 +77,7 @@ namespace CodatSyncPayables.Models.Shared
         /// <br/>
         /// Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s *expenses*.<br/>
         /// <br/>
-        /// You can find these types of transactions in our <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> data model.
+        /// You can find these types of transactions in our <a href="https://docs.codat.io/sync-for-payables-api#/schemas/DirectCost">Direct costs</a> data model.
         /// </remarks>
         /// </summary>
         [JsonProperty("data")]

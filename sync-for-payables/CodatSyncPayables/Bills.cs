@@ -49,7 +49,7 @@ namespace CodatSyncPayables
         /// <remarks>
         /// The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. <br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are itemized records of goods received or services provided to the SMB.<br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are itemized records of goods received or services provided to the SMB.<br/>
         /// <br/>
         /// ### Process <br/>
         /// 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.<br/>
@@ -85,7 +85,7 @@ namespace CodatSyncPayables
         /// <remarks>
         /// The *Delete bill attachment* endpoint allows you to delete a specified bill attachment from an accounting platform.  <br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices<br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices<br/>
         /// that represent the SMB&apos;s financial obligations to their supplier for a<br/>
         /// purchase of goods or services. <br/>
         /// <br/>
@@ -242,7 +242,7 @@ namespace CodatSyncPayables
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
+        private const string _sdkVersion = "2.1.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

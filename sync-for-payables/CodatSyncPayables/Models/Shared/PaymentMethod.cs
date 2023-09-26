@@ -19,7 +19,7 @@ namespace CodatSyncPayables.Models.Shared
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill Payments</a> and <a href="https://docs.codat.io/accounting-api#/schemas/Payment">Payments</a>.
+    /// A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill Payments</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Payment">Payments</a>.
     /// </remarks>
     /// </summary>
     public class PaymentMethod

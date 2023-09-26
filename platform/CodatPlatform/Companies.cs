@@ -61,7 +61,7 @@ namespace CodatPlatform
         /// List companies
         /// 
         /// <remarks>
-        /// Returns a list of your companies. The company schema contains a list of <a href="https://docs.codat.io/codat-api#/schemas/Connection">connections</a> related to the company.
+        /// Returns a list of your companies. The company schema contains a list of <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> related to the company.
         /// </remarks>
         /// </summary>
         Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null);
@@ -83,7 +83,7 @@ namespace CodatPlatform
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
+        private const string _sdkVersion = "2.1.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

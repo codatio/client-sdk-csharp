@@ -14,7 +14,7 @@ namespace CodatPlatform.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// A connection represents a &lt;a href=&quot;https://docs.codat.io/codat-api#/schemas/Company&quot;&gt;company&amp;apos;s&lt;/a&gt; connection to a data source and allows you to synchronize data (pull and/or push) with that source.&lt;br/&gt;
+    /// A connection represents a &lt;a href=&quot;https://docs.codat.io/platform-api#/schemas/Company&quot;&gt;company&amp;apos;s&lt;/a&gt; connection to a data source and allows you to synchronize data (pull and/or push) with that source.&lt;br/&gt;
     /// 
     /// <remarks>
     /// <br/>

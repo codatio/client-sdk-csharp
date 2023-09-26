@@ -26,9 +26,9 @@ namespace CodatLending
         /// List account balances
         /// 
         /// <remarks>
-        /// The *List account balances* endpoint returns a list of <a href="https://docs.codat.io/banking-api#/schemas/AccountBalance">account balances</a> for a given company&apos;s connection.<br/>
+        /// The *List account balances* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/AccountBalance">account balances</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/banking-api#/schemas/AccountBalance">Account balances</a> are balances for a bank account, including end-of-day batch balance or running balances per transaction.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/AccountBalance">Account balances</a> are balances for a bank account, including end-of-day batch balance or running balances per transaction.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -41,7 +41,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

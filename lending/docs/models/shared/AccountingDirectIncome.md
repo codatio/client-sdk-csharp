@@ -14,7 +14,7 @@ Direct incomes include:
 - Refunding an item in cash to a contact.
 - Depositing money into a bank account.
 
-Direct incomes is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
+Direct incomes is a child data type of [account transactions](https://docs.codat.io/lending-api#/schemas/AccountTransaction).
 
 
 

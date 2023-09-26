@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get journal entry* endpoint returns a single journal entry for a given journalEntryId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries">coverage explorer</a> for integrations that support getting a specific journal entry.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List journal entries
         /// 
         /// <remarks>
-        /// The *List journal entries* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">journal entries</a> for a given company&apos;s connection.<br/>
+        /// The *List journal entries* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/JournalEntry">journal entries</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/JournalEntry">Journal entries</a> are  made in a company&apos;s general ledger, or accounts, when transactions are approved.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

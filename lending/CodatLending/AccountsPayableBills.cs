@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support downloading a bill attachment.<br/>
         /// 
@@ -42,7 +42,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get bill* endpoint returns a single bill for a given billId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support getting a specific bill.<br/>
         /// <br/>
@@ -58,7 +58,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get bill attachment* endpoint returns a specific attachment for a given `billId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support getting a bill attachment.<br/>
         /// 
@@ -70,9 +70,9 @@ namespace CodatLending
         /// List bills
         /// 
         /// <remarks>
-        /// The *List bills* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a> for a given company&apos;s connection.<br/>
+        /// The *List bills* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Bill">bills</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -86,7 +86,7 @@ namespace CodatLending
         /// <remarks>
         /// The *List bill attachments* endpoint returns a list of attachments available to download for a given `billId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support listing bill attachments.<br/>
         /// 
@@ -99,7 +99,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

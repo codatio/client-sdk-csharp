@@ -12,7 +12,7 @@
 
 The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
 
@@ -56,7 +56,7 @@ var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(new Dow
 
 The *Get customer* endpoint returns a single customer for a given customerId.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
 
@@ -100,7 +100,7 @@ var res = await sdk.AccountsReceivable.Customers.GetAsync(new GetAccountingCusto
 
 The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
 
@@ -142,9 +142,9 @@ var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(new GetAccou
 
 ## List
 
-The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *List customers* endpoint returns a list of [customers](https://docs.codat.io/lending-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -189,7 +189,7 @@ var res = await sdk.AccountsReceivable.Customers.ListAsync(new ListAccountingCus
 
 The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support listing customer attachments.
 

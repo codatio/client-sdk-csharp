@@ -26,7 +26,7 @@ namespace CodatLending.Models.Shared
     /// <br/>
     /// ## Underlying data<br/>
     /// <br/>
-    /// The Aged Creditors report is generated from a set of required data types: <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a>, <a href="https://docs.codat.io/accounting-api#/schemas/Bill">Bills</a>, <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">Bill credit notes</a>, and <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill payments</a>.<br/>
+    /// The Aged Creditors report is generated from a set of required data types: <a href="https://docs.codat.io/lending-api#/schemas/Supplier">Suppliers</a>, <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a>, <a href="https://docs.codat.io/lending-api#/schemas/BillCreditNote">Bill credit notes</a>, and <a href="https://docs.codat.io/lending-api#/schemas/BillPayment">Bill payments</a>.<br/>
     /// <br/>
     /// To generate the report, the underlying data types must have been synced within 24 hours of each other. Otherwise an error is displayed when you try to run the report. Sync the required data types by clicking the link in the error, and then run the report again.<br/>
     /// <br/>

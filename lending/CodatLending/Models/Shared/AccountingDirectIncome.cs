@@ -30,7 +30,7 @@ namespace CodatLending.Models.Shared
     /// - Refunding an item in cash to a contact.<br/>
     /// - Depositing money into a bank account.<br/>
     /// <br/>
-    /// Direct incomes is a child data type of <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">account transactions</a>.<br/>
+    /// Direct incomes is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.<br/>
     /// 
     /// </remarks>
     /// </summary>

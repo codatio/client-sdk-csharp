@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get customer* endpoint returns a single customer for a given customerId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Customer">Customers</a> are people or organizations that place orders, make payments and receive goods and/or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that place orders, make payments and receive goods and/or services from the SMB.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-customers">coverage explorer</a> for integrations that support getting a specific customer.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List customers
         /// 
         /// <remarks>
-        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
+        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Customer">Customers</a> are people or organizations that place orders, make payments and recieve goods and/or services from the SMB.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that place orders, make payments and recieve goods and/or services from the SMB.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get location* endpoint returns a single location for a given locationId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Location">Locations</a> hold information on the geographic location at which stocks of <a href="https://docs.codat.io/commerce-api#/schemas/Product">products</a> may be held or where <a href="https://docs.codat.io/commerce-api#/schemas/Order">orders</a> were placed.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Location">Locations</a> hold information on the geographic location at which stocks of <a href="https://docs.codat.io/lending-api#/schemas/Product">products</a> may be held or where <a href="https://docs.codat.io/lending-api#/schemas/Order">orders</a> were placed.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-locations">coverage explorer</a> for integrations that support getting a specific location.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List locations
         /// 
         /// <remarks>
-        /// The *List locations* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Location">locations</a> for a given company&apos;s connection.<br/>
+        /// The *List locations* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Location">locations</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Location">Locations</a> hold information on the geographic location at which stocks of <a href="https://docs.codat.io/commerce-api#/schemas/Product">products</a> may be held or where <a href="https://docs.codat.io/commerce-api#/schemas/Order">orders</a> were placed.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Location">Locations</a> hold information on the geographic location at which stocks of <a href="https://docs.codat.io/lending-api#/schemas/Product">products</a> may be held or where <a href="https://docs.codat.io/lending-api#/schemas/Order">orders</a> were placed.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

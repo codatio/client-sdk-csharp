@@ -61,7 +61,7 @@ namespace CodatLending.Models.Shared
         /// 
         /// <remarks>
         /// <br/>
-        /// A transfer records the movement of money between two bank accounts, or between a bank account and a nominal account. It is a child data type of <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">account transactions</a>.
+        /// A transfer records the movement of money between two bank accounts, or between a bank account and a nominal account. It is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.
         /// </remarks>
         /// </summary>
         [JsonProperty("data")]

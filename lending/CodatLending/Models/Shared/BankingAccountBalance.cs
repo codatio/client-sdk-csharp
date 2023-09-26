@@ -21,7 +21,7 @@ namespace CodatLending.Models.Shared
     /// <br/>
     /// &gt; **How often should I pull Account Balances?**<br/>
     /// &gt;<br/>
-    /// &gt; Because these balances are closing balances, we recommend you pull Account Balance no more frequently than daily. If you require a live intraday balance, this can be found for each account on the <a href="https://docs.codat.io/banking-api#/schemas/Account">Account</a> data type.<br/>
+    /// &gt; Because these balances are closing balances, we recommend you pull Account Balance no more frequently than daily. If you require a live intraday balance, this can be found for each account on the <a href="https://docs.codat.io/lending-api#/schemas/Account">Account</a> data type.<br/>
     /// &gt; <br/>
     /// &gt; Whilst you can choose to sync hourly, this may incur usage charges from Plaid or TrueLayer.
     /// </remarks>

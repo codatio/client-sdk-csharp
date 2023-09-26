@@ -26,13 +26,13 @@ namespace CodatLending
         /// Create bank account
         /// 
         /// <remarks>
-        /// The *Create bank account* endpoint creates a new <a href="https://docs.codat.io/accounting-api#/schemas/BankAccount">bank account</a> for a given company&apos;s connection.<br/>
+        /// The *Create bank account* endpoint creates a new <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">bank account</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-bankAccounts-model">Get create/update bank account model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-update-bankAccounts-model">Get create/update bank account model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts">coverage explorer</a> for integrations that support creating an account.
         /// </remarks>
@@ -43,9 +43,9 @@ namespace CodatLending
         /// Get create/update bank account model
         /// 
         /// <remarks>
-        /// The *Get create/update bank account model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/accounting-api#/schemas/BankAccount">bank account</a> for a given company and integration.<br/>
+        /// The *Get create/update bank account model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">bank account</a> for a given company and integration.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
@@ -62,7 +62,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

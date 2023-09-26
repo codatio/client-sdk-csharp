@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Language tip:** In Codat, account transactions represent all transactions posted to a bank account within an accounting platform. For bank transactions posted within a banking platform, refer to &lt;a href=&quot;https://docs.codat.io/banking-api#/operations/list-all-banking-transactions&quot;&gt;Banking transactions&lt;/a&gt;.&lt;br/&gt;
+    /// &amp;gt; **Language tip:** In Codat, account transactions represent all transactions posted to a bank account within an accounting platform. For bank transactions posted within a banking platform, refer to &lt;a href=&quot;https://docs.codat.io/lending-api#/operations/list-all-banking-transactions&quot;&gt;Banking transactions&lt;/a&gt;.&lt;br/&gt;
     /// 
     /// <remarks>
     /// <br/>
@@ -32,7 +32,7 @@ namespace CodatLending.Models.Shared
     /// * Direct incomes: for example, selling an item directly to a contact and receiving payment at point of sale.<br/>
     /// * Transfers: for example, transferring money between two bank accounts.<br/>
     /// <br/>
-    /// Account transactions is the parent data type of <a href="https://docs.codat.io/accounting-api#/schemas/Payment">payments</a>, <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">bill payments</a>, <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">direct costs</a>, <a href="https://docs.codat.io/accounting-api#/schemas/DirectIncome">direct incomes</a>, and <a href="https://docs.codat.io/accounting-api#/schemas/Transfer">transfers</a>.
+    /// Account transactions is the parent data type of <a href="https://docs.codat.io/lending-api#/schemas/Payment">payments</a>, <a href="https://docs.codat.io/lending-api#/schemas/BillPayment">bill payments</a>, <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">direct costs</a>, <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">direct incomes</a>, and <a href="https://docs.codat.io/lending-api#/schemas/Transfer">transfers</a>.
     /// </remarks>
     /// </summary>
     public class AccountingAccountTransaction

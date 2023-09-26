@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
     /// <br/>
     /// A customer is a person or organisation that buys goods or services. From the Customers endpoints, you can retrieve a <a href="https://api.codat.io/swagger/index.html#/Customers/get_companies__companyId__data_customers">list of all the customers of a company</a>.<br/>
     /// <br/>
-    /// Customers&apos; data links to accounts receivable <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">invoices</a>.<br/>
+    /// Customers&apos; data links to accounts receivable <a href="https://docs.codat.io/lending-api#/schemas/Invoice">invoices</a>.<br/>
     /// 
     /// </remarks>
     /// </summary>

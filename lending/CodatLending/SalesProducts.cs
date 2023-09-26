@@ -28,7 +28,7 @@ namespace CodatLending
         /// <remarks>
         /// The *Get product* endpoint returns a single product for a given productId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Product">Products</a> are items in the company&apos;s inventory that are available for sale.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Product">Products</a> are items in the company&apos;s inventory that are available for sale.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-products">coverage explorer</a> for integrations that support getting a specific product.<br/>
         /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending
         /// List products
         /// 
         /// <remarks>
-        /// The *List products* endpoint returns a list of <a href="https://docs.codat.io/commerce-api#/schemas/Product">products</a> for a given company&apos;s connection.<br/>
+        /// The *List products* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Product">products</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/commerce-api#/schemas/Product">Products</a> are items in the company&apos;s inventory that are available for sale.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Product">Products</a> are items in the company&apos;s inventory that are available for sale.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -57,7 +57,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.0";
+        private const string _sdkVersion = "4.2.1";
         private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

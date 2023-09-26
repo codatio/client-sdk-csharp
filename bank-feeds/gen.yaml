@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 42cfa667139d926480e1c88c26e7881e
+  docChecksum: 0ef08cc4403f58efc79193e7659b9cf0
   docVersion: 3.0.0
   speakeasyVersion: 1.91.0
   generationVersion: 2.129.1
@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.1.0
+  version: 2.1.1
   author: Codat
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
   dotnetVersion: net6.0

@@ -84,8 +84,6 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 
 <!-- Start Dev Containers -->
 
-
-
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

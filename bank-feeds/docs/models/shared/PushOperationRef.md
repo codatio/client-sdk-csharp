@@ -5,5 +5,5 @@
 
 | Field                                       | Type                                        | Required                                    | Description                                 | Example                                     |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| `dataType`                                  | [DataType](../../models/shared/DataType.md) | :heavy_minus_sign:                          | Available Data types                        | invoices                                    |
-| `id`                                        | *string*                                    | :heavy_minus_sign:                          | Unique identifier for a push operation.     |                                             |
+| `DataType`                                  | [DataType](../../models/shared/DataType.md) | :heavy_minus_sign:                          | Available Data types                        | invoices                                    |
+| `Id`                                        | *string*                                    | :heavy_minus_sign:                          | Unique identifier for a push operation.     |                                             |

@@ -1,4 +1,5 @@
-# SourceAccounts
+# SourceAccountsSDK
+(*SourceAccounts*)
 
 ## Overview
 

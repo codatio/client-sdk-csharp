@@ -39,7 +39,7 @@ namespace CodatPlatform
         public ICompaniesSDK Companies { get; }
 
         /// <summary>
-        /// Manage your companies&amp;apos; data connections.
+        /// Manage your companies&apos; data connections.
         /// </summary>
         public IConnectionsSDK Connections { get; }
 
@@ -100,8 +100,8 @@ namespace CodatPlatform
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.1";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "2.1.2";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

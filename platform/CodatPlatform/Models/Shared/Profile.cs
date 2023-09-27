@@ -41,13 +41,13 @@ namespace CodatPlatform.Models.Shared
         public bool? ConfirmCompanyName { get; set; }
 
         /// <summary>
-        /// Static url to your organization&amp;apos;s icon.
+        /// Static url to your organization&apos;s icon.
         /// </summary>
         [JsonProperty("iconUrl")]
         public string? IconUrl { get; set; }
 
         /// <summary>
-        /// Static url to your organization&amp;apos;s logo.
+        /// Static url to your organization&apos;s logo.
         /// </summary>
         [JsonProperty("logoUrl")]
         public string? LogoUrl { get; set; }
@@ -59,7 +59,7 @@ namespace CodatPlatform.Models.Shared
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// The redirect URL pasted on to the SMB once Codat&amp;apos;s &lt;a href=&quot;https://docs.codat.io/auth-flow/authorize-hosted-link&quot;&gt;Hosted Link&lt;/a&gt; has been completed by the SMB.
+        /// The redirect URL pasted on to the SMB once Codat&apos;s <a href="https://docs.codat.io/auth-flow/authorize-hosted-link">Hosted Link</a> has been completed by the SMB.
         /// </summary>
         [JsonProperty("redirectUrl")]
         public string RedirectUrl { get; set; } = default!;

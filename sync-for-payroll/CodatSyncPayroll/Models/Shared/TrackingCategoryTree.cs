@@ -41,7 +41,7 @@ namespace CodatSyncPayroll.Models.Shared
         public string? Name { get; set; }
 
         /// <summary>
-        /// The identifier for this item&amp;apos;s immediate parent
+        /// The identifier for this item&apos;s immediate parent
         /// </summary>
         [JsonProperty("parentId")]
         public string? ParentId { get; set; }

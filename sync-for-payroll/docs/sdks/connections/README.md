@@ -1,4 +1,5 @@
-# Connections
+# ConnectionsSDK
+(*Connections*)
 
 ## Overview
 

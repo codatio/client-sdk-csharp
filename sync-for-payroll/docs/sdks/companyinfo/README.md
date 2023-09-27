@@ -1,4 +1,5 @@
-# CompanyInfo
+# CompanyInfoSDK
+(*CompanyInfo*)
 
 ## Overview
 

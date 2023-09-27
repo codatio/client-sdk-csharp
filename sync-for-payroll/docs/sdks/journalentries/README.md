@@ -1,4 +1,5 @@
-# JournalEntries
+# JournalEntriesSDK
+(*JournalEntries*)
 
 ## Overview
 

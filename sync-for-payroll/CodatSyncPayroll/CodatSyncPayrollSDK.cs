@@ -18,7 +18,7 @@ namespace CodatSyncPayroll
     using System;
 
     /// <summary>
-    /// Sync for Payroll: The API for Sync for Payroll. &lt;br/&gt;
+    /// Sync for Payroll: The API for Sync for Payroll. <br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -61,7 +61,7 @@ namespace CodatSyncPayroll
         public ICompanyInfoSDK CompanyInfo { get; }
 
         /// <summary>
-        /// Manage your companies&amp;apos; data connections.
+        /// Manage your companies&apos; data connections.
         /// </summary>
         public IConnectionsSDK Connections { get; }
 
@@ -91,7 +91,7 @@ namespace CodatSyncPayroll
     }
 
     /// <summary>
-    /// Sync for Payroll: The API for Sync for Payroll. &lt;br/&gt;
+    /// Sync for Payroll: The API for Sync for Payroll. <br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -124,8 +124,8 @@ namespace CodatSyncPayroll
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.1";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "2.1.2";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

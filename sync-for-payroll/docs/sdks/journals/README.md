@@ -1,4 +1,5 @@
-# Journals
+# JournalsSDK
+(*Journals*)
 
 ## Overview
 

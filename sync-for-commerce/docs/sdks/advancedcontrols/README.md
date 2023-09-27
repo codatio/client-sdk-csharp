@@ -1,4 +1,5 @@
-# AdvancedControls
+# AdvancedControlsSDK
+(*AdvancedControls*)
 
 ## Overview
 

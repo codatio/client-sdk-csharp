@@ -5,4 +5,4 @@
 
 | Field                    | Type                     | Required                 | Description              |
 | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
-| `href`                   | *string*                 | :heavy_minus_sign:       | Uri hypertext reference. |
+| `Href`                   | *string*                 | :heavy_minus_sign:       | Uri hypertext reference. |

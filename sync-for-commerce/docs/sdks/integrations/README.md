@@ -1,4 +1,5 @@
-# Integrations
+# IntegrationsSDK
+(*Integrations*)
 
 ## Overview
 

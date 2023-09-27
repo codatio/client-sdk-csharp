@@ -1,4 +1,5 @@
-# SyncFlowSettings
+# SyncFlowSettingsSDK
+(*SyncFlowSettings*)
 
 ## Overview
 

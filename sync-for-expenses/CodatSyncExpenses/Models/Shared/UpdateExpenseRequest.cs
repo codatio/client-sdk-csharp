@@ -29,7 +29,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>

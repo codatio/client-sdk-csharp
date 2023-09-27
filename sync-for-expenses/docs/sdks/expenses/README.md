@@ -1,4 +1,5 @@
-# Expenses
+# ExpensesSDK
+(*Expenses*)
 
 ## Overview
 

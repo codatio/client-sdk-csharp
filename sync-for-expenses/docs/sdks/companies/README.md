@@ -1,4 +1,5 @@
-# Companies
+# CompaniesSDK
+(*Companies*)
 
 ## Overview
 

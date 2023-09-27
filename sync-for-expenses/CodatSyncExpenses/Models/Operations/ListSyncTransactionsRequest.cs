@@ -22,13 +22,13 @@ namespace CodatSyncExpenses.Models.Operations
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Page number. &lt;a href=&quot;https://docs.codat.io/using-the-api/paging&quot;&gt;Read more&lt;/a&gt;.
+        /// Page number. <a href="https://docs.codat.io/using-the-api/paging">Read more</a>.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=page")]
         public int? Page { get; set; }
 
         /// <summary>
-        /// Number of records to return in a page. &lt;a href=&quot;https://docs.codat.io/using-the-api/paging&quot;&gt;Read more&lt;/a&gt;.
+        /// Number of records to return in a page. <a href="https://docs.codat.io/using-the-api/paging">Read more</a>.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=pageSize")]
         public int? PageSize { get; set; }

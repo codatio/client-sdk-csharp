@@ -1,4 +1,5 @@
-# Configuration
+# ConfigurationSDK
+(*Configuration*)
 
 ## Overview
 

@@ -1,4 +1,5 @@
-# Customers
+# CustomersSDK
+(*Customers*)
 
 ## Overview
 

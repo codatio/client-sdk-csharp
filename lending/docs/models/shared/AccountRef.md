@@ -7,5 +7,5 @@ Data types that reference an account, for example bill and invoice line items, u
 
 | Field                               | Type                                | Required                            | Description                         |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| `id`                                | *string*                            | :heavy_minus_sign:                  | 'id' from the Accounts data type.   |
-| `name`                              | *string*                            | :heavy_minus_sign:                  | 'name' from the Accounts data type. |
+| `Id`                                | *string*                            | :heavy_minus_sign:                  | 'id' from the Accounts data type.   |
+| `Name`                              | *string*                            | :heavy_minus_sign:                  | 'name' from the Accounts data type. |

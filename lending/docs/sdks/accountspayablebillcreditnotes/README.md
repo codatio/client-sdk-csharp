@@ -1,4 +1,5 @@
-# AccountsPayable.BillCreditNotes
+# AccountsPayableBillCreditNotesSDK
+(*AccountsPayable.BillCreditNotes*)
 
 ### Available Operations
 

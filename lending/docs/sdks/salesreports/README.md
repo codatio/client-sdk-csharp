@@ -1,4 +1,5 @@
-# Sales.Reports
+# SalesReportsSDK
+(*Sales.Reports*)
 
 ### Available Operations
 

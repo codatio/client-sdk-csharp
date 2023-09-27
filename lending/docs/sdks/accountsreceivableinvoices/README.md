@@ -1,4 +1,5 @@
-# AccountsReceivable.Invoices
+# AccountsReceivableInvoicesSDK
+(*AccountsReceivable.Invoices*)
 
 ### Available Operations
 

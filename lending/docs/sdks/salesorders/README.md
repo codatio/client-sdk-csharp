@@ -1,4 +1,5 @@
-# Sales.Orders
+# SalesOrdersSDK
+(*Sales.Orders*)
 
 ### Available Operations
 

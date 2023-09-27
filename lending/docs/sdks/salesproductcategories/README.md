@@ -1,4 +1,5 @@
-# Sales.ProductCategories
+# SalesProductCategoriesSDK
+(*Sales.ProductCategories*)
 
 ### Available Operations
 

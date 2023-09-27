@@ -1,4 +1,5 @@
-# Sales.Payments
+# SalesPaymentsSDK
+(*Sales.Payments*)
 
 ### Available Operations
 

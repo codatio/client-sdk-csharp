@@ -1,4 +1,5 @@
-# Sales.Disputes
+# SalesDisputesSDK
+(*Sales.Disputes*)
 
 ### Available Operations
 

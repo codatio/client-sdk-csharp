@@ -1,4 +1,5 @@
-# AccountsPayable.Bills
+# AccountsPayableBillsSDK
+(*AccountsPayable.Bills*)
 
 ### Available Operations
 

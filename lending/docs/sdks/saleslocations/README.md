@@ -1,4 +1,5 @@
-# Sales.Locations
+# SalesLocationsSDK
+(*Sales.Locations*)
 
 ### Available Operations
 

@@ -1,4 +1,5 @@
-# Sales.Metrics
+# SalesMetricsSDK
+(*Sales.Metrics*)
 
 ### Available Operations
 

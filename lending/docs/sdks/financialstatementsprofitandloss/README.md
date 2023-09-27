@@ -1,4 +1,5 @@
-# FinancialStatements.ProfitAndLoss
+# FinancialStatementsProfitAndLossSDK
+(*FinancialStatements.ProfitAndLoss*)
 
 ### Available Operations
 

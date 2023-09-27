@@ -1,4 +1,5 @@
-# FinancialStatements.Accounts
+# FinancialStatementsAccountsSDK
+(*FinancialStatements.Accounts*)
 
 ### Available Operations
 

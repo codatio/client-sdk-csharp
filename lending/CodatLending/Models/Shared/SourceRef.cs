@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// A source reference containing the `sourceType` object &amp;quot;Banking&amp;quot;.
+    /// A source reference containing the `sourceType` object &quot;Banking&quot;.
     /// </summary>
     public class SourceRef
     {

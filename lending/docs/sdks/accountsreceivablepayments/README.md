@@ -1,4 +1,5 @@
-# AccountsReceivable.Payments
+# AccountsReceivablePaymentsSDK
+(*AccountsReceivable.Payments*)
 
 ### Available Operations
 

@@ -1,4 +1,5 @@
-# Sales.Products
+# SalesProductsSDK
+(*Sales.Products*)
 
 ### Available Operations
 

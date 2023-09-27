@@ -18,7 +18,7 @@ namespace CodatLending
     using System;
 
     /// <summary>
-    /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&amp;apos; latest data from accounting, banking, and commerce platforms they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.&lt;br/&gt;
+    /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce platforms they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -68,7 +68,7 @@ namespace CodatLending
         public ICompanyInfoSDK CompanyInfo { get; }
 
         /// <summary>
-        /// Manage your companies&amp;apos; data connections.
+        /// Manage your companies&apos; data connections.
         /// </summary>
         public IConnectionsSDK Connections { get; }
 
@@ -106,7 +106,7 @@ namespace CodatLending
     }
 
     /// <summary>
-    /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&amp;apos; latest data from accounting, banking, and commerce platforms they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.&lt;br/&gt;
+    /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce platforms they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -146,8 +146,8 @@ namespace CodatLending
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.1";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "4.2.2";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

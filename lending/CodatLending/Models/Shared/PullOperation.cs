@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Information about a queued, in progress or completed pull operation.&lt;br/&gt;
+    /// Information about a queued, in progress or completed pull operation.<br/>
     /// 
     /// <remarks>
     /// *Formally called `dataset`*
@@ -65,7 +65,7 @@ namespace CodatLending.Models.Shared
         public long Progress { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

@@ -1,4 +1,5 @@
-# Sales.Transactions
+# SalesTransactionsSDK
+(*Sales.Transactions*)
 
 ### Available Operations
 

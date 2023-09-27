@@ -1,4 +1,5 @@
-# AccountsReceivable.Customers
+# AccountsReceivableCustomersSDK
+(*AccountsReceivable.Customers*)
 
 ### Available Operations
 

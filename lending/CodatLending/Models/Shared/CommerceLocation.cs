@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// The Location datatype holds information on the geographic location at which stocks of products may be held, as referenced in the Products data type.&lt;br/&gt;
+    /// The Location datatype holds information on the geographic location at which stocks of products may be held, as referenced in the Products data type.<br/>
     /// 
     /// <remarks>
     /// <br/>

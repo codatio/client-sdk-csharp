@@ -1,4 +1,5 @@
-# FinancialStatements.BalanceSheet
+# FinancialStatementsBalanceSheetSDK
+(*FinancialStatements.BalanceSheet*)
 
 ### Available Operations
 

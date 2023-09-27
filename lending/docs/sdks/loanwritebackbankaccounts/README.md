@@ -1,4 +1,5 @@
-# LoanWriteback.BankAccounts
+# LoanWritebackBankAccountsSDK
+(*LoanWriteback.BankAccounts*)
 
 ### Available Operations
 

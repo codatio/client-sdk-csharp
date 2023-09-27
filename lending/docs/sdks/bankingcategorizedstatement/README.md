@@ -1,4 +1,5 @@
-# Banking.CategorizedStatement
+# BankingCategorizedStatementSDK
+(*Banking.CategorizedStatement*)
 
 ### Available Operations
 

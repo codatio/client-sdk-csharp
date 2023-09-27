@@ -1,4 +1,5 @@
-# Transactions.Journals
+# TransactionsJournalsSDK
+(*Transactions.Journals*)
 
 ### Available Operations
 

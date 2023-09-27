@@ -5,7 +5,7 @@
 
 | Field                                   | Type                                    | Required                                | Description                             |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `current`                               | [HalRef](../../models/shared/HalRef.md) | :heavy_check_mark:                      | N/A                                     |
-| `next`                                  | [HalRef](../../models/shared/HalRef.md) | :heavy_minus_sign:                      | N/A                                     |
-| `previous`                              | [HalRef](../../models/shared/HalRef.md) | :heavy_minus_sign:                      | N/A                                     |
-| `self`                                  | [HalRef](../../models/shared/HalRef.md) | :heavy_check_mark:                      | N/A                                     |
+| `Current`                               | [HalRef](../../models/shared/HalRef.md) | :heavy_check_mark:                      | N/A                                     |
+| `Next`                                  | [HalRef](../../models/shared/HalRef.md) | :heavy_minus_sign:                      | N/A                                     |
+| `Previous`                              | [HalRef](../../models/shared/HalRef.md) | :heavy_minus_sign:                      | N/A                                     |
+| `Self`                                  | [HalRef](../../models/shared/HalRef.md) | :heavy_check_mark:                      | N/A                                     |

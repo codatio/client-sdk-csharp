@@ -1,4 +1,5 @@
-# AccountingBankData.Accounts
+# AccountingBankDataAccountsSDK
+(*AccountingBankData.Accounts*)
 
 ### Available Operations
 

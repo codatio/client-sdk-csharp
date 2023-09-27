@@ -1,4 +1,5 @@
-# Sales.Customers
+# SalesCustomersSDK
+(*Sales.Customers*)
 
 ### Available Operations
 

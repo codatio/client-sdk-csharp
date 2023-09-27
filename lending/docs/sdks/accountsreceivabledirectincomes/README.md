@@ -1,4 +1,5 @@
-# AccountsReceivable.DirectIncomes
+# AccountsReceivableDirectIncomesSDK
+(*AccountsReceivable.DirectIncomes*)
 
 ### Available Operations
 

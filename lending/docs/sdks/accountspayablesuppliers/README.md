@@ -1,4 +1,5 @@
-# AccountsPayable.Suppliers
+# AccountsPayableSuppliersSDK
+(*AccountsPayable.Suppliers*)
 
 ### Available Operations
 

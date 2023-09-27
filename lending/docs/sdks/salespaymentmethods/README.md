@@ -1,4 +1,5 @@
-# Sales.PaymentMethods
+# SalesPaymentMethodsSDK
+(*Sales.PaymentMethods*)
 
 ### Available Operations
 

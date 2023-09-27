@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// Amount by which the balance of the linked entity is altered, in the currency of the linked entity.&lt;br/&gt;
+        /// Amount by which the balance of the linked entity is altered, in the currency of the linked entity.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -28,7 +28,7 @@ namespace CodatLending.Models.Shared
         public decimal? Amount { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>

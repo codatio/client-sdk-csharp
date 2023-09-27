@@ -1,4 +1,5 @@
-# Transactions.DirectCosts
+# TransactionsDirectCostsSDK
+(*Transactions.DirectCosts*)
 
 ### Available Operations
 

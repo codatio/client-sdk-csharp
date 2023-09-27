@@ -1,4 +1,5 @@
-# PaymentMethods
+# PaymentMethodsSDK
+(*PaymentMethods*)
 
 ## Overview
 

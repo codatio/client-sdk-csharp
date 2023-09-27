@@ -13,7 +13,7 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// &amp;gt; **Language tip:** For line items, or individual transactions, of a company&amp;apos;s financial documents, refer to the &lt;a href=&quot;https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry&quot;&gt;Journal entries&lt;/a&gt; data type&lt;br/&gt;
+    /// &gt; **Language tip:** For line items, or individual transactions, of a company&apos;s financial documents, refer to the <a href="https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry">Journal entries</a> data type<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -44,7 +44,7 @@ namespace CodatSyncPayables.Models.Shared
     {
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -95,7 +95,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? ModifiedDate { get; set; }
 
         /// <summary>
-        /// Journal name.&lt;br/&gt;
+        /// Journal name.<br/>
         /// 
         /// <remarks>
         /// The maximum length for a journal name is 256 characters. All characters above that number will be truncated.
@@ -105,7 +105,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Name { get; set; }
 
         /// <summary>
-        /// Parent journal ID.&lt;br/&gt;
+        /// Parent journal ID.<br/>
         /// 
         /// <remarks>
         /// If the journal is a parent journal, this value is not present.

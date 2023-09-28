@@ -32,7 +32,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Transactions.JournalEntries.GetAsync(new GetAccountingJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "culpa",
+    JournalEntryId = "hic",
 });
 
 // handle response
@@ -77,7 +77,7 @@ var res = await sdk.Transactions.JournalEntries.ListAsync(new ListAccountingJour
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "corrupti",
+    Query = "exercitationem",
 });
 
 // handle response

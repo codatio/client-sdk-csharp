@@ -36,25 +36,25 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
     AccountingTransfer = new AccountingTransfer() {
         ContactRef = new AccountingTransferContactRef() {
             DataType = CodatLending.Models.Shared.DataType.Invoices,
-            Id = "ac366c8d-d6b1-4442-9074-74778a7bd466",
+            Id = "c366c8dd-6b14-4429-8747-4778a7bd466d",
         },
         Date = "2022-10-23T00:00:00.000Z",
         DepositedRecordRefs = new List<RecordRef>() {
             new RecordRef() {
-                DataType = "journalEntry",
-                Id = "8c10ab3c-dca4-4251-904e-523c7e0bc717",
+                DataType = "accountTransaction",
+                Id = "c10ab3cd-ca42-4519-84e5-23c7e0bc7178",
             },
         },
-        Description = "totam",
+        Description = "accusamus",
         From = new TransferAccount() {
             AccountRef = new AccountRef() {
-                Id = "e4796f2a-70c6-4882-82aa-482562f222e9",
-                Name = "Carl Koch",
+                Id = "4796f2a7-0c68-4828-aaa4-82562f222e98",
+                Name = "Tamara Vandervort IV",
             },
-            Amount = 829.71M,
-            Currency = "USD",
+            Amount = 8003.79M,
+            Currency = "EUR",
         },
-        Id = "cbe61e6b-7b95-4bc0-ab3c-20c4f3789fd8",
+        Id = "e61e6b7b-95bc-40ab-bc20-c4f3789fd871",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
@@ -62,30 +62,30 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "a", new Dictionary<string, object>() {
-                    { "error", "sint" },
+                { "sint", new Dictionary<string, object>() {
+                    { "pariatur", "possimus" },
                 } },
             },
         },
         To = new TransferAccount() {
             AccountRef = new AccountRef() {
-                Id = "dd2efd12-1aa6-4f1e-a74b-db04f1575608",
-                Name = "Rosemarie Jacobs",
+                Id = "2efd121a-a6f1-4e67-8bdb-04f15756082d",
+                Name = "Cassandra Ward V",
             },
-            Amount = 6802.7M,
+            Amount = 9453.02M,
             Currency = "GBP",
         },
         TrackingCategoryRefs = new List<TrackingCategoryRef>() {
             new TrackingCategoryRef() {
-                Id = "9f1d1705-1339-4d08-886a-1840394c2607",
-                Name = "Elisa Mosciski",
+                Id = "d1705133-9d08-4086-a184-0394c26071f9",
+                Name = "Camille Hirthe III",
             },
         },
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 374323,
+    TimeoutInMinutes = 310067,
 });
 
 // handle response

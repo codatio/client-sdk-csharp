@@ -37,7 +37,7 @@ var res = await sdk.AccountsReceivable.Invoices.DownloadAttachmentAsync(new Down
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    InvoiceId = "dolorum",
+    InvoiceId = "officia",
 });
 
 // handle response
@@ -74,7 +74,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Invoices.DownloadPdfAsync(new DownloadAccountingInvoicePdfRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    InvoiceId = "dicta",
+    InvoiceId = "occaecati",
 });
 
 // handle response
@@ -117,7 +117,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Invoices.GetAsync(new GetAccountingInvoiceRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    InvoiceId = "nam",
+    InvoiceId = "fugit",
 });
 
 // handle response
@@ -161,7 +161,7 @@ var res = await sdk.AccountsReceivable.Invoices.GetAttachmentAsync(new GetAccoun
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    InvoiceId = "officia",
+    InvoiceId = "deleniti",
 });
 
 // handle response
@@ -212,7 +212,7 @@ var res = await sdk.AccountsReceivable.Invoices.ListAsync(new ListAccountingInvo
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "occaecati",
+    Query = "hic",
 });
 
 // handle response
@@ -255,7 +255,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsReceivable.Invoices.ListAttachmentsAsync(new ListAccountingInvoiceAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    InvoiceId = "fugit",
+    InvoiceId = "optio",
 });
 
 // handle response
@@ -294,7 +294,7 @@ var res = await sdk.AccountsReceivable.Invoices.ListReconciledAsync(new ListReco
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Page = 1,
     PageSize = 100,
-    Query = "deleniti",
+    Query = "totam",
 });
 
 // handle response

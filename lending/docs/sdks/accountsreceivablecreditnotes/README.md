@@ -32,7 +32,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.CreditNotes.GetAsync(new GetAccountingCreditNoteRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CreditNoteId = "repellendus",
+    CreditNoteId = "odit",
 });
 
 // handle response
@@ -77,7 +77,7 @@ var res = await sdk.AccountsReceivable.CreditNotes.ListAsync(new ListAccountingC
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "sapiente",
+    Query = "at",
 });
 
 // handle response

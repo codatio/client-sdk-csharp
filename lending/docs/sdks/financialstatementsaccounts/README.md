@@ -31,7 +31,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.FinancialStatements.Accounts.GetAsync(new GetAccountingAccountRequest() {
-    AccountId = "esse",
+    AccountId = "aspernatur",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -76,7 +76,7 @@ var res = await sdk.FinancialStatements.Accounts.ListAsync(new ListAccountingAcc
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "ipsum",
+    Query = "perferendis",
 });
 
 // handle response

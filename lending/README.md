@@ -93,6 +93,8 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 
 ### [Liabilities](docs/sdks/liabilities/README.md)
 
+* [GenerateLoanSummary](docs/sdks/liabilities/README.md#generateloansummary) - Generate loan summaries report
+* [GenerateLoanTransactions](docs/sdks/liabilities/README.md#generateloantransactions) - Generate loan transactions report
 * [GetLoanSummary](docs/sdks/liabilities/README.md#getloansummary) - Get loan summaries
 * [ListLoanTransactions](docs/sdks/liabilities/README.md#listloantransactions) - List loan transactions
 

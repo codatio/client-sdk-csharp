@@ -41,7 +41,7 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.2";
+        private const string _sdkVersion = "4.2.3";
         private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "3.0.0";
         private string _serverUrl = "";

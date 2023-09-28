@@ -31,7 +31,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.Transactions.AccountTransactions.GetAsync(new GetAccountingAccountTransactionRequest() {
-    AccountTransactionId = "ullam",
+    AccountTransactionId = "quas",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -79,7 +79,7 @@ var res = await sdk.Transactions.AccountTransactions.ListAsync(new ListAccountin
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "adipisci",
+    Query = "hic",
 });
 
 // handle response

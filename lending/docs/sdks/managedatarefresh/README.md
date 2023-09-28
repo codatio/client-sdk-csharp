@@ -67,7 +67,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ManageData.Refresh.DataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "4dbb675f-d5e6-40b3-b5ed-4f6fbee41f33",
+    ConnectionId = "675fd5e6-0b37-45ed-8f6f-bee41f33317f",
     DataType = CodatLending.Models.Shared.DataType.Invoices,
 });
 

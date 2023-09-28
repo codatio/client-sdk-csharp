@@ -22,7 +22,7 @@ namespace CodatLending.Models.Operations
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Data source type
+        /// Data source type.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sourceType")]
         public ListLoanTransactionsSourceType SourceType { get; set; } = default!;

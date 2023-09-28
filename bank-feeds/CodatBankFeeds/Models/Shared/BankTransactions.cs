@@ -12,7 +12,7 @@ namespace CodatBankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class CreateBankTransaction
+    public class BankTransactions
     {
 
         /// <summary>
@@ -51,8 +51,14 @@ namespace CodatBankFeeds.Models.Shared
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
-        [JsonProperty("date")]
-        public string? Date { get; set; }
+        [JsonProperty("clearedOnDate")]
+        public string? ClearedOnDate { get; set; }
+
+        /// <summary>
+        /// The giving or receiving party such as a person or organization.
+        /// </summary>
+        [JsonProperty("counterparty")]
+        public string? Counterparty { get; set; }
 
         /// <summary>
         /// Description of the bank transaction.
@@ -65,5 +71,23 @@ namespace CodatBankFeeds.Models.Shared
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
+
+        /// <summary>
+        /// `True` if the bank transaction has been <a href="https://www.xero.com/uk/guides/what-is-bank-reconciliation/">reconciled</a> in the accounting platform.
+        /// </summary>
+        [JsonProperty("reconciled")]
+        public bool? Reconciled { get; set; }
+
+        /// <summary>
+        /// An optional reference to the bank transaction.
+        /// </summary>
+        [JsonProperty("reference")]
+        public string? Reference { get; set; }
+
+        /// <summary>
+        /// Type of transaction for the bank statement line.
+        /// </summary>
+        [JsonProperty("transactionType")]
+        public BankTransactionsBankTransactionType? TransactionType { get; set; }
     }
 }

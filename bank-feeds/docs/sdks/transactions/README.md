@@ -39,22 +39,26 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest() {
     CreateBankTransactions = new CreateBankTransactions() {
-        AccountId = "nobis",
-        Transactions = new List<CreateBankTransaction>() {
-            new CreateBankTransaction() {
-                Amount = 3154.28M,
-                Balance = 6078.31M,
-                Date = "2022-10-23T00:00:00.000Z",
-                Description = "minima",
-                Id = "907aff1a-3a2f-4a94-a773-9251aa52c3f5",
+        AccountId = "EILBDVJVNUAGVKRQ",
+        Transactions = new List<BankTransactions>() {
+            new BankTransactions() {
+                Amount = 999.99M,
+                Balance = -999.99M,
+                ClearedOnDate = "2022-10-23T00:00:00.000Z",
+                Counterparty = "ACME INC",
+                Description = "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
+                Id = "716422529",
+                Reconciled = false,
+                Reference = "reference for transaction",
+                TransactionType = CodatBankFeeds.Models.Shared.BankTransactionsBankTransactionType.Xfer,
             },
         },
     },
-    AccountId = "7110701885",
+    AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 820994,
+    TimeoutInMinutes = 325047,
 });
 
 // handle response
@@ -91,7 +95,7 @@ var sdk = new CodatBankFeedsSDK(
 
 var res = await sdk.Transactions.GetCreateOperationAsync(new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "019da1ff-e78f-4097-b007-4f15471b5e6e",
+    PushOperationKey = "907aff1a-3a2f-4a94-a773-9251aa52c3f5",
 });
 
 // handle response
@@ -131,7 +135,7 @@ var res = await sdk.Transactions.ListCreateOperationsAsync(new ListCreateOperati
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quae",
+    Query = "id",
 });
 
 // handle response

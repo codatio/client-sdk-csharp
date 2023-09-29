@@ -50,9 +50,9 @@ var res = await sdk.Sales.Reports.GetOrdersAsync(new GetCommerceOrdersReportRequ
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 296242,
-    PeriodLength = 304468,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Year,
+    NumberOfPeriods = 491586,
+    PeriodLength = 776309,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Week,
     ReportDate = "29-09-2020",
 });
 
@@ -116,9 +116,9 @@ var res = await sdk.Sales.Reports.GetRefundsAsync(new GetCommerceRefundsReportRe
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 839189,
-    PeriodLength = 351870,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Day,
+    NumberOfPeriods = 277786,
+    PeriodLength = 876670,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Year,
     ReportDate = "29-09-2020",
 });
 

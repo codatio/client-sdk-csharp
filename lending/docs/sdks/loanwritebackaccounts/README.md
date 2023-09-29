@@ -53,16 +53,16 @@ var res = await sdk.LoanWriteback.Accounts.CreateAsync(new CreateAccountRequest(
         ValidDatatypeLinks = new List<AccountingAccountValidDataTypeLinks>() {
             new AccountingAccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "fuga",
+                    "Money",
                 },
-                Property = "in",
+                Property = "Cambridgeshire grey technology",
             },
         },
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 359508,
+    TimeoutInMinutes = 86,
 });
 
 // handle response

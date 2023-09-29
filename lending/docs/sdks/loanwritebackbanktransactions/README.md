@@ -34,22 +34,22 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.BankTransactions.CreateAsync(new CreateBankTransactionsRequest() {
     AccountingCreateBankTransactions = new AccountingCreateBankTransactions() {
-        AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+        AccountId = "7110701885",
         Transactions = new List<CreateBankAccountTransaction>() {
             new CreateBankAccountTransaction() {
-                Amount = 7783.46M,
-                Balance = 1965.82M,
+                Amount = 4893.82M,
+                Balance = 6384.24M,
                 Date = "2022-10-23T00:00:00.000Z",
-                Description = "ipsam",
-                Id = "ad019da1-ffe7-48f0-97b0-074f15471b5e",
+                Description = "Inverse discrete benchmark",
+                Id = "<ID>",
             },
         },
     },
-    AccountId = "commodi",
+    AccountId = "Cambridgeshire grey technology",
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 918236,
+    TimeoutInMinutes = 86,
 });
 
 // handle response
@@ -94,7 +94,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.LoanWriteback.BankTransactions.GetCreateModelAsync(new GetCreateBankTransactionsModelRequest() {
-    AccountId = "quae",
+    AccountId = "Northwest",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

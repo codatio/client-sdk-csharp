@@ -36,25 +36,25 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
     AccountingTransfer = new AccountingTransfer() {
         ContactRef = new AccountingTransferContactRef() {
             DataType = CodatLending.Models.Shared.DataType.Invoices,
-            Id = "c366c8dd-6b14-4429-8747-4778a7bd466d",
+            Id = "<ID>",
         },
         Date = "2022-10-23T00:00:00.000Z",
         DepositedRecordRefs = new List<RecordRef>() {
             new RecordRef() {
-                DataType = "accountTransaction",
-                Id = "c10ab3cd-ca42-4519-84e5-23c7e0bc7178",
+                DataType = "invoice",
+                Id = "<ID>",
             },
         },
-        Description = "accusamus",
+        Description = "Proactive systematic Graphical User Interface",
         From = new TransferAccount() {
             AccountRef = new AccountRef() {
-                Id = "4796f2a7-0c68-4828-aaa4-82562f222e98",
-                Name = "Tamara Vandervort IV",
+                Id = "<ID>",
+                Name = "South",
             },
-            Amount = 8003.79M,
+            Amount = 9967.06M,
             Currency = "EUR",
         },
-        Id = "e61e6b7b-95bc-40ab-bc20-c4f3789fd871",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
@@ -62,30 +62,30 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "sint", new Dictionary<string, object>() {
-                    { "pariatur", "possimus" },
+                { "debitis", new Dictionary<string, object>() {
+                    { "alias", "deposit" },
                 } },
             },
         },
         To = new TransferAccount() {
             AccountRef = new AccountRef() {
-                Id = "2efd121a-a6f1-4e67-8bdb-04f15756082d",
-                Name = "Cassandra Ward V",
+                Id = "<ID>",
+                Name = "Northwest",
             },
-            Amount = 9453.02M,
-            Currency = "GBP",
+            Amount = 7926.2M,
+            Currency = "EUR",
         },
         TrackingCategoryRefs = new List<TrackingCategoryRef>() {
             new TrackingCategoryRef() {
-                Id = "d1705133-9d08-4086-a184-0394c26071f9",
-                Name = "Camille Hirthe III",
+                Id = "<ID>",
+                Name = "quantify Polestar mobile",
             },
         },
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 310067,
+    TimeoutInMinutes = 656256,
 });
 
 // handle response

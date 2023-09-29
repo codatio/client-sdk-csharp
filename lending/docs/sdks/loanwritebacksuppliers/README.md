@@ -36,41 +36,41 @@ var res = await sdk.LoanWriteback.Suppliers.CreateAsync(new CreateSupplierReques
     AccountingSupplier = new AccountingSupplier() {
         Addresses = new List<AccountingAddress>() {
             new AccountingAddress() {
-                City = "Germantown",
-                Country = "Switzerland",
-                Line1 = "fugit",
-                Line2 = "porro",
-                PostalCode = "94740-6234",
-                Region = "aspernatur",
+                City = "Jenafurt",
+                Country = "Sweden",
+                Line1 = "innovative blue",
+                Line2 = "grey technology East",
+                PostalCode = "30778",
+                Region = "quantify Polestar mobile",
                 Type = CodatLending.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "possimus",
-        DefaultCurrency = "magnam",
-        EmailAddress = "ratione",
-        Id = "6813f16d-9f5f-4ce6-8556-146c3e250fb0",
+        ContactName = "Durham after",
+        DefaultCurrency = "Intelligent Fish",
+        EmailAddress = "Ricardo.Hand41@gmail.com",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Phone = "(877) 492-8687",
-        RegistrationNumber = "impedit",
+        RegistrationNumber = "Profound",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatLending.Models.Shared.SupplierStatus.Unknown,
+        Status = CodatLending.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "accusamus", new Dictionary<string, object>() {
-                    { "inventore", "non" },
+                { "pariatur", new Dictionary<string, object>() {
+                    { "accusantium", "Minivan" },
                 } },
             },
         },
-        SupplierName = "et",
-        TaxNumber = "dolorum",
+        SupplierName = "Senior Mouse West",
+        TaxNumber = "Towels likewise",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 672048,
+    TimeoutInMinutes = 452224,
 });
 
 // handle response

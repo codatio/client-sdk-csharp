@@ -35,7 +35,7 @@ var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(new Dow
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "at",
+    CustomerId = "Dakota Avon specifically",
 });
 
 // handle response
@@ -79,7 +79,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Customers.GetAsync(new GetAccountingCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "maiores",
+    CustomerId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -123,7 +123,7 @@ var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(new GetAccou
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "molestiae",
+    CustomerId = "array East along",
 });
 
 // handle response
@@ -168,7 +168,7 @@ var res = await sdk.AccountsReceivable.Customers.ListAsync(new ListAccountingCus
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quod",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -211,7 +211,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(new ListAccountingCustomerAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "quod",
+    CustomerId = "intuitive Frozen ouch",
 });
 
 // handle response

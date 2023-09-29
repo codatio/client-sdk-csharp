@@ -25,7 +25,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ManageData.PullOperations.GetAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "2dac7af5-15cc-4413-aa63-aae8d67864db",
+    DatasetId = "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 });
 
 // handle response
@@ -65,7 +65,7 @@ var res = await sdk.ManageData.PullOperations.ListAsync(new ListPullOperationsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "cum",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

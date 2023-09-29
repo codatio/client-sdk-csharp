@@ -25,7 +25,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.CreateOperations.GetAsync(new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "3b99d488-e1e9-41e4-90ad-2abd44269802",
+    PushOperationKey = "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 });
 
 // handle response
@@ -65,7 +65,7 @@ var res = await sdk.LoanWriteback.CreateOperations.ListAsync(new ListCreateOpera
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "assumenda",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

@@ -36,7 +36,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Liabilities.GenerateLoanSummaryAsync(new GenerateLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = CodatLending.Models.Operations.GenerateLoanSummarySourceType.Commerce,
+    SourceType = CodatLending.Models.Operations.GenerateLoanSummarySourceType.Accounting,
 });
 
 // handle response
@@ -120,7 +120,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Liabilities.GetLoanSummaryAsync(new GetLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = CodatLending.Models.Operations.GetLoanSummarySourceType.Accounting,
+    SourceType = CodatLending.Models.Operations.GetLoanSummarySourceType.Banking,
 });
 
 // handle response

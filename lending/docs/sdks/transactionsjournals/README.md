@@ -32,7 +32,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Transactions.Journals.GetAsync(new GetAccountingJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "nobis",
+    JournalId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -77,7 +77,7 @@ var res = await sdk.Transactions.Journals.ListAsync(new ListAccountingJournalsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "sit",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

@@ -56,9 +56,9 @@ var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(new GetCommerceCusto
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 58356,
-    PeriodLength = 916727,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
+    NumberOfPeriods = 497588,
+    PeriodLength = 613110,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Week,
     ReportDate = "29-09-2020",
 });
 
@@ -120,8 +120,8 @@ var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(new GetCommerceLifetimeV
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 113816,
-    PeriodLength = 881721,
+    NumberOfPeriods = 900865,
+    PeriodLength = 614777,
     PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
     ReportDate = "29-09-2020",
 });
@@ -185,9 +185,9 @@ var res = await sdk.Sales.Metrics.GetRevenueAsync(new GetCommerceRevenueMetricsR
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 272437,
-    PeriodLength = 132815,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Week,
+    NumberOfPeriods = 307462,
+    PeriodLength = 944219,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Day,
     ReportDate = "29-09-2020",
 });
 

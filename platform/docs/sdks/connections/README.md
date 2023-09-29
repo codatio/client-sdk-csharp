@@ -152,7 +152,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "provident",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -189,7 +189,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.Connections.UnlinkAsync(new UnlinkConnectionRequest() {
     UpdateConnectionStatus = new UpdateConnectionStatus() {
-        Status = CodatPlatform.Models.Shared.DataConnectionStatus.Unlinked,
+        Status = CodatPlatform.Models.Shared.DataConnectionStatus.PendingAuth,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -229,7 +229,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
-        { "quibusdam", "unde" },
+        { "libero", "teal" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

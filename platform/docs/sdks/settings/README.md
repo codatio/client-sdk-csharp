@@ -254,7 +254,7 @@ var sdk = new CodatPlatformSDK(
 );
 
 var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettingsRequestBody() {
-    ClientId = "07aff1a3-a2fa-4946-b739-251aa52c3f5a",
+    ClientId = "ce429104-79f0-4085-a720-e2d40fcc800f",
     OverridesDefaults = false,
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
@@ -264,7 +264,7 @@ var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettin
             MonthsToSync = 24,
             SyncFromUtc = "2022-10-23T00:00:00.000Z",
             SyncFromWindow = 24,
-            SyncOrder = 13571,
+            SyncOrder = 334238,
             SyncSchedule = 24,
         },
     },

@@ -74,7 +74,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.RefreshData.ByDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "ddf7cc78-ca1b-4a92-8fc8-16742cb73920",
+    ConnectionId = "8803f6d1-c3aa-40d5-a409-b9d7f498be91",
     DataType = CodatPlatform.Models.Shared.DataType.Invoices,
 });
 
@@ -148,7 +148,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.RefreshData.GetPullOperationAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "5929396f-ea75-496e-b10f-aaa2352c5955",
+    DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
 });
 
 // handle response
@@ -188,7 +188,7 @@ var res = await sdk.RefreshData.ListPullOperationsAsync(new ListPullOperationsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "excepturi",
+    Query = "Dock Elegant Buckinghamshire",
 });
 
 // handle response

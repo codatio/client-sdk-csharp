@@ -104,7 +104,7 @@ var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "nulla",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

@@ -35,7 +35,7 @@ var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
         },
         Webhook = "https://webhook.client.com",
     },
-    Type = "voluptatibus",
+    Type = "bluetooth Extended",
 });
 
 // handle response
@@ -110,7 +110,7 @@ var res = await sdk.Webhooks.ListAsync(new ListRulesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "vero",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

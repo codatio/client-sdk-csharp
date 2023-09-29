@@ -147,7 +147,7 @@ var res = await sdk.Companies.ListAsync(new ListCompaniesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "corrupti",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

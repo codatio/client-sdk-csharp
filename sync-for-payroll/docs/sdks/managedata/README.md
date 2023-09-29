@@ -70,7 +70,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "4469b6e2-1419-4598-90af-a563e2516fe4",
+    DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
 });
 
 // handle response
@@ -107,7 +107,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.GetPushOperationAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "c8b711e5-b7fd-42ed-8289-21cddc692601",
+    PushOperationKey = "2a6486f4-00c4-40bd-900d-b29c15ad0581",
 });
 
 // handle response
@@ -147,7 +147,7 @@ var res = await sdk.ManageData.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "maiores",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -187,7 +187,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quidem",
+    Query = "Dock Elegant Buckinghamshire",
 });
 
 // handle response
@@ -266,7 +266,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "576b0d5f-0d30-4c5f-bb25-87053202c73d",
+    ConnectionId = "d6258093-be98-4f60-90e1-ca6bcd49fb9a",
     DataType = CodatSyncPayroll.Models.Shared.DataType.Invoices,
 });
 

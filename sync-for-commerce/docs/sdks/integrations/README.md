@@ -67,7 +67,7 @@ var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "vel",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

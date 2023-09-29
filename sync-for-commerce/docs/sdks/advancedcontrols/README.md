@@ -105,7 +105,7 @@ var res = await sdk.AdvancedControls.ListCompaniesAsync(new ListCompaniesRequest
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "corrupti",
+    Query = "New",
 });
 
 // handle response

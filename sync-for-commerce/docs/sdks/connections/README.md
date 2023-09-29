@@ -72,9 +72,9 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.Connections.GetSyncFlowUrlAsync(new GetSyncFlowUrlRequest() {
-    AccountingKey = "provident",
-    CommerceKey = "distinctio",
-    MerchantIdentifier = "quibusdam",
+    AccountingKey = "Manager",
+    CommerceKey = "payment",
+    MerchantIdentifier = "Rupiah tertiary Zealand",
 });
 
 // handle response
@@ -114,7 +114,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "unde",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -151,7 +151,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
-        { "nulla", "corrupti" },
+        { "libero", "teal" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

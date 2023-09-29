@@ -42,41 +42,41 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<SupplierAccountingAddress>() {
             new SupplierAccountingAddress() {
-                City = "Funkton",
-                Country = "Azerbaijan",
-                Line1 = "ipsa",
-                Line2 = "iure",
-                PostalCode = "38693",
-                Region = "natus",
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
+                City = "Jenafurt",
+                Country = "Sweden",
+                Line1 = "innovative blue",
+                Line2 = "grey technology East",
+                PostalCode = "30778",
+                Region = "quantify Polestar mobile",
+                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "atque",
-        DefaultCurrency = "sit",
-        EmailAddress = "fugiat",
-        Id = "1ba77a89-ebf7-437a-a420-3ce5e6a95d8a",
+        ContactName = "Durham after",
+        DefaultCurrency = "Intelligent Fish",
+        EmailAddress = "Ricardo.Hand41@gmail.com",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "01224 658 999",
-        RegistrationNumber = "quaerat",
+        Phone = "(877) 492-8687",
+        RegistrationNumber = "Profound",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplierSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "quod", new Dictionary<string, object>() {
-                    { "officiis", "qui" },
+                { "pariatur", new Dictionary<string, object>() {
+                    { "accusantium", "Minivan" },
                 } },
             },
         },
-        SupplierName = "dolorum",
-        TaxNumber = "a",
+        SupplierName = "Senior Mouse West",
+        TaxNumber = "Towels likewise",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 456130,
+    TimeoutInMinutes = 452224,
 });
 
 // handle response
@@ -165,7 +165,7 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "iusto",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -213,43 +213,43 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<SupplierAccountingAddress>() {
             new SupplierAccountingAddress() {
-                City = "Port Ulises",
-                Country = "Czech Republic",
-                Line1 = "tempore",
-                Line2 = "accusamus",
-                PostalCode = "32954",
-                Region = "sit",
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
+                City = "Ann Arbor",
+                Country = "Montserrat",
+                Line1 = "Reactive",
+                Line2 = "Metal cheater Islands",
+                PostalCode = "43372",
+                Region = "Carolina syndicate",
+                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "neque",
-        DefaultCurrency = "sed",
-        EmailAddress = "vel",
-        Id = "b5a73429-cdb1-4a84-a2bb-679d2322715b",
+        ContactName = "East",
+        DefaultCurrency = "Bicycle guestbook",
+        EmailAddress = "Alexys.Hayes81@yahoo.com",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "+44 25691 154789",
-        RegistrationNumber = "cumque",
+        Phone = "(877) 492-8687",
+        RegistrationNumber = "indexing",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Archived,
+        Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Unknown,
         SupplementalData = new SupplierSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "et", new Dictionary<string, object>() {
-                    { "saepe", "ipsum" },
+                { "consectetur", new Dictionary<string, object>() {
+                    { "ullam", "Jaguar" },
                 } },
             },
         },
-        SupplierName = "veritatis",
-        TaxNumber = "nobis",
+        SupplierName = "visionary Buckinghamshire frictionless",
+        TaxNumber = "parse possimus",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
     SupplierId = "7110701885",
-    TimeoutInMinutes = 731694,
+    TimeoutInMinutes = 427089,
 });
 
 // handle response

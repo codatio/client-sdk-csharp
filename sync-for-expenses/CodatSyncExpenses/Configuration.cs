@@ -60,9 +60,10 @@ namespace CodatSyncExpenses
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.2";
-        private const string _sdkGenVersion = "2.131.1";
+        private const string _sdkVersion = "2.2.0";
+        private const string _sdkGenVersion = "2.139.1";
         private const string _openapiDocVersion = "prealpha";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.139.1 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -87,7 +88,7 @@ namespace CodatSyncExpenses
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -135,7 +136,7 @@ namespace CodatSyncExpenses
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -183,7 +184,7 @@ namespace CodatSyncExpenses
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "CompanyConfiguration", "json");
             if (serializedBody != null)

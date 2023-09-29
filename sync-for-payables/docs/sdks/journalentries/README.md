@@ -39,30 +39,30 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
-        Description = "eaque",
-        Id = "e189dbb3-0fcb-433e-a055-b197cd44e2f5",
+        Description = "Multi-tiered motivating standardization",
+        Id = "<ID>",
         JournalLines = new List<JournalLine>() {
             new JournalLine() {
                 AccountRef = new AccountRef() {
-                    Id = "2d82d351-3bb6-4f48-b656-bcdb35ff2e4b",
-                    Name = "Bessie Hegmann",
+                    Id = "<ID>",
+                    Name = "innovative blue",
                 },
-                Currency = "est",
-                Description = "rem",
-                NetAmount = 7538.9M,
+                Currency = "Zimbabwe Dollar",
+                Description = "Secured exuding throughput",
+                NetAmount = 8915.1M,
                 Tracking = new JournalLineTracking() {
                     RecordRefs = new List<RecordRef>() {
                         new RecordRef() {
-                            DataType = "transfer",
-                            Id = "9e7319c1-77d5-425f-b7b1-14eeb52ff785",
+                            DataType = "journalEntry",
+                            Id = "<ID>",
                         },
                     },
                 },
             },
         },
         JournalRef = new JournalRef() {
-            Id = "fc37814d-4c98-4e0c-abb8-9eb75dad636c",
-            Name = "Maria Bartoletti I",
+            Id = "<ID>",
+            Name = "orange Northwest",
         },
         Metadata = new Metadata() {
             IsDeleted = false,
@@ -70,14 +70,14 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         PostedOn = "2022-10-23T00:00:00.000Z",
         RecordRef = new JournalEntryRecordReference() {
-            DataType = "accountTransaction",
-            Id = "b31180f7-39ae-49e0-97eb-809e2810331f",
+            DataType = "transfer",
+            Id = "<ID>",
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "occaecati", new Dictionary<string, object>() {
-                    { "atque", "beatae" },
+                { "cupiditate", new Dictionary<string, object>() {
+                    { "assumenda", "volt" },
                 } },
             },
         },
@@ -85,7 +85,7 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 287544,
+    TimeoutInMinutes = 656256,
 });
 
 // handle response

@@ -44,57 +44,57 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         AllocatedOnDate = "2022-10-23T00:00:00.000Z",
         BillCreditNoteNumber = "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
         Currency = "USD",
-        CurrencyRate = 3927.85M,
+        CurrencyRate = 6384.24M,
         DiscountPercentage = 0M,
         Id = "1509398f-98e2-436d-8a5d-c042e0c74ffc",
         IssueDate = "2022-10-23T00:00:00.000Z",
         LineItems = new List<BillCreditNoteLineItem>() {
             new BillCreditNoteLineItem() {
                 AccountRef = new AccountRef() {
-                    Id = "d151a05d-fc2d-4df7-8c78-ca1ba928fc81",
-                    Name = "Tanya Gleason",
+                    Id = "<ID>",
+                    Name = "innovative blue",
                 },
-                Description = "cum",
-                DiscountAmount = 4561.5M,
-                DiscountPercentage = 2165.5M,
+                Description = "Vision-oriented responsive function",
+                DiscountAmount = 9510.62M,
+                DiscountPercentage = 8915.1M,
                 ItemRef = new BillCreditNoteLineItemItemReference() {
-                    Id = "92059293-96fe-4a75-96eb-10faaa2352c5",
-                    Name = "Corey Hane III",
+                    Id = "<ID>",
+                    Name = "deposit",
                 },
-                Quantity = 6342.74M,
-                SubTotal = 9883.74M,
-                TaxAmount = 9589.5M,
+                Quantity = 3015.1M,
+                SubTotal = 899.64M,
+                TaxAmount = 7150.4M,
                 TaxRateRef = new TaxRateRef() {
-                    EffectiveTaxRate = 1020.44M,
-                    Id = "a3a2fa94-6773-4925-9aa5-2c3f5ad019da",
-                    Name = "Johanna Wolf",
+                    EffectiveTaxRate = 7926.2M,
+                    Id = "<ID>",
+                    Name = "Gasoline Screen mobile",
                 },
-                TotalAmount = 5096.24M,
+                TotalAmount = 6562.56M,
                 Tracking = new BillCreditNoteLineItemTracking() {
                     CategoryRefs = new List<TrackingCategoryRef>() {
                         new TrackingCategoryRef() {
-                            Id = "f097b007-4f15-4471-b5e6-e13b99d488e1",
-                            Name = "Kirk Boehm",
+                            Id = "<ID>",
+                            Name = "Durham after",
                         },
                     },
                     CustomerRef = new BillCreditNoteLineItemTrackingCustomerRef() {
-                        CompanyName = "enim",
-                        Id = "0ad2abd4-4269-4802-9502-a94bb4f63c96",
+                        CompanyName = "Fay - Durgan",
+                        Id = "<ID>",
                     },
-                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
-                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Project,
+                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.Unknown,
+                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
                     ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
-                        Id = "9a3efa77-dfb1-44cd-a6ae-395efb9ba88f",
-                        Name = "Sandy Huels",
+                        Id = "<ID>",
+                        Name = "Fiat",
                     },
                 },
                 TrackingCategoryRefs = new List<TrackingCategoryRef>() {
                     new TrackingCategoryRef() {
-                        Id = "97074ba4-469b-46e2-9419-59890afa563e",
-                        Name = "Vivian Boyle",
+                        Id = "<ID>",
+                        Name = "Grocery Borders Northwest",
                     },
                 },
-                UnitAmount = 8919.24M,
+                UnitAmount = 6519.85M,
             },
         },
         Metadata = new Metadata() {
@@ -106,22 +106,22 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
             new Items() {
                 Allocation = new ItemsAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
-                    Currency = "USD",
-                    CurrencyRate = 7038.89M,
-                    TotalAmount = 4479.26M,
+                    Currency = "EUR",
+                    CurrencyRate = 365.21M,
+                    TotalAmount = 8424.64M,
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {
-                        Id = "11e5b7fd-2ed0-4289-a1cd-dc692601fb57",
-                        Name = "Candice Beatty",
+                        Id = "<ID>",
+                        Name = "though East",
                     },
-                    Currency = "EUR",
-                    CurrencyRate = 166.27M,
-                    Id = "d30c5fbb-2587-4053-a02c-73d5fe9b90c2",
-                    Note = "blanditiis",
+                    Currency = "GBP",
+                    CurrencyRate = 155.52M,
+                    Id = "<ID>",
+                    Note = "array Edinburg Investor",
                     PaidOnDate = "2022-10-23T00:00:00.000Z",
-                    Reference = "eaque",
-                    TotalAmount = 5772.29M,
+                    Reference = "likewise payment 1080p",
+                    TotalAmount = 2597.72M,
                 },
             },
         },
@@ -131,28 +131,28 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "adipisci", new Dictionary<string, object>() {
-                    { "asperiores", "earum" },
+                { "porro", new Dictionary<string, object>() {
+                    { "asperiores", "Indiana" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
-            Id = "49a8d9cb-f486-4333-a3f9-b77f3a410067",
-            SupplierName = "quaerat",
+            Id = "<ID>",
+            SupplierName = "Toyota Neptunium round",
         },
         TotalAmount = 805.78M,
         TotalDiscount = 0M,
         TotalTaxAmount = 0M,
         WithholdingTax = new List<WithholdingTaxitems>() {
             new WithholdingTaxitems() {
-                Amount = 8810.05M,
-                Name = "Jan Hodkiewicz",
+                Amount = 1406.49M,
+                Name = "meanwhile",
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 542499,
+    TimeoutInMinutes = 863813,
 });
 
 // handle response
@@ -195,7 +195,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.BillCreditNotes.GetAsync(new GetBillCreditNoteRequest() {
-    BillCreditNoteId = "sit",
+    BillCreditNoteId = "Northeast Hatchback Kia",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -287,7 +287,7 @@ var res = await sdk.BillCreditNotes.ListAsync(new ListBillCreditNotesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "fugiat",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -335,58 +335,58 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
     BillCreditNote = new BillCreditNote() {
         AllocatedOnDate = "2022-10-23T00:00:00.000Z",
         BillCreditNoteNumber = "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
-        Currency = "EUR",
-        CurrencyRate = 6793.93M,
+        Currency = "GBP",
+        CurrencyRate = 5971.29M,
         DiscountPercentage = 0M,
         Id = "1509398f-98e2-436d-8a5d-c042e0c74ffc",
         IssueDate = "2022-10-23T00:00:00.000Z",
         LineItems = new List<BillCreditNoteLineItem>() {
             new BillCreditNoteLineItem() {
                 AccountRef = new AccountRef() {
-                    Id = "7a89ebf7-37ae-4420-bce5-e6a95d8a0d44",
-                    Name = "Bernadette Torp",
+                    Id = "<ID>",
+                    Name = "male Metal",
                 },
-                Description = "a",
-                DiscountAmount = 4561.3M,
-                DiscountPercentage = 6874.88M,
+                Description = "Visionary bi-directional analyzer",
+                DiscountAmount = 2782.81M,
+                DiscountPercentage = 8965.01M,
                 ItemRef = new BillCreditNoteLineItemItemReference() {
-                    Id = "73cf3be4-53f8-470b-b26b-5a73429cdb1a",
-                    Name = "Randall Cole",
+                    Id = "<ID>",
+                    Name = "withdrawal extend",
                 },
-                Quantity = 7044.74M,
-                SubTotal = 3960.6M,
-                TaxAmount = 4631.5M,
+                Quantity = 2494.4M,
+                SubTotal = 3668.07M,
+                TaxAmount = 1395.79M,
                 TaxRateRef = new TaxRateRef() {
-                    EffectiveTaxRate = 5654.21M,
-                    Id = "d2322715-bf0c-4bb1-a31b-8b90f3443a11",
-                    Name = "Miss Billie Ward",
+                    EffectiveTaxRate = 6447.13M,
+                    Id = "<ID>",
+                    Name = "syndicate East Baht",
                 },
-                TotalAmount = 7851.53M,
+                TotalAmount = 6298.17M,
                 Tracking = new BillCreditNoteLineItemTracking() {
                     CategoryRefs = new List<TrackingCategoryRef>() {
                         new TrackingCategoryRef() {
-                            Id = "f4b92187-9fce-4953-b73e-f7fbc7abd74d",
-                            Name = "Earl Mosciski DVM",
+                            Id = "<ID>",
+                            Name = "guestbook driver users",
                         },
                     },
                     CustomerRef = new BillCreditNoteLineItemTrackingCustomerRef() {
-                        CompanyName = "exercitationem",
-                        Id = "d2cff7c7-0a45-4626-9436-813f16d9f5fc",
+                        CompanyName = "Schroeder - Nienow",
+                        Id = "<ID>",
                     },
-                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.Project,
-                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
+                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
+                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Unknown,
                     ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
-                        Id = "c556146c-3e25-40fb-808c-42e141aac366",
-                        Name = "Clifton Simonis",
+                        Id = "<ID>",
+                        Name = "Wooden Internal",
                     },
                 },
                 TrackingCategoryRefs = new List<TrackingCategoryRef>() {
                     new TrackingCategoryRef() {
-                        Id = "b1442907-4747-478a-bbd4-66d28c10ab3c",
-                        Name = "Salvatore Parker",
+                        Id = "<ID>",
+                        Name = "Dodge brightly",
                     },
                 },
-                UnitAmount = 3738.13M,
+                UnitAmount = 7115.64M,
             },
         },
         Metadata = new Metadata() {
@@ -399,21 +399,21 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
                 Allocation = new ItemsAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "GBP",
-                    CurrencyRate = 2728.22M,
-                    TotalAmount = 8920.5M,
+                    CurrencyRate = 3297.12M,
+                    TotalAmount = 4939.56M,
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {
-                        Id = "523c7e0b-c717-48e4-b96f-2a70c688282a",
-                        Name = "Randall Lindgren",
+                        Id = "<ID>",
+                        Name = "modulo Kia",
                     },
                     Currency = "USD",
-                    CurrencyRate = 1470.14M,
-                    Id = "f222e981-7ee1-47cb-a61e-6b7b95bc0ab3",
-                    Note = "cumque",
+                    CurrencyRate = 8000.94M,
+                    Id = "<ID>",
+                    Note = "Avon",
                     PaidOnDate = "2022-10-23T00:00:00.000Z",
-                    Reference = "consequatur",
-                    TotalAmount = 7963.92M,
+                    Reference = "Reactive Global Northeast",
+                    TotalAmount = 6090.5M,
                 },
             },
         },
@@ -423,30 +423,30 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "sapiente", new Dictionary<string, object>() {
-                    { "consectetur", "esse" },
+                { "alias", new Dictionary<string, object>() {
+                    { "veritatis", "ADP" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
-            Id = "89fd871f-99dd-42ef-9121-aa6f1e674bdb",
-            SupplierName = "accusantium",
+            Id = "<ID>",
+            SupplierName = "quisquam",
         },
         TotalAmount = 805.78M,
         TotalDiscount = 0M,
         TotalTaxAmount = 0M,
         WithholdingTax = new List<WithholdingTaxitems>() {
             new WithholdingTaxitems() {
-                Amount = 3069.86M,
-                Name = "Samuel Hermiston",
+                Amount = 8523.4M,
+                Name = "pascal Plastic",
             },
         },
     },
-    BillCreditNoteId = "nisi",
+    BillCreditNoteId = "magenta",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    TimeoutInMinutes = 16328,
+    TimeoutInMinutes = 639383,
 });
 
 // handle response

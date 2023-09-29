@@ -36,7 +36,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.TrackingCategories.GetAsync(new GetTrackingCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    TrackingCategoryId = "nemo",
+    TrackingCategoryId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -81,7 +81,7 @@ var res = await sdk.TrackingCategories.ListAsync(new ListTrackingCategoriesReque
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "culpa",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

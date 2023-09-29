@@ -68,7 +68,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "4e472e80-2857-4a5b-8046-3a7d575f1400",
+    DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
 });
 
 // handle response
@@ -108,7 +108,7 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "eveniet",
+    Query = "Dock Elegant Buckinghamshire",
 });
 
 // handle response
@@ -187,7 +187,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "764ad733-4ec1-4b78-9b36-a08088d100ef",
+    ConnectionId = "d6258093-be98-4f60-90e1-ca6bcd49fb9a",
     DataType = CodatSyncPayables.Models.Shared.DataType.Invoices,
 });
 

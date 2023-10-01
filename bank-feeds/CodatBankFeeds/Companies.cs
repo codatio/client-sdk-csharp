@@ -83,10 +83,10 @@ namespace CodatBankFeeds
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.2.0";
-        private const string _sdkGenVersion = "2.139.1";
+        private const string _sdkVersion = "2.3.0";
+        private const string _sdkGenVersion = "2.142.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.139.1 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.142.2 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

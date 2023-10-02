@@ -2,22 +2,22 @@ configVersion: 1.0.0
 management:
   docChecksum: 8c98eef70ca98a975bed0f84ad9cd374
   docVersion: "1.1"
-  speakeasyVersion: 1.92.2
-  generationVersion: 2.142.2
+  speakeasyVersion: 1.92.3
+  generationVersion: 2.143.2
 generation:
   sdkClassName: Codat.Sync.Commerce
   singleTagPerOp: false
   telemetryEnabled: true
 features:
   csharp:
-    core: 2.89.0
+    core: 2.89.1
     deprecations: 2.81.1
     examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.3.0
+  version: 2.3.1
   author: Codat
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   dotnetVersion: net6.0

@@ -100,10 +100,10 @@ namespace CodatPlatform
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.142.2";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.143.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.142.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.3.1 2.143.2 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

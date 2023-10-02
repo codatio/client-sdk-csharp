@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Sync.Expenses</PackageId>
-    <Version>2.2.0</Version>
+    <Version>2.3.0</Version>
     <Authors>Codat</Authors>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

@@ -124,10 +124,10 @@ namespace CodatSyncPayroll
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.2.0";
-        private const string _sdkGenVersion = "2.139.1";
+        private const string _sdkVersion = "2.3.0";
+        private const string _sdkGenVersion = "2.143.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.139.1 3.0.0 Codat.Sync.Payroll";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.143.2 3.0.0 Codat.Sync.Payroll";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

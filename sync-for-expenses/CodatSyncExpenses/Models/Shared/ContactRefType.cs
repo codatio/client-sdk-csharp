@@ -16,22 +16,22 @@ namespace CodatSyncExpenses.Models.Shared
     /// <summary>
     /// The type of contact.
     /// </summary>
-    public enum ContactRefContactType
+    public enum ContactRefType
     {
         [JsonProperty("Supplier")]
         Supplier,
     }
 
-    public static class ContactRefContactTypeExtension
+    public static class ContactRefTypeExtension
     {
-        public static string Value(this ContactRefContactType value)
+        public static string Value(this ContactRefType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static ContactRefContactType ToEnum(this string value)
+        public static ContactRefType ToEnum(this string value)
         {
-            foreach(var field in typeof(ContactRefContactType).GetFields())
+            foreach(var field in typeof(ContactRefType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -44,14 +44,14 @@ namespace CodatSyncExpenses.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is ContactRefContactType)
+                    if (enumVal is ContactRefType)
                     {
-                        return (ContactRefContactType)enumVal;
+                        return (ContactRefType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum ContactRefContactType");
+            throw new Exception($"Unknown value {value} for enum ContactRefType");
         }
     }
 }

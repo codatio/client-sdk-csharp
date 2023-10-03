@@ -14,7 +14,7 @@ namespace CodatSyncExpenses.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// When querying Codat&amp;apos;s data model, some data types return `validDatatypeLinks` metadata in the JSON response. This indicates where that object can be used as a reference—a _valid link_—when creating or updating other data.&lt;br/&gt;
+    /// When querying Codat&apos;s data model, some data types return `validDatatypeLinks` metadata in the JSON response. This indicates where that object can be used as a reference—a _valid link_—when creating or updating other data.<br/>
     /// 
     /// <remarks>
     /// <br/>

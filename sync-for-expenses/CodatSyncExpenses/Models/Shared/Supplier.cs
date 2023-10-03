@@ -14,13 +14,13 @@ namespace CodatSyncExpenses.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; View the coverage for suppliers in the &amp;lt;a className=&amp;quot;external&amp;quot; href=&amp;quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;amp;dataType=suppliers&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Data coverage explorer&amp;lt;/a&amp;gt;.&lt;br/&gt;
+    /// &gt; View the coverage for suppliers in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// 
     /// <remarks>
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// From the **Suppliers** endpoints, you can retrieve a list of <a href="https://docs.codat.io/accounting-api#/operations/list-suppliers">all the suppliers for a company</a>. Suppliers&apos; data links to accounts payable <a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a>.
+    /// From the **Suppliers** endpoints, you can retrieve a list of <a href="https://docs.codat.io/sync-for-expenses-api#/operations/list-suppliers">all the suppliers for a company</a>. Suppliers&apos; data links to accounts payable <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Bill">bills</a>.
     /// </remarks>
     /// </summary>
     public class Supplier
@@ -39,7 +39,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string? ContactName { get; set; }
 
         /// <summary>
-        /// Default currency the supplier&amp;apos;s transactional data is recorded in.
+        /// Default currency the supplier&apos;s transactional data is recorded in.
         /// </summary>
         [JsonProperty("defaultCurrency")]
         public string? DefaultCurrency { get; set; }
@@ -84,7 +84,7 @@ namespace CodatSyncExpenses.Models.Shared
         public SupplierStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -101,7 +101,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string? SupplierName { get; set; }
 
         /// <summary>
-        /// Supplier&amp;apos;s company tax number.
+        /// Supplier&apos;s company tax number.
         /// </summary>
         [JsonProperty("taxNumber")]
         public string? TaxNumber { get; set; }

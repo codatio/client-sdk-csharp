@@ -30,7 +30,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -57,7 +57,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string? CompletedOnUtc { get; set; }
 
         /// <summary>
-        /// &amp;gt; **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.&lt;br/&gt;
+        /// &gt; **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -79,7 +79,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided. <br/>
         /// <br/>
         /// To determine the list of allowed categories for a specific integration, you can: <br/>
-        /// - Follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide and use the <a href="https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
+        /// - Follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide and use the <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
         /// - Refer to the integration&apos;s own documentation. <br/>
         /// <br/>
         /// &gt; **Accounts with no category**<br/>
@@ -93,7 +93,7 @@ namespace CodatSyncExpenses.Models.Shared
         public Account? Data { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("dataConnectionKey")]
         public string DataConnectionKey { get; set; } = default!;
@@ -117,7 +117,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string PushOperationKey { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

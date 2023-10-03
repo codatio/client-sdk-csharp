@@ -1,4 +1,5 @@
-# Accounts
+# AccountsSDK
+(*Accounts*)
 
 ## Overview
 
@@ -7,16 +8,17 @@ Accounts
 ### Available Operations
 
 * [Create](#create) - Create account
+* [GetCreateModel](#getcreatemodel) - Get create account model
 
 ## Create
 
-The *Create account* endpoint creates a new [account](https://docs.codat.io/accounting-api#/schemas/Account) for a given company's connection.
+The *Create account* endpoint creates a new [account](https://docs.codat.io/sync-for-expenses-api#/schemas/Account) for a given company's connection.
 
-[Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+[Accounts](https://docs.codat.io/sync-for-expenses-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
+Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-chartOfAccounts-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
 
@@ -36,7 +38,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
     Account = new Account() {
-        Currency = "EUR",
+        Currency = "USD",
         CurrentBalance = 0M,
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
@@ -55,16 +57,16 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
             new AccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "suscipit",
+                    "Money",
                 },
-                Property = "molestiae",
+                Property = "Cambridgeshire grey technology",
             },
         },
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 791725,
+    TimeoutInMinutes = 86,
 });
 
 // handle response
@@ -80,4 +82,50 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 ### Response
 
 **[Models.Operations.CreateAccountResponse](../../models/operations/CreateAccountResponse.md)**
+
+
+## GetCreateModel
+
+The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-expenses-api#/schemas/Account) for a given company and integration.
+
+[Accounts](https://docs.codat.io/sync-for-expenses-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+
+
+### Example Usage
+
+```csharp
+using CodatSyncExpenses;
+using CodatSyncExpenses.Models.Shared;
+using CodatSyncExpenses.Models.Operations;
+
+var sdk = new CodatSyncExpensesSDK(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+var res = await sdk.Accounts.GetCreateModelAsync(new GetCreateChartOfAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [GetCreateChartOfAccountsModelRequest](../../models/operations/GetCreateChartOfAccountsModelRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+
+### Response
+
+**[GetCreateChartOfAccountsModelResponse](../../models/operations/GetCreateChartOfAccountsModelResponse.md)**
 

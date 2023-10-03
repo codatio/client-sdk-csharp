@@ -28,7 +28,7 @@ namespace CodatSyncExpenses.Models.Operations
         public string SyncId { get; set; } = default!;
 
         /// <summary>
-        /// The unique identifier for your SMB&amp;apos;s transaction.
+        /// The unique identifier for your SMB&apos;s transaction.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")]
         public string TransactionId { get; set; } = default!;

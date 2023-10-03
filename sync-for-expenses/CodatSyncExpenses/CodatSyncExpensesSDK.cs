@@ -18,7 +18,7 @@ namespace CodatSyncExpenses
     using System;
 
     /// <summary>
-    /// Sync for Expenses: The API for Sync for Expenses.&lt;br/&gt;
+    /// Sync for Expenses: The API for Sync for Expenses.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -72,7 +72,7 @@ namespace CodatSyncExpenses
         public IManageDataSDK ManageData { get; }
 
         /// <summary>
-        /// Access create, update and delete operations made to an SMB&amp;apos;s data connection.
+        /// Access create, update and delete operations made to an SMB&apos;s data connection.
         /// </summary>
         public IPushOperationsSDK PushOperations { get; }
 
@@ -97,7 +97,7 @@ namespace CodatSyncExpenses
     }
 
     /// <summary>
-    /// Sync for Expenses: The API for Sync for Expenses.&lt;br/&gt;
+    /// Sync for Expenses: The API for Sync for Expenses.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -121,9 +121,10 @@ namespace CodatSyncExpenses
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.144.7";
         private const string _openapiDocVersion = "prealpha";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.144.7 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

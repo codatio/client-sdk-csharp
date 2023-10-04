@@ -29,13 +29,13 @@ namespace CodatSyncExpenses
         /// Create supplier
         /// 
         /// <remarks>
-        /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
+        /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -49,7 +49,7 @@ namespace CodatSyncExpenses
         /// <remarks>
         /// The *Get supplier* endpoint returns a single supplier for a given supplierId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support getting a specific supplier.<br/>
         /// <br/>
@@ -63,9 +63,9 @@ namespace CodatSyncExpenses
         /// List suppliers
         /// 
         /// <remarks>
-        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
+        /// The *List suppliers* endpoint returns a list of <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">suppliers</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         ///     
@@ -77,13 +77,13 @@ namespace CodatSyncExpenses
         /// Update supplier
         /// 
         /// <remarks>
-        /// The *Update supplier* endpoint updates an existing <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
+        /// The *Update supplier* endpoint updates an existing <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">supplier</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model">Get create/update supplier model</a>.<br/>
         /// <br/>
         /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers">coverage explorer</a> for integrations that support creating an account.<br/>
         /// 
@@ -99,9 +99,10 @@ namespace CodatSyncExpenses
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.146.1";
         private const string _openapiDocVersion = "prealpha";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.146.1 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -126,7 +127,7 @@ namespace CodatSyncExpenses
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Supplier", "json");
             if (serializedBody != null)
@@ -148,7 +149,7 @@ namespace CodatSyncExpenses
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.CreateSupplierResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateSupplierResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -157,7 +158,7 @@ namespace CodatSyncExpenses
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -179,7 +180,7 @@ namespace CodatSyncExpenses
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -196,7 +197,7 @@ namespace CodatSyncExpenses
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.Supplier = JsonConvert.DeserializeObject<Supplier>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -205,7 +206,7 @@ namespace CodatSyncExpenses
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -227,7 +228,7 @@ namespace CodatSyncExpenses
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -244,7 +245,7 @@ namespace CodatSyncExpenses
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.Suppliers = JsonConvert.DeserializeObject<Suppliers>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -253,7 +254,7 @@ namespace CodatSyncExpenses
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -275,7 +276,7 @@ namespace CodatSyncExpenses
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Supplier", "json");
             if (serializedBody != null)
@@ -297,7 +298,7 @@ namespace CodatSyncExpenses
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.UpdateSupplierResponseValue = JsonConvert.DeserializeObject<Models.Shared.UpdateSupplierResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -306,7 +307,7 @@ namespace CodatSyncExpenses
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }

@@ -1,4 +1,5 @@
-# Expenses
+# ExpensesSDK
+(*Expenses*)
 
 ## Overview
 
@@ -35,11 +36,11 @@ var res = await sdk.Expenses.CreateAsync(new CreateExpenseTransactionRequest() {
                     Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
                 },
                 ContactRef = new ContactRef() {
-                    ContactType = CodatSyncExpenses.Models.Shared.ContactRefContactType.Supplier,
                     Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                    Type = CodatSyncExpenses.Models.Shared.ContactRefType.Supplier,
                 },
                 Currency = "GBP",
-                CurrencyRate = 1002.26M,
+                CurrencyRate = 4865.89M,
                 Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
                 IssueDate = "2022-10-23T00:00:00.000Z",
                 Lines = new List<ExpenseTransactionLine>() {
@@ -106,11 +107,11 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
             Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
         },
         ContactRef = new ContactRef() {
-            ContactType = CodatSyncExpenses.Models.Shared.ContactRefContactType.Supplier,
             Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            Type = CodatSyncExpenses.Models.Shared.ContactRefType.Supplier,
         },
         Currency = "GBP",
-        CurrencyRate = 9194.83M,
+        CurrencyRate = 8574.78M,
         IssueDate = "2022-06-28T00:00:00.000Z",
         Lines = new List<ExpenseTransactionLine>() {
             new ExpenseTransactionLine() {
@@ -131,7 +132,7 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
         },
         MerchantName = "Amazon UK",
         Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        Type = "ullam",
+        Type = "New",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
@@ -171,8 +172,8 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Expenses.UploadAttachmentAsync(new UploadExpenseAttachmentRequest() {
     RequestBody = new UploadExpenseAttachmentRequestBody() {
-        Content = "expedita as bytes <<<>>>",
-        RequestBody = "nihil",
+        Content = "v/ghW&IC$x as bytes <<<>>>",
+        RequestBody = "Elegant Producer Electric",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",

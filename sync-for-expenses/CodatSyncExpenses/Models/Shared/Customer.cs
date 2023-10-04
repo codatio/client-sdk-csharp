@@ -14,7 +14,7 @@ namespace CodatSyncExpenses.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; View the coverage for customers in the &amp;lt;a className=&amp;quot;external&amp;quot; href=&amp;quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;amp;dataType=customers&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Data coverage explorer&amp;lt;/a&amp;gt;.&lt;br/&gt;
+    /// &gt; View the coverage for customers in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -22,7 +22,7 @@ namespace CodatSyncExpenses.Models.Shared
     /// <br/>
     /// A customer is a person or organisation that buys goods or services. From the Customers endpoints, you can retrieve a <a href="https://api.codat.io/swagger/index.html#/Customers/get_companies__companyId__data_customers">list of all the customers of a company</a>.<br/>
     /// <br/>
-    /// Customers&apos; data links to accounts receivable <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">invoices</a>.<br/>
+    /// Customers&apos; data links to accounts receivable <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Invoice">invoices</a>.<br/>
     /// 
     /// </remarks>
     /// </summary>
@@ -54,7 +54,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string? CustomerName { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -108,7 +108,7 @@ namespace CodatSyncExpenses.Models.Shared
         public CustomerStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>

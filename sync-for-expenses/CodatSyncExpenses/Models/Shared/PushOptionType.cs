@@ -14,24 +14,38 @@ namespace CodatSyncExpenses.Models.Shared
     using System;
     
     /// <summary>
-    /// The type of contact.
+    /// The option type.
     /// </summary>
-    public enum ContactRefContactType
+    public enum PushOptionType
     {
-        [JsonProperty("Supplier")]
-        Supplier,
+        [JsonProperty("Array")]
+        Array,
+        [JsonProperty("Object")]
+        Object,
+        [JsonProperty("String")]
+        String,
+        [JsonProperty("Number")]
+        Number,
+        [JsonProperty("Boolean")]
+        Boolean,
+        [JsonProperty("DateTime")]
+        DateTime,
+        [JsonProperty("File")]
+        File,
+        [JsonProperty("MultiPart")]
+        MultiPart,
     }
 
-    public static class ContactRefContactTypeExtension
+    public static class PushOptionTypeExtension
     {
-        public static string Value(this ContactRefContactType value)
+        public static string Value(this PushOptionType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static ContactRefContactType ToEnum(this string value)
+        public static PushOptionType ToEnum(this string value)
         {
-            foreach(var field in typeof(ContactRefContactType).GetFields())
+            foreach(var field in typeof(PushOptionType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -44,14 +58,14 @@ namespace CodatSyncExpenses.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is ContactRefContactType)
+                    if (enumVal is PushOptionType)
                     {
-                        return (ContactRefContactType)enumVal;
+                        return (PushOptionType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum ContactRefContactType");
+            throw new Exception($"Unknown value {value} for enum PushOptionType");
         }
     }
 }

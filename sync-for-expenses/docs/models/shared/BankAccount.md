@@ -5,4 +5,4 @@
 
 | Field                                               | Type                                                | Required                                            | Description                                         | Example                                             |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `id`                                                | *string*                                            | :heavy_minus_sign:                                  | The id of the account from which purchases are made | 32                                                  |
+| `Id`                                                | *string*                                            | :heavy_minus_sign:                                  | The id of the account from which purchases are made | 32                                                  |

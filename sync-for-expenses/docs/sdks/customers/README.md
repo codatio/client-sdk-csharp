@@ -1,4 +1,5 @@
-# Customers
+# CustomersSDK
+(*Customers*)
 
 ## Overview
 
@@ -13,13 +14,13 @@ Customers
 
 ## Create
 
-The *Create customer* endpoint creates a new [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *Create customer* endpoint creates a new [customer](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
+Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
 
@@ -41,64 +42,64 @@ var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<Items>() {
             new Items() {
-                City = "Fort Manuelachester",
-                Country = "Oman",
-                Line1 = "dolores",
-                Line2 = "dolorem",
-                PostalCode = "17363",
-                Region = "minima",
+                City = "Jenafurt",
+                Country = "Sweden",
+                Line1 = "innovative blue",
+                Line2 = "grey technology East",
+                PostalCode = "30778",
+                Region = "quantify Polestar mobile",
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "accusantium",
+        ContactName = "Durham after",
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    City = "Lorenzaworth",
-                    Country = "Uzbekistan",
-                    Line1 = "architecto",
-                    Line2 = "mollitia",
-                    PostalCode = "61965",
-                    Region = "numquam",
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+                    City = "Darenberg",
+                    Country = "Cote d'Ivoire",
+                    Line1 = "Buckinghamshire functionalities Grocery",
+                    Line2 = "Metal",
+                    PostalCode = "61380",
+                    Region = "Interactions Senior Mouse",
+                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
                 },
-                Email = "Jarred.Frami@yahoo.com",
+                Email = "Judd27@hotmail.com",
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Name = "Kayla O'Kon",
+                Name = "transmit likewise",
                 Phone = new List<ContactPhone>() {
                     new ContactPhone() {
-                        Number = "01224 658 999",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Primary,
+                        Number = "(877) 492-8687",
+                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Fax,
                     },
                 },
-                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
+                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Active,
             },
         },
-        CustomerName = "ipsam",
-        DefaultCurrency = "USD",
-        EmailAddress = "possimus",
-        Id = "019da1ff-e78f-4097-b007-4f15471b5e6e",
+        CustomerName = "Rubber silver Indiana",
+        DefaultCurrency = "EUR",
+        EmailAddress = "Thea_Ritchie76@hotmail.com",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "755.825.5909",
-        RegistrationNumber = "sint",
+        Phone = "948.595.2034",
+        RegistrationNumber = "digital",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
+        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "incidunt", new Dictionary<string, object>() {
-                    { "enim", "consequatur" },
+                { "recusandae", new Dictionary<string, object>() {
+                    { "maiores", "Mongolia" },
                 } },
             },
         },
-        TaxNumber = "est",
+        TaxNumber = "discrete",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 842342,
+    TimeoutInMinutes = 522311,
 });
 
 // handle response
@@ -120,7 +121,7 @@ var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
 
 The *Get customer* endpoint returns a single customer for a given customerId.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
 
@@ -142,7 +143,7 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Customers.GetAsync(new GetCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "explicabo",
+    CustomerId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -162,9 +163,9 @@ var res = await sdk.Customers.GetAsync(new GetCustomerRequest() {
 
 ## List
 
-The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *List customers* endpoint returns a list of [customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data).
     
@@ -187,7 +188,7 @@ var res = await sdk.Customers.ListAsync(new ListCustomersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "deserunt",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -207,13 +208,13 @@ var res = await sdk.Customers.ListAsync(new ListCustomersRequest() {
 
 ## Update
 
-The *Update customer* endpoint updates an existing [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *Update customer* endpoint updates an existing [customer](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
+Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
 
@@ -235,66 +236,66 @@ var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<Items>() {
             new Items() {
-                City = "Spencerboro",
-                Country = "Eritrea",
-                Line1 = "qui",
-                Line2 = "aliquid",
-                PostalCode = "50183-0165",
-                Region = "tempora",
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
+                City = "Ann Arbor",
+                Country = "Montserrat",
+                Line1 = "Reactive",
+                Line2 = "Metal cheater Islands",
+                PostalCode = "43372",
+                Region = "Carolina syndicate",
+                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "tempore",
+        ContactName = "East",
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    City = "Fort Horacio",
-                    Country = "Ecuador",
-                    Line1 = "eligendi",
-                    Line2 = "sint",
-                    PostalCode = "58562",
-                    Region = "debitis",
+                    City = "Olenfurt",
+                    Country = "Paraguay",
+                    Line1 = "Home users Sharable",
+                    Line2 = "Lev Wooden",
+                    PostalCode = "36848",
+                    Region = "brightly",
                     Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
                 },
-                Email = "Isadore_Kirlin69@hotmail.com",
+                Email = "Josie49@yahoo.com",
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Name = "Blanca Schulist",
+                Name = "possimus navigating Diesel",
                 Phone = new List<ContactPhone>() {
                     new ContactPhone() {
-                        Number = "01224 658 999",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Unknown,
+                        Number = "+44 25691 154789",
+                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Primary,
                     },
                 },
                 Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
             },
         },
-        CustomerName = "occaecati",
-        DefaultCurrency = "GBP",
-        EmailAddress = "accusamus",
-        Id = "fb9ba88f-3a66-4997-874b-a4469b6e2141",
+        CustomerName = "Reactive Global Northeast",
+        DefaultCurrency = "USD",
+        EmailAddress = "Abe.Bogan@hotmail.com",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "(655) 269-6342 x813",
-        RegistrationNumber = "quasi",
+        Phone = "(883) 732-4217 x6499",
+        RegistrationNumber = "redundant ew",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
+        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "debitis", new Dictionary<string, object>() {
-                    { "eius", "maxime" },
+                { "asperiores", new Dictionary<string, object>() {
+                    { "quibusdam", "Omnigender" },
                 } },
             },
         },
-        TaxNumber = "deleniti",
+        TaxNumber = "Volkswagen Specialist Bacon",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "facilis",
+    CustomerId = "Copper port East",
     ForceUpdate = false,
-    TimeoutInMinutes = 447926,
+    TimeoutInMinutes = 373959,
 });
 
 // handle response

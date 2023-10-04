@@ -1,4 +1,5 @@
-# Connections
+# ConnectionsSDK
+(*Connections*)
 
 ## Overview
 
@@ -187,7 +188,7 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quidem",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

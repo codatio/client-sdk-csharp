@@ -14,7 +14,7 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.&lt;br/&gt;
+    /// &gt; **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -36,7 +36,7 @@ namespace CodatSyncPayables.Models.Shared
     /// At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided. <br/>
     /// <br/>
     /// To determine the list of allowed categories for a specific integration, you can: <br/>
-    /// - Follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide and use the <a href="https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
+    /// - Follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide and use the <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
     /// - Refer to the integration&apos;s own documentation. <br/>
     /// <br/>
     /// &gt; **Accounts with no category**<br/>
@@ -50,7 +50,7 @@ namespace CodatSyncPayables.Models.Shared
     {
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -77,7 +77,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Description { get; set; }
 
         /// <summary>
-        /// Full category of the account. &lt;br/&gt;
+        /// Full category of the account. <br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -88,7 +88,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? FullyQualifiedCategory { get; set; }
 
         /// <summary>
-        /// Full name of the account, for example:&lt;br/&gt;
+        /// Full name of the account, for example:<br/>
         /// 
         /// <remarks>
         /// - `Cash On Hand`<br/>
@@ -124,7 +124,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Name { get; set; }
 
         /// <summary>
-        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn&amp;apos;t a unique identifier in the Codat system.
+        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn&apos;t a unique identifier in the Codat system.
         /// </summary>
         [JsonProperty("nominalCode")]
         public string? NominalCode { get; set; }
@@ -145,7 +145,7 @@ namespace CodatSyncPayables.Models.Shared
         public AccountType? Type { get; set; }
 
         /// <summary>
-        /// The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see &lt;a href=&quot;/accounting-api#/schemas/ValidDataTypeLinks&quot;&gt;Valid Data Type Links&lt;/a&gt;.
+        /// The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see <a href="/sync-for-payables-api#/schemas/ValidDataTypeLinks">Valid Data Type Links</a>.
         /// </summary>
         [JsonProperty("validDatatypeLinks")]
         public List<AccountValidDataTypeLinks>? ValidDatatypeLinks { get; set; }

@@ -9,5 +9,5 @@ References a category against which the item is tracked.
 
 | Field                                       | Type                                        | Required                                    | Description                                 |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| `id`                                        | *string*                                    | :heavy_check_mark:                          | Unique identifier to the tracking category. |
-| `name`                                      | *string*                                    | :heavy_minus_sign:                          | Name of tracking category.                  |
+| `Id`                                        | *string*                                    | :heavy_check_mark:                          | Unique identifier to the tracking category. |
+| `Name`                                      | *string*                                    | :heavy_minus_sign:                          | Name of tracking category.                  |

@@ -1,4 +1,5 @@
-# Bills
+# BillsSDK
+(*Bills*)
 
 ## Overview
 
@@ -46,123 +47,123 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
     Bill = new Bill() {
-        AmountDue = 9167.27M,
-        Currency = "EUR",
-        CurrencyRate = 1138.16M,
+        AmountDue = 4865.89M,
+        Currency = "USD",
+        CurrencyRate = 6384.24M,
         DueDate = "2022-10-23T00:00:00.000Z",
-        Id = "a426555b-a3c2-4874-8ed5-3b88f3a8d8f5",
+        Id = "<ID>",
         IssueDate = "2022-10-23T00:00:00.000Z",
         LineItems = new List<BillLineItem>() {
             new BillLineItem() {
                 AccountRef = new AccountRef() {
-                    Id = "0b2f2fb7-b194-4a27-ab26-916fe1f08f42",
-                    Name = "Herbert Treutel",
+                    Id = "<ID>",
+                    Name = "South",
                 },
-                Description = "occaecati",
-                DiscountAmount = 5520.78M,
-                DiscountPercentage = 9757.52M,
+                Description = "Vision-oriented responsive function",
+                DiscountAmount = 9510.62M,
+                DiscountPercentage = 8915.1M,
                 IsDirectCost = false,
                 ItemRef = new ItemRef() {
-                    Id = "447f603e-8b44-45e8-8ca5-5efd20e457e1",
-                    Name = "Jorge Langosh",
+                    Id = "<ID>",
+                    Name = "deposit",
                 },
-                Quantity = 6805.15M,
-                SubTotal = 5300.89M,
-                TaxAmount = 6223.85M,
+                Quantity = 3015.1M,
+                SubTotal = 899.64M,
+                TaxAmount = 7150.4M,
                 TaxRateRef = new TaxRateRef() {
-                    EffectiveTaxRate = 9447.08M,
-                    Id = "be3a5aa8-e482-44d0-ab40-75088e518620",
-                    Name = "Bernice Ullrich II",
+                    EffectiveTaxRate = 7926.2M,
+                    Id = "<ID>",
+                    Name = "Gasoline Screen mobile",
                 },
-                TotalAmount = 9688.65M,
+                TotalAmount = 6562.56M,
                 Tracking = new Tracking() {
                     CategoryRefs = new List<TrackingCategoryRef>() {
                         new TrackingCategoryRef() {
-                            Id = "3b1194b8-abf6-403a-b9f9-dfe0ab7da8a5",
-                            Name = "Ms. Alexandra VonRueden",
+                            Id = "<ID>",
+                            Name = "Durham after",
                         },
                     },
                     CustomerRef = new TrackingCustomerRef() {
-                        CompanyName = "asperiores",
-                        Id = "86bc173d-689e-4ee9-926f-8d986e881ead",
+                        CompanyName = "Fay - Durgan",
+                        Id = "<ID>",
                     },
-                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Project,
+                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.Unknown,
+                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
                     ProjectRef = new TrackingProjectReference() {
-                        Id = "0e101256-3f94-4e29-a973-e922a57a15be",
-                        Name = "Meghan Batz IV",
+                        Id = "<ID>",
+                        Name = "Fiat",
                     },
                 },
                 TrackingCategoryRefs = new List<TrackingCategoryRef>() {
                     new TrackingCategoryRef() {
-                        Id = "07e2b6e3-ab88-445f-8597-a60ff2a54a31",
-                        Name = "Arturo Hagenes",
+                        Id = "<ID>",
+                        Name = "Grocery Borders Northwest",
                     },
                 },
-                UnitAmount = 2840M,
+                UnitAmount = 6519.85M,
             },
         },
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Note = "adipisci",
+        Note = "animated Minivan",
         PaymentAllocations = new List<BillPaymentAllocation>() {
             new BillPaymentAllocation() {
                 Allocation = new BillPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "USD",
-                    CurrencyRate = 4326.06M,
-                    TotalAmount = 3679.27M,
+                    CurrencyRate = 808.14M,
+                    TotalAmount = 2006.64M,
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {
-                        Id = "e7956f92-51a5-4a9d-a660-ff57bfaad4f9",
-                        Name = "Miss Timmy Runolfsdottir",
+                        Id = "<ID>",
+                        Name = "West",
                     },
                     Currency = "USD",
-                    CurrencyRate = 820.57M,
-                    Id = "2c103264-8dc2-4f61-9199-ebfd0e9fe6c6",
-                    Note = "dolorem",
+                    CurrencyRate = 3379.66M,
+                    Id = "<ID>",
+                    Note = "Towels",
                     PaidOnDate = "2022-10-23T00:00:00.000Z",
-                    Reference = "cumque",
-                    TotalAmount = 6849.35M,
+                    Reference = "payment 1080p",
+                    TotalAmount = 2597.72M,
                 },
             },
         },
         PurchaseOrderRefs = new List<BillPurchaseOrderReference>() {
             new BillPurchaseOrderReference() {
-                Id = "3aed0117-9963-412f-9e04-771778ff61d0",
-                PurchaseOrderNumber = "dicta",
+                Id = "<ID>",
+                PurchaseOrderNumber = "silver Indiana",
             },
         },
-        Reference = "odio",
+        Reference = "Toyota Neptunium round",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.BillStatus.PartiallyPaid,
-        SubTotal = 4037.93M,
+        Status = CodatSyncPayables.Models.Shared.BillStatus.Open,
+        SubTotal = 9057.54M,
         SupplementalData = new BillSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "consectetur", new Dictionary<string, object>() {
-                    { "aliquid", "ipsa" },
+                { "in", new Dictionary<string, object>() {
+                    { "pariatur", "Dollar" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
-            Id = "a15db6a6-6065-49a1-adea-ab5851d6c645",
-            SupplierName = "expedita",
+            Id = "<ID>",
+            SupplierName = "South",
         },
-        TaxAmount = 299.5M,
-        TotalAmount = 5615.77M,
+        TaxAmount = 4914.27M,
+        TotalAmount = 2663.33M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 7372.54M,
-                Name = "Doris Lemke MD",
+                Amount = 4904.2M,
+                Name = "markets",
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 665678,
+    TimeoutInMinutes = 924484,
 });
 
 // handle response
@@ -184,7 +185,7 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
 
 The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
 
 ### Process 
 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.
@@ -249,7 +250,7 @@ var res = await sdk.Bills.DeleteAsync(new DeleteBillRequest() {
 
 The *Delete bill attachment* endpoint allows you to delete a specified bill attachment from an accounting platform.  
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices
+[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices
 that represent the SMB's financial obligations to their supplier for a
 purchase of goods or services. 
 
@@ -284,7 +285,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Bills.DeleteAttachmentAsync(new DeleteBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    BillId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -373,7 +374,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.Bills.GetAsync(new GetBillRequest() {
-    BillId = "EILBDVJVNUAGVKRQ",
+    BillId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -416,7 +417,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Bills.GetAttachmentAsync(new GetBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    BillId = "EILBDVJVNUAGVKRQ",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -509,7 +510,7 @@ var res = await sdk.Bills.ListAsync(new ListBillsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "fuga",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -598,125 +599,125 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
     Bill = new Bill() {
-        AmountDue = 8913.15M,
+        AmountDue = 8574.78M,
         Currency = "GBP",
-        CurrencyRate = 12.07M,
+        CurrencyRate = 5971.29M,
         DueDate = "2022-10-23T00:00:00.000Z",
-        Id = "e6f8c5f3-50d8-4cdb-9a34-181430104218",
+        Id = "<ID>",
         IssueDate = "2022-10-23T00:00:00.000Z",
         LineItems = new List<BillLineItem>() {
             new BillLineItem() {
                 AccountRef = new AccountRef() {
-                    Id = "3d5208ec-e7e2-453b-a684-51c6c6e205e1",
-                    Name = "Teri Thiel",
+                    Id = "<ID>",
+                    Name = "dock Quality redundant",
                 },
-                Description = "sequi",
-                DiscountAmount = 9873.49M,
-                DiscountPercentage = 9180.92M,
+                Description = "Visionary bi-directional analyzer",
+                DiscountAmount = 2782.81M,
+                DiscountPercentage = 8965.01M,
                 IsDirectCost = false,
                 ItemRef = new ItemRef() {
-                    Id = "c9578a64-5842-473a-8418-d162309fb092",
-                    Name = "Miss Joey Dach",
+                    Id = "<ID>",
+                    Name = "withdrawal extend",
                 },
-                Quantity = 9768.02M,
-                SubTotal = 7196.2M,
-                TaxAmount = 6085.93M,
+                Quantity = 2494.4M,
+                SubTotal = 3668.07M,
+                TaxAmount = 1395.79M,
                 TaxRateRef = new TaxRateRef() {
-                    EffectiveTaxRate = 9663.9M,
-                    Id = "58c4d86e-68e4-4be0-9601-3f59da757a59",
-                    Name = "Garrett Welch",
+                    EffectiveTaxRate = 6447.13M,
+                    Id = "<ID>",
+                    Name = "syndicate East Baht",
                 },
-                TotalAmount = 4043.06M,
+                TotalAmount = 6298.17M,
                 Tracking = new Tracking() {
                     CategoryRefs = new List<TrackingCategoryRef>() {
                         new TrackingCategoryRef() {
-                            Id = "6ef1caa3-383c-42be-b477-373c8d72f64d",
-                            Name = "Dr. Muriel Reinger",
+                            Id = "<ID>",
+                            Name = "guestbook driver users",
                         },
                     },
                     CustomerRef = new TrackingCustomerRef() {
-                        CompanyName = "porro",
-                        Id = "4310661e-9634-49e1-8f9e-06e3a437000a",
+                        CompanyName = "Schroeder - Nienow",
+                        Id = "<ID>",
                     },
-                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.Project,
-                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
+                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
+                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Unknown,
                     ProjectRef = new TrackingProjectReference() {
-                        Id = "b6bc9b8f-759e-4ac5-9a97-41d311352965",
-                        Name = "Wm Legros",
+                        Id = "<ID>",
+                        Name = "Wooden Internal",
                     },
                 },
                 TrackingCategoryRefs = new List<TrackingCategoryRef>() {
                     new TrackingCategoryRef() {
-                        Id = "20261143-5e13-49db-8225-9b1abda8c070",
-                        Name = "Walter Beatty",
+                        Id = "<ID>",
+                        Name = "Dodge brightly",
                     },
                 },
-                UnitAmount = 7551.06M,
+                UnitAmount = 7115.64M,
             },
         },
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Note = "voluptatem",
+        Note = "frictionless haptic",
         PaymentAllocations = new List<BillPaymentAllocation>() {
             new BillPaymentAllocation() {
                 Allocation = new BillPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "USD",
-                    CurrencyRate = 1729.51M,
-                    TotalAmount = 8247.98M,
+                    CurrencyRate = 8238.97M,
+                    TotalAmount = 5143.61M,
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {
-                        Id = "1ad879ee-b966-45b8-9efb-d02bae0be2d7",
-                        Name = "Fred Champlin",
+                        Id = "<ID>",
+                        Name = "Diesel Avon",
                     },
-                    Currency = "EUR",
-                    CurrencyRate = 2393.37M,
-                    Id = "ea4b5197-f924-443d-a7ce-52b895c537c6",
-                    Note = "modi",
+                    Currency = "GBP",
+                    CurrencyRate = 8941.07M,
+                    Id = "<ID>",
+                    Note = "male hack",
                     PaidOnDate = "2022-10-23T00:00:00.000Z",
-                    Reference = "magnam",
-                    TotalAmount = 9149.71M,
+                    Reference = "absolve West",
+                    TotalAmount = 182.83M,
                 },
             },
         },
         PurchaseOrderRefs = new List<BillPurchaseOrderReference>() {
             new BillPurchaseOrderReference() {
-                Id = "fb0b3489-6c3c-4a5a-8fbe-2fd570757792",
-                PurchaseOrderNumber = "error",
+                Id = "<ID>",
+                PurchaseOrderNumber = "quisquam",
             },
         },
-        Reference = "veritatis",
+        Reference = "deliverables Ergonomic Money",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.BillStatus.PartiallyPaid,
-        SubTotal = 8667.89M,
+        Status = CodatSyncPayables.Models.Shared.BillStatus.Paid,
+        SubTotal = 4173.15M,
         SupplementalData = new BillSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "itaque", new Dictionary<string, object>() {
-                    { "similique", "optio" },
+                { "repellat", new Dictionary<string, object>() {
+                    { "voluptatibus", "Latvian" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
-            Id = "646ecb57-3409-4e3e-b1e5-a2b12eb07f11",
-            SupplierName = "laboriosam",
+            Id = "<ID>",
+            SupplierName = "Chips Omnigender tremendously",
         },
-        TaxAmount = 8634.71M,
-        TotalAmount = 7294.48M,
+        TaxAmount = 9620.25M,
+        TotalAmount = 6952.8M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 5665.06M,
-                Name = "Maurice Haag",
+                Amount = 3189.59M,
+                Name = "Benz",
             },
         },
     },
-    BillId = "EILBDVJVNUAGVKRQ",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ForceUpdate = false,
-    TimeoutInMinutes = 574032,
+    TimeoutInMinutes = 523103,
 });
 
 // handle response
@@ -762,10 +763,10 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Bills.UploadAttachmentAsync(new UploadBillAttachmentRequest() {
     RequestBody = new UploadBillAttachmentRequestBody() {
-        Content = "enim as bytes <<<>>>",
-        RequestBody = "hic",
+        Content = "v/ghW&IC$x as bytes <<<>>>",
+        RequestBody = "Elegant Producer Electric",
     },
-    BillId = "7110701885",
+    BillId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

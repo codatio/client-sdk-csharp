@@ -19,7 +19,8 @@ features:
 csharp:
   version: 2.1.0
   author: Codat
-  description: Manage the building blocks of Codat, including companies, connections, and more.
   dotnetVersion: net6.0
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
   maxMethodParams: 0
   packageName: Codat.Platform

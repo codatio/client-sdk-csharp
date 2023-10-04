@@ -23,7 +23,7 @@ namespace CodatPlatform.Models.Shared
         public string? ClientId { get; set; }
 
         /// <summary>
-        /// Set to `True` if you want to override the default &lt;a href=&quot;https://docs.codat.io/knowledge-base/advanced-sync-settings&quot;&gt;sync settings&lt;/a&gt;.
+        /// Set to `True` if you want to override the default <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a>.
         /// </summary>
         [JsonProperty("overridesDefaults")]
         public bool? OverridesDefaults { get; set; }

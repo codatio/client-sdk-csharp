@@ -15,7 +15,7 @@ namespace CodatPlatform.Models.Operations
     using System.Collections.Generic;
     
     /// <summary>
-    /// Include a `syncSetting` object for each data type.&lt;br/&gt;
+    /// Include a `syncSetting` object for each data type.<br/>
     /// 
     /// <remarks>
     /// `syncFromWindow`, `syncFromUTC` &amp; `monthsToSync` only need to be included if you wish to set a value for them.
@@ -31,7 +31,7 @@ namespace CodatPlatform.Models.Operations
         public string ClientId { get; set; } = default!;
 
         /// <summary>
-        /// Set to `True` if you want to override default &lt;a href=&quot;https://docs.codat.io/knowledge-base/advanced-sync-settings&quot;&gt;sync settings&lt;/a&gt;.
+        /// Set to `True` if you want to override default <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a>.
         /// </summary>
         [JsonProperty("overridesDefaults")]
         public bool? OverridesDefaults { get; set; }

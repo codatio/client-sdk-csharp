@@ -1,4 +1,5 @@
-# PushData
+# PushDataSDK
+(*PushData*)
 
 ## Overview
 
@@ -76,7 +77,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.PushData.GetOperationAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "8d69a674-e0f4-467c-8879-6ed151a05dfc",
+    PushOperationKey = "59acd79e-29d3-4138-91d3-91d4641bf7ed",
 });
 
 // handle response
@@ -116,7 +117,7 @@ var res = await sdk.PushData.ListOperationsAsync(new GetCompanyPushHistoryReques
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "odit",
+    Query = "Synchronised",
 });
 
 // handle response

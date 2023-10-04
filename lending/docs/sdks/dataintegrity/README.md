@@ -1,4 +1,5 @@
-# DataIntegrity
+# DataIntegritySDK
+(*DataIntegrity*)
 
 ## Overview
 
@@ -35,7 +36,7 @@ var res = await sdk.DataIntegrity.DetailsAsync(new ListDataIntegrityDetailsReque
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "suscipit",
+    Query = "Savings",
 });
 
 // handle response
@@ -121,7 +122,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.DataIntegrity.SummariesAsync(new GetDataIntegritySummariesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = CodatLending.Models.Shared.DataIntegrityDataType.BankingAccounts,
-    Query = "iure",
+    Query = "Organized West",
 });
 
 // handle response

@@ -26,10 +26,38 @@ namespace CodatLending
     {
 
         /// <summary>
+        /// Generate loan summaries report
+        /// 
+        /// <remarks>
+        /// The _Generate loan summaries_ endpoint requests the generation of the Loan Summaries report.<br/>
+        /// <br/>
+        /// Learn more about Codat&apos;s liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GenerateLoanSummaryResponse> GenerateLoanSummaryAsync(GenerateLoanSummaryRequest? request = null);
+
+        /// <summary>
+        /// Generate loan transactions report
+        /// 
+        /// <remarks>
+        /// The _Generate loan transactions_ endpoint requests the generation of the Loan Transactions report.<br/>
+        /// <br/>
+        /// Learn more about Codat&apos;s liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GenerateLoanTransactionsResponse> GenerateLoanTransactionsAsync(GenerateLoanTransactionsRequest? request = null);
+
+        /// <summary>
         /// Get loan summaries
         /// 
         /// <remarks>
-        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified in each integration.<br/>
+        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified from a company&apos;s accounting, banking, and commerce integrations.<br/>
         /// <br/>
         /// The endpoint returns a list of a company&apos;s <a href="https://docs.codat.io/lending-api#/schemas/LoanSummary">loan summaries</a> for each valid data connection.<br/>
         /// <br/>
@@ -61,9 +89,10 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.1";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "4.3.0";
+        private const string _sdkGenVersion = "2.144.7";
         private const string _openapiDocVersion = "3.0.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.144.7 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -77,6 +106,94 @@ namespace CodatLending
         }
         
 
+        public async Task<GenerateLoanSummaryResponse> GenerateLoanSummaryAsync(GenerateLoanSummaryRequest? request = null)
+        {
+            string baseUrl = _serverUrl;
+            if (baseUrl.EndsWith("/"))
+            {
+                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
+            }
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/liabilities/loans", request);
+            
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new GenerateLoanSummaryResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if((response.StatusCode == 202))
+            {
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        public async Task<GenerateLoanTransactionsResponse> GenerateLoanTransactionsAsync(GenerateLoanTransactionsRequest? request = null)
+        {
+            string baseUrl = _serverUrl;
+            if (baseUrl.EndsWith("/"))
+            {
+                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
+            }
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/liabilities/loans/transactions", request);
+            
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new GenerateLoanTransactionsResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if((response.StatusCode == 202))
+            {
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
         public async Task<GetLoanSummaryResponse> GetLoanSummaryAsync(GetLoanSummaryRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -84,11 +201,11 @@ namespace CodatLending
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/enhancedLiabilities/loan", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/liabilities/loans", request);
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -105,16 +222,16 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.LoanSummary = JsonConvert.DeserializeObject<LoanSummary>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404))
+            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -132,11 +249,11 @@ namespace CodatLending
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/enhancedLiabilities/loan/transactions", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/reports/liabilities/loans/transactions", request);
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -153,16 +270,16 @@ namespace CodatLending
             };
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.LoanTransactions = JsonConvert.DeserializeObject<LoanTransactions>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404))
+            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }

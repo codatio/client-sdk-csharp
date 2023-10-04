@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// Orders contain the transaction details for all products sold by the company, and include details of any payments, service charges, or refunds related to each order. You can use data from the Orders endpoints to calculate key metrics, such as gross sales values and monthly recurring revenue (MRR).&lt;br/&gt;
+    /// Orders contain the transaction details for all products sold by the company, and include details of any payments, service charges, or refunds related to each order. You can use data from the Orders endpoints to calculate key metrics, such as gross sales values and monthly recurring revenue (MRR).<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -26,7 +26,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -53,7 +53,7 @@ namespace CodatLending.Models.Shared
         public string? ClosedDate { get; set; }
 
         /// <summary>
-        /// The Codat country property is returned as it was provided in the underlying platform by the company without any formatting on our part.&lt;br/&gt;
+        /// The Codat country property is returned as it was provided in the underlying platform by the company without any formatting on our part.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -66,7 +66,7 @@ namespace CodatLending.Models.Shared
         public string? Country { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -135,7 +135,7 @@ namespace CodatLending.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>

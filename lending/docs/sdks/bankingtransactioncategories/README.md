@@ -1,4 +1,5 @@
-# Banking.TransactionCategories
+# BankingTransactionCategoriesSDK
+(*Banking.TransactionCategories*)
 
 ### Available Operations
 
@@ -32,7 +33,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.Banking.TransactionCategories.GetAsync(new GetBankingTransactionCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TransactionCategoryId = "modi",
+    TransactionCategoryId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -78,7 +79,7 @@ var res = await sdk.Banking.TransactionCategories.ListAsync(new ListBankingTrans
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "qui",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

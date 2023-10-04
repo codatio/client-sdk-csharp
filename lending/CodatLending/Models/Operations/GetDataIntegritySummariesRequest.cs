@@ -29,7 +29,7 @@ namespace CodatLending.Models.Operations
         public DataIntegrityDataType DataType { get; set; } = default!;
 
         /// <summary>
-        /// Codat query string. &lt;a href=&quot;https://docs.codat.io/using-the-api/querying&quot;&gt;Read more&lt;/a&gt;.
+        /// Codat query string. <a href="https://docs.codat.io/using-the-api/querying">Read more</a>.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=query")]
         public string? Query { get; set; }

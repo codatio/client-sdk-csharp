@@ -1,4 +1,5 @@
-# FinancialStatements.BalanceSheet
+# FinancialStatementsBalanceSheetSDK
+(*FinancialStatements.BalanceSheet*)
 
 ### Available Operations
 
@@ -65,7 +66,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.FinancialStatements.BalanceSheet.GetCategorizedAccountsAsync(new GetCategorizedBalanceSheetStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    NumberOfPeriods = 135218,
+    NumberOfPeriods = 258121,
     ReportDate = "29-09-2020",
 });
 

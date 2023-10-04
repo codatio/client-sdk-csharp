@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Payments contain details of all payments made by customers to a company, including: amounts, currency used, payment method, payment provider, and payment status.&lt;br/&gt;
+    /// Payments contain details of all payments made by customers to a company, including: amounts, currency used, payment method, payment provider, and payment status.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -34,7 +34,7 @@ namespace CodatLending.Models.Shared
         public decimal? Amount { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -61,7 +61,7 @@ namespace CodatLending.Models.Shared
         public string? CreatedDate { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -76,7 +76,7 @@ namespace CodatLending.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

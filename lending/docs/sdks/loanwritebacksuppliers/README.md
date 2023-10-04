@@ -1,4 +1,5 @@
-# LoanWriteback.Suppliers
+# LoanWritebackSuppliersSDK
+(*LoanWriteback.Suppliers*)
 
 ### Available Operations
 
@@ -35,41 +36,41 @@ var res = await sdk.LoanWriteback.Suppliers.CreateAsync(new CreateSupplierReques
     AccountingSupplier = new AccountingSupplier() {
         Addresses = new List<AccountingAddress>() {
             new AccountingAddress() {
-                City = "Ankundingworth",
-                Country = "Guadeloupe",
-                Line1 = "nulla",
-                Line2 = "fugit",
-                PostalCode = "99474-0623",
-                Region = "ea",
-                Type = CodatLending.Models.Shared.AccountingAddressType.Unknown,
+                City = "Jenafurt",
+                Country = "Sweden",
+                Line1 = "innovative blue",
+                Line2 = "grey technology East",
+                PostalCode = "30778",
+                Region = "quantify Polestar mobile",
+                Type = CodatLending.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "vel",
-        DefaultCurrency = "possimus",
-        EmailAddress = "magnam",
-        Id = "36813f16-d9f5-4fce-ac55-6146c3e250fb",
+        ContactName = "Durham after",
+        DefaultCurrency = "Intelligent Fish",
+        EmailAddress = "Ricardo.Hand41@gmail.com",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "+44 25691 154789",
-        RegistrationNumber = "deleniti",
+        Phone = "(877) 492-8687",
+        RegistrationNumber = "Profound",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatLending.Models.Shared.SupplierStatus.Unknown,
+        Status = CodatLending.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "fugit", new Dictionary<string, object>() {
-                    { "accusamus", "inventore" },
+                { "pariatur", new Dictionary<string, object>() {
+                    { "accusantium", "Minivan" },
                 } },
             },
         },
-        SupplierName = "non",
-        TaxNumber = "et",
+        SupplierName = "Senior Mouse West",
+        TaxNumber = "Towels likewise",
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 677412,
+    TimeoutInMinutes = 452224,
 });
 
 // handle response

@@ -1,4 +1,5 @@
-# Sales.Reports
+# SalesReportsSDK
+(*Sales.Reports*)
 
 ### Available Operations
 
@@ -49,9 +50,9 @@ var res = await sdk.Sales.Reports.GetOrdersAsync(new GetCommerceOrdersReportRequ
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 795535,
-    PeriodLength = 171853,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Month,
+    NumberOfPeriods = 491586,
+    PeriodLength = 776309,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Week,
     ReportDate = "29-09-2020",
 });
 
@@ -115,9 +116,9 @@ var res = await sdk.Sales.Reports.GetRefundsAsync(new GetCommerceRefundsReportRe
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     IncludeDisplayNames = false,
-    NumberOfPeriods = 449292,
-    PeriodLength = 296242,
-    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Week,
+    NumberOfPeriods = 277786,
+    PeriodLength = 876670,
+    PeriodUnit = CodatLending.Models.Shared.PeriodUnit.Year,
     ReportDate = "29-09-2020",
 });
 

@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System;
     
     /// <summary>
-    /// Current state of the invoice:&lt;br/&gt;
+    /// Current state of the invoice:<br/>
     /// 
     /// <remarks>
     /// <br/>

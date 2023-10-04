@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// Product categories are used to classify a group of products together, either by type (e.g. &amp;quot;Furniture&amp;quot;), or sometimes by tax profile.&lt;br/&gt;
+    /// Product categories are used to classify a group of products together, either by type (e.g. &quot;Furniture&quot;), or sometimes by tax profile.<br/>
     /// 
     /// <remarks>
     /// <br/>

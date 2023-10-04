@@ -1,4 +1,5 @@
-# AccountsPayable.BillCreditNotes
+# AccountsPayableBillCreditNotesSDK
+(*AccountsPayable.BillCreditNotes*)
 
 ### Available Operations
 
@@ -30,7 +31,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.BillCreditNotes.GetAsync(new GetAccountingBillCreditNoteRequest() {
-    BillCreditNoteId = "minus",
+    BillCreditNoteId = "Northeast Hatchback Kia",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -76,7 +77,7 @@ var res = await sdk.AccountsPayable.BillCreditNotes.ListAsync(new ListAccounting
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "placeat",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

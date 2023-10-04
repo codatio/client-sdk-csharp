@@ -29,7 +29,7 @@ namespace CodatLending.Models.Shared
         public string? Description { get; set; }
 
         /// <summary>
-        /// Numerical value of any discounts applied.&lt;br/&gt;
+        /// Numerical value of any discounts applied.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -76,7 +76,7 @@ namespace CodatLending.Models.Shared
         public decimal? TaxAmount { get; set; }
 
         /// <summary>
-        /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.&lt;br/&gt;
+        /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
         /// 
         /// <remarks>
         /// <br/>

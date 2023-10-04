@@ -17,13 +17,13 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The dimension&amp;apos;s display name.
+        /// The dimension&apos;s display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
 
         /// <summary>
-        /// The dimension&amp;apos;s index.
+        /// The dimension&apos;s index.
         /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }
@@ -32,7 +32,7 @@ namespace CodatLending.Models.Shared
         public List<CommerceReportDimensionItems>? Items { get; set; }
 
         /// <summary>
-        /// The dimension&amp;apos;s type.
+        /// The dimension&apos;s type.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }

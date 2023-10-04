@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Lending</PackageId>
-    <Version>4.2.1</Version>
+    <Version>4.3.0</Version>
     <Authors>Codat</Authors>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

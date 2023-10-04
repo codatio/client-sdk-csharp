@@ -30,7 +30,7 @@ namespace CodatBankFeeds.Models.Shared
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -60,7 +60,7 @@ namespace CodatBankFeeds.Models.Shared
         public CreateBankTransactions? Data { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("dataConnectionKey")]
         public string DataConnectionKey { get; set; } = default!;
@@ -84,7 +84,7 @@ namespace CodatBankFeeds.Models.Shared
         public string PushOperationKey { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

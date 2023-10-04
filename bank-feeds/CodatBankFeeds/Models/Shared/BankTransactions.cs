@@ -12,7 +12,7 @@ namespace CodatBankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class CreateBankTransaction
+    public class BankTransactions
     {
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace CodatBankFeeds.Models.Shared
         public decimal? Balance { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -51,8 +51,14 @@ namespace CodatBankFeeds.Models.Shared
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
         /// </remarks>
         /// </summary>
-        [JsonProperty("date")]
-        public string? Date { get; set; }
+        [JsonProperty("clearedOnDate")]
+        public string? ClearedOnDate { get; set; }
+
+        /// <summary>
+        /// The giving or receiving party such as a person or organization.
+        /// </summary>
+        [JsonProperty("counterparty")]
+        public string? Counterparty { get; set; }
 
         /// <summary>
         /// Description of the bank transaction.
@@ -65,5 +71,23 @@ namespace CodatBankFeeds.Models.Shared
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
+
+        /// <summary>
+        /// `True` if the bank transaction has been <a href="https://www.xero.com/uk/guides/what-is-bank-reconciliation/">reconciled</a> in the accounting platform.
+        /// </summary>
+        [JsonProperty("reconciled")]
+        public bool? Reconciled { get; set; }
+
+        /// <summary>
+        /// An optional reference to the bank transaction.
+        /// </summary>
+        [JsonProperty("reference")]
+        public string? Reference { get; set; }
+
+        /// <summary>
+        /// Type of transaction for the bank statement line.
+        /// </summary>
+        [JsonProperty("transactionType")]
+        public BankTransactionsBankTransactionType? TransactionType { get; set; }
     }
 }

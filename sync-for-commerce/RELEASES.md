@@ -73,3 +73,13 @@ Based on:
 - [csharp v2.1.0] sync-for-commerce
 ### Releases
 - [NuGet v2.1.0] https://www.nuget.org/packages/Codat.Sync.Commerce/2.1.0 - sync-for-commerce
+
+## 2023-10-04 00:20:06
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.93.2 (2.144.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v2.2.0] sync-for-commerce
+### Releases
+- [NuGet v2.2.0] https://www.nuget.org/packages/Codat.Sync.Commerce/2.2.0 - sync-for-commerce

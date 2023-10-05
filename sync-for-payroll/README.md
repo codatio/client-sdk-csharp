@@ -125,8 +125,6 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/trackingcategories/README.md#list) - List tracking categories
 <!-- End SDK Available Operations -->
 
-
-
 <!-- Start Dev Containers -->
 
 

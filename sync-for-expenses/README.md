@@ -1,8 +1,8 @@
 # Sync for Expenses
-
-<!-- Start Codat Library Description -->
-<!-- End Codat Library Description  -->    
+    
+<!-- Start Codat Library Description  -->
 Embedded accounting integrations for corporate card providers.
+<!-- End Codat Library Description  -->
 
 <!-- Start SDK Installation -->
 ## SDK Installation
@@ -142,8 +142,6 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [Get](docs/sdks/transactionstatus/README.md#get) - Get sync transaction
 * [List](docs/sdks/transactionstatus/README.md#list) - List sync transactions
 <!-- End SDK Available Operations -->
-
-
 
 <!-- Start Dev Containers -->
 

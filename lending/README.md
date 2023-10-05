@@ -1,8 +1,8 @@
 # Lending
 
 <!-- Start Codat Library Description -->
-<!-- End Codat Library Description  -->
 Lending helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from the operating systems they are already using. You can use that data for automating decisioning and surfacing new insights on the customer, all via one API.
+<!-- End Codat Library Description  -->
 
 <!-- Start SDK Installation -->
 ## SDK Installation
@@ -349,8 +349,6 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Get](docs/sdks/transactionstransfers/README.md#get) - Get transfer
 * [List](docs/sdks/transactionstransfers/README.md#list) - List transfers
 <!-- End SDK Available Operations -->
-
-
 
 <!-- Start Dev Containers -->
 

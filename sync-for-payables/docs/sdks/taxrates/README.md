@@ -1,4 +1,5 @@
-# TaxRates
+# TaxRatesSDK
+(*TaxRates*)
 
 ## Overview
 
@@ -35,7 +36,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.TaxRates.GetAsync(new GetTaxRateRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    TaxRateId = "impedit",
+    TaxRateId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -80,7 +81,7 @@ var res = await sdk.TaxRates.ListAsync(new ListTaxRatesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "sit",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

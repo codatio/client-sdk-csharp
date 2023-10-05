@@ -30,7 +30,7 @@ namespace CodatSyncPayables.Models.Shared
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -57,7 +57,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? CompletedOnUtc { get; set; }
 
         /// <summary>
-        /// &amp;gt; **Language tip:** For line items, or individual transactions, of a company&amp;apos;s financial documents, refer to the &lt;a href=&quot;https://docs.codat.io/accounting-api#/schemas/JournalEntry&quot;&gt;Journal entries&lt;/a&gt; data type&lt;br/&gt;
+        /// &gt; **Language tip:** For line items, or individual transactions, of a company&apos;s financial documents, refer to the <a href="https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry">Journal entries</a> data type<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -65,7 +65,7 @@ namespace CodatSyncPayables.Models.Shared
         /// <br/>
         /// ## Overview<br/>
         /// <br/>
-        /// In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate <a href="https://docs.codat.io/accounting-api#/schemas/JournalEntry">journal entry</a>. These entries are used to create the general ledger, which is then used to create the financial statements of a business.<br/>
+        /// In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate <a href="https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry">journal entry</a>. These entries are used to create the general ledger, which is then used to create the financial statements of a business.<br/>
         /// <br/>
         /// When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.<br/>
         /// <br/>
@@ -88,7 +88,7 @@ namespace CodatSyncPayables.Models.Shared
         public Journal? Data { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("dataConnectionKey")]
         public string DataConnectionKey { get; set; } = default!;
@@ -112,7 +112,7 @@ namespace CodatSyncPayables.Models.Shared
         public string PushOperationKey { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

@@ -13,7 +13,7 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.&lt;br/&gt;
+    /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
     /// 
     /// <remarks>
     /// <br/>

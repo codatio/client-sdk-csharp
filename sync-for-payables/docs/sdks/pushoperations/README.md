@@ -1,4 +1,5 @@
-# PushOperations
+# PushOperationsSDK
+(*PushOperations*)
 
 ## Overview
 
@@ -28,7 +29,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.PushOperations.GetAsync(new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "a200ef04-22eb-4216-8cf9-ab8366c723ff",
+    PushOperationKey = "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 });
 
 // handle response
@@ -68,7 +69,7 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "nulla",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

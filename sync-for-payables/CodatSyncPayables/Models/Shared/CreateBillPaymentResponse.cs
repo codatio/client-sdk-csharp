@@ -30,7 +30,7 @@ namespace CodatSyncPayables.Models.Shared
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -57,19 +57,19 @@ namespace CodatSyncPayables.Models.Shared
         public string? CompletedOnUtc { get; set; }
 
         /// <summary>
-        /// &amp;gt; **Bill payments or payments?**  &lt;br/&gt;
+        /// &gt; **Bill payments or payments?**  <br/>
         /// 
         /// <remarks>
         /// &gt; <br/>
         /// &gt; We distinguish between transactions where the company received money vs. paid money. If the transaction represents a company spending money (accounts payable) we call this a Bill payment.<br/>
         /// &gt;<br/>
-        /// &gt; See <a href="https://docs.codat.io/accounting-api#/schemas/Payment">payments</a> for the accounts receivable equivalent of Bill payments, which covers <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">invoices</a> and <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">credit notes</a>.<br/>
+        /// &gt; See <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Payment">payments</a> for the accounts receivable equivalent of Bill payments, which covers <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Invoice">invoices</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/CreditNote">credit notes</a>.<br/>
         /// <br/>
         /// &gt; View the coverage for bill payments in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billPayments&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
         /// <br/>
         /// ## Overview<br/>
         /// <br/>
-        /// Bill payments include all accounts payable transaction data (<a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a> and <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">credit notes against bills</a>).<br/>
+        /// Bill payments include all accounts payable transaction data (<a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bills</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">credit notes against bills</a>).<br/>
         /// <br/>
         /// A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes, but is not strictly limited to:<br/>
         /// <br/>
@@ -86,9 +86,9 @@ namespace CodatSyncPayables.Models.Shared
         /// - Who the payment has been paid to, the _supplier_.<br/>
         /// - The types of bill payments, the _line items_.  <br/>
         /// <br/>
-        /// Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s _expenses_. You can find these types of transactions in our <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> data model.<br/>
+        /// Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s _expenses_. You can find these types of transactions in our <a href="https://docs.codat.io/sync-for-payables-api#/schemas/DirectCost">Direct costs</a> data model.<br/>
         /// <br/>
-        /// Bill payments is a child data type of <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">account transactions</a>.<br/>
+        /// Bill payments is a child data type of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/AccountTransaction">account transactions</a>.<br/>
         /// <br/>
         /// ---<br/>
         /// <br/>
@@ -216,7 +216,7 @@ namespace CodatSyncPayables.Models.Shared
         public BillPayment? Data { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("dataConnectionKey")]
         public string DataConnectionKey { get; set; } = default!;
@@ -240,7 +240,7 @@ namespace CodatSyncPayables.Models.Shared
         public string PushOperationKey { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

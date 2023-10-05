@@ -5,4 +5,4 @@
 
 | Field                                                   | Type                                                    | Required                                                | Description                                             |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `image`                                                 | [ImageReference](../../models/shared/ImageReference.md) | :heavy_minus_sign:                                      | Image reference.                                        |
+| `Image`                                                 | [ImageReference](../../models/shared/ImageReference.md) | :heavy_minus_sign:                                      | Image reference.                                        |

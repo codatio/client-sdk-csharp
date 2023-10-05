@@ -22,7 +22,7 @@ namespace CodatPlatform.Models.Shared
         public string? Description { get; set; }
 
         /// <summary>
-        /// The property&amp;apos;s display name.
+        /// The property&apos;s display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }

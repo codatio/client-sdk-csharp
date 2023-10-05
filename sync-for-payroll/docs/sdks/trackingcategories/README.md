@@ -1,4 +1,5 @@
-# TrackingCategories
+# TrackingCategoriesSDK
+(*TrackingCategories*)
 
 ## Overview
 
@@ -35,7 +36,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.TrackingCategories.GetAsync(new GetTrackingCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    TrackingCategoryId = "nostrum",
+    TrackingCategoryId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -80,7 +81,7 @@ var res = await sdk.TrackingCategories.ListAsync(new ListTrackingCategoriesReque
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "hic",
+    Query = "Northeast Metal Canada",
 });
 
 // handle response

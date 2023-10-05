@@ -13,7 +13,7 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Links the current record to the underlying record or data type that created it. &lt;br/&gt;
+    /// Links the current record to the underlying record or data type that created it. <br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -24,13 +24,13 @@ namespace CodatSyncPayroll.Models.Shared
     {
 
         /// <summary>
-        /// Allowed name of the &amp;apos;dataType&amp;apos;.
+        /// Allowed name of the &apos;dataType&apos;.
         /// </summary>
         [JsonProperty("dataType")]
         public string? DataType { get; set; }
 
         /// <summary>
-        /// &amp;apos;id&amp;apos; of the underlying record or data type.
+        /// &apos;id&apos; of the underlying record or data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

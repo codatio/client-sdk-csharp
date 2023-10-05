@@ -27,7 +27,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
     Account = new Account() {
-        Currency = "EUR",
+        Currency = "USD",
         CurrentBalance = 0M,
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
@@ -46,16 +46,16 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
             new AccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "suscipit",
+                    "Money",
                 },
-                Property = "iure",
+                Property = "Cambridgeshire grey technology",
             },
         },
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 297534,
+    TimeoutInMinutes = 86,
 });
 
 // handle response
@@ -127,8 +127,6 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

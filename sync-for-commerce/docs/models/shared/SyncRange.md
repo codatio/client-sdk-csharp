@@ -5,4 +5,4 @@
 
 | Field                                                           | Type                                                            | Required                                                        | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `dateRange`                                                     | [SyncRangeDateRange](../../models/shared/SyncRangeDateRange.md) | :heavy_check_mark:                                              | N/A                                                             |
+| `DateRange`                                                     | [SyncRangeDateRange](../../models/shared/SyncRangeDateRange.md) | :heavy_check_mark:                                              | N/A                                                             |

@@ -1,4 +1,5 @@
-# SyncFlowSettings
+# SyncFlowSettingsSDK
+(*SyncFlowSettings*)
 
 ## Overview
 
@@ -56,7 +57,7 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(new GetVisibleAccountsRequest() {
-    ClientId = "74e0f467-cc87-496e-9151-a05dfc2ddf7c",
+    ClientId = "86fe9741-738d-4f2c-8e96-9c3f84156e91",
     PlatformKey = "gbol",
 });
 
@@ -92,9 +93,9 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(new Dictionary<string, Localization>() {
-    { "quod", new Localization() {
+    { "perferendis", new Localization() {
         Required = false,
-        Text = "esse",
+        Text = "Gasoline Cotton azure",
     } },
 });
 
@@ -133,7 +134,7 @@ var sdk = new CodatSyncCommerceSDK(
 var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(new UpdateVisibleAccountsSyncFlowRequest() {
     VisibleAccounts = new VisibleAccounts() {
         VisibleAccounts = new List<string>() {
-            "totam",
+            "Coordinator",
         },
     },
     PlatformKey = "gbol",

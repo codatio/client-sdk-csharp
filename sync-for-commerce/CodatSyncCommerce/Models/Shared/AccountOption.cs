@@ -34,7 +34,7 @@ namespace CodatSyncCommerce.Models.Shared
         public string? Name { get; set; }
 
         /// <summary>
-        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn&amp;apos;t a unique identifier in the Codat system.
+        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn&apos;t a unique identifier in the Codat system.
         /// </summary>
         [JsonProperty("nominalCode")]
         public string? NominalCode { get; set; }

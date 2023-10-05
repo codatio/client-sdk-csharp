@@ -38,7 +38,7 @@ namespace CodatLending.Models.Shared
         public ProductVariantRef? ProductVariantRef { get; set; }
 
         /// <summary>
-        /// Number of units of the product sold.&lt;br/&gt;
+        /// Number of units of the product sold.<br/>
         /// 
         /// <remarks>
         /// For refunds, quantity is a negative value.<br/>

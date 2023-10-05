@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// A Product is an item in the company&amp;apos;s inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.&lt;br/&gt;
+    /// A Product is an item in the company&apos;s inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -44,7 +44,7 @@ namespace CodatLending.Models.Shared
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Whether the product represents a gift card or voucher that&lt;br/&gt;
+        /// Whether the product represents a gift card or voucher that<br/>
         /// 
         /// <remarks>
         /// can be redeemed in the commerce or POS platform.<br/>

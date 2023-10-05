@@ -124,6 +124,13 @@ CodatLending/Models/Operations/ListFilesResponse.cs
 CodatLending/Models/Operations/UploadFilesRequestBody.cs
 CodatLending/Models/Operations/UploadFilesRequest.cs
 CodatLending/Models/Operations/UploadFilesResponse.cs
+CodatLending/Models/Operations/GenerateLoanSummarySourceType.cs
+CodatLending/Models/Operations/GenerateLoanSummaryRequest.cs
+CodatLending/Models/Operations/GenerateLoanSummaryResponse.cs
+CodatLending/Models/Operations/GenerateLoanTransactionsSourceType.cs
+CodatLending/Models/Operations/GenerateLoanTransactionsRequest.cs
+CodatLending/Models/Operations/GenerateLoanTransactionsResponse.cs
+CodatLending/Models/Operations/GetLoanSummarySourceType.cs
 CodatLending/Models/Operations/GetLoanSummaryRequest.cs
 CodatLending/Models/Operations/GetLoanSummaryResponse.cs
 CodatLending/Models/Operations/ListLoanTransactionsSourceType.cs
@@ -683,6 +690,13 @@ docs/models/operations/ListFilesResponse.md
 docs/models/operations/UploadFilesRequestBody.md
 docs/models/operations/UploadFilesRequest.md
 docs/models/operations/UploadFilesResponse.md
+docs/models/operations/GenerateLoanSummarySourceType.md
+docs/models/operations/GenerateLoanSummaryRequest.md
+docs/models/operations/GenerateLoanSummaryResponse.md
+docs/models/operations/GenerateLoanTransactionsSourceType.md
+docs/models/operations/GenerateLoanTransactionsRequest.md
+docs/models/operations/GenerateLoanTransactionsResponse.md
+docs/models/operations/GetLoanSummarySourceType.md
 docs/models/operations/GetLoanSummaryRequest.md
 docs/models/operations/GetLoanSummaryResponse.md
 docs/models/operations/ListLoanTransactionsSourceType.md

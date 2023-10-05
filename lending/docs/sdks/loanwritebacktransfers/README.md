@@ -1,4 +1,5 @@
-# LoanWriteback.Transfers
+# LoanWritebackTransfersSDK
+(*LoanWriteback.Transfers*)
 
 ### Available Operations
 
@@ -35,25 +36,25 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
     AccountingTransfer = new AccountingTransfer() {
         ContactRef = new AccountingTransferContactRef() {
             DataType = CodatLending.Models.Shared.DataType.Invoices,
-            Id = "ac366c8d-d6b1-4442-9074-74778a7bd466",
+            Id = "<ID>",
         },
         Date = "2022-10-23T00:00:00.000Z",
         DepositedRecordRefs = new List<RecordRef>() {
             new RecordRef() {
-                DataType = "journalEntry",
-                Id = "8c10ab3c-dca4-4251-904e-523c7e0bc717",
+                DataType = "invoice",
+                Id = "<ID>",
             },
         },
-        Description = "totam",
+        Description = "Proactive systematic Graphical User Interface",
         From = new TransferAccount() {
             AccountRef = new AccountRef() {
-                Id = "e4796f2a-70c6-4882-82aa-482562f222e9",
-                Name = "Carl Koch",
+                Id = "<ID>",
+                Name = "South",
             },
-            Amount = 829.71M,
-            Currency = "USD",
+            Amount = 9967.06M,
+            Currency = "EUR",
         },
-        Id = "cbe61e6b-7b95-4bc0-ab3c-20c4f3789fd8",
+        Id = "<ID>",
         Metadata = new Metadata() {
             IsDeleted = false,
         },
@@ -61,30 +62,30 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "a", new Dictionary<string, object>() {
-                    { "error", "sint" },
+                { "debitis", new Dictionary<string, object>() {
+                    { "alias", "deposit" },
                 } },
             },
         },
         To = new TransferAccount() {
             AccountRef = new AccountRef() {
-                Id = "dd2efd12-1aa6-4f1e-a74b-db04f1575608",
-                Name = "Rosemarie Jacobs",
+                Id = "<ID>",
+                Name = "Northwest",
             },
-            Amount = 6802.7M,
-            Currency = "GBP",
+            Amount = 7926.2M,
+            Currency = "EUR",
         },
         TrackingCategoryRefs = new List<TrackingCategoryRef>() {
             new TrackingCategoryRef() {
-                Id = "9f1d1705-1339-4d08-886a-1840394c2607",
-                Name = "Elisa Mosciski",
+                Id = "<ID>",
+                Name = "quantify Polestar mobile",
             },
         },
     },
     AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 374323,
+    TimeoutInMinutes = 656256,
 });
 
 // handle response

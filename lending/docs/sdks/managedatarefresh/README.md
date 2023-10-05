@@ -1,4 +1,5 @@
-# ManageData.Refresh
+# ManageDataRefreshSDK
+(*ManageData.Refresh*)
 
 ### Available Operations
 
@@ -66,7 +67,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ManageData.Refresh.DataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "4dbb675f-d5e6-40b3-b5ed-4f6fbee41f33",
+    ConnectionId = "34f47fda-384b-4d2f-a80b-311909008b33",
     DataType = CodatLending.Models.Shared.DataType.Invoices,
 });
 

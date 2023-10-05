@@ -34,7 +34,7 @@ namespace CodatLending.Models.Shared
         public decimal? Total { get; set; }
 
         /// <summary>
-        /// The number of records of the type specified in the route which don&amp;apos;t have a match.
+        /// The number of records of the type specified in the route which don&apos;t have a match.
         /// </summary>
         [JsonProperty("unmatched")]
         public decimal? Unmatched { get; set; }

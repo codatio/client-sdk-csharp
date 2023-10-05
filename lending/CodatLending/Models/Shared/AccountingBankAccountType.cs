@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System;
     
     /// <summary>
-    /// The type of transactions and balances on the account.  &lt;br/&gt;
+    /// The type of transactions and balances on the account.  <br/>
     /// 
     /// <remarks>
     /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>

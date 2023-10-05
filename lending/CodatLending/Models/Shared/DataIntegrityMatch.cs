@@ -28,7 +28,7 @@ namespace CodatLending.Models.Shared
         public string? ConnectionId { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -61,7 +61,7 @@ namespace CodatLending.Models.Shared
         public string? Id { get; set; }
 
         /// <summary>
-        /// The data type which the data type in the URL has been matched against. For example, if you&amp;apos;ve matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
+        /// The data type which the data type in the URL has been matched against. For example, if you&apos;ve matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }

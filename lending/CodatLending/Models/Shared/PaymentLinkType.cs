@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System;
     
     /// <summary>
-    /// Types of payment line links, either:  &lt;br/&gt;
+    /// Types of payment line links, either:  <br/>
     /// 
     /// <remarks>
     /// `Unknown`  <br/>

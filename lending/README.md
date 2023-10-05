@@ -26,13 +26,13 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingBankAccountTransactionsRequest() {
-    AccountId = "distinctio",
+    AccountId = "Anchorage Product",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quibusdam",
+    Query = "Future",
 });
 
 // handle response
@@ -93,6 +93,8 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 
 ### [Liabilities](docs/sdks/liabilities/README.md)
 
+* [GenerateLoanSummary](docs/sdks/liabilities/README.md#generateloansummary) - Generate loan summaries report
+* [GenerateLoanTransactions](docs/sdks/liabilities/README.md#generateloantransactions) - Generate loan transactions report
 * [GetLoanSummary](docs/sdks/liabilities/README.md#getloansummary) - Get loan summaries
 * [ListLoanTransactions](docs/sdks/liabilities/README.md#listloantransactions) - List loan transactions
 

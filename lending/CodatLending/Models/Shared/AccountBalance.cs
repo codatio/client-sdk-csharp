@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The account&amp;apos;s current balance
+        /// The account&apos;s current balance
         /// </summary>
         [JsonProperty("available")]
         public decimal? Available { get; set; }

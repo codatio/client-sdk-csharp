@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// ## Structure&lt;br/&gt;
+    /// ## Structure<br/>
     /// 
     /// <remarks>
     /// <br/>

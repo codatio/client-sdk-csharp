@@ -19,13 +19,13 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// Bank account &amp;apos;id&amp;apos; for the account transaction.
+        /// Bank account &apos;id&apos; for the account transaction.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// bank account &amp;apos;name&amp;apos; for the account transaction.
+        /// bank account &apos;name&apos; for the account transaction.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

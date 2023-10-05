@@ -28,7 +28,7 @@ namespace CodatLending.Models.Shared
         public decimal? Amount { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -43,7 +43,7 @@ namespace CodatLending.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -88,7 +88,7 @@ namespace CodatLending.Models.Shared
         public string? PlatformName { get; set; }
 
         /// <summary>
-        /// A source reference containing the `sourceType` object &amp;quot;Banking&amp;quot;.
+        /// A source reference containing the `sourceType` object &quot;Banking&quot;.
         /// </summary>
         [JsonProperty("sourceRef")]
         public SourceRef? SourceRef { get; set; }

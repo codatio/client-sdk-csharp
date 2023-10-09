@@ -11,9 +11,10 @@
 namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     /// <summary>
-    /// This data type provides a list of all the SMB&amp;apos;s bank accounts, with rich data like balances, account numbers, and institutions holding the accounts.&lt;br/&gt;
+    /// This data type provides a list of all the SMB&apos;s bank accounts, with rich data like balances, account numbers, and institutions holding the accounts.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -29,7 +30,7 @@ namespace CodatLending.Models.Shared
         /// Depending on the data provided by the underlying bank, not all balances are always available.
         /// </summary>
         [JsonProperty("balance")]
-        public AccountBalanceAmounts Balance { get; set; } = default!;
+        public Dictionary<string, object> Balance { get; set; } = default!;
 
         /// <summary>
         /// The currency code for the account.
@@ -53,7 +54,7 @@ namespace CodatLending.Models.Shared
         /// An object containing bank account identification information.
         /// </summary>
         [JsonProperty("identifiers")]
-        public AccountIdentifiers Identifiers { get; set; } = default!;
+        public Dictionary<string, object> Identifiers { get; set; } = default!;
 
         /// <summary>
         /// The friendly name of the account, chosen by the holder. This may not have been set by the account holder and therefore is not always available.
@@ -65,7 +66,7 @@ namespace CodatLending.Models.Shared
         /// The bank or other financial institution providing the account.
         /// </summary>
         [JsonProperty("institution")]
-        public AccountInstitution Institution { get; set; } = default!;
+        public Dictionary<string, object> Institution { get; set; } = default!;
 
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
@@ -80,7 +81,7 @@ namespace CodatLending.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// The type of transactions and balances on the account.  &lt;br/&gt;
+        /// The type of transactions and balances on the account.  <br/>
         /// 
         /// <remarks>
         /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>

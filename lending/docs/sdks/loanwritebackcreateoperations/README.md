@@ -1,4 +1,5 @@
-# LoanWriteback.CreateOperations
+# LoanWritebackCreateOperationsSDK
+(*LoanWriteback.CreateOperations*)
 
 ### Available Operations
 
@@ -24,7 +25,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.CreateOperations.GetAsync(new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "6e13b99d-488e-41e9-9e45-0ad2abd44269",
+    PushOperationKey = "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 });
 
 // handle response
@@ -64,7 +65,6 @@ var res = await sdk.LoanWriteback.CreateOperations.ListAsync(new ListCreateOpera
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quos",
 });
 
 // handle response

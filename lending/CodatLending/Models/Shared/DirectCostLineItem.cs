@@ -48,7 +48,7 @@ namespace CodatLending.Models.Shared
         public ItemRef? ItemRef { get; set; }
 
         /// <summary>
-        /// Number of units of goods or services received.&lt;br/&gt;
+        /// Number of units of goods or services received.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -71,7 +71,7 @@ namespace CodatLending.Models.Shared
         public decimal? TaxAmount { get; set; }
 
         /// <summary>
-        /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.&lt;br/&gt;
+        /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -95,7 +95,7 @@ namespace CodatLending.Models.Shared
         public decimal? TotalAmount { get; set; }
 
         [JsonProperty("tracking")]
-        public Tracking? Tracking { get; set; }
+        public Dictionary<string, object>? Tracking { get; set; }
 
         /// <summary>
         /// Collection of categories against which this direct cost is tracked.
@@ -105,7 +105,7 @@ namespace CodatLending.Models.Shared
         public List<TrackingCategoryRef>? TrackingCategoryRefs { get; set; }
 
         /// <summary>
-        /// Price of each unit of goods or services.&lt;br/&gt;
+        /// Price of each unit of goods or services.<br/>
         /// 
         /// <remarks>
         /// Note: If the platform does not provide this information, the unit amount will be mapped to the total amount.

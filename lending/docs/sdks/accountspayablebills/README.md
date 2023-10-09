@@ -1,4 +1,5 @@
-# AccountsPayable.Bills
+# AccountsPayableBillsSDK
+(*AccountsPayable.Bills*)
 
 ### Available Operations
 
@@ -32,7 +33,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.Bills.DownloadAttachmentAsync(new DownloadAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "excepturi",
+    BillId = "Dakota Avon specifically",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -77,7 +78,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.Bills.GetAsync(new GetAccountingBillRequest() {
-    BillId = "nisi",
+    BillId = "Northeast Hatchback Kia",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -120,7 +121,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.Bills.GetAttachmentAsync(new GetAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "recusandae",
+    BillId = "array East along",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -167,7 +168,6 @@ var res = await sdk.AccountsPayable.Bills.ListAsync(new ListAccountingBillsReque
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "temporibus",
 });
 
 // handle response
@@ -208,7 +208,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(new ListAccountingBillAttachmentsRequest() {
-    BillId = "ab",
+    BillId = "intuitive Frozen ouch",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

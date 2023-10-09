@@ -1,4 +1,5 @@
-# AccountsPayable.BillPayments
+# AccountsPayableBillPaymentsSDK
+(*AccountsPayable.BillPayments*)
 
 ### Available Operations
 
@@ -30,7 +31,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.BillPayments.GetAsync(new GetAccountingBillPaymentRequest() {
-    BillPaymentId = "voluptatum",
+    BillPaymentId = "Northeast Hatchback Kia",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -76,7 +77,6 @@ var res = await sdk.AccountsPayable.BillPayments.ListAsync(new ListAccountingBil
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "iusto",
 });
 
 // handle response

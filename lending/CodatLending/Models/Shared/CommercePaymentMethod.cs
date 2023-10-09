@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// A Payment Method represents the payment method(s) used to make payments.&lt;br/&gt;
+    /// A Payment Method represents the payment method(s) used to make payments.<br/>
     /// 
     /// <remarks>
     /// <br/>

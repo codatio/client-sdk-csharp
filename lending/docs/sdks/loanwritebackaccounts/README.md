@@ -1,4 +1,5 @@
-# LoanWriteback.Accounts
+# LoanWritebackAccountsSDK
+(*LoanWriteback.Accounts*)
 
 ### Available Operations
 
@@ -33,16 +34,13 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.LoanWriteback.Accounts.CreateAsync(new CreateAccountRequest() {
     AccountingAccount = new AccountingAccount() {
-        Currency = "GBP",
+        Currency = "USD",
         CurrentBalance = 0M,
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Fixed Asset",
+        FullyQualifiedName = "Cash On Hand",
         Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        IsBankAccount = false,
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Name = "Accounts Receivable",
         NominalCode = "610",
@@ -52,16 +50,13 @@ var res = await sdk.LoanWriteback.Accounts.CreateAsync(new CreateAccountRequest(
         ValidDatatypeLinks = new List<AccountingAccountValidDataTypeLinks>() {
             new AccountingAccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "laboriosam",
+                    "Money",
                 },
-                Property = "hic",
             },
         },
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 902599,
 });
 
 // handle response

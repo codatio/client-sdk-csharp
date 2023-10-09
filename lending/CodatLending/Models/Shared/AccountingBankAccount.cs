@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// &amp;gt; **Accessing Bank Accounts through Banking API**&lt;br/&gt;
+    /// &gt; **Accessing Bank Accounts through Banking API**<br/>
     /// 
     /// <remarks>
     /// &gt; <br/>
@@ -43,7 +43,7 @@ namespace CodatLending.Models.Shared
         public string? AccountName { get; set; }
 
         /// <summary>
-        /// Account number for the bank account.&lt;br/&gt;
+        /// Account number for the bank account.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -58,7 +58,7 @@ namespace CodatLending.Models.Shared
         public string? AccountNumber { get; set; }
 
         /// <summary>
-        /// The type of transactions and balances on the account.  &lt;br/&gt;
+        /// The type of transactions and balances on the account.  <br/>
         /// 
         /// <remarks>
         /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>
@@ -81,7 +81,7 @@ namespace CodatLending.Models.Shared
         public decimal? Balance { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -126,7 +126,7 @@ namespace CodatLending.Models.Shared
         public string? NominalCode { get; set; }
 
         /// <summary>
-        /// Pre-arranged overdraft limit of the account.&lt;br/&gt;
+        /// Pre-arranged overdraft limit of the account.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -137,7 +137,7 @@ namespace CodatLending.Models.Shared
         public decimal? OverdraftLimit { get; set; }
 
         /// <summary>
-        /// Sort code for the bank account.&lt;br/&gt;
+        /// Sort code for the bank account.<br/>
         /// 
         /// <remarks>
         /// <br/>

@@ -20,7 +20,7 @@ namespace CodatLending.Models.Shared
         public List<AccountCategoryLevel>? Levels { get; set; }
 
         /// <summary>
-        /// Returns a status of &amp;quot;Suggested&amp;quot; or &amp;quot;Confirmed&amp;quot;. If an account has a confirmed category, it will replace any suggested category returned.
+        /// Returns a status of &quot;Suggested&quot; or &quot;Confirmed&quot;. If an account has a confirmed category, it will replace any suggested category returned.
         /// </summary>
         [JsonProperty("status")]
         public string? Status { get; set; }

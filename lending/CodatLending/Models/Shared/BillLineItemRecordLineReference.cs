@@ -12,25 +12,28 @@ namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class PushFieldValidation
+    /// <summary>
+    /// Reference to the purchase order line this line was generated from.
+    /// </summary>
+    public class BillLineItemRecordLineReference
     {
 
         /// <summary>
-        /// Details on the validation issue.
+        /// Allowed name of the &apos;dataType&apos;.
         /// </summary>
-        [JsonProperty("details")]
-        public string Details { get; set; } = default!;
+        [JsonProperty("dataType")]
+        public BillLineItemRecordLineReferenceDataType? DataType { get; set; }
 
         /// <summary>
-        /// Field name that resulted in the validation issue.
+        /// &apos;id&apos; of the underlying record.
         /// </summary>
-        [JsonProperty("field")]
-        public string? Field { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
 
         /// <summary>
-        /// Unique reference identifier for the validation issue.
+        /// Line number of the underlying record.
         /// </summary>
-        [JsonProperty("ref")]
-        public string? Ref { get; set; }
+        [JsonProperty("lineNumber")]
+        public string? LineNumber { get; set; }
     }
 }

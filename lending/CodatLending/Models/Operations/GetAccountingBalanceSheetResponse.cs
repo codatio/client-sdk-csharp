@@ -11,6 +11,7 @@
 namespace CodatLending.Models.Operations
 {
     using CodatLending.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -20,7 +21,7 @@ namespace CodatLending.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public AccountingBalanceSheet? AccountingBalanceSheet { get; set; }
+        public Dictionary<string, object>? AccountingBalanceSheet { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

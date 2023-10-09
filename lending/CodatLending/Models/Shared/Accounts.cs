@@ -34,7 +34,7 @@ namespace CodatLending.Models.Shared
         public string? AccountType { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -55,13 +55,13 @@ namespace CodatLending.Models.Shared
         public decimal? CurrentBalance { get; set; }
 
         /// <summary>
-        /// Name of the banking data source, e.g. &amp;quot;Plaid&amp;quot;.
+        /// Name of the banking data source, e.g. &quot;Plaid&quot;.
         /// </summary>
         [JsonProperty("platformName")]
         public string? PlatformName { get; set; }
 
         /// <summary>
-        /// A source reference containing the `sourceType` object &amp;quot;Banking&amp;quot;.
+        /// A source reference containing the `sourceType` object &quot;Banking&quot;.
         /// </summary>
         [JsonProperty("sourceRef")]
         public SourceRef? SourceRef { get; set; }

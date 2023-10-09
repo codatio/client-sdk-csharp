@@ -19,13 +19,13 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// &amp;apos;id&amp;apos; from the Accounts data type.
+        /// &apos;id&apos; from the Accounts data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// &amp;apos;name&amp;apos; from the Accounts data type.
+        /// &apos;name&apos; from the Accounts data type.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

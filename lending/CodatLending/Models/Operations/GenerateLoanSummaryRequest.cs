@@ -8,23 +8,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace CodatLending.Models.Operations
 {
-    using Newtonsoft.Json;
+    using CodatLending.Utils;
     
-    public class PushOperationRef
+    public class GenerateLoanSummaryRequest
     {
 
         /// <summary>
-        /// Available Data types
+        /// Unique identifier for a company.
         /// </summary>
-        [JsonProperty("dataType")]
-        public DataType? DataType { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
+        public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for a push operation.
+        /// Data source type.
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sourceType")]
+        public GenerateLoanSummarySourceType SourceType { get; set; } = default!;
     }
 }

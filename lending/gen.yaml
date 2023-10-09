@@ -1,27 +1,26 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 2cbc1499eb0b9774dc10dfefb80ce01e
+  docChecksum: 8252084a545ba6b00bba3f2e82afd42f
   docVersion: 3.0.0
-  speakeasyVersion: 1.91.0
-  generationVersion: 2.129.1
+  speakeasyVersion: 1.96.1
+  generationVersion: 2.150.0
 generation:
   sdkClassName: Codat.Lending
   singleTagPerOp: false
   telemetryEnabled: true
 features:
   csharp:
-    core: 2.87.1
+    core: 2.89.4
     deprecations: 2.81.1
     examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
-    groups: 2.81.1
+    groups: 2.81.2
     nameOverrides: 2.81.1
 csharp:
-  version: 4.2.1
+  version: 4.3.0
   author: Codat
+  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   dotnetVersion: net6.0
-  description: Make credit decisions backed by enhanced financials, metrics, reports,
-    and data integrity features.
   maxMethodParams: 0
   packageName: Codat.Lending

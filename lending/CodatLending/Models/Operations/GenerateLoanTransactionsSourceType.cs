@@ -8,42 +8,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace CodatLending.Models.Operations
 {
     using Newtonsoft.Json;
     using System;
     
     /// <summary>
-    /// Type of account
+    /// Data source type.
     /// </summary>
-    public enum AccountIdentifierType
+    public enum GenerateLoanTransactionsSourceType
     {
-        [JsonProperty("Account")]
-        Account,
-        [JsonProperty("Card")]
-        Card,
-        [JsonProperty("Credit")]
-        Credit,
-        [JsonProperty("Depository")]
-        Depository,
-        [JsonProperty("Investment")]
-        Investment,
-        [JsonProperty("Loan")]
-        Loan,
-        [JsonProperty("Other")]
-        Other,
+        [JsonProperty("banking")]
+        Banking,
+        [JsonProperty("commerce")]
+        Commerce,
+        [JsonProperty("accounting")]
+        Accounting,
     }
 
-    public static class AccountIdentifierTypeExtension
+    public static class GenerateLoanTransactionsSourceTypeExtension
     {
-        public static string Value(this AccountIdentifierType value)
+        public static string Value(this GenerateLoanTransactionsSourceType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static AccountIdentifierType ToEnum(this string value)
+        public static GenerateLoanTransactionsSourceType ToEnum(this string value)
         {
-            foreach(var field in typeof(AccountIdentifierType).GetFields())
+            foreach(var field in typeof(GenerateLoanTransactionsSourceType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -56,14 +48,14 @@ namespace CodatLending.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is AccountIdentifierType)
+                    if (enumVal is GenerateLoanTransactionsSourceType)
                     {
-                        return (AccountIdentifierType)enumVal;
+                        return (GenerateLoanTransactionsSourceType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum AccountIdentifierType");
+            throw new Exception($"Unknown value {value} for enum GenerateLoanTransactionsSourceType");
         }
     }
 }

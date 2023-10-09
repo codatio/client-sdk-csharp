@@ -1,4 +1,5 @@
-# SourceAccounts
+# SourceAccountsSDK
+(*SourceAccounts*)
 
 ## Overview
 
@@ -51,17 +52,16 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() {
-    SourceAccount = new SourceAccount() {
-        AccountName = "iure",
-        AccountNumber = "magnam",
-        AccountType = "debitis",
-        Balance = 567.13M,
-        Currency = "EUR",
-        FeedStartDate = "2022-10-23T00:00:00.000Z",
-        Id = "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        SortCode = "officia",
-        Status = "occaecati",
+    RequestBody = new Dictionary<string, object>() {
+        { "accountType", "bluetooth" },
+        { "accountNumber", "Extended" },
+        { "balance", "South" },
+        { "sortCode", "shred" },
+        { "accountName", "abnormally" },
+        { "currency", "deposit" },
+        { "modifiedDate", "evolve" },
+        { "status", "male" },
+        { "id", "SUV" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -103,7 +103,7 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.SourceAccounts.DeleteAsync(new DeleteSourceAccountRequest() {
-    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -183,7 +183,7 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredentialsRequest() {
-    RequestBody = "deleniti as bytes <<<>>>",
+    RequestBody = "^upd|k\]Iy as bytes <<<>>>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -262,19 +262,18 @@ var sdk = new CodatBankFeedsSDK(
 );
 
 var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() {
-    SourceAccount = new SourceAccount() {
-        AccountName = "hic",
-        AccountNumber = "optio",
-        AccountType = "totam",
-        Balance = 1059.07M,
-        Currency = "USD",
-        FeedStartDate = "2022-10-23T00:00:00.000Z",
-        Id = "42cb7392-0592-4939-afea-7596eb10faaa",
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        SortCode = "dolorem",
-        Status = "corporis",
+    RequestBody = new Dictionary<string, object>() {
+        { "balance", "New" },
+        { "modifiedDate", "Reactive" },
+        { "accountType", "dock" },
+        { "accountNumber", "Quality" },
+        { "currency", "redundant" },
+        { "status", "cheater" },
+        { "id", "Islands" },
+        { "accountName", "online" },
+        { "sortCode", "dynamic" },
     },
-    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    AccountId = "EILBDVJVNUAGVKRQ",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

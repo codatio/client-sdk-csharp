@@ -11,6 +11,7 @@
 namespace CodatBankFeeds.Models.Operations
 {
     using CodatBankFeeds.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -30,7 +31,7 @@ namespace CodatBankFeeds.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public SourceAccount? SourceAccount { get; set; }
+        public Dictionary<string, object>? SourceAccount { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

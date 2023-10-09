@@ -11,6 +11,7 @@
 namespace CodatBankFeeds.Models.Operations
 {
     using CodatBankFeeds.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -20,7 +21,7 @@ namespace CodatBankFeeds.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public BankFeedAccountMappingResponse? BankFeedAccountMappingResponse { get; set; }
+        public Dictionary<string, object>? BankFeedAccountMappingResponse { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

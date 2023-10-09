@@ -11,12 +11,13 @@
 namespace CodatBankFeeds.Models.Operations
 {
     using CodatBankFeeds.Utils;
+    using System.Collections.Generic;
     
     public class CreateBankAccountMappingRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CreateBankAccountMappingBankFeedAccountMapping? RequestBody { get; set; }
+        public Dictionary<string, object>? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

@@ -10,14 +10,14 @@
 #nullable enable
 namespace CodatBankFeeds.Models.Operations
 {
-    using CodatBankFeeds.Models.Shared;
     using CodatBankFeeds.Utils;
+    using System.Collections.Generic;
     
     public class CreateSourceAccountRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public SourceAccount? SourceAccount { get; set; }
+        public Dictionary<string, object>? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

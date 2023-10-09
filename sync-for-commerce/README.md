@@ -82,5 +82,3 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 
 
 <!-- End Dev Containers -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->

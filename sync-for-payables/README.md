@@ -178,4 +178,3 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-

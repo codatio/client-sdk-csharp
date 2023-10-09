@@ -31,7 +31,7 @@ namespace CodatPlatform
         /// <remarks>
         /// Use the *Create API keys* endpoint to generate a new API key for your client.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/codat-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
         /// <br/>
         /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
         /// <br/>
@@ -45,12 +45,12 @@ namespace CodatPlatform
         Task<CreateApiKeyResponse> CreateApiKeyAsync(CreateApiKey? request = null);
 
         /// <summary>
-        /// Delete api key
+        /// Delete API key
         /// 
         /// <remarks>
         /// Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
         /// <br/>
         /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
         /// <br/>
@@ -86,7 +86,7 @@ namespace CodatPlatform
         /// <remarks>
         /// Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/accounting-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
         /// <br/>
         /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.
         /// </remarks>
@@ -119,9 +119,10 @@ namespace CodatPlatform
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "2.2.0";
+        private const string _sdkGenVersion = "2.150.0";
         private const string _openapiDocVersion = "3.0.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.150.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -146,7 +147,7 @@ namespace CodatPlatform
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
             if (serializedBody != null)
@@ -166,9 +167,10 @@ namespace CodatPlatform
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 201))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ApiKeyDetails = JsonConvert.DeserializeObject<ApiKeyDetails>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -177,7 +179,7 @@ namespace CodatPlatform
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -199,7 +201,7 @@ namespace CodatPlatform
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -214,6 +216,7 @@ namespace CodatPlatform
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 204))
             {
                 
@@ -221,7 +224,7 @@ namespace CodatPlatform
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -244,7 +247,7 @@ namespace CodatPlatform
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -259,9 +262,10 @@ namespace CodatPlatform
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.Profile = JsonConvert.DeserializeObject<Profile>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -270,7 +274,7 @@ namespace CodatPlatform
             }
             if((response.StatusCode == 401) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -292,7 +296,7 @@ namespace CodatPlatform
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -307,9 +311,10 @@ namespace CodatPlatform
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.SyncSettings = JsonConvert.DeserializeObject<SyncSettings>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -318,7 +323,7 @@ namespace CodatPlatform
             }
             if((response.StatusCode == 401) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -340,7 +345,7 @@ namespace CodatPlatform
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -355,9 +360,10 @@ namespace CodatPlatform
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ApiKeys = JsonConvert.DeserializeObject<ApiKeys>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -366,7 +372,7 @@ namespace CodatPlatform
             }
             if((response.StatusCode == 401) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -388,7 +394,7 @@ namespace CodatPlatform
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
             if (serializedBody != null)
@@ -408,9 +414,10 @@ namespace CodatPlatform
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.Profile = JsonConvert.DeserializeObject<Profile>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -419,7 +426,7 @@ namespace CodatPlatform
             }
             if((response.StatusCode == 401) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -441,7 +448,7 @@ namespace CodatPlatform
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
             if (serializedBody != null)
@@ -461,6 +468,7 @@ namespace CodatPlatform
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 204))
             {
                 
@@ -468,7 +476,7 @@ namespace CodatPlatform
             }
             if((response.StatusCode == 401) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }

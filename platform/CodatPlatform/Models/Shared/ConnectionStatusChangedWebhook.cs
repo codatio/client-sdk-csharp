@@ -13,7 +13,7 @@ namespace CodatPlatform.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Webhook request body for a company&amp;apos;s data connection status changed.
+    /// Webhook request body for a company&apos;s data connection status changed.
     /// </summary>
     public class ConnectionStatusChangedWebhook
     {
@@ -46,7 +46,7 @@ namespace CodatPlatform.Models.Shared
         public ConnectionStatusChangedWebhookData? Data { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("DataConnectionId")]
         public string? DataConnectionId { get; set; }

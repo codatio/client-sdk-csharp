@@ -23,7 +23,7 @@ namespace CodatPlatform.Models.Shared
         public string Description { get; set; } = default!;
 
         /// <summary>
-        /// The property&amp;apos;s display name.
+        /// The property&apos;s display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string DisplayName { get; set; } = default!;
@@ -47,6 +47,6 @@ namespace CodatPlatform.Models.Shared
         public PushOptionType Type { get; set; } = default!;
 
         [JsonProperty("validation")]
-        public PushValidationInfo? Validation { get; set; }
+        public Dictionary<string, object>? Validation { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace CodatPlatform.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// The client&amp;apos;s defined name for the object.
+    /// The client&apos;s defined name for the object.
     /// </summary>
     public class SupplementalDataConfigurationSupplementalDataSourceConfiguration
     {

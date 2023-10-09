@@ -10,14 +10,14 @@
 #nullable enable
 namespace CodatPlatform.Models.Operations
 {
-    using CodatPlatform.Models.Shared;
     using CodatPlatform.Utils;
+    using System.Collections.Generic;
     
     public class UnlinkConnectionRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public UpdateConnectionStatus? UpdateConnectionStatus { get; set; }
+        public Dictionary<string, object>? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

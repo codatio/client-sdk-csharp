@@ -1,4 +1,5 @@
-# Webhooks
+# WebhooksSDK
+(*Webhooks*)
 
 ## Overview
 
@@ -30,11 +31,25 @@ var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Notifiers = new WebhookNotifier() {
         Emails = new List<string>() {
-            "info@client.com",
+            "i",
+            "n",
+            "f",
+            "o",
+            "@",
+            "c",
+            "l",
+            "i",
+            "e",
+            "n",
+            "t",
+            ".",
+            "c",
+            "o",
+            "m",
         },
         Webhook = "https://webhook.client.com",
     },
-    Type = "voluptatibus",
+    Type = "bluetooth Extended",
 });
 
 // handle response
@@ -109,7 +124,6 @@ var res = await sdk.Webhooks.ListAsync(new ListRulesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "vero",
 });
 
 // handle response

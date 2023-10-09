@@ -49,7 +49,6 @@ CodatSyncPayroll/Models/Operations/GetConnectionRequest.cs
 CodatSyncPayroll/Models/Operations/GetConnectionResponse.cs
 CodatSyncPayroll/Models/Operations/ListConnectionsRequest.cs
 CodatSyncPayroll/Models/Operations/ListConnectionsResponse.cs
-CodatSyncPayroll/Models/Operations/UnlinkConnectionUpdateConnection.cs
 CodatSyncPayroll/Models/Operations/UnlinkConnectionRequest.cs
 CodatSyncPayroll/Models/Operations/UnlinkConnectionResponse.cs
 CodatSyncPayroll/Models/Operations/CreateJournalEntryRequest.cs
@@ -91,7 +90,6 @@ CodatSyncPayroll/Models/Operations/ListTrackingCategoriesResponse.cs
 CodatSyncPayroll/Models/Shared/ErrorMessage.cs
 CodatSyncPayroll/Models/Shared/CreateAccountResponse.cs
 CodatSyncPayroll/Models/Shared/Validation.cs
-CodatSyncPayroll/Models/Shared/ValidationItem.cs
 CodatSyncPayroll/Models/Shared/PushOperationStatus.cs
 CodatSyncPayroll/Models/Shared/DataType.cs
 CodatSyncPayroll/Models/Shared/AccountMetadata.cs
@@ -101,10 +99,7 @@ CodatSyncPayroll/Models/Shared/AccountType.cs
 CodatSyncPayroll/Models/Shared/AccountStatus.cs
 CodatSyncPayroll/Models/Shared/PushOperationChange.cs
 CodatSyncPayroll/Models/Shared/PushChangeType.cs
-CodatSyncPayroll/Models/Shared/PushOperationRef.cs
 CodatSyncPayroll/Models/Shared/PushOption.cs
-CodatSyncPayroll/Models/Shared/PushValidationInfo.cs
-CodatSyncPayroll/Models/Shared/PushFieldValidation.cs
 CodatSyncPayroll/Models/Shared/PushOptionType.cs
 CodatSyncPayroll/Models/Shared/PushOptionProperty.cs
 CodatSyncPayroll/Models/Shared/PushOptionChoice.cs
@@ -131,7 +126,6 @@ CodatSyncPayroll/Models/Shared/JournalEntryRecordReference.cs
 CodatSyncPayroll/Models/Shared/JournalEntrySupplementalData.cs
 CodatSyncPayroll/Models/Shared/JournalEntry.cs
 CodatSyncPayroll/Models/Shared/Metadata.cs
-CodatSyncPayroll/Models/Shared/JournalRef.cs
 CodatSyncPayroll/Models/Shared/JournalLineTracking.cs
 CodatSyncPayroll/Models/Shared/JournalLine.cs
 CodatSyncPayroll/Models/Shared/RecordRef.cs
@@ -188,7 +182,6 @@ docs/models/operations/GetConnectionRequest.md
 docs/models/operations/GetConnectionResponse.md
 docs/models/operations/ListConnectionsRequest.md
 docs/models/operations/ListConnectionsResponse.md
-docs/models/operations/UnlinkConnectionUpdateConnection.md
 docs/models/operations/UnlinkConnectionRequest.md
 docs/models/operations/UnlinkConnectionResponse.md
 docs/models/operations/CreateJournalEntryRequest.md
@@ -230,7 +223,6 @@ docs/models/operations/ListTrackingCategoriesResponse.md
 docs/models/shared/ErrorMessage.md
 docs/models/shared/CreateAccountResponse.md
 docs/models/shared/Validation.md
-docs/models/shared/ValidationItem.md
 docs/models/shared/PushOperationStatus.md
 docs/models/shared/DataType.md
 docs/models/shared/AccountMetadata.md
@@ -240,10 +232,7 @@ docs/models/shared/AccountType.md
 docs/models/shared/AccountStatus.md
 docs/models/shared/PushOperationChange.md
 docs/models/shared/PushChangeType.md
-docs/models/shared/PushOperationRef.md
 docs/models/shared/PushOption.md
-docs/models/shared/PushValidationInfo.md
-docs/models/shared/PushFieldValidation.md
 docs/models/shared/PushOptionType.md
 docs/models/shared/PushOptionProperty.md
 docs/models/shared/PushOptionChoice.md
@@ -270,7 +259,6 @@ docs/models/shared/JournalEntryRecordReference.md
 docs/models/shared/JournalEntrySupplementalData.md
 docs/models/shared/JournalEntry.md
 docs/models/shared/Metadata.md
-docs/models/shared/JournalRef.md
 docs/models/shared/JournalLineTracking.md
 docs/models/shared/JournalLine.md
 docs/models/shared/RecordRef.md

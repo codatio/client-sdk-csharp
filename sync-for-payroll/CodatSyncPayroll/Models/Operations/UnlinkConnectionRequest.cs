@@ -11,12 +11,13 @@
 namespace CodatSyncPayroll.Models.Operations
 {
     using CodatSyncPayroll.Utils;
+    using System.Collections.Generic;
     
     public class UnlinkConnectionRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public UnlinkConnectionUpdateConnection? RequestBody { get; set; }
+        public Dictionary<string, object>? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

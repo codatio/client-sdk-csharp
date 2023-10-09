@@ -35,10 +35,7 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         FullyQualifiedCategory = "Asset.Current",
         FullyQualifiedName = "Cash On Hand",
         Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        IsBankAccount = false,
-        Metadata = new AccountMetadata() {
-            IsDeleted = false,
-        },
+        Metadata = new AccountMetadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Name = "Accounts Receivable",
         NominalCode = "610",
@@ -50,14 +47,11 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
                 Links = new List<string>() {
                     "Money",
                 },
-                Property = "Cambridgeshire grey technology",
             },
         },
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 86,
 });
 
 // handle response

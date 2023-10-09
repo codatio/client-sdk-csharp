@@ -11,6 +11,7 @@
 namespace CodatSyncExpenses.Models.Operations
 {
     using CodatSyncExpenses.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -40,6 +41,6 @@ namespace CodatSyncExpenses.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public Transaction? Transaction { get; set; }
+        public Dictionary<string, object>? Transaction { get; set; }
     }
 }

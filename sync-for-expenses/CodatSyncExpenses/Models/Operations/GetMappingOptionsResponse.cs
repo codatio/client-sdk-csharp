@@ -11,6 +11,7 @@
 namespace CodatSyncExpenses.Models.Operations
 {
     using CodatSyncExpenses.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -30,7 +31,7 @@ namespace CodatSyncExpenses.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public MappingOptions? MappingOptions { get; set; }
+        public Dictionary<string, object>? MappingOptions { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

@@ -69,7 +69,6 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "Northeast Metal Canada",
 });
 
 // handle response

@@ -21,7 +21,7 @@ namespace CodatSyncExpenses.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public List<CompanySyncStatus>? CompanySyncStatuses { get; set; }
+        public List<Dictionary<string, object>>? CompanySyncStatuses { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

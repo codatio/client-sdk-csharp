@@ -11,6 +11,7 @@
 namespace CodatSyncExpenses.Models.Operations
 {
     using CodatSyncExpenses.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -20,7 +21,7 @@ namespace CodatSyncExpenses.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public CompanySyncStatus? CompanySyncStatus { get; set; }
+        public Dictionary<string, object>? CompanySyncStatus { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

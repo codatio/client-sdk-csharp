@@ -105,12 +105,8 @@ var res = await sdk.Configuration.SetAsync(new SetCompanyConfigurationRequest() 
         BankAccount = new BankAccount() {
             Id = "32",
         },
-        Customer = new CustomerDetails() {
-            Id = "<ID>",
-        },
-        Supplier = new SupplierDetails() {
-            Id = "<ID>",
-        },
+        Customer = new CustomerDetails() {},
+        Supplier = new SupplierDetails() {},
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });

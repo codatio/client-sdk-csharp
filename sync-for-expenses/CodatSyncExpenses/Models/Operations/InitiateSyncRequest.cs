@@ -10,14 +10,14 @@
 #nullable enable
 namespace CodatSyncExpenses.Models.Operations
 {
-    using CodatSyncExpenses.Models.Shared;
     using CodatSyncExpenses.Utils;
+    using System.Collections.Generic;
     
     public class InitiateSyncRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public InitiateSync? InitiateSync { get; set; }
+        public Dictionary<string, object>? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

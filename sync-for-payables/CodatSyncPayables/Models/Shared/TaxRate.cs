@@ -14,7 +14,7 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; View the coverage for tax rates in the &amp;lt;a className=&amp;quot;external&amp;quot; href=&amp;quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;amp;dataType=taxRates&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Data coverage explorer&amp;lt;/a&amp;gt;.&lt;br/&gt;
+    /// &gt; View the coverage for tax rates in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=taxRates&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -48,7 +48,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Code { get; set; }
 
         [JsonProperty("components")]
-        public List<TaxRateComponent>? Components { get; set; }
+        public List<Dictionary<string, object>>? Components { get; set; }
 
         /// <summary>
         /// See Effective tax rates description.
@@ -78,7 +78,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Status of the tax rate in the accounting platform.  &lt;br/&gt;
+        /// Status of the tax rate in the accounting platform.  <br/>
         /// 
         /// <remarks>
         /// - `Active` - An active tax rate in use by a company.  <br/>

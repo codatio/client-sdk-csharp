@@ -13,13 +13,13 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// &amp;gt; View the coverage for payment methods in the &amp;lt;a className=&amp;quot;external&amp;quot; href=&amp;quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;amp;dataType=paymentMethods&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Data coverage explorer&amp;lt;/a&amp;gt;.&lt;br/&gt;
+    /// &gt; View the coverage for payment methods in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=paymentMethods&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// 
     /// <remarks>
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on <a href="https://docs.codat.io/accounting-api#/schemas/BillPayment">Bill Payments</a> and <a href="https://docs.codat.io/accounting-api#/schemas/Payment">Payments</a>.
+    /// A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill Payments</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Payment">Payments</a>.
     /// </remarks>
     /// </summary>
     public class PaymentMethod

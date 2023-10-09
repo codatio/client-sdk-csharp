@@ -1,4 +1,5 @@
-# Suppliers
+# SuppliersSDK
+(*Suppliers*)
 
 ## Overview
 
@@ -42,40 +43,24 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
-                City = "Mosciskiside",
-                Country = "Armenia",
-                Line1 = "nisi",
-                Line2 = "rerum",
-                PostalCode = "92513-7197",
-                Region = "quae",
-                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Delivery,
+                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "architecto",
-        DefaultCurrency = "architecto",
-        EmailAddress = "enim",
-        Id = "c80bff91-8544-4ec4-adef-cce8f1977773",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Phone = "(877) 492-8687",
-        RegistrationNumber = "neque",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "consequuntur", new Dictionary<string, object>() {
-                    { "officia", "reprehenderit" },
+                { "innovative", new Dictionary<string, object>() {
+                    { "blue", "shred" },
                 } },
             },
         },
-        SupplierName = "distinctio",
-        TaxNumber = "eius",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 56372,
 });
 
 // handle response
@@ -119,7 +104,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.GetAsync(new GetSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "rem",
+    SupplierId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -210,7 +195,6 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "maiores",
 });
 
 // handle response
@@ -258,42 +242,25 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
-                City = "West Suzanneberg",
-                Country = "Solomon Islands",
-                Line1 = "aliquam",
-                Line2 = "quos",
-                PostalCode = "86921-2609",
-                Region = "nemo",
                 Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "possimus",
-        DefaultCurrency = "unde",
-        EmailAddress = "incidunt",
-        Id = "259c0b36-f25e-4a94-8f3b-756c11f6c37a",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "+44 25691 154789",
-        RegistrationNumber = "qui",
+        Phone = "(877) 492-8687",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Unknown,
+        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "incidunt", new Dictionary<string, object>() {
-                    { "adipisci", "praesentium" },
+                { "male", new Dictionary<string, object>() {
+                    { "Metal", "cheater" },
                 } },
             },
         },
-        SupplierName = "dolor",
-        TaxNumber = "exercitationem",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    ForceUpdate = false,
-    SupplierId = "expedita",
-    TimeoutInMinutes = 706411,
+    SupplierId = "Cotton",
 });
 
 // handle response

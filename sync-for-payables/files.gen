@@ -99,7 +99,6 @@ CodatSyncPayables/Models/Operations/GetConnectionRequest.cs
 CodatSyncPayables/Models/Operations/GetConnectionResponse.cs
 CodatSyncPayables/Models/Operations/ListConnectionsRequest.cs
 CodatSyncPayables/Models/Operations/ListConnectionsResponse.cs
-CodatSyncPayables/Models/Operations/UnlinkConnectionUpdateConnection.cs
 CodatSyncPayables/Models/Operations/UnlinkConnectionRequest.cs
 CodatSyncPayables/Models/Operations/UnlinkConnectionResponse.cs
 CodatSyncPayables/Models/Operations/CreateJournalEntryRequest.cs
@@ -153,7 +152,6 @@ CodatSyncPayables/Models/Operations/ListTrackingCategoriesResponse.cs
 CodatSyncPayables/Models/Shared/ErrorMessage.cs
 CodatSyncPayables/Models/Shared/CreateAccountResponse.cs
 CodatSyncPayables/Models/Shared/Validation.cs
-CodatSyncPayables/Models/Shared/ValidationItem.cs
 CodatSyncPayables/Models/Shared/PushOperationStatus.cs
 CodatSyncPayables/Models/Shared/DataType.cs
 CodatSyncPayables/Models/Shared/AccountValidDataTypeLinks.cs
@@ -163,10 +161,7 @@ CodatSyncPayables/Models/Shared/AccountStatus.cs
 CodatSyncPayables/Models/Shared/Metadata.cs
 CodatSyncPayables/Models/Shared/PushOperationChange.cs
 CodatSyncPayables/Models/Shared/PushChangeType.cs
-CodatSyncPayables/Models/Shared/PushOperationRef.cs
 CodatSyncPayables/Models/Shared/PushOption.cs
-CodatSyncPayables/Models/Shared/PushValidationInfo.cs
-CodatSyncPayables/Models/Shared/PushFieldValidation.cs
 CodatSyncPayables/Models/Shared/PushOptionType.cs
 CodatSyncPayables/Models/Shared/PushOptionProperty.cs
 CodatSyncPayables/Models/Shared/PushOptionChoice.cs
@@ -203,11 +198,12 @@ CodatSyncPayables/Models/Shared/BillPayments.cs
 CodatSyncPayables/Models/Shared/CreateBillResponse.cs
 CodatSyncPayables/Models/Shared/BillPaymentAllocationAllocation.cs
 CodatSyncPayables/Models/Shared/BillPaymentAllocation.cs
-CodatSyncPayables/Models/Shared/BillPurchaseOrderReference.cs
 CodatSyncPayables/Models/Shared/BillSupplementalData.cs
 CodatSyncPayables/Models/Shared/BillWithholdingTax.cs
 CodatSyncPayables/Models/Shared/Bill.cs
 CodatSyncPayables/Models/Shared/BillStatus.cs
+CodatSyncPayables/Models/Shared/BillLineItemRecordLineReferenceDataType.cs
+CodatSyncPayables/Models/Shared/BillLineItemRecordLineReference.cs
 CodatSyncPayables/Models/Shared/BillLineItem.cs
 CodatSyncPayables/Models/Shared/TrackingCustomerRef.cs
 CodatSyncPayables/Models/Shared/TrackingProjectReference.cs
@@ -235,7 +231,6 @@ CodatSyncPayables/Models/Shared/Connections.cs
 CodatSyncPayables/Models/Shared/CreateJournalEntryResponse.cs
 CodatSyncPayables/Models/Shared/JournalEntryRecordReference.cs
 CodatSyncPayables/Models/Shared/JournalEntry.cs
-CodatSyncPayables/Models/Shared/JournalRef.cs
 CodatSyncPayables/Models/Shared/JournalLineTracking.cs
 CodatSyncPayables/Models/Shared/JournalLine.cs
 CodatSyncPayables/Models/Shared/RecordRef.cs
@@ -261,7 +256,6 @@ CodatSyncPayables/Models/Shared/UpdateSupplierResponse.cs
 CodatSyncPayables/Models/Shared/TaxRate.cs
 CodatSyncPayables/Models/Shared/ValidDatatypeLinksitems.cs
 CodatSyncPayables/Models/Shared/TaxRateStatus.cs
-CodatSyncPayables/Models/Shared/TaxRateComponent.cs
 CodatSyncPayables/Models/Shared/TaxRates.cs
 CodatSyncPayables/Models/Shared/TrackingCategoryTree.cs
 CodatSyncPayables/Models/Shared/Status.cs
@@ -346,7 +340,6 @@ docs/models/operations/GetConnectionRequest.md
 docs/models/operations/GetConnectionResponse.md
 docs/models/operations/ListConnectionsRequest.md
 docs/models/operations/ListConnectionsResponse.md
-docs/models/operations/UnlinkConnectionUpdateConnection.md
 docs/models/operations/UnlinkConnectionRequest.md
 docs/models/operations/UnlinkConnectionResponse.md
 docs/models/operations/CreateJournalEntryRequest.md
@@ -400,7 +393,6 @@ docs/models/operations/ListTrackingCategoriesResponse.md
 docs/models/shared/ErrorMessage.md
 docs/models/shared/CreateAccountResponse.md
 docs/models/shared/Validation.md
-docs/models/shared/ValidationItem.md
 docs/models/shared/PushOperationStatus.md
 docs/models/shared/DataType.md
 docs/models/shared/AccountValidDataTypeLinks.md
@@ -410,10 +402,7 @@ docs/models/shared/AccountStatus.md
 docs/models/shared/Metadata.md
 docs/models/shared/PushOperationChange.md
 docs/models/shared/PushChangeType.md
-docs/models/shared/PushOperationRef.md
 docs/models/shared/PushOption.md
-docs/models/shared/PushValidationInfo.md
-docs/models/shared/PushFieldValidation.md
 docs/models/shared/PushOptionType.md
 docs/models/shared/PushOptionProperty.md
 docs/models/shared/PushOptionChoice.md
@@ -450,11 +439,12 @@ docs/models/shared/BillPayments.md
 docs/models/shared/CreateBillResponse.md
 docs/models/shared/BillPaymentAllocationAllocation.md
 docs/models/shared/BillPaymentAllocation.md
-docs/models/shared/BillPurchaseOrderReference.md
 docs/models/shared/BillSupplementalData.md
 docs/models/shared/BillWithholdingTax.md
 docs/models/shared/Bill.md
 docs/models/shared/BillStatus.md
+docs/models/shared/BillLineItemRecordLineReferenceDataType.md
+docs/models/shared/BillLineItemRecordLineReference.md
 docs/models/shared/BillLineItem.md
 docs/models/shared/TrackingCustomerRef.md
 docs/models/shared/TrackingProjectReference.md
@@ -482,7 +472,6 @@ docs/models/shared/Connections.md
 docs/models/shared/CreateJournalEntryResponse.md
 docs/models/shared/JournalEntryRecordReference.md
 docs/models/shared/JournalEntry.md
-docs/models/shared/JournalRef.md
 docs/models/shared/JournalLineTracking.md
 docs/models/shared/JournalLine.md
 docs/models/shared/RecordRef.md
@@ -508,7 +497,6 @@ docs/models/shared/UpdateSupplierResponse.md
 docs/models/shared/TaxRate.md
 docs/models/shared/ValidDatatypeLinksitems.md
 docs/models/shared/TaxRateStatus.md
-docs/models/shared/TaxRateComponent.md
 docs/models/shared/TaxRates.md
 docs/models/shared/TrackingCategoryTree.md
 docs/models/shared/Status.md

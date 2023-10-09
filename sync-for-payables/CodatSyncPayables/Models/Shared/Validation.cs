@@ -20,9 +20,9 @@ namespace CodatSyncPayables.Models.Shared
     {
 
         [JsonProperty("errors")]
-        public List<ValidationItem>? Errors { get; set; }
+        public List<Dictionary<string, object>>? Errors { get; set; }
 
         [JsonProperty("warnings")]
-        public List<ValidationItem>? Warnings { get; set; }
+        public List<Dictionary<string, object>>? Warnings { get; set; }
     }
 }

@@ -14,34 +14,24 @@ namespace CodatSyncPayables.Models.Shared
     using System;
     
     /// <summary>
-    /// Status of the tax rate in the accounting platform.  <br/>
-    /// 
-    /// <remarks>
-    /// - `Active` - An active tax rate in use by a company.  <br/>
-    /// - `Archived` - A tax rate that has been archived or is inactive in the accounting platform.  <br/>
-    /// - `Unknown` - Where the status of the tax rate cannot be determined from the underlying platform.
-    /// </remarks>
+    /// Allowed name of the &apos;dataType&apos;.
     /// </summary>
-    public enum TaxRateStatus
+    public enum BillLineItemRecordLineReferenceDataType
     {
-        [JsonProperty("Unknown")]
-        Unknown,
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Archived")]
-        Archived,
+        [JsonProperty("purchaseOrders")]
+        PurchaseOrders,
     }
 
-    public static class TaxRateStatusExtension
+    public static class BillLineItemRecordLineReferenceDataTypeExtension
     {
-        public static string Value(this TaxRateStatus value)
+        public static string Value(this BillLineItemRecordLineReferenceDataType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static TaxRateStatus ToEnum(this string value)
+        public static BillLineItemRecordLineReferenceDataType ToEnum(this string value)
         {
-            foreach(var field in typeof(TaxRateStatus).GetFields())
+            foreach(var field in typeof(BillLineItemRecordLineReferenceDataType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -54,14 +44,14 @@ namespace CodatSyncPayables.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is TaxRateStatus)
+                    if (enumVal is BillLineItemRecordLineReferenceDataType)
                     {
-                        return (TaxRateStatus)enumVal;
+                        return (BillLineItemRecordLineReferenceDataType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum TaxRateStatus");
+            throw new Exception($"Unknown value {value} for enum BillLineItemRecordLineReferenceDataType");
         }
     }
 }

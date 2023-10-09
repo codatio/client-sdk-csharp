@@ -1,4 +1,5 @@
-# JournalEntries
+# JournalEntriesSDK
+(*JournalEntries*)
 
 ## Overview
 
@@ -38,45 +39,33 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
-        Description = "eaque",
-        Id = "e189dbb3-0fcb-433e-a055-b197cd44e2f5",
         JournalLines = new List<JournalLine>() {
             new JournalLine() {
-                AccountRef = new AccountRef() {
-                    Id = "2d82d351-3bb6-4f48-b656-bcdb35ff2e4b",
-                    Name = "Bessie Hegmann",
-                },
-                Currency = "est",
-                Description = "rem",
-                NetAmount = 7538.9M,
+                AccountRef = new AccountRef() {},
+                NetAmount = 4893.82M,
                 Tracking = new JournalLineTracking() {
                     RecordRefs = new List<RecordRef>() {
                         new RecordRef() {
-                            DataType = "transfer",
-                            Id = "9e7319c1-77d5-425f-b7b1-14eeb52ff785",
+                            DataType = "accountTransaction",
                         },
                     },
                 },
             },
         },
-        JournalRef = new JournalRef() {
-            Id = "fc37814d-4c98-4e0c-abb8-9eb75dad636c",
-            Name = "Maria Bartoletti I",
+        JournalRef = new Dictionary<string, object>() {
+            { "Extended", "South" },
         },
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         PostedOn = "2022-10-23T00:00:00.000Z",
         RecordRef = new JournalEntryRecordReference() {
-            DataType = "accountTransaction",
-            Id = "b31180f7-39ae-49e0-97eb-809e2810331f",
+            DataType = "invoice",
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "occaecati", new Dictionary<string, object>() {
-                    { "atque", "beatae" },
+                { "abnormally", new Dictionary<string, object>() {
+                    { "deposit", "evolve" },
                 } },
             },
         },
@@ -84,7 +73,6 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 287544,
 });
 
 // handle response

@@ -20,7 +20,7 @@ namespace CodatSyncCommerce
     using System;
 
     /// <summary>
-    /// View useful information about codat&amp;apos;s integrations.
+    /// View useful information about codat&apos;s integrations.
     /// </summary>
     public interface IIntegrationsSDK
     {
@@ -45,15 +45,16 @@ namespace CodatSyncCommerce
     }
 
     /// <summary>
-    /// View useful information about codat&amp;apos;s integrations.
+    /// View useful information about codat&apos;s integrations.
     /// </summary>
     public class IntegrationsSDK: IIntegrationsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "2.2.0";
+        private const string _sdkGenVersion = "2.150.0";
         private const string _openapiDocVersion = "1.1";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.150.0 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -78,7 +79,7 @@ namespace CodatSyncCommerce
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -93,9 +94,10 @@ namespace CodatSyncCommerce
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.Branding = JsonConvert.DeserializeObject<Branding>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -117,7 +119,7 @@ namespace CodatSyncCommerce
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -132,9 +134,10 @@ namespace CodatSyncCommerce
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.Integrations = JsonConvert.DeserializeObject<Integrations>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }

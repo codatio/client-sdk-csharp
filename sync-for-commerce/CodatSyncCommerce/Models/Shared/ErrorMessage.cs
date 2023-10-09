@@ -40,7 +40,7 @@ namespace CodatSyncCommerce.Models.Shared
         public string? Error { get; set; }
 
         /// <summary>
-        /// Codat&amp;apos;s service the returned the error.
+        /// Codat&apos;s service the returned the error.
         /// </summary>
         [JsonProperty("service")]
         public string? Service { get; set; }

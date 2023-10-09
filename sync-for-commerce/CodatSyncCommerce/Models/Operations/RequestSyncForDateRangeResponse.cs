@@ -10,7 +10,7 @@
 #nullable enable
 namespace CodatSyncCommerce.Models.Operations
 {
-    using CodatSyncCommerce.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -35,6 +35,6 @@ namespace CodatSyncCommerce.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public SyncSummary? SyncSummary { get; set; }
+        public Dictionary<string, object>? SyncSummary { get; set; }
     }
 }

@@ -10,14 +10,14 @@
 #nullable enable
 namespace CodatSyncCommerce.Models.Operations
 {
-    using CodatSyncCommerce.Models.Shared;
     using CodatSyncCommerce.Utils;
+    using System.Collections.Generic;
     
     public class UpdateConnectionRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public UpdateConnection? UpdateConnection { get; set; }
+        public Dictionary<string, object>? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

@@ -97,30 +97,28 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
                 },
             },
         },
-        PurchaseOrderRefs = new List<Dictionary<string, object>>() {
-            new Dictionary<string, object>() {
-                { "technology", "East" },
-            },
+        PurchaseOrderRefs = new List<BillPurchaseOrderReference>() {
+            new BillPurchaseOrderReference() {},
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.BillStatus.Open,
-        SubTotal = 899.64M,
+        Status = CodatSyncPayables.Models.Shared.BillStatus.Draft,
+        SubTotal = 0.86M,
         SupplementalData = new BillSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "male", new Dictionary<string, object>() {
-                    { "SUV", "quantify" },
+                { "deposit", new Dictionary<string, object>() {
+                    { "evolve", "male" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
             Id = "<ID>",
         },
-        TaxAmount = 8275.63M,
-        TotalAmount = 7524.38M,
+        TaxAmount = 8559.52M,
+        TotalAmount = 8165.88M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 4915.7M,
-                Name = "National Durham after",
+                Amount = 5519.29M,
+                Name = "Polestar mobile",
             },
         },
     },
@@ -610,34 +608,32 @@ var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
                 },
             },
         },
-        PurchaseOrderRefs = new List<Dictionary<string, object>>() {
-            new Dictionary<string, object>() {
-                { "cheater", "Islands" },
-            },
+        PurchaseOrderRefs = new List<BillPurchaseOrderReference>() {
+            new BillPurchaseOrderReference() {},
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.BillStatus.PartiallyPaid,
-        SubTotal = 3691.82M,
+        Status = CodatSyncPayables.Models.Shared.BillStatus.Unknown,
+        SubTotal = 540.62M,
         SupplementalData = new BillSupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "extend", new Dictionary<string, object>() {
-                    { "Plastic", "Carolina" },
+                { "Cotton", new Dictionary<string, object>() {
+                    { "extend", "Plastic" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
             Id = "<ID>",
         },
-        TaxAmount = 9936.8M,
-        TotalAmount = 8898.38M,
+        TaxAmount = 1395.79M,
+        TotalAmount = 6447.13M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 3451.87M,
-                Name = "East",
+                Amount = 7892.75M,
+                Name = "immediately implement JBOD",
             },
         },
     },
-    BillId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    BillId = "EILBDVJVNUAGVKRQ",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

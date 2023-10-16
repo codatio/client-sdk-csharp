@@ -47,6 +47,6 @@ namespace CodatSyncPayables.Models.Shared
         public PushOptionType Type { get; set; } = default!;
 
         [JsonProperty("validation")]
-        public Dictionary<string, object>? Validation { get; set; }
+        public PushValidationInfo? Validation { get; set; }
     }
 }

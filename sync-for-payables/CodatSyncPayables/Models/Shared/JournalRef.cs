@@ -11,18 +11,23 @@
 namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     
     /// <summary>
-    /// A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
+    /// Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
     /// </summary>
-    public class Validation
+    public class JournalRef
     {
 
-        [JsonProperty("errors")]
-        public List<ValidationItem>? Errors { get; set; }
+        /// <summary>
+        /// GUID of the underlying journal.
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; } = default!;
 
-        [JsonProperty("warnings")]
-        public List<ValidationItem>? Warnings { get; set; }
+        /// <summary>
+        /// Name of journal
+        /// </summary>
+        [JsonProperty("name")]
+        public string? Name { get; set; }
     }
 }

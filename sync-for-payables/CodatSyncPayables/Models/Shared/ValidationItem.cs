@@ -12,22 +12,25 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class PushOperationChange
+    public class ValidationItem
     {
 
         /// <summary>
-        /// Unique identifier for the attachment created otherwise null.
+        /// Unique identifier for a validation item.
         /// </summary>
-        [JsonProperty("attachmentId")]
-        public string? AttachmentId { get; set; }
-
-        [JsonProperty("recordRef")]
-        public PushOperationRef? RecordRef { get; set; }
+        [JsonProperty("itemId")]
+        public string? ItemId { get; set; }
 
         /// <summary>
-        /// Type of change being applied to record in third party platform.
+        /// A message outlining validation item&apos;s issue.
         /// </summary>
-        [JsonProperty("type")]
-        public PushChangeType? Type { get; set; }
+        [JsonProperty("message")]
+        public string? Message { get; set; }
+
+        /// <summary>
+        /// Name of validator.
+        /// </summary>
+        [JsonProperty("validatorName")]
+        public string? ValidatorName { get; set; }
     }
 }

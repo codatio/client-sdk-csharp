@@ -11,18 +11,23 @@
 namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     
     /// <summary>
-    /// A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
+    /// The payment method the record is linked to in the accounting or commerce platform.
     /// </summary>
-    public class Validation
+    public class PaymentMethodRef
     {
 
-        [JsonProperty("errors")]
-        public List<ValidationItem>? Errors { get; set; }
+        /// <summary>
+        /// The unique identifier of the location being referenced.
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; } = default!;
 
-        [JsonProperty("warnings")]
-        public List<ValidationItem>? Warnings { get; set; }
+        /// <summary>
+        /// Name of the location being referenced.
+        /// </summary>
+        [JsonProperty("name")]
+        public string? Name { get; set; }
     }
 }

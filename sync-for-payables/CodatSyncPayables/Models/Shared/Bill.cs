@@ -131,7 +131,7 @@ namespace CodatSyncPayables.Models.Shared
         public List<BillPaymentAllocation>? PaymentAllocations { get; set; }
 
         [JsonProperty("purchaseOrderRefs")]
-        public List<Dictionary<string, object>>? PurchaseOrderRefs { get; set; }
+        public List<BillPurchaseOrderReference>? PurchaseOrderRefs { get; set; }
 
         /// <summary>
         /// User-friendly reference for the bill.

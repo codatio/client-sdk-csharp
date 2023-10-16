@@ -48,7 +48,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Code { get; set; }
 
         [JsonProperty("components")]
-        public List<Dictionary<string, object>>? Components { get; set; }
+        public List<TaxRateComponent>? Components { get; set; }
 
         /// <summary>
         /// See Effective tax rates description.

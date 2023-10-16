@@ -13,16 +13,13 @@ namespace CodatSyncPayables.Models.Shared
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    /// <summary>
-    /// A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-    /// </summary>
-    public class Validation
+    public class PushValidationInfo
     {
 
-        [JsonProperty("errors")]
-        public List<ValidationItem>? Errors { get; set; }
+        [JsonProperty("information")]
+        public List<PushFieldValidation>? Information { get; set; }
 
         [JsonProperty("warnings")]
-        public List<ValidationItem>? Warnings { get; set; }
+        public List<PushFieldValidation>? Warnings { get; set; }
     }
 }

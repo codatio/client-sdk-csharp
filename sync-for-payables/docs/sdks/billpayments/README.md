@@ -59,12 +59,14 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Note = "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-        PaymentMethodRef = "South",
+        PaymentMethodRef = new PaymentMethodRef() {
+            Id = "<ID>",
+        },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "grey", new Dictionary<string, object>() {
-                    { "technology", "East" },
+                { "blue", new Dictionary<string, object>() {
+                    { "shred", "abnormally" },
                 } },
             },
         },

@@ -42,9 +42,9 @@ namespace CodatLending.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Status of the Payment Method
+        /// Status of the Payment Method.
         /// </summary>
         [JsonProperty("status")]
-        public PaymentMethodStatus? Status { get; set; }
+        public CommercePaymentMethodStatus? Status { get; set; }
     }
 }

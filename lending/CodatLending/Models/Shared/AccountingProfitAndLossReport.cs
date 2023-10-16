@@ -113,6 +113,6 @@ namespace CodatLending.Models.Shared
         /// An array of profit and loss reports.
         /// </summary>
         [JsonProperty("reports")]
-        public List<Dictionary<string, object>> Reports { get; set; } = default!;
+        public List<ProfitAndLossReport> Reports { get; set; } = default!;
     }
 }

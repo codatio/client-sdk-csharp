@@ -111,8 +111,11 @@ namespace CodatLending.Models.Shared
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
+        /// <summary>
+        /// The payment method the record is linked to in the accounting or commerce platform.
+        /// </summary>
         [JsonProperty("paymentMethodRef")]
-        public object? PaymentMethodRef { get; set; }
+        public PaymentMethodRef? PaymentMethodRef { get; set; }
 
         /// <summary>
         /// Service provider of the payment, if applicable.

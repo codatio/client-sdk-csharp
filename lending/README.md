@@ -240,6 +240,11 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Create](docs/sdks/loanwritebackdirectcosts/README.md#create) - Create direct cost
 * [GetCreateModel](docs/sdks/loanwritebackdirectcosts/README.md#getcreatemodel) - Get create direct cost model
 
+### [LoanWriteback.Payments](docs/sdks/loanwritebackpayments/README.md)
+
+* [Create](docs/sdks/loanwritebackpayments/README.md#create) - Create payment
+* [GetCreateModel](docs/sdks/loanwritebackpayments/README.md#getcreatemodel) - Get create payment model
+
 ### [LoanWriteback.Suppliers](docs/sdks/loanwritebacksuppliers/README.md)
 
 * [Create](docs/sdks/loanwritebacksuppliers/README.md#create) - Create supplier

@@ -242,7 +242,7 @@ namespace CodatLending.Models.Shared
         public string? Note { get; set; }
 
         [JsonProperty("paymentMethodRef")]
-        public object? PaymentMethodRef { get; set; }
+        public PaymentMethodRef? PaymentMethodRef { get; set; }
 
         /// <summary>
         /// Additional information associated with the payment.

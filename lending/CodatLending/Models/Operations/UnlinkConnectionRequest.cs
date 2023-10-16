@@ -11,13 +11,12 @@
 namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
-    using System.Collections.Generic;
     
     public class UnlinkConnectionRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Dictionary<string, object>? RequestBody { get; set; }
+        public UnlinkConnectionUpdateConnection? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

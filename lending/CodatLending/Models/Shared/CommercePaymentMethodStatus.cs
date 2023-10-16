@@ -14,28 +14,28 @@ namespace CodatLending.Models.Shared
     using System;
     
     /// <summary>
-    /// Status of the Payment Method
+    /// Status of the Payment Method.
     /// </summary>
-    public enum PaymentMethodStatus
+    public enum CommercePaymentMethodStatus
     {
+        [JsonProperty("Unknown")]
+        Unknown,
         [JsonProperty("Active")]
         Active,
         [JsonProperty("Archived")]
         Archived,
-        [JsonProperty("Unknown")]
-        Unknown,
     }
 
-    public static class PaymentMethodStatusExtension
+    public static class CommercePaymentMethodStatusExtension
     {
-        public static string Value(this PaymentMethodStatus value)
+        public static string Value(this CommercePaymentMethodStatus value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static PaymentMethodStatus ToEnum(this string value)
+        public static CommercePaymentMethodStatus ToEnum(this string value)
         {
-            foreach(var field in typeof(PaymentMethodStatus).GetFields())
+            foreach(var field in typeof(CommercePaymentMethodStatus).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -48,14 +48,14 @@ namespace CodatLending.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is PaymentMethodStatus)
+                    if (enumVal is CommercePaymentMethodStatus)
                     {
-                        return (PaymentMethodStatus)enumVal;
+                        return (CommercePaymentMethodStatus)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum PaymentMethodStatus");
+            throw new Exception($"Unknown value {value} for enum CommercePaymentMethodStatus");
         }
     }
 }

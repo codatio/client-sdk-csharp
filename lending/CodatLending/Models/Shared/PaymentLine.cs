@@ -50,6 +50,6 @@ namespace CodatLending.Models.Shared
         public decimal Amount { get; set; } = default!;
 
         [JsonProperty("links")]
-        public List<Dictionary<string, object>>? Links { get; set; }
+        public List<PaymentLineLink>? Links { get; set; }
     }
 }

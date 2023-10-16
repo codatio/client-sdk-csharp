@@ -95,7 +95,7 @@ namespace CodatLending.Models.Shared
         public decimal? TotalAmount { get; set; }
 
         [JsonProperty("tracking")]
-        public Dictionary<string, object>? Tracking { get; set; }
+        public Tracking? Tracking { get; set; }
 
         /// <summary>
         /// Collection of categories against which this direct cost is tracked.

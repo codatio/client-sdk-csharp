@@ -11,7 +11,6 @@
 namespace CodatLending.Models.Shared
 {
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     
     public class PushOperationChange
     {
@@ -23,7 +22,7 @@ namespace CodatLending.Models.Shared
         public string? AttachmentId { get; set; }
 
         [JsonProperty("recordRef")]
-        public Dictionary<string, object>? RecordRef { get; set; }
+        public PushOperationRef? RecordRef { get; set; }
 
         /// <summary>
         /// Type of change being applied to record in third party platform.

@@ -31,7 +31,7 @@ namespace CodatLending.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public List<Dictionary<string, object>>? Files { get; set; }
+        public List<File>? Files { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

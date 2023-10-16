@@ -92,7 +92,7 @@ namespace CodatLending.Models.Shared
         /// Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
         /// </summary>
         [JsonProperty("journalRef")]
-        public Dictionary<string, object>? JournalRef { get; set; }
+        public JournalRef? JournalRef { get; set; }
 
         [JsonProperty("metadata")]
         public Metadata? Metadata { get; set; }

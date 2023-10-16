@@ -25,10 +25,10 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.3.0";
-        private const string _sdkGenVersion = "2.150.0";
+        private const string _sdkVersion = "4.3.1";
+        private const string _sdkGenVersion = "2.155.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.150.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.3.1 2.155.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

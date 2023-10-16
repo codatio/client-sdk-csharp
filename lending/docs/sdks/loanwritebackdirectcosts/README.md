@@ -48,15 +48,22 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(new CreateDirectCostRe
                 },
                 Quantity = 6384.24M,
                 TaxRateRef = new TaxRateRef() {},
-                Tracking = new Dictionary<string, object>() {
-                    { "Extended", "South" },
+                Tracking = new Tracking() {
+                    InvoiceTo = new RecordRef() {
+                        DataType = "transfer",
+                    },
+                    RecordRefs = new List<RecordRef>() {
+                        new RecordRef() {
+                            DataType = "invoice",
+                        },
+                    },
                 },
                 TrackingCategoryRefs = new List<TrackingCategoryRef>() {
                     new TrackingCategoryRef() {
                         Id = "<ID>",
                     },
                 },
-                UnitAmount = 9967.06M,
+                UnitAmount = 2884.08M,
             },
         },
         Metadata = new Metadata() {},
@@ -65,7 +72,7 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(new CreateDirectCostRe
             new AccountingPaymentAllocation() {
                 Allocation = new AccountingPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
-                    Currency = "EUR",
+                    Currency = "GBP",
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {},
@@ -75,16 +82,16 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(new CreateDirectCostRe
             },
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        SubTotal = 1697.27M,
+        SubTotal = 9510.62M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "evolve", new Dictionary<string, object>() {
-                    { "male", "SUV" },
+                { "abnormally", new Dictionary<string, object>() {
+                    { "deposit", "evolve" },
                 } },
             },
         },
-        TaxAmount = 5519.29M,
-        TotalAmount = 5862.2M,
+        TaxAmount = 7150.4M,
+        TotalAmount = 7926.2M,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

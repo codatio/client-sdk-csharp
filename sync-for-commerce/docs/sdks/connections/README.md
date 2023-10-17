@@ -1,4 +1,5 @@
-# Connections
+# ConnectionsSDK
+(*Connections*)
 
 ## Overview
 
@@ -16,7 +17,7 @@ Create new and manage existing Sync for Commerce connections using the Sync flow
 
 ﻿Creates a connection for the company by providing a valid `platformKey`. 
 
-Use the [List Integrations](https://docs.codat.io/sync-for-commerce-api#/operations/list-integrations) endpoint to access valid platform keys. 
+Use the [List Integrations](https://docs.codat.io/sync-for-sync-for-commerce-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
 ### Example Usage
 
@@ -71,9 +72,8 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.Connections.GetSyncFlowUrlAsync(new GetSyncFlowUrlRequest() {
-    AccountingKey = "provident",
-    CommerceKey = "distinctio",
-    MerchantIdentifier = "quibusdam",
+    AccountingKey = "Manager",
+    CommerceKey = "payment",
 });
 
 // handle response
@@ -113,7 +113,6 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "unde",
 });
 
 // handle response
@@ -150,7 +149,7 @@ var sdk = new CodatSyncCommerceSDK(
 
 var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
-        { "nulla", "corrupti" },
+        { "Neptunium", "Books" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -189,9 +188,7 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.Connections.UpdateConnectionAsync(new UpdateConnectionRequest() {
-    UpdateConnection = new UpdateConnection() {
-        Status = CodatSyncCommerce.Models.Shared.DataConnectionStatus.Deauthorized,
-    },
+    UpdateConnection = new UpdateConnection() {},
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

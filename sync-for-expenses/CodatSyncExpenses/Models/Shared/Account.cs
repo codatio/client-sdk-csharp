@@ -139,6 +139,17 @@ namespace CodatSyncExpenses.Models.Shared
         public AccountStatus? Status { get; set; }
 
         /// <summary>
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
+        /// </remarks>
+        /// </summary>
+        [JsonProperty("supplementalData")]
+        public SupplementalData? SupplementalData { get; set; }
+
+        /// <summary>
         /// Type of account
         /// </summary>
         [JsonProperty("type")]

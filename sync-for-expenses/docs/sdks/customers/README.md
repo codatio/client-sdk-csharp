@@ -42,64 +42,39 @@ var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<Items>() {
             new Items() {
-                City = "Jenafurt",
-                Country = "Sweden",
-                Line1 = "innovative blue",
-                Line2 = "grey technology East",
-                PostalCode = "30778",
-                Region = "quantify Polestar mobile",
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "Durham after",
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    City = "Darenberg",
-                    Country = "Cote d'Ivoire",
-                    Line1 = "Buckinghamshire functionalities Grocery",
-                    Line2 = "Metal",
-                    PostalCode = "61380",
-                    Region = "Interactions Senior Mouse",
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
+                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
                 },
-                Email = "Judd27@hotmail.com",
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Name = "transmit likewise",
                 Phone = new List<ContactPhone>() {
                     new ContactPhone() {
-                        Number = "(877) 492-8687",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Fax,
+                        Number = "01224 658 999",
+                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Mobile,
                     },
                 },
-                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Active,
+                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
             },
         },
-        CustomerName = "Rubber silver Indiana",
-        DefaultCurrency = "EUR",
-        EmailAddress = "Thea_Ritchie76@hotmail.com",
-        Id = "<ID>",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        DefaultCurrency = "GBP",
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "948.595.2034",
-        RegistrationNumber = "digital",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
+        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "recusandae", new Dictionary<string, object>() {
-                    { "maiores", "Mongolia" },
+                { "grey", new Dictionary<string, object>() {
+                    { "technology", "East" },
                 } },
             },
         },
-        TaxNumber = "discrete",
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 522311,
 });
 
 // handle response
@@ -188,7 +163,6 @@ var res = await sdk.Customers.ListAsync(new ListCustomersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -236,66 +210,40 @@ var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<Items>() {
             new Items() {
-                City = "Ann Arbor",
-                Country = "Montserrat",
-                Line1 = "Reactive",
-                Line2 = "Metal cheater Islands",
-                PostalCode = "43372",
-                Region = "Carolina syndicate",
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "East",
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    City = "Olenfurt",
-                    Country = "Paraguay",
-                    Line1 = "Home users Sharable",
-                    Line2 = "Lev Wooden",
-                    PostalCode = "36848",
-                    Region = "brightly",
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
+                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
                 },
-                Email = "Josie49@yahoo.com",
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Name = "possimus navigating Diesel",
                 Phone = new List<ContactPhone>() {
                     new ContactPhone() {
                         Number = "+44 25691 154789",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Primary,
+                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Landline,
                     },
                 },
-                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
+                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
             },
         },
-        CustomerName = "Reactive Global Northeast",
-        DefaultCurrency = "USD",
-        EmailAddress = "Abe.Bogan@hotmail.com",
-        Id = "<ID>",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        DefaultCurrency = "EUR",
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Phone = "(883) 732-4217 x6499",
-        RegistrationNumber = "redundant ew",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Active,
+        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "asperiores", new Dictionary<string, object>() {
-                    { "quibusdam", "Omnigender" },
+                { "redundant", new Dictionary<string, object>() {
+                    { "cheater", "Islands" },
                 } },
             },
         },
-        TaxNumber = "Volkswagen Specialist Bacon",
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "Copper port East",
-    ForceUpdate = false,
-    TimeoutInMinutes = 373959,
+    CustomerId = "withdrawal extend",
 });
 
 // handle response

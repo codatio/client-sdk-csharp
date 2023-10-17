@@ -92,7 +92,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
-        public SupplierSupplementalData? SupplementalData { get; set; }
+        public SupplementalData? SupplementalData { get; set; }
 
         /// <summary>
         /// Name of the supplier as recorded in the accounting system, typically the company name.

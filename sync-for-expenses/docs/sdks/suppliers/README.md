@@ -42,41 +42,24 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<SupplierAccountingAddress>() {
             new SupplierAccountingAddress() {
-                City = "Jenafurt",
-                Country = "Sweden",
-                Line1 = "innovative blue",
-                Line2 = "grey technology East",
-                PostalCode = "30778",
-                Region = "quantify Polestar mobile",
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
-        ContactName = "Durham after",
-        DefaultCurrency = "Intelligent Fish",
-        EmailAddress = "Ricardo.Hand41@gmail.com",
-        Id = "<ID>",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Phone = "(877) 492-8687",
-        RegistrationNumber = "Profound",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Active,
-        SupplementalData = new SupplierSupplementalData() {
+        SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "pariatur", new Dictionary<string, object>() {
-                    { "accusantium", "Minivan" },
+                { "innovative", new Dictionary<string, object>() {
+                    { "blue", "shred" },
                 } },
             },
         },
-        SupplierName = "Senior Mouse West",
-        TaxNumber = "Towels likewise",
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 452224,
 });
 
 // handle response
@@ -165,7 +148,6 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "Northeast Metal Canada",
 });
 
 // handle response
@@ -213,43 +195,25 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<SupplierAccountingAddress>() {
             new SupplierAccountingAddress() {
-                City = "Ann Arbor",
-                Country = "Montserrat",
-                Line1 = "Reactive",
-                Line2 = "Metal cheater Islands",
-                PostalCode = "43372",
-                Region = "Carolina syndicate",
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
             },
         },
-        ContactName = "East",
-        DefaultCurrency = "Bicycle guestbook",
-        EmailAddress = "Alexys.Hayes81@yahoo.com",
-        Id = "<ID>",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Phone = "(877) 492-8687",
-        RegistrationNumber = "indexing",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Unknown,
-        SupplementalData = new SupplierSupplementalData() {
+        Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Active,
+        SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "consectetur", new Dictionary<string, object>() {
-                    { "ullam", "Jaguar" },
+                { "male", new Dictionary<string, object>() {
+                    { "Metal", "cheater" },
                 } },
             },
         },
-        SupplierName = "visionary Buckinghamshire frictionless",
-        TaxNumber = "parse possimus",
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    ForceUpdate = false,
-    SupplierId = "7110701885",
-    TimeoutInMinutes = 427089,
+    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 });
 
 // handle response

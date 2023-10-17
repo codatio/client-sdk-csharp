@@ -108,7 +108,6 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "Dock Elegant Buckinghamshire",
 });
 
 // handle response
@@ -187,7 +186,6 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "d6258093-be98-4f60-90e1-ca6bcd49fb9a",
     DataType = CodatSyncExpenses.Models.Shared.DataType.Invoices,
 });
 

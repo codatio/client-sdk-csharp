@@ -40,7 +40,6 @@ var res = await sdk.Expenses.CreateAsync(new CreateExpenseTransactionRequest() {
                     Type = CodatSyncExpenses.Models.Shared.ContactRefType.Supplier,
                 },
                 Currency = "GBP",
-                CurrencyRate = 4865.89M,
                 Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
                 IssueDate = "2022-10-23T00:00:00.000Z",
                 Lines = new List<ExpenseTransactionLine>() {
@@ -111,7 +110,6 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
             Type = CodatSyncExpenses.Models.Shared.ContactRefType.Supplier,
         },
         Currency = "GBP",
-        CurrencyRate = 8574.78M,
         IssueDate = "2022-06-28T00:00:00.000Z",
         Lines = new List<ExpenseTransactionLine>() {
             new ExpenseTransactionLine() {
@@ -132,7 +130,7 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
         },
         MerchantName = "Amazon UK",
         Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        Type = "New",
+        Type = "Van",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",

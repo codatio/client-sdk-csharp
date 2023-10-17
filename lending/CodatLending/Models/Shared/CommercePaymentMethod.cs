@@ -13,7 +13,7 @@ namespace CodatLending.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// A Payment Method represents the payment method(s) used to make payments.&lt;br/&gt;
+    /// A Payment Method represents the payment method(s) used to make payments.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -42,9 +42,9 @@ namespace CodatLending.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Status of the Payment Method
+        /// Status of the Payment Method.
         /// </summary>
         [JsonProperty("status")]
-        public PaymentMethodStatus? Status { get; set; }
+        public CommercePaymentMethodStatus? Status { get; set; }
     }
 }

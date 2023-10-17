@@ -1,4 +1,5 @@
-# LoanWriteback.Transfers
+# LoanWritebackTransfersSDK
+(*LoanWriteback.Transfers*)
 
 ### Available Operations
 
@@ -35,56 +36,40 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
     AccountingTransfer = new AccountingTransfer() {
         ContactRef = new AccountingTransferContactRef() {
             DataType = CodatLending.Models.Shared.DataType.Invoices,
-            Id = "ac366c8d-d6b1-4442-9074-74778a7bd466",
+            Id = "<ID>",
         },
         Date = "2022-10-23T00:00:00.000Z",
         DepositedRecordRefs = new List<RecordRef>() {
             new RecordRef() {
-                DataType = "journalEntry",
-                Id = "8c10ab3c-dca4-4251-904e-523c7e0bc717",
+                DataType = "invoice",
             },
         },
-        Description = "totam",
         From = new TransferAccount() {
-            AccountRef = new AccountRef() {
-                Id = "e4796f2a-70c6-4882-82aa-482562f222e9",
-                Name = "Carl Koch",
-            },
-            Amount = 829.71M,
+            AccountRef = new AccountRef() {},
             Currency = "USD",
         },
-        Id = "cbe61e6b-7b95-4bc0-ab3c-20c4f3789fd8",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "a", new Dictionary<string, object>() {
-                    { "error", "sint" },
+                { "innovative", new Dictionary<string, object>() {
+                    { "blue", "shred" },
                 } },
             },
         },
         To = new TransferAccount() {
-            AccountRef = new AccountRef() {
-                Id = "dd2efd12-1aa6-4f1e-a74b-db04f1575608",
-                Name = "Rosemarie Jacobs",
-            },
-            Amount = 6802.7M,
-            Currency = "GBP",
+            AccountRef = new AccountRef() {},
+            Currency = "USD",
         },
         TrackingCategoryRefs = new List<TrackingCategoryRef>() {
             new TrackingCategoryRef() {
-                Id = "9f1d1705-1339-4d08-886a-1840394c2607",
-                Name = "Elisa Mosciski",
+                Id = "<ID>",
             },
         },
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 374323,
 });
 
 // handle response

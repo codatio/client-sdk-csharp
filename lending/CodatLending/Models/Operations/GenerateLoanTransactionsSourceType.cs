@@ -8,34 +8,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace CodatLending.Models.Operations
 {
     using Newtonsoft.Json;
     using System;
     
     /// <summary>
-    /// Status of the Payment Method
+    /// Data source type.
     /// </summary>
-    public enum PaymentMethodStatus
+    public enum GenerateLoanTransactionsSourceType
     {
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Archived")]
-        Archived,
-        [JsonProperty("Unknown")]
-        Unknown,
+        [JsonProperty("banking")]
+        Banking,
+        [JsonProperty("commerce")]
+        Commerce,
+        [JsonProperty("accounting")]
+        Accounting,
     }
 
-    public static class PaymentMethodStatusExtension
+    public static class GenerateLoanTransactionsSourceTypeExtension
     {
-        public static string Value(this PaymentMethodStatus value)
+        public static string Value(this GenerateLoanTransactionsSourceType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static PaymentMethodStatus ToEnum(this string value)
+        public static GenerateLoanTransactionsSourceType ToEnum(this string value)
         {
-            foreach(var field in typeof(PaymentMethodStatus).GetFields())
+            foreach(var field in typeof(GenerateLoanTransactionsSourceType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -48,14 +48,14 @@ namespace CodatLending.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is PaymentMethodStatus)
+                    if (enumVal is GenerateLoanTransactionsSourceType)
                     {
-                        return (PaymentMethodStatus)enumVal;
+                        return (GenerateLoanTransactionsSourceType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum PaymentMethodStatus");
+            throw new Exception($"Unknown value {value} for enum GenerateLoanTransactionsSourceType");
         }
     }
 }

@@ -14,7 +14,7 @@ namespace CodatLending.Models.Operations
     using System.Net.Http;
     using System;
     
-    public class GetCreateUpdateBankAccountsModelResponse
+    public class GenerateLoanSummaryResponse
     {
 
         /// <summary>
@@ -26,11 +26,6 @@ namespace CodatLending.Models.Operations
         /// Your API request was not properly authorized.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
-
-        /// <summary>
-        /// OK
-        /// </summary>
-        public PushOption? PushOption { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

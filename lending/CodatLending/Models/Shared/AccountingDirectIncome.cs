@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Language tip:**  Direct incomes may also be referred to as **Receive transactions**, **Receive money transactions**, **Sales receipts**, or **Cash sales** in various accounting platforms.&lt;br/&gt;
+    /// &gt; **Language tip:**  Direct incomes may also be referred to as **Receive transactions**, **Receive money transactions**, **Sales receipts**, or **Cash sales** in various accounting platforms.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -44,7 +44,7 @@ namespace CodatLending.Models.Shared
         public ContactRef? ContactRef { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -59,7 +59,7 @@ namespace CodatLending.Models.Shared
         public string Currency { get; set; } = default!;
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -98,7 +98,7 @@ namespace CodatLending.Models.Shared
         public string? Id { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -161,7 +161,7 @@ namespace CodatLending.Models.Shared
         public decimal SubTotal { get; set; } = default!;
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>

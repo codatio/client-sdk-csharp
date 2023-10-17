@@ -1,4 +1,5 @@
-# Banking.AccountBalances
+# BankingAccountBalancesSDK
+(*Banking.AccountBalances*)
 
 ### Available Operations
 
@@ -32,7 +33,6 @@ var res = await sdk.Banking.AccountBalances.ListAsync(new ListBankingAccountBala
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "totam",
 });
 
 // handle response

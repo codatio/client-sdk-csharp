@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// Amount by which the balance of the linked entity is altered, in the currency of the linked entity.  &lt;br/&gt;
+        /// Amount by which the balance of the linked entity is altered, in the currency of the linked entity.  <br/>
         /// 
         /// <remarks>
         /// A negative link amount _reduces_ the outstanding amount on the accounts receivable account.  <br/>
@@ -27,7 +27,7 @@ namespace CodatLending.Models.Shared
         public decimal? Amount { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -66,7 +66,7 @@ namespace CodatLending.Models.Shared
         public string? Id { get; set; }
 
         /// <summary>
-        /// Types of payment line links, either:  &lt;br/&gt;
+        /// Types of payment line links, either:  <br/>
         /// 
         /// <remarks>
         /// `Unknown`  <br/>

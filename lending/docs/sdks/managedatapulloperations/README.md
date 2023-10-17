@@ -1,4 +1,5 @@
-# ManageData.PullOperations
+# ManageDataPullOperationsSDK
+(*ManageData.PullOperations*)
 
 ### Available Operations
 
@@ -24,7 +25,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.ManageData.PullOperations.GetAsync(new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "f0642dac-7af5-415c-8413-aa63aae8d678",
+    DatasetId = "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 });
 
 // handle response
@@ -64,7 +65,6 @@ var res = await sdk.ManageData.PullOperations.ListAsync(new ListPullOperationsRe
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "vel",
 });
 
 // handle response

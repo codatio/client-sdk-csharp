@@ -19,7 +19,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The balance available in the account, including any pending transactions. This doesn&amp;apos;t include additional funds available from any overdrafts.
+        /// The balance available in the account, including any pending transactions. This doesn&apos;t include additional funds available from any overdrafts.
         /// </summary>
         [JsonProperty("available")]
         public decimal? Available { get; set; }

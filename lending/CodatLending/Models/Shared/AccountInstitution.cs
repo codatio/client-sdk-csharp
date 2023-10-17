@@ -19,13 +19,13 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The institution&amp;apos;s ID, according to the provider.
+        /// The institution&apos;s ID, according to the provider.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The institution&amp;apos;s name, according to the underlying provider.
+        /// The institution&apos;s name, according to the underlying provider.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

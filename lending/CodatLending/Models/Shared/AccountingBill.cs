@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Invoices or bills?**&lt;br/&gt;
+    /// &gt; **Invoices or bills?**<br/>
     /// 
     /// <remarks>
     /// &gt;<br/>
@@ -47,7 +47,7 @@ namespace CodatLending.Models.Shared
         public decimal? AmountDue { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -62,7 +62,7 @@ namespace CodatLending.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -155,7 +155,7 @@ namespace CodatLending.Models.Shared
         public decimal SubTotal { get; set; } = default!;
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>

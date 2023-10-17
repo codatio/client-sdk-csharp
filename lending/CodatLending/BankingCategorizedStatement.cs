@@ -27,7 +27,7 @@ namespace CodatLending
         /// 
         /// <remarks>
         /// &gt; **Categorization engine**<br/>
-        /// &gt; <br/>
+        /// &gt;<br/>
         /// &gt; The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.<br/>
         /// <br/>
         /// The _Get categorized bank statement_ endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company&apos;s banking data sources.
@@ -40,9 +40,10 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.1";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "4.3.0";
+        private const string _sdkGenVersion = "2.159.2";
         private const string _openapiDocVersion = "3.0.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -67,7 +68,7 @@ namespace CodatLending
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -82,9 +83,10 @@ namespace CodatLending
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.EnhancedCashFlowTransactions = JsonConvert.DeserializeObject<EnhancedCashFlowTransactions>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -93,7 +95,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }

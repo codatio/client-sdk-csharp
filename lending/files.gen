@@ -31,10 +31,10 @@ CodatLending/FinancialStatementsCashFlow.cs
 CodatLending/FinancialStatementsProfitAndLoss.cs
 CodatLending/FinancialStatements.cs
 CodatLending/LoanWritebackAccounts.cs
-CodatLending/LoanWritebackBankAccounts.cs
 CodatLending/LoanWritebackBankTransactions.cs
 CodatLending/LoanWritebackCreateOperations.cs
 CodatLending/LoanWritebackDirectCosts.cs
+CodatLending/LoanWritebackPayments.cs
 CodatLending/LoanWritebackSuppliers.cs
 CodatLending/LoanWritebackTransfers.cs
 CodatLending/LoanWriteback.cs
@@ -124,6 +124,13 @@ CodatLending/Models/Operations/ListFilesResponse.cs
 CodatLending/Models/Operations/UploadFilesRequestBody.cs
 CodatLending/Models/Operations/UploadFilesRequest.cs
 CodatLending/Models/Operations/UploadFilesResponse.cs
+CodatLending/Models/Operations/GenerateLoanSummarySourceType.cs
+CodatLending/Models/Operations/GenerateLoanSummaryRequest.cs
+CodatLending/Models/Operations/GenerateLoanSummaryResponse.cs
+CodatLending/Models/Operations/GenerateLoanTransactionsSourceType.cs
+CodatLending/Models/Operations/GenerateLoanTransactionsRequest.cs
+CodatLending/Models/Operations/GenerateLoanTransactionsResponse.cs
+CodatLending/Models/Operations/GetLoanSummarySourceType.cs
 CodatLending/Models/Operations/GetLoanSummaryRequest.cs
 CodatLending/Models/Operations/GetLoanSummaryResponse.cs
 CodatLending/Models/Operations/ListLoanTransactionsSourceType.cs
@@ -241,10 +248,6 @@ CodatLending/Models/Operations/CreateAccountRequest.cs
 CodatLending/Models/Operations/CreateAccountResponse.cs
 CodatLending/Models/Operations/GetCreateChartOfAccountsModelRequest.cs
 CodatLending/Models/Operations/GetCreateChartOfAccountsModelResponse.cs
-CodatLending/Models/Operations/CreateBankAccountRequest.cs
-CodatLending/Models/Operations/CreateBankAccountResponse.cs
-CodatLending/Models/Operations/GetCreateUpdateBankAccountsModelRequest.cs
-CodatLending/Models/Operations/GetCreateUpdateBankAccountsModelResponse.cs
 CodatLending/Models/Operations/CreateBankTransactionsRequest.cs
 CodatLending/Models/Operations/CreateBankTransactionsResponse.cs
 CodatLending/Models/Operations/GetCreateBankTransactionsModelRequest.cs
@@ -257,6 +260,10 @@ CodatLending/Models/Operations/CreateDirectCostRequest.cs
 CodatLending/Models/Operations/CreateDirectCostResponse.cs
 CodatLending/Models/Operations/GetCreateDirectCostsModelRequest.cs
 CodatLending/Models/Operations/GetCreateDirectCostsModelResponse.cs
+CodatLending/Models/Operations/CreatePaymentRequest.cs
+CodatLending/Models/Operations/CreatePaymentResponse.cs
+CodatLending/Models/Operations/GetCreatePaymentsModelRequest.cs
+CodatLending/Models/Operations/GetCreatePaymentsModelResponse.cs
 CodatLending/Models/Operations/CreateSupplierRequest.cs
 CodatLending/Models/Operations/CreateSupplierResponse.cs
 CodatLending/Models/Operations/GetCreateUpdateSuppliersModelRequest.cs
@@ -354,6 +361,7 @@ CodatLending/Models/Shared/BankTransactionType.cs
 CodatLending/Models/Shared/Links.cs
 CodatLending/Models/Shared/HalRef.cs
 CodatLending/Models/Shared/AccountingBankAccount.cs
+CodatLending/Models/Shared/SupplementalData.cs
 CodatLending/Models/Shared/Metadata.cs
 CodatLending/Models/Shared/AccountingBankAccountType.cs
 CodatLending/Models/Shared/AccountingBankAccounts.cs
@@ -409,7 +417,6 @@ CodatLending/Models/Shared/LoanTransactionsReportInfo.cs
 CodatLending/Models/Shared/AccountingBillCreditNote.cs
 CodatLending/Models/Shared/Items.cs
 CodatLending/Models/Shared/SupplierRef.cs
-CodatLending/Models/Shared/SupplementalData.cs
 CodatLending/Models/Shared/BillCreditNoteStatus.cs
 CodatLending/Models/Shared/AccountingPaymentAllocationAllocation.cs
 CodatLending/Models/Shared/AccountingPaymentAllocation.cs
@@ -425,6 +432,7 @@ CodatLending/Models/Shared/BilledToType.cs
 CodatLending/Models/Shared/AccountingCustomerRef.cs
 CodatLending/Models/Shared/AccountingBillCreditNotes.cs
 CodatLending/Models/Shared/AccountingBillPayment.cs
+CodatLending/Models/Shared/PaymentMethodRef.cs
 CodatLending/Models/Shared/BillPaymentLine.cs
 CodatLending/Models/Shared/BillPaymentLineLink.cs
 CodatLending/Models/Shared/BillPaymentLineLinkType.cs
@@ -433,6 +441,8 @@ CodatLending/Models/Shared/AccountingBillPurchaseOrderReference.cs
 CodatLending/Models/Shared/AccountingBillWithholdingTax.cs
 CodatLending/Models/Shared/AccountingBill.cs
 CodatLending/Models/Shared/BillStatus.cs
+CodatLending/Models/Shared/BillLineItemRecordLineReferenceDataType.cs
+CodatLending/Models/Shared/BillLineItemRecordLineReference.cs
 CodatLending/Models/Shared/BillLineItem.cs
 CodatLending/Models/Shared/TaxRateRef.cs
 CodatLending/Models/Shared/ItemRef.cs
@@ -535,7 +545,6 @@ CodatLending/Models/Shared/PushFieldValidation.cs
 CodatLending/Models/Shared/PushOptionType.cs
 CodatLending/Models/Shared/PushOptionProperty.cs
 CodatLending/Models/Shared/PushOptionChoice.cs
-CodatLending/Models/Shared/AccountingCreateBankAccountResponse.cs
 CodatLending/Models/Shared/AccountingCreateBankTransactionsResponse.cs
 CodatLending/Models/Shared/AccountingCreateBankTransactions.cs
 CodatLending/Models/Shared/CreateBankAccountTransaction.cs
@@ -546,6 +555,7 @@ CodatLending/Models/Shared/AccountingDirectCost.cs
 CodatLending/Models/Shared/DirectCostLineItem.cs
 CodatLending/Models/Shared/Tracking.cs
 CodatLending/Models/Shared/RecordRef.cs
+CodatLending/Models/Shared/AccountingCreatePaymentResponse.cs
 CodatLending/Models/Shared/AccountingCreateSupplierResponse.cs
 CodatLending/Models/Shared/AccountingCreateTransferResponse.cs
 CodatLending/Models/Shared/AccountingTransferContactRef.cs
@@ -573,7 +583,6 @@ CodatLending/Models/Shared/CommerceReportError.cs
 CodatLending/Models/Shared/CommerceReportDimensionItems.cs
 CodatLending/Models/Shared/CommerceReportDimension.cs
 CodatLending/Models/Shared/PeriodUnit.cs
-CodatLending/Models/Shared/CommerceOrderSupplementalData.cs
 CodatLending/Models/Shared/CommerceOrder.cs
 CodatLending/Models/Shared/ServiceCharge.cs
 CodatLending/Models/Shared/ServiceChargeType.cs
@@ -589,8 +598,8 @@ CodatLending/Models/Shared/OrderDiscountAllocation.cs
 CodatLending/Models/Shared/LocationRef.cs
 CodatLending/Models/Shared/CommerceCustomerRef.cs
 CodatLending/Models/Shared/CommerceOrders.cs
+CodatLending/Models/Shared/CommercePaymentMethodStatus.cs
 CodatLending/Models/Shared/CommercePaymentMethod.cs
-CodatLending/Models/Shared/PaymentMethodStatus.cs
 CodatLending/Models/Shared/CommercePaymentMethods.cs
 CodatLending/Models/Shared/CommercePayment.cs
 CodatLending/Models/Shared/CommercePayments.cs
@@ -683,6 +692,13 @@ docs/models/operations/ListFilesResponse.md
 docs/models/operations/UploadFilesRequestBody.md
 docs/models/operations/UploadFilesRequest.md
 docs/models/operations/UploadFilesResponse.md
+docs/models/operations/GenerateLoanSummarySourceType.md
+docs/models/operations/GenerateLoanSummaryRequest.md
+docs/models/operations/GenerateLoanSummaryResponse.md
+docs/models/operations/GenerateLoanTransactionsSourceType.md
+docs/models/operations/GenerateLoanTransactionsRequest.md
+docs/models/operations/GenerateLoanTransactionsResponse.md
+docs/models/operations/GetLoanSummarySourceType.md
 docs/models/operations/GetLoanSummaryRequest.md
 docs/models/operations/GetLoanSummaryResponse.md
 docs/models/operations/ListLoanTransactionsSourceType.md
@@ -800,10 +816,6 @@ docs/models/operations/CreateAccountRequest.md
 docs/models/operations/CreateAccountResponse.md
 docs/models/operations/GetCreateChartOfAccountsModelRequest.md
 docs/models/operations/GetCreateChartOfAccountsModelResponse.md
-docs/models/operations/CreateBankAccountRequest.md
-docs/models/operations/CreateBankAccountResponse.md
-docs/models/operations/GetCreateUpdateBankAccountsModelRequest.md
-docs/models/operations/GetCreateUpdateBankAccountsModelResponse.md
 docs/models/operations/CreateBankTransactionsRequest.md
 docs/models/operations/CreateBankTransactionsResponse.md
 docs/models/operations/GetCreateBankTransactionsModelRequest.md
@@ -816,6 +828,10 @@ docs/models/operations/CreateDirectCostRequest.md
 docs/models/operations/CreateDirectCostResponse.md
 docs/models/operations/GetCreateDirectCostsModelRequest.md
 docs/models/operations/GetCreateDirectCostsModelResponse.md
+docs/models/operations/CreatePaymentRequest.md
+docs/models/operations/CreatePaymentResponse.md
+docs/models/operations/GetCreatePaymentsModelRequest.md
+docs/models/operations/GetCreatePaymentsModelResponse.md
 docs/models/operations/CreateSupplierRequest.md
 docs/models/operations/CreateSupplierResponse.md
 docs/models/operations/GetCreateUpdateSuppliersModelRequest.md
@@ -913,6 +929,7 @@ docs/models/shared/BankTransactionType.md
 docs/models/shared/Links.md
 docs/models/shared/HalRef.md
 docs/models/shared/AccountingBankAccount.md
+docs/models/shared/SupplementalData.md
 docs/models/shared/Metadata.md
 docs/models/shared/AccountingBankAccountType.md
 docs/models/shared/AccountingBankAccounts.md
@@ -968,7 +985,6 @@ docs/models/shared/LoanTransactionsReportInfo.md
 docs/models/shared/AccountingBillCreditNote.md
 docs/models/shared/Items.md
 docs/models/shared/SupplierRef.md
-docs/models/shared/SupplementalData.md
 docs/models/shared/BillCreditNoteStatus.md
 docs/models/shared/AccountingPaymentAllocationAllocation.md
 docs/models/shared/AccountingPaymentAllocation.md
@@ -984,6 +1000,7 @@ docs/models/shared/BilledToType.md
 docs/models/shared/AccountingCustomerRef.md
 docs/models/shared/AccountingBillCreditNotes.md
 docs/models/shared/AccountingBillPayment.md
+docs/models/shared/PaymentMethodRef.md
 docs/models/shared/BillPaymentLine.md
 docs/models/shared/BillPaymentLineLink.md
 docs/models/shared/BillPaymentLineLinkType.md
@@ -992,6 +1009,8 @@ docs/models/shared/AccountingBillPurchaseOrderReference.md
 docs/models/shared/AccountingBillWithholdingTax.md
 docs/models/shared/AccountingBill.md
 docs/models/shared/BillStatus.md
+docs/models/shared/BillLineItemRecordLineReferenceDataType.md
+docs/models/shared/BillLineItemRecordLineReference.md
 docs/models/shared/BillLineItem.md
 docs/models/shared/TaxRateRef.md
 docs/models/shared/ItemRef.md
@@ -1094,7 +1113,6 @@ docs/models/shared/PushFieldValidation.md
 docs/models/shared/PushOptionType.md
 docs/models/shared/PushOptionProperty.md
 docs/models/shared/PushOptionChoice.md
-docs/models/shared/AccountingCreateBankAccountResponse.md
 docs/models/shared/AccountingCreateBankTransactionsResponse.md
 docs/models/shared/AccountingCreateBankTransactions.md
 docs/models/shared/CreateBankAccountTransaction.md
@@ -1105,6 +1123,7 @@ docs/models/shared/AccountingDirectCost.md
 docs/models/shared/DirectCostLineItem.md
 docs/models/shared/Tracking.md
 docs/models/shared/RecordRef.md
+docs/models/shared/AccountingCreatePaymentResponse.md
 docs/models/shared/AccountingCreateSupplierResponse.md
 docs/models/shared/AccountingCreateTransferResponse.md
 docs/models/shared/AccountingTransferContactRef.md
@@ -1132,7 +1151,6 @@ docs/models/shared/CommerceReportError.md
 docs/models/shared/CommerceReportDimensionItems.md
 docs/models/shared/CommerceReportDimension.md
 docs/models/shared/PeriodUnit.md
-docs/models/shared/CommerceOrderSupplementalData.md
 docs/models/shared/CommerceOrder.md
 docs/models/shared/ServiceCharge.md
 docs/models/shared/ServiceChargeType.md
@@ -1148,8 +1166,8 @@ docs/models/shared/OrderDiscountAllocation.md
 docs/models/shared/LocationRef.md
 docs/models/shared/CommerceCustomerRef.md
 docs/models/shared/CommerceOrders.md
+docs/models/shared/CommercePaymentMethodStatus.md
 docs/models/shared/CommercePaymentMethod.md
-docs/models/shared/PaymentMethodStatus.md
 docs/models/shared/CommercePaymentMethods.md
 docs/models/shared/CommercePayment.md
 docs/models/shared/CommercePayments.md
@@ -1226,10 +1244,10 @@ docs/sdks/financialstatementscashflow/README.md
 docs/sdks/financialstatementsprofitandloss/README.md
 docs/sdks/loanwriteback/README.md
 docs/sdks/loanwritebackaccounts/README.md
-docs/sdks/loanwritebackbankaccounts/README.md
 docs/sdks/loanwritebackbanktransactions/README.md
 docs/sdks/loanwritebackcreateoperations/README.md
 docs/sdks/loanwritebackdirectcosts/README.md
+docs/sdks/loanwritebackpayments/README.md
 docs/sdks/loanwritebacksuppliers/README.md
 docs/sdks/loanwritebacktransfers/README.md
 docs/sdks/managedata/README.md

@@ -31,6 +31,6 @@ namespace CodatLending.Models.Operations
         /// The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=reportDate")]
-        public string ReportDate { get; set; } = default!;
+        public string? ReportDate { get; set; }
     }
 }

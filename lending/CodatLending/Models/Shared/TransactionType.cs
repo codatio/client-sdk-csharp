@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System;
     
     /// <summary>
-    /// The type of the platform transaction:  &lt;br/&gt;
+    /// The type of the platform transaction:  <br/>
     /// 
     /// <remarks>
     /// - `Unknown`  <br/>

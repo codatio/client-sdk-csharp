@@ -14,7 +14,7 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; View the coverage for tax rates in the &amp;lt;a className=&amp;quot;external&amp;quot; href=&amp;quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;amp;dataType=taxRates&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;Data coverage explorer&amp;lt;/a&amp;gt;.&lt;br/&gt;
+    /// &gt; View the coverage for tax rates in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=taxRates&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -78,7 +78,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Status of the tax rate in the accounting platform.  &lt;br/&gt;
+        /// Status of the tax rate in the accounting platform.  <br/>
         /// 
         /// <remarks>
         /// - `Active` - An active tax rate in use by a company.  <br/>
@@ -88,6 +88,17 @@ namespace CodatSyncPayables.Models.Shared
         /// </summary>
         [JsonProperty("status")]
         public TaxRateStatus? Status { get; set; }
+
+        /// <summary>
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
+        /// </remarks>
+        /// </summary>
+        [JsonProperty("supplementalData")]
+        public SupplementalData? SupplementalData { get; set; }
 
         /// <summary>
         /// Total (not compounded) sum of the components of a tax rate.

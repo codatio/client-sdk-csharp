@@ -7,5 +7,5 @@ Weblink associated with the company.
 
 | Field                                             | Type                                              | Required                                          | Description                                       |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `type`                                            | [WebLinkType](../../models/shared/WebLinkType.md) | :heavy_minus_sign:                                | The type of the weblink.                          |
-| `url`                                             | *string*                                          | :heavy_minus_sign:                                | The full URL for the weblink.                     |
+| `Type`                                            | [WebLinkType](../../models/shared/WebLinkType.md) | :heavy_minus_sign:                                | The type of the weblink.                          |
+| `Url`                                             | *string*                                          | :heavy_minus_sign:                                | The full URL for the weblink.                     |

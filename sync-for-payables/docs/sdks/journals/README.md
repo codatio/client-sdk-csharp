@@ -1,4 +1,5 @@
-# Journals
+# JournalsSDK
+(*Journals*)
 
 ## Overview
 
@@ -40,22 +41,12 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.Journals.CreateAsync(new CreateJournalRequest() {
     Journal = new Journal() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
-        HasChildren = false,
-        Id = "700b607f-3c93-4c73-b9da-3f2ceda7e23f",
-        JournalCode = "explicabo",
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Mr. Marcia Fritsch",
-        ParentId = "deserunt",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.JournalStatus.Unknown,
-        Type = "distinctio",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 450224,
 });
 
 // handle response
@@ -99,7 +90,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Journals.GetAsync(new GetJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "exercitationem",
+    JournalId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -190,7 +181,6 @@ var res = await sdk.Journals.ListAsync(new ListJournalsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "labore",
 });
 
 // handle response

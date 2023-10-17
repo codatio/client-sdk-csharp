@@ -84,7 +84,8 @@ CodatBankFeeds/Models/Shared/ValidationItem.cs
 CodatBankFeeds/Models/Shared/PushOperationStatus.cs
 CodatBankFeeds/Models/Shared/DataType.cs
 CodatBankFeeds/Models/Shared/CreateBankTransactions.cs
-CodatBankFeeds/Models/Shared/CreateBankTransaction.cs
+CodatBankFeeds/Models/Shared/BankTransactionsBankTransactionType.cs
+CodatBankFeeds/Models/Shared/BankTransactions.cs
 CodatBankFeeds/Models/Shared/PushOperationChange.cs
 CodatBankFeeds/Models/Shared/PushChangeType.cs
 CodatBankFeeds/Models/Shared/PushOperationRef.cs
@@ -164,7 +165,8 @@ docs/models/shared/ValidationItem.md
 docs/models/shared/PushOperationStatus.md
 docs/models/shared/DataType.md
 docs/models/shared/CreateBankTransactions.md
-docs/models/shared/CreateBankTransaction.md
+docs/models/shared/BankTransactionsBankTransactionType.md
+docs/models/shared/BankTransactions.md
 docs/models/shared/PushOperationChange.md
 docs/models/shared/PushChangeType.md
 docs/models/shared/PushOperationRef.md

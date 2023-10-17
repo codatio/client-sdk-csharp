@@ -23,6 +23,6 @@ namespace CodatBankFeeds.Models.Shared
         public string? AccountId { get; set; }
 
         [JsonProperty("transactions")]
-        public List<CreateBankTransaction>? Transactions { get; set; }
+        public List<BankTransactions>? Transactions { get; set; }
     }
 }

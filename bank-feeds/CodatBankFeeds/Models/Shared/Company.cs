@@ -15,7 +15,7 @@ namespace CodatBankFeeds.Models.Shared
     using System;
     
     /// <summary>
-    /// In Codat, a company represents a business sharing access to their data. Each company can have multiple &lt;a href=&quot;https://docs.codat.io/bank-feeds-api#/schemas/Connection&quot;&gt;connections&lt;/a&gt; to different data sources such as one connection to &lt;a href=&quot;https://docs.codat.io/integrations/accounting/xero/accounting-xero&quot;&gt;Xero&lt;/a&gt; for accounting data, two connections to &lt;a href=&quot;https://docs.codat.io/integrations/banking/plaid/banking-plaid&quot;&gt;Plaid&lt;/a&gt; for two bank accounts and a connection to &lt;a href=&quot;https://docs.codat.io/integrations/commerce/zettle/commerce-zettle&quot;&gt;Zettle&lt;/a&gt; for POS data.&lt;br/&gt;
+    /// In Codat, a company represents a business sharing access to their data. Each company can have multiple <a href="https://docs.codat.io/bank-feeds-api#/schemas/Connection">connections</a> to different data sources such as one connection to <a href="https://docs.codat.io/integrations/accounting/xero/accounting-xero">Xero</a> for accounting data, two connections to <a href="https://docs.codat.io/integrations/banking/plaid/banking-plaid">Plaid</a> for two bank accounts and a connection to <a href="https://docs.codat.io/integrations/commerce/zettle/commerce-zettle">Zettle</a> for POS data.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -28,7 +28,7 @@ namespace CodatBankFeeds.Models.Shared
     {
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -76,7 +76,7 @@ namespace CodatBankFeeds.Models.Shared
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -116,7 +116,7 @@ namespace CodatBankFeeds.Models.Shared
         public string? Platform { get; set; }
 
         /// <summary>
-        /// The `redirect` &lt;a href=&quot;https://docs.codat.io/auth-flow/authorize-hosted-link&quot;&gt;Link URL&lt;/a&gt; enabling the customer to start their auth flow journey for the company.
+        /// The `redirect` <a href="https://docs.codat.io/auth-flow/authorize-hosted-link">Link URL</a> enabling the customer to start their auth flow journey for the company.
         /// </summary>
         [JsonProperty("redirect")]
         public string Redirect { get; set; } = default!;

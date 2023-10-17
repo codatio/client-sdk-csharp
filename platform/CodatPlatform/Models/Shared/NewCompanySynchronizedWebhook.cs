@@ -46,7 +46,7 @@ namespace CodatPlatform.Models.Shared
         public NewCompanySynchronizedWebhookData? Data { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("DataConnectionId")]
         public string? DataConnectionId { get; set; }

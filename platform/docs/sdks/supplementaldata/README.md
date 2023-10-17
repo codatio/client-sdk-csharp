@@ -1,4 +1,5 @@
-# SupplementalData
+# SupplementalDataSDK
+(*SupplementalData*)
 
 ## Overview
 
@@ -34,13 +35,12 @@ var sdk = new CodatPlatformSDK(
 var res = await sdk.SupplementalData.ConfigureAsync(new ConfigureSupplementalDataRequest() {
     SupplementalDataConfiguration = new SupplementalDataConfiguration() {
         SupplementalDataConfig = new Dictionary<string, SupplementalDataConfigurationSupplementalDataSourceConfiguration>() {
-            { "quasi", new SupplementalDataConfigurationSupplementalDataSourceConfiguration() {
-                DataSource = "error",
+            { "Cutler", new SupplementalDataConfigurationSupplementalDataSourceConfiguration() {
                 PullData = new Dictionary<string, string>() {
-                    { "temporibus", "laborum" },
+                    { "North", "transmitter" },
                 },
                 PushData = new Dictionary<string, string>() {
-                    { "quasi", "reiciendis" },
+                    { "infrastructure", "Northeast" },
                 },
             } },
         },

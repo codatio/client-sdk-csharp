@@ -1,4 +1,5 @@
-# Integrations
+# IntegrationsSDK
+(*Integrations*)
 
 ## Overview
 
@@ -66,7 +67,6 @@ var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "vel",
 });
 
 // handle response

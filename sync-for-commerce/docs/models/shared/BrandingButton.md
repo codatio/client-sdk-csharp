@@ -7,5 +7,5 @@ Button branding references.
 
 | Field                                                 | Type                                                  | Required                                              | Description                                           |
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `default`                                             | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |
-| `hover`                                               | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |
+| `Default`                                             | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |
+| `Hover`                                               | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |

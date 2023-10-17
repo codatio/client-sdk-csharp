@@ -18,7 +18,7 @@ namespace CodatSyncCommerce
     using System;
 
     /// <summary>
-    /// Sync for Commerce: The API for Sync for Commerce. &lt;br/&gt;
+    /// Sync for Commerce: The API for Sync for Commerce. <br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -43,7 +43,7 @@ namespace CodatSyncCommerce
         public IConnectionsSDK Connections { get; }
 
         /// <summary>
-        /// View useful information about codat&amp;apos;s integrations.
+        /// View useful information about codat&apos;s integrations.
         /// </summary>
         public IIntegrationsSDK Integrations { get; }
 
@@ -63,7 +63,7 @@ namespace CodatSyncCommerce
     }
 
     /// <summary>
-    /// Sync for Commerce: The API for Sync for Commerce. &lt;br/&gt;
+    /// Sync for Commerce: The API for Sync for Commerce. <br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -83,9 +83,10 @@ namespace CodatSyncCommerce
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "2.2.0";
+        private const string _sdkGenVersion = "2.159.2";
         private const string _openapiDocVersion = "1.1";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.159.2 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

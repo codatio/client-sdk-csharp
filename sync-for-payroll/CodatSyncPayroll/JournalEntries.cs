@@ -137,9 +137,10 @@ namespace CodatSyncPayroll
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.1.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "2.2.0";
+        private const string _sdkGenVersion = "2.159.2";
         private const string _openapiDocVersion = "3.0.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.159.2 3.0.0 Codat.Sync.Payroll";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -164,7 +165,7 @@ namespace CodatSyncPayroll
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "JournalEntry", "json");
             if (serializedBody != null)
@@ -184,9 +185,10 @@ namespace CodatSyncPayroll
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.CreateJournalEntryResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateJournalEntryResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -195,7 +197,7 @@ namespace CodatSyncPayroll
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -217,7 +219,7 @@ namespace CodatSyncPayroll
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -232,9 +234,10 @@ namespace CodatSyncPayroll
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -243,7 +246,7 @@ namespace CodatSyncPayroll
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -265,7 +268,7 @@ namespace CodatSyncPayroll
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -280,9 +283,10 @@ namespace CodatSyncPayroll
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.JournalEntry = JsonConvert.DeserializeObject<JournalEntry>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -291,7 +295,7 @@ namespace CodatSyncPayroll
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -313,7 +317,7 @@ namespace CodatSyncPayroll
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -328,9 +332,10 @@ namespace CodatSyncPayroll
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.PushOption = JsonConvert.DeserializeObject<PushOption>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -339,7 +344,7 @@ namespace CodatSyncPayroll
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -361,7 +366,7 @@ namespace CodatSyncPayroll
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -376,9 +381,10 @@ namespace CodatSyncPayroll
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.JournalEntries = JsonConvert.DeserializeObject<JournalEntries>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -387,7 +393,7 @@ namespace CodatSyncPayroll
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }

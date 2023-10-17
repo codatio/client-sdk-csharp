@@ -14,11 +14,11 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Bill credit notes or credit notes?**&lt;br/&gt;
+    /// &gt; **Bill credit notes or credit notes?**<br/>
     /// 
     /// <remarks>
     /// &gt; <br/>
-    /// &gt; In Codat, bill credit notes represent accounts payable only. For accounts receivable, see <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">Credit notes</a>.<br/>
+    /// &gt; In Codat, bill credit notes represent accounts payable only. For accounts receivable, see <a href="https://docs.codat.io/sync-for-payables-api#/schemas/CreditNote">Credit notes</a>.<br/>
     /// <br/>
     /// View the coverage for bill credit notes in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// <br/>
@@ -26,11 +26,11 @@ namespace CodatSyncPayables.Models.Shared
     /// <br/>
     /// A bill credit note is issued by a supplier for the purpose of recording credit. For example, if a supplier was unable to fulfil an order that was placed by a business, or delivered damaged goods, they would issue a bill credit note. A bill credit note reduces the amount a business owes to the supplier. It can be refunded to the business or used to pay off future bills.<br/>
     /// <br/>
-    /// In the Codat API, a bill credit note is an accounts payable record issued by a <a href="https://docs.codat.io/accounting-api#/schemas/Supplier">supplier</a>. <br/>
+    /// In the Codat API, a bill credit note is an accounts payable record issued by a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a>. <br/>
     /// <br/>
     /// A bill credit note includes details of:<br/>
     /// * The original and remaining credit.<br/>
-    /// * Any allocations of the credit against other records, such as <a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a>.<br/>
+    /// * Any allocations of the credit against other records, such as <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bills</a>.<br/>
     /// * The supplier that issued the bill credit note.
     /// </remarks>
     /// </summary>
@@ -38,7 +38,7 @@ namespace CodatSyncPayables.Models.Shared
     {
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -71,7 +71,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? BillCreditNoteNumber { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -86,7 +86,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -131,7 +131,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Id { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -203,7 +203,7 @@ namespace CodatSyncPayables.Models.Shared
         public decimal SubTotal { get; set; } = default!;
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -220,7 +220,7 @@ namespace CodatSyncPayables.Models.Shared
         public SupplierRef? SupplierRef { get; set; }
 
         /// <summary>
-        /// Total amount of credit that has been applied to the business&amp;apos; account with the supplier, including discounts and tax.
+        /// Total amount of credit that has been applied to the business&apos; account with the supplier, including discounts and tax.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal TotalAmount { get; set; } = default!;

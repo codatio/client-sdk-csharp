@@ -14,19 +14,19 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Bill payments or payments?**  &lt;br/&gt;
+    /// &gt; **Bill payments or payments?**  <br/>
     /// 
     /// <remarks>
     /// &gt; <br/>
     /// &gt; We distinguish between transactions where the company received money vs. paid money. If the transaction represents a company spending money (accounts payable) we call this a Bill payment.<br/>
     /// &gt;<br/>
-    /// &gt; See <a href="https://docs.codat.io/accounting-api#/schemas/Payment">payments</a> for the accounts receivable equivalent of Bill payments, which covers <a href="https://docs.codat.io/accounting-api#/schemas/Invoice">invoices</a> and <a href="https://docs.codat.io/accounting-api#/schemas/CreditNote">credit notes</a>.<br/>
+    /// &gt; See <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Payment">payments</a> for the accounts receivable equivalent of Bill payments, which covers <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Invoice">invoices</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/CreditNote">credit notes</a>.<br/>
     /// <br/>
     /// &gt; View the coverage for bill payments in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billPayments&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// Bill payments include all accounts payable transaction data (<a href="https://docs.codat.io/accounting-api#/schemas/Bill">bills</a> and <a href="https://docs.codat.io/accounting-api#/schemas/BillCreditNote">credit notes against bills</a>).<br/>
+    /// Bill payments include all accounts payable transaction data (<a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bills</a> and <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">credit notes against bills</a>).<br/>
     /// <br/>
     /// A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes, but is not strictly limited to:<br/>
     /// <br/>
@@ -43,9 +43,9 @@ namespace CodatSyncPayables.Models.Shared
     /// - Who the payment has been paid to, the _supplier_.<br/>
     /// - The types of bill payments, the _line items_.  <br/>
     /// <br/>
-    /// Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s _expenses_. You can find these types of transactions in our <a href="https://docs.codat.io/accounting-api#/schemas/DirectCost">Direct costs</a> data model.<br/>
+    /// Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s _expenses_. You can find these types of transactions in our <a href="https://docs.codat.io/sync-for-payables-api#/schemas/DirectCost">Direct costs</a> data model.<br/>
     /// <br/>
-    /// Bill payments is a child data type of <a href="https://docs.codat.io/accounting-api#/schemas/AccountTransaction">account transactions</a>.<br/>
+    /// Bill payments is a child data type of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/AccountTransaction">account transactions</a>.<br/>
     /// <br/>
     /// ---<br/>
     /// <br/>
@@ -182,7 +182,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -242,7 +242,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? Note { get; set; }
 
         [JsonProperty("paymentMethodRef")]
-        public object? PaymentMethodRef { get; set; }
+        public PaymentMethodRef? PaymentMethodRef { get; set; }
 
         /// <summary>
         /// Additional information associated with the payment.
@@ -254,7 +254,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -268,7 +268,7 @@ namespace CodatSyncPayables.Models.Shared
         public SupplierRef? SupplierRef { get; set; }
 
         /// <summary>
-        /// Amount of the payment in the payment currency. This value never changes and represents the amount of money that is paid into the supplier&amp;apos;s account.
+        /// Amount of the payment in the payment currency. This value never changes and represents the amount of money that is paid into the supplier&apos;s account.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }

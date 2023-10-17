@@ -14,7 +14,7 @@ namespace CodatSyncPayables.Models.Shared
     using System;
     
     /// <summary>
-    /// Status of the tax rate in the accounting platform.  &lt;br/&gt;
+    /// Status of the tax rate in the accounting platform.  <br/>
     /// 
     /// <remarks>
     /// - `Active` - An active tax rate in use by a company.  <br/>

@@ -14,7 +14,7 @@ namespace CodatSyncPayables.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+    /// Supplemental data is additional data you can include in our standard data types. <br/>
     /// 
     /// <remarks>
     /// <br/>

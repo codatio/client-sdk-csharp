@@ -22,7 +22,7 @@ namespace CodatSyncPayables.Models.Shared
         public string? ItemId { get; set; }
 
         /// <summary>
-        /// A message outlining validation item&amp;apos;s issue.
+        /// A message outlining validation item&apos;s issue.
         /// </summary>
         [JsonProperty("message")]
         public string? Message { get; set; }

@@ -1,4 +1,5 @@
-# JournalEntries
+# JournalEntriesSDK
+(*JournalEntries*)
 
 ## Overview
 
@@ -41,54 +42,40 @@ var sdk = new CodatSyncPayrollSDK(
 var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
-        Description = "temporibus",
-        Id = "151a05df-c2dd-4f7c-878c-a1ba928fc816",
         JournalLines = new List<JournalLine>() {
             new JournalLine() {
-                AccountRef = new AccountRef() {
-                    Id = "742cb739-2059-4293-96fe-a7596eb10faa",
-                    Name = "Ernest Ebert",
-                },
-                Currency = "nobis",
-                Description = "enim",
-                NetAmount = 6078.31M,
+                AccountRef = new AccountRef() {},
+                NetAmount = 4893.82M,
                 Tracking = new JournalLineTracking() {
                     RecordRefs = new List<RecordRef>() {
                         new RecordRef() {
-                            DataType = "invoice",
-                            Id = "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
+                            DataType = "accountTransaction",
                         },
                     },
                 },
             },
         },
         JournalRef = new JournalRef() {
-            Id = "5ad019da-1ffe-478f-897b-0074f15471b5",
-            Name = "Mrs. Leslie VonRueden",
+            Id = "<ID>",
         },
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         PostedOn = "2022-10-23T00:00:00.000Z",
         RecordRef = new JournalEntryRecordReference() {
-            DataType = "transfer",
-            Id = "488e1e91-e450-4ad2-abd4-4269802d502a",
+            DataType = "invoice",
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        SupplementalData = new JournalEntrySupplementalData() {
+        SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "tempora", new Dictionary<string, object>() {
-                    { "facilis", "tempore" },
+                { "blue", new Dictionary<string, object>() {
+                    { "shred", "abnormally" },
                 } },
             },
         },
         UpdatedOn = "2022-10-23T00:00:00.000Z",
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 962189,
 });
 
 // handle response
@@ -153,11 +140,9 @@ var sdk = new CodatSyncPayrollSDK(
 );
 
 var res = await sdk.JournalEntries.DeleteAsync(new DeleteJournalEntryRequest() {
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    JournalEntryId = "eum",
-    TimeoutInMinutes = 248753,
+    JournalEntryId = "Van complexity",
 });
 
 // handle response
@@ -201,7 +186,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.JournalEntries.GetAsync(new GetJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "eligendi",
+    JournalEntryId = "Northeast Hatchback Kia",
 });
 
 // handle response
@@ -292,7 +277,6 @@ var res = await sdk.JournalEntries.ListAsync(new ListJournalEntriesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "sint",
 });
 
 // handle response

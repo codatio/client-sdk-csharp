@@ -13,7 +13,7 @@ namespace CodatSyncPayroll.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Details of a category used for tracking transactions.&lt;br/&gt;
+    /// Details of a category used for tracking transactions.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -160,6 +160,9 @@ namespace CodatSyncPayroll.Models.Shared
         [JsonProperty("id")]
         public string? Id { get; set; }
 
+        [JsonProperty("metadata")]
+        public Metadata? Metadata { get; set; }
+
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -170,7 +173,7 @@ namespace CodatSyncPayroll.Models.Shared
         public string? Name { get; set; }
 
         /// <summary>
-        /// The identifier for this item&amp;apos;s immediate parent.
+        /// The identifier for this item&apos;s immediate parent.
         /// </summary>
         [JsonProperty("parentId")]
         public string? ParentId { get; set; }

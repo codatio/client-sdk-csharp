@@ -14,14 +14,14 @@ namespace CodatSyncPayroll.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+    /// Supplemental data is additional data you can include in our standard data types. <br/>
     /// 
     /// <remarks>
     /// <br/>
     /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
     /// </remarks>
     /// </summary>
-    public class JournalEntrySupplementalData
+    public class SupplementalData
     {
 
         [JsonProperty("content")]

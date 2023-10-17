@@ -98,6 +98,7 @@ CodatSyncPayroll/Models/Shared/AccountMetadata.cs
 CodatSyncPayroll/Models/Shared/AccountValidDataTypeLinks.cs
 CodatSyncPayroll/Models/Shared/Account.cs
 CodatSyncPayroll/Models/Shared/AccountType.cs
+CodatSyncPayroll/Models/Shared/SupplementalData.cs
 CodatSyncPayroll/Models/Shared/AccountStatus.cs
 CodatSyncPayroll/Models/Shared/PushOperationChange.cs
 CodatSyncPayroll/Models/Shared/PushChangeType.cs
@@ -128,7 +129,6 @@ CodatSyncPayroll/Models/Shared/AccountingAddressType.cs
 CodatSyncPayroll/Models/Shared/Connections.cs
 CodatSyncPayroll/Models/Shared/CreateJournalEntryResponse.cs
 CodatSyncPayroll/Models/Shared/JournalEntryRecordReference.cs
-CodatSyncPayroll/Models/Shared/JournalEntrySupplementalData.cs
 CodatSyncPayroll/Models/Shared/JournalEntry.cs
 CodatSyncPayroll/Models/Shared/Metadata.cs
 CodatSyncPayroll/Models/Shared/JournalRef.cs
@@ -237,6 +237,7 @@ docs/models/shared/AccountMetadata.md
 docs/models/shared/AccountValidDataTypeLinks.md
 docs/models/shared/Account.md
 docs/models/shared/AccountType.md
+docs/models/shared/SupplementalData.md
 docs/models/shared/AccountStatus.md
 docs/models/shared/PushOperationChange.md
 docs/models/shared/PushChangeType.md
@@ -267,7 +268,6 @@ docs/models/shared/AccountingAddressType.md
 docs/models/shared/Connections.md
 docs/models/shared/CreateJournalEntryResponse.md
 docs/models/shared/JournalEntryRecordReference.md
-docs/models/shared/JournalEntrySupplementalData.md
 docs/models/shared/JournalEntry.md
 docs/models/shared/Metadata.md
 docs/models/shared/JournalRef.md

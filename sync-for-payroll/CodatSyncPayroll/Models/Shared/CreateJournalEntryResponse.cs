@@ -30,7 +30,7 @@ namespace CodatSyncPayroll.Models.Shared
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -57,7 +57,7 @@ namespace CodatSyncPayroll.Models.Shared
         public string? CompletedOnUtc { get; set; }
 
         /// <summary>
-        /// &amp;gt; **Language tip:** For the top-level record of a company&amp;apos;s financial transactions, refer to the &lt;a href=&quot;https://docs.codat.io/accounting-api#/schemas/Journal&quot;&gt;Journals&lt;/a&gt; data type&lt;br/&gt;
+        /// &gt; **Language tip:** For the top-level record of a company&apos;s financial transactions, refer to the <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">Journals</a> data type<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -65,7 +65,7 @@ namespace CodatSyncPayroll.Models.Shared
         /// <br/>
         /// ## Overview<br/>
         /// <br/>
-        /// A journal entry report shows the entries made in a company&apos;s general ledger, or <a href="https://docs.codat.io/accounting-api#/schemas/Account">accounts</a>, when transactions are approved. The journal line items for each journal entry should balance.<br/>
+        /// A journal entry report shows the entries made in a company&apos;s general ledger, or <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">accounts</a>, when transactions are approved. The journal line items for each journal entry should balance.<br/>
         /// <br/>
         /// A journal entry line item is a single transaction line on the journal entry. For example: <br/>
         /// <br/>
@@ -87,7 +87,7 @@ namespace CodatSyncPayroll.Models.Shared
         public JournalEntry? Data { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("dataConnectionKey")]
         public string DataConnectionKey { get; set; } = default!;
@@ -111,7 +111,7 @@ namespace CodatSyncPayroll.Models.Shared
         public string PushOperationKey { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

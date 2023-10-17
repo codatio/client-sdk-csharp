@@ -14,7 +14,7 @@ namespace CodatSyncPayroll.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// A connection represents a &lt;a href=&quot;https://docs.codat.io/sync-for-payroll-api#/schemas/Company&quot;&gt;company&amp;apos;s&lt;/a&gt; connection to a data source and allows you to synchronize data (pull and/or push) with that source.&lt;br/&gt;
+    /// A connection represents a <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Company">company&apos;s</a> connection to a data source and allows you to synchronize data (pull and/or push) with that source.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -38,7 +38,7 @@ namespace CodatSyncPayroll.Models.Shared
         public Dictionary<string, string>? ConnectionInfo { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -68,7 +68,7 @@ namespace CodatSyncPayroll.Models.Shared
         public List<DataConnectionError>? DataConnectionErrors { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&amp;apos;s data connection.
+        /// Unique identifier for a company&apos;s data connection.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -80,13 +80,13 @@ namespace CodatSyncPayroll.Models.Shared
         public string IntegrationId { get; set; } = default!;
 
         /// <summary>
-        /// A unique four-character ID that identifies the platform of the company&amp;apos;s data connection. This ensures continuity if the platform changes its name in the future.
+        /// A unique four-character ID that identifies the platform of the company&apos;s data connection. This ensures continuity if the platform changes its name in the future.
         /// </summary>
         [JsonProperty("integrationKey")]
         public string IntegrationKey { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>

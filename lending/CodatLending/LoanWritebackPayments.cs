@@ -19,57 +19,59 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface ILoanWritebackBankAccountsSDK
+    public interface ILoanWritebackPaymentsSDK
     {
 
         /// <summary>
-        /// Create bank account
+        /// Create payment
         /// 
         /// <remarks>
-        /// The *Create bank account* endpoint creates a new <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">bank account</a> for a given company&apos;s connection.<br/>
+        /// The *Create payment* endpoint creates a new <a href="https://docs.codat.io/lending-api#/schemas/Payment">payment</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Payment">Payments</a> represent an allocation of money within any customer accounts receivable account.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-update-bankAccounts-model">Get create/update bank account model</a>.<br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-payments-model">Get create payment model</a>.<br/>
         /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts">coverage explorer</a> for integrations that support creating an account.
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=payments">coverage explorer</a> for integrations that support creating an account.<br/>
+        /// 
         /// </remarks>
         /// </summary>
-        Task<CreateBankAccountResponse> CreateAsync(CreateBankAccountRequest? request = null);
+        Task<CreatePaymentResponse> CreateAsync(CreatePaymentRequest? request = null);
 
         /// <summary>
-        /// Get create/update bank account model
+        /// Get create payment model
         /// 
         /// <remarks>
-        /// The *Get create/update bank account model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">bank account</a> for a given company and integration.<br/>
+        /// The *Get create payment model* endpoint returns the expected data for the request payload when creating a <a href="https://docs.codat.io/lending-api#/schemas/Payment">payment</a> for a given company and integration.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/BankAccount">Bank accounts</a> are financial accounts maintained by a bank or other financial institution.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Payment">Payments</a> represent an allocation of money within any customer accounts receivable account.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
         /// See the *response examples* for integration-specific indicative models.<br/>
         /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts">coverage explorer</a> for integrations that support creating and updating a bank account.<br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=payments">coverage explorer</a> for integrations that support creating a payment.<br/>
         /// 
         /// </remarks>
         /// </summary>
-        Task<GetCreateUpdateBankAccountsModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBankAccountsModelRequest? request = null);
+        Task<GetCreatePaymentsModelResponse> GetCreateModelAsync(GetCreatePaymentsModelRequest? request = null);
     }
 
-    public class LoanWritebackBankAccountsSDK: ILoanWritebackBankAccountsSDK
+    public class LoanWritebackPaymentsSDK: ILoanWritebackPaymentsSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.2.1";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "4.3.0";
+        private const string _sdkGenVersion = "2.159.2";
         private const string _openapiDocVersion = "3.0.0";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public LoanWritebackBankAccountsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public LoanWritebackPaymentsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -78,20 +80,20 @@ namespace CodatLending
         }
         
 
-        public async Task<CreateBankAccountResponse> CreateAsync(CreateBankAccountRequest? request = null)
+        public async Task<CreatePaymentResponse> CreateAsync(CreatePaymentRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/bankAccounts", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/payments", request);
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "AccountingBankAccount", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "AccountingPayment", "json");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -103,24 +105,25 @@ namespace CodatLending
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new CreateBankAccountResponse
+            var response = new CreatePaymentResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.AccountingCreateBankAccountResponse = JsonConvert.DeserializeObject<AccountingCreateBankAccountResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.AccountingCreatePaymentResponse = JsonConvert.DeserializeObject<AccountingCreatePaymentResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -131,18 +134,18 @@ namespace CodatLending
         }
         
 
-        public async Task<GetCreateUpdateBankAccountsModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBankAccountsModelRequest? request = null)
+        public async Task<GetCreatePaymentsModelResponse> GetCreateModelAsync(GetCreatePaymentsModelRequest? request = null)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/bankAccounts", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/payments", request);
             
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", $"speakeasy-sdk/{_language} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
+            httpRequest.Headers.Add("user-agent", _userAgent);
             
             
             var client = _securityClient;
@@ -151,15 +154,16 @@ namespace CodatLending
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new GetCreateUpdateBankAccountsModelResponse
+            var response = new GetCreatePaymentsModelResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.PushOption = JsonConvert.DeserializeObject<PushOption>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
@@ -168,7 +172,7 @@ namespace CodatLending
             }
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
             {
-                if(Utilities.IsContentTypeMatch("application/json", response.ContentType))
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }

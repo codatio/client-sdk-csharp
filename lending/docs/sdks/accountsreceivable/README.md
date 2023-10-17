@@ -1,4 +1,5 @@
-# AccountsReceivable
+# AccountsReceivableSDK
+(*AccountsReceivable*)
 
 ### Available Operations
 

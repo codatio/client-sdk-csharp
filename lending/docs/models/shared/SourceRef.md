@@ -7,4 +7,4 @@ A source reference containing the `sourceType` object "Banking".
 
 | Field                 | Type                  | Required              | Description           |
 | --------------------- | --------------------- | --------------------- | --------------------- |
-| `sourceType`          | *string*              | :heavy_minus_sign:    | The data source type. |
+| `SourceType`          | *string*              | :heavy_minus_sign:    | The data source type. |

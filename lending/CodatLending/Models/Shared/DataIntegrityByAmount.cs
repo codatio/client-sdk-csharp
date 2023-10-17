@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -49,7 +49,7 @@ namespace CodatLending.Models.Shared
         public decimal? Total { get; set; }
 
         /// <summary>
-        /// The sum of the absolute value of transactions of the type specified in the route which don&amp;apos;t have a match.
+        /// The sum of the absolute value of transactions of the type specified in the route which don&apos;t have a match.
         /// </summary>
         [JsonProperty("unmatched")]
         public decimal? Unmatched { get; set; }

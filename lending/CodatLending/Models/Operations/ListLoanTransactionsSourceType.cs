@@ -14,7 +14,7 @@ namespace CodatLending.Models.Operations
     using System;
     
     /// <summary>
-    /// Data source type
+    /// Data source type.
     /// </summary>
     public enum ListLoanTransactionsSourceType
     {

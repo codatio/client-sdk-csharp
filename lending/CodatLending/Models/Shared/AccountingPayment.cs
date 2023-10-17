@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Payments or bill payments?**  &lt;br/&gt;
+    /// &gt; **Payments or bill payments?**  <br/>
     /// 
     /// <remarks>
     /// &gt; <br/>
@@ -706,7 +706,7 @@ namespace CodatLending.Models.Shared
         public AccountRef? AccountRef { get; set; }
 
         /// <summary>
-        /// The currency data type in Codat is the &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_4217&quot;&gt;ISO 4217&lt;/a&gt; currency code, e.g. _GBP_.&lt;br/&gt;
+        /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -721,7 +721,7 @@ namespace CodatLending.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -757,7 +757,7 @@ namespace CodatLending.Models.Shared
         public AccountingCustomerRef? CustomerRef { get; set; }
 
         /// <summary>
-        /// In Codat&amp;apos;s data model, dates and times are represented using the &amp;lt;a class=&amp;quot;external&amp;quot; href=&amp;quot;https://en.wikipedia.org/wiki/ISO_8601&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;ISO 8601 standard&amp;lt;/a&amp;gt;. Date and time fields are formatted as strings; for example:&lt;br/&gt;
+        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -807,8 +807,11 @@ namespace CodatLending.Models.Shared
         [JsonProperty("note")]
         public string? Note { get; set; }
 
+        /// <summary>
+        /// The payment method the record is linked to in the accounting or commerce platform.
+        /// </summary>
         [JsonProperty("paymentMethodRef")]
-        public object? PaymentMethodRef { get; set; }
+        public PaymentMethodRef? PaymentMethodRef { get; set; }
 
         /// <summary>
         /// Friendly reference for the payment.
@@ -820,7 +823,7 @@ namespace CodatLending.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -831,7 +834,7 @@ namespace CodatLending.Models.Shared
         public SupplementalData? SupplementalData { get; set; }
 
         /// <summary>
-        /// Amount of the payment in the payment currency. This value should never change and represents the amount of money paid into the customer&amp;apos;s account.
+        /// Amount of the payment in the payment currency. This value should never change and represents the amount of money paid into the customer&apos;s account.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }

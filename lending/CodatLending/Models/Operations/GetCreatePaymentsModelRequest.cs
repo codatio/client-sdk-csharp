@@ -10,20 +10,10 @@
 #nullable enable
 namespace CodatLending.Models.Operations
 {
-    using CodatLending.Models.Shared;
     using CodatLending.Utils;
     
-    public class CreateBankAccountRequest
+    public class GetCreatePaymentsModelRequest
     {
-
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public AccountingBankAccount? AccountingBankAccount { get; set; }
-
-        /// <summary>
-        /// Allow a sync upon push completion.
-        /// </summary>
-        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=allowSyncOnPushComplete")]
-        public bool? AllowSyncOnPushComplete { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.
@@ -36,11 +26,5 @@ namespace CodatLending.Models.Operations
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
-
-        /// <summary>
-        /// Time limit for the push operation to complete before it is timed out.
-        /// </summary>
-        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeoutInMinutes")]
-        public int? TimeoutInMinutes { get; set; }
     }
 }

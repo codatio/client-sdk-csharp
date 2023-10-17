@@ -16,25 +16,25 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The measure&amp;apos;s display name.
+        /// The measure&apos;s display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
 
         /// <summary>
-        /// The measure&amp;apos;s index.
+        /// The measure&apos;s index.
         /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }
 
         /// <summary>
-        /// The measure&amp;apos;s type.
+        /// The measure&apos;s type.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }
 
         /// <summary>
-        /// The measure&amp;apos;s units e.g. percentage (%).
+        /// The measure&apos;s units e.g. percentage (%).
         /// </summary>
         [JsonProperty("units")]
         public string? Units { get; set; }

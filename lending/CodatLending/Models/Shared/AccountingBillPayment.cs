@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Bill payments or payments?**  &lt;br/&gt;
+    /// &gt; **Bill payments or payments?**  <br/>
     /// 
     /// <remarks>
     /// &gt; <br/>
@@ -182,7 +182,7 @@ namespace CodatLending.Models.Shared
         public string? Currency { get; set; }
 
         /// <summary>
-        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.&lt;br/&gt;
+        /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -242,7 +242,7 @@ namespace CodatLending.Models.Shared
         public string? Note { get; set; }
 
         [JsonProperty("paymentMethodRef")]
-        public object? PaymentMethodRef { get; set; }
+        public PaymentMethodRef? PaymentMethodRef { get; set; }
 
         /// <summary>
         /// Additional information associated with the payment.
@@ -254,7 +254,7 @@ namespace CodatLending.Models.Shared
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// Supplemental data is additional data you can include in our standard data types. &lt;br/&gt;
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -268,7 +268,7 @@ namespace CodatLending.Models.Shared
         public SupplierRef? SupplierRef { get; set; }
 
         /// <summary>
-        /// Amount of the payment in the payment currency. This value never changes and represents the amount of money that is paid into the supplier&amp;apos;s account.
+        /// Amount of the payment in the payment currency. This value never changes and represents the amount of money that is paid into the supplier&apos;s account.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }

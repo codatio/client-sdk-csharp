@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// A Product is an item in the company&amp;apos;s inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.&lt;br/&gt;
+    /// A Product is an item in the company&apos;s inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.<br/>
     /// 
     /// <remarks>
     /// <br/>
@@ -44,7 +44,7 @@ namespace CodatLending.Models.Shared
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Whether the product represents a gift card or voucher that&lt;br/&gt;
+        /// Whether the product represents a gift card or voucher that<br/>
         /// 
         /// <remarks>
         /// can be redeemed in the commerce or POS platform.<br/>
@@ -59,6 +59,17 @@ namespace CodatLending.Models.Shared
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// Supplemental data is additional data you can include in our standard data types. <br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        /// It is referenced as a configured dynamic key value pair that is unique to the accounting platform. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
+        /// </remarks>
+        /// </summary>
+        [JsonProperty("supplementalData")]
+        public SupplementalData? SupplementalData { get; set; }
 
         [JsonProperty("variants")]
         public List<ProductVariant>? Variants { get; set; }

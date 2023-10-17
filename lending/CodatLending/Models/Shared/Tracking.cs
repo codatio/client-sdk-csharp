@@ -17,7 +17,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// Links the current record to the underlying record or data type that created it. &lt;br/&gt;
+        /// Links the current record to the underlying record or data type that created it. <br/>
         /// 
         /// <remarks>
         /// <br/>

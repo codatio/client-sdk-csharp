@@ -1,4 +1,5 @@
-# LoanWriteback.DirectCosts
+# LoanWritebackDirectCostsSDK
+(*LoanWriteback.DirectCosts*)
 
 ### Available Operations
 
@@ -35,100 +36,65 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(new CreateDirectCostRe
     AccountingDirectCost = new AccountingDirectCost() {
         ContactRef = new ContactRef() {
             DataType = CodatLending.Models.Shared.DataType.Invoices,
-            Id = "02d502a9-4bb4-4f63-8969-e9a3efa77dfb",
+            Id = "<ID>",
         },
-        Currency = "GBP",
-        CurrencyRate = 2974.37M,
-        Id = "cd66ae39-5efb-49ba-88f3-a66997074ba4",
+        Currency = "USD",
         IssueDate = "2022-10-23T00:00:00.000Z",
         LineItems = new List<DirectCostLineItem>() {
             new DirectCostLineItem() {
-                AccountRef = new AccountRef() {
-                    Id = "69b6e214-1959-4890-afa5-63e2516fe4c8",
-                    Name = "Dr. Arnold Bradtke",
-                },
-                Description = "expedita",
-                DiscountAmount = 4692.49M,
-                DiscountPercentage = 9988.48M,
+                AccountRef = new AccountRef() {},
                 ItemRef = new ItemRef() {
-                    Id = "d2ed0289-21cd-4dc6-9260-1fb576b0d5f0",
-                    Name = "Vincent Anderson",
+                    Id = "<ID>",
                 },
-                Quantity = 9441.24M,
-                SubTotal = 7299.91M,
-                TaxAmount = 7499.99M,
-                TaxRateRef = new TaxRateRef() {
-                    EffectiveTaxRate = 1716.29M,
-                    Id = "58705320-2c73-4d5f-a9b9-0c28909b3fe4",
-                    Name = "Omar Leuschke",
-                },
-                TotalAmount = 7508.44M,
+                Quantity = 6384.24M,
+                TaxRateRef = new TaxRateRef() {},
                 Tracking = new Tracking() {
                     InvoiceTo = new RecordRef() {
-                        DataType = "accountTransaction",
-                        Id = "f4863332-3f9b-477f-ba41-00674ebf6928",
+                        DataType = "transfer",
                     },
                     RecordRefs = new List<RecordRef>() {
                         new RecordRef() {
-                            DataType = "journalEntry",
-                            Id = "d1ba77a8-9ebf-4737-ae42-03ce5e6a95d8",
+                            DataType = "invoice",
                         },
                     },
                 },
                 TrackingCategoryRefs = new List<TrackingCategoryRef>() {
                     new TrackingCategoryRef() {
-                        Id = "a0d446ce-2af7-4a73-8f3b-e453f870b326",
-                        Name = "Glen Oberbrunner",
+                        Id = "<ID>",
                     },
                 },
-                UnitAmount = 2776.28M,
+                UnitAmount = 2884.08M,
             },
         },
-        Metadata = new Metadata() {
-            IsDeleted = false,
-        },
+        Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Note = "cupiditate",
         PaymentAllocations = new List<AccountingPaymentAllocation>() {
             new AccountingPaymentAllocation() {
                 Allocation = new AccountingPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
-                    Currency = "EUR",
-                    CurrencyRate = 7470.8M,
-                    TotalAmount = 1175.31M,
+                    Currency = "GBP",
                 },
                 Payment = new PaymentAllocationPayment() {
-                    AccountRef = new AccountRef() {
-                        Id = "a8422bb6-79d2-4322-b15b-f0cbb1e31b8b",
-                        Name = "Kevin Willms",
-                    },
-                    Currency = "GBP",
-                    CurrencyRate = 2408.29M,
-                    Id = "a1108e0a-dcf4-4b92-9879-fce953f73ef7",
-                    Note = "hic",
+                    AccountRef = new AccountRef() {},
+                    Currency = "EUR",
                     PaidOnDate = "2022-10-23T00:00:00.000Z",
-                    Reference = "quod",
-                    TotalAmount = 4861.6M,
                 },
             },
         },
-        Reference = "similique",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        SubTotal = 8742.88M,
+        SubTotal = 9510.62M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "ducimus", new Dictionary<string, object>() {
-                    { "dolore", "quibusdam" },
+                { "abnormally", new Dictionary<string, object>() {
+                    { "deposit", "evolve" },
                 } },
             },
         },
-        TaxAmount = 8489.44M,
-        TotalAmount = 1943.42M,
+        TaxAmount = 7150.4M,
+        TotalAmount = 7926.2M,
     },
-    AllowSyncOnPushComplete = false,
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    TimeoutInMinutes = 617877,
 });
 
 // handle response

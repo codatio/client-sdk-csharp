@@ -1,4 +1,5 @@
-# Sales
+# SalesSDK
+(*Sales*)
 
 ### Available Operations
 

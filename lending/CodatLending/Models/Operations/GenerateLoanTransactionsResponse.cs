@@ -14,13 +14,8 @@ namespace CodatLending.Models.Operations
     using System.Net.Http;
     using System;
     
-    public class CreateBankAccountResponse
+    public class GenerateLoanTransactionsResponse
     {
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        public AccountingCreateBankAccountResponse? AccountingCreateBankAccountResponse { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation
@@ -28,7 +23,7 @@ namespace CodatLending.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// The request made is not valid.
+        /// Your API request was not properly authorized.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

@@ -1,4 +1,5 @@
-# Banking.Accounts
+# BankingAccountsSDK
+(*Banking.Accounts*)
 
 ### Available Operations
 
@@ -30,7 +31,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.Banking.Accounts.GetAsync(new GetBankingAccountRequest() {
-    AccountId = "beatae",
+    AccountId = "Northeast Hatchback Kia",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -78,7 +79,6 @@ var res = await sdk.Banking.Accounts.ListAsync(new ListBankingAccountsRequest() 
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "commodi",
 });
 
 // handle response

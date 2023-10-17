@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// &amp;gt; **Categorization engine**&lt;br/&gt;
+    /// &gt; **Categorization engine**<br/>
     /// 
     /// <remarks>
     /// &gt;<br/>

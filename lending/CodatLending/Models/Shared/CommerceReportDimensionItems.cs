@@ -16,7 +16,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The dimension&amp;apos;s items index.
+        /// The dimension&apos;s items index.
         /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }

@@ -12,7 +12,7 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    public class GetCreateUpdateBankAccountsModelRequest
+    public class GenerateLoanSummaryRequest
     {
 
         /// <summary>
@@ -22,9 +22,9 @@ namespace CodatLending.Models.Operations
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for a connection.
+        /// Data source type.
         /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
-        public string ConnectionId { get; set; } = default!;
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sourceType")]
+        public GenerateLoanSummarySourceType SourceType { get; set; } = default!;
     }
 }

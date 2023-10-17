@@ -28,13 +28,12 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingBankAccountTransactionsRequest() {
-    AccountId = "distinctio",
+    AccountId = "Anchorage Product",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-    Query = "quibusdam",
 });
 
 // handle response
@@ -95,6 +94,8 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 
 ### [Liabilities](docs/sdks/liabilities/README.md)
 
+* [GenerateLoanSummary](docs/sdks/liabilities/README.md#generateloansummary) - Generate loan summaries report
+* [GenerateLoanTransactions](docs/sdks/liabilities/README.md#generateloantransactions) - Generate loan transactions report
 * [GetLoanSummary](docs/sdks/liabilities/README.md#getloansummary) - Get loan summaries
 * [ListLoanTransactions](docs/sdks/liabilities/README.md#listloantransactions) - List loan transactions
 
@@ -219,11 +220,6 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Create](docs/sdks/loanwritebackaccounts/README.md#create) - Create account
 * [GetCreateModel](docs/sdks/loanwritebackaccounts/README.md#getcreatemodel) - Get create account model
 
-### [LoanWriteback.BankAccounts](docs/sdks/loanwritebackbankaccounts/README.md)
-
-* [Create](docs/sdks/loanwritebackbankaccounts/README.md#create) - Create bank account
-* [GetCreateUpdateModel](docs/sdks/loanwritebackbankaccounts/README.md#getcreateupdatemodel) - Get create/update bank account model
-
 ### [LoanWriteback.BankTransactions](docs/sdks/loanwritebackbanktransactions/README.md)
 
 * [Create](docs/sdks/loanwritebackbanktransactions/README.md#create) - Create bank account transactions
@@ -238,6 +234,11 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 
 * [Create](docs/sdks/loanwritebackdirectcosts/README.md#create) - Create direct cost
 * [GetCreateModel](docs/sdks/loanwritebackdirectcosts/README.md#getcreatemodel) - Get create direct cost model
+
+### [LoanWriteback.Payments](docs/sdks/loanwritebackpayments/README.md)
+
+* [Create](docs/sdks/loanwritebackpayments/README.md#create) - Create payment
+* [GetCreateModel](docs/sdks/loanwritebackpayments/README.md#getcreatemodel) - Get create payment model
 
 ### [LoanWriteback.Suppliers](docs/sdks/loanwritebacksuppliers/README.md)
 

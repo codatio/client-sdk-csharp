@@ -1,4 +1,5 @@
-# FinancialStatements.CashFlow
+# FinancialStatementsCashFlowSDK
+(*FinancialStatements.CashFlow*)
 
 ### Available Operations
 

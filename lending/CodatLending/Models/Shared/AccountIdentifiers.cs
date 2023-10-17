@@ -19,7 +19,7 @@ namespace CodatLending.Models.Shared
     {
 
         /// <summary>
-        /// The local (usually national) routing number for the account.&lt;br/&gt;
+        /// The local (usually national) routing number for the account.<br/>
         /// 
         /// <remarks>
         /// <br/>

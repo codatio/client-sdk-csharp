@@ -7,5 +7,5 @@ Logo branding references.
 
 | Field                                                 | Type                                                  | Required                                              | Description                                           |
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `full`                                                | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |
-| `square`                                              | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |
+| `Full`                                                | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |
+| `Square`                                              | [BrandingImage](../../models/shared/BrandingImage.md) | :heavy_minus_sign:                                    | N/A                                                   |

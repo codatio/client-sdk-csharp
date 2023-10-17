@@ -5,4 +5,4 @@
 
 | Field                                                       | Type                                                        | Required                                                    | Description                                                 |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| `results`                                                   | List<[ApiKeyDetails](../../models/shared/ApiKeyDetails.md)> | :heavy_minus_sign:                                          | N/A                                                         |
+| `Results`                                                   | List<[ApiKeyDetails](../../models/shared/ApiKeyDetails.md)> | :heavy_minus_sign:                                          | N/A                                                         |

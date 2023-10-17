@@ -1,4 +1,5 @@
-# Settings
+# SettingsSDK
+(*Settings*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ Manage your Codat instance.
 ### Available Operations
 
 * [CreateApiKey](#createapikey) - Create API key
-* [DeleteApiKey](#deleteapikey) - Delete api key
+* [DeleteApiKey](#deleteapikey) - Delete API key
 * [~~GetProfile~~](#getprofile) - Get profile :warning: **Deprecated**
 * [GetSyncSettings](#getsyncsettings) - Get sync settings
 * [ListApiKeys](#listapikeys) - List API keys
@@ -18,7 +19,7 @@ Manage your Codat instance.
 
 Use the *Create API keys* endpoint to generate a new API key for your client.
 
-[API keys](https://docs.codat.io/codat-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -63,7 +64,7 @@ var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
 
 Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.
 
-[API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -164,7 +165,7 @@ var res = await sdk.Settings.GetSyncSettingsAsync();
 
 Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.
 
-[API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -210,13 +211,35 @@ var sdk = new CodatPlatformSDK(
 var res = await sdk.Settings.UpdateProfileAsync(new Profile() {
     AlertAuthHeader = "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
     ApiKey = "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
-    ConfirmCompanyName = false,
     IconUrl = "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
     LogoUrl = "https://client-images.codat.io/logo/042399f5-d104-4f38-9ce8-cac3524f4e88_5806cb1f-7342-4c0e-a0a8-99bfbc47b0ff.png",
     Name = "Bob's Burgers",
     RedirectUrl = "https://bobs-burgers.{countrySuffix}/{companyId}",
     WhiteListUrls = new List<string>() {
-        "https://bobs-burgers.com",
+        "h",
+        "t",
+        "t",
+        "p",
+        "s",
+        ":",
+        "/",
+        "/",
+        "b",
+        "o",
+        "b",
+        "s",
+        "-",
+        "b",
+        "u",
+        "r",
+        "g",
+        "e",
+        "r",
+        "s",
+        ".",
+        "c",
+        "o",
+        "m",
     },
 });
 
@@ -253,17 +276,15 @@ var sdk = new CodatPlatformSDK(
 );
 
 var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettingsRequestBody() {
-    ClientId = "07aff1a3-a2fa-4946-b739-251aa52c3f5a",
-    OverridesDefaults = false,
+    ClientId = "ce429104-79f0-4085-a720-e2d40fcc800f",
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
             DataType = CodatPlatform.Models.Shared.DataType.Invoices,
             FetchOnFirstLink = false,
-            IsLocked = false,
             MonthsToSync = 24,
             SyncFromUtc = "2022-10-23T00:00:00.000Z",
             SyncFromWindow = 24,
-            SyncOrder = 13571,
+            SyncOrder = 334238,
             SyncSchedule = 24,
         },
     },

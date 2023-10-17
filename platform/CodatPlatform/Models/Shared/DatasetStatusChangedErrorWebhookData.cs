@@ -28,7 +28,7 @@ namespace CodatPlatform.Models.Shared
         public string? DatasetId { get; set; }
 
         /// <summary>
-        /// The current status of the dataset&amp;apos;s sync.
+        /// The current status of the dataset&apos;s sync.
         /// </summary>
         [JsonProperty("datasetStatus")]
         public string? DatasetStatus { get; set; }

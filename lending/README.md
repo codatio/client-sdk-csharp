@@ -355,4 +355,3 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-

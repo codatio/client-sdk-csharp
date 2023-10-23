@@ -130,7 +130,7 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
         },
         MerchantName = "Amazon UK",
         Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        Type = "Van",
+        Type = "string",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
@@ -171,7 +171,7 @@ var sdk = new CodatSyncExpensesSDK(
 var res = await sdk.Expenses.UploadAttachmentAsync(new UploadExpenseAttachmentRequest() {
     RequestBody = new UploadExpenseAttachmentRequestBody() {
         Content = "v/ghW&IC$x as bytes <<<>>>",
-        RequestBody = "Elegant Producer Electric",
+        RequestBody = "string",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",

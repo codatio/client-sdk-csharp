@@ -79,10 +79,10 @@ namespace CodatSyncExpenses
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.2.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "3.3.0";
+        private const string _sdkGenVersion = "2.169.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.2.0 2.159.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.3.0 2.169.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

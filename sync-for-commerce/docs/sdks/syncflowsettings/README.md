@@ -93,7 +93,7 @@ var sdk = new CodatSyncCommerceSDK(
 );
 
 var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(new Dictionary<string, Localization>() {
-    { "West", new Localization() {} },
+    { "key", new Localization() {} },
 });
 
 // handle response
@@ -131,7 +131,7 @@ var sdk = new CodatSyncCommerceSDK(
 var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(new UpdateVisibleAccountsSyncFlowRequest() {
     VisibleAccounts = new VisibleAccounts() {
         VisibleAccounts = new List<string>() {
-            "Coordinator",
+            "string",
         },
     },
     PlatformKey = "gbol",

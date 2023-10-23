@@ -80,7 +80,7 @@ namespace CodatLending.Models.Shared
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// `True` if the pull operation completed successfully.
+        /// `True` if the pull operation is completed successfully. The `isCompleted` property is not queryable. To filter failed pull operations, query by `status!=Complete&amp;&amp;status!=NotSupported` instead.
         /// </summary>
         [JsonProperty("isCompleted")]
         public bool IsCompleted { get; set; } = default!;

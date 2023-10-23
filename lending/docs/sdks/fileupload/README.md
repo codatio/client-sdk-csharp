@@ -110,7 +110,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.FileUpload.UploadAsync(new UploadFilesRequest() {
     RequestBody = new UploadFilesRequestBody() {
         Content = "F?SRSKG@^n as bytes <<<>>>",
-        RequestBody = "ullam",
+        RequestBody = "string",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

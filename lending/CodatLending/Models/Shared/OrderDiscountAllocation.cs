@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         public string? Name { get; set; }
 
         /// <summary>
-        /// Total amount of discount applied.
+        /// Total amount of discount applied, excluding tax. This is typically positive (for discounts which decrease the amount of the order line), but can also be negative (for discounts which increase the amount of the order line).
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }

@@ -37,7 +37,7 @@ var res = await sdk.AccountsReceivable.Invoices.DownloadAttachmentAsync(new Down
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    InvoiceId = "Dakota Avon specifically",
+    InvoiceId = "string",
 });
 
 // handle response
@@ -74,7 +74,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Invoices.DownloadPdfAsync(new DownloadAccountingInvoicePdfRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    InvoiceId = "Associate",
+    InvoiceId = "string",
 });
 
 // handle response
@@ -117,7 +117,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Invoices.GetAsync(new GetAccountingInvoiceRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    InvoiceId = "Northeast Hatchback Kia",
+    InvoiceId = "string",
 });
 
 // handle response
@@ -161,7 +161,7 @@ var res = await sdk.AccountsReceivable.Invoices.GetAttachmentAsync(new GetAccoun
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    InvoiceId = "array East along",
+    InvoiceId = "string",
 });
 
 // handle response
@@ -254,7 +254,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsReceivable.Invoices.ListAttachmentsAsync(new ListAccountingInvoiceAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    InvoiceId = "intuitive Frozen ouch",
+    InvoiceId = "string",
 });
 
 // handle response

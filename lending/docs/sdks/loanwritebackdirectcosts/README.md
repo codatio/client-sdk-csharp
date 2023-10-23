@@ -85,13 +85,13 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(new CreateDirectCostRe
         SubTotal = 9510.62M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "abnormally", new Dictionary<string, object>() {
-                    { "deposit", "evolve" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
-        TaxAmount = 7150.4M,
-        TotalAmount = 7926.2M,
+        TaxAmount = 8915.1M,
+        TotalAmount = 0.86M,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

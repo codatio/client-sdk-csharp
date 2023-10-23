@@ -32,7 +32,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.Transactions.Journals.GetAsync(new GetAccountingJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "Northeast Hatchback Kia",
+    JournalId = "string",
 });
 
 // handle response

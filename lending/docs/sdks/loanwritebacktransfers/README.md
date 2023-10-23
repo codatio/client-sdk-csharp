@@ -53,14 +53,14 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "innovative", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
         To = new TransferAccount() {
             AccountRef = new AccountRef() {},
-            Currency = "USD",
+            Currency = "GBP",
         },
         TrackingCategoryRefs = new List<TrackingCategoryRef>() {
             new TrackingCategoryRef() {

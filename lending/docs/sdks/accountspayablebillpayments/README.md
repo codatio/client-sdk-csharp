@@ -31,7 +31,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.BillPayments.GetAsync(new GetAccountingBillPaymentRequest() {
-    BillPaymentId = "Northeast Hatchback Kia",
+    BillPaymentId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 

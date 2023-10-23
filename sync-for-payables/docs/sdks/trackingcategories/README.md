@@ -36,7 +36,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.TrackingCategories.GetAsync(new GetTrackingCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    TrackingCategoryId = "Northeast Hatchback Kia",
+    TrackingCategoryId = "string",
 });
 
 // handle response

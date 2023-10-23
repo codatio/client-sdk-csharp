@@ -105,20 +105,20 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
         SubTotal = 0.86M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "deposit", new Dictionary<string, object>() {
-                    { "evolve", "male" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
             Id = "<ID>",
         },
-        TaxAmount = 8559.52M,
-        TotalAmount = 8165.88M,
+        TaxAmount = 4552.22M,
+        TotalAmount = 1697.27M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 5519.29M,
-                Name = "Polestar mobile",
+                Amount = 3015.1M,
+                Name = "string",
             },
         },
     },
@@ -616,24 +616,24 @@ var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
         SubTotal = 540.62M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Cotton", new Dictionary<string, object>() {
-                    { "extend", "Plastic" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
             Id = "<ID>",
         },
-        TaxAmount = 1395.79M,
-        TotalAmount = 6447.13M,
+        TaxAmount = 2782.81M,
+        TotalAmount = 8965.01M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 7892.75M,
-                Name = "immediately implement JBOD",
+                Amount = 4995.57M,
+                Name = "string",
             },
         },
     },
-    BillId = "EILBDVJVNUAGVKRQ",
+    BillId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -682,9 +682,9 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.Bills.UploadAttachmentAsync(new UploadBillAttachmentRequest() {
     RequestBody = new UploadBillAttachmentRequestBody() {
         Content = "v/ghW&IC$x as bytes <<<>>>",
-        RequestBody = "Elegant Producer Electric",
+        RequestBody = "string",
     },
-    BillId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    BillId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

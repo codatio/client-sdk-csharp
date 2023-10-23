@@ -48,7 +48,15 @@ namespace CodatSyncPayables
         /// List pull operations
         /// 
         /// <remarks>
-        /// Gets the pull operation history (datasets) for a given company.
+        /// The *List pull operations* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/PullOperation">pull operations</a> made by your client.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/PullOperation">pull operation</a> is a request to retrieve a specific data type from an integration.<br/>
+        /// <br/>
+        /// ### Tips and traps<br/>
+        /// <br/>
+        /// - The *List pull operations* endpoint does not support querying the `isCompleted` property. You can filter failed pull operations by querying `status!=Complete&amp;&amp;status!=NotSupported` instead.<br/>
+        /// <br/>
+        /// 
         /// </remarks>
         /// </summary>
         Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null);
@@ -85,10 +93,10 @@ namespace CodatSyncPayables
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.2.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "2.3.0";
+        private const string _sdkGenVersion = "2.169.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.159.2 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.169.0 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

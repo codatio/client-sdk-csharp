@@ -36,7 +36,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.PaymentMethods.GetAsync(new GetPaymentMethodRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PaymentMethodId = "Northeast Hatchback Kia",
+    PaymentMethodId = "string",
 });
 
 // handle response

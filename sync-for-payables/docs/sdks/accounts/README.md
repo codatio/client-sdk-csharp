@@ -54,8 +54,8 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         Status = CodatSyncPayables.Models.Shared.AccountStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -63,7 +63,7 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
             new AccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "abnormally",
+                    "string",
                 },
             },
         },
@@ -112,7 +112,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.Accounts.GetAsync(new GetAccountRequest() {
-    AccountId = "Northeast Hatchback Kia",
+    AccountId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 

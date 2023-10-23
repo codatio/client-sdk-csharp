@@ -28,8 +28,8 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         Status = CodatSyncPayroll.Models.Shared.AccountStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -37,7 +37,7 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
         ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
             new AccountValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "abnormally",
+                    "string",
                 },
             },
         },

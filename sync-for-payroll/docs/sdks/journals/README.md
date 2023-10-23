@@ -90,7 +90,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.Journals.GetAsync(new GetJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalId = "Northeast Hatchback Kia",
+    JournalId = "string",
 });
 
 // handle response

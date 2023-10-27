@@ -142,5 +142,3 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [Get](docs/sdks/transactionstatus/README.md#get) - Get sync transaction
 * [List](docs/sdks/transactionstatus/README.md#list) - List sync transactions
 <!-- End SDK Available Operations -->
-
-<!-- Start Dev Containers -->

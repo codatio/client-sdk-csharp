@@ -66,7 +66,7 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
+                    ProjectRef = new BillCreditNoteLineItemTrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -324,7 +324,7 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
-                    ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
+                    ProjectRef = new BillCreditNoteLineItemTrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },

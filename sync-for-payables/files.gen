@@ -185,7 +185,7 @@ CodatSyncPayables/Models/Shared/PaymentAllocationPayment.cs
 CodatSyncPayables/Models/Shared/AccountRef.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItemItemReference.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTrackingCustomerRef.cs
-CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTrackingProjectReference.cs
+CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTrackingAccountingProjectReference.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItemTracking.cs
 CodatSyncPayables/Models/Shared/BillCreditNoteLineItem.cs
 CodatSyncPayables/Models/Shared/TrackingCategoryRef.cs
@@ -202,8 +202,8 @@ CodatSyncPayables/Models/Shared/BillPaymentLineLinkType.cs
 CodatSyncPayables/Models/Shared/PushOperation.cs
 CodatSyncPayables/Models/Shared/BillPayments.cs
 CodatSyncPayables/Models/Shared/CreateBillResponse.cs
-CodatSyncPayables/Models/Shared/BillPaymentAllocationAllocation.cs
-CodatSyncPayables/Models/Shared/BillPaymentAllocation.cs
+CodatSyncPayables/Models/Shared/BillAccountingPaymentAllocationAllocation.cs
+CodatSyncPayables/Models/Shared/BillAccountingPaymentAllocation.cs
 CodatSyncPayables/Models/Shared/BillPurchaseOrderReference.cs
 CodatSyncPayables/Models/Shared/BillWithholdingTax.cs
 CodatSyncPayables/Models/Shared/Bill.cs
@@ -212,7 +212,7 @@ CodatSyncPayables/Models/Shared/BillLineItemRecordLineReferenceDataType.cs
 CodatSyncPayables/Models/Shared/BillLineItemRecordLineReference.cs
 CodatSyncPayables/Models/Shared/BillLineItem.cs
 CodatSyncPayables/Models/Shared/TrackingCustomerRef.cs
-CodatSyncPayables/Models/Shared/TrackingProjectReference.cs
+CodatSyncPayables/Models/Shared/TrackingAccountingProjectReference.cs
 CodatSyncPayables/Models/Shared/Tracking.cs
 CodatSyncPayables/Models/Shared/ItemRef.cs
 CodatSyncPayables/Models/Shared/Attachment.cs
@@ -434,7 +434,7 @@ docs/models/shared/PaymentAllocationPayment.md
 docs/models/shared/AccountRef.md
 docs/models/shared/BillCreditNoteLineItemItemReference.md
 docs/models/shared/BillCreditNoteLineItemTrackingCustomerRef.md
-docs/models/shared/BillCreditNoteLineItemTrackingProjectReference.md
+docs/models/shared/BillCreditNoteLineItemTrackingAccountingProjectReference.md
 docs/models/shared/BillCreditNoteLineItemTracking.md
 docs/models/shared/BillCreditNoteLineItem.md
 docs/models/shared/TrackingCategoryRef.md
@@ -451,8 +451,8 @@ docs/models/shared/BillPaymentLineLinkType.md
 docs/models/shared/PushOperation.md
 docs/models/shared/BillPayments.md
 docs/models/shared/CreateBillResponse.md
-docs/models/shared/BillPaymentAllocationAllocation.md
-docs/models/shared/BillPaymentAllocation.md
+docs/models/shared/BillAccountingPaymentAllocationAllocation.md
+docs/models/shared/BillAccountingPaymentAllocation.md
 docs/models/shared/BillPurchaseOrderReference.md
 docs/models/shared/BillWithholdingTax.md
 docs/models/shared/Bill.md
@@ -461,7 +461,7 @@ docs/models/shared/BillLineItemRecordLineReferenceDataType.md
 docs/models/shared/BillLineItemRecordLineReference.md
 docs/models/shared/BillLineItem.md
 docs/models/shared/TrackingCustomerRef.md
-docs/models/shared/TrackingProjectReference.md
+docs/models/shared/TrackingAccountingProjectReference.md
 docs/models/shared/Tracking.md
 docs/models/shared/ItemRef.md
 docs/models/shared/Attachment.md

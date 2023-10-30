@@ -12,19 +12,13 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class TrackingProjectReference
+    public class BillAccountingPaymentAllocation
     {
 
-        /// <summary>
-        /// Unique identifier to the project reference.
-        /// </summary>
-        [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        [JsonProperty("allocation")]
+        public BillAccountingPaymentAllocationAllocation Allocation { get; set; } = default!;
 
-        /// <summary>
-        /// The project&apos;s name.
-        /// </summary>
-        [JsonProperty("name")]
-        public string? Name { get; set; }
+        [JsonProperty("payment")]
+        public PaymentAllocationPayment Payment { get; set; } = default!;
     }
 }

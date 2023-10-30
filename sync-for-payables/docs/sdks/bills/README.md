@@ -70,7 +70,7 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    ProjectRef = new TrackingProjectReference() {
+                    ProjectRef = new TrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -84,9 +84,9 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
         },
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        PaymentAllocations = new List<BillPaymentAllocation>() {
-            new BillPaymentAllocation() {
-                Allocation = new BillPaymentAllocationAllocation() {
+        PaymentAllocations = new List<BillAccountingPaymentAllocation>() {
+            new BillAccountingPaymentAllocation() {
+                Allocation = new BillAccountingPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "EUR",
                 },
@@ -581,7 +581,7 @@ var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
-                    ProjectRef = new TrackingProjectReference() {
+                    ProjectRef = new TrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -595,9 +595,9 @@ var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
         },
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        PaymentAllocations = new List<BillPaymentAllocation>() {
-            new BillPaymentAllocation() {
-                Allocation = new BillPaymentAllocationAllocation() {
+        PaymentAllocations = new List<BillAccountingPaymentAllocation>() {
+            new BillAccountingPaymentAllocation() {
+                Allocation = new BillAccountingPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "EUR",
                 },

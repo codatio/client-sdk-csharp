@@ -128,7 +128,7 @@ namespace CodatSyncPayables.Models.Shared
         /// An array of payment allocations.
         /// </summary>
         [JsonProperty("paymentAllocations")]
-        public List<BillPaymentAllocation>? PaymentAllocations { get; set; }
+        public List<BillAccountingPaymentAllocation>? PaymentAllocations { get; set; }
 
         [JsonProperty("purchaseOrderRefs")]
         public List<BillPurchaseOrderReference>? PurchaseOrderRefs { get; set; }

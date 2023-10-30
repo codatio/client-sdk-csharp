@@ -12,7 +12,7 @@ namespace CodatSyncPayables.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class BillCreditNoteLineItemTrackingProjectReference
+    public class BillCreditNoteLineItemTrackingAccountingProjectReference
     {
 
         /// <summary>

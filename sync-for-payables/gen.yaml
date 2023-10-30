@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: ec9a07817c986b64eec8362553fc7600
+  docChecksum: ef8af4ad770bb56bc0078a4f17a0e2a5
   docVersion: 3.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   sdkClassName: Codat.SyncPayables
@@ -18,7 +18,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.3.0
+  version: 2.3.1
   author: Codat
   description: Streamline your customers' accounts payable workflow.
   dotnetVersion: net6.0

@@ -28,7 +28,7 @@ namespace CodatBankFeeds.Models.Operations
         public Models.Shared.CreateBankTransactionsResponse? CreateBankTransactionsResponseValue { get; set; }
 
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// The request made is not valid.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

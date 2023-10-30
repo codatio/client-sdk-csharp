@@ -23,7 +23,7 @@ namespace CodatBankFeeds.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// The request made is not valid.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

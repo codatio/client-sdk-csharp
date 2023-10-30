@@ -28,7 +28,7 @@ namespace CodatLending.Models.Operations
         public EnhancedInvoicesReport? EnhancedInvoicesReport { get; set; }
 
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// Your `query` parameter was not correctly formed
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

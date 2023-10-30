@@ -16,6 +16,7 @@ namespace CodatLending
     public interface ILoanWritebackSDK
     {
         public ILoanWritebackAccountsSDK Accounts { get; }
+        public ILoanWritebackBankAccountsSDK BankAccounts { get; }
         public ILoanWritebackBankTransactionsSDK BankTransactions { get; }
         public ILoanWritebackCreateOperationsSDK CreateOperations { get; }
         public ILoanWritebackDirectCostsSDK DirectCosts { get; }
@@ -28,14 +29,15 @@ namespace CodatLending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.169.0";
+        private const string _sdkVersion = "4.4.1";
+        private const string _sdkGenVersion = "2.173.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.169.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.4.1 2.173.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public ILoanWritebackAccountsSDK Accounts { get; private set; }
+        public ILoanWritebackBankAccountsSDK BankAccounts { get; private set; }
         public ILoanWritebackBankTransactionsSDK BankTransactions { get; private set; }
         public ILoanWritebackCreateOperationsSDK CreateOperations { get; private set; }
         public ILoanWritebackDirectCostsSDK DirectCosts { get; private set; }
@@ -50,6 +52,7 @@ namespace CodatLending
             _serverUrl = serverUrl;
             Config = config;
             Accounts = new LoanWritebackAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            BankAccounts = new LoanWritebackBankAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             BankTransactions = new LoanWritebackBankTransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             CreateOperations = new LoanWritebackCreateOperationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
             DirectCosts = new LoanWritebackDirectCostsSDK(_defaultClient, _securityClient, _serverUrl, Config);

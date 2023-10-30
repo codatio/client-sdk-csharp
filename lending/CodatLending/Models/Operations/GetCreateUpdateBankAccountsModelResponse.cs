@@ -14,7 +14,7 @@ namespace CodatLending.Models.Operations
     using System.Net.Http;
     using System;
     
-    public class GetCreatePaymentsModelResponse
+    public class GetCreateUpdateBankAccountsModelResponse
     {
 
         /// <summary>

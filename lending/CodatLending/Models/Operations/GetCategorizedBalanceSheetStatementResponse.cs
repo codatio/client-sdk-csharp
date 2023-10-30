@@ -28,7 +28,7 @@ namespace CodatLending.Models.Operations
         public EnhancedFinancialReport? EnhancedFinancialReport { get; set; }
 
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// The request made is not valid.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

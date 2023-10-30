@@ -12,7 +12,7 @@ namespace CodatLending.Models.Operations
 {
     using CodatLending.Utils;
     
-    public class GetCreatePaymentsModelRequest
+    public class GetCreateUpdateBankAccountsModelRequest
     {
 
         /// <summary>

@@ -220,6 +220,11 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 * [Create](docs/sdks/loanwritebackaccounts/README.md#create) - Create account
 * [GetCreateModel](docs/sdks/loanwritebackaccounts/README.md#getcreatemodel) - Get create account model
 
+### [LoanWriteback.BankAccounts](docs/sdks/loanwritebackbankaccounts/README.md)
+
+* [Create](docs/sdks/loanwritebackbankaccounts/README.md#create) - Create bank account
+* [GetCreateUpdateModel](docs/sdks/loanwritebackbankaccounts/README.md#getcreateupdatemodel) - Get create/update bank account model
+
 ### [LoanWriteback.BankTransactions](docs/sdks/loanwritebackbanktransactions/README.md)
 
 * [Create](docs/sdks/loanwritebackbanktransactions/README.md#create) - Create bank account transactions

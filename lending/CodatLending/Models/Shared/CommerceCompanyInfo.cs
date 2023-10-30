@@ -14,7 +14,7 @@ namespace CodatLending.Models.Shared
     using System.Collections.Generic;
     
     /// <summary>
-    /// In the Codat system, company information includes standard commercial details about <br/>
+    /// In the Codat system, company profile includes standard commercial details about <br/>
     /// 
     /// <remarks>
     /// a linked company, such as their address, phone number, and company registration.<br/>

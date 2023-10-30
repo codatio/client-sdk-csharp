@@ -72,15 +72,7 @@ namespace CodatPlatform
         /// List pull operations
         /// 
         /// <remarks>
-        /// The *List pull operations* endpoint returns a list of <a href="https://docs.codat.io/platform-api#/schemas/PullOperation">pull operations</a> made by your client.<br/>
-        /// <br/>
-        /// A <a href="https://docs.codat.io/platform-api#/schemas/PullOperation">pull operation</a> is a request to retrieve a specific data type from an integration.<br/>
-        /// <br/>
-        /// ### Tips and traps<br/>
-        /// <br/>
-        /// - The *List pull operations* endpoint does not support querying the `isCompleted` property. You can filter failed pull operations by querying `status!=Complete&amp;&amp;status!=NotSupported` instead.<br/>
-        /// <br/>
-        /// 
+        /// Gets the pull operation history (datasets) for a given company.
         /// </remarks>
         /// </summary>
         Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null);
@@ -93,10 +85,10 @@ namespace CodatPlatform
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.169.0";
+        private const string _sdkVersion = "2.3.1";
+        private const string _sdkGenVersion = "2.173.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.169.0 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 2.3.1 2.173.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -142,7 +134,7 @@ namespace CodatPlatform
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -191,7 +183,7 @@ namespace CodatPlatform
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -240,7 +232,7 @@ namespace CodatPlatform
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -289,7 +281,7 @@ namespace CodatPlatform
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -338,7 +330,7 @@ namespace CodatPlatform
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

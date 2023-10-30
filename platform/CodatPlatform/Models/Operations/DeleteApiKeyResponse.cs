@@ -23,7 +23,7 @@ namespace CodatPlatform.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// Too many requests were made in a given amount of time. Wait a short period and then try again.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

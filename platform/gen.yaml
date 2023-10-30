@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 3587546469097cf9dbd69a3d007b3d1c
+  docChecksum: df0de0c746476d35ec072e3b6911c937
   docVersion: 3.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   sdkClassName: Codat.Platform
@@ -18,7 +18,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.3.0
+  version: 2.3.1
   author: Codat
   description: Manage the building blocks of Codat, including companies, connections, and more.
   dotnetVersion: net6.0

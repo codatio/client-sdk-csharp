@@ -40,8 +40,8 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
     Customer = new Customer() {
-        Addresses = new List<Items>() {
-            new Items() {
+        Addresses = new List<CustomerAccountingAddress>() {
+            new CustomerAccountingAddress() {
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
@@ -208,8 +208,8 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
     Customer = new Customer() {
-        Addresses = new List<Items>() {
-            new Items() {
+        Addresses = new List<CustomerAccountingAddress>() {
+            new CustomerAccountingAddress() {
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
             },
         },

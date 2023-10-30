@@ -33,7 +33,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<Items>? Addresses { get; set; }
+        public List<CustomerAccountingAddress>? Addresses { get; set; }
 
         /// <summary>
         /// Name of the main contact for the identified customer.

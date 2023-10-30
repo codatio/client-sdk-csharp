@@ -60,6 +60,7 @@ CodatSyncCommerce/Models/Operations/GetVisibleAccountsResponse.cs
 CodatSyncCommerce/Models/Operations/UpdateConfigTextSyncFlowResponse.cs
 CodatSyncCommerce/Models/Operations/UpdateVisibleAccountsSyncFlowRequest.cs
 CodatSyncCommerce/Models/Operations/UpdateVisibleAccountsSyncFlowResponse.cs
+CodatSyncCommerce/Models/Shared/ErrorMessage.cs
 CodatSyncCommerce/Models/Shared/Company.cs
 CodatSyncCommerce/Models/Shared/ConnectionSourceType.cs
 CodatSyncCommerce/Models/Shared/Connection.cs
@@ -88,7 +89,6 @@ CodatSyncCommerce/Models/Shared/FeesSupplier.cs
 CodatSyncCommerce/Models/Shared/Companies.cs
 CodatSyncCommerce/Models/Shared/Links.cs
 CodatSyncCommerce/Models/Shared/HalRef.cs
-CodatSyncCommerce/Models/Shared/ErrorMessage.cs
 CodatSyncCommerce/Models/Shared/SyncFlowUrl.cs
 CodatSyncCommerce/Models/Shared/Connections.cs
 CodatSyncCommerce/Models/Shared/UpdateConnection.cs
@@ -160,6 +160,7 @@ docs/models/operations/GetVisibleAccountsResponse.md
 docs/models/operations/UpdateConfigTextSyncFlowResponse.md
 docs/models/operations/UpdateVisibleAccountsSyncFlowRequest.md
 docs/models/operations/UpdateVisibleAccountsSyncFlowResponse.md
+docs/models/shared/ErrorMessage.md
 docs/models/shared/Company.md
 docs/models/shared/ConnectionSourceType.md
 docs/models/shared/Connection.md
@@ -188,7 +189,6 @@ docs/models/shared/FeesSupplier.md
 docs/models/shared/Companies.md
 docs/models/shared/Links.md
 docs/models/shared/HalRef.md
-docs/models/shared/ErrorMessage.md
 docs/models/shared/SyncFlowUrl.md
 docs/models/shared/Connections.md
 docs/models/shared/UpdateConnection.md

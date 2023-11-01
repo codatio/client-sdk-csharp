@@ -81,5 +81,3 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 * [GetCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
 * [ListCreateOperations](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
 <!-- End SDK Available Operations -->
-
-<!-- Start Dev Containers -->

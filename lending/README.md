@@ -348,4 +348,3 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 
 * [Get](docs/sdks/transactionstransfers/README.md#get) - Get transfer
 * [List](docs/sdks/transactionstransfers/README.md#list) - List transfers
-<!-- End SDK Available Operations -->

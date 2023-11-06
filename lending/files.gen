@@ -31,6 +31,7 @@ CodatLending/FinancialStatementsCashFlow.cs
 CodatLending/FinancialStatementsProfitAndLoss.cs
 CodatLending/FinancialStatements.cs
 CodatLending/LoanWritebackAccounts.cs
+CodatLending/LoanWritebackBankAccounts.cs
 CodatLending/LoanWritebackBankTransactions.cs
 CodatLending/LoanWritebackCreateOperations.cs
 CodatLending/LoanWritebackDirectCosts.cs
@@ -248,6 +249,10 @@ CodatLending/Models/Operations/CreateAccountRequest.cs
 CodatLending/Models/Operations/CreateAccountResponse.cs
 CodatLending/Models/Operations/GetCreateChartOfAccountsModelRequest.cs
 CodatLending/Models/Operations/GetCreateChartOfAccountsModelResponse.cs
+CodatLending/Models/Operations/CreateBankAccountRequest.cs
+CodatLending/Models/Operations/CreateBankAccountResponse.cs
+CodatLending/Models/Operations/GetCreateUpdateBankAccountsModelRequest.cs
+CodatLending/Models/Operations/GetCreateUpdateBankAccountsModelResponse.cs
 CodatLending/Models/Operations/CreateBankTransactionsRequest.cs
 CodatLending/Models/Operations/CreateBankTransactionsResponse.cs
 CodatLending/Models/Operations/GetCreateBankTransactionsModelRequest.cs
@@ -262,8 +267,8 @@ CodatLending/Models/Operations/GetCreateDirectCostsModelRequest.cs
 CodatLending/Models/Operations/GetCreateDirectCostsModelResponse.cs
 CodatLending/Models/Operations/CreatePaymentRequest.cs
 CodatLending/Models/Operations/CreatePaymentResponse.cs
-CodatLending/Models/Operations/GetCreatePaymentsModelRequest.cs
-CodatLending/Models/Operations/GetCreatePaymentsModelResponse.cs
+CodatLending/Models/Operations/GetCreatePaymentModelRequest.cs
+CodatLending/Models/Operations/GetCreatePaymentModelResponse.cs
 CodatLending/Models/Operations/CreateSupplierRequest.cs
 CodatLending/Models/Operations/CreateSupplierResponse.cs
 CodatLending/Models/Operations/GetCreateUpdateSuppliersModelRequest.cs
@@ -545,6 +550,7 @@ CodatLending/Models/Shared/PushFieldValidation.cs
 CodatLending/Models/Shared/PushOptionType.cs
 CodatLending/Models/Shared/PushOptionProperty.cs
 CodatLending/Models/Shared/PushOptionChoice.cs
+CodatLending/Models/Shared/AccountingCreateBankAccountResponse.cs
 CodatLending/Models/Shared/AccountingCreateBankTransactionsResponse.cs
 CodatLending/Models/Shared/AccountingCreateBankTransactions.cs
 CodatLending/Models/Shared/CreateBankAccountTransaction.cs
@@ -816,6 +822,10 @@ docs/models/operations/CreateAccountRequest.md
 docs/models/operations/CreateAccountResponse.md
 docs/models/operations/GetCreateChartOfAccountsModelRequest.md
 docs/models/operations/GetCreateChartOfAccountsModelResponse.md
+docs/models/operations/CreateBankAccountRequest.md
+docs/models/operations/CreateBankAccountResponse.md
+docs/models/operations/GetCreateUpdateBankAccountsModelRequest.md
+docs/models/operations/GetCreateUpdateBankAccountsModelResponse.md
 docs/models/operations/CreateBankTransactionsRequest.md
 docs/models/operations/CreateBankTransactionsResponse.md
 docs/models/operations/GetCreateBankTransactionsModelRequest.md
@@ -830,8 +840,8 @@ docs/models/operations/GetCreateDirectCostsModelRequest.md
 docs/models/operations/GetCreateDirectCostsModelResponse.md
 docs/models/operations/CreatePaymentRequest.md
 docs/models/operations/CreatePaymentResponse.md
-docs/models/operations/GetCreatePaymentsModelRequest.md
-docs/models/operations/GetCreatePaymentsModelResponse.md
+docs/models/operations/GetCreatePaymentModelRequest.md
+docs/models/operations/GetCreatePaymentModelResponse.md
 docs/models/operations/CreateSupplierRequest.md
 docs/models/operations/CreateSupplierResponse.md
 docs/models/operations/GetCreateUpdateSuppliersModelRequest.md
@@ -1113,6 +1123,7 @@ docs/models/shared/PushFieldValidation.md
 docs/models/shared/PushOptionType.md
 docs/models/shared/PushOptionProperty.md
 docs/models/shared/PushOptionChoice.md
+docs/models/shared/AccountingCreateBankAccountResponse.md
 docs/models/shared/AccountingCreateBankTransactionsResponse.md
 docs/models/shared/AccountingCreateBankTransactions.md
 docs/models/shared/CreateBankAccountTransaction.md
@@ -1244,6 +1255,7 @@ docs/sdks/financialstatementscashflow/README.md
 docs/sdks/financialstatementsprofitandloss/README.md
 docs/sdks/loanwriteback/README.md
 docs/sdks/loanwritebackaccounts/README.md
+docs/sdks/loanwritebackbankaccounts/README.md
 docs/sdks/loanwritebackbanktransactions/README.md
 docs/sdks/loanwritebackcreateoperations/README.md
 docs/sdks/loanwritebackdirectcosts/README.md

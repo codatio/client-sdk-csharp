@@ -35,7 +35,7 @@ var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(new Dow
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "Dakota Avon specifically",
+    CustomerId = "string",
 });
 
 // handle response
@@ -79,7 +79,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsReceivable.Customers.GetAsync(new GetAccountingCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "Northeast Hatchback Kia",
+    CustomerId = "string",
 });
 
 // handle response
@@ -123,7 +123,7 @@ var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(new GetAccou
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "array East along",
+    CustomerId = "string",
 });
 
 // handle response
@@ -210,7 +210,7 @@ var sdk = new CodatLendingSDK(
 var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(new ListAccountingCustomerAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "intuitive Frozen ouch",
+    CustomerId = "string",
 });
 
 // handle response

@@ -33,7 +33,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.Bills.DownloadAttachmentAsync(new DownloadAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "Dakota Avon specifically",
+    BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -78,7 +78,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.Bills.GetAsync(new GetAccountingBillRequest() {
-    BillId = "Northeast Hatchback Kia",
+    BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -121,7 +121,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.AccountsPayable.Bills.GetAttachmentAsync(new GetAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "array East along",
+    BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -208,7 +208,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(new ListAccountingBillAttachmentsRequest() {
-    BillId = "intuitive Frozen ouch",
+    BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

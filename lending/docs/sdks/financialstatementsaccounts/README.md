@@ -31,7 +31,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.FinancialStatements.Accounts.GetAsync(new GetAccountingAccountRequest() {
-    AccountId = "Northeast Hatchback Kia",
+    AccountId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 

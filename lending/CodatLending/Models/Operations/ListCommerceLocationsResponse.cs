@@ -28,7 +28,7 @@ namespace CodatLending.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Your `query` parameter was not correctly formed
+        /// Your API request was not properly authorized.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

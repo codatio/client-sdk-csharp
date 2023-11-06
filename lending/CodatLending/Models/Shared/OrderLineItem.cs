@@ -41,7 +41,7 @@ namespace CodatLending.Models.Shared
         /// Number of units of the product sold.<br/>
         /// 
         /// <remarks>
-        /// For refunds, quantity is a negative value.<br/>
+        /// For refunds, quantity is negative.<br/>
         /// 
         /// </remarks>
         /// </summary>
@@ -49,7 +49,7 @@ namespace CodatLending.Models.Shared
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// Percentage rate (from 0 to 100) of any sale tax applied to the unit amount.
+        /// Percentage rate (from 0 to 100) of any sales tax applied to the unit price.
         /// </summary>
         [JsonProperty("taxPercentage")]
         public decimal? TaxPercentage { get; set; }
@@ -61,19 +61,19 @@ namespace CodatLending.Models.Shared
         public List<TaxComponentAllocation>? Taxes { get; set; }
 
         /// <summary>
-        /// Total price of the line item, including discounts, tax and minus any refunds.
+        /// Total amount of the line item, including discounts and tax.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
 
         /// <summary>
-        /// Total amount of tax applied to the line item.
+        /// Total amount of tax applied to the line item, factoring in any discounts.
         /// </summary>
         [JsonProperty("totalTaxAmount")]
         public decimal? TotalTaxAmount { get; set; }
 
         /// <summary>
-        /// Price per unit of goods or service.
+        /// Price per unit of goods or services, excluding discounts and tax.
         /// </summary>
         [JsonProperty("unitPrice")]
         public decimal? UnitPrice { get; set; }

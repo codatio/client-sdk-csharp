@@ -46,8 +46,8 @@ var res = await sdk.LoanWriteback.Suppliers.CreateAsync(new CreateSupplierReques
         Status = CodatLending.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "innovative", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },

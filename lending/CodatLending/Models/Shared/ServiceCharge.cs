@@ -47,7 +47,7 @@ namespace CodatLending.Models.Shared
         public List<TaxComponentAllocation>? Taxes { get; set; }
 
         /// <summary>
-        /// Total service charge, including taxes.
+        /// Total amount of the service charge, including tax.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }

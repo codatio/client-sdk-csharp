@@ -28,7 +28,7 @@ var sdk = new CodatLendingSDK(
 );
 
 var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingBankAccountTransactionsRequest() {
-    AccountId = "Anchorage Product",
+    AccountId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     OrderBy = "-modifiedDate",
@@ -219,6 +219,11 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 
 * [Create](docs/sdks/loanwritebackaccounts/README.md#create) - Create account
 * [GetCreateModel](docs/sdks/loanwritebackaccounts/README.md#getcreatemodel) - Get create account model
+
+### [LoanWriteback.BankAccounts](docs/sdks/loanwritebackbankaccounts/README.md)
+
+* [Create](docs/sdks/loanwritebackbankaccounts/README.md#create) - Create bank account
+* [GetCreateUpdateModel](docs/sdks/loanwritebackbankaccounts/README.md#getcreateupdatemodel) - Get create/update bank account model
 
 ### [LoanWriteback.BankTransactions](docs/sdks/loanwritebackbanktransactions/README.md)
 

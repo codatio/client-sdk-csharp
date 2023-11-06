@@ -10,6 +10,7 @@
 #nullable enable
 namespace CodatLending.Models.Operations
 {
+    using CodatLending.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -20,6 +21,11 @@ namespace CodatLending.Models.Operations
         /// HTTP response content type for this operation
         /// </summary>
         public string? ContentType { get; set; } = default!;
+
+        /// <summary>
+        /// Your API request was not properly authorized.
+        /// </summary>
+        public ErrorMessage? ErrorMessage { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

@@ -59,8 +59,8 @@ var res = await sdk.LoanWriteback.Payments.CreateAsync(new CreatePaymentRequest(
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "blue", new Dictionary<string, object>() {
-                    { "shred", "abnormally" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -110,7 +110,7 @@ var sdk = new CodatLendingSDK(
     }
 );
 
-var res = await sdk.LoanWriteback.Payments.GetCreateModelAsync(new GetCreatePaymentsModelRequest() {
+var res = await sdk.LoanWriteback.Payments.GetCreateModelAsync(new GetCreatePaymentModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -120,12 +120,12 @@ var res = await sdk.LoanWriteback.Payments.GetCreateModelAsync(new GetCreatePaym
 
 ### Parameters
 
-| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [GetCreatePaymentsModelRequest](../../models/operations/GetCreatePaymentsModelRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [GetCreatePaymentModelRequest](../../models/operations/GetCreatePaymentModelRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[GetCreatePaymentsModelResponse](../../models/operations/GetCreatePaymentsModelResponse.md)**
+**[GetCreatePaymentModelResponse](../../models/operations/GetCreatePaymentModelResponse.md)**
 

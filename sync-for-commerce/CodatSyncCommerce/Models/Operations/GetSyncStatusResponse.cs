@@ -18,19 +18,14 @@ namespace CodatSyncCommerce.Models.Operations
     {
 
         /// <summary>
-        /// Bad Request
-        /// </summary>
-        public object? BadRequest { get; set; }
-
-        /// <summary>
         /// HTTP response content type for this operation
         /// </summary>
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Not Found
+        /// Your API request was not properly authorized.
         /// </summary>
-        public object? NotFound { get; set; }
+        public ErrorMessage? ErrorMessage { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

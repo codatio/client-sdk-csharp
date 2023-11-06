@@ -24,6 +24,11 @@ namespace CodatSyncCommerce.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
+        /// Your API request was not properly authorized.
+        /// </summary>
+        public ErrorMessage? ErrorMessage { get; set; }
+
+        /// <summary>
         /// Success
         /// </summary>
         public Dictionary<string, Localization>? LocalizationInfo { get; set; }

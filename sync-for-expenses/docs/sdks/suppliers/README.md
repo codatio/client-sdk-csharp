@@ -40,8 +40,8 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
-        Addresses = new List<SupplierAccountingAddress>() {
-            new SupplierAccountingAddress() {
+        Addresses = new List<Items>() {
+            new Items() {
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
@@ -52,8 +52,8 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
         Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "innovative", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -193,8 +193,8 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
-        Addresses = new List<SupplierAccountingAddress>() {
-            new SupplierAccountingAddress() {
+        Addresses = new List<Items>() {
+            new Items() {
                 Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
             },
         },
@@ -205,15 +205,15 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
         Status = CodatSyncExpenses.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "male", new Dictionary<string, object>() {
-                    { "Metal", "cheater" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    SupplierId = "7110701885",
 });
 
 // handle response

@@ -12,7 +12,7 @@ namespace CodatSyncExpenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class SupplierAccountingAddress
+    public class CustomerAccountingAddress
     {
 
         /// <summary>

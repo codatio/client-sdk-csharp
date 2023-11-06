@@ -151,6 +151,7 @@ CodatSyncExpenses/Models/Shared/AccountMappingInfoValidTransactionTypes.cs
 CodatSyncExpenses/Models/Shared/AccountMappingInfo.cs
 CodatSyncExpenses/Models/Shared/Connections.cs
 CodatSyncExpenses/Models/Shared/CreateCustomerResponse.cs
+CodatSyncExpenses/Models/Shared/CustomerAccountingAddress.cs
 CodatSyncExpenses/Models/Shared/Customer.cs
 CodatSyncExpenses/Models/Shared/CustomerStatus.cs
 CodatSyncExpenses/Models/Shared/Metadata.cs
@@ -182,7 +183,6 @@ CodatSyncExpenses/Models/Shared/PullOperations.cs
 CodatSyncExpenses/Models/Shared/PushOperation.cs
 CodatSyncExpenses/Models/Shared/PushOperations.cs
 CodatSyncExpenses/Models/Shared/CreateSupplierResponse.cs
-CodatSyncExpenses/Models/Shared/SupplierAccountingAddress.cs
 CodatSyncExpenses/Models/Shared/Supplier.cs
 CodatSyncExpenses/Models/Shared/SupplierStatus.cs
 CodatSyncExpenses/Models/Shared/Suppliers.cs
@@ -338,6 +338,7 @@ docs/models/shared/AccountMappingInfoValidTransactionTypes.md
 docs/models/shared/AccountMappingInfo.md
 docs/models/shared/Connections.md
 docs/models/shared/CreateCustomerResponse.md
+docs/models/shared/CustomerAccountingAddress.md
 docs/models/shared/Customer.md
 docs/models/shared/CustomerStatus.md
 docs/models/shared/Metadata.md
@@ -369,7 +370,6 @@ docs/models/shared/PullOperations.md
 docs/models/shared/PushOperation.md
 docs/models/shared/PushOperations.md
 docs/models/shared/CreateSupplierResponse.md
-docs/models/shared/SupplierAccountingAddress.md
 docs/models/shared/Supplier.md
 docs/models/shared/SupplierStatus.md
 docs/models/shared/Suppliers.md

@@ -23,7 +23,7 @@ namespace CodatSyncExpenses.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// If model is incorrect
+        /// The request made is not valid.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 

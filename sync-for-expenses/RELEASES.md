@@ -111,3 +111,13 @@ Based on:
 - [csharp v3.2.0] sync-for-expenses
 ### Releases
 - [NuGet v3.2.0] https://www.nuget.org/packages/Codat.Sync.Expenses/3.2.0 - sync-for-expenses
+
+## 2023-11-06 01:29:10
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+- Speakeasy CLI 1.112.1 (2.173.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v3.3.0] sync-for-expenses
+### Releases
+- [NuGet v3.3.0] https://www.nuget.org/packages/Codat.Sync.Expenses/3.3.0 - sync-for-expenses

@@ -65,27 +65,27 @@ namespace CodatSyncPayroll.Models.Shared
         /// <br/>
         /// ## Overview<br/>
         /// <br/>
-        /// Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve a list of all accounts for a specified company. <br/>
+        /// Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve a list of all accounts for a specified company.<br/>
         /// <br/>
         /// The categories for an account include:<br/>
-        ///   * Asset<br/>
-        ///   * Expense<br/>
-        ///   * Income<br/>
-        ///   * Liability<br/>
-        ///   * Equity.<br/>
+        /// * Asset<br/>
+        /// * Expense<br/>
+        /// * Income<br/>
+        /// * Liability<br/>
+        /// * Equity.<br/>
         /// <br/>
-        /// The same account may have a different category based on the integration it is used in. For example, a current account (known as checking in the US) should be categorized as `Asset.Current` for Xero, and `Asset.Bank.Checking` for QuickBooks Online. <br/>
+        /// The same account may have a different category based on the integration it is used in. For example, a current account (known as checking in the US) should be categorized as `Asset.Current` for Xero, and `Asset.Bank.Checking` for QuickBooks Online.<br/>
         /// <br/>
-        /// At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided. <br/>
+        /// At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided.<br/>
         /// <br/>
-        /// To determine the list of allowed categories for a specific integration, you can: <br/>
+        /// To determine the list of allowed categories for a specific integration, you can:<br/>
         /// - Follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide and use the <a href="https://docs.codat.io/sync-for-payroll-api#/operations/get-create-chartOfAccounts-model">Get create account model</a>.<br/>
-        /// - Refer to the integration&apos;s own documentation. <br/>
+        /// - Refer to the integration&apos;s own documentation.<br/>
         /// <br/>
         /// &gt; **Accounts with no category**<br/>
-        /// &gt; <br/>
+        /// &gt;<br/>
         /// &gt; If an account is pulled from the chart of accounts and its nominal code does not lie within the category layout for the company&apos;s accounts, then the **type** is `Unknown`. The **fullyQualifiedCategory** and **fullyQualifiedName** fields return `null`.<br/>
-        /// &gt; <br/>
+        /// &gt;<br/>
         /// &gt; This approach gives a true representation of the company&apos;s accounts whilst preventing distorting financials such as a company&apos;s profit and loss and balance sheet reports.
         /// </remarks>
         /// </summary>

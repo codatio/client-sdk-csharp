@@ -67,8 +67,8 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "blue", new Dictionary<string, object>() {
-                    { "shred", "abnormally" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -142,7 +142,7 @@ var sdk = new CodatSyncPayrollSDK(
 var res = await sdk.JournalEntries.DeleteAsync(new DeleteJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    JournalEntryId = "Van complexity",
+    JournalEntryId = "string",
 });
 
 // handle response
@@ -186,7 +186,7 @@ var sdk = new CodatSyncPayrollSDK(
 
 var res = await sdk.JournalEntries.GetAsync(new GetJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "Northeast Hatchback Kia",
+    JournalEntryId = "string",
 });
 
 // handle response

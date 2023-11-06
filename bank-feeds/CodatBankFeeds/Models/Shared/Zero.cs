@@ -8,14 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Operations
+namespace CodatBankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     
     /// <summary>
     /// A bank feed connection between a source account and a target account.
     /// </summary>
-    public class CreateBankAccountMappingBankFeedAccountMapping
+    public class Zero
     {
 
         /// <summary>

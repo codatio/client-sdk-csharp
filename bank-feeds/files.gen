@@ -18,7 +18,6 @@ CodatBankFeeds/Utils/URLBuilder.cs
 CodatBankFeeds/Utils/Utilities.cs
 CodatBankFeeds/CodatBankFeeds.csproj
 CodatBankFeeds.sln
-CodatBankFeeds/Models/Operations/CreateBankAccountMappingBankFeedAccountMapping.cs
 CodatBankFeeds/Models/Operations/CreateBankAccountMappingRequest.cs
 CodatBankFeeds/Models/Operations/CreateBankAccountMappingResponse.cs
 CodatBankFeeds/Models/Operations/GetBankAccountMappingRequest.cs
@@ -62,6 +61,7 @@ CodatBankFeeds/Models/Operations/GetCreateOperationRequest.cs
 CodatBankFeeds/Models/Operations/GetCreateOperationResponse.cs
 CodatBankFeeds/Models/Operations/ListCreateOperationsRequest.cs
 CodatBankFeeds/Models/Operations/ListCreateOperationsResponse.cs
+CodatBankFeeds/Models/Shared/Zero.cs
 CodatBankFeeds/Models/Shared/ErrorMessage.cs
 CodatBankFeeds/Models/Shared/BankFeedAccountMappingResponse.cs
 CodatBankFeeds/Models/Shared/BankFeedMapping.cs
@@ -99,7 +99,6 @@ CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhookData.cs
 CodatBankFeeds/Models/Webhooks/ClientRateLimitReachedResponse.cs
 CodatBankFeeds/Models/Webhooks/ClientRateLimitResetResponse.cs
 USAGE.md
-docs/models/operations/CreateBankAccountMappingBankFeedAccountMapping.md
 docs/models/operations/CreateBankAccountMappingRequest.md
 docs/models/operations/CreateBankAccountMappingResponse.md
 docs/models/operations/GetBankAccountMappingRequest.md
@@ -143,6 +142,7 @@ docs/models/operations/GetCreateOperationRequest.md
 docs/models/operations/GetCreateOperationResponse.md
 docs/models/operations/ListCreateOperationsRequest.md
 docs/models/operations/ListCreateOperationsResponse.md
+docs/models/shared/Zero.md
 docs/models/shared/ErrorMessage.md
 docs/models/shared/BankFeedAccountMappingResponse.md
 docs/models/shared/BankFeedMapping.md

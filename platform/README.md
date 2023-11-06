@@ -80,7 +80,7 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 
 * [CreateApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
 * [DeleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
-* [~~GetProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
+* [GetProfile](docs/sdks/settings/README.md#getprofile) - Get profile
 * [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
 * [ListApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
 * [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile

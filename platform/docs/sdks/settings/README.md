@@ -9,7 +9,7 @@ Manage your Codat instance.
 
 * [CreateApiKey](#createapikey) - Create API key
 * [DeleteApiKey](#deleteapikey) - Delete API key
-* [~~GetProfile~~](#getprofile) - Get profile :warning: **Deprecated**
+* [GetProfile](#getprofile) - Get profile
 * [GetSyncSettings](#getsyncsettings) - Get sync settings
 * [ListApiKeys](#listapikeys) - List API keys
 * [UpdateProfile](#updateprofile) - Update profile
@@ -105,11 +105,9 @@ var res = await sdk.Settings.DeleteApiKeyAsync(new DeleteApiKeyRequest() {
 **[DeleteApiKeyResponse](../../models/operations/DeleteApiKeyResponse.md)**
 
 
-## ~~GetProfile~~
+## GetProfile
 
 Fetch your Codat profile.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

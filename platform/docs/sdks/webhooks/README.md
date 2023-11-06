@@ -49,7 +49,7 @@ var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
         },
         Webhook = "https://webhook.client.com",
     },
-    Type = "bluetooth Extended",
+    Type = "string",
 });
 
 // handle response

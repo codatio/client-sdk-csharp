@@ -65,8 +65,8 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "blue", new Dictionary<string, object>() {
-                    { "shred", "abnormally" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -140,8 +140,9 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.BillPayments.DeleteAsync(new DeleteBillPaymentRequest() {
-    BillPaymentId = "Van complexity",
+    BillPaymentId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
 
 // handle response
@@ -184,7 +185,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.BillPayments.GetAsync(new GetBillPaymentsRequest() {
-    BillPaymentId = "Northeast Hatchback Kia",
+    BillPaymentId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 

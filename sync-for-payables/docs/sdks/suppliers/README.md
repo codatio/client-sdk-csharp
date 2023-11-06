@@ -53,8 +53,8 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
         Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "innovative", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -104,7 +104,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.Suppliers.GetAsync(new GetSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "Northeast Hatchback Kia",
+    SupplierId = "string",
 });
 
 // handle response
@@ -252,15 +252,15 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
         Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "male", new Dictionary<string, object>() {
-                    { "Metal", "cheater" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "Cotton",
+    SupplierId = "string",
 });
 
 // handle response

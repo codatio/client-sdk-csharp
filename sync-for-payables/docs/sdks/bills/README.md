@@ -70,7 +70,7 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    ProjectRef = new TrackingProjectReference() {
+                    ProjectRef = new TrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -84,9 +84,9 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
         },
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        PaymentAllocations = new List<BillPaymentAllocation>() {
-            new BillPaymentAllocation() {
-                Allocation = new BillPaymentAllocationAllocation() {
+        PaymentAllocations = new List<BillAccountingPaymentAllocation>() {
+            new BillAccountingPaymentAllocation() {
+                Allocation = new BillAccountingPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "EUR",
                 },
@@ -105,20 +105,20 @@ var res = await sdk.Bills.CreateAsync(new CreateBillRequest() {
         SubTotal = 0.86M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "deposit", new Dictionary<string, object>() {
-                    { "evolve", "male" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
             Id = "<ID>",
         },
-        TaxAmount = 8559.52M,
-        TotalAmount = 8165.88M,
+        TaxAmount = 4552.22M,
+        TotalAmount = 1697.27M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 5519.29M,
-                Name = "Polestar mobile",
+                Amount = 3015.1M,
+                Name = "string",
             },
         },
     },
@@ -149,7 +149,7 @@ The *Delete bill* endpoint allows you to delete a specified bill from an account
 
 ### Process 
 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.
-2. Check the status of the delete operation by checking the status of push operation either via
+2. Check the status of the delete operation by checking the status of the push operation either via
     1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
     2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
 
@@ -166,11 +166,12 @@ Integrations that support soft delete do not permanently delete the object in th
 | Integration | Soft Delete | Details                                                                                                      |  
 |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
 | QuickBooks Online | No          | -                                                                                                            |
-| Oracle NetSuite   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |
+| Oracle NetSuite   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |                                                                                                      |
+| Sage Intacct   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |
 
 > **Supported Integrations**
 > 
-> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
+> This functionality is currently supported for our QuickBooks Online, Xero, Oracle NetSuite and Sage Intacct integrations.
 
 ### Example Usage
 
@@ -581,7 +582,7 @@ var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
-                    ProjectRef = new TrackingProjectReference() {
+                    ProjectRef = new TrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -595,9 +596,9 @@ var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
         },
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
-        PaymentAllocations = new List<BillPaymentAllocation>() {
-            new BillPaymentAllocation() {
-                Allocation = new BillPaymentAllocationAllocation() {
+        PaymentAllocations = new List<BillAccountingPaymentAllocation>() {
+            new BillAccountingPaymentAllocation() {
+                Allocation = new BillAccountingPaymentAllocationAllocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "EUR",
                 },
@@ -616,24 +617,24 @@ var res = await sdk.Bills.UpdateAsync(new UpdateBillRequest() {
         SubTotal = 540.62M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Cotton", new Dictionary<string, object>() {
-                    { "extend", "Plastic" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
         SupplierRef = new SupplierRef() {
             Id = "<ID>",
         },
-        TaxAmount = 1395.79M,
-        TotalAmount = 6447.13M,
+        TaxAmount = 2782.81M,
+        TotalAmount = 8965.01M,
         WithholdingTax = new List<BillWithholdingTax>() {
             new BillWithholdingTax() {
-                Amount = 7892.75M,
-                Name = "immediately implement JBOD",
+                Amount = 4995.57M,
+                Name = "string",
             },
         },
     },
-    BillId = "EILBDVJVNUAGVKRQ",
+    BillId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -682,9 +683,9 @@ var sdk = new CodatSyncPayablesSDK(
 var res = await sdk.Bills.UploadAttachmentAsync(new UploadBillAttachmentRequest() {
     RequestBody = new UploadBillAttachmentRequestBody() {
         Content = "v/ghW&IC$x as bytes <<<>>>",
-        RequestBody = "Elegant Producer Electric",
+        RequestBody = "string",
     },
-    BillId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    BillId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

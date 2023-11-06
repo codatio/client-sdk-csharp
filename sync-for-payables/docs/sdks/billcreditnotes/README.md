@@ -66,7 +66,7 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
+                    ProjectRef = new BillCreditNoteLineItemTrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -100,8 +100,8 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "abnormally", new Dictionary<string, object>() {
-                    { "deposit", "evolve" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -113,8 +113,8 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         TotalTaxAmount = 0M,
         WithholdingTax = new List<WithholdingTaxitems>() {
             new WithholdingTaxitems() {
-                Amount = 7150.4M,
-                Name = "SUV quantify Polestar",
+                Amount = 8915.1M,
+                Name = "string",
             },
         },
     },
@@ -162,7 +162,7 @@ var sdk = new CodatSyncPayablesSDK(
 );
 
 var res = await sdk.BillCreditNotes.GetAsync(new GetBillCreditNoteRequest() {
-    BillCreditNoteId = "Northeast Hatchback Kia",
+    BillCreditNoteId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -324,7 +324,7 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
                     },
                     IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
                     IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
-                    ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
+                    ProjectRef = new BillCreditNoteLineItemTrackingAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -358,8 +358,8 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Arizona", new Dictionary<string, object>() {
-                    { "Cotton", "extend" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -371,12 +371,12 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
         TotalTaxAmount = 0M,
         WithholdingTax = new List<WithholdingTaxitems>() {
             new WithholdingTaxitems() {
-                Amount = 2494.4M,
-                Name = "Carolina syndicate",
+                Amount = 1341.51M,
+                Name = "string",
             },
         },
     },
-    BillCreditNoteId = "implement JBOD",
+    BillCreditNoteId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });

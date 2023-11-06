@@ -38,6 +38,6 @@ namespace CodatSyncPayables.Models.Shared
         public BilledToType IsRebilledTo { get; set; } = default!;
 
         [JsonProperty("projectRef")]
-        public BillCreditNoteLineItemTrackingProjectReference? ProjectRef { get; set; }
+        public BillCreditNoteLineItemTrackingAccountingProjectReference? ProjectRef { get; set; }
     }
 }

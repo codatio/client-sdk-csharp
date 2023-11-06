@@ -64,8 +64,8 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "blue", new Dictionary<string, object>() {
-                    { "shred", "abnormally" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },

@@ -72,4 +72,3 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 ### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
 
 * [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
-* [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts

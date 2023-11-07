@@ -138,5 +138,3 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/sync/README.md#list) - List sync statuses
 
 ### [TransactionStatus](docs/sdks/transactionstatus/README.md)
-
-* [Get](docs/sdks/transactionstatus/README.md#get) - Get sync transaction

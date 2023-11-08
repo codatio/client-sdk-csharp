@@ -70,5 +70,3 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [RequestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
 
 ### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
-
-* [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields

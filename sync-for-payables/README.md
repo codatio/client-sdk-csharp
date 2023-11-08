@@ -166,5 +166,3 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 
 * [Get](docs/sdks/taxrates/README.md#get) - Get tax rate
 * [List](docs/sdks/taxrates/README.md#list) - List all tax rates
-
-### [TrackingCategories](docs/sdks/trackingcategories/README.md)

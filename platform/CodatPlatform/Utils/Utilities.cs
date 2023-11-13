@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Utils
+namespace Codat.Platform.Utils
 {
     using System;
     using System.Linq;
@@ -59,7 +59,7 @@ namespace CodatPlatform.Utils
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("CodatPlatform.Models");
+            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.Platform.Models");
         }
 
         // TODO: code review polyfilled for IsAssignableTo

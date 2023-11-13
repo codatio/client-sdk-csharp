@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Operations
+namespace Codat.Platform.Models.Operations
 {
-    using CodatPlatform.Models.Shared;
-    using CodatPlatform.Utils;
+    using Codat.Platform.Models.Shared;
+    using Codat.Platform.Utils;
     
     public class UnlinkConnectionRequest
     {

@@ -1,4 +1,4 @@
-# ConnectionsSDK
+# Connections
 (*Connections*)
 
 ## Overview
@@ -23,11 +23,11 @@ Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -47,12 +47,12 @@ var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [CreateConnectionRequest](../../models/operations/CreateConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [CreateConnectionRequest](../../Models/Operations/CreateConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[CreateConnectionResponse](../../models/operations/CreateConnectionResponse.md)**
+**[CreateConnectionResponse](../../Models/Operations/CreateConnectionResponse.md)**
 
 
 ## Delete
@@ -63,11 +63,11 @@ This operation is not reversible. The end user would need to reauthorize a new d
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -85,12 +85,12 @@ var res = await sdk.Connections.DeleteAsync(new DeleteConnectionRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [DeleteConnectionRequest](../../models/operations/DeleteConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [DeleteConnectionRequest](../../Models/Operations/DeleteConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[DeleteConnectionResponse](../../models/operations/DeleteConnectionResponse.md)**
+**[DeleteConnectionResponse](../../Models/Operations/DeleteConnectionResponse.md)**
 
 
 ## Get
@@ -100,11 +100,11 @@ var res = await sdk.Connections.DeleteAsync(new DeleteConnectionRequest() {
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -122,12 +122,12 @@ var res = await sdk.Connections.GetAsync(new GetConnectionRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [GetConnectionRequest](../../models/operations/GetConnectionRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [GetConnectionRequest](../../Models/Operations/GetConnectionRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[GetConnectionResponse](../../models/operations/GetConnectionResponse.md)**
+**[GetConnectionResponse](../../Models/Operations/GetConnectionResponse.md)**
 
 
 ## List
@@ -137,11 +137,11 @@ var res = await sdk.Connections.GetAsync(new GetConnectionRequest() {
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -161,12 +161,12 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [ListConnectionsRequest](../../models/operations/ListConnectionsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `request`                                                                   | [ListConnectionsRequest](../../Models/Operations/ListConnectionsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 
 ### Response
 
-**[ListConnectionsResponse](../../models/operations/ListConnectionsResponse.md)**
+**[ListConnectionsResponse](../../Models/Operations/ListConnectionsResponse.md)**
 
 
 ## Unlink
@@ -176,11 +176,11 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -199,12 +199,12 @@ var res = await sdk.Connections.UnlinkAsync(new UnlinkConnectionRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [UnlinkConnectionRequest](../../models/operations/UnlinkConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [UnlinkConnectionRequest](../../Models/Operations/UnlinkConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[UnlinkConnectionResponse](../../models/operations/UnlinkConnectionResponse.md)**
+**[UnlinkConnectionResponse](../../Models/Operations/UnlinkConnectionResponse.md)**
 
 
 ## UpdateAuthorization
@@ -214,11 +214,12 @@ Update data connection's authorization.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -239,10 +240,10 @@ var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAut
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [UpdateConnectionAuthorizationRequest](../../models/operations/UpdateConnectionAuthorizationRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| `request`                                                                                               | [UpdateConnectionAuthorizationRequest](../../Models/Operations/UpdateConnectionAuthorizationRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 
 ### Response
 
-**[UpdateConnectionAuthorizationResponse](../../models/operations/UpdateConnectionAuthorizationResponse.md)**
+**[UpdateConnectionAuthorizationResponse](../../Models/Operations/UpdateConnectionAuthorizationResponse.md)**
 

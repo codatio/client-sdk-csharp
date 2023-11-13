@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Operations
+namespace Codat.Platform.Models.Operations
 {
-    using CodatPlatform.Models.Shared;
-    using CodatPlatform.Utils;
+    using Codat.Platform.Models.Shared;
+    using Codat.Platform.Utils;
     
     public class ConfigureSupplementalDataRequest
     {
@@ -26,7 +26,7 @@ namespace CodatPlatform.Models.Operations
         /// Supported supplemental data data type.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public ConfigureSupplementalDataDataType DataType { get; set; } = default!;
+        public Models.Operations.DataType DataType { get; set; } = default!;
 
         /// <summary>
         /// A unique 4-letter key to represent a platform in each integration. View <a href="https://docs.codat.io/integrations/accounting/overview#platform-keys">accounting</a>, <a href="https://docs.codat.io/integrations/banking/overview#platform-keys">banking</a>, and <a href="https://docs.codat.io/integrations/commerce/overview#platform-keys">commerce</a> platform keys.

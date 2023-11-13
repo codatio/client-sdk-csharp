@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -65,7 +65,7 @@ namespace CodatPlatform.Models.Shared
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
-        public DataType DataType { get; set; } = default!;
+        public Models.Shared.DataType DataType { get; set; } = default!;
 
         /// <summary>
         /// A message about a transient or persistent error.
@@ -128,7 +128,7 @@ namespace CodatPlatform.Models.Shared
         /// The current status of the pull operation.
         /// </summary>
         [JsonProperty("status")]
-        public PullOperationStatus Status { get; set; } = default!;
+        public Status Status { get; set; } = default!;
 
         /// <summary>
         /// Additional information about the dataset status.

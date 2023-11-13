@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Webhooks
+namespace Codat.Platform.Models.Webhooks
 {
     using System.Net.Http;
     using System;

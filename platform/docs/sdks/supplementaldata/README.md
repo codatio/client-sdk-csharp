@@ -1,4 +1,4 @@
-# SupplementalDataSDK
+# SupplementalData
 (*SupplementalData*)
 
 ## Overview
@@ -22,11 +22,12 @@ See the *examples* for integration-specific frequently requested properties.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -34,8 +35,8 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.SupplementalData.ConfigureAsync(new ConfigureSupplementalDataRequest() {
     SupplementalDataConfiguration = new SupplementalDataConfiguration() {
-        SupplementalDataConfig = new Dictionary<string, SupplementalDataConfigurationSupplementalDataSourceConfiguration>() {
-            { "key", new SupplementalDataConfigurationSupplementalDataSourceConfiguration() {
+        SupplementalDataConfig = new Dictionary<string, SupplementalDataSourceConfiguration>() {
+            { "key", new SupplementalDataSourceConfiguration() {
                 PullData = new Dictionary<string, string>() {
                     { "key", "string" },
                 },
@@ -45,7 +46,7 @@ var res = await sdk.SupplementalData.ConfigureAsync(new ConfigureSupplementalDat
             } },
         },
     },
-    DataType = CodatPlatform.Models.Operations.ConfigureSupplementalDataDataType.Invoices,
+    DataType = Models.Operations.DataType.Invoices,
     PlatformKey = "gbol",
 });
 
@@ -56,12 +57,12 @@ var res = await sdk.SupplementalData.ConfigureAsync(new ConfigureSupplementalDat
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [ConfigureSupplementalDataRequest](../../models/operations/ConfigureSupplementalDataRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| `request`                                                                                       | [ConfigureSupplementalDataRequest](../../Models/Operations/ConfigureSupplementalDataRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response
 
-**[ConfigureSupplementalDataResponse](../../models/operations/ConfigureSupplementalDataResponse.md)**
+**[ConfigureSupplementalDataResponse](../../Models/Operations/ConfigureSupplementalDataResponse.md)**
 
 
 ## GetConfiguration
@@ -73,18 +74,18 @@ The *Get configuration* endpoint returns supplemental data configuration previou
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
 );
 
 var res = await sdk.SupplementalData.GetConfigurationAsync(new GetSupplementalDataConfigurationRequest() {
-    DataType = CodatPlatform.Models.Operations.GetSupplementalDataConfigurationDataType.Invoices,
+    DataType = PathParamDataType.Invoices,
     PlatformKey = "gbol",
 });
 
@@ -95,10 +96,10 @@ var res = await sdk.SupplementalData.GetConfigurationAsync(new GetSupplementalDa
 
 | Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [GetSupplementalDataConfigurationRequest](../../models/operations/GetSupplementalDataConfigurationRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| `request`                                                                                                     | [GetSupplementalDataConfigurationRequest](../../Models/Operations/GetSupplementalDataConfigurationRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 
 ### Response
 
-**[GetSupplementalDataConfigurationResponse](../../models/operations/GetSupplementalDataConfigurationResponse.md)**
+**[GetSupplementalDataConfigurationResponse](../../Models/Operations/GetSupplementalDataConfigurationResponse.md)**
 

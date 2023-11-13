@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Operations
+namespace Codat.Platform.Models.Operations
 {
-    using CodatPlatform.Models.Shared;
-    using CodatPlatform.Utils;
+    using Codat.Platform.Models.Shared;
+    using Codat.Platform.Utils;
     
     public class GetCreateUpdateModelOptionsByDataTypeRequest
     {
@@ -32,6 +32,6 @@ namespace CodatPlatform.Models.Operations
         /// The key of a Codat data type
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public DataType DataType { get; set; } = default!;
+        public SchemaDataType DataType { get; set; } = default!;
     }
 }

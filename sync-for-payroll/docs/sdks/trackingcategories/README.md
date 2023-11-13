@@ -1,4 +1,4 @@
-# TrackingCategoriesSDK
+# TrackingCategories
 (*TrackingCategories*)
 
 ## Overview
@@ -24,11 +24,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -46,12 +46,12 @@ var res = await sdk.TrackingCategories.GetAsync(new GetTrackingCategoryRequest()
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [GetTrackingCategoryRequest](../../models/operations/GetTrackingCategoryRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [GetTrackingCategoryRequest](../../Models/Operations/GetTrackingCategoryRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[GetTrackingCategoryResponse](../../models/operations/GetTrackingCategoryResponse.md)**
+**[GetTrackingCategoryResponse](../../Models/Operations/GetTrackingCategoryResponse.md)**
 
 
 ## List
@@ -66,11 +66,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -90,10 +90,10 @@ var res = await sdk.TrackingCategories.ListAsync(new ListTrackingCategoriesReque
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [ListTrackingCategoriesRequest](../../models/operations/ListTrackingCategoriesRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| `request`                                                                                 | [ListTrackingCategoriesRequest](../../Models/Operations/ListTrackingCategoriesRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 
 ### Response
 
-**[ListTrackingCategoriesResponse](../../models/operations/ListTrackingCategoriesResponse.md)**
+**[ListTrackingCategoriesResponse](../../Models/Operations/ListTrackingCategoriesResponse.md)**
 

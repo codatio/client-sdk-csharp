@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll
+namespace Codat.Sync.Payroll
 {
-    using CodatSyncPayroll.Models.Operations;
-    using CodatSyncPayroll.Models.Shared;
-    using CodatSyncPayroll.Utils;
+    using Codat.Sync.Payroll.Models.Operations;
+    using Codat.Sync.Payroll.Models.Shared;
+    using Codat.Sync.Payroll.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatSyncPayroll
     /// <summary>
     /// Journal entries
     /// </summary>
-    public interface IJournalEntriesSDK
+    public interface IJournalEntries
     {
 
         /// <summary>
@@ -133,19 +133,19 @@ namespace CodatSyncPayroll
     /// <summary>
     /// Journal entries
     /// </summary>
-    public class JournalEntriesSDK: IJournalEntriesSDK
+    public class JournalEntries: IJournalEntries
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.173.0 3.0.0 Codat.Sync.Payroll";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 3.0.0 Codat.Sync.Payroll";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public JournalEntriesSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public JournalEntries(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -386,7 +386,7 @@ namespace CodatSyncPayroll
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.JournalEntries = JsonConvert.DeserializeObject<JournalEntries>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.JournalEntries = JsonConvert.DeserializeObject<Models.Shared.JournalEntries>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

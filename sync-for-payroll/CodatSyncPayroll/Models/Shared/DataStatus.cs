@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Shared
+namespace Codat.Sync.Payroll.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -28,7 +28,7 @@ namespace CodatSyncPayroll.Models.Shared
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
-        public DataStatusDataTypes DataType { get; set; } = default!;
+        public DataTypes DataType { get; set; } = default!;
 
         /// <summary>
         /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>

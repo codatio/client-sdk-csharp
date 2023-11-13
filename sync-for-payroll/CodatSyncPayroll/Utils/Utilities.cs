@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Utils
+namespace Codat.Sync.Payroll.Utils
 {
     using System;
     using System.Linq;
@@ -59,7 +59,7 @@ namespace CodatSyncPayroll.Utils
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("CodatSyncPayroll.Models");
+            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.Sync.Payroll.Models");
         }
 
         // TODO: code review polyfilled for IsAssignableTo

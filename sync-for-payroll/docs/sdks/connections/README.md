@@ -1,4 +1,4 @@
-# ConnectionsSDK
+# Connections
 (*Connections*)
 
 ## Overview
@@ -22,11 +22,11 @@ Use the [List Integrations](https://docs.codat.io/sync-for-payroll-api#/operatio
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -46,12 +46,12 @@ var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [CreateConnectionRequest](../../models/operations/CreateConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [CreateConnectionRequest](../../Models/Operations/CreateConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[CreateConnectionResponse](../../models/operations/CreateConnectionResponse.md)**
+**[CreateConnectionResponse](../../Models/Operations/CreateConnectionResponse.md)**
 
 
 ## Delete
@@ -62,11 +62,11 @@ This operation is not reversible. The end user would need to reauthorize a new d
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -84,12 +84,12 @@ var res = await sdk.Connections.DeleteAsync(new DeleteConnectionRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [DeleteConnectionRequest](../../models/operations/DeleteConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [DeleteConnectionRequest](../../Models/Operations/DeleteConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[DeleteConnectionResponse](../../models/operations/DeleteConnectionResponse.md)**
+**[DeleteConnectionResponse](../../Models/Operations/DeleteConnectionResponse.md)**
 
 
 ## Get
@@ -99,11 +99,11 @@ var res = await sdk.Connections.DeleteAsync(new DeleteConnectionRequest() {
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -121,12 +121,12 @@ var res = await sdk.Connections.GetAsync(new GetConnectionRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [GetConnectionRequest](../../models/operations/GetConnectionRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [GetConnectionRequest](../../Models/Operations/GetConnectionRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[GetConnectionResponse](../../models/operations/GetConnectionResponse.md)**
+**[GetConnectionResponse](../../Models/Operations/GetConnectionResponse.md)**
 
 
 ## List
@@ -136,11 +136,11 @@ var res = await sdk.Connections.GetAsync(new GetConnectionRequest() {
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -160,12 +160,12 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [ListConnectionsRequest](../../models/operations/ListConnectionsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `request`                                                                   | [ListConnectionsRequest](../../Models/Operations/ListConnectionsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 
 ### Response
 
-**[ListConnectionsResponse](../../models/operations/ListConnectionsResponse.md)**
+**[ListConnectionsResponse](../../Models/Operations/ListConnectionsResponse.md)**
 
 
 ## Unlink
@@ -175,11 +175,11 @@ var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -198,10 +198,10 @@ var res = await sdk.Connections.UnlinkAsync(new UnlinkConnectionRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [UnlinkConnectionRequest](../../models/operations/UnlinkConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [UnlinkConnectionRequest](../../Models/Operations/UnlinkConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[UnlinkConnectionResponse](../../models/operations/UnlinkConnectionResponse.md)**
+**[UnlinkConnectionResponse](../../Models/Operations/UnlinkConnectionResponse.md)**
 

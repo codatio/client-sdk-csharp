@@ -1,27 +1,40 @@
 configVersion: 1.0.0
 management:
-  docChecksum: ec8e3eb5a723cc9ea65cb9d024f4d4bf
+  docChecksum: 941aa6e92d6d251a15c651fc41820752
   docVersion: 3.0.0
-  speakeasyVersion: 1.112.1
-  generationVersion: 2.173.0
+  speakeasyVersion: 1.119.0
+  generationVersion: 2.188.1
 generation:
   comments: {}
   sdkClassName: Codat.Sync.Payroll
   repoURL: https://github.com/codatio/client-sdk-csharp.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   csharp:
-    core: 2.93.0
+    core: 3.1.1
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
+    inputOutputModels: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.3.0
+  version: 3.0.0
   author: Codat
   description: Push payroll to accounting platforms.
   dotnetVersion: net6.0
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Operations
+      shared: Models/Shared
+      webhooks: Models/Webhooks
+  inputModelSuffix: input
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: Codat.Sync.Payroll
   published: true
   repoSubDirectory: sync-for-payroll

@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll
+namespace Codat.Sync.Payroll
 {
-    using CodatSyncPayroll.Models.Operations;
-    using CodatSyncPayroll.Models.Shared;
-    using CodatSyncPayroll.Utils;
+    using Codat.Sync.Payroll.Models.Operations;
+    using Codat.Sync.Payroll.Models.Shared;
+    using Codat.Sync.Payroll.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http.Headers;
@@ -23,7 +23,7 @@ namespace CodatSyncPayroll
     /// <summary>
     /// Asynchronously retrieve data from an integration to refresh data in Codat.
     /// </summary>
-    public interface IManageDataSDK
+    public interface IManageData
     {
 
         /// <summary>
@@ -99,19 +99,19 @@ namespace CodatSyncPayroll
     /// <summary>
     /// Asynchronously retrieve data from an integration to refresh data in Codat.
     /// </summary>
-    public class ManageDataSDK: IManageDataSDK
+    public class ManageData: IManageData
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.173.0 3.0.0 Codat.Sync.Payroll";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 3.0.0 Codat.Sync.Payroll";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public ManageDataSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public ManageData(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

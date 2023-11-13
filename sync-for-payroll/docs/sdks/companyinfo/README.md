@@ -1,4 +1,4 @@
-# CompanyInfoSDK
+# CompanyInfo
 (*CompanyInfo*)
 
 ## Overview
@@ -16,11 +16,11 @@ Gets the latest basic info for a company.
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -37,10 +37,10 @@ var res = await sdk.CompanyInfo.GetAccountingProfileAsync(new GetAccountingProfi
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [GetAccountingProfileRequest](../../models/operations/GetAccountingProfileRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| `request`                                                                             | [GetAccountingProfileRequest](../../Models/Operations/GetAccountingProfileRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[GetAccountingProfileResponse](../../models/operations/GetAccountingProfileResponse.md)**
+**[GetAccountingProfileResponse](../../Models/Operations/GetAccountingProfileResponse.md)**
 

@@ -1,4 +1,4 @@
-# CustomersSDK
+# Customers
 (*Customers*)
 
 ## Overview
@@ -28,11 +28,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -40,31 +41,31 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
     Customer = new Customer() {
-        Addresses = new List<CustomerAccountingAddress>() {
-            new CustomerAccountingAddress() {
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+        Addresses = new List<AccountingAddress>() {
+            new AccountingAddress() {
+                Type = AccountingAddressType.Billing,
             },
         },
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Billing,
+                    Type = AccountingAddressType.Billing,
                 },
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Phone = new List<ContactPhone>() {
-                    new ContactPhone() {
+                Phone = new List<Phone>() {
+                    new Phone() {
                         Number = "01224 658 999",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Mobile,
+                        Type = PhoneNumberType.Mobile,
                     },
                 },
-                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Unknown,
+                Status = CustomerStatus.Unknown,
             },
         },
         DefaultCurrency = "GBP",
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
+        Status = CustomerStatus.Archived,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {
@@ -84,12 +85,12 @@ var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [CreateCustomerRequest](../../models/operations/CreateCustomerRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [CreateCustomerRequest](../../Models/Operations/CreateCustomerRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[Models.Operations.CreateCustomerResponse](../../models/operations/CreateCustomerResponse.md)**
+**[Models.Operations.CreateCustomerResponse](../../Models/Operations/CreateCustomerResponse.md)**
 
 
 ## Get
@@ -106,11 +107,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -128,12 +129,12 @@ var res = await sdk.Customers.GetAsync(new GetCustomerRequest() {
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [GetCustomerRequest](../../models/operations/GetCustomerRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [GetCustomerRequest](../../Models/Operations/GetCustomerRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
 
-**[GetCustomerResponse](../../models/operations/GetCustomerResponse.md)**
+**[GetCustomerResponse](../../Models/Operations/GetCustomerResponse.md)**
 
 
 ## List
@@ -148,11 +149,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -172,12 +173,12 @@ var res = await sdk.Customers.ListAsync(new ListCustomersRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [ListCustomersRequest](../../models/operations/ListCustomersRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [ListCustomersRequest](../../Models/Operations/ListCustomersRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[ListCustomersResponse](../../models/operations/ListCustomersResponse.md)**
+**[ListCustomersResponse](../../Models/Operations/ListCustomersResponse.md)**
 
 
 ## Update
@@ -196,11 +197,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -208,31 +210,31 @@ var sdk = new CodatSyncExpensesSDK(
 
 var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
     Customer = new Customer() {
-        Addresses = new List<CustomerAccountingAddress>() {
-            new CustomerAccountingAddress() {
-                Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Delivery,
+        Addresses = new List<AccountingAddress>() {
+            new AccountingAddress() {
+                Type = AccountingAddressType.Delivery,
             },
         },
         Contacts = new List<Contact>() {
             new Contact() {
                 Address = new Items() {
-                    Type = CodatSyncExpenses.Models.Shared.AccountingAddressType.Unknown,
+                    Type = AccountingAddressType.Unknown,
                 },
                 ModifiedDate = "2022-10-23T00:00:00.000Z",
-                Phone = new List<ContactPhone>() {
-                    new ContactPhone() {
+                Phone = new List<Phone>() {
+                    new Phone() {
                         Number = "+44 25691 154789",
-                        Type = CodatSyncExpenses.Models.Shared.PhoneNumberType.Landline,
+                        Type = PhoneNumberType.Landline,
                     },
                 },
-                Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
+                Status = CustomerStatus.Archived,
             },
         },
         DefaultCurrency = "EUR",
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.CustomerStatus.Archived,
+        Status = CustomerStatus.Archived,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {
@@ -253,10 +255,10 @@ var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [UpdateCustomerRequest](../../models/operations/UpdateCustomerRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [UpdateCustomerRequest](../../Models/Operations/UpdateCustomerRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[Models.Operations.UpdateCustomerResponse](../../models/operations/UpdateCustomerResponse.md)**
+**[Models.Operations.UpdateCustomerResponse](../../Models/Operations/UpdateCustomerResponse.md)**
 

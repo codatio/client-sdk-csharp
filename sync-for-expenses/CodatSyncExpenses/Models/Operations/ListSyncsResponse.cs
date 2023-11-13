@@ -8,20 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Operations
+namespace Codat.Sync.Expenses.Models.Operations
 {
-    using CodatSyncExpenses.Models.Shared;
+    using Codat.Sync.Expenses.Models.Shared;
     using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
     public class ListSyncsResponse
     {
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        public List<CompanySyncStatus>? CompanySyncStatuses { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation
@@ -42,5 +37,10 @@ namespace CodatSyncExpenses.Models.Operations
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage? RawResponse { get; set; }
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        public List<CompanySyncStatus>? Classes { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-# PushOperationsSDK
+# PushOperations
 (*PushOperations*)
 
 ## Overview
@@ -17,11 +17,11 @@ Retrieve push operation.
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -39,12 +39,12 @@ var res = await sdk.PushOperations.GetAsync(new GetPushOperationRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPushOperationRequest](../../models/operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [GetPushOperationRequest](../../Models/Operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[GetPushOperationResponse](../../models/operations/GetPushOperationResponse.md)**
+**[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
 
 
 ## List
@@ -54,11 +54,11 @@ List push operation records.
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -78,10 +78,10 @@ var res = await sdk.PushOperations.ListAsync(new ListPushOperationsRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListPushOperationsRequest](../../models/operations/ListPushOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [ListPushOperationsRequest](../../Models/Operations/ListPushOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListPushOperationsResponse](../../models/operations/ListPushOperationsResponse.md)**
+**[ListPushOperationsResponse](../../Models/Operations/ListPushOperationsResponse.md)**
 

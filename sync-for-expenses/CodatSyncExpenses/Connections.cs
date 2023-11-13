@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses
+namespace Codat.Sync.Expenses
 {
-    using CodatSyncExpenses.Models.Operations;
-    using CodatSyncExpenses.Models.Shared;
-    using CodatSyncExpenses.Utils;
+    using Codat.Sync.Expenses.Models.Operations;
+    using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatSyncExpenses
     /// <summary>
     /// Create and manage partner expense connection.
     /// </summary>
-    public interface IConnectionsSDK
+    public interface IConnections
     {
 
         /// <summary>
@@ -86,19 +86,19 @@ namespace CodatSyncExpenses
     /// <summary>
     /// Create and manage partner expense connection.
     /// </summary>
-    public class ConnectionsSDK: IConnectionsSDK
+    public class Connections: IConnections
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.3.0 2.173.0 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.188.1 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public ConnectionsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Connections(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -335,7 +335,7 @@ namespace CodatSyncExpenses
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Connections = JsonConvert.DeserializeObject<Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Connections = JsonConvert.DeserializeObject<Models.Shared.Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

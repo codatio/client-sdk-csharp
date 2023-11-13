@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -128,7 +128,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// The current status of the pull operation.
         /// </summary>
         [JsonProperty("status")]
-        public PullOperationStatus Status { get; set; } = default!;
+        public Status Status { get; set; } = default!;
 
         /// <summary>
         /// Additional information about the dataset status.

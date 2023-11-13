@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace CodatSyncExpenses.Models.Shared
     {
 
         [JsonProperty("bankAccountRef")]
-        public ExpenseTransactionBankAccountReference? BankAccountRef { get; set; }
+        public BankAccountReference? BankAccountRef { get; set; }
 
         [JsonProperty("contactRef")]
         public ContactRef? ContactRef { get; set; }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Utils
+namespace Codat.Sync.Expenses.Utils
 {
     using System;
     using System.Linq;
@@ -59,7 +59,7 @@ namespace CodatSyncExpenses.Utils
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("CodatSyncExpenses.Models");
+            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.Sync.Expenses.Models");
         }
 
         // TODO: code review polyfilled for IsAssignableTo

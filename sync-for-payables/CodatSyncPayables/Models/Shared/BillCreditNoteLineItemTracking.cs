@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace CodatSyncPayables.Models.Shared
         public List<TrackingCategoryRef> CategoryRefs { get; set; } = default!;
 
         [JsonProperty("customerRef")]
-        public BillCreditNoteLineItemTrackingCustomerRef? CustomerRef { get; set; }
+        public BillCreditNoteLineItemCustomerRef? CustomerRef { get; set; }
 
         /// <summary>
         /// Defines if the invoice or credit note is billed/rebilled to a project or customer.
@@ -38,6 +38,6 @@ namespace CodatSyncPayables.Models.Shared
         public BilledToType IsRebilledTo { get; set; } = default!;
 
         [JsonProperty("projectRef")]
-        public BillCreditNoteLineItemTrackingAccountingProjectReference? ProjectRef { get; set; }
+        public BillCreditNoteLineItemAccountingProjectReference? ProjectRef { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-# BillPaymentsSDK
+# BillPayments
 (*BillPayments*)
 
 ## Overview
@@ -29,11 +29,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -51,7 +52,7 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
                 Amount = 8592.13M,
                 Links = new List<BillPaymentLineLink>() {
                     new BillPaymentLineLink() {
-                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.CreditNote,
+                        Type = BillPaymentLineLinkType.CreditNote,
                     },
                 },
             },
@@ -86,12 +87,12 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
 
 | Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [CreateBillPaymentRequest](../../models/operations/CreateBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `request`                                                                       | [CreateBillPaymentRequest](../../Models/Operations/CreateBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 
 ### Response
 
-**[Models.Operations.CreateBillPaymentResponse](../../models/operations/CreateBillPaymentResponse.md)**
+**[Models.Operations.CreateBillPaymentResponse](../../Models/Operations/CreateBillPaymentResponse.md)**
 
 
 ## Delete
@@ -129,11 +130,11 @@ Integrations that support soft delete do not permanently delete the object in th
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -152,12 +153,12 @@ var res = await sdk.BillPayments.DeleteAsync(new DeleteBillPaymentRequest() {
 
 | Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [DeleteBillPaymentRequest](../../models/operations/DeleteBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `request`                                                                       | [DeleteBillPaymentRequest](../../Models/Operations/DeleteBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 
 ### Response
 
-**[DeleteBillPaymentResponse](../../models/operations/DeleteBillPaymentResponse.md)**
+**[DeleteBillPaymentResponse](../../Models/Operations/DeleteBillPaymentResponse.md)**
 
 
 ## Get
@@ -174,11 +175,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -196,12 +197,12 @@ var res = await sdk.BillPayments.GetAsync(new GetBillPaymentsRequest() {
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [GetBillPaymentsRequest](../../models/operations/GetBillPaymentsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `request`                                                                   | [GetBillPaymentsRequest](../../Models/Operations/GetBillPaymentsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 
 ### Response
 
-**[GetBillPaymentsResponse](../../models/operations/GetBillPaymentsResponse.md)**
+**[GetBillPaymentsResponse](../../Models/Operations/GetBillPaymentsResponse.md)**
 
 
 ## GetCreateModel
@@ -220,11 +221,11 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -242,12 +243,12 @@ var res = await sdk.BillPayments.GetCreateModelAsync(new GetCreateBillPaymentMod
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetCreateBillPaymentModelRequest](../../models/operations/GetCreateBillPaymentModelRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| `request`                                                                                       | [GetCreateBillPaymentModelRequest](../../Models/Operations/GetCreateBillPaymentModelRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response
 
-**[GetCreateBillPaymentModelResponse](../../models/operations/GetCreateBillPaymentModelResponse.md)**
+**[GetCreateBillPaymentModelResponse](../../Models/Operations/GetCreateBillPaymentModelResponse.md)**
 
 
 ## List
@@ -262,11 +263,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -286,10 +287,10 @@ var res = await sdk.BillPayments.ListAsync(new ListBillPaymentsRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [ListBillPaymentsRequest](../../models/operations/ListBillPaymentsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [ListBillPaymentsRequest](../../Models/Operations/ListBillPaymentsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[ListBillPaymentsResponse](../../models/operations/ListBillPaymentsResponse.md)**
+**[ListBillPaymentsResponse](../../Models/Operations/ListBillPaymentsResponse.md)**
 

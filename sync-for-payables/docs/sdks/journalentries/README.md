@@ -1,4 +1,4 @@
-# JournalEntriesSDK
+# JournalEntries
 (*JournalEntries*)
 
 ## Overview
@@ -26,11 +26,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -58,7 +59,7 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         PostedOn = "2022-10-23T00:00:00.000Z",
-        RecordRef = new JournalEntryRecordReference() {
+        RecordRef = new RecordReference() {
             DataType = "invoice",
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
@@ -82,12 +83,12 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [CreateJournalEntryRequest](../../models/operations/CreateJournalEntryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [CreateJournalEntryRequest](../../Models/Operations/CreateJournalEntryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[Models.Operations.CreateJournalEntryResponse](../../models/operations/CreateJournalEntryResponse.md)**
+**[Models.Operations.CreateJournalEntryResponse](../../Models/Operations/CreateJournalEntryResponse.md)**
 
 
 ## GetCreateModel
@@ -106,11 +107,11 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -128,10 +129,10 @@ var res = await sdk.JournalEntries.GetCreateModelAsync(new GetCreateJournalEntry
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [GetCreateJournalEntryModelRequest](../../models/operations/GetCreateJournalEntryModelRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| `request`                                                                                         | [GetCreateJournalEntryModelRequest](../../Models/Operations/GetCreateJournalEntryModelRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
 
-**[GetCreateJournalEntryModelResponse](../../models/operations/GetCreateJournalEntryModelResponse.md)**
+**[GetCreateJournalEntryModelResponse](../../Models/Operations/GetCreateJournalEntryModelResponse.md)**
 

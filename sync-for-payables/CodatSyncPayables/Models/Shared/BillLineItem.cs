@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -67,7 +67,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Reference to the purchase order line this line was generated from.
         /// </summary>
         [JsonProperty("purchaseOrderLineRef")]
-        public BillLineItemRecordLineReference? PurchaseOrderLineRef { get; set; }
+        public RecordLineReference? PurchaseOrderLineRef { get; set; }
 
         /// <summary>
         /// Number of units of goods or services received.

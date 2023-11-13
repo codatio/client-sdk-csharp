@@ -1,4 +1,4 @@
-# SuppliersSDK
+# Suppliers
 (*Suppliers*)
 
 ## Overview
@@ -29,11 +29,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -43,14 +44,14 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
-                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Billing,
+                Type = AccountingAddressType.Billing,
             },
         },
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Phone = "(877) 492-8687",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
+        Status = SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {
@@ -70,12 +71,12 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [CreateSupplierRequest](../../models/operations/CreateSupplierRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [CreateSupplierRequest](../../Models/Operations/CreateSupplierRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[Models.Operations.CreateSupplierResponse](../../models/operations/CreateSupplierResponse.md)**
+**[Models.Operations.CreateSupplierResponse](../../Models/Operations/CreateSupplierResponse.md)**
 
 
 ## Get
@@ -92,11 +93,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -114,12 +115,12 @@ var res = await sdk.Suppliers.GetAsync(new GetSupplierRequest() {
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [GetSupplierRequest](../../models/operations/GetSupplierRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [GetSupplierRequest](../../Models/Operations/GetSupplierRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
 
-**[GetSupplierResponse](../../models/operations/GetSupplierResponse.md)**
+**[GetSupplierResponse](../../Models/Operations/GetSupplierResponse.md)**
 
 
 ## GetCreateUpdateModel
@@ -138,11 +139,11 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -160,12 +161,12 @@ var res = await sdk.Suppliers.GetCreateUpdateModelAsync(new GetCreateUpdateSuppl
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [GetCreateUpdateSupplierModelRequest](../../models/operations/GetCreateUpdateSupplierModelRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| `request`                                                                                             | [GetCreateUpdateSupplierModelRequest](../../Models/Operations/GetCreateUpdateSupplierModelRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 
 ### Response
 
-**[GetCreateUpdateSupplierModelResponse](../../models/operations/GetCreateUpdateSupplierModelResponse.md)**
+**[GetCreateUpdateSupplierModelResponse](../../Models/Operations/GetCreateUpdateSupplierModelResponse.md)**
 
 
 ## List
@@ -180,11 +181,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -204,12 +205,12 @@ var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [ListSuppliersRequest](../../models/operations/ListSuppliersRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [ListSuppliersRequest](../../Models/Operations/ListSuppliersRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[ListSuppliersResponse](../../models/operations/ListSuppliersResponse.md)**
+**[ListSuppliersResponse](../../Models/Operations/ListSuppliersResponse.md)**
 
 
 ## Update
@@ -228,11 +229,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -242,14 +244,14 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
-                Type = CodatSyncPayables.Models.Shared.AccountingAddressType.Delivery,
+                Type = AccountingAddressType.Delivery,
             },
         },
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         Phone = "(877) 492-8687",
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.SupplierStatus.Active,
+        Status = SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {
@@ -270,10 +272,10 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [UpdateSupplierRequest](../../models/operations/UpdateSupplierRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [UpdateSupplierRequest](../../Models/Operations/UpdateSupplierRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[Models.Operations.UpdateSupplierResponse](../../models/operations/UpdateSupplierResponse.md)**
+**[Models.Operations.UpdateSupplierResponse](../../Models/Operations/UpdateSupplierResponse.md)**
 

@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Operations
+namespace Codat.Sync.Payables.Models.Operations
 {
-    using CodatSyncPayables.Utils;
+    using Codat.Sync.Payables.Utils;
     
     public class UploadBillAttachmentRequestBody
     {
@@ -18,7 +18,7 @@ namespace CodatSyncPayables.Models.Operations
         [SpeakeasyMetadata("multipartForm:content")]
         public byte[] Content { get; set; } = default!;
 
-        [SpeakeasyMetadata("multipartForm:name=requestBody")]
-        public string RequestBody { get; set; } = default!;
+        [SpeakeasyMetadata("multipartForm:name=fileName")]
+        public string FileName { get; set; } = default!;
     }
 }

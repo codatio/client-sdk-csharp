@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -16,7 +16,7 @@ namespace CodatSyncPayables.Models.Shared
     {
 
         [JsonProperty("allocation")]
-        public ItemsAllocation Allocation { get; set; } = default!;
+        public Allocation Allocation { get; set; } = default!;
 
         [JsonProperty("payment")]
         public PaymentAllocationPayment Payment { get; set; } = default!;

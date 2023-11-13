@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Webhooks
+namespace Codat.BankFeeds.Models.Webhooks
 {
     using System.Net.Http;
     using System;

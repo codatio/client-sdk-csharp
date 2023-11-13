@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Shared
+namespace Codat.BankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -88,6 +88,6 @@ namespace CodatBankFeeds.Models.Shared
         /// Type of transaction for the bank statement line.
         /// </summary>
         [JsonProperty("transactionType")]
-        public BankTransactionsBankTransactionType? TransactionType { get; set; }
+        public BankTransactionType? TransactionType { get; set; }
     }
 }

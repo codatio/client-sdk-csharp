@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Shared
+namespace Codat.BankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
     

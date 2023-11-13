@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds
+namespace Codat.BankFeeds
 {
-    using CodatBankFeeds.Models.Operations;
-    using CodatBankFeeds.Models.Shared;
-    using CodatBankFeeds.Utils;
+    using Codat.BankFeeds.Models.Operations;
+    using Codat.BankFeeds.Models.Shared;
+    using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatBankFeeds
     /// <summary>
     /// Manage your companies&apos; data connections.
     /// </summary>
-    public interface IConnectionsSDK
+    public interface IConnections
     {
 
         /// <summary>
@@ -77,19 +77,19 @@ namespace CodatBankFeeds
     /// <summary>
     /// Manage your companies&apos; data connections.
     /// </summary>
-    public class ConnectionsSDK: IConnectionsSDK
+    public class Connections: IConnections
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.173.0 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public ConnectionsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Connections(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -277,7 +277,7 @@ namespace CodatBankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Connections = JsonConvert.DeserializeObject<Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Connections = JsonConvert.DeserializeObject<Models.Shared.Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds
+namespace Codat.BankFeeds
 {
-    using CodatBankFeeds.Models.Operations;
-    using CodatBankFeeds.Models.Shared;
-    using CodatBankFeeds.Utils;
+    using Codat.BankFeeds.Models.Operations;
+    using Codat.BankFeeds.Models.Shared;
+    using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatBankFeeds
     /// <summary>
     /// Bank feed bank account mapping.
     /// </summary>
-    public interface IAccountMappingSDK
+    public interface IAccountMapping
     {
 
         /// <summary>
@@ -57,19 +57,19 @@ namespace CodatBankFeeds
     /// <summary>
     /// Bank feed bank account mapping.
     /// </summary>
-    public class AccountMappingSDK: IAccountMappingSDK
+    public class AccountMapping: IAccountMapping
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.173.0 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public AccountMappingSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public AccountMapping(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

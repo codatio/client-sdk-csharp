@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Operations
+namespace Codat.BankFeeds.Models.Operations
 {
-    using CodatBankFeeds.Models.Shared;
+    using Codat.BankFeeds.Models.Shared;
     using System.Net.Http;
     using System;
     

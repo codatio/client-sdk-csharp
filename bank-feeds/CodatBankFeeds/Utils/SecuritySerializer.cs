@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Utils
+namespace Codat.BankFeeds.Utils
 {
     using System;
     using System.Reflection;

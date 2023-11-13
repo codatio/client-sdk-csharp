@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce
+namespace Codat.Sync.Commerce
 {
-    using CodatSyncCommerce.Models.Operations;
-    using CodatSyncCommerce.Models.Shared;
-    using CodatSyncCommerce.Utils;
+    using Codat.Sync.Commerce.Models.Operations;
+    using Codat.Sync.Commerce.Models.Shared;
+    using Codat.Sync.Commerce.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http.Headers;
@@ -23,7 +23,7 @@ namespace CodatSyncCommerce
     /// <summary>
     /// Configure preferences for any given Sync for Commerce company using sync flow.
     /// </summary>
-    public interface ISyncFlowSettingsSDK
+    public interface ISyncFlowSettings
     {
 
         /// <summary>
@@ -66,19 +66,19 @@ namespace CodatSyncCommerce
     /// <summary>
     /// Configure preferences for any given Sync for Commerce company using sync flow.
     /// </summary>
-    public class SyncFlowSettingsSDK: ISyncFlowSettingsSDK
+    public class SyncFlowSettings: ISyncFlowSettings
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "1.1";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.173.0 1.1 Codat.Sync.Commerce";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public SyncFlowSettingsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public SyncFlowSettings(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

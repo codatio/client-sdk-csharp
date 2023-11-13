@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce
+namespace Codat.Sync.Commerce
 {
-    using CodatSyncCommerce.Models.Operations;
-    using CodatSyncCommerce.Models.Shared;
-    using CodatSyncCommerce.Utils;
+    using Codat.Sync.Commerce.Models.Operations;
+    using Codat.Sync.Commerce.Models.Shared;
+    using Codat.Sync.Commerce.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatSyncCommerce
     /// <summary>
     /// Advanced company management and sync preferences.
     /// </summary>
-    public interface IAdvancedControlsSDK
+    public interface IAdvancedControls
     {
 
         /// <summary>
@@ -65,19 +65,19 @@ namespace CodatSyncCommerce
     /// <summary>
     /// Advanced company management and sync preferences.
     /// </summary>
-    public class AdvancedControlsSDK: IAdvancedControlsSDK
+    public class AdvancedControls: IAdvancedControls
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "1.1";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.173.0 1.1 Codat.Sync.Commerce";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public AdvancedControlsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public AdvancedControls(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

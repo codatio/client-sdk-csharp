@@ -1,4 +1,4 @@
-# AdvancedControlsSDK
+# AdvancedControls
 (*AdvancedControls*)
 
 ## Overview
@@ -19,10 +19,10 @@ Creates a Codat company
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
 
-var sdk = new CodatSyncCommerceSDK(
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -40,12 +40,12 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 
 | Parameter                                             | Type                                                  | Required                                              | Description                                           |
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `request`                                             | [CreateCompany](../../models/shared/CreateCompany.md) | :heavy_check_mark:                                    | The request object to use for the request.            |
+| `request`                                             | [CreateCompany](../../Models/Shared/CreateCompany.md) | :heavy_check_mark:                                    | The request object to use for the request.            |
 
 
 ### Response
 
-**[CreateCompanyResponse](../../models/operations/CreateCompanyResponse.md)**
+**[CreateCompanyResponse](../../Models/Operations/CreateCompanyResponse.md)**
 
 
 ## GetConfiguration
@@ -55,11 +55,11 @@ Returns a company's commerce sync configuration'.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerceSDK(
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -76,12 +76,12 @@ var res = await sdk.AdvancedControls.GetConfigurationAsync(new GetConfigurationR
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetConfigurationRequest](../../models/operations/GetConfigurationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [GetConfigurationRequest](../../Models/Operations/GetConfigurationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[GetConfigurationResponse](../../models/operations/GetConfigurationResponse.md)**
+**[GetConfigurationResponse](../../Models/Operations/GetConfigurationResponse.md)**
 
 
 ## ListCompanies
@@ -91,11 +91,11 @@ Returns a list of companies.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerceSDK(
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -114,12 +114,12 @@ var res = await sdk.AdvancedControls.ListCompaniesAsync(new ListCompaniesRequest
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [ListCompaniesRequest](../../models/operations/ListCompaniesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [ListCompaniesRequest](../../Models/Operations/ListCompaniesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[ListCompaniesResponse](../../models/operations/ListCompaniesResponse.md)**
+**[ListCompaniesResponse](../../Models/Operations/ListCompaniesResponse.md)**
 
 
 ## SetConfiguration
@@ -129,11 +129,11 @@ Sets a company's commerce sync configuration.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerceSDK(
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -150,10 +150,10 @@ var res = await sdk.AdvancedControls.SetConfigurationAsync(new SetConfigurationR
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [SetConfigurationRequest](../../models/operations/SetConfigurationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [SetConfigurationRequest](../../Models/Operations/SetConfigurationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[SetConfigurationResponse](../../models/operations/SetConfigurationResponse.md)**
+**[SetConfigurationResponse](../../Models/Operations/SetConfigurationResponse.md)**
 

@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Operations
+namespace Codat.Sync.Commerce.Models.Operations
 {
-    using CodatSyncCommerce.Models.Shared;
+    using Codat.Sync.Commerce.Models.Shared;
     using System.Net.Http;
     using System;
     

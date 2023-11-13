@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Operations
+namespace Codat.Sync.Commerce.Models.Operations
 {
-    using CodatSyncCommerce.Models.Shared;
-    using CodatSyncCommerce.Utils;
+    using Codat.Sync.Commerce.Models.Shared;
+    using Codat.Sync.Commerce.Utils;
     
     public class UpdateVisibleAccountsSyncFlowRequest
     {

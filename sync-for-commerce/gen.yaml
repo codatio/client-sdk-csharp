@@ -2,26 +2,38 @@ configVersion: 1.0.0
 management:
   docChecksum: 85a81f71e56d7bfe8e14355a3654f3ed
   docVersion: "1.1"
-  speakeasyVersion: 1.112.1
-  generationVersion: 2.173.0
+  speakeasyVersion: 1.119.0
+  generationVersion: 2.188.1
 generation:
   comments: {}
   sdkClassName: Codat.Sync.Commerce
   repoURL: https://github.com/codatio/client-sdk-csharp.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   csharp:
-    core: 2.93.0
+    core: 3.1.1
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.3.0
+  version: 3.0.0
   author: Codat
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   dotnetVersion: net6.0
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Operations
+      shared: Models/Shared
+      webhooks: Models/Webhooks
+  inputModelSuffix: input
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: Codat.Sync.Commerce
   published: true
   repoSubDirectory: sync-for-commerce

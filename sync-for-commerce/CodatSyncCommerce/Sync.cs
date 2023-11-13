@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce
+namespace Codat.Sync.Commerce
 {
-    using CodatSyncCommerce.Models.Operations;
-    using CodatSyncCommerce.Models.Shared;
-    using CodatSyncCommerce.Utils;
+    using Codat.Sync.Commerce.Models.Operations;
+    using Codat.Sync.Commerce.Models.Shared;
+    using Codat.Sync.Commerce.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http.Headers;
@@ -23,7 +23,7 @@ namespace CodatSyncCommerce
     /// <summary>
     /// Initiate and monitor the sync of company data into accounting software.
     /// </summary>
-    public interface ISyncSDK
+    public interface ISync
     {
 
         /// <summary>
@@ -93,19 +93,19 @@ namespace CodatSyncCommerce
     /// <summary>
     /// Initiate and monitor the sync of company data into accounting software.
     /// </summary>
-    public class SyncSDK: ISyncSDK
+    public class Sync: ISync
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.3.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "1.1";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.3.0 2.173.0 1.1 Codat.Sync.Commerce";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public SyncSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Sync(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -341,7 +341,7 @@ namespace CodatSyncCommerce
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CompanySyncStatuses = JsonConvert.DeserializeObject<List<CompanySyncStatus>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Classes = JsonConvert.DeserializeObject<List<CompanySyncStatus>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

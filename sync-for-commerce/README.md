@@ -16,20 +16,19 @@ dotnet add package Codat.Sync.Commerce
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
-```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
+### Example
 
-var sdk = new CodatSyncCommerceSDK(
+```csharp
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
 );
 
-var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
-    Description = "Requested early access to the new financing scheme.",
-    Name = "Bank of Dave",
-});
+var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync();
 
 // handle response
 ```
@@ -38,6 +37,13 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
+
+### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
+
+* [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
+* [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
+* [UpdateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
+* [UpdateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
 
 ### [AdvancedControls](docs/sdks/advancedcontrols/README.md)
 
@@ -54,11 +60,6 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 * [UpdateConnection](docs/sdks/connections/README.md#updateconnection) - Update connection
 
-### [Integrations](docs/sdks/integrations/README.md)
-
-* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
-* [List](docs/sdks/integrations/README.md#list) - List integrations
-
 ### [Sync](docs/sdks/sync/README.md)
 
 * [Get](docs/sdks/sync/README.md#get) - Get sync status
@@ -69,12 +70,10 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [Request](docs/sdks/sync/README.md#request) - Initiate new sync
 * [RequestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
 
-### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
+### [Integrations](docs/sdks/integrations/README.md)
 
-* [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
-* [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
-* [UpdateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
-* [UpdateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
+* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
+* [List](docs/sdks/integrations/README.md#list) - List integrations
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Webhooks
+namespace Codat.Sync.Commerce.Models.Webhooks
 {
     using System.Net.Http;
     using System;

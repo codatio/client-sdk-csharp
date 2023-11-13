@@ -8,57 +8,57 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     using System;
 
-    public interface ILoanWritebackSDK
+    public interface ILoanWriteback
     {
-        public ILoanWritebackAccountsSDK Accounts { get; }
-        public ILoanWritebackBankAccountsSDK BankAccounts { get; }
-        public ILoanWritebackBankTransactionsSDK BankTransactions { get; }
-        public ILoanWritebackCreateOperationsSDK CreateOperations { get; }
-        public ILoanWritebackDirectCostsSDK DirectCosts { get; }
-        public ILoanWritebackPaymentsSDK Payments { get; }
-        public ILoanWritebackSuppliersSDK Suppliers { get; }
-        public ILoanWritebackTransfersSDK Transfers { get; }
+        public IBankAccounts BankAccounts { get; }
+        public IBankTransactions BankTransactions { get; }
+        public ICodatLendingLoanWritebackAccounts Accounts { get; }
+        public IDirectCosts DirectCosts { get; }
+        public ICodatLendingPayments Payments { get; }
+        public ICodatLendingSuppliers Suppliers { get; }
+        public ITransfers Transfers { get; }
+        public ICreateOperations CreateOperations { get; }
     }
 
-    public class LoanWritebackSDK: ILoanWritebackSDK
+    public class LoanWriteback: ILoanWriteback
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.173.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public ILoanWritebackAccountsSDK Accounts { get; private set; }
-        public ILoanWritebackBankAccountsSDK BankAccounts { get; private set; }
-        public ILoanWritebackBankTransactionsSDK BankTransactions { get; private set; }
-        public ILoanWritebackCreateOperationsSDK CreateOperations { get; private set; }
-        public ILoanWritebackDirectCostsSDK DirectCosts { get; private set; }
-        public ILoanWritebackPaymentsSDK Payments { get; private set; }
-        public ILoanWritebackSuppliersSDK Suppliers { get; private set; }
-        public ILoanWritebackTransfersSDK Transfers { get; private set; }
+        public IBankAccounts BankAccounts { get; private set; }
+        public IBankTransactions BankTransactions { get; private set; }
+        public ICodatLendingLoanWritebackAccounts Accounts { get; private set; }
+        public IDirectCosts DirectCosts { get; private set; }
+        public ICodatLendingPayments Payments { get; private set; }
+        public ICodatLendingSuppliers Suppliers { get; private set; }
+        public ITransfers Transfers { get; private set; }
+        public ICreateOperations CreateOperations { get; private set; }
 
-        public LoanWritebackSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public LoanWriteback(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            Accounts = new LoanWritebackAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            BankAccounts = new LoanWritebackBankAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            BankTransactions = new LoanWritebackBankTransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            CreateOperations = new LoanWritebackCreateOperationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            DirectCosts = new LoanWritebackDirectCostsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Payments = new LoanWritebackPaymentsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Suppliers = new LoanWritebackSuppliersSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Transfers = new LoanWritebackTransfersSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            BankAccounts = new BankAccounts(_defaultClient, _securityClient, _serverUrl, Config);
+            BankTransactions = new BankTransactions(_defaultClient, _securityClient, _serverUrl, Config);
+            Accounts = new CodatLendingLoanWritebackAccounts(_defaultClient, _securityClient, _serverUrl, Config);
+            DirectCosts = new DirectCosts(_defaultClient, _securityClient, _serverUrl, Config);
+            Payments = new CodatLendingPayments(_defaultClient, _securityClient, _serverUrl, Config);
+            Suppliers = new CodatLendingSuppliers(_defaultClient, _securityClient, _serverUrl, Config);
+            Transfers = new Transfers(_defaultClient, _securityClient, _serverUrl, Config);
+            CreateOperations = new CreateOperations(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

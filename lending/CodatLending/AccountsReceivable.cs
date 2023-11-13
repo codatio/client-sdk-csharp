@@ -8,51 +8,51 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     using System;
 
-    public interface IAccountsReceivableSDK
+    public interface IAccountsReceivable
     {
-        public IAccountsReceivableCreditNotesSDK CreditNotes { get; }
-        public IAccountsReceivableCustomersSDK Customers { get; }
-        public IAccountsReceivableDirectIncomesSDK DirectIncomes { get; }
-        public IAccountsReceivableInvoicesSDK Invoices { get; }
-        public IAccountsReceivablePaymentsSDK Payments { get; }
-        public IAccountsReceivableReportsSDK Reports { get; }
+        public ICustomers Customers { get; }
+        public IDirectIncomes DirectIncomes { get; }
+        public IInvoices Invoices { get; }
+        public ICreditNotes CreditNotes { get; }
+        public IPayments Payments { get; }
+        public IReports Reports { get; }
     }
 
-    public class AccountsReceivableSDK: IAccountsReceivableSDK
+    public class AccountsReceivable: IAccountsReceivable
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.173.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IAccountsReceivableCreditNotesSDK CreditNotes { get; private set; }
-        public IAccountsReceivableCustomersSDK Customers { get; private set; }
-        public IAccountsReceivableDirectIncomesSDK DirectIncomes { get; private set; }
-        public IAccountsReceivableInvoicesSDK Invoices { get; private set; }
-        public IAccountsReceivablePaymentsSDK Payments { get; private set; }
-        public IAccountsReceivableReportsSDK Reports { get; private set; }
+        public ICustomers Customers { get; private set; }
+        public IDirectIncomes DirectIncomes { get; private set; }
+        public IInvoices Invoices { get; private set; }
+        public ICreditNotes CreditNotes { get; private set; }
+        public IPayments Payments { get; private set; }
+        public IReports Reports { get; private set; }
 
-        public AccountsReceivableSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public AccountsReceivable(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            CreditNotes = new AccountsReceivableCreditNotesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Customers = new AccountsReceivableCustomersSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            DirectIncomes = new AccountsReceivableDirectIncomesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Invoices = new AccountsReceivableInvoicesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Payments = new AccountsReceivablePaymentsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Reports = new AccountsReceivableReportsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Customers = new Customers(_defaultClient, _securityClient, _serverUrl, Config);
+            DirectIncomes = new DirectIncomes(_defaultClient, _securityClient, _serverUrl, Config);
+            Invoices = new Invoices(_defaultClient, _securityClient, _serverUrl, Config);
+            CreditNotes = new CreditNotes(_defaultClient, _securityClient, _serverUrl, Config);
+            Payments = new Payments(_defaultClient, _securityClient, _serverUrl, Config);
+            Reports = new Reports(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

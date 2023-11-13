@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Webhooks
+namespace Codat.Lending.Models.Webhooks
 {
     using System.Net.Http;
     using System;

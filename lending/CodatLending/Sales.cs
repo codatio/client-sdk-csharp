@@ -8,66 +8,66 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     using System;
 
-    public interface ISalesSDK
+    public interface ISales
     {
-        public ISalesCustomersSDK Customers { get; }
-        public ISalesDisputesSDK Disputes { get; }
-        public ISalesLocationsSDK Locations { get; }
-        public ISalesMetricsSDK Metrics { get; }
-        public ISalesOrdersSDK Orders { get; }
-        public ISalesPaymentMethodsSDK PaymentMethods { get; }
-        public ISalesPaymentsSDK Payments { get; }
-        public ISalesProductCategoriesSDK ProductCategories { get; }
-        public ISalesProductsSDK Products { get; }
-        public ISalesReportsSDK Reports { get; }
-        public ISalesTransactionsSDK Transactions { get; }
+        public ICodatLendingCustomers Customers { get; }
+        public IDisputes Disputes { get; }
+        public ILocations Locations { get; }
+        public IOrders Orders { get; }
+        public IPaymentMethods PaymentMethods { get; }
+        public ICodatLendingSalesPayments Payments { get; }
+        public IProductCategories ProductCategories { get; }
+        public IProducts Products { get; }
+        public ICodatLendingTransactions Transactions { get; }
+        public IMetrics Metrics { get; }
+        public ICodatLendingReports Reports { get; }
     }
 
-    public class SalesSDK: ISalesSDK
+    public class Sales: ISales
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.173.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public ISalesCustomersSDK Customers { get; private set; }
-        public ISalesDisputesSDK Disputes { get; private set; }
-        public ISalesLocationsSDK Locations { get; private set; }
-        public ISalesMetricsSDK Metrics { get; private set; }
-        public ISalesOrdersSDK Orders { get; private set; }
-        public ISalesPaymentMethodsSDK PaymentMethods { get; private set; }
-        public ISalesPaymentsSDK Payments { get; private set; }
-        public ISalesProductCategoriesSDK ProductCategories { get; private set; }
-        public ISalesProductsSDK Products { get; private set; }
-        public ISalesReportsSDK Reports { get; private set; }
-        public ISalesTransactionsSDK Transactions { get; private set; }
+        public ICodatLendingCustomers Customers { get; private set; }
+        public IDisputes Disputes { get; private set; }
+        public ILocations Locations { get; private set; }
+        public IOrders Orders { get; private set; }
+        public IPaymentMethods PaymentMethods { get; private set; }
+        public ICodatLendingSalesPayments Payments { get; private set; }
+        public IProductCategories ProductCategories { get; private set; }
+        public IProducts Products { get; private set; }
+        public ICodatLendingTransactions Transactions { get; private set; }
+        public IMetrics Metrics { get; private set; }
+        public ICodatLendingReports Reports { get; private set; }
 
-        public SalesSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Sales(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            Customers = new SalesCustomersSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Disputes = new SalesDisputesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Locations = new SalesLocationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Metrics = new SalesMetricsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Orders = new SalesOrdersSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            PaymentMethods = new SalesPaymentMethodsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Payments = new SalesPaymentsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            ProductCategories = new SalesProductCategoriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Products = new SalesProductsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Reports = new SalesReportsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Transactions = new SalesTransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Customers = new CodatLendingCustomers(_defaultClient, _securityClient, _serverUrl, Config);
+            Disputes = new Disputes(_defaultClient, _securityClient, _serverUrl, Config);
+            Locations = new Locations(_defaultClient, _securityClient, _serverUrl, Config);
+            Orders = new Orders(_defaultClient, _securityClient, _serverUrl, Config);
+            PaymentMethods = new PaymentMethods(_defaultClient, _securityClient, _serverUrl, Config);
+            Payments = new CodatLendingSalesPayments(_defaultClient, _securityClient, _serverUrl, Config);
+            ProductCategories = new ProductCategories(_defaultClient, _securityClient, _serverUrl, Config);
+            Products = new Products(_defaultClient, _securityClient, _serverUrl, Config);
+            Transactions = new CodatLendingTransactions(_defaultClient, _securityClient, _serverUrl, Config);
+            Metrics = new Metrics(_defaultClient, _securityClient, _serverUrl, Config);
+            Reports = new CodatLendingReports(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

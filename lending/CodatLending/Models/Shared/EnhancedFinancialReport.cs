@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -23,6 +23,6 @@ namespace CodatLending.Models.Shared
         /// An array of report items.
         /// </summary>
         [JsonProperty("reportItems")]
-        public List<EnhancedFinancialReportReportItem>? ReportItems { get; set; }
+        public List<ReportItem>? ReportItems { get; set; }
     }
 }

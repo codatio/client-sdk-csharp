@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Utils
+namespace Codat.Lending.Utils
 {
     using System;
     using System.Globalization;

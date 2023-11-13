@@ -1,4 +1,4 @@
-# DataIntegritySDK
+# DataIntegrity
 (*DataIntegrity*)
 
 ## Overview
@@ -20,11 +20,11 @@ The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetails) a
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -32,7 +32,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.DataIntegrity.DetailsAsync(new ListDataIntegrityDetailsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = CodatLending.Models.Shared.DataIntegrityDataType.BankingAccounts,
+    DataType = DataIntegrityDataType.BankingAccounts,
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
@@ -45,12 +45,12 @@ var res = await sdk.DataIntegrity.DetailsAsync(new ListDataIntegrityDetailsReque
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [ListDataIntegrityDetailsRequest](../../models/operations/ListDataIntegrityDetailsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| `request`                                                                                     | [ListDataIntegrityDetailsRequest](../../Models/Operations/ListDataIntegrityDetailsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
 
-**[ListDataIntegrityDetailsResponse](../../models/operations/ListDataIntegrityDetailsResponse.md)**
+**[ListDataIntegrityDetailsResponse](../../Models/Operations/ListDataIntegrityDetailsResponse.md)**
 
 
 ## Status
@@ -67,11 +67,11 @@ The response tells you:
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -79,7 +79,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.DataIntegrity.StatusAsync(new GetDataIntegrityStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = CodatLending.Models.Shared.DataIntegrityDataType.BankingAccounts,
+    DataType = DataIntegrityDataType.BankingAccounts,
 });
 
 // handle response
@@ -89,12 +89,12 @@ var res = await sdk.DataIntegrity.StatusAsync(new GetDataIntegrityStatusRequest(
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [GetDataIntegrityStatusRequest](../../models/operations/GetDataIntegrityStatusRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| `request`                                                                                 | [GetDataIntegrityStatusRequest](../../Models/Operations/GetDataIntegrityStatusRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 
 ### Response
 
-**[GetDataIntegrityStatusResponse](../../models/operations/GetDataIntegrityStatusResponse.md)**
+**[GetDataIntegrityStatusResponse](../../Models/Operations/GetDataIntegrityStatusResponse.md)**
 
 
 ## Summaries
@@ -108,11 +108,11 @@ The endpoint response includes only the summary results, not transactions. To vi
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -120,7 +120,7 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.DataIntegrity.SummariesAsync(new GetDataIntegritySummariesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = CodatLending.Models.Shared.DataIntegrityDataType.BankingAccounts,
+    DataType = DataIntegrityDataType.BankingAccounts,
 });
 
 // handle response
@@ -130,10 +130,10 @@ var res = await sdk.DataIntegrity.SummariesAsync(new GetDataIntegritySummariesRe
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetDataIntegritySummariesRequest](../../models/operations/GetDataIntegritySummariesRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| `request`                                                                                       | [GetDataIntegritySummariesRequest](../../Models/Operations/GetDataIntegritySummariesRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response
 
-**[GetDataIntegritySummariesResponse](../../models/operations/GetDataIntegritySummariesResponse.md)**
+**[GetDataIntegritySummariesResponse](../../Models/Operations/GetDataIntegritySummariesResponse.md)**
 

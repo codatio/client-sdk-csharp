@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Models.Operations;
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Operations;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatLending
     /// <summary>
     /// Manage your companies&apos; data connections.
     /// </summary>
-    public interface IConnectionsSDK
+    public interface IConnections
     {
 
         /// <summary>
@@ -77,19 +77,19 @@ namespace CodatLending
     /// <summary>
     /// Manage your companies&apos; data connections.
     /// </summary>
-    public class ConnectionsSDK: IConnectionsSDK
+    public class Connections: IConnections
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.173.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public ConnectionsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Connections(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -277,7 +277,7 @@ namespace CodatLending
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Connections = JsonConvert.DeserializeObject<Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Connections = JsonConvert.DeserializeObject<Models.Shared.Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;

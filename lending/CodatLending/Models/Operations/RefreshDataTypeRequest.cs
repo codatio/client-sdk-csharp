@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     
     public class RefreshDataTypeRequest
     {
@@ -32,6 +32,6 @@ namespace CodatLending.Models.Operations
         /// The key of a Codat data type
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public DataType DataType { get; set; } = default!;
+        public SchemaDataType DataType { get; set; } = default!;
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -55,7 +55,7 @@ namespace CodatLending.Models.Shared
         /// Reference to the item the line is linked to.
         /// </summary>
         [JsonProperty("itemRef")]
-        public ItemRef? ItemRef { get; set; }
+        public PropertieItemRef? ItemRef { get; set; }
 
         /// <summary>
         /// The bill line&apos;s number.
@@ -67,7 +67,7 @@ namespace CodatLending.Models.Shared
         /// Reference to the purchase order line this line was generated from.
         /// </summary>
         [JsonProperty("purchaseOrderLineRef")]
-        public BillLineItemRecordLineReference? PurchaseOrderLineRef { get; set; }
+        public RecordLineReference? PurchaseOrderLineRef { get; set; }
 
         /// <summary>
         /// Number of units of goods or services received.

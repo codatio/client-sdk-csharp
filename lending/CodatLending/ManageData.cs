@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Models.Operations;
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Operations;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http.Headers;
@@ -20,10 +20,10 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface IManageDataSDK
+    public interface IManageData
     {
-        public IManageDataPullOperationsSDK PullOperations { get; }
-        public IManageDataRefreshSDK Refresh { get; }
+        public IRefresh Refresh { get; }
+        public IPullOperations PullOperations { get; }
 
         /// <summary>
         /// Get data status
@@ -35,28 +35,28 @@ namespace CodatLending
         Task<GetDataStatusResponse> GetStatusAsync(GetDataStatusRequest? request = null);
     }
 
-    public class ManageDataSDK: IManageDataSDK
+    public class ManageData: IManageData
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.173.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IManageDataPullOperationsSDK PullOperations { get; private set; }
-        public IManageDataRefreshSDK Refresh { get; private set; }
+        public IRefresh Refresh { get; private set; }
+        public IPullOperations PullOperations { get; private set; }
 
-        public ManageDataSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public ManageData(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            PullOperations = new ManageDataPullOperationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Refresh = new ManageDataRefreshSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Refresh = new Refresh(_defaultClient, _securityClient, _serverUrl, Config);
+            PullOperations = new PullOperations(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
 

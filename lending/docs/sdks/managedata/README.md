@@ -1,4 +1,4 @@
-# ManageDataSDK
+# ManageData
 (*ManageData*)
 
 ### Available Operations
@@ -12,11 +12,11 @@ Get the state of each data type for a company
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -33,10 +33,10 @@ var res = await sdk.ManageData.GetStatusAsync(new GetDataStatusRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [GetDataStatusRequest](../../models/operations/GetDataStatusRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [GetDataStatusRequest](../../Models/Operations/GetDataStatusRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[GetDataStatusResponse](../../models/operations/GetDataStatusResponse.md)**
+**[GetDataStatusResponse](../../Models/Operations/GetDataStatusResponse.md)**
 

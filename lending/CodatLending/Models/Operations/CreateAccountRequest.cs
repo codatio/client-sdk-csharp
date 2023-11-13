@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     
     public class CreateAccountRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public AccountingAccount? AccountingAccount { get; set; }
+        public AccountPrototype? AccountPrototype { get; set; }
 
         /// <summary>
         /// Allow a sync upon push completion.

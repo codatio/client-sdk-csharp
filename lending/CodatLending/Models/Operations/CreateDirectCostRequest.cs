@@ -8,16 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     
     public class CreateDirectCostRequest
     {
-
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public AccountingDirectCost? AccountingDirectCost { get; set; }
 
         /// <summary>
         /// Allow a sync upon push completion.
@@ -36,6 +33,9 @@ namespace CodatLending.Models.Operations
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
+
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public DirectCostPrototype? DirectCostPrototype { get; set; }
 
         /// <summary>
         /// Time limit for the push operation to complete before it is timed out.

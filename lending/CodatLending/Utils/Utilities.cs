@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Utils
+namespace Codat.Lending.Utils
 {
     using System;
     using System.Linq;
@@ -59,7 +59,7 @@ namespace CodatLending.Utils
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("CodatLending.Models");
+            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.Lending.Models");
         }
 
         // TODO: code review polyfilled for IsAssignableTo

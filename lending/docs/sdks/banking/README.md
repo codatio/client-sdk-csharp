@@ -1,4 +1,4 @@
-# BankingSDK
+# Banking
 (*Banking*)
 
 ### Available Operations

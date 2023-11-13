@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
-    using CodatLending.Models.Shared;
+    using Codat.Lending.Models.Shared;
     using System.Net.Http;
     using System;
     

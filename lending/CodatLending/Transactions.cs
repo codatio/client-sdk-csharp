@@ -8,48 +8,48 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     using System;
 
-    public interface ITransactionsSDK
+    public interface ITransactions
     {
-        public ITransactionsAccountTransactionsSDK AccountTransactions { get; }
-        public ITransactionsDirectCostsSDK DirectCosts { get; }
-        public ITransactionsJournalEntriesSDK JournalEntries { get; }
-        public ITransactionsJournalsSDK Journals { get; }
-        public ITransactionsTransfersSDK Transfers { get; }
+        public IAccountTransactions AccountTransactions { get; }
+        public ICodatLendingDirectCosts DirectCosts { get; }
+        public ICodatLendingTransfers Transfers { get; }
+        public IJournalEntries JournalEntries { get; }
+        public IJournals Journals { get; }
     }
 
-    public class TransactionsSDK: ITransactionsSDK
+    public class Transactions: ITransactions
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.173.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public ITransactionsAccountTransactionsSDK AccountTransactions { get; private set; }
-        public ITransactionsDirectCostsSDK DirectCosts { get; private set; }
-        public ITransactionsJournalEntriesSDK JournalEntries { get; private set; }
-        public ITransactionsJournalsSDK Journals { get; private set; }
-        public ITransactionsTransfersSDK Transfers { get; private set; }
+        public IAccountTransactions AccountTransactions { get; private set; }
+        public ICodatLendingDirectCosts DirectCosts { get; private set; }
+        public ICodatLendingTransfers Transfers { get; private set; }
+        public IJournalEntries JournalEntries { get; private set; }
+        public IJournals Journals { get; private set; }
 
-        public TransactionsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Transactions(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            AccountTransactions = new TransactionsAccountTransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            DirectCosts = new TransactionsDirectCostsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            JournalEntries = new TransactionsJournalEntriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Journals = new TransactionsJournalsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Transfers = new TransactionsTransfersSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            AccountTransactions = new AccountTransactions(_defaultClient, _securityClient, _serverUrl, Config);
+            DirectCosts = new CodatLendingDirectCosts(_defaultClient, _securityClient, _serverUrl, Config);
+            Transfers = new CodatLendingTransfers(_defaultClient, _securityClient, _serverUrl, Config);
+            JournalEntries = new JournalEntries(_defaultClient, _securityClient, _serverUrl, Config);
+            Journals = new Journals(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Models.Operations;
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Operations;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatLending
     /// <summary>
     /// Match mutable accounting data with immutable banking data to increase confidence in financial data.
     /// </summary>
-    public interface IDataIntegritySDK
+    public interface IDataIntegrity
     {
 
         /// <summary>
@@ -69,19 +69,19 @@ namespace CodatLending
     /// <summary>
     /// Match mutable accounting data with immutable banking data to increase confidence in financial data.
     /// </summary>
-    public class DataIntegritySDK: IDataIntegritySDK
+    public class DataIntegrity: IDataIntegrity
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.4.0";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.188.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.4.0 2.173.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public DataIntegritySDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public DataIntegrity(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

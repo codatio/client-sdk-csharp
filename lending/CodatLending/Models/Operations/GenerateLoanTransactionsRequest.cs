@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     
     public class GenerateLoanTransactionsRequest
     {
@@ -25,6 +25,6 @@ namespace CodatLending.Models.Operations
         /// Data source type.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sourceType")]
-        public GenerateLoanTransactionsSourceType SourceType { get; set; } = default!;
+        public QueryParamSourceType SourceType { get; set; } = default!;
     }
 }

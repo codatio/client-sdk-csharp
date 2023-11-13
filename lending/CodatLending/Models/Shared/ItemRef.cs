@@ -8,26 +8,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    /// <summary>
-    /// Reference to the item the line is linked to.
-    /// </summary>
     public class ItemRef
     {
 
         /// <summary>
-        /// Unique identifier for the item in the accounting platform.
+        /// The data connection id being referenced.
         /// </summary>
-        [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        [JsonProperty("dataConnectionId")]
+        public string? DataConnectionId { get; set; }
 
         /// <summary>
-        /// Name of the item in the accounting platform.
+        /// The id of the object, e.g. the Journal entry.
         /// </summary>
-        [JsonProperty("name")]
-        public string? Name { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// The data type the loan transaction entry was extracted from.
+        /// </summary>
+        [JsonProperty("type")]
+        public string? Type { get; set; }
     }
 }

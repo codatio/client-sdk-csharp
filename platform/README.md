@@ -92,5 +92,3 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 * [GetConfiguration](docs/sdks/supplementaldata/README.md#getconfiguration) - Get configuration
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
-
-* [Create](docs/sdks/webhooks/README.md#create) - Create webhook

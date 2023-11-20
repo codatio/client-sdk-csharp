@@ -68,5 +68,3 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [List](docs/sdks/sync/README.md#list) - List sync statuses
 * [Request](docs/sdks/sync/README.md#request) - Initiate new sync
 * [RequestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
-
-### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)

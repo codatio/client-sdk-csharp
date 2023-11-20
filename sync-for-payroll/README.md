@@ -119,5 +119,3 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [ListPullOperations](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
 * [RefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [RefreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
-
-### [TrackingCategories](docs/sdks/trackingcategories/README.md)

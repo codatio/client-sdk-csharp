@@ -342,4 +342,3 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 ### [Transactions.Journals](docs/sdks/transactionsjournals/README.md)
 
 * [Get](docs/sdks/transactionsjournals/README.md#get) - Get journal
-* [List](docs/sdks/transactionsjournals/README.md#list) - List journals

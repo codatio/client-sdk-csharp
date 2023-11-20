@@ -74,5 +74,3 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 * [GenerateCredentials](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
 * [List](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 * [Update](docs/sdks/sourceaccounts/README.md#update) - Update source account
-
-### [Transactions](docs/sdks/transactions/README.md)

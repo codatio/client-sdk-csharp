@@ -98,10 +98,10 @@ namespace Codat.Sync.Payroll
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.188.1";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.194.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 3.0.0 Codat.Sync.Payroll";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.194.1 3.0.0 Codat.Sync.Payroll";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -117,14 +117,9 @@ namespace Codat.Sync.Payroll
 
         public async Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/accounts", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -171,14 +166,9 @@ namespace Codat.Sync.Payroll
 
         public async Task<GetAccountResponse> GetAsync(GetAccountRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/accounts/{accountId}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -220,14 +210,9 @@ namespace Codat.Sync.Payroll
 
         public async Task<GetCreateAccountsModelResponse> GetCreateModelAsync(GetCreateAccountsModelRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/chartOfAccounts", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -269,14 +254,9 @@ namespace Codat.Sync.Payroll
 
         public async Task<ListAccountsResponse> ListAsync(ListAccountsRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/accounts", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             

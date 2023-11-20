@@ -127,10 +127,10 @@ namespace Codat.Lending
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.188.1";
+        private const string _sdkVersion = "5.0.1";
+        private const string _sdkGenVersion = "2.194.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.188.1 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.194.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -146,14 +146,9 @@ namespace Codat.Lending
 
         public async Task<GetCommerceCustomerRetentionMetricsResponse> GetCustomerRetentionAsync(GetCommerceCustomerRetentionMetricsRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/customerRetention", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -195,14 +190,9 @@ namespace Codat.Lending
 
         public async Task<GetCommerceLifetimeValueMetricsResponse> GetLifetimeValueAsync(GetCommerceLifetimeValueMetricsRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/lifetimeValue", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -244,14 +234,9 @@ namespace Codat.Lending
 
         public async Task<GetCommerceRevenueMetricsResponse> GetRevenueAsync(GetCommerceRevenueMetricsRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/revenue", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             

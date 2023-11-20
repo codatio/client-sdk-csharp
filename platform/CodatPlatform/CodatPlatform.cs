@@ -17,6 +17,8 @@ namespace Codat.Platform
     using System.Threading.Tasks;
     using System;
 
+
+
     /// <summary>
     /// Platform API: Platform API
     /// 
@@ -76,6 +78,22 @@ namespace Codat.Platform
     
     public class SDKConfig
     {
+        public static string[] ServerList = new string[]
+        {
+            "https://api.codat.io",
+        };
+        /// Contains the list of servers available to the SDK
+        public string serverUrl = "";
+        public int serverIndex = 0;
+
+        public string GetTemplatedServerDetails()
+        {
+            if (!String.IsNullOrEmpty(this.serverUrl))
+            {
+                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
+            }
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], new Dictionary<string, string>());
+        }
     }
 
     /// <summary>
@@ -94,16 +112,12 @@ namespace Codat.Platform
     public class CodatPlatform: ICodatPlatform
     {
         public SDKConfig Config { get; private set; }
-        public static List<string> ServerList = new List<string>()
-        {
-            "https://api.codat.io",
-        };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.188.1";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.194.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.188.1 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.194.1 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -116,9 +130,14 @@ namespace Codat.Platform
         public ISupplementalData SupplementalData { get; private set; }
         public IWebhooks Webhooks { get; private set; }
 
-        public CodatPlatform(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
+        public CodatPlatform(Security? security = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            _serverUrl = serverUrl ?? CodatPlatform.ServerList[0];
+            if (serverUrl != null) {
+                if (urlParams != null) {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
+                }
+                _serverUrl = serverUrl;
+            }
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
@@ -130,6 +149,7 @@ namespace Codat.Platform
             
             Config = new SDKConfig()
             {
+                serverUrl = _serverUrl
             };
 
             Settings = new Settings(_defaultClient, _securityClient, _serverUrl, Config);

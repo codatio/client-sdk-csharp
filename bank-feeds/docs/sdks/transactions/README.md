@@ -1,4 +1,4 @@
-# TransactionsSDK
+# Transactions
 (*Transactions*)
 
 ## Overview
@@ -27,11 +27,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -65,12 +66,12 @@ var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest()
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [CreateBankTransactionsRequest](../../models/operations/CreateBankTransactionsRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| `request`                                                                                 | [CreateBankTransactionsRequest](../../Models/Operations/CreateBankTransactionsRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 
 ### Response
 
-**[Models.Operations.CreateBankTransactionsResponse](../../models/operations/CreateBankTransactionsResponse.md)**
+**[Models.Operations.CreateBankTransactionsResponse](../../Models/Operations/CreateBankTransactionsResponse.md)**
 
 
 ## GetCreateOperation
@@ -80,11 +81,11 @@ Retrieve push operation.
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -102,12 +103,12 @@ var res = await sdk.Transactions.GetCreateOperationAsync(new GetCreateOperationR
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [GetCreateOperationRequest](../../models/operations/GetCreateOperationRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [GetCreateOperationRequest](../../Models/Operations/GetCreateOperationRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[GetCreateOperationResponse](../../models/operations/GetCreateOperationResponse.md)**
+**[GetCreateOperationResponse](../../Models/Operations/GetCreateOperationResponse.md)**
 
 
 ## ListCreateOperations
@@ -117,11 +118,11 @@ List create operations.
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -141,10 +142,10 @@ var res = await sdk.Transactions.ListCreateOperationsAsync(new ListCreateOperati
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [ListCreateOperationsRequest](../../models/operations/ListCreateOperationsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| `request`                                                                             | [ListCreateOperationsRequest](../../Models/Operations/ListCreateOperationsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[ListCreateOperationsResponse](../../models/operations/ListCreateOperationsResponse.md)**
+**[ListCreateOperationsResponse](../../Models/Operations/ListCreateOperationsResponse.md)**
 

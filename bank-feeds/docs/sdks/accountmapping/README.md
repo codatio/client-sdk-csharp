@@ -1,4 +1,4 @@
-# AccountMappingSDK
+# AccountMapping
 (*AccountMapping*)
 
 ## Overview
@@ -23,18 +23,18 @@ This endpoint is only needed if building an account management UI.
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
 );
 
 var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingRequest() {
-    RequestBody = new CreateBankAccountMappingBankFeedAccountMapping() {
+    Zero = new Zero() {
         FeedStartDate = "2022-10-23T00:00:00.000Z",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -48,12 +48,12 @@ var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingReque
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [CreateBankAccountMappingRequest](../../models/operations/CreateBankAccountMappingRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| `request`                                                                                     | [CreateBankAccountMappingRequest](../../Models/Operations/CreateBankAccountMappingRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
 
-**[CreateBankAccountMappingResponse](../../models/operations/CreateBankAccountMappingResponse.md)**
+**[CreateBankAccountMappingResponse](../../Models/Operations/CreateBankAccountMappingResponse.md)**
 
 
 ## Get
@@ -67,11 +67,11 @@ This endpoint is only needed if building an account management UI.
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -89,10 +89,10 @@ var res = await sdk.AccountMapping.GetAsync(new GetBankAccountMappingRequest() {
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetBankAccountMappingRequest](../../models/operations/GetBankAccountMappingRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| `request`                                                                               | [GetBankAccountMappingRequest](../../Models/Operations/GetBankAccountMappingRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[GetBankAccountMappingResponse](../../models/operations/GetBankAccountMappingResponse.md)**
+**[GetBankAccountMappingResponse](../../Models/Operations/GetBankAccountMappingResponse.md)**
 

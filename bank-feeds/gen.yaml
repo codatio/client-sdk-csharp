@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 csharp:
-  version: 2.2.0
+  version: 3.0.0
   author: Codat
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
   dotnetVersion: net6.0

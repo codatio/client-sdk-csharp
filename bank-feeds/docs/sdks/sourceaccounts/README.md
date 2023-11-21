@@ -1,4 +1,4 @@
-# SourceAccountsSDK
+# SourceAccounts
 (*SourceAccounts*)
 
 ## Overview
@@ -41,11 +41,11 @@ The method of mapping the source account to the target account varies depending 
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -69,12 +69,12 @@ var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() 
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [CreateSourceAccountRequest](../../models/operations/CreateSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [CreateSourceAccountRequest](../../Models/Operations/CreateSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[CreateSourceAccountResponse](../../models/operations/CreateSourceAccountResponse.md)**
+**[CreateSourceAccountResponse](../../Models/Operations/CreateSourceAccountResponse.md)**
 
 
 ## Delete
@@ -87,11 +87,11 @@ Removing a source account will also remove any mapping between the source bank f
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -110,12 +110,12 @@ var res = await sdk.SourceAccounts.DeleteAsync(new DeleteSourceAccountRequest() 
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [DeleteSourceAccountRequest](../../models/operations/DeleteSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [DeleteSourceAccountRequest](../../Models/Operations/DeleteSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[DeleteSourceAccountResponse](../../models/operations/DeleteSourceAccountResponse.md)**
+**[DeleteSourceAccountResponse](../../Models/Operations/DeleteSourceAccountResponse.md)**
 
 
 ## DeleteCredentials
@@ -127,11 +127,11 @@ In cases where multiple credential sets have been generated, a single API call t
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -149,12 +149,12 @@ var res = await sdk.SourceAccounts.DeleteCredentialsAsync(new DeleteBankFeedCred
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [DeleteBankFeedCredentialsRequest](../../models/operations/DeleteBankFeedCredentialsRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| `request`                                                                                       | [DeleteBankFeedCredentialsRequest](../../Models/Operations/DeleteBankFeedCredentialsRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response
 
-**[DeleteBankFeedCredentialsResponse](../../models/operations/DeleteBankFeedCredentialsResponse.md)**
+**[DeleteBankFeedCredentialsResponse](../../Models/Operations/DeleteBankFeedCredentialsResponse.md)**
 
 
 ## GenerateCredentials
@@ -167,18 +167,18 @@ The old credentials will still be valid until the revoke credentials endpoint is
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
 );
 
 var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredentialsRequest() {
-    RequestBody = "^upd|k\]Iy as bytes <<<>>>",
+    RequestBody = "0xeDCfFBde9E as bytes <<<>>>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -190,12 +190,12 @@ var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredenti
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [GenerateCredentialsRequest](../../models/operations/GenerateCredentialsRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [GenerateCredentialsRequest](../../Models/Operations/GenerateCredentialsRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[GenerateCredentialsResponse](../../models/operations/GenerateCredentialsResponse.md)**
+**[GenerateCredentialsResponse](../../Models/Operations/GenerateCredentialsResponse.md)**
 
 
 ## List
@@ -208,11 +208,11 @@ var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredenti
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -230,12 +230,12 @@ var res = await sdk.SourceAccounts.ListAsync(new ListSourceAccountsRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListSourceAccountsRequest](../../models/operations/ListSourceAccountsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [ListSourceAccountsRequest](../../Models/Operations/ListSourceAccountsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListSourceAccountsResponse](../../models/operations/ListSourceAccountsResponse.md)**
+**[ListSourceAccountsResponse](../../Models/Operations/ListSourceAccountsResponse.md)**
 
 
 ## Update
@@ -246,11 +246,11 @@ var res = await sdk.SourceAccounts.ListAsync(new ListSourceAccountsRequest() {
 ### Example Usage
 
 ```csharp
-using CodatBankFeeds;
-using CodatBankFeeds.Models.Shared;
-using CodatBankFeeds.Models.Operations;
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeedsSDK(
+var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -275,10 +275,10 @@ var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() 
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [UpdateSourceAccountRequest](../../models/operations/UpdateSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [UpdateSourceAccountRequest](../../Models/Operations/UpdateSourceAccountRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[UpdateSourceAccountResponse](../../models/operations/UpdateSourceAccountResponse.md)**
+**[UpdateSourceAccountResponse](../../Models/Operations/UpdateSourceAccountResponse.md)**
 

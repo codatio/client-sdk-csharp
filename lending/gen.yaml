@@ -20,7 +20,8 @@ features:
 csharp:
   version: 4.3.0
   author: Codat
-  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   dotnetVersion: net6.0
+  description: Make credit decisions backed by enhanced financials, metrics, reports,
+    and data integrity features.
   maxMethodParams: 0
   packageName: Codat.Lending

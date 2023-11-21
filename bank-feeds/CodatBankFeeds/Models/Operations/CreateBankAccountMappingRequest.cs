@@ -8,15 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Operations
+namespace Codat.BankFeeds.Models.Operations
 {
-    using CodatBankFeeds.Utils;
+    using Codat.BankFeeds.Models.Shared;
+    using Codat.BankFeeds.Utils;
     
     public class CreateBankAccountMappingRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CreateBankAccountMappingBankFeedAccountMapping? RequestBody { get; set; }
+        public Zero? Zero { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

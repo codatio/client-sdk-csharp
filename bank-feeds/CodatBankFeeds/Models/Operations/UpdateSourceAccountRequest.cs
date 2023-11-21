@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatBankFeeds.Models.Operations
+namespace Codat.BankFeeds.Models.Operations
 {
-    using CodatBankFeeds.Models.Shared;
-    using CodatBankFeeds.Utils;
+    using Codat.BankFeeds.Models.Shared;
+    using Codat.BankFeeds.Utils;
     
     public class UpdateSourceAccountRequest
     {

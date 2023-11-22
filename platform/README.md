@@ -103,4 +103,3 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-

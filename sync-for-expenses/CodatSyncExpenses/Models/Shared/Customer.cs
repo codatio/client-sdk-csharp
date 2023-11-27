@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<Items>? Addresses { get; set; }
+        public List<AccountingAddress>? Addresses { get; set; }
 
         /// <summary>
         /// Name of the main contact for the identified customer.

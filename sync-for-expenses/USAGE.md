@@ -1,49 +1,17 @@
 <!-- Start SDK Example Usage -->
-
-
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
 );
 
-var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
-    Account = new Account() {
-        Currency = "USD",
-        CurrentBalance = 0M,
-        Description = "Invoices the business has issued but has not yet collected payment on.",
-        FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Cash On Hand",
-        Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        Metadata = new AccountMetadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Accounts Receivable",
-        NominalCode = "610",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.AccountStatus.Active,
-        SupplementalData = new SupplementalData() {
-            Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
-                } },
-            },
-        },
-        Type = CodatSyncExpenses.Models.Shared.AccountType.Asset,
-        ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
-            new AccountValidDataTypeLinks() {
-                Links = new List<string>() {
-                    "abnormally",
-                },
-            },
-        },
-    },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
 });
 
 // handle response

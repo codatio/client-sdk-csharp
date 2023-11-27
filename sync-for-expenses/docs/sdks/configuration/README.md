@@ -1,4 +1,4 @@
-# ConfigurationSDK
+# Configuration
 (*Configuration*)
 
 ## Overview
@@ -18,11 +18,11 @@ Gets a companies expense sync configuration
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -39,12 +39,12 @@ var res = await sdk.Configuration.GetAsync(new GetCompanyConfigurationRequest() 
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [GetCompanyConfigurationRequest](../../models/operations/GetCompanyConfigurationRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `request`                                                                                   | [GetCompanyConfigurationRequest](../../Models/Operations/GetCompanyConfigurationRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[GetCompanyConfigurationResponse](../../models/operations/GetCompanyConfigurationResponse.md)**
+**[GetCompanyConfigurationResponse](../../Models/Operations/GetCompanyConfigurationResponse.md)**
 
 
 ## GetMappingOptions
@@ -54,11 +54,11 @@ Gets the expense mapping options for a companies accounting software
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -75,12 +75,12 @@ var res = await sdk.Configuration.GetMappingOptionsAsync(new GetMappingOptionsRe
 
 | Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [GetMappingOptionsRequest](../../models/operations/GetMappingOptionsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `request`                                                                       | [GetMappingOptionsRequest](../../Models/Operations/GetMappingOptionsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 
 ### Response
 
-**[GetMappingOptionsResponse](../../models/operations/GetMappingOptionsResponse.md)**
+**[GetMappingOptionsResponse](../../Models/Operations/GetMappingOptionsResponse.md)**
 
 
 ## Set
@@ -90,11 +90,11 @@ Sets a companies expense sync configuration
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -118,10 +118,10 @@ var res = await sdk.Configuration.SetAsync(new SetCompanyConfigurationRequest() 
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [SetCompanyConfigurationRequest](../../models/operations/SetCompanyConfigurationRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `request`                                                                                   | [SetCompanyConfigurationRequest](../../Models/Operations/SetCompanyConfigurationRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[SetCompanyConfigurationResponse](../../models/operations/SetCompanyConfigurationResponse.md)**
+**[SetCompanyConfigurationResponse](../../Models/Operations/SetCompanyConfigurationResponse.md)**
 

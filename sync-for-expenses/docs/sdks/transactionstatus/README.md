@@ -1,4 +1,4 @@
-# TransactionStatusSDK
+# TransactionStatus
 (*TransactionStatus*)
 
 ## Overview
@@ -17,11 +17,11 @@ Gets the status of a transaction for a sync
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -40,12 +40,12 @@ var res = await sdk.TransactionStatus.GetAsync(new GetSyncTransactionRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [GetSyncTransactionRequest](../../models/operations/GetSyncTransactionRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [GetSyncTransactionRequest](../../Models/Operations/GetSyncTransactionRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[GetSyncTransactionResponse](../../models/operations/GetSyncTransactionResponse.md)**
+**[GetSyncTransactionResponse](../../Models/Operations/GetSyncTransactionResponse.md)**
 
 
 ## List
@@ -55,11 +55,11 @@ Gets the transactions and status for a sync
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -79,10 +79,10 @@ var res = await sdk.TransactionStatus.ListAsync(new ListSyncTransactionsRequest(
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [ListSyncTransactionsRequest](../../models/operations/ListSyncTransactionsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| `request`                                                                             | [ListSyncTransactionsRequest](../../Models/Operations/ListSyncTransactionsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[ListSyncTransactionsResponse](../../models/operations/ListSyncTransactionsResponse.md)**
+**[ListSyncTransactionsResponse](../../Models/Operations/ListSyncTransactionsResponse.md)**
 

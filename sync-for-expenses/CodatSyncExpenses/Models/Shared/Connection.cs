@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -134,7 +134,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// The type of platform of the connection.
         /// </summary>
         [JsonProperty("sourceType")]
-        public ConnectionSourceType SourceType { get; set; } = default!;
+        public SourceType SourceType { get; set; } = default!;
 
         /// <summary>
         /// The current authorization status of the data connection.

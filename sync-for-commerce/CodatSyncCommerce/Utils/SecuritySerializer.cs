@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Utils
+namespace Codat.Sync.Commerce.Utils
 {
     using System;
     using System.Reflection;

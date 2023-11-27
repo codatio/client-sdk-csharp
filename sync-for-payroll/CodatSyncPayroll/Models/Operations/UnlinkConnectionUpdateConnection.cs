@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Operations
+namespace Codat.Sync.Payroll.Models.Operations
 {
-    using CodatSyncPayroll.Models.Shared;
+    using Codat.Sync.Payroll.Models.Shared;
     using Newtonsoft.Json;
     
     public class UnlinkConnectionUpdateConnection

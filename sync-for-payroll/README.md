@@ -16,49 +16,21 @@ dotnet add package Codat.Sync.Payroll
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
-```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+### Example
 
-var sdk = new CodatSyncPayrollSDK(
+```csharp
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
 );
 
-var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
-    Account = new Account() {
-        Currency = "USD",
-        CurrentBalance = 0M,
-        Description = "Invoices the business has issued but has not yet collected payment on.",
-        FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Cash On Hand",
-        Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        Metadata = new AccountMetadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Accounts Receivable",
-        NominalCode = "610",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayroll.Models.Shared.AccountStatus.Active,
-        SupplementalData = new SupplementalData() {
-            Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
-                } },
-            },
-        },
-        Type = CodatSyncPayroll.Models.Shared.AccountType.Asset,
-        ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
-            new AccountValidDataTypeLinks() {
-                Links = new List<string>() {
-                    "abnormally",
-                },
-            },
-        },
-    },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
 });
 
 // handle response
@@ -69,13 +41,6 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 ## Available Resources and Operations
 
 
-### [Accounts](docs/sdks/accounts/README.md)
-
-* [Create](docs/sdks/accounts/README.md#create) - Create account
-* [Get](docs/sdks/accounts/README.md#get) - Get account
-* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
-* [List](docs/sdks/accounts/README.md#list) - List accounts
-
 ### [Companies](docs/sdks/companies/README.md)
 
 * [Create](docs/sdks/companies/README.md#create) - Create company
@@ -84,10 +49,6 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
-### [CompanyInfo](docs/sdks/companyinfo/README.md)
-
-* [GetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
-
 ### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
@@ -95,6 +56,13 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [Get](docs/sdks/connections/README.md#get) - Get connection
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+
+### [Accounts](docs/sdks/accounts/README.md)
+
+* [Create](docs/sdks/accounts/README.md#create) - Create account
+* [Get](docs/sdks/accounts/README.md#get) - Get account
+* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+* [List](docs/sdks/accounts/README.md#list) - List accounts
 
 ### [JournalEntries](docs/sdks/journalentries/README.md)
 
@@ -120,6 +88,10 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [ListPullOperations](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
 * [RefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [RefreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
+
+### [CompanyInfo](docs/sdks/companyinfo/README.md)
+
+* [GetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 
 ### [TrackingCategories](docs/sdks/trackingcategories/README.md)
 

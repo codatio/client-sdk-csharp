@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Operations
+namespace Codat.Sync.Payroll.Models.Operations
 {
     using Newtonsoft.Json;
     

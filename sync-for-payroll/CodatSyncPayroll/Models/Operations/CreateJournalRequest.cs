@@ -8,16 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Operations
+namespace Codat.Sync.Payroll.Models.Operations
 {
-    using CodatSyncPayroll.Models.Shared;
-    using CodatSyncPayroll.Utils;
+    using Codat.Sync.Payroll.Models.Shared;
+    using Codat.Sync.Payroll.Utils;
     
     public class CreateJournalRequest
     {
-
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Journal? Journal { get; set; }
 
         /// <summary>
         /// Allow a sync upon push completion.
@@ -36,6 +33,9 @@ namespace CodatSyncPayroll.Models.Operations
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
+
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public JournalPrototype? JournalPrototype { get; set; }
 
         /// <summary>
         /// Time limit for the push operation to complete before it is timed out.

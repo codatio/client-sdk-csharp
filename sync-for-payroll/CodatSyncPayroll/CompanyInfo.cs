@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll
+namespace Codat.Sync.Payroll
 {
-    using CodatSyncPayroll.Models.Operations;
-    using CodatSyncPayroll.Models.Shared;
-    using CodatSyncPayroll.Utils;
+    using Codat.Sync.Payroll.Models.Operations;
+    using Codat.Sync.Payroll.Models.Shared;
+    using Codat.Sync.Payroll.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatSyncPayroll
     /// <summary>
     /// View company information fetched from the source platform.
     /// </summary>
-    public interface ICompanyInfoSDK
+    public interface ICompanyInfo
     {
 
         /// <summary>
@@ -38,19 +38,19 @@ namespace CodatSyncPayroll
     /// <summary>
     /// View company information fetched from the source platform.
     /// </summary>
-    public class CompanyInfoSDK: ICompanyInfoSDK
+    public class CompanyInfo: ICompanyInfo
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.2.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.195.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.159.2 3.0.0 Codat.Sync.Payroll";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Sync.Payroll";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public CompanyInfoSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public CompanyInfo(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -61,14 +61,9 @@ namespace CodatSyncPayroll
 
         public async Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/info", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -90,12 +85,12 @@ namespace CodatSyncPayroll
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CompanyInfo = JsonConvert.DeserializeObject<CompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.CompanyInfo = JsonConvert.DeserializeObject<Models.Shared.CompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

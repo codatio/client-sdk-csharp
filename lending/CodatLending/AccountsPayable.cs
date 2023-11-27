@@ -8,45 +8,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     using System;
 
-    public interface IAccountsPayableSDK
+    public interface IAccountsPayable
     {
-        public IAccountsPayableBillCreditNotesSDK BillCreditNotes { get; }
-        public IAccountsPayableBillPaymentsSDK BillPayments { get; }
-        public IAccountsPayableBillsSDK Bills { get; }
-        public IAccountsPayableSuppliersSDK Suppliers { get; }
+        public IBills Bills { get; }
+        public ISuppliers Suppliers { get; }
+        public IBillCreditNotes BillCreditNotes { get; }
+        public IBillPayments BillPayments { get; }
     }
 
-    public class AccountsPayableSDK: IAccountsPayableSDK
+    public class AccountsPayable: IAccountsPayable
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.3.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.195.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IAccountsPayableBillCreditNotesSDK BillCreditNotes { get; private set; }
-        public IAccountsPayableBillPaymentsSDK BillPayments { get; private set; }
-        public IAccountsPayableBillsSDK Bills { get; private set; }
-        public IAccountsPayableSuppliersSDK Suppliers { get; private set; }
+        public IBills Bills { get; private set; }
+        public ISuppliers Suppliers { get; private set; }
+        public IBillCreditNotes BillCreditNotes { get; private set; }
+        public IBillPayments BillPayments { get; private set; }
 
-        public AccountsPayableSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public AccountsPayable(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            BillCreditNotes = new AccountsPayableBillCreditNotesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            BillPayments = new AccountsPayableBillPaymentsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Bills = new AccountsPayableBillsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Suppliers = new AccountsPayableSuppliersSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            Bills = new Bills(_defaultClient, _securityClient, _serverUrl, Config);
+            Suppliers = new Suppliers(_defaultClient, _securityClient, _serverUrl, Config);
+            BillCreditNotes = new BillCreditNotes(_defaultClient, _securityClient, _serverUrl, Config);
+            BillPayments = new BillPayments(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

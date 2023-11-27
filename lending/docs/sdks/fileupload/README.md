@@ -1,4 +1,4 @@
-# FileUploadSDK
+# FileUpload
 (*FileUpload*)
 
 ## Overview
@@ -18,11 +18,11 @@ The *Download files* endpoint downloads all files that have  been uploaded by to
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -40,12 +40,12 @@ var res = await sdk.FileUpload.DownloadAsync(new DownloadFilesRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [DownloadFilesRequest](../../models/operations/DownloadFilesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [DownloadFilesRequest](../../Models/Operations/DownloadFilesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[DownloadFilesResponse](../../models/operations/DownloadFilesResponse.md)**
+**[DownloadFilesResponse](../../Models/Operations/DownloadFilesResponse.md)**
 
 
 ## ListUploaded
@@ -55,11 +55,11 @@ var res = await sdk.FileUpload.DownloadAsync(new DownloadFilesRequest() {
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -76,12 +76,12 @@ var res = await sdk.FileUpload.ListUploadedAsync(new ListFilesRequest() {
 
 | Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `request`                                                       | [ListFilesRequest](../../models/operations/ListFilesRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
+| `request`                                                       | [ListFilesRequest](../../Models/Operations/ListFilesRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 
 ### Response
 
-**[ListFilesResponse](../../models/operations/ListFilesResponse.md)**
+**[ListFilesResponse](../../Models/Operations/ListFilesResponse.md)**
 
 
 ## Upload
@@ -97,11 +97,11 @@ Uploaded files must meet the following requirements:
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -109,8 +109,8 @@ var sdk = new CodatLendingSDK(
 
 var res = await sdk.FileUpload.UploadAsync(new UploadFilesRequest() {
     RequestBody = new UploadFilesRequestBody() {
-        Content = "F?SRSKG@^n as bytes <<<>>>",
-        RequestBody = "ullam",
+        Content = "0x87cbca97eC as bytes <<<>>>",
+        FileName = "ullam.wav",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -123,10 +123,10 @@ var res = await sdk.FileUpload.UploadAsync(new UploadFilesRequest() {
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [UploadFilesRequest](../../models/operations/UploadFilesRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [UploadFilesRequest](../../Models/Operations/UploadFilesRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
 
-**[UploadFilesResponse](../../models/operations/UploadFilesResponse.md)**
+**[UploadFilesResponse](../../Models/Operations/UploadFilesResponse.md)**
 

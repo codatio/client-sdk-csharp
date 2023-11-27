@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -49,7 +49,7 @@ namespace CodatLending.Models.Shared
         public string? Date { get; set; }
 
         [JsonProperty("itemRef")]
-        public DefinitionsitemRef? ItemRef { get; set; }
+        public ItemRef? ItemRef { get; set; }
 
         /// <summary>
         /// The name of lender providing the loan.
@@ -64,6 +64,6 @@ namespace CodatLending.Models.Shared
         /// The type of loan transaction.
         /// </summary>
         [JsonProperty("loanTransactionType")]
-        public ReportItemsLoanTransactionType? LoanTransactionType { get; set; }
+        public LoanTransactionType? LoanTransactionType { get; set; }
     }
 }

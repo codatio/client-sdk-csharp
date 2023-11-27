@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Models.Operations;
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Operations;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http.Headers;
@@ -23,7 +23,7 @@ namespace CodatLending
     /// <summary>
     /// Endpoints to manage uploaded files.
     /// </summary>
-    public interface IFileUploadSDK
+    public interface IFileUpload
     {
 
         /// <summary>
@@ -63,19 +63,19 @@ namespace CodatLending
     /// <summary>
     /// Endpoints to manage uploaded files.
     /// </summary>
-    public class FileUploadSDK: IFileUploadSDK
+    public class FileUpload: IFileUpload
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.3.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.195.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public FileUploadSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public FileUpload(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -86,14 +86,9 @@ namespace CodatLending
 
         public async Task<DownloadFilesResponse> DownloadAsync(DownloadFilesRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/files/download", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -120,7 +115,7 @@ namespace CodatLending
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -135,14 +130,9 @@ namespace CodatLending
 
         public async Task<ListFilesResponse> ListUploadedAsync(ListFilesRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/files", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -169,7 +159,7 @@ namespace CodatLending
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -184,14 +174,9 @@ namespace CodatLending
 
         public async Task<UploadFilesResponse> UploadAsync(UploadFilesRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/files", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -219,7 +204,7 @@ namespace CodatLending
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

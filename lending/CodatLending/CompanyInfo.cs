@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Models.Operations;
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Operations;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatLending
     /// <summary>
     /// View company information fetched from the source platform.
     /// </summary>
-    public interface ICompanyInfoSDK
+    public interface ICompanyInfo
     {
 
         /// <summary>
@@ -38,9 +38,11 @@ namespace CodatLending
         /// Get company commerce profile
         /// 
         /// <remarks>
-        /// Retrieve information about the company, as seen in the commerce platform.<br/>
+        /// Retrieve information about the company, as seen in the commerce<br/>
+        /// platform.<br/>
         /// <br/>
-        /// This may include information like addresses, tax registration details and social media or website information.
+        /// This may include information like addresses, tax registration details and<br/>
+        /// social media or website information.&quot;
         /// </remarks>
         /// </summary>
         Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest? request = null);
@@ -49,19 +51,19 @@ namespace CodatLending
     /// <summary>
     /// View company information fetched from the source platform.
     /// </summary>
-    public class CompanyInfoSDK: ICompanyInfoSDK
+    public class CompanyInfo: ICompanyInfo
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.3.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.195.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public CompanyInfoSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public CompanyInfo(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -72,14 +74,9 @@ namespace CodatLending
 
         public async Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/info", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -106,7 +103,7 @@ namespace CodatLending
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -121,14 +118,9 @@ namespace CodatLending
 
         public async Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/commerce-info", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -155,7 +147,7 @@ namespace CodatLending
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

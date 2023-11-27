@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -246,7 +246,7 @@ namespace CodatLending.Models.Shared
         /// List of references to related Sales orders.
         /// </summary>
         [JsonProperty("salesOrderRefs")]
-        public List<AccountingInvoiceSalesOrderReference>? SalesOrderRefs { get; set; }
+        public List<SalesOrderReference>? SalesOrderRefs { get; set; }
 
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -45,7 +45,7 @@ namespace CodatLending.Models.Shared
         /// Reference to the item the line is linked to.
         /// </summary>
         [JsonProperty("itemRef")]
-        public ItemRef? ItemRef { get; set; }
+        public PropertieItemRef? ItemRef { get; set; }
 
         /// <summary>
         /// Number of units of goods or services received.<br/>

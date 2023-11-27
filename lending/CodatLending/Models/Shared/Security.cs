@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     
     public class Security
     {

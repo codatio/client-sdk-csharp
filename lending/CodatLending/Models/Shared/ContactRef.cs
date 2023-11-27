@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     
     /// <summary>
-    /// The customer or supplier for the transfer, if available.
+    /// A customer or supplier associated with the direct cost.
     /// </summary>
     public class ContactRef
     {

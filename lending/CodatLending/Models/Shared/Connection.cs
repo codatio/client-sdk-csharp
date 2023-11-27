@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -134,7 +134,7 @@ namespace CodatLending.Models.Shared
         /// The type of platform of the connection.
         /// </summary>
         [JsonProperty("sourceType")]
-        public ConnectionSourceType SourceType { get; set; } = default!;
+        public Models.Shared.SourceType SourceType { get; set; } = default!;
 
         /// <summary>
         /// The current authorization status of the data connection.

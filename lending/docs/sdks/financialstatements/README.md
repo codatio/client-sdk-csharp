@@ -1,4 +1,4 @@
-# FinancialStatementsSDK
+# FinancialStatements
 (*FinancialStatements*)
 
 ### Available Operations

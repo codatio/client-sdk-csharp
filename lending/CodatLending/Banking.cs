@@ -8,48 +8,48 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     using System;
 
-    public interface IBankingSDK
+    public interface IBanking
     {
-        public IBankingAccountBalancesSDK AccountBalances { get; }
-        public IBankingAccountsSDK Accounts { get; }
-        public IBankingCategorizedStatementSDK CategorizedStatement { get; }
-        public IBankingTransactionCategoriesSDK TransactionCategories { get; }
-        public IBankingTransactionsSDK Transactions { get; }
+        public IAccountBalances AccountBalances { get; }
+        public ICodatLendingAccounts Accounts { get; }
+        public ITransactionCategories TransactionCategories { get; }
+        public ICodatLendingBankingTransactions Transactions { get; }
+        public ICategorizedStatement CategorizedStatement { get; }
     }
 
-    public class BankingSDK: IBankingSDK
+    public class Banking: IBanking
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.3.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.195.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IBankingAccountBalancesSDK AccountBalances { get; private set; }
-        public IBankingAccountsSDK Accounts { get; private set; }
-        public IBankingCategorizedStatementSDK CategorizedStatement { get; private set; }
-        public IBankingTransactionCategoriesSDK TransactionCategories { get; private set; }
-        public IBankingTransactionsSDK Transactions { get; private set; }
+        public IAccountBalances AccountBalances { get; private set; }
+        public ICodatLendingAccounts Accounts { get; private set; }
+        public ITransactionCategories TransactionCategories { get; private set; }
+        public ICodatLendingBankingTransactions Transactions { get; private set; }
+        public ICategorizedStatement CategorizedStatement { get; private set; }
 
-        public BankingSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Banking(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
             Config = config;
-            AccountBalances = new BankingAccountBalancesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Accounts = new BankingAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            CategorizedStatement = new BankingCategorizedStatementSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            TransactionCategories = new BankingTransactionCategoriesSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Transactions = new BankingTransactionsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            AccountBalances = new AccountBalances(_defaultClient, _securityClient, _serverUrl, Config);
+            Accounts = new CodatLendingAccounts(_defaultClient, _securityClient, _serverUrl, Config);
+            TransactionCategories = new TransactionCategories(_defaultClient, _securityClient, _serverUrl, Config);
+            Transactions = new CodatLendingBankingTransactions(_defaultClient, _securityClient, _serverUrl, Config);
+            CategorizedStatement = new CategorizedStatement(_defaultClient, _securityClient, _serverUrl, Config);
         }
         
     }

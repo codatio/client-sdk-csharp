@@ -1,0 +1,11 @@
+# CommerceReportDimension
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `DisplayName`                                                                             | *string*                                                                                  | :heavy_minus_sign:                                                                        | The dimension's display name.                                                             |
+| `Index`                                                                                   | *long*                                                                                    | :heavy_minus_sign:                                                                        | The dimension's index.                                                                    |
+| `Items`                                                                                   | List<[CommerceReportDimensionItems](../../Models/Shared/CommerceReportDimensionItems.md)> | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Type`                                                                                    | *string*                                                                                  | :heavy_minus_sign:                                                                        | The dimension's type.                                                                     |

@@ -1,9 +1,0 @@
-# EnhancedFinancialReport
-
-
-## Fields
-
-| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `ReportInfo`                                                                                        | [EnhancedReportInfo](../../models/shared/EnhancedReportInfo.md)                                     | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
-| `ReportItems`                                                                                       | List<[EnhancedFinancialReportReportItem](../../models/shared/EnhancedFinancialReportReportItem.md)> | :heavy_minus_sign:                                                                                  | An array of report items.                                                                           |

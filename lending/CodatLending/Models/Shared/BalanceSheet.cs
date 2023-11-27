@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -46,10 +46,10 @@ namespace CodatLending.Models.Shared
         public string? Date { get; set; }
 
         [JsonProperty("equity")]
-        public ReportLine? Equity { get; set; }
+        public ReportLineInput? Equity { get; set; }
 
         [JsonProperty("liabilities")]
-        public ReportLine? Liabilities { get; set; }
+        public ReportLineInput? Liabilities { get; set; }
 
         /// <summary>
         /// Value of net assets for a company in their base currency.

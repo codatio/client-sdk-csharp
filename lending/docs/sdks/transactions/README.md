@@ -1,4 +1,4 @@
-# TransactionsSDK
+# Transactions
 (*Transactions*)
 
 ### Available Operations

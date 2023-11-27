@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -136,7 +136,7 @@ namespace CodatSyncPayables.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("recordRef")]
-        public JournalEntryRecordReference? RecordRef { get; set; }
+        public RecordReference? RecordRef { get; set; }
 
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }

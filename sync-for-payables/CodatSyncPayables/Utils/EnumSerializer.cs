@@ -11,17 +11,17 @@
 using System;
 using Newtonsoft.Json;
 
-namespace CodatSyncPayables.Utils
+namespace Codat.Sync.Payables.Utils
 {
     internal class EnumSerializer : JsonConverter
     {
-        public override bool CanConvert(Type objectType) => objectType.IsEnum;
+        public override bool CanConvert(System.Type objectType) => objectType.IsEnum;
 
         public override bool CanRead => true;
 
         public override object? ReadJson(
             JsonReader reader,
-            Type objectType,
+            System.Type objectType,
             object? existingValue,
             JsonSerializer serializer
         )
@@ -31,7 +31,7 @@ namespace CodatSyncPayables.Utils
                 throw new ArgumentNullException(nameof(reader.Value));
             }
 
-            var extensionType = Type.GetType(objectType.FullName + "Extension");
+            var extensionType = System.Type.GetType(objectType.FullName + "Extension");
             if (extensionType == null)
             {
                 return Enum.ToObject(objectType, reader.Value);
@@ -54,7 +54,7 @@ namespace CodatSyncPayables.Utils
                 return;
             }
 
-            var extensionType = Type.GetType(value.GetType().FullName + "Extension");
+            var extensionType = System.Type.GetType(value.GetType().FullName + "Extension");
             if (extensionType == null)
             {
                 writer.WriteValue(value);

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -22,7 +22,7 @@ namespace CodatSyncPayables.Models.Shared
         /// The type of the weblink.
         /// </summary>
         [JsonProperty("type")]
-        public WebLinkType? Type { get; set; }
+        public Type? Type { get; set; }
 
         /// <summary>
         /// The full URL for the weblink.

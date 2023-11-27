@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables
+namespace Codat.Sync.Payables
 {
-    using CodatSyncPayables.Models.Operations;
-    using CodatSyncPayables.Models.Shared;
-    using CodatSyncPayables.Utils;
+    using Codat.Sync.Payables.Models.Operations;
+    using Codat.Sync.Payables.Models.Shared;
+    using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatSyncPayables
     /// <summary>
     /// Bill payments
     /// </summary>
-    public interface IBillPaymentsSDK
+    public interface IBillPayments
     {
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace CodatSyncPayables
         /// <br/>
         /// ### Process<br/>
         /// 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.<br/>
-        /// 2. Check the status of the delete operation by checking the status of push operation either via<br/>
+        /// 2. Check the status of the delete operation by checking the status of the push operation either via<br/>
         ///    1. <a href="https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed">Push operation webhook</a> (advised),<br/>
         ///    2. <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation">Push operation status endpoint</a>.<br/>
         /// <br/>
@@ -66,15 +66,16 @@ namespace CodatSyncPayables
         /// ## Integration specifics<br/>
         /// Integrations that support soft delete do not permanently delete the object in the accounting platform.<br/>
         /// <br/>
-        /// | Integration | Soft Delete | Details                                                                                              |  <br/>
+        /// | Integration | Soft Delete | Details |  <br/>
         /// |-------------|-------------|------------------------------------------------------------------------------------------------------|                                                        <br/>
-        /// | Oracle NetSuite   | No          | See <a href="/integrations/accounting/netsuite/how-deleting-bill-payments-works">here</a> to learn more.  |<br/>
-        /// | QuickBooks Online | No          | -                                                                                              |<br/>
-        /// | Xero | Yes          | -                                                                                                          |<br/>
+        /// | QuickBooks Online | No   | -<br/>
+        /// | Oracle NetSuite   | No   | See <a href="/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works">here</a> to learn more.<br/>
+        /// | Xero              | Yes  | -     <br/>
+        /// | Sage Intacct      | No   | Some bill payments in Sage Intacct can only be deleted, whilst others can only be voided. Codat have applied logic to handle this complexity. <br/>
         /// <br/>
         /// &gt; **Supported integrations**<br/>
         /// &gt;<br/>
-        /// &gt; This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.<br/>
+        /// &gt; This functionality is currently supported for our QuickBooks Online, Oracle NetSuite, Xero and Sage Intacct integrations.<br/>
         /// 
         /// </remarks>
         /// </summary>
@@ -132,19 +133,19 @@ namespace CodatSyncPayables
     /// <summary>
     /// Bill payments
     /// </summary>
-    public class BillPaymentsSDK: IBillPaymentsSDK
+    public class BillPayments: IBillPayments
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.2.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.195.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.159.2 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public BillPaymentsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public BillPayments(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -155,14 +156,9 @@ namespace CodatSyncPayables
 
         public async Task<Models.Operations.CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/billPayments", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -194,7 +190,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -209,14 +205,9 @@ namespace CodatSyncPayables
 
         public async Task<DeleteBillPaymentResponse> DeleteAsync(DeleteBillPaymentRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billPayments/{billPaymentId}", request);
+            string baseUrl = this.Config.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/billPayments/{billPaymentId}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -243,7 +234,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -258,14 +249,9 @@ namespace CodatSyncPayables
 
         public async Task<GetBillPaymentsResponse> GetAsync(GetBillPaymentsRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billPayments/{billPaymentId}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -292,7 +278,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -307,14 +293,9 @@ namespace CodatSyncPayables
 
         public async Task<GetCreateBillPaymentModelResponse> GetCreateModelAsync(GetCreateBillPaymentModelRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/billPayments", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -341,7 +322,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -356,14 +337,9 @@ namespace CodatSyncPayables
 
         public async Task<ListBillPaymentsResponse> ListAsync(ListBillPaymentsRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billPayments", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -385,12 +361,12 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.BillPayments = JsonConvert.DeserializeObject<BillPayments>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.BillPayments = JsonConvert.DeserializeObject<Models.Shared.BillPayments>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 409))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

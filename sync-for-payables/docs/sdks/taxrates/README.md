@@ -1,4 +1,4 @@
-# TaxRatesSDK
+# TaxRates
 (*TaxRates*)
 
 ## Overview
@@ -24,11 +24,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -36,7 +36,7 @@ var sdk = new CodatSyncPayablesSDK(
 
 var res = await sdk.TaxRates.GetAsync(new GetTaxRateRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    TaxRateId = "Northeast Hatchback Kia",
+    TaxRateId = "string",
 });
 
 // handle response
@@ -46,12 +46,12 @@ var res = await sdk.TaxRates.GetAsync(new GetTaxRateRequest() {
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [GetTaxRateRequest](../../models/operations/GetTaxRateRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| `request`                                                         | [GetTaxRateRequest](../../Models/Operations/GetTaxRateRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**[GetTaxRateResponse](../../models/operations/GetTaxRateResponse.md)**
+**[GetTaxRateResponse](../../Models/Operations/GetTaxRateResponse.md)**
 
 
 ## List
@@ -66,11 +66,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -90,10 +90,10 @@ var res = await sdk.TaxRates.ListAsync(new ListTaxRatesRequest() {
 
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [ListTaxRatesRequest](../../models/operations/ListTaxRatesRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `request`                                                             | [ListTaxRatesRequest](../../Models/Operations/ListTaxRatesRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 
 ### Response
 
-**[ListTaxRatesResponse](../../models/operations/ListTaxRatesResponse.md)**
+**[ListTaxRatesResponse](../../Models/Operations/ListTaxRatesResponse.md)**
 

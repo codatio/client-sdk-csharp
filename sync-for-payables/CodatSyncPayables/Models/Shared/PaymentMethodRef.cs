@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     
     /// <summary>
-    /// The payment method the record is linked to in the accounting or commerce platform.
+    /// The Payment Method to which the payment is linked in the accounting platform.
     /// </summary>
     public class PaymentMethodRef
     {

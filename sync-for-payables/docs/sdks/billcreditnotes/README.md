@@ -1,4 +1,4 @@
-# BillCreditNotesSDK
+# BillCreditNotes
 (*BillCreditNotes*)
 
 ## Overview
@@ -29,11 +29,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -50,7 +51,7 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         LineItems = new List<BillCreditNoteLineItem>() {
             new BillCreditNoteLineItem() {
                 AccountRef = new AccountRef() {},
-                ItemRef = new BillCreditNoteLineItemItemReference() {
+                ItemRef = new ItemReference() {
                     Id = "<ID>",
                 },
                 Quantity = 8592.13M,
@@ -61,12 +62,12 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
                             Id = "<ID>",
                         },
                     },
-                    CustomerRef = new BillCreditNoteLineItemTrackingCustomerRef() {
+                    CustomerRef = new BillCreditNoteLineItemCustomerRef() {
                         Id = "<ID>",
                     },
-                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
+                    IsBilledTo = BilledToType.NotApplicable,
+                    IsRebilledTo = BilledToType.NotApplicable,
+                    ProjectRef = new BillCreditNoteLineItemAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -83,7 +84,7 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         Note = "Bill Credit Note with 1 line items, totaling 805.78",
         PaymentAllocations = new List<Items>() {
             new Items() {
-                Allocation = new ItemsAllocation() {
+                Allocation = new Allocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "EUR",
                 },
@@ -96,12 +97,12 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         },
         RemainingCredit = 0M,
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.BillCreditNoteStatus.Paid,
+        Status = BillCreditNoteStatus.Paid,
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "abnormally", new Dictionary<string, object>() {
-                    { "deposit", "evolve" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -111,10 +112,10 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
         TotalAmount = 805.78M,
         TotalDiscount = 0M,
         TotalTaxAmount = 0M,
-        WithholdingTax = new List<WithholdingTaxitems>() {
-            new WithholdingTaxitems() {
-                Amount = 7150.4M,
-                Name = "SUV quantify Polestar",
+        WithholdingTax = new List<WithholdingTaxItems>() {
+            new WithholdingTaxItems() {
+                Amount = 8915.1M,
+                Name = "string",
             },
         },
     },
@@ -129,12 +130,12 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [CreateBillCreditNoteRequest](../../models/operations/CreateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| `request`                                                                             | [CreateBillCreditNoteRequest](../../Models/Operations/CreateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[Models.Operations.CreateBillCreditNoteResponse](../../models/operations/CreateBillCreditNoteResponse.md)**
+**[Models.Operations.CreateBillCreditNoteResponse](../../Models/Operations/CreateBillCreditNoteResponse.md)**
 
 
 ## Get
@@ -151,18 +152,18 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
 );
 
 var res = await sdk.BillCreditNotes.GetAsync(new GetBillCreditNoteRequest() {
-    BillCreditNoteId = "Northeast Hatchback Kia",
+    BillCreditNoteId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 });
 
@@ -173,12 +174,12 @@ var res = await sdk.BillCreditNotes.GetAsync(new GetBillCreditNoteRequest() {
 
 | Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [GetBillCreditNoteRequest](../../models/operations/GetBillCreditNoteRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `request`                                                                       | [GetBillCreditNoteRequest](../../Models/Operations/GetBillCreditNoteRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 
 ### Response
 
-**[GetBillCreditNoteResponse](../../models/operations/GetBillCreditNoteResponse.md)**
+**[GetBillCreditNoteResponse](../../Models/Operations/GetBillCreditNoteResponse.md)**
 
 
 ## GetCreateUpdateModel
@@ -197,11 +198,11 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -219,12 +220,12 @@ var res = await sdk.BillCreditNotes.GetCreateUpdateModelAsync(new GetCreateUpdat
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [GetCreateUpdateBillCreditNoteModelRequest](../../models/operations/GetCreateUpdateBillCreditNoteModelRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| `request`                                                                                                         | [GetCreateUpdateBillCreditNoteModelRequest](../../Models/Operations/GetCreateUpdateBillCreditNoteModelRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 
 ### Response
 
-**[GetCreateUpdateBillCreditNoteModelResponse](../../models/operations/GetCreateUpdateBillCreditNoteModelResponse.md)**
+**[GetCreateUpdateBillCreditNoteModelResponse](../../Models/Operations/GetCreateUpdateBillCreditNoteModelResponse.md)**
 
 
 ## List
@@ -239,11 +240,11 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -263,12 +264,12 @@ var res = await sdk.BillCreditNotes.ListAsync(new ListBillCreditNotesRequest() {
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [ListBillCreditNotesRequest](../../models/operations/ListBillCreditNotesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [ListBillCreditNotesRequest](../../Models/Operations/ListBillCreditNotesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[ListBillCreditNotesResponse](../../models/operations/ListBillCreditNotesResponse.md)**
+**[ListBillCreditNotesResponse](../../Models/Operations/ListBillCreditNotesResponse.md)**
 
 
 ## Update
@@ -287,11 +288,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     }
@@ -308,7 +310,7 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
         LineItems = new List<BillCreditNoteLineItem>() {
             new BillCreditNoteLineItem() {
                 AccountRef = new AccountRef() {},
-                ItemRef = new BillCreditNoteLineItemItemReference() {
+                ItemRef = new ItemReference() {
                     Id = "<ID>",
                 },
                 Quantity = 156.52M,
@@ -319,12 +321,12 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
                             Id = "<ID>",
                         },
                     },
-                    CustomerRef = new BillCreditNoteLineItemTrackingCustomerRef() {
+                    CustomerRef = new BillCreditNoteLineItemCustomerRef() {
                         Id = "<ID>",
                     },
-                    IsBilledTo = CodatSyncPayables.Models.Shared.BilledToType.NotApplicable,
-                    IsRebilledTo = CodatSyncPayables.Models.Shared.BilledToType.Customer,
-                    ProjectRef = new BillCreditNoteLineItemTrackingProjectReference() {
+                    IsBilledTo = BilledToType.NotApplicable,
+                    IsRebilledTo = BilledToType.Customer,
+                    ProjectRef = new BillCreditNoteLineItemAccountingProjectReference() {
                         Id = "<ID>",
                     },
                 },
@@ -341,7 +343,7 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
         Note = "Bill Credit Note with 1 line items, totaling 805.78",
         PaymentAllocations = new List<Items>() {
             new Items() {
-                Allocation = new ItemsAllocation() {
+                Allocation = new Allocation() {
                     AllocatedOnDate = "2022-10-23T00:00:00.000Z",
                     Currency = "EUR",
                 },
@@ -354,12 +356,12 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
         },
         RemainingCredit = 0M,
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.BillCreditNoteStatus.Paid,
+        Status = BillCreditNoteStatus.Paid,
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Arizona", new Dictionary<string, object>() {
-                    { "Cotton", "extend" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -369,14 +371,14 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
         TotalAmount = 805.78M,
         TotalDiscount = 0M,
         TotalTaxAmount = 0M,
-        WithholdingTax = new List<WithholdingTaxitems>() {
-            new WithholdingTaxitems() {
-                Amount = 2494.4M,
-                Name = "Carolina syndicate",
+        WithholdingTax = new List<WithholdingTaxItems>() {
+            new WithholdingTaxItems() {
+                Amount = 1341.51M,
+                Name = "string",
             },
         },
     },
-    BillCreditNoteId = "implement JBOD",
+    BillCreditNoteId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 });
@@ -388,10 +390,10 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [UpdateBillCreditNoteRequest](../../models/operations/UpdateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| `request`                                                                             | [UpdateBillCreditNoteRequest](../../Models/Operations/UpdateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[Models.Operations.UpdateBillCreditNoteResponse](../../models/operations/UpdateBillCreditNoteResponse.md)**
+**[Models.Operations.UpdateBillCreditNoteResponse](../../Models/Operations/UpdateBillCreditNoteResponse.md)**
 

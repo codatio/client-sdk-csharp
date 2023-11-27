@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Utils
+namespace Codat.Sync.Payables.Utils
 {
     using System.Collections;
     using System.Collections.Generic;

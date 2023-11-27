@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -17,6 +17,6 @@ namespace CodatPlatform.Models.Shared
     {
 
         [JsonProperty("supplementalDataConfig")]
-        public Dictionary<string, SupplementalDataConfigurationSupplementalDataSourceConfiguration>? SupplementalDataConfig { get; set; }
+        public Dictionary<string, SupplementalDataSourceConfiguration>? SupplementalDataConfig { get; set; }
     }
 }

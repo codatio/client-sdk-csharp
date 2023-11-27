@@ -16,19 +16,20 @@ dotnet add package Codat.Platform
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
-```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+### Example
 
-var sdk = new CodatPlatformSDK(
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
 );
 
-var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Name = "Bank of Dave",
+var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
 });
 
 // handle response
@@ -38,6 +39,16 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
+
+### [Settings](docs/sdks/settings/README.md)
+
+* [CreateApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
+* [DeleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
+* [GetProfile](docs/sdks/settings/README.md#getprofile) - Get profile
+* [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
+* [ListApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
+* [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
+* [UpdateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 
 ### [Companies](docs/sdks/companies/README.md)
 
@@ -56,12 +67,6 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
-### [Integrations](docs/sdks/integrations/README.md)
-
-* [Get](docs/sdks/integrations/README.md#get) - Get integration
-* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
-* [List](docs/sdks/integrations/README.md#list) - List integrations
-
 ### [PushData](docs/sdks/pushdata/README.md)
 
 * [GetModelOptions](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
@@ -76,15 +81,11 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 * [GetPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
 * [ListPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 
-### [Settings](docs/sdks/settings/README.md)
+### [Integrations](docs/sdks/integrations/README.md)
 
-* [CreateApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
-* [DeleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
-* [~~GetProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
-* [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
-* [ListApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
-* [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
-* [UpdateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
+* [Get](docs/sdks/integrations/README.md#get) - Get integration
+* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
+* [List](docs/sdks/integrations/README.md#list) - List integrations
 
 ### [SupplementalData](docs/sdks/supplementaldata/README.md)
 

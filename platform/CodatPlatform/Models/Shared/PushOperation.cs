@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ namespace CodatPlatform.Models.Shared
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
-        public DataType? DataType { get; set; }
+        public Models.Shared.DataType? DataType { get; set; }
 
         /// <summary>
         /// A message about the error.

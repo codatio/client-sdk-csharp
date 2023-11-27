@@ -1,4 +1,4 @@
-# RefreshDataSDK
+# RefreshData
 (*RefreshData*)
 
 ## Overview
@@ -24,11 +24,11 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -45,12 +45,12 @@ var res = await sdk.RefreshData.AllAsync(new RefreshCompanyDataRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [RefreshCompanyDataRequest](../../models/operations/RefreshCompanyDataRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [RefreshCompanyDataRequest](../../Models/Operations/RefreshCompanyDataRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[RefreshCompanyDataResponse](../../models/operations/RefreshCompanyDataResponse.md)**
+**[RefreshCompanyDataResponse](../../Models/Operations/RefreshCompanyDataResponse.md)**
 
 
 ## ByDataType
@@ -62,11 +62,11 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -74,7 +74,7 @@ var sdk = new CodatPlatformSDK(
 
 var res = await sdk.RefreshData.ByDataTypeAsync(new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = CodatPlatform.Models.Shared.DataType.Invoices,
+    DataType = SchemaDataType.Invoices,
 });
 
 // handle response
@@ -84,12 +84,12 @@ var res = await sdk.RefreshData.ByDataTypeAsync(new RefreshDataTypeRequest() {
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [RefreshDataTypeRequest](../../models/operations/RefreshDataTypeRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `request`                                                                   | [RefreshDataTypeRequest](../../Models/Operations/RefreshDataTypeRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 
 ### Response
 
-**[RefreshDataTypeResponse](../../models/operations/RefreshDataTypeResponse.md)**
+**[RefreshDataTypeResponse](../../Models/Operations/RefreshDataTypeResponse.md)**
 
 
 ## Get
@@ -99,11 +99,11 @@ Get the state of each data type for a company
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -120,12 +120,12 @@ var res = await sdk.RefreshData.GetAsync(new GetCompanyDataStatusRequest() {
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [GetCompanyDataStatusRequest](../../models/operations/GetCompanyDataStatusRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| `request`                                                                             | [GetCompanyDataStatusRequest](../../Models/Operations/GetCompanyDataStatusRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[GetCompanyDataStatusResponse](../../models/operations/GetCompanyDataStatusResponse.md)**
+**[GetCompanyDataStatusResponse](../../Models/Operations/GetCompanyDataStatusResponse.md)**
 
 
 ## GetPullOperation
@@ -135,11 +135,11 @@ Retrieve information about a single dataset or pull operation.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -157,12 +157,12 @@ var res = await sdk.RefreshData.GetPullOperationAsync(new GetPullOperationReques
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPullOperationRequest](../../models/operations/GetPullOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [GetPullOperationRequest](../../Models/Operations/GetPullOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[GetPullOperationResponse](../../models/operations/GetPullOperationResponse.md)**
+**[GetPullOperationResponse](../../Models/Operations/GetPullOperationResponse.md)**
 
 
 ## ListPullOperations
@@ -172,11 +172,11 @@ Gets the pull operation history (datasets) for a given company.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
     }
@@ -196,10 +196,10 @@ var res = await sdk.RefreshData.ListPullOperationsAsync(new ListPullOperationsRe
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListPullOperationsRequest](../../models/operations/ListPullOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [ListPullOperationsRequest](../../Models/Operations/ListPullOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListPullOperationsResponse](../../models/operations/ListPullOperationsResponse.md)**
+**[ListPullOperationsResponse](../../Models/Operations/ListPullOperationsResponse.md)**
 

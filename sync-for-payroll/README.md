@@ -128,5 +128,3 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->

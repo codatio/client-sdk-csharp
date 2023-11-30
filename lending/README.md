@@ -352,5 +352,3 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingB
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->

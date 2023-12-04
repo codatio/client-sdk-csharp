@@ -29,15 +29,16 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
+CreateConnectionRequest req = new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
         PlatformKey = "gbol",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Connections.CreateAsync(req);
 
 // handle response
 ```
@@ -68,13 +69,14 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Connections.GetSyncFlowUrlAsync(new GetSyncFlowUrlRequest() {
+GetSyncFlowUrlRequest req = new GetSyncFlowUrlRequest() {
     AccountingKey = "string",
     CommerceKey = "string",
-});
+};
+
+var res = await sdk.Connections.GetSyncFlowUrlAsync(req);
 
 // handle response
 ```
@@ -105,15 +107,16 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
+ListConnectionsRequest req = new ListConnectionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Connections.ListAsync(req);
 
 // handle response
 ```
@@ -145,16 +148,17 @@ using System.Collections.Generic;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
+UpdateConnectionAuthorizationRequest req = new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
         { "key", "string" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Connections.UpdateAuthorizationAsync(req);
 
 // handle response
 ```
@@ -185,14 +189,15 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Connections.UpdateConnectionAsync(new UpdateConnectionRequest() {
+UpdateConnectionRequest req = new UpdateConnectionRequest() {
     UpdateConnection = new UpdateConnection() {},
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Connections.UpdateConnectionAsync(req);
 
 // handle response
 ```

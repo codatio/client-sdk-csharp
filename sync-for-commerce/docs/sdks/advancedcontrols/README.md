@@ -25,13 +25,14 @@ using Codat.Sync.Commerce.Models.Shared;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
+CreateCompany req = new CreateCompany() {
     Description = "Requested early access to the new financing scheme.",
     Name = "Bank of Dave",
-});
+};
+
+var res = await sdk.AdvancedControls.CreateCompanyAsync(req);
 
 // handle response
 ```
@@ -62,12 +63,13 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AdvancedControls.GetConfigurationAsync(new GetConfigurationRequest() {
+GetConfigurationRequest req = new GetConfigurationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.AdvancedControls.GetConfigurationAsync(req);
 
 // handle response
 ```
@@ -98,14 +100,15 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AdvancedControls.ListCompaniesAsync(new ListCompaniesRequest() {
+ListCompaniesRequest req = new ListCompaniesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.AdvancedControls.ListCompaniesAsync(req);
 
 // handle response
 ```
@@ -136,12 +139,13 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AdvancedControls.SetConfigurationAsync(new SetConfigurationRequest() {
+SetConfigurationRequest req = new SetConfigurationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.AdvancedControls.SetConfigurationAsync(req);
 
 // handle response
 ```

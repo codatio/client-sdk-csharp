@@ -117,7 +117,6 @@ CodatSyncCommerce/Models/Shared/FeatureState.cs
 CodatSyncCommerce/Models/Shared/Security.cs
 CodatSyncCommerce/Models/Shared/SyncConnectionDeletedWebhook.cs
 CodatSyncCommerce/Models/Webhooks/SyncConnectionDeletedResponse.cs
-USAGE.md
 docs/Models/Operations/GetConfigTextSyncFlowResponse.md
 docs/Models/Operations/GetVisibleAccountsRequest.md
 docs/Models/Operations/GetVisibleAccountsResponse.md
@@ -223,4 +222,5 @@ docs/sdks/advancedcontrols/README.md
 docs/sdks/connections/README.md
 docs/sdks/sync/README.md
 docs/sdks/integrations/README.md
+USAGE.md
 .gitattributes

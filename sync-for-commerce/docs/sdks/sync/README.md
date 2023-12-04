@@ -29,13 +29,14 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.GetAsync(new GetSyncByIdRequest() {
+GetSyncByIdRequest req = new GetSyncByIdRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.GetAsync(req);
 
 // handle response
 ```
@@ -66,12 +67,13 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.GetLastSuccessfulSyncAsync(new GetLastSuccessfulSyncRequest() {
+GetLastSuccessfulSyncRequest req = new GetLastSuccessfulSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.GetLastSuccessfulSyncAsync(req);
 
 // handle response
 ```
@@ -102,12 +104,13 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.GetLatestSyncAsync(new GetLatestSyncRequest() {
+GetLatestSyncRequest req = new GetLatestSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.GetLatestSyncAsync(req);
 
 // handle response
 ```
@@ -138,12 +141,13 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.GetStatusAsync(new GetSyncStatusRequest() {
+GetSyncStatusRequest req = new GetSyncStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.GetStatusAsync(req);
 
 // handle response
 ```
@@ -174,12 +178,13 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.ListAsync(new ListSyncsRequest() {
+ListSyncsRequest req = new ListSyncsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.ListAsync(req);
 
 // handle response
 ```
@@ -210,15 +215,16 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.RequestAsync(new RequestSyncRequest() {
+RequestSyncRequest req = new RequestSyncRequest() {
     SyncToLatestArgs = new SyncToLatestArgs() {
         SyncTo = "2022-10-23T00:00:00.000Z",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.RequestAsync(req);
 
 // handle response
 ```
@@ -249,10 +255,9 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.RequestForDateRangeAsync(new RequestSyncForDateRangeRequest() {
+RequestSyncForDateRangeRequest req = new RequestSyncForDateRangeRequest() {
     SyncRange = new SyncRange() {
         DateRange = new DateRange() {
             Finish = "2022-10-23T00:00:00.000Z",
@@ -260,7 +265,9 @@ var res = await sdk.Sync.RequestForDateRangeAsync(new RequestSyncForDateRangeReq
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.RequestForDateRangeAsync(req);
 
 // handle response
 ```

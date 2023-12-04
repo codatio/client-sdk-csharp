@@ -24,12 +24,13 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Integrations.GetBrandingAsync(new GetIntegrationBrandingRequest() {
+GetIntegrationBrandingRequest req = new GetIntegrationBrandingRequest() {
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.Integrations.GetBrandingAsync(req);
 
 // handle response
 ```
@@ -60,14 +61,15 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
+ListIntegrationsRequest req = new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Integrations.ListAsync(req);
 
 // handle response
 ```

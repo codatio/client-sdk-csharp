@@ -67,12 +67,12 @@ namespace Codat.Sync.Commerce
     /// </summary>
     public class AdvancedControls: IAdvancedControls
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "1.1";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 1.1 Codat.Sync.Commerce";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -82,13 +82,13 @@ namespace Codat.Sync.Commerce
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateCompanyResponse> CreateCompanyAsync(CreateCompany? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/companies";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -137,7 +137,7 @@ namespace Codat.Sync.Commerce
 
         public async Task<GetConfigurationResponse> GetConfigurationAsync(GetConfigurationRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/config/companies/{companyId}/sync/commerce", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -181,7 +181,7 @@ namespace Codat.Sync.Commerce
 
         public async Task<ListCompaniesResponse> ListCompaniesAsync(ListCompaniesRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -225,7 +225,7 @@ namespace Codat.Sync.Commerce
 
         public async Task<SetConfigurationResponse> SetConfigurationAsync(SetConfigurationRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/config/companies/{companyId}/sync/commerce", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);

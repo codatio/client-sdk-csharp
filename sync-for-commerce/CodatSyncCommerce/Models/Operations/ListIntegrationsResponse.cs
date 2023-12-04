@@ -30,7 +30,7 @@ namespace Codat.Sync.Commerce.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public Integrations? Integrations { get; set; }
+        public Models.Shared.Integrations? Integrations { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

@@ -12,6 +12,7 @@ namespace Codat.Sync.Commerce
 {
     using Codat.Sync.Commerce.Models.Shared;
     using Codat.Sync.Commerce.Utils;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -94,13 +95,13 @@ namespace Codat.Sync.Commerce
     /// </summary>
     public class CodatSyncCommerce: ICodatSyncCommerce
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "1.1";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 1.1 Codat.Sync.Commerce";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -127,16 +128,16 @@ namespace Codat.Sync.Commerce
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
                 serverUrl = _serverUrl
             };
 
-            SyncFlowSettings = new SyncFlowSettings(_defaultClient, _securityClient, _serverUrl, Config);
-            AdvancedControls = new AdvancedControls(_defaultClient, _securityClient, _serverUrl, Config);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, Config);
-            Sync = new Sync(_defaultClient, _securityClient, _serverUrl, Config);
-            Integrations = new Integrations(_defaultClient, _securityClient, _serverUrl, Config);
+            SyncFlowSettings = new SyncFlowSettings(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AdvancedControls = new AdvancedControls(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Sync = new Sync(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Integrations = new Integrations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

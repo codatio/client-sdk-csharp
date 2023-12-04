@@ -25,8 +25,7 @@ using Codat.Sync.Commerce.Models.Shared;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
 var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync();
 
@@ -53,13 +52,14 @@ using Codat.Sync.Commerce.Models.Operations;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(new GetVisibleAccountsRequest() {
+GetVisibleAccountsRequest req = new GetVisibleAccountsRequest() {
     ClientId = "86fe9741-738d-4f2c-8e96-9c3f84156e91",
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(req);
 
 // handle response
 ```
@@ -89,12 +89,13 @@ using Codat.Sync.Commerce.Models.Shared;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(new Dictionary<string, Localization>() {
+Dictionary<string, Localization> req = new Dictionary<string, Localization>() {
     { "key", new Localization() {} },
-});
+};
+
+var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(req);
 
 // handle response
 ```
@@ -126,17 +127,18 @@ using System.Collections.Generic;
 var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(new UpdateVisibleAccountsSyncFlowRequest() {
+UpdateVisibleAccountsSyncFlowRequest req = new UpdateVisibleAccountsSyncFlowRequest() {
     VisibleAccounts = new VisibleAccounts() {
         VisibleAccounts = new List<string>() {
             "string",
         },
     },
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(req);
 
 // handle response
 ```

@@ -62,10 +62,10 @@ namespace Codat.Lending.Models.Shared
         public string ConnectionId { get; set; } = default!;
 
         /// <summary>
-        /// Available Data types
+        /// The data type you are requesting in a pull operation.
         /// </summary>
         [JsonProperty("dataType")]
-        public DataType DataType { get; set; } = default!;
+        public string DataType { get; set; } = default!;
 
         /// <summary>
         /// A message about a transient or persistent error.

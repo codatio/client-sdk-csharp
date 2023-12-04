@@ -112,6 +112,6 @@ namespace Codat.Lending.Models.Shared
         /// An array of balance sheet reports.
         /// </summary>
         [JsonProperty("reports")]
-        public List<BalanceSheet> Reports { get; set; } = default!;
+        public List<Models.Shared.BalanceSheet> Reports { get; set; } = default!;
     }
 }

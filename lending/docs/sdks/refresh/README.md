@@ -24,12 +24,13 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.Refresh.AllDataTypesAsync(new RefreshAllDataTypesRequest() {
+RefreshAllDataTypesRequest req = new RefreshAllDataTypesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.ManageData.Refresh.AllDataTypesAsync(req);
 
 // handle response
 ```
@@ -62,13 +63,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.Refresh.DataTypeAsync(new RefreshDataTypeRequest() {
+RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = SchemaDataType.Invoices,
-});
+};
+
+var res = await sdk.ManageData.Refresh.DataTypeAsync(req);
 
 // handle response
 ```

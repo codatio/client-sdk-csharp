@@ -12,6 +12,7 @@ namespace Codat.Lending
 {
     using Codat.Lending.Models.Shared;
     using Codat.Lending.Utils;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -157,13 +158,13 @@ namespace Codat.Lending
     /// </summary>
     public class CodatLending: ICodatLending
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "5.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.209.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -201,27 +202,27 @@ namespace Codat.Lending
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
                 serverUrl = _serverUrl
             };
 
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, Config);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, Config);
-            Transactions = new Transactions(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountingBankData = new CodatLendingAccountingBankData(_defaultClient, _securityClient, _serverUrl, Config);
-            Banking = new Banking(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsPayable = new AccountsPayable(_defaultClient, _securityClient, _serverUrl, Config);
-            Sales = new Sales(_defaultClient, _securityClient, _serverUrl, Config);
-            CompanyInfo = new CompanyInfo(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountsReceivable = new AccountsReceivable(_defaultClient, _securityClient, _serverUrl, Config);
-            FileUpload = new FileUpload(_defaultClient, _securityClient, _serverUrl, Config);
-            LoanWriteback = new LoanWriteback(_defaultClient, _securityClient, _serverUrl, Config);
-            FinancialStatements = new FinancialStatements(_defaultClient, _securityClient, _serverUrl, Config);
-            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, Config);
-            Liabilities = new Liabilities(_defaultClient, _securityClient, _serverUrl, Config);
-            DataIntegrity = new DataIntegrity(_defaultClient, _securityClient, _serverUrl, Config);
-            ExcelReports = new ExcelReports(_defaultClient, _securityClient, _serverUrl, Config);
+            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Transactions = new Transactions(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AccountingBankData = new CodatLendingAccountingBankData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Banking = new Banking(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AccountsPayable = new AccountsPayable(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Sales = new Sales(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            CompanyInfo = new CompanyInfo(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AccountsReceivable = new AccountsReceivable(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            FileUpload = new FileUpload(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            LoanWriteback = new LoanWriteback(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            FinancialStatements = new FinancialStatements(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Liabilities = new Liabilities(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            DataIntegrity = new DataIntegrity(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ExcelReports = new ExcelReports(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

@@ -97,12 +97,12 @@ namespace Codat.Lending
 
     public class Bills: IBills
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "5.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.209.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -112,13 +112,13 @@ namespace Codat.Lending
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<DownloadAccountingBillAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingBillAttachmentRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}/download", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -162,7 +162,7 @@ namespace Codat.Lending
 
         public async Task<GetAccountingBillResponse> GetAsync(GetAccountingBillRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/bills/{billId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -206,7 +206,7 @@ namespace Codat.Lending
 
         public async Task<GetAccountingBillAttachmentResponse> GetAttachmentAsync(GetAccountingBillAttachmentRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -250,7 +250,7 @@ namespace Codat.Lending
 
         public async Task<ListAccountingBillsResponse> ListAsync(ListAccountingBillsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/bills", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -294,7 +294,7 @@ namespace Codat.Lending
 
         public async Task<ListAccountingBillAttachmentsResponse> ListAttachmentsAsync(ListAccountingBillAttachmentsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);

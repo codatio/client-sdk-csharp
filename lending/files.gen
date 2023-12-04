@@ -653,7 +653,6 @@ CodatLending/Models/Shared/ClientRateLimitResetWebhookData.cs
 CodatLending/Models/Webhooks/AccountCategoriesUpdatedResponse.cs
 CodatLending/Models/Webhooks/ClientRateLimitReachedResponse.cs
 CodatLending/Models/Webhooks/ClientRateLimitResetResponse.cs
-USAGE.md
 docs/Models/Operations/CreateCompanyResponse.md
 docs/Models/Operations/DeleteCompanyRequest.md
 docs/Models/Operations/DeleteCompanyResponse.md
@@ -1295,4 +1294,5 @@ docs/sdks/pulloperations/README.md
 docs/sdks/liabilities/README.md
 docs/sdks/dataintegrity/README.md
 docs/sdks/excelreports/README.md
+USAGE.md
 .gitattributes

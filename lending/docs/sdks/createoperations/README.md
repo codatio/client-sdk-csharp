@@ -20,13 +20,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.LoanWriteback.CreateOperations.GetAsync(new GetCreateOperationRequest() {
+GetCreateOperationRequest req = new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PushOperationKey = "b18d8d81-fd7b-4764-a31e-475cb1f36591",
-});
+};
+
+var res = await sdk.LoanWriteback.CreateOperations.GetAsync(req);
 
 // handle response
 ```
@@ -57,15 +58,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.LoanWriteback.CreateOperations.ListAsync(new ListCreateOperationsRequest() {
+ListCreateOperationsRequest req = new ListCreateOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.LoanWriteback.CreateOperations.ListAsync(req);
 
 // handle response
 ```

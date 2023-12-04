@@ -29,10 +29,9 @@ using System.Collections.Generic;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.LoanWriteback.BankAccounts.CreateAsync(new CreateBankAccountRequest() {
+CreateBankAccountRequest req = new CreateBankAccountRequest() {
     AccountingBankAccount = new AccountingBankAccount() {
         Currency = "USD",
         Metadata = new Metadata() {},
@@ -48,7 +47,9 @@ var res = await sdk.LoanWriteback.BankAccounts.CreateAsync(new CreateBankAccount
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.CreateAsync(req);
 
 // handle response
 ```
@@ -88,13 +89,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(new GetCreateUpdateBankAccountsModelRequest() {
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
 
 // handle response
 ```

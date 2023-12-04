@@ -20,6 +20,6 @@ namespace Codat.Lending.Models.Shared
         /// An array containing bank account data for each connected banking data source that have the following data types enabled: `banking-accounts`, `banking-transactions`.
         /// </summary>
         [JsonProperty("accounts")]
-        public List<Accounts>? Accounts { get; set; }
+        public List<Models.Shared.Accounts>? Accounts { get; set; }
     }
 }

@@ -30,15 +30,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Invoices.DownloadAttachmentAsync(new DownloadAccountingInvoiceAttachmentRequest() {
+DownloadAccountingInvoiceAttachmentRequest req = new DownloadAccountingInvoiceAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     InvoiceId = "string",
-});
+};
+
+var res = await sdk.AccountsReceivable.Invoices.DownloadAttachmentAsync(req);
 
 // handle response
 ```
@@ -69,13 +70,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Invoices.DownloadPdfAsync(new DownloadAccountingInvoicePdfRequest() {
+DownloadAccountingInvoicePdfRequest req = new DownloadAccountingInvoicePdfRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     InvoiceId = "string",
-});
+};
+
+var res = await sdk.AccountsReceivable.Invoices.DownloadPdfAsync(req);
 
 // handle response
 ```
@@ -112,13 +114,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Invoices.GetAsync(new GetAccountingInvoiceRequest() {
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     InvoiceId = "string",
-});
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
 
 // handle response
 ```
@@ -154,15 +157,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Invoices.GetAttachmentAsync(new GetAccountingInvoiceAttachmentRequest() {
+GetAccountingInvoiceAttachmentRequest req = new GetAccountingInvoiceAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     InvoiceId = "string",
-});
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAttachmentAsync(req);
 
 // handle response
 ```
@@ -204,15 +208,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Invoices.ListAsync(new ListAccountingInvoicesRequest() {
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
 
 // handle response
 ```
@@ -248,14 +253,15 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Invoices.ListAttachmentsAsync(new ListAccountingInvoiceAttachmentsRequest() {
+ListAccountingInvoiceAttachmentsRequest req = new ListAccountingInvoiceAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     InvoiceId = "string",
-});
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAttachmentsAsync(req);
 
 // handle response
 ```
@@ -286,14 +292,15 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Invoices.ListReconciledAsync(new ListReconciledInvoicesRequest() {
+ListReconciledInvoicesRequest req = new ListReconciledInvoicesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListReconciledAsync(req);
 
 // handle response
 ```

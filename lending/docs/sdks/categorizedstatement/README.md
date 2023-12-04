@@ -23,14 +23,15 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Banking.CategorizedStatement.GetAsync(new GetCategorizedBankStatementRequest() {
+GetCategorizedBankStatementRequest req = new GetCategorizedBankStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Banking.CategorizedStatement.GetAsync(req);
 
 // handle response
 ```

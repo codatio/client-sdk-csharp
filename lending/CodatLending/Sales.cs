@@ -30,12 +30,12 @@ namespace Codat.Lending
 
     public class Sales: ISales
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "5.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.209.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -56,18 +56,18 @@ namespace Codat.Lending
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
-            Customers = new CodatLendingCustomers(_defaultClient, _securityClient, _serverUrl, Config);
-            Disputes = new Disputes(_defaultClient, _securityClient, _serverUrl, Config);
-            Locations = new Locations(_defaultClient, _securityClient, _serverUrl, Config);
-            Orders = new Orders(_defaultClient, _securityClient, _serverUrl, Config);
-            PaymentMethods = new PaymentMethods(_defaultClient, _securityClient, _serverUrl, Config);
-            Payments = new CodatLendingSalesPayments(_defaultClient, _securityClient, _serverUrl, Config);
-            ProductCategories = new ProductCategories(_defaultClient, _securityClient, _serverUrl, Config);
-            Products = new Products(_defaultClient, _securityClient, _serverUrl, Config);
-            Transactions = new CodatLendingTransactions(_defaultClient, _securityClient, _serverUrl, Config);
-            Metrics = new Metrics(_defaultClient, _securityClient, _serverUrl, Config);
-            Reports = new CodatLendingReports(_defaultClient, _securityClient, _serverUrl, Config);
+            SDKConfiguration = config;
+            Customers = new CodatLendingCustomers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Disputes = new Disputes(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Locations = new Locations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Orders = new Orders(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            PaymentMethods = new PaymentMethods(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Payments = new CodatLendingSalesPayments(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ProductCategories = new ProductCategories(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Products = new Products(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Transactions = new CodatLendingTransactions(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Metrics = new Metrics(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Reports = new CodatLendingReports(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
         
     }

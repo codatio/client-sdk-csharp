@@ -23,15 +23,16 @@ using NodaTime;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Reports.GetAgedCreditorsAsync(new GetAccountingAgedCreditorsReportRequest() {
+GetAccountingAgedCreditorsReportRequest req = new GetAccountingAgedCreditorsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     NumberOfPeriods = 12,
     PeriodLengthDays = 30,
     ReportDate = LocalDate.FromDateTime(System.DateTime.Parse("2022-12-31")),
-});
+};
+
+var res = await sdk.AccountsReceivable.Reports.GetAgedCreditorsAsync(req);
 
 // handle response
 ```
@@ -63,15 +64,16 @@ using NodaTime;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Reports.GetAgedDebtorsAsync(new GetAccountingAgedDebtorsReportRequest() {
+GetAccountingAgedDebtorsReportRequest req = new GetAccountingAgedDebtorsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     NumberOfPeriods = 12,
     PeriodLengthDays = 30,
     ReportDate = LocalDate.FromDateTime(System.DateTime.Parse("2022-12-31")),
-});
+};
+
+var res = await sdk.AccountsReceivable.Reports.GetAgedDebtorsAsync(req);
 
 // handle response
 ```
@@ -102,12 +104,13 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Reports.IsAgedCreditorsAvailableAsync(new IsAgedCreditorsReportAvailableRequest() {
+IsAgedCreditorsReportAvailableRequest req = new IsAgedCreditorsReportAvailableRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.AccountsReceivable.Reports.IsAgedCreditorsAvailableAsync(req);
 
 // handle response
 ```
@@ -138,12 +141,13 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsReceivable.Reports.IsAgedDebtorsAvailableAsync(new IsAgedDebtorsReportAvailableRequest() {
+IsAgedDebtorsReportAvailableRequest req = new IsAgedDebtorsReportAvailableRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.AccountsReceivable.Reports.IsAgedDebtorsAvailableAsync(req);
 
 // handle response
 ```

@@ -30,10 +30,9 @@ using System.Collections.Generic;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferRequest() {
+CreateTransferRequest req = new CreateTransferRequest() {
     AccountingTransfer = new AccountingTransfer() {
         ContactRef = new ContactRef() {
             DataType = DataType.Invoices,
@@ -71,7 +70,9 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(new CreateTransferReques
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.LoanWriteback.Transfers.CreateAsync(req);
 
 // handle response
 ```
@@ -111,13 +112,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(new GetCreateTransfersModelRequest() {
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
 
 // handle response
 ```

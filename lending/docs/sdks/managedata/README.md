@@ -19,12 +19,13 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.GetStatusAsync(new GetDataStatusRequest() {
+GetDataStatusRequest req = new GetDataStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.ManageData.GetStatusAsync(req);
 
 // handle response
 ```

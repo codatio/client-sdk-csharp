@@ -31,13 +31,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.GenerateLoanSummaryAsync(new GenerateLoanSummaryRequest() {
+GenerateLoanSummaryRequest req = new GenerateLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SourceType = Models.Operations.SourceType.Accounting,
-});
+};
+
+var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
 
 // handle response
 ```
@@ -73,13 +74,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(new GenerateLoanTransactionsRequest() {
+GenerateLoanTransactionsRequest req = new GenerateLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SourceType = QueryParamSourceType.Accounting,
-});
+};
+
+var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
 
 // handle response
 ```
@@ -115,13 +117,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.GetLoanSummaryAsync(new GetLoanSummaryRequest() {
+GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SourceType = GetLoanSummaryQueryParamSourceType.Banking,
-});
+};
+
+var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
 
 // handle response
 ```
@@ -157,13 +160,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.ListLoanTransactionsAsync(new ListLoanTransactionsRequest() {
+ListLoanTransactionsRequest req = new ListLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SourceType = ListLoanTransactionsQueryParamSourceType.Commerce,
-});
+};
+
+var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
 
 // handle response
 ```

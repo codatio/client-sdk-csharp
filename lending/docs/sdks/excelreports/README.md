@@ -29,13 +29,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ExcelReports.DownloadAsync(new DownloadExcelReportRequest() {
+DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ReportType = ExcelReportTypes.EnhancedFinancials,
-});
+};
+
+var res = await sdk.ExcelReports.DownloadAsync(req);
 
 // handle response
 ```
@@ -82,13 +83,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ExcelReports.GenerateAsync(new GenerateExcelReportRequest() {
+GenerateExcelReportRequest req = new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ReportType = ExcelReportTypes.EnhancedInvoices,
-});
+};
+
+var res = await sdk.ExcelReports.GenerateAsync(req);
 
 // handle response
 ```
@@ -123,13 +125,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ExcelReports.GetStatusAsync(new GetExcelReportGenerationStatusRequest() {
+GetExcelReportGenerationStatusRequest req = new GetExcelReportGenerationStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ReportType = ExcelReportTypes.EnhancedCashFlow,
-});
+};
+
+var res = await sdk.ExcelReports.GetStatusAsync(req);
 
 // handle response
 ```

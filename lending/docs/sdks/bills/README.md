@@ -28,15 +28,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsPayable.Bills.DownloadAttachmentAsync(new DownloadAccountingBillAttachmentRequest() {
+DownloadAccountingBillAttachmentRequest req = new DownloadAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.AccountsPayable.Bills.DownloadAttachmentAsync(req);
 
 // handle response
 ```
@@ -74,13 +75,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsPayable.Bills.GetAsync(new GetAccountingBillRequest() {
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
     BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
 
 // handle response
 ```
@@ -116,15 +118,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsPayable.Bills.GetAttachmentAsync(new GetAccountingBillAttachmentRequest() {
+GetAccountingBillAttachmentRequest req = new GetAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAttachmentAsync(req);
 
 // handle response
 ```
@@ -160,15 +163,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsPayable.Bills.ListAsync(new ListAccountingBillsRequest() {
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
 
 // handle response
 ```
@@ -204,14 +208,15 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(new ListAccountingBillAttachmentsRequest() {
+ListAccountingBillAttachmentsRequest req = new ListAccountingBillAttachmentsRequest() {
     BillId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(req);
 
 // handle response
 ```

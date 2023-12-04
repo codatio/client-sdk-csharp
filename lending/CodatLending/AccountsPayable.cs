@@ -23,12 +23,12 @@ namespace Codat.Lending
 
     public class AccountsPayable: IAccountsPayable
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "5.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.195.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.209.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -42,11 +42,11 @@ namespace Codat.Lending
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
-            Bills = new Bills(_defaultClient, _securityClient, _serverUrl, Config);
-            Suppliers = new Suppliers(_defaultClient, _securityClient, _serverUrl, Config);
-            BillCreditNotes = new BillCreditNotes(_defaultClient, _securityClient, _serverUrl, Config);
-            BillPayments = new BillPayments(_defaultClient, _securityClient, _serverUrl, Config);
+            SDKConfiguration = config;
+            Bills = new Bills(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Suppliers = new Suppliers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BillCreditNotes = new BillCreditNotes(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BillPayments = new BillPayments(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
         
     }

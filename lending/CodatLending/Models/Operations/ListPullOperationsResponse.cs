@@ -30,7 +30,7 @@ namespace Codat.Lending.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public PullOperations? PullOperations { get; set; }
+        public Models.Shared.PullOperations? PullOperations { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

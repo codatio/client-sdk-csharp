@@ -49,17 +49,18 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(new GetCommerceCustomerRetentionMetricsRequest() {
+GetCommerceCustomerRetentionMetricsRequest req = new GetCommerceCustomerRetentionMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 497588,
     PeriodLength = 613110,
     PeriodUnit = PeriodUnit.Week,
     ReportDate = "29-09-2020",
-});
+};
+
+var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
 
 // handle response
 ```
@@ -112,17 +113,18 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(new GetCommerceLifetimeValueMetricsRequest() {
+GetCommerceLifetimeValueMetricsRequest req = new GetCommerceLifetimeValueMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 900865,
     PeriodLength = 614777,
     PeriodUnit = PeriodUnit.Month,
     ReportDate = "29-09-2020",
-});
+};
+
+var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
 
 // handle response
 ```
@@ -176,17 +178,18 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sales.Metrics.GetRevenueAsync(new GetCommerceRevenueMetricsRequest() {
+GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 307462,
     PeriodLength = 944219,
     PeriodUnit = PeriodUnit.Day,
     ReportDate = "29-09-2020",
-});
+};
+
+var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
 
 // handle response
 ```

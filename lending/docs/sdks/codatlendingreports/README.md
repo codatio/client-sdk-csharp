@@ -43,17 +43,18 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sales.Reports.GetOrdersAsync(new GetCommerceOrdersReportRequest() {
+GetCommerceOrdersReportRequest req = new GetCommerceOrdersReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 491586,
     PeriodLength = 776309,
     PeriodUnit = PeriodUnit.Week,
     ReportDate = "29-09-2020",
-});
+};
+
+var res = await sdk.Sales.Reports.GetOrdersAsync(req);
 
 // handle response
 ```
@@ -108,17 +109,18 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sales.Reports.GetRefundsAsync(new GetCommerceRefundsReportRequest() {
+GetCommerceRefundsReportRequest req = new GetCommerceRefundsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 277786,
     PeriodLength = 876670,
     PeriodUnit = PeriodUnit.Year,
     ReportDate = "29-09-2020",
-});
+};
+
+var res = await sdk.Sales.Reports.GetRefundsAsync(req);
 
 // handle response
 ```

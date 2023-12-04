@@ -20,7 +20,7 @@ namespace Codat.Lending.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public Connections? Connections { get; set; }
+        public Models.Shared.Connections? Connections { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

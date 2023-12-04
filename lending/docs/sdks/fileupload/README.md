@@ -25,13 +25,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.FileUpload.DownloadAsync(new DownloadFilesRequest() {
+DownloadFilesRequest req = new DownloadFilesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Date = "2022-10-23T00:00:00.000Z",
-});
+};
+
+var res = await sdk.FileUpload.DownloadAsync(req);
 
 // handle response
 ```
@@ -62,12 +63,13 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.FileUpload.ListUploadedAsync(new ListFilesRequest() {
+ListFilesRequest req = new ListFilesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.FileUpload.ListUploadedAsync(req);
 
 // handle response
 ```
@@ -104,17 +106,18 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.FileUpload.UploadAsync(new UploadFilesRequest() {
+UploadFilesRequest req = new UploadFilesRequest() {
     RequestBody = new UploadFilesRequestBody() {
         Content = "0x87cbca97eC as bytes <<<>>>",
         FileName = "ullam.wav",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.FileUpload.UploadAsync(req);
 
 // handle response
 ```

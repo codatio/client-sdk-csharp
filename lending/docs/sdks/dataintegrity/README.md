@@ -27,16 +27,17 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.DataIntegrity.DetailsAsync(new ListDataIntegrityDetailsRequest() {
+ListDataIntegrityDetailsRequest req = new ListDataIntegrityDetailsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = DataIntegrityDataType.BankingAccounts,
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.DataIntegrity.DetailsAsync(req);
 
 // handle response
 ```
@@ -74,13 +75,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.DataIntegrity.StatusAsync(new GetDataIntegrityStatusRequest() {
+GetDataIntegrityStatusRequest req = new GetDataIntegrityStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = DataIntegrityDataType.BankingAccounts,
-});
+};
+
+var res = await sdk.DataIntegrity.StatusAsync(req);
 
 // handle response
 ```
@@ -115,13 +117,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.DataIntegrity.SummariesAsync(new GetDataIntegritySummariesRequest() {
+GetDataIntegritySummariesRequest req = new GetDataIntegritySummariesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = DataIntegrityDataType.BankingAccounts,
-});
+};
+
+var res = await sdk.DataIntegrity.SummariesAsync(req);
 
 // handle response
 ```

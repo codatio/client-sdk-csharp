@@ -20,15 +20,16 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(new GetAccountingBalanceSheetRequest() {
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PeriodLength = 4,
     PeriodsToCompare = 20,
     StartMonth = "2022-10-23T00:00:00.000Z",
-});
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
 
 // handle response
 ```
@@ -61,13 +62,14 @@ using Codat.Lending.Models.Operations;
 var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.FinancialStatements.BalanceSheet.GetCategorizedAccountsAsync(new GetCategorizedBalanceSheetStatementRequest() {
+GetCategorizedBalanceSheetStatementRequest req = new GetCategorizedBalanceSheetStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ReportDate = "29-09-2020",
-});
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetCategorizedAccountsAsync(req);
 
 // handle response
 ```

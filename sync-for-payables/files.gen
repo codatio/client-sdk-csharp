@@ -280,7 +280,6 @@ CodatSyncPayables/Models/Shared/ClientRateLimitResetWebhook.cs
 CodatSyncPayables/Models/Shared/ClientRateLimitResetWebhookData.cs
 CodatSyncPayables/Models/Webhooks/ClientRateLimitReachedResponse.cs
 CodatSyncPayables/Models/Webhooks/ClientRateLimitResetResponse.cs
-USAGE.md
 docs/Models/Operations/CreateCompanyResponse.md
 docs/Models/Operations/DeleteCompanyRequest.md
 docs/Models/Operations/DeleteCompanyResponse.md
@@ -549,4 +548,5 @@ docs/sdks/paymentmethods/README.md
 docs/sdks/taxrates/README.md
 docs/sdks/trackingcategories/README.md
 docs/sdks/pushoperations/README.md
+USAGE.md
 .gitattributes

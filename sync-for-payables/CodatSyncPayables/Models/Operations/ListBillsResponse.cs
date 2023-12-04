@@ -20,7 +20,7 @@ namespace Codat.Sync.Payables.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public Bills? Bills { get; set; }
+        public Models.Shared.Bills? Bills { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

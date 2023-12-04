@@ -35,16 +35,17 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Journals.CreateAsync(new CreateJournalRequest() {
+CreateJournalRequest req = new CreateJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     JournalPrototype = new JournalPrototype() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
     },
-});
+};
+
+var res = await sdk.Journals.CreateAsync(req);
 
 // handle response
 ```
@@ -82,13 +83,14 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Journals.GetAsync(new GetJournalRequest() {
+GetJournalRequest req = new GetJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     JournalId = "string",
-});
+};
+
+var res = await sdk.Journals.GetAsync(req);
 
 // handle response
 ```
@@ -128,13 +130,14 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Journals.GetCreateModelAsync(new GetCreateJournalModelRequest() {
+GetCreateJournalModelRequest req = new GetCreateJournalModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Journals.GetCreateModelAsync(req);
 
 // handle response
 ```
@@ -170,15 +173,16 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Journals.ListAsync(new ListJournalsRequest() {
+ListJournalsRequest req = new ListJournalsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Journals.ListAsync(req);
 
 // handle response
 ```

@@ -37,10 +37,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
+CreateSupplierRequest req = new CreateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
@@ -62,7 +61,9 @@ var res = await sdk.Suppliers.CreateAsync(new CreateSupplierRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Suppliers.CreateAsync(req);
 
 // handle response
 ```
@@ -100,13 +101,14 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Suppliers.GetAsync(new GetSupplierRequest() {
+GetSupplierRequest req = new GetSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SupplierId = "string",
-});
+};
+
+var res = await sdk.Suppliers.GetAsync(req);
 
 // handle response
 ```
@@ -146,13 +148,14 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Suppliers.GetCreateUpdateModelAsync(new GetCreateUpdateSupplierModelRequest() {
+GetCreateUpdateSupplierModelRequest req = new GetCreateUpdateSupplierModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Suppliers.GetCreateUpdateModelAsync(req);
 
 // handle response
 ```
@@ -188,15 +191,16 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Suppliers.ListAsync(new ListSuppliersRequest() {
+ListSuppliersRequest req = new ListSuppliersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Suppliers.ListAsync(req);
 
 // handle response
 ```
@@ -237,10 +241,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
+UpdateSupplierRequest req = new UpdateSupplierRequest() {
     Supplier = new Supplier() {
         Addresses = new List<Address>() {
             new Address() {
@@ -263,7 +266,9 @@ var res = await sdk.Suppliers.UpdateAsync(new UpdateSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     SupplierId = "string",
-});
+};
+
+var res = await sdk.Suppliers.UpdateAsync(req);
 
 // handle response
 ```

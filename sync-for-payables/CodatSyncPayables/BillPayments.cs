@@ -135,12 +135,12 @@ namespace Codat.Sync.Payables
     /// </summary>
     public class BillPayments: IBillPayments
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -150,13 +150,13 @@ namespace Codat.Sync.Payables
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<Models.Operations.CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/billPayments", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -205,7 +205,7 @@ namespace Codat.Sync.Payables
 
         public async Task<DeleteBillPaymentResponse> DeleteAsync(DeleteBillPaymentRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/billPayments/{billPaymentId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
@@ -249,7 +249,7 @@ namespace Codat.Sync.Payables
 
         public async Task<GetBillPaymentsResponse> GetAsync(GetBillPaymentsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billPayments/{billPaymentId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -293,7 +293,7 @@ namespace Codat.Sync.Payables
 
         public async Task<GetCreateBillPaymentModelResponse> GetCreateModelAsync(GetCreateBillPaymentModelRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/billPayments", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -337,7 +337,7 @@ namespace Codat.Sync.Payables
 
         public async Task<ListBillPaymentsResponse> ListAsync(ListBillPaymentsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billPayments", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);

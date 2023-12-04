@@ -30,7 +30,7 @@ namespace Codat.Sync.Payables.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public PushOperations? PushOperations { get; set; }
+        public Models.Shared.PushOperations? PushOperations { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

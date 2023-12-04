@@ -37,10 +37,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest() {
+CreateBillCreditNoteRequest req = new CreateBillCreditNoteRequest() {
     BillCreditNote = new BillCreditNote() {
         AllocatedOnDate = "2022-10-23T00:00:00.000Z",
         BillCreditNoteNumber = "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
@@ -121,7 +120,9 @@ var res = await sdk.BillCreditNotes.CreateAsync(new CreateBillCreditNoteRequest(
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.BillCreditNotes.CreateAsync(req);
 
 // handle response
 ```
@@ -159,13 +160,14 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillCreditNotes.GetAsync(new GetBillCreditNoteRequest() {
+GetBillCreditNoteRequest req = new GetBillCreditNoteRequest() {
     BillCreditNoteId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.BillCreditNotes.GetAsync(req);
 
 // handle response
 ```
@@ -205,13 +207,14 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillCreditNotes.GetCreateUpdateModelAsync(new GetCreateUpdateBillCreditNoteModelRequest() {
+GetCreateUpdateBillCreditNoteModelRequest req = new GetCreateUpdateBillCreditNoteModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.BillCreditNotes.GetCreateUpdateModelAsync(req);
 
 // handle response
 ```
@@ -247,15 +250,16 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillCreditNotes.ListAsync(new ListBillCreditNotesRequest() {
+ListBillCreditNotesRequest req = new ListBillCreditNotesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.BillCreditNotes.ListAsync(req);
 
 // handle response
 ```
@@ -296,10 +300,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest() {
+UpdateBillCreditNoteRequest req = new UpdateBillCreditNoteRequest() {
     BillCreditNote = new BillCreditNote() {
         AllocatedOnDate = "2022-10-23T00:00:00.000Z",
         BillCreditNoteNumber = "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
@@ -381,7 +384,9 @@ var res = await sdk.BillCreditNotes.UpdateAsync(new UpdateBillCreditNoteRequest(
     BillCreditNoteId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.BillCreditNotes.UpdateAsync(req);
 
 // handle response
 ```

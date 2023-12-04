@@ -30,7 +30,7 @@ namespace Codat.Sync.Payables.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public PaymentMethods? PaymentMethods { get; set; }
+        public Models.Shared.PaymentMethods? PaymentMethods { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

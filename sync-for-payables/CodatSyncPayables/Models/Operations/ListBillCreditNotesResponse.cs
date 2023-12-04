@@ -20,7 +20,7 @@ namespace Codat.Sync.Payables.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public BillCreditNotes? BillCreditNotes { get; set; }
+        public Models.Shared.BillCreditNotes? BillCreditNotes { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

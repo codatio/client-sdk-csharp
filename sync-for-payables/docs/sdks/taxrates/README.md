@@ -31,13 +31,14 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.TaxRates.GetAsync(new GetTaxRateRequest() {
+GetTaxRateRequest req = new GetTaxRateRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TaxRateId = "string",
-});
+};
+
+var res = await sdk.TaxRates.GetAsync(req);
 
 // handle response
 ```
@@ -73,15 +74,16 @@ using Codat.Sync.Payables.Models.Operations;
 var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.TaxRates.ListAsync(new ListTaxRatesRequest() {
+ListTaxRatesRequest req = new ListTaxRatesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.TaxRates.ListAsync(req);
 
 // handle response
 ```

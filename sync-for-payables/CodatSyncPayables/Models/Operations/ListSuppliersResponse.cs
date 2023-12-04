@@ -40,6 +40,6 @@ namespace Codat.Sync.Payables.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public Suppliers? Suppliers { get; set; }
+        public Models.Shared.Suppliers? Suppliers { get; set; }
     }
 }

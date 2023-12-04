@@ -40,6 +40,6 @@ namespace Codat.Sync.Payables.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public TaxRates? TaxRates { get; set; }
+        public Models.Shared.TaxRates? TaxRates { get; set; }
     }
 }

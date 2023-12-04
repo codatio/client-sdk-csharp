@@ -30,13 +30,14 @@ using Codat.Sync.Expenses.Models.Shared;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
+CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
     Name = "Bank of Dave",
-});
+};
+
+var res = await sdk.Companies.CreateAsync(req);
 
 // handle response
 ```
@@ -68,12 +69,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.DeleteAsync(new DeleteCompanyRequest() {
+DeleteCompanyRequest req = new DeleteCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Companies.DeleteAsync(req);
 
 // handle response
 ```
@@ -104,12 +106,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.GetAsync(new GetCompanyRequest() {
+GetCompanyRequest req = new GetCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Companies.GetAsync(req);
 
 // handle response
 ```
@@ -140,14 +143,15 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.ListAsync(new ListCompaniesRequest() {
+ListCompaniesRequest req = new ListCompaniesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -178,16 +182,17 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.UpdateAsync(new UpdateCompanyRequest() {
+UpdateCompanyRequest req = new UpdateCompanyRequest() {
     CompanyRequestBody = new CompanyRequestBody() {
         Description = "Requested early access to the new financing scheme.",
         Name = "Bank of Dave",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Companies.UpdateAsync(req);
 
 // handle response
 ```

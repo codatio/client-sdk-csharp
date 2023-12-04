@@ -97,12 +97,12 @@ namespace Codat.Sync.Expenses
     /// </summary>
     public class Customers: ICustomers
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "4.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.195.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.1 2.209.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -112,13 +112,13 @@ namespace Codat.Sync.Expenses
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<Models.Operations.CreateCustomerResponse> CreateAsync(CreateCustomerRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/customers", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -167,7 +167,7 @@ namespace Codat.Sync.Expenses
 
         public async Task<GetCustomerResponse> GetAsync(GetCustomerRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/customers/{customerId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -211,7 +211,7 @@ namespace Codat.Sync.Expenses
 
         public async Task<ListCustomersResponse> ListAsync(ListCustomersRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/customers", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -255,7 +255,7 @@ namespace Codat.Sync.Expenses
 
         public async Task<Models.Operations.UpdateCustomerResponse> UpdateAsync(UpdateCustomerRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/customers/{customerId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);

@@ -40,10 +40,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Expenses.CreateAsync(new CreateExpenseTransactionRequest() {
+CreateExpenseTransactionRequest req = new CreateExpenseTransactionRequest() {
     CreateExpenseRequest = new CreateExpenseRequest() {
         Items = new List<ExpenseTransaction>() {
             new ExpenseTransaction() {
@@ -81,7 +80,9 @@ var res = await sdk.Expenses.CreateAsync(new CreateExpenseTransactionRequest() {
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Expenses.CreateAsync(req);
 
 // handle response
 ```
@@ -120,10 +121,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
+UpdateExpenseTransactionRequest req = new UpdateExpenseTransactionRequest() {
     UpdateExpenseRequest = new UpdateExpenseRequest() {
         BankAccountRef = new UpdateExpenseRequestBankAccountReference() {
             Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
@@ -157,7 +157,9 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-});
+};
+
+var res = await sdk.Expenses.UpdateAsync(req);
 
 // handle response
 ```
@@ -200,10 +202,9 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Expenses.UploadAttachmentAsync(new UploadExpenseAttachmentRequest() {
+UploadExpenseAttachmentRequest req = new UploadExpenseAttachmentRequest() {
     RequestBody = new UploadExpenseAttachmentRequestBody() {
         Content = "0xE3ABc1980E as bytes <<<>>>",
         FileName = "elegant_producer_electric.jpeg",
@@ -211,7 +212,9 @@ var res = await sdk.Expenses.UploadAttachmentAsync(new UploadExpenseAttachmentRe
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-});
+};
+
+var res = await sdk.Expenses.UploadAttachmentAsync(req);
 
 // handle response
 ```

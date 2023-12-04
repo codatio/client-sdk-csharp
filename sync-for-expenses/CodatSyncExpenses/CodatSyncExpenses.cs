@@ -12,6 +12,7 @@ namespace Codat.Sync.Expenses
 {
     using Codat.Sync.Expenses.Models.Shared;
     using Codat.Sync.Expenses.Utils;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -132,13 +133,13 @@ namespace Codat.Sync.Expenses
     /// </summary>
     public class CodatSyncExpenses: ICodatSyncExpenses
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "4.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.195.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.1 2.209.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -171,22 +172,22 @@ namespace Codat.Sync.Expenses
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
                 serverUrl = _serverUrl
             };
 
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, Config);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, Config);
-            Accounts = new Accounts(_defaultClient, _securityClient, _serverUrl, Config);
-            Customers = new Customers(_defaultClient, _securityClient, _serverUrl, Config);
-            Suppliers = new Suppliers(_defaultClient, _securityClient, _serverUrl, Config);
-            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, Config);
-            PushOperations = new PushOperations(_defaultClient, _securityClient, _serverUrl, Config);
-            Configuration = new Configuration(_defaultClient, _securityClient, _serverUrl, Config);
-            Expenses = new Expenses(_defaultClient, _securityClient, _serverUrl, Config);
-            Sync = new Sync(_defaultClient, _securityClient, _serverUrl, Config);
-            TransactionStatus = new TransactionStatus(_defaultClient, _securityClient, _serverUrl, Config);
+            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Accounts = new Accounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Customers = new Customers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Suppliers = new Suppliers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            PushOperations = new PushOperations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Configuration = new Configuration(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Expenses = new Expenses(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Sync = new Sync(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            TransactionStatus = new TransactionStatus(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

@@ -213,7 +213,6 @@ CodatSyncExpenses/Models/Webhooks/ClientRateLimitResetResponse.cs
 CodatSyncExpenses/Models/Webhooks/SyncCompleteResponse.cs
 CodatSyncExpenses/Models/Webhooks/SyncFailedResponse.cs
 CodatSyncExpenses/Models/Webhooks/SyncStartedResponse.cs
-USAGE.md
 docs/Models/Operations/CreateCompanyResponse.md
 docs/Models/Operations/DeleteCompanyRequest.md
 docs/Models/Operations/DeleteCompanyResponse.md
@@ -415,4 +414,5 @@ docs/sdks/configuration/README.md
 docs/sdks/expenses/README.md
 docs/sdks/sync/README.md
 docs/sdks/transactionstatus/README.md
+USAGE.md
 .gitattributes

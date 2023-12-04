@@ -27,13 +27,14 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.GetAsync(new GetSyncByIdRequest() {
+GetSyncByIdRequest req = new GetSyncByIdRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.GetAsync(req);
 
 // handle response
 ```
@@ -64,12 +65,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.GetLastSuccessfulSyncAsync(new GetLastSuccessfulSyncRequest() {
+GetLastSuccessfulSyncRequest req = new GetLastSuccessfulSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.GetLastSuccessfulSyncAsync(req);
 
 // handle response
 ```
@@ -100,12 +102,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.GetLatestSyncAsync(new GetLatestSyncRequest() {
+GetLatestSyncRequest req = new GetLatestSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.GetLatestSyncAsync(req);
 
 // handle response
 ```
@@ -137,17 +140,18 @@ using System.Collections.Generic;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.InitiateSyncAsync(new InitiateSyncRequest() {
+InitiateSyncRequest req = new InitiateSyncRequest() {
     InitiateSync = new InitiateSync() {
         DatasetIds = new List<string>() {
             "acce2362-83d6-4e3e-a27f-f4a08e7217d5",
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.InitiateSyncAsync(req);
 
 // handle response
 ```
@@ -178,12 +182,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Sync.ListAsync(new ListSyncsRequest() {
+ListSyncsRequest req = new ListSyncsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Sync.ListAsync(req);
 
 // handle response
 ```

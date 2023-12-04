@@ -34,10 +34,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
+CreateAccountRequest req = new CreateAccountRequest() {
     AccountPrototype = new AccountPrototype() {
         Currency = "USD",
         CurrentBalance = 0M,
@@ -65,7 +64,9 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Accounts.CreateAsync(req);
 
 // handle response
 ```
@@ -105,13 +106,14 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.GetCreateModelAsync(new GetCreateChartOfAccountsModelRequest() {
+GetCreateChartOfAccountsModelRequest req = new GetCreateChartOfAccountsModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Accounts.GetCreateModelAsync(req);
 
 // handle response
 ```

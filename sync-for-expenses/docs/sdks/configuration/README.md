@@ -25,12 +25,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Configuration.GetAsync(new GetCompanyConfigurationRequest() {
+GetCompanyConfigurationRequest req = new GetCompanyConfigurationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Configuration.GetAsync(req);
 
 // handle response
 ```
@@ -61,12 +62,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Configuration.GetMappingOptionsAsync(new GetMappingOptionsRequest() {
+GetMappingOptionsRequest req = new GetMappingOptionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Configuration.GetMappingOptionsAsync(req);
 
 // handle response
 ```
@@ -97,10 +99,9 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Configuration.SetAsync(new SetCompanyConfigurationRequest() {
+SetCompanyConfigurationRequest req = new SetCompanyConfigurationRequest() {
     CompanyConfiguration = new CompanyConfiguration() {
         BankAccount = new BankAccount() {
             Id = "32",
@@ -109,7 +110,9 @@ var res = await sdk.Configuration.SetAsync(new SetCompanyConfigurationRequest() 
         Supplier = new SupplierDetails() {},
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Configuration.SetAsync(req);
 
 // handle response
 ```

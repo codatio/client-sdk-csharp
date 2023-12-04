@@ -36,10 +36,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
+CreateCustomerRequest req = new CreateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<AccountingAddress>() {
             new AccountingAddress() {
@@ -76,7 +75,9 @@ var res = await sdk.Customers.CreateAsync(new CreateCustomerRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Customers.CreateAsync(req);
 
 // handle response
 ```
@@ -114,13 +115,14 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Customers.GetAsync(new GetCustomerRequest() {
+GetCustomerRequest req = new GetCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CustomerId = "string",
-});
+};
+
+var res = await sdk.Customers.GetAsync(req);
 
 // handle response
 ```
@@ -156,15 +158,16 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Customers.ListAsync(new ListCustomersRequest() {
+ListCustomersRequest req = new ListCustomersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Customers.ListAsync(req);
 
 // handle response
 ```
@@ -205,10 +208,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
+UpdateCustomerRequest req = new UpdateCustomerRequest() {
     Customer = new Customer() {
         Addresses = new List<AccountingAddress>() {
             new AccountingAddress() {
@@ -246,7 +248,9 @@ var res = await sdk.Customers.UpdateAsync(new UpdateCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     CustomerId = "string",
-});
+};
+
+var res = await sdk.Customers.UpdateAsync(req);
 
 // handle response
 ```

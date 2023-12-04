@@ -91,12 +91,12 @@ namespace Codat.Sync.Expenses
     /// </summary>
     public class Expenses: IExpenses
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "4.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.195.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.1 2.209.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -106,13 +106,13 @@ namespace Codat.Sync.Expenses
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/data/expense-transactions", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -161,7 +161,7 @@ namespace Codat.Sync.Expenses
 
         public async Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
@@ -210,7 +210,7 @@ namespace Codat.Sync.Expenses
 
         public async Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);

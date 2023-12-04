@@ -20,7 +20,7 @@ namespace Codat.Sync.Expenses.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public Companies? Companies { get; set; }
+        public Models.Shared.Companies? Companies { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

@@ -25,7 +25,7 @@ namespace Codat.Sync.Expenses.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public Customers? Customers { get; set; }
+        public Models.Shared.Customers? Customers { get; set; }
 
         /// <summary>
         /// Your `query` parameter was not correctly formed

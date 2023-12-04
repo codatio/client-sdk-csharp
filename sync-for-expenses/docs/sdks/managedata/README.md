@@ -27,12 +27,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.GetAsync(new GetDataStatusRequest() {
+GetDataStatusRequest req = new GetDataStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.ManageData.GetAsync(req);
 
 // handle response
 ```
@@ -63,13 +64,14 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest() {
+GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
-});
+};
+
+var res = await sdk.ManageData.GetPullOperationAsync(req);
 
 // handle response
 ```
@@ -100,15 +102,16 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsRequest() {
+ListPullOperationsRequest req = new ListPullOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.ManageData.ListPullOperationsAsync(req);
 
 // handle response
 ```
@@ -143,12 +146,13 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.RefreshAllDataTypesAsync(new RefreshAllDataTypesRequest() {
+RefreshAllDataTypesRequest req = new RefreshAllDataTypesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.ManageData.RefreshAllDataTypesAsync(req);
 
 // handle response
 ```
@@ -181,13 +185,14 @@ using Codat.Sync.Expenses.Models.Operations;
 var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
+RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = SchemaDataType.Invoices,
-});
+};
+
+var res = await sdk.ManageData.RefreshDataTypeAsync(req);
 
 // handle response
 ```

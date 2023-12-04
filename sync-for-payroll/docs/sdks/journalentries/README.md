@@ -37,10 +37,9 @@ using System.Collections.Generic;
 var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
+CreateJournalEntryRequest req = new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
         JournalLines = new List<JournalLine>() {
@@ -77,7 +76,9 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.JournalEntries.CreateAsync(req);
 
 // handle response
 ```
@@ -137,14 +138,15 @@ using Codat.Sync.Payroll.Models.Operations;
 var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.DeleteAsync(new DeleteJournalEntryRequest() {
+DeleteJournalEntryRequest req = new DeleteJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     JournalEntryId = "string",
-});
+};
+
+var res = await sdk.JournalEntries.DeleteAsync(req);
 
 // handle response
 ```
@@ -182,13 +184,14 @@ using Codat.Sync.Payroll.Models.Operations;
 var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.GetAsync(new GetJournalEntryRequest() {
+GetJournalEntryRequest req = new GetJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     JournalEntryId = "string",
-});
+};
+
+var res = await sdk.JournalEntries.GetAsync(req);
 
 // handle response
 ```
@@ -228,13 +231,14 @@ using Codat.Sync.Payroll.Models.Operations;
 var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.GetCreateModelAsync(new GetCreateJournalEntryModelRequest() {
+GetCreateJournalEntryModelRequest req = new GetCreateJournalEntryModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.JournalEntries.GetCreateModelAsync(req);
 
 // handle response
 ```
@@ -270,15 +274,16 @@ using Codat.Sync.Payroll.Models.Operations;
 var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.ListAsync(new ListJournalEntriesRequest() {
+ListJournalEntriesRequest req = new ListJournalEntriesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.JournalEntries.ListAsync(req);
 
 // handle response
 ```

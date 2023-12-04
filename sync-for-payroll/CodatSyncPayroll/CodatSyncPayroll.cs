@@ -12,6 +12,7 @@ namespace Codat.Sync.Payroll
 {
     using Codat.Sync.Payroll.Models.Shared;
     using Codat.Sync.Payroll.Utils;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -135,13 +136,13 @@ namespace Codat.Sync.Payroll
     /// </summary>
     public class CodatSyncPayroll: ICodatSyncPayroll
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Sync.Payroll";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 3.0.0 Codat.Sync.Payroll";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -171,19 +172,19 @@ namespace Codat.Sync.Payroll
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
                 serverUrl = _serverUrl
             };
 
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, Config);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, Config);
-            Accounts = new Accounts(_defaultClient, _securityClient, _serverUrl, Config);
-            JournalEntries = new JournalEntries(_defaultClient, _securityClient, _serverUrl, Config);
-            Journals = new Journals(_defaultClient, _securityClient, _serverUrl, Config);
-            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, Config);
-            CompanyInfo = new CompanyInfo(_defaultClient, _securityClient, _serverUrl, Config);
-            TrackingCategories = new TrackingCategories(_defaultClient, _securityClient, _serverUrl, Config);
+            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Accounts = new Accounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            JournalEntries = new JournalEntries(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Journals = new Journals(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            CompanyInfo = new CompanyInfo(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            TrackingCategories = new TrackingCategories(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

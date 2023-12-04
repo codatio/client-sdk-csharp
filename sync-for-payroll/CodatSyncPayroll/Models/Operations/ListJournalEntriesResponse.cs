@@ -30,7 +30,7 @@ namespace Codat.Sync.Payroll.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public JournalEntries? JournalEntries { get; set; }
+        public Models.Shared.JournalEntries? JournalEntries { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

@@ -31,13 +31,14 @@ using Codat.Sync.Payroll.Models.Operations;
 var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.TrackingCategories.GetAsync(new GetTrackingCategoryRequest() {
+GetTrackingCategoryRequest req = new GetTrackingCategoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TrackingCategoryId = "string",
-});
+};
+
+var res = await sdk.TrackingCategories.GetAsync(req);
 
 // handle response
 ```
@@ -73,15 +74,16 @@ using Codat.Sync.Payroll.Models.Operations;
 var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.TrackingCategories.ListAsync(new ListTrackingCategoriesRequest() {
+ListTrackingCategoriesRequest req = new ListTrackingCategoriesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.TrackingCategories.ListAsync(req);
 
 // handle response
 ```

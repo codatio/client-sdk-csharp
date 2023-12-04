@@ -163,7 +163,6 @@ CodatSyncPayroll/Models/Shared/ClientRateLimitResetWebhook.cs
 CodatSyncPayroll/Models/Shared/ClientRateLimitResetWebhookData.cs
 CodatSyncPayroll/Models/Webhooks/ClientRateLimitReachedResponse.cs
 CodatSyncPayroll/Models/Webhooks/ClientRateLimitResetResponse.cs
-USAGE.md
 docs/Models/Operations/CreateCompanyResponse.md
 docs/Models/Operations/DeleteCompanyRequest.md
 docs/Models/Operations/DeleteCompanyResponse.md
@@ -315,4 +314,5 @@ docs/sdks/journals/README.md
 docs/sdks/managedata/README.md
 docs/sdks/companyinfo/README.md
 docs/sdks/trackingcategories/README.md
+USAGE.md
 .gitattributes

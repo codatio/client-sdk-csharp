@@ -40,6 +40,6 @@ namespace Codat.Sync.Payroll.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public TrackingCategories? TrackingCategories { get; set; }
+        public Models.Shared.TrackingCategories? TrackingCategories { get; set; }
     }
 }

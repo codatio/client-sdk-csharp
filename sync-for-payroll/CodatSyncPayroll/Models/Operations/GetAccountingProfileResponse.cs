@@ -20,7 +20,7 @@ namespace Codat.Sync.Payroll.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public CompanyInfo? CompanyInfo { get; set; }
+        public Models.Shared.CompanyInfo? CompanyInfo { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation

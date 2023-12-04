@@ -12,6 +12,7 @@ namespace Codat.BankFeeds
 {
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -114,13 +115,13 @@ namespace Codat.BankFeeds
     /// </summary>
     public class CodatBankFeeds: ICodatBankFeeds
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -147,16 +148,16 @@ namespace Codat.BankFeeds
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
                 serverUrl = _serverUrl
             };
 
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, Config);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, Config);
-            AccountMapping = new AccountMapping(_defaultClient, _securityClient, _serverUrl, Config);
-            SourceAccounts = new SourceAccounts(_defaultClient, _securityClient, _serverUrl, Config);
-            Transactions = new Transactions(_defaultClient, _securityClient, _serverUrl, Config);
+            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AccountMapping = new AccountMapping(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            SourceAccounts = new SourceAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Transactions = new Transactions(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

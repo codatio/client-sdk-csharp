@@ -38,12 +38,13 @@ using Codat.Platform.Models.Shared;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
+CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
-});
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 // handle response
 ```
@@ -83,12 +84,13 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.DeleteApiKeyAsync(new DeleteApiKeyRequest() {
+DeleteApiKeyRequest req = new DeleteApiKeyRequest() {
     ApiKeyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Settings.DeleteApiKeyAsync(req);
 
 // handle response
 ```
@@ -118,8 +120,7 @@ using Codat.Platform.Models.Shared;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
 var res = await sdk.Settings.GetProfileAsync();
 
@@ -145,8 +146,7 @@ using Codat.Platform.Models.Shared;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
 var res = await sdk.Settings.GetSyncSettingsAsync();
 
@@ -176,8 +176,7 @@ using Codat.Platform.Models.Shared;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
 var res = await sdk.Settings.ListApiKeysAsync();
 
@@ -204,10 +203,9 @@ using System.Collections.Generic;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.UpdateProfileAsync(new Profile() {
+Profile req = new Profile() {
     AlertAuthHeader = "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
     ApiKey = "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
     IconUrl = "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
@@ -240,7 +238,9 @@ var res = await sdk.Settings.UpdateProfileAsync(new Profile() {
         "o",
         "m",
     },
-});
+};
+
+var res = await sdk.Settings.UpdateProfileAsync(req);
 
 // handle response
 ```
@@ -272,10 +272,9 @@ using System.Collections.Generic;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettingsRequestBody() {
+UpdateProfileSyncSettingsRequestBody req = new UpdateProfileSyncSettingsRequestBody() {
     ClientId = "ce429104-79f0-4085-a720-e2d40fcc800f",
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
@@ -288,7 +287,9 @@ var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettin
             SyncSchedule = 24,
         },
     },
-});
+};
+
+var res = await sdk.Settings.UpdateSyncSettingsAsync(req);
 
 // handle response
 ```

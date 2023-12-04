@@ -25,12 +25,13 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Integrations.GetAsync(new GetIntegrationRequest() {
+GetIntegrationRequest req = new GetIntegrationRequest() {
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.Integrations.GetAsync(req);
 
 // handle response
 ```
@@ -61,12 +62,13 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Integrations.GetBrandingAsync(new GetIntegrationsBrandingRequest() {
+GetIntegrationsBrandingRequest req = new GetIntegrationsBrandingRequest() {
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.Integrations.GetBrandingAsync(req);
 
 // handle response
 ```
@@ -97,14 +99,15 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
+ListIntegrationsRequest req = new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Integrations.ListAsync(req);
 
 // handle response
 ```

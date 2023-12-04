@@ -58,12 +58,12 @@ namespace Codat.Platform
     /// </summary>
     public class Integrations: IIntegrations
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -73,13 +73,13 @@ namespace Codat.Platform
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -123,7 +123,7 @@ namespace Codat.Platform
 
         public async Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/branding", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -167,7 +167,7 @@ namespace Codat.Platform
 
         public async Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);

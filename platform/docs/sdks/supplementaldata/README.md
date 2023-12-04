@@ -30,10 +30,9 @@ using System.Collections.Generic;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.SupplementalData.ConfigureAsync(new ConfigureSupplementalDataRequest() {
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
     SupplementalDataConfiguration = new SupplementalDataConfiguration() {
         SupplementalDataConfig = new Dictionary<string, SupplementalDataSourceConfiguration>() {
             { "key", new SupplementalDataSourceConfiguration() {
@@ -48,7 +47,9 @@ var res = await sdk.SupplementalData.ConfigureAsync(new ConfigureSupplementalDat
     },
     DataType = Models.Operations.DataType.Invoices,
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
 
 // handle response
 ```
@@ -81,13 +82,14 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.SupplementalData.GetConfigurationAsync(new GetSupplementalDataConfigurationRequest() {
+GetSupplementalDataConfigurationRequest req = new GetSupplementalDataConfigurationRequest() {
     DataType = PathParamDataType.Invoices,
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.SupplementalData.GetConfigurationAsync(req);
 
 // handle response
 ```

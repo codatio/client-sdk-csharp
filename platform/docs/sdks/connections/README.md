@@ -30,15 +30,16 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Connections.CreateAsync(new CreateConnectionRequest() {
+CreateConnectionRequest req = new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
         PlatformKey = "gbol",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Connections.CreateAsync(req);
 
 // handle response
 ```
@@ -70,13 +71,14 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Connections.DeleteAsync(new DeleteConnectionRequest() {
+DeleteConnectionRequest req = new DeleteConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Connections.DeleteAsync(req);
 
 // handle response
 ```
@@ -107,13 +109,14 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Connections.GetAsync(new GetConnectionRequest() {
+GetConnectionRequest req = new GetConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Connections.GetAsync(req);
 
 // handle response
 ```
@@ -144,15 +147,16 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Connections.ListAsync(new ListConnectionsRequest() {
+ListConnectionsRequest req = new ListConnectionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Connections.ListAsync(req);
 
 // handle response
 ```
@@ -183,14 +187,15 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Connections.UnlinkAsync(new UnlinkConnectionRequest() {
+UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
     UpdateConnectionStatus = new UpdateConnectionStatus() {},
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Connections.UnlinkAsync(req);
 
 // handle response
 ```
@@ -222,16 +227,17 @@ using System.Collections.Generic;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Connections.UpdateAuthorizationAsync(new UpdateConnectionAuthorizationRequest() {
+UpdateConnectionAuthorizationRequest req = new UpdateConnectionAuthorizationRequest() {
     RequestBody = new Dictionary<string, string>() {
         { "key", "string" },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Connections.UpdateAuthorizationAsync(req);
 
 // handle response
 ```

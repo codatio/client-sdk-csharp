@@ -88,12 +88,12 @@ namespace Codat.Platform
     /// </summary>
     public class Connections: IConnections
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -103,13 +103,13 @@ namespace Codat.Platform
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -158,7 +158,7 @@ namespace Codat.Platform
 
         public async Task<DeleteConnectionResponse> DeleteAsync(DeleteConnectionRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
@@ -198,7 +198,7 @@ namespace Codat.Platform
 
         public async Task<GetConnectionResponse> GetAsync(GetConnectionRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -242,7 +242,7 @@ namespace Codat.Platform
 
         public async Task<ListConnectionsResponse> ListAsync(ListConnectionsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -286,7 +286,7 @@ namespace Codat.Platform
 
         public async Task<UnlinkConnectionResponse> UnlinkAsync(UnlinkConnectionRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);
@@ -335,7 +335,7 @@ namespace Codat.Platform
 
         public async Task<UpdateConnectionAuthorizationResponse> UpdateAuthorizationAsync(UpdateConnectionAuthorizationRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/authorization", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);

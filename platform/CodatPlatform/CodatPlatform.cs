@@ -12,6 +12,7 @@ namespace Codat.Platform
 {
     using Codat.Platform.Models.Shared;
     using Codat.Platform.Utils;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -49,6 +50,11 @@ namespace Codat.Platform
         /// Manage your companies&apos; data connections.
         /// </summary>
         public IConnections Connections { get; }
+
+        /// <summary>
+        /// View and configure custom data types for supported integrations.
+        /// </summary>
+        public ICustomDataType CustomDataType { get; }
 
         /// <summary>
         /// View push options and get push statuses.
@@ -111,19 +117,20 @@ namespace Codat.Platform
     /// </summary>
     public class CodatPlatform: ICodatPlatform
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public ISettings Settings { get; private set; }
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
+        public ICustomDataType CustomDataType { get; private set; }
         public IPushData PushData { get; private set; }
         public IRefreshData RefreshData { get; private set; }
         public IIntegrations Integrations { get; private set; }
@@ -147,19 +154,20 @@ namespace Codat.Platform
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
                 serverUrl = _serverUrl
             };
 
-            Settings = new Settings(_defaultClient, _securityClient, _serverUrl, Config);
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, Config);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, Config);
-            PushData = new PushData(_defaultClient, _securityClient, _serverUrl, Config);
-            RefreshData = new RefreshData(_defaultClient, _securityClient, _serverUrl, Config);
-            Integrations = new Integrations(_defaultClient, _securityClient, _serverUrl, Config);
-            SupplementalData = new SupplementalData(_defaultClient, _securityClient, _serverUrl, Config);
-            Webhooks = new Webhooks(_defaultClient, _securityClient, _serverUrl, Config);
+            Settings = new Settings(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            CustomDataType = new CustomDataType(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            PushData = new PushData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            RefreshData = new RefreshData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Integrations = new Integrations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            SupplementalData = new SupplementalData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Webhooks = new Webhooks(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

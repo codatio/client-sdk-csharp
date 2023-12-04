@@ -40,6 +40,6 @@ namespace Codat.Platform.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public Webhooks? Webhooks { get; set; }
+        public Models.Shared.Webhooks? Webhooks { get; set; }
     }
 }

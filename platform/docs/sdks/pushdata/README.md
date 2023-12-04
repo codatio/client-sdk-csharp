@@ -34,14 +34,15 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.PushData.GetModelOptionsAsync(new GetCreateUpdateModelOptionsByDataTypeRequest() {
+GetCreateUpdateModelOptionsByDataTypeRequest req = new GetCreateUpdateModelOptionsByDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     DataType = SchemaDataType.Invoices,
-});
+};
+
+var res = await sdk.PushData.GetModelOptionsAsync(req);
 
 // handle response
 ```
@@ -72,13 +73,14 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.PushData.GetOperationAsync(new GetPushOperationRequest() {
+GetPushOperationRequest req = new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PushOperationKey = "59acd79e-29d3-4138-91d3-91d4641bf7ed",
-});
+};
+
+var res = await sdk.PushData.GetOperationAsync(req);
 
 // handle response
 ```
@@ -109,15 +111,16 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.PushData.ListOperationsAsync(new GetCompanyPushHistoryRequest() {
+GetCompanyPushHistoryRequest req = new GetCompanyPushHistoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.PushData.ListOperationsAsync(req);
 
 // handle response
 ```

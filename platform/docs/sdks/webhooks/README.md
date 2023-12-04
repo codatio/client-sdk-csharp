@@ -25,10 +25,9 @@ using System.Collections.Generic;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
+CreateRule req = new CreateRule() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Notifiers = new WebhookNotifier() {
         Emails = new List<string>() {
@@ -51,7 +50,9 @@ var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
         Webhook = "https://webhook.client.com",
     },
     Type = "string",
-});
+};
+
+var res = await sdk.Webhooks.CreateAsync(req);
 
 // handle response
 ```
@@ -82,12 +83,13 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Webhooks.GetAsync(new GetWebhookRequest() {
+GetWebhookRequest req = new GetWebhookRequest() {
     RuleId = "7318949f-c008-4936-a8ff-10d7ab563fa6",
-});
+};
+
+var res = await sdk.Webhooks.GetAsync(req);
 
 // handle response
 ```
@@ -118,14 +120,15 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Webhooks.ListAsync(new ListRulesRequest() {
+ListRulesRequest req = new ListRulesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Webhooks.ListAsync(req);
 
 // handle response
 ```

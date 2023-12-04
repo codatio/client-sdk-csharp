@@ -31,12 +31,13 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.RefreshData.AllAsync(new RefreshCompanyDataRequest() {
+RefreshCompanyDataRequest req = new RefreshCompanyDataRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.RefreshData.AllAsync(req);
 
 // handle response
 ```
@@ -69,13 +70,14 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.RefreshData.ByDataTypeAsync(new RefreshDataTypeRequest() {
+RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = SchemaDataType.Invoices,
-});
+};
+
+var res = await sdk.RefreshData.ByDataTypeAsync(req);
 
 // handle response
 ```
@@ -106,12 +108,13 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.RefreshData.GetAsync(new GetCompanyDataStatusRequest() {
+GetCompanyDataStatusRequest req = new GetCompanyDataStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.RefreshData.GetAsync(req);
 
 // handle response
 ```
@@ -142,13 +145,14 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.RefreshData.GetPullOperationAsync(new GetPullOperationRequest() {
+GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
-});
+};
+
+var res = await sdk.RefreshData.GetPullOperationAsync(req);
 
 // handle response
 ```
@@ -179,15 +183,16 @@ using Codat.Platform.Models.Operations;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.RefreshData.ListPullOperationsAsync(new ListPullOperationsRequest() {
+ListPullOperationsRequest req = new ListPullOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.RefreshData.ListPullOperationsAsync(req);
 
 // handle response
 ```

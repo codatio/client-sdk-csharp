@@ -14,7 +14,7 @@ namespace Codat.Platform.Models.Operations
     using System.Net.Http;
     using System;
     
-    public class ListIntegrationsResponse
+    public class ConfigureCustomDataTypeResponse
     {
 
         /// <summary>
@@ -23,14 +23,14 @@ namespace Codat.Platform.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Your `query` parameter was not correctly formed
-        /// </summary>
-        public ErrorMessage? ErrorMessage { get; set; }
-
-        /// <summary>
         /// OK
         /// </summary>
-        public Models.Shared.Integrations? Integrations { get; set; }
+        public CustomDataTypeConfiguration? CustomDataTypeConfiguration { get; set; }
+
+        /// <summary>
+        /// Your API request was not properly authorized.
+        /// </summary>
+        public ErrorMessage? ErrorMessage { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

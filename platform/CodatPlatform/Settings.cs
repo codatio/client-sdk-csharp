@@ -117,12 +117,12 @@ namespace Codat.Platform
     /// </summary>
     public class Settings: ISettings
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.0.1";
+        private const string _sdkGenVersion = "2.209.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.1 2.209.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -132,13 +132,13 @@ namespace Codat.Platform
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateApiKeyResponse> CreateApiKeyAsync(CreateApiKey? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/apiKeys";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -187,7 +187,7 @@ namespace Codat.Platform
 
         public async Task<DeleteApiKeyResponse> DeleteApiKeyAsync(DeleteApiKeyRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/apiKeys/{apiKeyId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
@@ -222,7 +222,7 @@ namespace Codat.Platform
 
         public async Task<GetProfileResponse> GetProfileAsync()
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/profile";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -266,7 +266,7 @@ namespace Codat.Platform
 
         public async Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync()
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/profile/syncSettings";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -310,7 +310,7 @@ namespace Codat.Platform
 
         public async Task<ListApiKeysResponse> ListApiKeysAsync()
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/apiKeys";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -354,7 +354,7 @@ namespace Codat.Platform
 
         public async Task<UpdateProfileResponse> UpdateProfileAsync(Profile? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/profile";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
@@ -403,7 +403,7 @@ namespace Codat.Platform
 
         public async Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(UpdateProfileSyncSettingsRequestBody? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/profile/syncSettings";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);

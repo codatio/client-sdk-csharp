@@ -4,7 +4,7 @@
 Manage the building blocks of Codat, including companies, connections, and more.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Nuget
@@ -12,10 +12,12 @@ Manage the building blocks of Codat, including companies, connections, and more.
 ```bash
 dotnet add package Codat.Platform
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
 ### Example
 
 ```csharp
@@ -25,20 +27,20 @@ using Codat.Platform.Models.Shared;
 var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
+CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
-});
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [Settings](docs/sdks/settings/README.md)
 
@@ -66,6 +68,13 @@ var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+
+### [CustomDataType](docs/sdks/customdatatype/README.md)
+
+* [Configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
+* [GetConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
+* [List](docs/sdks/customdatatype/README.md#list) - List custom data type records
+* [Refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
 
 ### [PushData](docs/sdks/pushdata/README.md)
 
@@ -97,11 +106,28 @@ var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
 * [Create](docs/sdks/webhooks/README.md#create) - Create webhook
 * [Get](docs/sdks/webhooks/README.md#get) - Get webhook
 * [List](docs/sdks/webhooks/README.md#list) - List webhooks
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
+<!-- Start Server Selection [server] -->
+## Server Selection
 
-<!-- End Dev Containers -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

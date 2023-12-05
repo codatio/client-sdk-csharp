@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     
     public class UploadFilesRequestBody
     {
@@ -18,7 +18,7 @@ namespace CodatLending.Models.Operations
         [SpeakeasyMetadata("multipartForm:content")]
         public byte[] Content { get; set; } = default!;
 
-        [SpeakeasyMetadata("multipartForm:name=requestBody")]
-        public string RequestBody { get; set; } = default!;
+        [SpeakeasyMetadata("multipartForm:name=fileName")]
+        public string FileName { get; set; } = default!;
     }
 }

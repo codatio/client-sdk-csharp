@@ -8,8 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
+    using Codat.Lending.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -22,6 +23,11 @@ namespace CodatLending.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
+        /// Your API request was not properly authorized.
+        /// </summary>
+        public ErrorMessage? ErrorMessage { get; set; }
+
+        /// <summary>
         /// HTTP response status code for this operation
         /// </summary>
         public int StatusCode { get; set; } = default!;
@@ -29,11 +35,11 @@ namespace CodatLending.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
 
         /// <summary>
         /// OK
         /// </summary>
-        public bool? IsAgedDebtorsReportAvailable200ApplicationJSONBoolean { get; set; }
+        public bool? Boolean { get; set; }
     }
 }

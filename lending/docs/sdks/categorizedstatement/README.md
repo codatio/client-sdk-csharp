@@ -1,0 +1,49 @@
+# CategorizedStatement
+(*Banking.CategorizedStatement*)
+
+### Available Operations
+
+* [Get](#get) - Get categorized bank statement
+
+## Get
+
+﻿> **Categorization engine**
+>
+> The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
+
+The _Get categorized bank statement_ endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
+
+var sdk = new CodatLending(
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+GetCategorizedBankStatementRequest req = new GetCategorizedBankStatementRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Page = 1,
+    PageSize = 100,
+};
+
+var res = await sdk.Banking.CategorizedStatement.GetAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [GetCategorizedBankStatementRequest](../../Models/Operations/GetCategorizedBankStatementRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+
+### Response
+
+**[GetCategorizedBankStatementResponse](../../Models/Operations/GetCategorizedBankStatementResponse.md)**
+

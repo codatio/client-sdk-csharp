@@ -1,4 +1,4 @@
-# ExcelReportsSDK
+# ExcelReports
 (*ExcelReports*)
 
 ## Overview
@@ -22,20 +22,21 @@ You can [learn more](https://docs.codat.io/lending/excel/overview) about valid E
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ExcelReports.DownloadAsync(new DownloadExcelReportRequest() {
+DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedFinancials,
-});
+    ReportType = ExcelReportTypes.EnhancedFinancials,
+};
+
+var res = await sdk.ExcelReports.DownloadAsync(req);
 
 // handle response
 ```
@@ -44,12 +45,12 @@ var res = await sdk.ExcelReports.DownloadAsync(new DownloadExcelReportRequest() 
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [DownloadExcelReportRequest](../../models/operations/DownloadExcelReportRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [DownloadExcelReportRequest](../../Models/Operations/DownloadExcelReportRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[DownloadExcelReportResponse](../../models/operations/DownloadExcelReportResponse.md)**
+**[DownloadExcelReportResponse](../../Models/Operations/DownloadExcelReportResponse.md)**
 
 
 ## Generate
@@ -75,20 +76,21 @@ In response, the endpoint returns the [status](https://docs.codat.io/lending-api
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ExcelReports.GenerateAsync(new GenerateExcelReportRequest() {
+GenerateExcelReportRequest req = new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedInvoices,
-});
+    ReportType = ExcelReportTypes.EnhancedInvoices,
+};
+
+var res = await sdk.ExcelReports.GenerateAsync(req);
 
 // handle response
 ```
@@ -97,12 +99,12 @@ var res = await sdk.ExcelReports.GenerateAsync(new GenerateExcelReportRequest() 
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [GenerateExcelReportRequest](../../models/operations/GenerateExcelReportRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [GenerateExcelReportRequest](../../Models/Operations/GenerateExcelReportRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[GenerateExcelReportResponse](../../models/operations/GenerateExcelReportResponse.md)**
+**[GenerateExcelReportResponse](../../Models/Operations/GenerateExcelReportResponse.md)**
 
 
 ## GetStatus
@@ -116,20 +118,21 @@ When the report generation completes successfully, the `inProgress` property wil
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ExcelReports.GetStatusAsync(new GetExcelReportGenerationStatusRequest() {
+GetExcelReportGenerationStatusRequest req = new GetExcelReportGenerationStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = CodatLending.Models.Shared.ExcelReportTypes.EnhancedCashFlow,
-});
+    ReportType = ExcelReportTypes.EnhancedCashFlow,
+};
+
+var res = await sdk.ExcelReports.GetStatusAsync(req);
 
 // handle response
 ```
@@ -138,10 +141,10 @@ var res = await sdk.ExcelReports.GetStatusAsync(new GetExcelReportGenerationStat
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [GetExcelReportGenerationStatusRequest](../../models/operations/GetExcelReportGenerationStatusRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| `request`                                                                                                 | [GetExcelReportGenerationStatusRequest](../../Models/Operations/GetExcelReportGenerationStatusRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 
 ### Response
 
-**[GetExcelReportGenerationStatusResponse](../../models/operations/GetExcelReportGenerationStatusResponse.md)**
+**[GetExcelReportGenerationStatusResponse](../../Models/Operations/GetExcelReportGenerationStatusResponse.md)**
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -55,7 +55,7 @@ namespace CodatLending.Models.Shared
         /// Reference to the item the line is linked to.
         /// </summary>
         [JsonProperty("itemRef")]
-        public ItemRef? ItemRef { get; set; }
+        public PropertieItemRef? ItemRef { get; set; }
 
         /// <summary>
         /// The bill line&apos;s number.
@@ -63,11 +63,8 @@ namespace CodatLending.Models.Shared
         [JsonProperty("lineNumber")]
         public string? LineNumber { get; set; }
 
-        /// <summary>
-        /// Reference to the purchase order line this line was generated from.
-        /// </summary>
         [JsonProperty("purchaseOrderLineRef")]
-        public BillLineItemRecordLineReference? PurchaseOrderLineRef { get; set; }
+        public RecordLineReference? PurchaseOrderLineRef { get; set; }
 
         /// <summary>
         /// Number of units of goods or services received.
@@ -128,5 +125,11 @@ namespace CodatLending.Models.Shared
         /// </summary>
         [JsonProperty("unitAmount")]
         public decimal UnitAmount { get; set; } = default!;
+
+        /// <summary>
+        /// The measurement which defines a unit for this item (e.g. &apos;kilogram&apos;, &apos;litre&apos;).
+        /// </summary>
+        [JsonProperty("unitOfMeasurement")]
+        public string? UnitOfMeasurement { get; set; }
     }
 }

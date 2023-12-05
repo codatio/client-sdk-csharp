@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Models.Operations;
-    using CodatLending.Models.Shared;
-    using CodatLending.Utils;
+    using Codat.Lending.Models.Operations;
+    using Codat.Lending.Models.Shared;
+    using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http.Headers;
@@ -20,10 +20,10 @@ namespace CodatLending
     using System.Threading.Tasks;
     using System;
 
-    public interface IManageDataSDK
+    public interface IManageData
     {
-        public IManageDataPullOperationsSDK PullOperations { get; }
-        public IManageDataRefreshSDK Refresh { get; }
+        public IRefresh Refresh { get; }
+        public IPullOperations PullOperations { get; }
 
         /// <summary>
         /// Get data status
@@ -35,41 +35,36 @@ namespace CodatLending
         Task<GetDataStatusResponse> GetStatusAsync(GetDataStatusRequest? request = null);
     }
 
-    public class ManageDataSDK: IManageDataSDK
+    public class ManageData: IManageData
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.3.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.210.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.210.3 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IManageDataPullOperationsSDK PullOperations { get; private set; }
-        public IManageDataRefreshSDK Refresh { get; private set; }
+        public IRefresh Refresh { get; private set; }
+        public IPullOperations PullOperations { get; private set; }
 
-        public ManageDataSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public ManageData(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
-            PullOperations = new ManageDataPullOperationsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            Refresh = new ManageDataRefreshSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            SDKConfiguration = config;
+            Refresh = new Refresh(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            PullOperations = new PullOperations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
         
 
         public async Task<GetDataStatusResponse> GetStatusAsync(GetDataStatusRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/dataStatus", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -91,12 +86,12 @@ namespace CodatLending
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.DataStatusResponse = JsonConvert.DeserializeObject<Dictionary<string, DataStatus>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.DataStatuses = JsonConvert.DeserializeObject<Dictionary<string, DataStatus>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

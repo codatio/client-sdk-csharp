@@ -1,4 +1,4 @@
-# CompaniesSDK
+# Companies
 (*Companies*)
 
 ## Overview
@@ -24,19 +24,20 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
+CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
     Name = "Bank of Dave",
-});
+};
+
+var res = await sdk.Companies.CreateAsync(req);
 
 // handle response
 ```
@@ -45,12 +46,12 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 
 | Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `request`                                                       | [CompanyRequestBody](../../models/shared/CompanyRequestBody.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
+| `request`                                                       | [CompanyRequestBody](../../Models/Shared/CompanyRequestBody.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 
 ### Response
 
-**[CreateCompanyResponse](../../models/operations/CreateCompanyResponse.md)**
+**[CreateCompanyResponse](../../Models/Operations/CreateCompanyResponse.md)**
 
 
 ## Delete
@@ -61,19 +62,20 @@ Permanently deletes a company, its connections and any cached data. This operati
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.DeleteAsync(new DeleteCompanyRequest() {
+DeleteCompanyRequest req = new DeleteCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Companies.DeleteAsync(req);
 
 // handle response
 ```
@@ -82,12 +84,12 @@ var res = await sdk.Companies.DeleteAsync(new DeleteCompanyRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [DeleteCompanyRequest](../../models/operations/DeleteCompanyRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [DeleteCompanyRequest](../../Models/Operations/DeleteCompanyRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[DeleteCompanyResponse](../../models/operations/DeleteCompanyResponse.md)**
+**[DeleteCompanyResponse](../../Models/Operations/DeleteCompanyResponse.md)**
 
 
 ## Get
@@ -97,19 +99,20 @@ var res = await sdk.Companies.DeleteAsync(new DeleteCompanyRequest() {
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.GetAsync(new GetCompanyRequest() {
+GetCompanyRequest req = new GetCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Companies.GetAsync(req);
 
 // handle response
 ```
@@ -118,12 +121,12 @@ var res = await sdk.Companies.GetAsync(new GetCompanyRequest() {
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [GetCompanyRequest](../../models/operations/GetCompanyRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| `request`                                                         | [GetCompanyRequest](../../Models/Operations/GetCompanyRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**[GetCompanyResponse](../../models/operations/GetCompanyResponse.md)**
+**[GetCompanyResponse](../../Models/Operations/GetCompanyResponse.md)**
 
 
 ## List
@@ -133,21 +136,22 @@ var res = await sdk.Companies.GetAsync(new GetCompanyRequest() {
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.ListAsync(new ListCompaniesRequest() {
+ListCompaniesRequest req = new ListCompaniesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -156,12 +160,12 @@ var res = await sdk.Companies.ListAsync(new ListCompaniesRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [ListCompaniesRequest](../../models/operations/ListCompaniesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [ListCompaniesRequest](../../Models/Operations/ListCompaniesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[ListCompaniesResponse](../../models/operations/ListCompaniesResponse.md)**
+**[ListCompaniesResponse](../../Models/Operations/ListCompaniesResponse.md)**
 
 
 ## Update
@@ -171,23 +175,24 @@ var res = await sdk.Companies.ListAsync(new ListCompaniesRequest() {
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Companies.UpdateAsync(new UpdateCompanyRequest() {
+UpdateCompanyRequest req = new UpdateCompanyRequest() {
     CompanyRequestBody = new CompanyRequestBody() {
         Description = "Requested early access to the new financing scheme.",
         Name = "Bank of Dave",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Companies.UpdateAsync(req);
 
 // handle response
 ```
@@ -196,10 +201,10 @@ var res = await sdk.Companies.UpdateAsync(new UpdateCompanyRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [UpdateCompanyRequest](../../models/operations/UpdateCompanyRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [UpdateCompanyRequest](../../Models/Operations/UpdateCompanyRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[UpdateCompanyResponse](../../models/operations/UpdateCompanyResponse.md)**
+**[UpdateCompanyResponse](../../Models/Operations/UpdateCompanyResponse.md)**
 

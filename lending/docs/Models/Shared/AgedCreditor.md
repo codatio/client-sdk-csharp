@@ -1,0 +1,10 @@
+# AgedCreditor
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `AgedCurrencyOutstanding`                                                       | List<[AgedCurrencyOutstanding](../../Models/Shared/AgedCurrencyOutstanding.md)> | :heavy_minus_sign:                                                              | Array of aged creditors by currency.                                            |                                                                                 |
+| `SupplierId`                                                                    | *string*                                                                        | :heavy_minus_sign:                                                              | Supplier ID of the aged creditor.                                               | f594cefb-7750-4c3a-bab2-b5322026dee9                                            |
+| `SupplierName`                                                                  | *string*                                                                        | :heavy_minus_sign:                                                              | Supplier name of the aged creditor.                                             | John Doe                                                                        |

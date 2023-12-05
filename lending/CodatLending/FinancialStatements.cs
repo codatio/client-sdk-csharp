@@ -8,45 +8,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending
+namespace Codat.Lending
 {
-    using CodatLending.Utils;
+    using Codat.Lending.Utils;
     using System;
 
-    public interface IFinancialStatementsSDK
+    public interface IFinancialStatements
     {
-        public IFinancialStatementsAccountsSDK Accounts { get; }
-        public IFinancialStatementsBalanceSheetSDK BalanceSheet { get; }
-        public IFinancialStatementsCashFlowSDK CashFlow { get; }
-        public IFinancialStatementsProfitAndLossSDK ProfitAndLoss { get; }
+        public ICodatLendingFinancialStatementsAccounts Accounts { get; }
+        public IBalanceSheet BalanceSheet { get; }
+        public ICashFlow CashFlow { get; }
+        public IProfitAndLoss ProfitAndLoss { get; }
     }
 
-    public class FinancialStatementsSDK: IFinancialStatementsSDK
+    public class FinancialStatements: IFinancialStatements
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.3.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.210.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.3.0 2.159.2 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.210.3 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public IFinancialStatementsAccountsSDK Accounts { get; private set; }
-        public IFinancialStatementsBalanceSheetSDK BalanceSheet { get; private set; }
-        public IFinancialStatementsCashFlowSDK CashFlow { get; private set; }
-        public IFinancialStatementsProfitAndLossSDK ProfitAndLoss { get; private set; }
+        public ICodatLendingFinancialStatementsAccounts Accounts { get; private set; }
+        public IBalanceSheet BalanceSheet { get; private set; }
+        public ICashFlow CashFlow { get; private set; }
+        public IProfitAndLoss ProfitAndLoss { get; private set; }
 
-        public FinancialStatementsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public FinancialStatements(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
-            Accounts = new FinancialStatementsAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            BalanceSheet = new FinancialStatementsBalanceSheetSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            CashFlow = new FinancialStatementsCashFlowSDK(_defaultClient, _securityClient, _serverUrl, Config);
-            ProfitAndLoss = new FinancialStatementsProfitAndLossSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            SDKConfiguration = config;
+            Accounts = new CodatLendingFinancialStatementsAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BalanceSheet = new BalanceSheet(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            CashFlow = new CashFlow(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ProfitAndLoss = new ProfitAndLoss(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
         
     }

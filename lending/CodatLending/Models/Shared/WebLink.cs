@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -22,7 +22,7 @@ namespace CodatLending.Models.Shared
         /// The type of the weblink.
         /// </summary>
         [JsonProperty("type")]
-        public WebLinkType? Type { get; set; }
+        public Type? Type { get; set; }
 
         /// <summary>
         /// The full URL for the weblink.

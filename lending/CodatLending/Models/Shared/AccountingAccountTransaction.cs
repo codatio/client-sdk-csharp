@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -150,7 +150,7 @@ namespace CodatLending.Models.Shared
         /// The status of the account transaction.
         /// </summary>
         [JsonProperty("status")]
-        public AccountingAccountTransactionStatus? Status { get; set; }
+        public Status? Status { get; set; }
 
         /// <summary>
         /// Total amount of the account transactions, inclusive of tax.

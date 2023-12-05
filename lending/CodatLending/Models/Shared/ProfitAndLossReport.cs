@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -16,10 +16,10 @@ namespace CodatLending.Models.Shared
     {
 
         [JsonProperty("costOfSales")]
-        public ReportLine? CostOfSales { get; set; }
+        public ReportLineInput? CostOfSales { get; set; }
 
         [JsonProperty("expenses")]
-        public ReportLine? Expenses { get; set; }
+        public ReportLineInput? Expenses { get; set; }
 
         /// <summary>
         /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
@@ -55,7 +55,7 @@ namespace CodatLending.Models.Shared
         public decimal GrossProfit { get; set; } = default!;
 
         [JsonProperty("income")]
-        public ReportLine? Income { get; set; }
+        public ReportLineInput? Income { get; set; }
 
         /// <summary>
         /// Net operating profit of the company in the given date range.
@@ -76,10 +76,10 @@ namespace CodatLending.Models.Shared
         public decimal NetProfit { get; set; } = default!;
 
         [JsonProperty("otherExpenses")]
-        public ReportLine? OtherExpenses { get; set; }
+        public ReportLineInput? OtherExpenses { get; set; }
 
         [JsonProperty("otherIncome")]
-        public ReportLine? OtherIncome { get; set; }
+        public ReportLineInput? OtherIncome { get; set; }
 
         /// <summary>
         /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>

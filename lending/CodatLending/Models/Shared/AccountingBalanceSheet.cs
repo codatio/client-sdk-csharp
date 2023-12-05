@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -112,6 +112,6 @@ namespace CodatLending.Models.Shared
         /// An array of balance sheet reports.
         /// </summary>
         [JsonProperty("reports")]
-        public List<BalanceSheet> Reports { get; set; } = default!;
+        public List<Models.Shared.BalanceSheet> Reports { get; set; } = default!;
     }
 }

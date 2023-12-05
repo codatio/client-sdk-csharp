@@ -1,4 +1,4 @@
-# LiabilitiesSDK
+# Liabilities
 (*Liabilities*)
 
 ## Overview
@@ -24,20 +24,21 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.GenerateLoanSummaryAsync(new GenerateLoanSummaryRequest() {
+GenerateLoanSummaryRequest req = new GenerateLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = CodatLending.Models.Operations.GenerateLoanSummarySourceType.Accounting,
-});
+    SourceType = Models.Operations.SourceType.Accounting,
+};
+
+var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
 
 // handle response
 ```
@@ -46,12 +47,12 @@ var res = await sdk.Liabilities.GenerateLoanSummaryAsync(new GenerateLoanSummary
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [GenerateLoanSummaryRequest](../../models/operations/GenerateLoanSummaryRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [GenerateLoanSummaryRequest](../../Models/Operations/GenerateLoanSummaryRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[GenerateLoanSummaryResponse](../../models/operations/GenerateLoanSummaryResponse.md)**
+**[GenerateLoanSummaryResponse](../../Models/Operations/GenerateLoanSummaryResponse.md)**
 
 
 ## GenerateLoanTransactions
@@ -66,20 +67,21 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(new GenerateLoanTransactionsRequest() {
+GenerateLoanTransactionsRequest req = new GenerateLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = CodatLending.Models.Operations.GenerateLoanTransactionsSourceType.Accounting,
-});
+    SourceType = QueryParamSourceType.Accounting,
+};
+
+var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
 
 // handle response
 ```
@@ -88,12 +90,12 @@ var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(new GenerateLoanTr
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [GenerateLoanTransactionsRequest](../../models/operations/GenerateLoanTransactionsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| `request`                                                                                     | [GenerateLoanTransactionsRequest](../../Models/Operations/GenerateLoanTransactionsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
 
-**[GenerateLoanTransactionsResponse](../../models/operations/GenerateLoanTransactionsResponse.md)**
+**[GenerateLoanTransactionsResponse](../../Models/Operations/GenerateLoanTransactionsResponse.md)**
 
 
 ## GetLoanSummary
@@ -108,20 +110,21 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.GetLoanSummaryAsync(new GetLoanSummaryRequest() {
+GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = CodatLending.Models.Operations.GetLoanSummarySourceType.Banking,
-});
+    SourceType = GetLoanSummaryQueryParamSourceType.Banking,
+};
+
+var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
 
 // handle response
 ```
@@ -130,12 +133,12 @@ var res = await sdk.Liabilities.GetLoanSummaryAsync(new GetLoanSummaryRequest() 
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [GetLoanSummaryRequest](../../models/operations/GetLoanSummaryRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [GetLoanSummaryRequest](../../Models/Operations/GetLoanSummaryRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
 
-**[GetLoanSummaryResponse](../../models/operations/GetLoanSummaryResponse.md)**
+**[GetLoanSummaryResponse](../../Models/Operations/GetLoanSummaryResponse.md)**
 
 
 ## ListLoanTransactions
@@ -150,20 +153,21 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 ### Example Usage
 
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Liabilities.ListLoanTransactionsAsync(new ListLoanTransactionsRequest() {
+ListLoanTransactionsRequest req = new ListLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = CodatLending.Models.Operations.ListLoanTransactionsSourceType.Commerce,
-});
+    SourceType = ListLoanTransactionsQueryParamSourceType.Commerce,
+};
+
+var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
 
 // handle response
 ```
@@ -172,10 +176,10 @@ var res = await sdk.Liabilities.ListLoanTransactionsAsync(new ListLoanTransactio
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [ListLoanTransactionsRequest](../../models/operations/ListLoanTransactionsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| `request`                                                                             | [ListLoanTransactionsRequest](../../Models/Operations/ListLoanTransactionsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 
 ### Response
 
-**[ListLoanTransactionsResponse](../../models/operations/ListLoanTransactionsResponse.md)**
+**[ListLoanTransactionsResponse](../../Models/Operations/ListLoanTransactionsResponse.md)**
 

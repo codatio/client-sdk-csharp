@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Webhooks
+namespace Codat.Lending.Models.Webhooks
 {
     using System.Net.Http;
     using System;
@@ -29,6 +29,6 @@ namespace CodatLending.Models.Webhooks
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

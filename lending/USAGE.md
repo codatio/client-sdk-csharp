@@ -1,26 +1,20 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```csharp
-using CodatLending;
-using CodatLending.Models.Shared;
-using CodatLending.Models.Operations;
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
 
-var sdk = new CodatLendingSDK(
+var sdk = new CodatLending(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountingBankData.ListTransactionsAsync(new ListAccountingBankAccountTransactionsRequest() {
-    AccountId = "Anchorage Product",
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-});
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Operations
+namespace Codat.Lending.Models.Operations
 {
-    using CodatLending.Models.Shared;
+    using Codat.Lending.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -28,7 +28,7 @@ namespace CodatLending.Models.Operations
         public DataIntegritySummaries? DataIntegritySummaries { get; set; }
 
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// Your `query` parameter was not correctly formed
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 
@@ -40,6 +40,6 @@ namespace CodatLending.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

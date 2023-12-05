@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -49,6 +49,6 @@ namespace CodatLending.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("recordRef")]
-        public AccountsReceivableTrackingRecordReference? RecordRef { get; set; }
+        public RecordReference? RecordRef { get; set; }
     }
 }

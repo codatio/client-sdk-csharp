@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatLending.Models.Shared
+namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -131,7 +131,7 @@ namespace CodatLending.Models.Shared
         public List<AccountingPaymentAllocation>? PaymentAllocations { get; set; }
 
         [JsonProperty("purchaseOrderRefs")]
-        public List<AccountingBillPurchaseOrderReference>? PurchaseOrderRefs { get; set; }
+        public List<PurchaseOrderReference>? PurchaseOrderRefs { get; set; }
 
         /// <summary>
         /// User-friendly reference for the bill.
@@ -184,6 +184,6 @@ namespace CodatLending.Models.Shared
         public decimal TotalAmount { get; set; } = default!;
 
         [JsonProperty("withholdingTax")]
-        public List<AccountingBillWithholdingTax>? WithholdingTax { get; set; }
+        public List<WithholdingTax>? WithholdingTax { get; set; }
     }
 }

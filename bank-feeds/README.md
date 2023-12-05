@@ -77,5 +77,3 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 * [GetCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
 * [ListCreateOperations](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
 <!-- End SDK Available Operations -->
-
-<!-- Start Dev Containers -->

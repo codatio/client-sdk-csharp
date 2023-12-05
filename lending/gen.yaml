@@ -5,11 +5,8 @@ management:
   speakeasyVersion: 1.125.1
   generationVersion: 2.210.3
 generation:
-  comments: {}
   sdkClassName: Codat.Lending
-  repoURL: https://github.com/codatio/client-sdk-csharp.git
-  usageSnippets:
-    optionalPropertyRendering: withExample
+  singleTagPerOp: false
   telemetryEnabled: true
 features:
   csharp:
@@ -24,19 +21,8 @@ features:
 csharp:
   version: 5.0.0
   author: Codat
-  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   dotnetVersion: net6.0
-  imports:
-    option: openapi
-    paths:
-      callbacks: Models/Callbacks
-      errors: Models/Errors
-      operations: Models/Operations
-      shared: Models/Shared
-      webhooks: Models/Webhooks
-  inputModelSuffix: input
+  description: Make credit decisions backed by enhanced financials, metrics, reports,
+    and data integrity features.
   maxMethodParams: 0
-  outputModelSuffix: output
   packageName: Codat.Lending
-  published: true
-  repoSubDirectory: lending

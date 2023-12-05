@@ -48,3 +48,6 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 | **[Sync for Payroll](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payroll)** | Push payroll to accounting platforms. | [Codat.Sync.Payroll](https://www.nuget.org/packages/Codat.Sync.Payroll) |
 | **[Sync for Payables](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payables)** | Streamline your customers' accounts payable workflow. | [Codat.Sync.Payables](https://www.nuget.org/packages/Codat.Sync.Payables) |
 <!-- End Codat Client Libraries -->
+
+<!-- Start Codat Support Notes -->
+<!-- End Codat Support Notes -->

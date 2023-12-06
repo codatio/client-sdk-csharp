@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -238,6 +238,6 @@ namespace CodatSyncPayables.Models.Shared
         public decimal TotalTaxAmount { get; set; } = default!;
 
         [JsonProperty("withholdingTax")]
-        public List<WithholdingTaxitems>? WithholdingTax { get; set; }
+        public List<WithholdingTaxItems>? WithholdingTax { get; set; }
     }
 }

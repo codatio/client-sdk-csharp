@@ -8,15 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Operations
+namespace Codat.Sync.Payables.Models.Operations
 {
-    using CodatSyncPayables.Utils;
+    using Codat.Sync.Payables.Models.Shared;
+    using Codat.Sync.Payables.Utils;
     
     public class UploadBillAttachmentRequest
     {
 
-        [SpeakeasyMetadata("multipartForm:file request:mediaType=multipart/form-data")]
-        public UploadBillAttachmentRequestBody? RequestBody { get; set; }
+        [SpeakeasyMetadata("request:mediaType=multipart/form-data")]
+        public AttachmentUpload? AttachmentUpload { get; set; }
 
         /// <summary>
         /// Unique identifier for a bill.

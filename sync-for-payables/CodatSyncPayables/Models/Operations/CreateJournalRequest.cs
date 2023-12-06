@@ -8,16 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Operations
+namespace Codat.Sync.Payables.Models.Operations
 {
-    using CodatSyncPayables.Models.Shared;
-    using CodatSyncPayables.Utils;
+    using Codat.Sync.Payables.Models.Shared;
+    using Codat.Sync.Payables.Utils;
     
     public class CreateJournalRequest
     {
-
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Journal? Journal { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.
@@ -30,6 +27,9 @@ namespace CodatSyncPayables.Models.Operations
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
         public string ConnectionId { get; set; } = default!;
+
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public JournalPrototype? JournalPrototype { get; set; }
 
         /// <summary>
         /// Time limit for the push operation to complete before it is timed out.

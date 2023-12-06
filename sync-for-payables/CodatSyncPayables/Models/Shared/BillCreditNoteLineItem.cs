@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -45,7 +45,7 @@ namespace CodatSyncPayables.Models.Shared
         /// Reference to the item the line is linked to.
         /// </summary>
         [JsonProperty("itemRef")]
-        public BillCreditNoteLineItemItemReference? ItemRef { get; set; }
+        public ItemReference? ItemRef { get; set; }
 
         /// <summary>
         /// Number of units of the goods or service for which credit has been received.

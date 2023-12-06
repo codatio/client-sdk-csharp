@@ -1,4 +1,4 @@
-# BillPaymentsSDK
+# BillPayments
 (*BillPayments*)
 
 ## Overview
@@ -29,17 +29,17 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
+CreateBillPaymentRequest req = new CreateBillPaymentRequest() {
     BillPayment = new BillPayment() {
         AccountRef = new AccountRef() {},
         Currency = "USD",
@@ -51,7 +51,7 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
                 Amount = 8592.13M,
                 Links = new List<BillPaymentLineLink>() {
                     new BillPaymentLineLink() {
-                        Type = CodatSyncPayables.Models.Shared.BillPaymentLineLinkType.CreditNote,
+                        Type = BillPaymentLineLinkType.CreditNote,
                     },
                 },
             },
@@ -65,8 +65,8 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "blue", new Dictionary<string, object>() {
-                    { "shred", "abnormally" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -77,7 +77,9 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.BillPayments.CreateAsync(req);
 
 // handle response
 ```
@@ -86,12 +88,12 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
 
 | Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [CreateBillPaymentRequest](../../models/operations/CreateBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `request`                                                                       | [CreateBillPaymentRequest](../../Models/Operations/CreateBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 
 ### Response
 
-**[Models.Operations.CreateBillPaymentResponse](../../models/operations/CreateBillPaymentResponse.md)**
+**[Models.Operations.CreateBillPaymentResponse](../../Models/Operations/CreateBillPaymentResponse.md)**
 
 
 ## Delete
@@ -102,7 +104,7 @@ var res = await sdk.BillPayments.CreateAsync(new CreateBillPaymentRequest() {
 
 ### Process
 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
-2. Check the status of the delete operation by checking the status of push operation either via
+2. Check the status of the delete operation by checking the status of the push operation either via
    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
 
@@ -115,34 +117,37 @@ Be aware that deleting a bill payment from an accounting platform might cause re
 ## Integration specifics
 Integrations that support soft delete do not permanently delete the object in the accounting platform.
 
-| Integration | Soft Delete | Details                                                                                              |  
+| Integration | Soft Delete | Details |  
 |-------------|-------------|------------------------------------------------------------------------------------------------------|                                                        
-| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/how-deleting-bill-payments-works) to learn more.  |
-| QuickBooks Online | No          | -                                                                                              |
-| Xero | Yes          | -                                                                                                          |
+| QuickBooks Online | No   | -
+| Oracle NetSuite   | No   | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more.
+| Xero              | Yes  | -     
+| Sage Intacct      | No   | Some bill payments in Sage Intacct can only be deleted, whilst others can only be voided. Codat have applied logic to handle this complexity. 
 
 > **Supported integrations**
 >
-> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
+> This functionality is currently supported for our QuickBooks Online, Oracle NetSuite, Xero and Sage Intacct integrations.
 
 
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillPayments.DeleteAsync(new DeleteBillPaymentRequest() {
-    BillPaymentId = "Van complexity",
+DeleteBillPaymentRequest req = new DeleteBillPaymentRequest() {
+    BillPaymentId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.BillPayments.DeleteAsync(req);
 
 // handle response
 ```
@@ -151,12 +156,12 @@ var res = await sdk.BillPayments.DeleteAsync(new DeleteBillPaymentRequest() {
 
 | Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [DeleteBillPaymentRequest](../../models/operations/DeleteBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| `request`                                                                       | [DeleteBillPaymentRequest](../../Models/Operations/DeleteBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 
 ### Response
 
-**[DeleteBillPaymentResponse](../../models/operations/DeleteBillPaymentResponse.md)**
+**[DeleteBillPaymentResponse](../../Models/Operations/DeleteBillPaymentResponse.md)**
 
 
 ## Get
@@ -173,20 +178,21 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillPayments.GetAsync(new GetBillPaymentsRequest() {
-    BillPaymentId = "Northeast Hatchback Kia",
+GetBillPaymentsRequest req = new GetBillPaymentsRequest() {
+    BillPaymentId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.BillPayments.GetAsync(req);
 
 // handle response
 ```
@@ -195,12 +201,12 @@ var res = await sdk.BillPayments.GetAsync(new GetBillPaymentsRequest() {
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [GetBillPaymentsRequest](../../models/operations/GetBillPaymentsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `request`                                                                   | [GetBillPaymentsRequest](../../Models/Operations/GetBillPaymentsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 
 ### Response
 
-**[GetBillPaymentsResponse](../../models/operations/GetBillPaymentsResponse.md)**
+**[GetBillPaymentsResponse](../../Models/Operations/GetBillPaymentsResponse.md)**
 
 
 ## GetCreateModel
@@ -219,20 +225,21 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillPayments.GetCreateModelAsync(new GetCreateBillPaymentModelRequest() {
+GetCreateBillPaymentModelRequest req = new GetCreateBillPaymentModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.BillPayments.GetCreateModelAsync(req);
 
 // handle response
 ```
@@ -241,12 +248,12 @@ var res = await sdk.BillPayments.GetCreateModelAsync(new GetCreateBillPaymentMod
 
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetCreateBillPaymentModelRequest](../../models/operations/GetCreateBillPaymentModelRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| `request`                                                                                       | [GetCreateBillPaymentModelRequest](../../Models/Operations/GetCreateBillPaymentModelRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 
 ### Response
 
-**[GetCreateBillPaymentModelResponse](../../models/operations/GetCreateBillPaymentModelResponse.md)**
+**[GetCreateBillPaymentModelResponse](../../Models/Operations/GetCreateBillPaymentModelResponse.md)**
 
 
 ## List
@@ -261,22 +268,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.BillPayments.ListAsync(new ListBillPaymentsRequest() {
+ListBillPaymentsRequest req = new ListBillPaymentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.BillPayments.ListAsync(req);
 
 // handle response
 ```
@@ -285,10 +293,10 @@ var res = await sdk.BillPayments.ListAsync(new ListBillPaymentsRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [ListBillPaymentsRequest](../../models/operations/ListBillPaymentsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [ListBillPaymentsRequest](../../Models/Operations/ListBillPaymentsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[ListBillPaymentsResponse](../../models/operations/ListBillPaymentsResponse.md)**
+**[ListBillPaymentsResponse](../../Models/Operations/ListBillPaymentsResponse.md)**
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -128,10 +128,10 @@ namespace CodatSyncPayables.Models.Shared
         /// An array of payment allocations.
         /// </summary>
         [JsonProperty("paymentAllocations")]
-        public List<BillPaymentAllocation>? PaymentAllocations { get; set; }
+        public List<AccountingPaymentAllocation>? PaymentAllocations { get; set; }
 
         [JsonProperty("purchaseOrderRefs")]
-        public List<BillPurchaseOrderReference>? PurchaseOrderRefs { get; set; }
+        public List<PurchaseOrderReference>? PurchaseOrderRefs { get; set; }
 
         /// <summary>
         /// User-friendly reference for the bill.
@@ -184,6 +184,6 @@ namespace CodatSyncPayables.Models.Shared
         public decimal TotalAmount { get; set; } = default!;
 
         [JsonProperty("withholdingTax")]
-        public List<BillWithholdingTax>? WithholdingTax { get; set; }
+        public List<WithholdingTax>? WithholdingTax { get; set; }
     }
 }

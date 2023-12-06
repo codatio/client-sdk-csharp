@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -20,17 +20,17 @@ namespace CodatSyncPayables.Models.Shared
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// Accounting systems typically store a set of taxes and associated rates within the accounting package. This means that users don&apos;t have to look up or remember the rates for each type of tax. For example, applying the tax &quot;UK sales VAT&quot; to line items of an invoice adds the correct rate of 20%. <br/>
+    /// Accounting systems typically store a set of taxes and associated rates within the accounting package. This means that users don&apos;t have to look up or remember the rates for each type of tax. For example, applying the tax &quot;UK sales VAT&quot; to line items of an invoice adds the correct rate of 20%.<br/>
     /// <br/>
     /// ### Tax components<br/>
     /// <br/>
-    /// In some cases, a tax is made up of multiple sub taxes, often called _components_ of the tax.  For example, you may have an item that is charged a tax rate called &quot;City import tax (8%)&quot; that has two components: <br/>
+    /// In some cases, a tax is made up of multiple sub taxes, often called _components_ of the tax.  For example, you may have an item that is charged a tax rate called &quot;City import tax (8%)&quot; that has two components:<br/>
     /// <br/>
-    /// - A city tax of 5%  <br/>
+    /// - A city tax of 5%<br/>
     /// - An import tax of 3%<br/>
     /// <br/>
-    /// &gt; **Effective tax rates**  <br/>
-    /// &gt; - Where there are multiple components of a tax, each component may be calculated on the original amount and added together. Alternatively, one tax may be calculated on the sub-total of the original amount plus another tax, which is referred to as _compounding_. When there is compounding, the effective tax rate is the rate that, if applied to the original amount, would result in the total amount of tax with compounding.  <br/>
+    /// &gt; **Effective tax rates**<br/>
+    /// &gt; - Where there are multiple components of a tax, each component may be calculated on the original amount and added together. Alternatively, one tax may be calculated on the sub-total of the original amount plus another tax, which is referred to as _compounding_. When there is compounding, the effective tax rate is the rate that, if applied to the original amount, would result in the total amount of tax with compounding.<br/>
     /// &gt;<br/>
     /// &gt; **Example:**  <br/>
     /// &gt; A tax has two components. Both components have a rate of 10%, and one component is compound. In this case, there is a total tax rate of 20% but an effective tax rate of 21%.<br/>
@@ -107,6 +107,6 @@ namespace CodatSyncPayables.Models.Shared
         public decimal? TotalTaxRate { get; set; }
 
         [JsonProperty("validDatatypeLinks")]
-        public List<ValidDatatypeLinksitems>? ValidDatatypeLinks { get; set; }
+        public List<ValidDatatypeLinkItems>? ValidDatatypeLinks { get; set; }
     }
 }

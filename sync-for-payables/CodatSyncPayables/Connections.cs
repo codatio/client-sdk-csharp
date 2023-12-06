@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables
+namespace Codat.Sync.Payables
 {
-    using CodatSyncPayables.Models.Operations;
-    using CodatSyncPayables.Models.Shared;
-    using CodatSyncPayables.Utils;
+    using Codat.Sync.Payables.Models.Operations;
+    using Codat.Sync.Payables.Models.Shared;
+    using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CodatSyncPayables
     /// <summary>
     /// Manage your companies&apos; data connections.
     /// </summary>
-    public interface IConnectionsSDK
+    public interface IConnections
     {
 
         /// <summary>
@@ -77,37 +77,32 @@ namespace CodatSyncPayables
     /// <summary>
     /// Manage your companies&apos; data connections.
     /// </summary>
-    public class ConnectionsSDK: IConnectionsSDK
+    public class Connections: IConnections
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "2.2.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "3.0.0";
+        private const string _sdkGenVersion = "2.210.6";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 2.2.0 2.159.2 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.210.6 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public ConnectionsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Connections(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -139,7 +134,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -154,14 +149,9 @@ namespace CodatSyncPayables
 
         public async Task<DeleteConnectionResponse> DeleteAsync(DeleteConnectionRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -184,7 +174,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -199,14 +189,9 @@ namespace CodatSyncPayables
 
         public async Task<GetConnectionResponse> GetAsync(GetConnectionRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -233,7 +218,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -248,14 +233,9 @@ namespace CodatSyncPayables
 
         public async Task<ListConnectionsResponse> ListAsync(ListConnectionsRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -277,12 +257,12 @@ namespace CodatSyncPayables
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Connections = JsonConvert.DeserializeObject<Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Connections = JsonConvert.DeserializeObject<Models.Shared.Connections>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -297,14 +277,9 @@ namespace CodatSyncPayables
 
         public async Task<UnlinkConnectionResponse> UnlinkAsync(UnlinkConnectionRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -336,7 +311,7 @@ namespace CodatSyncPayables
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

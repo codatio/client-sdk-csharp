@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -63,11 +63,8 @@ namespace CodatSyncPayables.Models.Shared
         [JsonProperty("lineNumber")]
         public string? LineNumber { get; set; }
 
-        /// <summary>
-        /// Reference to the purchase order line this line was generated from.
-        /// </summary>
         [JsonProperty("purchaseOrderLineRef")]
-        public BillLineItemRecordLineReference? PurchaseOrderLineRef { get; set; }
+        public RecordLineReference? PurchaseOrderLineRef { get; set; }
 
         /// <summary>
         /// Number of units of goods or services received.
@@ -128,5 +125,11 @@ namespace CodatSyncPayables.Models.Shared
         /// </summary>
         [JsonProperty("unitAmount")]
         public decimal UnitAmount { get; set; } = default!;
+
+        /// <summary>
+        /// The measurement which defines a unit for this item (e.g. &apos;kilogram&apos;, &apos;litre&apos;).
+        /// </summary>
+        [JsonProperty("unitOfMeasurement")]
+        public string? UnitOfMeasurement { get; set; }
     }
 }

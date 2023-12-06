@@ -1,4 +1,4 @@
-# PaymentMethodsSDK
+# PaymentMethods
 (*PaymentMethods*)
 
 ## Overview
@@ -24,20 +24,21 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.PaymentMethods.GetAsync(new GetPaymentMethodRequest() {
+GetPaymentMethodRequest req = new GetPaymentMethodRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PaymentMethodId = "Northeast Hatchback Kia",
-});
+    PaymentMethodId = "string",
+};
+
+var res = await sdk.PaymentMethods.GetAsync(req);
 
 // handle response
 ```
@@ -46,12 +47,12 @@ var res = await sdk.PaymentMethods.GetAsync(new GetPaymentMethodRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPaymentMethodRequest](../../models/operations/GetPaymentMethodRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [GetPaymentMethodRequest](../../Models/Operations/GetPaymentMethodRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[GetPaymentMethodResponse](../../models/operations/GetPaymentMethodResponse.md)**
+**[GetPaymentMethodResponse](../../Models/Operations/GetPaymentMethodResponse.md)**
 
 
 ## List
@@ -66,22 +67,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.PaymentMethods.ListAsync(new ListPaymentMethodsRequest() {
+ListPaymentMethodsRequest req = new ListPaymentMethodsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.PaymentMethods.ListAsync(req);
 
 // handle response
 ```
@@ -90,10 +92,10 @@ var res = await sdk.PaymentMethods.ListAsync(new ListPaymentMethodsRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListPaymentMethodsRequest](../../models/operations/ListPaymentMethodsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [ListPaymentMethodsRequest](../../Models/Operations/ListPaymentMethodsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListPaymentMethodsResponse](../../models/operations/ListPaymentMethodsResponse.md)**
+**[ListPaymentMethodsResponse](../../Models/Operations/ListPaymentMethodsResponse.md)**
 

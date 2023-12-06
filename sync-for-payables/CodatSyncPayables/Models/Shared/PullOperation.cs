@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Shared
+namespace Codat.Sync.Payables.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -62,10 +62,10 @@ namespace CodatSyncPayables.Models.Shared
         public string ConnectionId { get; set; } = default!;
 
         /// <summary>
-        /// Available Data types
+        /// The data type you are requesting in a pull operation.
         /// </summary>
         [JsonProperty("dataType")]
-        public DataType DataType { get; set; } = default!;
+        public string DataType { get; set; } = default!;
 
         /// <summary>
         /// A message about a transient or persistent error.
@@ -80,7 +80,7 @@ namespace CodatSyncPayables.Models.Shared
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// `True` if the pull operation completed successfully.
+        /// `True` if the pull operation is completed successfully. The `isCompleted` property is not queryable. To filter failed pull operations, query by `status!=Complete&amp;&amp;status!=NotSupported` instead.
         /// </summary>
         [JsonProperty("isCompleted")]
         public bool IsCompleted { get; set; } = default!;
@@ -129,5 +129,11 @@ namespace CodatSyncPayables.Models.Shared
         /// </summary>
         [JsonProperty("status")]
         public PullOperationStatus Status { get; set; } = default!;
+
+        /// <summary>
+        /// Additional information about the dataset status.
+        /// </summary>
+        [JsonProperty("statusDescription")]
+        public string? StatusDescription { get; set; }
     }
 }

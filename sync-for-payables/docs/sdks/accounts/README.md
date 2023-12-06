@@ -1,4 +1,4 @@
-# AccountsSDK
+# Accounts
 (*Accounts*)
 
 ## Overview
@@ -28,49 +28,47 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
-    Account = new Account() {
+CreateAccountRequest req = new CreateAccountRequest() {
+    AccountPrototype = new AccountPrototype() {
         Currency = "USD",
         CurrentBalance = 0M,
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
         FullyQualifiedName = "Cash On Hand",
-        Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
         Name = "Accounts Receivable",
         NominalCode = "610",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayables.Models.Shared.AccountStatus.Active,
+        Status = AccountStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
-        Type = CodatSyncPayables.Models.Shared.AccountType.Asset,
-        ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
-            new AccountValidDataTypeLinks() {
+        Type = AccountType.Asset,
+        ValidDatatypeLinks = new List<ValidDataTypeLinks>() {
+            new ValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "abnormally",
+                    "string",
                 },
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Accounts.CreateAsync(req);
 
 // handle response
 ```
@@ -79,12 +77,12 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [CreateAccountRequest](../../models/operations/CreateAccountRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [CreateAccountRequest](../../Models/Operations/CreateAccountRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[Models.Operations.CreateAccountResponse](../../models/operations/CreateAccountResponse.md)**
+**[Models.Operations.CreateAccountResponse](../../Models/Operations/CreateAccountResponse.md)**
 
 
 ## Get
@@ -101,20 +99,21 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.GetAsync(new GetAccountRequest() {
-    AccountId = "Northeast Hatchback Kia",
+GetAccountRequest req = new GetAccountRequest() {
+    AccountId = "string",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Accounts.GetAsync(req);
 
 // handle response
 ```
@@ -123,12 +122,12 @@ var res = await sdk.Accounts.GetAsync(new GetAccountRequest() {
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [GetAccountRequest](../../models/operations/GetAccountRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| `request`                                                         | [GetAccountRequest](../../Models/Operations/GetAccountRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**[GetAccountResponse](../../models/operations/GetAccountResponse.md)**
+**[GetAccountResponse](../../Models/Operations/GetAccountResponse.md)**
 
 
 ## GetCreateModel
@@ -147,20 +146,21 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.GetCreateModelAsync(new GetCreateAccountModelRequest() {
+GetCreateAccountModelRequest req = new GetCreateAccountModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Accounts.GetCreateModelAsync(req);
 
 // handle response
 ```
@@ -169,12 +169,12 @@ var res = await sdk.Accounts.GetCreateModelAsync(new GetCreateAccountModelReques
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetCreateAccountModelRequest](../../models/operations/GetCreateAccountModelRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| `request`                                                                               | [GetCreateAccountModelRequest](../../Models/Operations/GetCreateAccountModelRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[GetCreateAccountModelResponse](../../models/operations/GetCreateAccountModelResponse.md)**
+**[GetCreateAccountModelResponse](../../Models/Operations/GetCreateAccountModelResponse.md)**
 
 
 ## List
@@ -188,22 +188,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayables;
-using CodatSyncPayables.Models.Shared;
-using CodatSyncPayables.Models.Operations;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.Models.Operations;
 
-var sdk = new CodatSyncPayablesSDK(
+var sdk = new CodatSyncPayables(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.ListAsync(new ListAccountsRequest() {
+ListAccountsRequest req = new ListAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Accounts.ListAsync(req);
 
 // handle response
 ```
@@ -212,10 +213,10 @@ var res = await sdk.Accounts.ListAsync(new ListAccountsRequest() {
 
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [ListAccountsRequest](../../models/operations/ListAccountsRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `request`                                                             | [ListAccountsRequest](../../Models/Operations/ListAccountsRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 
 ### Response
 
-**[ListAccountsResponse](../../models/operations/ListAccountsResponse.md)**
+**[ListAccountsResponse](../../Models/Operations/ListAccountsResponse.md)**
 

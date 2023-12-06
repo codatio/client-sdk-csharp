@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayables.Models.Operations
+namespace Codat.Sync.Payables.Models.Operations
 {
-    using CodatSyncPayables.Models.Shared;
-    using CodatSyncPayables.Utils;
+    using Codat.Sync.Payables.Models.Shared;
+    using Codat.Sync.Payables.Utils;
     
     public class CreateAccountRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Account? Account { get; set; }
+        public AccountPrototype? AccountPrototype { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

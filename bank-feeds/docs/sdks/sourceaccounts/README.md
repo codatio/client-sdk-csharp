@@ -48,10 +48,9 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() {
+CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
         Currency = "USD",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
@@ -60,7 +59,9 @@ var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() 
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.CreateAsync(req);
 
 // handle response
 ```
@@ -94,14 +95,15 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.DeleteAsync(new DeleteSourceAccountRequest() {
+DeleteSourceAccountRequest req = new DeleteSourceAccountRequest() {
     AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.DeleteAsync(req);
 
 // handle response
 ```
@@ -134,13 +136,14 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.DeleteCredentialsAsync(new DeleteBankFeedCredentialsRequest() {
+DeleteBankFeedCredentialsRequest req = new DeleteBankFeedCredentialsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.DeleteCredentialsAsync(req);
 
 // handle response
 ```
@@ -174,14 +177,15 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredentialsRequest() {
+GenerateCredentialsRequest req = new GenerateCredentialsRequest() {
     RequestBody = "0xeDCfFBde9E as bytes <<<>>>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.GenerateCredentialsAsync(req);
 
 // handle response
 ```
@@ -215,13 +219,14 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.ListAsync(new ListSourceAccountsRequest() {
+ListSourceAccountsRequest req = new ListSourceAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.ListAsync(req);
 
 // handle response
 ```
@@ -253,10 +258,9 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() {
+UpdateSourceAccountRequest req = new UpdateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
         Currency = "EUR",
         FeedStartDate = "2022-10-23T00:00:00.000Z",
@@ -266,7 +270,9 @@ var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() 
     AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.UpdateAsync(req);
 
 // handle response
 ```

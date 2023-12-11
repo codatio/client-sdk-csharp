@@ -1,4 +1,4 @@
-# JournalEntriesSDK
+# JournalEntries
 (*JournalEntries*)
 
 ## Overview
@@ -29,24 +29,24 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
+CreateJournalEntryRequest req = new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
         CreatedOn = "2022-10-23T00:00:00.000Z",
         JournalLines = new List<JournalLine>() {
             new JournalLine() {
                 AccountRef = new AccountRef() {},
                 NetAmount = 4893.82M,
-                Tracking = new JournalLineTracking() {
+                Tracking = new Tracking() {
                     RecordRefs = new List<RecordRef>() {
                         new RecordRef() {
                             DataType = "accountTransaction",
@@ -61,14 +61,14 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
         Metadata = new Metadata() {},
         ModifiedDate = "2022-10-23T00:00:00.000Z",
         PostedOn = "2022-10-23T00:00:00.000Z",
-        RecordRef = new JournalEntryRecordReference() {
+        RecordRef = new RecordReference() {
             DataType = "invoice",
         },
         SourceModifiedDate = "2022-10-23T00:00:00.000Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "blue", new Dictionary<string, object>() {
-                    { "shred", "abnormally" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
@@ -76,7 +76,9 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.JournalEntries.CreateAsync(req);
 
 // handle response
 ```
@@ -85,12 +87,12 @@ var res = await sdk.JournalEntries.CreateAsync(new CreateJournalEntryRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [CreateJournalEntryRequest](../../models/operations/CreateJournalEntryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [CreateJournalEntryRequest](../../Models/Operations/CreateJournalEntryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[Models.Operations.CreateJournalEntryResponse](../../models/operations/CreateJournalEntryResponse.md)**
+**[Models.Operations.CreateJournalEntryResponse](../../Models/Operations/CreateJournalEntryResponse.md)**
 
 
 ## Delete
@@ -129,21 +131,22 @@ Integrations that support soft delete do not permanently delete the object in th
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.DeleteAsync(new DeleteJournalEntryRequest() {
+DeleteJournalEntryRequest req = new DeleteJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    JournalEntryId = "Van complexity",
-});
+    JournalEntryId = "string",
+};
+
+var res = await sdk.JournalEntries.DeleteAsync(req);
 
 // handle response
 ```
@@ -152,12 +155,12 @@ var res = await sdk.JournalEntries.DeleteAsync(new DeleteJournalEntryRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [DeleteJournalEntryRequest](../../models/operations/DeleteJournalEntryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [DeleteJournalEntryRequest](../../Models/Operations/DeleteJournalEntryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[DeleteJournalEntryResponse](../../models/operations/DeleteJournalEntryResponse.md)**
+**[DeleteJournalEntryResponse](../../Models/Operations/DeleteJournalEntryResponse.md)**
 
 
 ## Get
@@ -174,20 +177,21 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.GetAsync(new GetJournalEntryRequest() {
+GetJournalEntryRequest req = new GetJournalEntryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    JournalEntryId = "Northeast Hatchback Kia",
-});
+    JournalEntryId = "string",
+};
+
+var res = await sdk.JournalEntries.GetAsync(req);
 
 // handle response
 ```
@@ -196,12 +200,12 @@ var res = await sdk.JournalEntries.GetAsync(new GetJournalEntryRequest() {
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [GetJournalEntryRequest](../../models/operations/GetJournalEntryRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `request`                                                                   | [GetJournalEntryRequest](../../Models/Operations/GetJournalEntryRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 
 ### Response
 
-**[GetJournalEntryResponse](../../models/operations/GetJournalEntryResponse.md)**
+**[GetJournalEntryResponse](../../Models/Operations/GetJournalEntryResponse.md)**
 
 
 ## GetCreateModel
@@ -220,20 +224,21 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.GetCreateModelAsync(new GetCreateJournalEntryModelRequest() {
+GetCreateJournalEntryModelRequest req = new GetCreateJournalEntryModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.JournalEntries.GetCreateModelAsync(req);
 
 // handle response
 ```
@@ -242,12 +247,12 @@ var res = await sdk.JournalEntries.GetCreateModelAsync(new GetCreateJournalEntry
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [GetCreateJournalEntryModelRequest](../../models/operations/GetCreateJournalEntryModelRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
+| `request`                                                                                         | [GetCreateJournalEntryModelRequest](../../Models/Operations/GetCreateJournalEntryModelRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
 
-**[GetCreateJournalEntryModelResponse](../../models/operations/GetCreateJournalEntryModelResponse.md)**
+**[GetCreateJournalEntryModelResponse](../../Models/Operations/GetCreateJournalEntryModelResponse.md)**
 
 
 ## List
@@ -262,22 +267,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.JournalEntries.ListAsync(new ListJournalEntriesRequest() {
+ListJournalEntriesRequest req = new ListJournalEntriesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.JournalEntries.ListAsync(req);
 
 // handle response
 ```
@@ -286,10 +292,10 @@ var res = await sdk.JournalEntries.ListAsync(new ListJournalEntriesRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListJournalEntriesRequest](../../models/operations/ListJournalEntriesRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [ListJournalEntriesRequest](../../Models/Operations/ListJournalEntriesRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListJournalEntriesResponse](../../models/operations/ListJournalEntriesResponse.md)**
+**[ListJournalEntriesResponse](../../Models/Operations/ListJournalEntriesResponse.md)**
 

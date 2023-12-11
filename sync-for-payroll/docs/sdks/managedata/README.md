@@ -1,4 +1,4 @@
-# ManageDataSDK
+# ManageData
 (*ManageData*)
 
 ## Overview
@@ -22,19 +22,20 @@ Get the state of each data type for a company
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.GetDataStatusAsync(new GetDataStatusRequest() {
+GetDataStatusRequest req = new GetDataStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.ManageData.GetDataStatusAsync(req);
 
 // handle response
 ```
@@ -43,12 +44,12 @@ var res = await sdk.ManageData.GetDataStatusAsync(new GetDataStatusRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [GetDataStatusRequest](../../models/operations/GetDataStatusRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [GetDataStatusRequest](../../Models/Operations/GetDataStatusRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[GetDataStatusResponse](../../models/operations/GetDataStatusResponse.md)**
+**[GetDataStatusResponse](../../Models/Operations/GetDataStatusResponse.md)**
 
 
 ## GetPullOperation
@@ -58,20 +59,21 @@ Retrieve information about a single dataset or pull operation.
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest() {
+GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
-});
+};
+
+var res = await sdk.ManageData.GetPullOperationAsync(req);
 
 // handle response
 ```
@@ -80,12 +82,12 @@ var res = await sdk.ManageData.GetPullOperationAsync(new GetPullOperationRequest
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPullOperationRequest](../../models/operations/GetPullOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [GetPullOperationRequest](../../Models/Operations/GetPullOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[GetPullOperationResponse](../../models/operations/GetPullOperationResponse.md)**
+**[GetPullOperationResponse](../../Models/Operations/GetPullOperationResponse.md)**
 
 
 ## GetPushOperation
@@ -95,20 +97,21 @@ Retrieve push operation.
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.GetPushOperationAsync(new GetPushOperationRequest() {
+GetPushOperationRequest req = new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PushOperationKey = "2a6486f4-00c4-40bd-900d-b29c15ad0581",
-});
+};
+
+var res = await sdk.ManageData.GetPushOperationAsync(req);
 
 // handle response
 ```
@@ -117,12 +120,12 @@ var res = await sdk.ManageData.GetPushOperationAsync(new GetPushOperationRequest
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPushOperationRequest](../../models/operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [GetPushOperationRequest](../../Models/Operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[GetPushOperationResponse](../../models/operations/GetPushOperationResponse.md)**
+**[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
 
 
 ## List
@@ -132,22 +135,23 @@ List push operation records.
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.ListAsync(new ListPushOperationsRequest() {
+ListPushOperationsRequest req = new ListPushOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.ManageData.ListAsync(req);
 
 // handle response
 ```
@@ -156,12 +160,12 @@ var res = await sdk.ManageData.ListAsync(new ListPushOperationsRequest() {
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListPushOperationsRequest](../../models/operations/ListPushOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [ListPushOperationsRequest](../../Models/Operations/ListPushOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListPushOperationsResponse](../../models/operations/ListPushOperationsResponse.md)**
+**[ListPushOperationsResponse](../../Models/Operations/ListPushOperationsResponse.md)**
 
 
 ## ListPullOperations
@@ -171,22 +175,23 @@ Gets the pull operation history (datasets) for a given company.
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsRequest() {
+ListPullOperationsRequest req = new ListPullOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.ManageData.ListPullOperationsAsync(req);
 
 // handle response
 ```
@@ -195,12 +200,12 @@ var res = await sdk.ManageData.ListPullOperationsAsync(new ListPullOperationsReq
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListPullOperationsRequest](../../models/operations/ListPullOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [ListPullOperationsRequest](../../Models/Operations/ListPullOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[ListPullOperationsResponse](../../models/operations/ListPullOperationsResponse.md)**
+**[ListPullOperationsResponse](../../Models/Operations/ListPullOperationsResponse.md)**
 
 
 ## RefreshAllDataTypes
@@ -214,19 +219,20 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.RefreshAllDataTypesAsync(new RefreshAllDataTypesRequest() {
+RefreshAllDataTypesRequest req = new RefreshAllDataTypesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.ManageData.RefreshAllDataTypesAsync(req);
 
 // handle response
 ```
@@ -235,12 +241,12 @@ var res = await sdk.ManageData.RefreshAllDataTypesAsync(new RefreshAllDataTypesR
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [RefreshAllDataTypesRequest](../../models/operations/RefreshAllDataTypesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [RefreshAllDataTypesRequest](../../Models/Operations/RefreshAllDataTypesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[RefreshAllDataTypesResponse](../../models/operations/RefreshAllDataTypesResponse.md)**
+**[RefreshAllDataTypesResponse](../../Models/Operations/RefreshAllDataTypesResponse.md)**
 
 
 ## RefreshDataType
@@ -252,20 +258,21 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ### Example Usage
 
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using Codat.Sync.Payroll.Models.Operations;
 
-var sdk = new CodatSyncPayrollSDK(
+var sdk = new CodatSyncPayroll(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest() {
+RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = CodatSyncPayroll.Models.Shared.DataType.Invoices,
-});
+    DataType = SchemaDataType.Invoices,
+};
+
+var res = await sdk.ManageData.RefreshDataTypeAsync(req);
 
 // handle response
 ```
@@ -274,10 +281,10 @@ var res = await sdk.ManageData.RefreshDataTypeAsync(new RefreshDataTypeRequest()
 
 | Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [RefreshDataTypeRequest](../../models/operations/RefreshDataTypeRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+| `request`                                                                   | [RefreshDataTypeRequest](../../Models/Operations/RefreshDataTypeRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 
 ### Response
 
-**[RefreshDataTypeResponse](../../models/operations/RefreshDataTypeResponse.md)**
+**[RefreshDataTypeResponse](../../Models/Operations/RefreshDataTypeResponse.md)**
 

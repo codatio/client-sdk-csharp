@@ -77,3 +77,13 @@ Based on:
 - [csharp v2.2.0] sync-for-payroll
 ### Releases
 - [NuGet v2.2.0] https://www.nuget.org/packages/Codat.Sync.Payroll/2.2.0 - sync-for-payroll
+
+## 2023-12-11 01:31:02
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payroll.yaml
+- Speakeasy CLI 1.125.2 (2.210.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v3.0.0] sync-for-payroll
+### Releases
+- [NuGet v3.0.0] https://www.nuget.org/packages/Codat.Sync.Payroll/3.0.0 - sync-for-payroll

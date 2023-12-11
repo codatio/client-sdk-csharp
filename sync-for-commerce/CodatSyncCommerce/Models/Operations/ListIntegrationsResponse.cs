@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Operations
+namespace Codat.Sync.Commerce.Models.Operations
 {
-    using CodatSyncCommerce.Models.Shared;
+    using Codat.Sync.Commerce.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -23,9 +23,14 @@ namespace CodatSyncCommerce.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
+        /// Your `query` parameter was not correctly formed
+        /// </summary>
+        public ErrorMessage? ErrorMessage { get; set; }
+
+        /// <summary>
         /// Success
         /// </summary>
-        public Integrations? Integrations { get; set; }
+        public Models.Shared.Integrations? Integrations { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation
@@ -35,6 +40,6 @@ namespace CodatSyncCommerce.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

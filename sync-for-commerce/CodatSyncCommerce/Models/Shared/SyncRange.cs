@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Shared
+namespace Codat.Sync.Commerce.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -16,6 +16,6 @@ namespace CodatSyncCommerce.Models.Shared
     {
 
         [JsonProperty("dateRange")]
-        public SyncRangeDateRange DateRange { get; set; } = default!;
+        public DateRange DateRange { get; set; } = default!;
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Shared
+namespace Codat.Sync.Commerce.Models.Shared
 {
     using Newtonsoft.Json;
     

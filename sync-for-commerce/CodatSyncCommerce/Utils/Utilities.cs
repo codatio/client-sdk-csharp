@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Utils
+namespace Codat.Sync.Commerce.Utils
 {
     using System;
     using System.Linq;
@@ -59,7 +59,7 @@ namespace CodatSyncCommerce.Utils
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("CodatSyncCommerce.Models");
+            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.Sync.Commerce.Models");
         }
 
         // TODO: code review polyfilled for IsAssignableTo
@@ -220,6 +220,22 @@ namespace CodatSyncCommerce.Utils
             }
 
             return $"Bearer {authHeaderValue}";
+        }
+        public static string RemoveSuffix(string inputString, string suffix)
+        {
+            if (!String.IsNullOrEmpty(suffix) && inputString.EndsWith(suffix))
+            {
+                return inputString.Remove(inputString.Length - suffix.Length, suffix.Length);
+            }
+            return inputString;
+        }
+        public static string TemplateUrl(string template, Dictionary<string, string> paramDict)
+        {
+            foreach(KeyValuePair<string, string> entry in paramDict)
+            {
+                template = template.Replace('{' + entry.Key + '}', entry.Value);
+            }
+            return template;
         }
     }
 }

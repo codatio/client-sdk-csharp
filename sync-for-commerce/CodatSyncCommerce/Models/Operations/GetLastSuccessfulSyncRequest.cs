@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Operations
+namespace Codat.Sync.Commerce.Models.Operations
 {
-    using CodatSyncCommerce.Utils;
+    using Codat.Sync.Commerce.Utils;
     
     public class GetLastSuccessfulSyncRequest
     {

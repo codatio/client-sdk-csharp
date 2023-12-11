@@ -1,4 +1,4 @@
-# IntegrationsSDK
+# Integrations
 (*Integrations*)
 
 ## Overview
@@ -17,19 +17,20 @@ Retrieve Integration branding assets.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerceSDK(
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Integrations.GetBrandingAsync(new GetIntegrationBrandingRequest() {
+GetIntegrationBrandingRequest req = new GetIntegrationBrandingRequest() {
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.Integrations.GetBrandingAsync(req);
 
 // handle response
 ```
@@ -38,12 +39,12 @@ var res = await sdk.Integrations.GetBrandingAsync(new GetIntegrationBrandingRequ
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [GetIntegrationBrandingRequest](../../models/operations/GetIntegrationBrandingRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| `request`                                                                                 | [GetIntegrationBrandingRequest](../../Models/Operations/GetIntegrationBrandingRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 
 ### Response
 
-**[GetIntegrationBrandingResponse](../../models/operations/GetIntegrationBrandingResponse.md)**
+**[GetIntegrationBrandingResponse](../../Models/Operations/GetIntegrationBrandingResponse.md)**
 
 
 ## List
@@ -53,21 +54,22 @@ Retrieve a list of available integrations support by data type and state of rele
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerceSDK(
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
+ListIntegrationsRequest req = new ListIntegrationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Integrations.ListAsync(req);
 
 // handle response
 ```
@@ -76,10 +78,10 @@ var res = await sdk.Integrations.ListAsync(new ListIntegrationsRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [ListIntegrationsRequest](../../models/operations/ListIntegrationsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [ListIntegrationsRequest](../../Models/Operations/ListIntegrationsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[ListIntegrationsResponse](../../models/operations/ListIntegrationsResponse.md)**
+**[ListIntegrationsResponse](../../Models/Operations/ListIntegrationsResponse.md)**
 

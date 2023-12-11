@@ -4,7 +4,7 @@
 ﻿Embedded accounting integrations for POS and eCommerce platforms.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Nuget
@@ -12,32 +12,43 @@
 ```bash
 dotnet add package Codat.Sync.Commerce
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
-```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
 
-var sdk = new CodatSyncCommerceSDK(
+### Example
+
+```csharp
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
+
+var sdk = new CodatSyncCommerce(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
-    Description = "Requested early access to the new financing scheme.",
-    Name = "Bank of Dave",
-});
+GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
+    Locale = Locale.EnUs,
+};
+
+var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
+
+* [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
+* [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
+* [UpdateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
+* [UpdateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
 
 ### [AdvancedControls](docs/sdks/advancedcontrols/README.md)
 
@@ -54,11 +65,6 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 * [UpdateConnection](docs/sdks/connections/README.md#updateconnection) - Update connection
 
-### [Integrations](docs/sdks/integrations/README.md)
-
-* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
-* [List](docs/sdks/integrations/README.md#list) - List integrations
-
 ### [Sync](docs/sdks/sync/README.md)
 
 * [Get](docs/sdks/sync/README.md#get) - Get sync status
@@ -69,17 +75,32 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(new CreateCompany() {
 * [Request](docs/sdks/sync/README.md#request) - Initiate new sync
 * [RequestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
 
-### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
+### [Integrations](docs/sdks/integrations/README.md)
 
-* [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
-* [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
-* [UpdateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
-* [UpdateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
-<!-- End SDK Available Operations -->
+* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
+* [List](docs/sdks/integrations/README.md#list) - List integrations
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
+<!-- Start Server Selection [server] -->
+## Server Selection
 
-<!-- End Dev Containers -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

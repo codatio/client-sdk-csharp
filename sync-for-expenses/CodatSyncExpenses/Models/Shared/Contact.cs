@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// An array of Phone numbers.
         /// </summary>
         [JsonProperty("phone")]
-        public List<ContactPhone>? Phone { get; set; }
+        public List<Phone>? Phone { get; set; }
 
         /// <summary>
         /// Status of customer.

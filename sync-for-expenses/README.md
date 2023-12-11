@@ -4,7 +4,7 @@
 ﻿Embedded accounting integrations for corporate card providers.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Nuget
@@ -12,67 +12,36 @@
 ```bash
 dotnet add package Codat.Sync.Expenses
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
-```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
 
-var sdk = new CodatSyncExpensesSDK(
+### Example
+
+```csharp
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
-    Account = new Account() {
-        Currency = "USD",
-        CurrentBalance = 0M,
-        Description = "Invoices the business has issued but has not yet collected payment on.",
-        FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Cash On Hand",
-        Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        Metadata = new AccountMetadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Accounts Receivable",
-        NominalCode = "610",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.AccountStatus.Active,
-        SupplementalData = new SupplementalData() {
-            Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
-                } },
-            },
-        },
-        Type = CodatSyncExpenses.Models.Shared.AccountType.Asset,
-        ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
-            new AccountValidDataTypeLinks() {
-                Links = new List<string>() {
-                    "abnormally",
-                },
-            },
-        },
-    },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
-
-### [Accounts](docs/sdks/accounts/README.md)
-
-* [Create](docs/sdks/accounts/README.md#create) - Create account
-* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
 
 ### [Companies](docs/sdks/companies/README.md)
 
@@ -81,12 +50,6 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [Get](docs/sdks/companies/README.md#get) - Get company
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
-
-### [Configuration](docs/sdks/configuration/README.md)
-
-* [Get](docs/sdks/configuration/README.md#get) - Get company configuration
-* [GetMappingOptions](docs/sdks/configuration/README.md#getmappingoptions) - Mapping options
-* [Set](docs/sdks/configuration/README.md#set) - Set company configuration
 
 ### [Connections](docs/sdks/connections/README.md)
 
@@ -97,6 +60,11 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
+### [Accounts](docs/sdks/accounts/README.md)
+
+* [Create](docs/sdks/accounts/README.md#create) - Create account
+* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+
 ### [Customers](docs/sdks/customers/README.md)
 
 * [Create](docs/sdks/customers/README.md#create) - Create customer
@@ -104,11 +72,12 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/customers/README.md#list) - List customers
 * [Update](docs/sdks/customers/README.md#update) - Update customer
 
-### [Expenses](docs/sdks/expenses/README.md)
+### [Suppliers](docs/sdks/suppliers/README.md)
 
-* [Create](docs/sdks/expenses/README.md#create) - Create expense transaction
-* [Update](docs/sdks/expenses/README.md#update) - Update expense-transactions
-* [UploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
+* [Create](docs/sdks/suppliers/README.md#create) - Create supplier
+* [Get](docs/sdks/suppliers/README.md#get) - Get supplier
+* [List](docs/sdks/suppliers/README.md#list) - List suppliers
+* [Update](docs/sdks/suppliers/README.md#update) - Update supplier
 
 ### [ManageData](docs/sdks/managedata/README.md)
 
@@ -123,12 +92,17 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [Get](docs/sdks/pushoperations/README.md#get) - Get push operation
 * [List](docs/sdks/pushoperations/README.md#list) - List push operations
 
-### [Suppliers](docs/sdks/suppliers/README.md)
+### [Configuration](docs/sdks/configuration/README.md)
 
-* [Create](docs/sdks/suppliers/README.md#create) - Create supplier
-* [Get](docs/sdks/suppliers/README.md#get) - Get supplier
-* [List](docs/sdks/suppliers/README.md#list) - List suppliers
-* [Update](docs/sdks/suppliers/README.md#update) - Update supplier
+* [Get](docs/sdks/configuration/README.md#get) - Get company configuration
+* [GetMappingOptions](docs/sdks/configuration/README.md#getmappingoptions) - Mapping options
+* [Set](docs/sdks/configuration/README.md#set) - Set company configuration
+
+### [Expenses](docs/sdks/expenses/README.md)
+
+* [Create](docs/sdks/expenses/README.md#create) - Create expense transaction
+* [Update](docs/sdks/expenses/README.md#update) - Update expense-transactions
+* [UploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
 
 ### [Sync](docs/sdks/sync/README.md)
 
@@ -142,11 +116,28 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 
 * [Get](docs/sdks/transactionstatus/README.md#get) - Get sync transaction
 * [List](docs/sdks/transactionstatus/README.md#list) - List sync transactions
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
+<!-- Start Server Selection [server] -->
+## Server Selection
 
-<!-- End Dev Containers -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

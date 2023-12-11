@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -31,7 +31,7 @@ namespace CodatSyncExpenses.Models.Shared
         /// Status of the transaction.
         /// </summary>
         [JsonProperty("status")]
-        public TransactionStatus? Status { get; set; }
+        public Models.Shared.TransactionStatus? Status { get; set; }
 
         /// <summary>
         /// Your unique idenfier of the transaction.

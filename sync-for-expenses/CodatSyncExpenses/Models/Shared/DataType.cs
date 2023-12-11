@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System;
@@ -48,6 +48,8 @@ namespace CodatSyncExpenses.Models.Shared
         DirectIncomes,
         [JsonProperty("invoices")]
         Invoices,
+        [JsonProperty("itemReceipts")]
+        ItemReceipts,
         [JsonProperty("items")]
         Items,
         [JsonProperty("journalEntries")]

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -43,7 +43,7 @@ namespace CodatSyncExpenses.Models.Shared
         public string? CompanyId { get; set; }
 
         [JsonProperty("Data")]
-        public SyncStartedWebhookData? Data { get; set; }
+        public Data? Data { get; set; }
 
         /// <summary>
         /// A human readable message about the webhook.

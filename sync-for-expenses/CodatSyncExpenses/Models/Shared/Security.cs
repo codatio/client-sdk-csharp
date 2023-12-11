@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
-    using CodatSyncExpenses.Utils;
+    using Codat.Sync.Expenses.Utils;
     
     public class Security
     {

@@ -1,4 +1,4 @@
-# ExpensesSDK
+# Expenses
 (*Expenses*)
 
 ## Overview
@@ -13,31 +13,45 @@ Create expense datasets and upload receipts.
 
 ## Create
 
-Create an expense transaction
+The *Create expense* endpoint creates an [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection. 
+
+[Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card. 
+
+
+**Integration-specific behaviour**
+
+Some accounting platforms support the option of pushing transactions to a draft state. This can be done by setting the postAsDraft property on the transaction to true. For platforms without this feature, the postAsDraft property should be ignored or set to false.
+
+| Integration | Draft State | Details                                                                                                      |  
+|-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+| Dynamics 365 Business Central | Yes   | Setting postAsDraft to true will push the transactions to a drafted state rather than posting directly to the ledger. For transactions in a draft state, they can then be approved and posted within the accounting platform. |
+| Quickbooks Online | No | -  |
+| Xero | No | - |
+| NetSuite | No | - |
 
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Expenses.CreateAsync(new CreateExpenseTransactionRequest() {
+CreateExpenseTransactionRequest req = new CreateExpenseTransactionRequest() {
     CreateExpenseRequest = new CreateExpenseRequest() {
         Items = new List<ExpenseTransaction>() {
             new ExpenseTransaction() {
-                BankAccountRef = new ExpenseTransactionBankAccountReference() {
+                BankAccountRef = new BankAccountReference() {
                     Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
                 },
                 ContactRef = new ContactRef() {
                     Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                    Type = CodatSyncExpenses.Models.Shared.ContactRefType.Supplier,
+                    Type = Type.Supplier,
                 },
                 Currency = "GBP",
                 Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
@@ -61,12 +75,14 @@ var res = await sdk.Expenses.CreateAsync(new CreateExpenseTransactionRequest() {
                 },
                 MerchantName = "Amazon UK",
                 Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-                Type = CodatSyncExpenses.Models.Shared.ExpenseTransactionType.Payment,
+                Type = ExpenseTransactionType.Payment,
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Expenses.CreateAsync(req);
 
 // handle response
 ```
@@ -75,39 +91,46 @@ var res = await sdk.Expenses.CreateAsync(new CreateExpenseTransactionRequest() {
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [CreateExpenseTransactionRequest](../../models/operations/CreateExpenseTransactionRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| `request`                                                                                     | [CreateExpenseTransactionRequest](../../Models/Operations/CreateExpenseTransactionRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
 
-**[CreateExpenseTransactionResponse](../../models/operations/CreateExpenseTransactionResponse.md)**
+**[CreateExpenseTransactionResponse](../../Models/Operations/CreateExpenseTransactionResponse.md)**
 
 
 ## Update
 
-Update an expense transaction
+The *Update expense* endpoint updates an existing [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection. 
+
+[Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card. 
+
+
+**Integration-specific behaviour**
+
+At the moment you can update expenses only for Xero ([Payment](https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types) transaction type only).
 
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
+UpdateExpenseTransactionRequest req = new UpdateExpenseTransactionRequest() {
     UpdateExpenseRequest = new UpdateExpenseRequest() {
         BankAccountRef = new UpdateExpenseRequestBankAccountReference() {
             Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
         },
         ContactRef = new ContactRef() {
             Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            Type = CodatSyncExpenses.Models.Shared.ContactRefType.Supplier,
+            Type = Type.Supplier,
         },
         Currency = "GBP",
         IssueDate = "2022-06-28T00:00:00.000Z",
@@ -130,11 +153,13 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
         },
         MerchantName = "Amazon UK",
         Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        Type = "Van",
+        Type = "string",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-});
+};
+
+var res = await sdk.Expenses.UpdateAsync(req);
 
 // handle response
 ```
@@ -143,40 +168,56 @@ var res = await sdk.Expenses.UpdateAsync(new UpdateExpenseTransactionRequest() {
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [UpdateExpenseTransactionRequest](../../models/operations/UpdateExpenseTransactionRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+| `request`                                                                                     | [UpdateExpenseTransactionRequest](../../Models/Operations/UpdateExpenseTransactionRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
 
-**[UpdateExpenseTransactionResponse](../../models/operations/UpdateExpenseTransactionResponse.md)**
+**[UpdateExpenseTransactionResponse](../../Models/Operations/UpdateExpenseTransactionResponse.md)**
 
 
 ## UploadAttachment
 
-Creates an attachment in the accounting software against the given transactionId
+The *Upload attachment* endpoint uploads an attachment in the accounting software against the given transactionId. 
+
+[Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card. 
+
+**Integration-specific behaviour**
+
+Each accounting software supports different file formats and sizes.
+
+| Integration | File Size | File Extension                                                                                                      |  
+|-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+| Xero | 4MB  | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF, ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP |
+| QuickBooks Online | 100MB | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML  |
+| NetSuite | 100MB | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |
+| Dynamics 365 Business Central | 350 MB | Dynamics do not explicitly outline which file types are supported but they do state <a className="external" href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice" target="_blank">here</a> that "You can attach any type of file, such as text, image, or video files". |
 
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Expenses.UploadAttachmentAsync(new UploadExpenseAttachmentRequest() {
-    RequestBody = new UploadExpenseAttachmentRequestBody() {
-        Content = "v/ghW&IC$x as bytes <<<>>>",
-        RequestBody = "Elegant Producer Electric",
+UploadExpenseAttachmentRequest req = new UploadExpenseAttachmentRequest() {
+    AttachmentUpload = new AttachmentUpload() {
+        File = new CodatFile() {
+            Content = "0xE3ABc1980E as bytes <<<>>>",
+            FileName = "elegant_producer_electric.jpeg",
+        },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-});
+};
+
+var res = await sdk.Expenses.UploadAttachmentAsync(req);
 
 // handle response
 ```
@@ -185,10 +226,10 @@ var res = await sdk.Expenses.UploadAttachmentAsync(new UploadExpenseAttachmentRe
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [UploadExpenseAttachmentRequest](../../models/operations/UploadExpenseAttachmentRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `request`                                                                                   | [UploadExpenseAttachmentRequest](../../Models/Operations/UploadExpenseAttachmentRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[UploadExpenseAttachmentResponse](../../models/operations/UploadExpenseAttachmentResponse.md)**
+**[UploadExpenseAttachmentResponse](../../Models/Operations/UploadExpenseAttachmentResponse.md)**
 

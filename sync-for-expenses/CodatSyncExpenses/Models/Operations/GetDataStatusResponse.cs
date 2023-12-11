@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Operations
+namespace Codat.Sync.Expenses.Models.Operations
 {
-    using CodatSyncExpenses.Models.Shared;
+    using Codat.Sync.Expenses.Models.Shared;
     using System.Collections.Generic;
     using System.Net.Http;
     using System;
@@ -26,7 +26,7 @@ namespace CodatSyncExpenses.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public Dictionary<string, DataStatus>? DataStatusResponse { get; set; }
+        public Dictionary<string, DataStatus>? DataStatuses { get; set; }
 
         /// <summary>
         /// Your API request was not properly authorized.
@@ -41,6 +41,6 @@ namespace CodatSyncExpenses.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

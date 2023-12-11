@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Utils
+namespace Codat.Platform.Utils
 {
     using System.Collections;
     using System.Collections.Generic;

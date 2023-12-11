@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
-    using CodatPlatform.Utils;
+    using Codat.Platform.Utils;
     
     public class Security
     {

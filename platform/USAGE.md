@@ -1,21 +1,19 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Name = "Bank of Dave",
-});
+CreateApiKey req = new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

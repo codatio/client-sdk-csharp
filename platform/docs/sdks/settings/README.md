@@ -1,4 +1,4 @@
-# SettingsSDK
+# Settings
 (*Settings*)
 
 ## Overview
@@ -9,7 +9,7 @@ Manage your Codat instance.
 
 * [CreateApiKey](#createapikey) - Create API key
 * [DeleteApiKey](#deleteapikey) - Delete API key
-* [~~GetProfile~~](#getprofile) - Get profile :warning: **Deprecated**
+* [GetProfile](#getprofile) - Get profile
 * [GetSyncSettings](#getsyncsettings) - Get sync settings
 * [ListApiKeys](#listapikeys) - List API keys
 * [UpdateProfile](#updateprofile) - Update profile
@@ -32,18 +32,19 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
+CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
-});
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 // handle response
 ```
@@ -52,12 +53,12 @@ var res = await sdk.Settings.CreateApiKeyAsync(new CreateApiKey() {
 
 | Parameter                                           | Type                                                | Required                                            | Description                                         |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `request`                                           | [CreateApiKey](../../models/shared/CreateApiKey.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
+| `request`                                           | [CreateApiKey](../../Models/Shared/CreateApiKey.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
 
 
 ### Response
 
-**[CreateApiKeyResponse](../../models/operations/CreateApiKeyResponse.md)**
+**[CreateApiKeyResponse](../../Models/Operations/CreateApiKeyResponse.md)**
 
 
 ## DeleteApiKey
@@ -76,19 +77,20 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.DeleteApiKeyAsync(new DeleteApiKeyRequest() {
+DeleteApiKeyRequest req = new DeleteApiKeyRequest() {
     ApiKeyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-});
+};
+
+var res = await sdk.Settings.DeleteApiKeyAsync(req);
 
 // handle response
 ```
@@ -97,31 +99,28 @@ var res = await sdk.Settings.DeleteApiKeyAsync(new DeleteApiKeyRequest() {
 
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [DeleteApiKeyRequest](../../models/operations/DeleteApiKeyRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `request`                                                             | [DeleteApiKeyRequest](../../Models/Operations/DeleteApiKeyRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 
 ### Response
 
-**[DeleteApiKeyResponse](../../models/operations/DeleteApiKeyResponse.md)**
+**[DeleteApiKeyResponse](../../Models/Operations/DeleteApiKeyResponse.md)**
 
 
-## ~~GetProfile~~
+## GetProfile
 
 Fetch your Codat profile.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
 var res = await sdk.Settings.GetProfileAsync();
 
@@ -131,7 +130,7 @@ var res = await sdk.Settings.GetProfileAsync();
 
 ### Response
 
-**[GetProfileResponse](../../models/operations/GetProfileResponse.md)**
+**[GetProfileResponse](../../Models/Operations/GetProfileResponse.md)**
 
 
 ## GetSyncSettings
@@ -141,14 +140,13 @@ Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
 var res = await sdk.Settings.GetSyncSettingsAsync();
 
@@ -158,7 +156,7 @@ var res = await sdk.Settings.GetSyncSettingsAsync();
 
 ### Response
 
-**[GetProfileSyncSettingsResponse](../../models/operations/GetProfileSyncSettingsResponse.md)**
+**[GetProfileSyncSettingsResponse](../../Models/Operations/GetProfileSyncSettingsResponse.md)**
 
 
 ## ListApiKeys
@@ -172,14 +170,13 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
 var res = await sdk.Settings.ListApiKeysAsync();
 
@@ -189,7 +186,7 @@ var res = await sdk.Settings.ListApiKeysAsync();
 
 ### Response
 
-**[ListApiKeysResponse](../../models/operations/ListApiKeysResponse.md)**
+**[ListApiKeysResponse](../../Models/Operations/ListApiKeysResponse.md)**
 
 
 ## UpdateProfile
@@ -199,16 +196,16 @@ Update your Codat profile
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.UpdateProfileAsync(new Profile() {
+Profile req = new Profile() {
     AlertAuthHeader = "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
     ApiKey = "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
     IconUrl = "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
@@ -241,7 +238,9 @@ var res = await sdk.Settings.UpdateProfileAsync(new Profile() {
         "o",
         "m",
     },
-});
+};
+
+var res = await sdk.Settings.UpdateProfileAsync(req);
 
 // handle response
 ```
@@ -250,12 +249,12 @@ var res = await sdk.Settings.UpdateProfileAsync(new Profile() {
 
 | Parameter                                  | Type                                       | Required                                   | Description                                |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `request`                                  | [Profile](../../models/shared/Profile.md)  | :heavy_check_mark:                         | The request object to use for the request. |
+| `request`                                  | [Profile](../../Models/Shared/Profile.md)  | :heavy_check_mark:                         | The request object to use for the request. |
 
 
 ### Response
 
-**[UpdateProfileResponse](../../models/operations/UpdateProfileResponse.md)**
+**[UpdateProfileResponse](../../Models/Operations/UpdateProfileResponse.md)**
 
 
 ## UpdateSyncSettings
@@ -265,21 +264,21 @@ Update sync settings for all data types.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
         AuthHeader = "",
-    }
-);
+    });
 
-var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettingsRequestBody() {
+UpdateProfileSyncSettingsRequestBody req = new UpdateProfileSyncSettingsRequestBody() {
     ClientId = "ce429104-79f0-4085-a720-e2d40fcc800f",
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
-            DataType = CodatPlatform.Models.Shared.DataType.Invoices,
+            DataType = Models.Shared.DataType.Invoices,
             FetchOnFirstLink = false,
             MonthsToSync = 24,
             SyncFromUtc = "2022-10-23T00:00:00.000Z",
@@ -288,7 +287,9 @@ var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettin
             SyncSchedule = 24,
         },
     },
-});
+};
+
+var res = await sdk.Settings.UpdateSyncSettingsAsync(req);
 
 // handle response
 ```
@@ -297,10 +298,10 @@ var res = await sdk.Settings.UpdateSyncSettingsAsync(new UpdateProfileSyncSettin
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [UpdateProfileSyncSettingsRequestBody](../../models/operations/UpdateProfileSyncSettingsRequestBody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| `request`                                                                                               | [UpdateProfileSyncSettingsRequestBody](../../Models/Operations/UpdateProfileSyncSettingsRequestBody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 
 ### Response
 
-**[UpdateProfileSyncSettingsResponse](../../models/operations/UpdateProfileSyncSettingsResponse.md)**
+**[UpdateProfileSyncSettingsResponse](../../Models/Operations/UpdateProfileSyncSettingsResponse.md)**
 

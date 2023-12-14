@@ -18,25 +18,26 @@ Source accounts act as a bridge to bank accounts in accounting software.
 
 The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
 
-#### Account Mapping Variability
+#### Account mapping variability
 
 The method of mapping the source account to the target account varies depending on the accounting package your company uses.
 
-#### Mapping Options:
+#### Mapping options:
 
 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
 
-### Integration specific behaviour
+### Integration-specific behaviour
 
 | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
 | --------------------- | ----------- | ---------------- | --------------------------- |
 | Xero                  | ✅          | ✅               |                             |
 | FreeAgent             | ✅          | ✅               |                             |
+| Oracle NetSuite       | ✅          | ✅               |                             |
+| Exact Online (NL)     | ✅          | ✅               |                             |
 | QuickBooks Online     |             |                  | ✅                          |
 | Sage                  |             |                  | ✅                          |
-
 
 ### Example Usage
 
@@ -48,19 +49,20 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.CreateAsync(new CreateSourceAccountRequest() {
+CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
         Currency = "USD",
-        FeedStartDate = "2022-10-23T00:00:00.000Z",
+        FeedStartDate = "2022-10-23T00:00:00Z",
         Id = "<ID>",
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.CreateAsync(req);
 
 // handle response
 ```
@@ -94,14 +96,15 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.DeleteAsync(new DeleteSourceAccountRequest() {
+DeleteSourceAccountRequest req = new DeleteSourceAccountRequest() {
     AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.DeleteAsync(req);
 
 // handle response
 ```
@@ -134,13 +137,14 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.DeleteCredentialsAsync(new DeleteBankFeedCredentialsRequest() {
+DeleteBankFeedCredentialsRequest req = new DeleteBankFeedCredentialsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.DeleteCredentialsAsync(req);
 
 // handle response
 ```
@@ -174,14 +178,15 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.GenerateCredentialsAsync(new GenerateCredentialsRequest() {
+GenerateCredentialsRequest req = new GenerateCredentialsRequest() {
     RequestBody = "0xeDCfFBde9E as bytes <<<>>>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.GenerateCredentialsAsync(req);
 
 // handle response
 ```
@@ -215,13 +220,14 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.ListAsync(new ListSourceAccountsRequest() {
+ListSourceAccountsRequest req = new ListSourceAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.ListAsync(req);
 
 // handle response
 ```
@@ -253,20 +259,21 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SourceAccounts.UpdateAsync(new UpdateSourceAccountRequest() {
+UpdateSourceAccountRequest req = new UpdateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
         Currency = "EUR",
-        FeedStartDate = "2022-10-23T00:00:00.000Z",
+        FeedStartDate = "2022-10-23T00:00:00Z",
         Id = "<ID>",
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
     },
     AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.SourceAccounts.UpdateAsync(req);
 
 // handle response
 ```

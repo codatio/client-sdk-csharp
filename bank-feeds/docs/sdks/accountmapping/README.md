@@ -30,16 +30,17 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountMapping.CreateAsync(new CreateBankAccountMappingRequest() {
+CreateBankAccountMappingRequest req = new CreateBankAccountMappingRequest() {
     Zero = new Zero() {
-        FeedStartDate = "2022-10-23T00:00:00.000Z",
+        FeedStartDate = "2022-10-23T00:00:00Z",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.AccountMapping.CreateAsync(req);
 
 // handle response
 ```
@@ -74,13 +75,14 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.AccountMapping.GetAsync(new GetBankAccountMappingRequest() {
+GetBankAccountMappingRequest req = new GetBankAccountMappingRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.AccountMapping.GetAsync(req);
 
 // handle response
 ```

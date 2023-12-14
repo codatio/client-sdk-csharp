@@ -35,10 +35,9 @@ using System.Collections.Generic;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest() {
+CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
     CreateBankTransactions = new CreateBankTransactions() {
         AccountId = "7110701885",
         Transactions = new List<BankTransactions>() {
@@ -46,7 +45,7 @@ var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest()
                 Amount = 999.99M,
                 Balance = -999.99M,
                 Counterparty = "ACME INC",
-                Date = "2022-10-23T00:00:00.000Z",
+                Date = "2022-10-23T00:00:00Z",
                 Description = "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
                 Id = "716422529",
                 Reconciled = false,
@@ -57,7 +56,9 @@ var res = await sdk.Transactions.CreateAsync(new CreateBankTransactionsRequest()
     AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Transactions.CreateAsync(req);
 
 // handle response
 ```
@@ -88,13 +89,14 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Transactions.GetCreateOperationAsync(new GetCreateOperationRequest() {
+GetCreateOperationRequest req = new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PushOperationKey = "1fb73c31-a851-46c2-ab8a-5ce6e25b57b8",
-});
+};
+
+var res = await sdk.Transactions.GetCreateOperationAsync(req);
 
 // handle response
 ```
@@ -125,15 +127,16 @@ using Codat.BankFeeds.Models.Operations;
 var sdk = new CodatBankFeeds(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Transactions.ListCreateOperationsAsync(new ListCreateOperationsRequest() {
+ListCreateOperationsRequest req = new ListCreateOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Transactions.ListCreateOperationsAsync(req);
 
 // handle response
 ```

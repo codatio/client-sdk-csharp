@@ -98,7 +98,6 @@ CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhook.cs
 CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhookData.cs
 CodatBankFeeds/Models/Webhooks/ClientRateLimitReachedResponse.cs
 CodatBankFeeds/Models/Webhooks/ClientRateLimitResetResponse.cs
-USAGE.md
 docs/Models/Operations/CreateCompanyResponse.md
 docs/Models/Operations/DeleteCompanyRequest.md
 docs/Models/Operations/DeleteCompanyResponse.md
@@ -185,4 +184,5 @@ docs/sdks/connections/README.md
 docs/sdks/accountmapping/README.md
 docs/sdks/sourceaccounts/README.md
 docs/sdks/transactions/README.md
+USAGE.md
 .gitattributes

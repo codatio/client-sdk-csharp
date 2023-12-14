@@ -31,25 +31,26 @@ namespace Codat.BankFeeds
         /// <remarks>
         /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat&apos;s domain. The company can then map the source account to an existing or new target account in their accounting software.<br/>
         /// <br/>
-        /// #### Account Mapping Variability<br/>
+        /// #### Account mapping variability<br/>
         /// <br/>
         /// The method of mapping the source account to the target account varies depending on the accounting package your company uses.<br/>
         /// <br/>
-        /// #### Mapping Options:<br/>
+        /// #### Mapping options:<br/>
         /// <br/>
         /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
         /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat&apos;s provided user interface for mapping.<br/>
         /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
         /// <br/>
-        /// ### Integration specific behaviour<br/>
+        /// ### Integration-specific behaviour<br/>
         /// <br/>
         /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |<br/>
         /// | --------------------- | ----------- | ---------------- | --------------------------- |<br/>
         /// | Xero                  | ✅          | ✅               |                             |<br/>
         /// | FreeAgent             | ✅          | ✅               |                             |<br/>
+        /// | Oracle NetSuite       | ✅          | ✅               |                             |<br/>
+        /// | Exact Online (NL)     | ✅          | ✅               |                             |<br/>
         /// | QuickBooks Online     |             |                  | ✅                          |<br/>
-        /// | Sage                  |             |                  | ✅                          |<br/>
-        /// 
+        /// | Sage                  |             |                  | ✅                          |
         /// </remarks>
         /// </summary>
         Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest? request = null);
@@ -117,12 +118,12 @@ namespace Codat.BankFeeds
     /// </summary>
     public class SourceAccounts: ISourceAccounts
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.214.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.195.2 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.214.3 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -132,13 +133,13 @@ namespace Codat.BankFeeds
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -187,7 +188,7 @@ namespace Codat.BankFeeds
 
         public async Task<DeleteSourceAccountResponse> DeleteAsync(DeleteSourceAccountRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
@@ -227,7 +228,7 @@ namespace Codat.BankFeeds
 
         public async Task<DeleteBankFeedCredentialsResponse> DeleteCredentialsAsync(DeleteBankFeedCredentialsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
@@ -267,7 +268,7 @@ namespace Codat.BankFeeds
 
         public async Task<GenerateCredentialsResponse> GenerateCredentialsAsync(GenerateCredentialsRequest request)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -320,7 +321,7 @@ namespace Codat.BankFeeds
 
         public async Task<ListSourceAccountsResponse> ListAsync(ListSourceAccountsRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -364,7 +365,7 @@ namespace Codat.BankFeeds
 
         public async Task<UpdateSourceAccountResponse> UpdateAsync(UpdateSourceAccountRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);

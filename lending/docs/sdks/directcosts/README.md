@@ -41,7 +41,7 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
             Id = "<ID>",
         },
         Currency = "USD",
-        IssueDate = "2022-10-23T00:00:00.000Z",
+        IssueDate = "2022-10-23T00:00:00Z",
         LineItems = new List<DirectCostLineItem>() {
             new DirectCostLineItem() {
                 AccountRef = new AccountRef() {},
@@ -71,13 +71,13 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
         PaymentAllocations = new List<AccountingPaymentAllocation>() {
             new AccountingPaymentAllocation() {
                 Allocation = new Allocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
                     Currency = "EUR",
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {},
                     Currency = "GBP",
-                    PaidOnDate = "2022-10-23T00:00:00.000Z",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
                 },
             },
         },

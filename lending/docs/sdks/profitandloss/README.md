@@ -26,7 +26,7 @@ GetAccountingProfitAndLossRequest req = new GetAccountingProfitAndLossRequest() 
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PeriodLength = 4,
     PeriodsToCompare = 20,
-    StartMonth = "2022-10-23T00:00:00.000Z",
+    StartMonth = "2022-10-23T00:00:00Z",
 };
 
 var res = await sdk.FinancialStatements.ProfitAndLoss.GetAsync(req);

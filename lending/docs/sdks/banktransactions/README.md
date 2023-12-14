@@ -37,7 +37,7 @@ CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
         AccountId = "7110701885",
         Transactions = new List<CreateBankAccountTransaction>() {
             new CreateBankAccountTransaction() {
-                Date = "2022-10-23T00:00:00.000Z",
+                Date = "2022-10-23T00:00:00Z",
             },
         },
     },

@@ -35,8 +35,8 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     AccountingBankAccount = new AccountingBankAccount() {
         Currency = "USD",
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {

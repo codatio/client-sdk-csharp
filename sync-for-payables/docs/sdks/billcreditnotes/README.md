@@ -41,12 +41,12 @@ var sdk = new CodatSyncPayables(
 
 CreateBillCreditNoteRequest req = new CreateBillCreditNoteRequest() {
     BillCreditNote = new BillCreditNote() {
-        AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+        AllocatedOnDate = "2022-10-23T00:00:00Z",
         BillCreditNoteNumber = "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
         Currency = "USD",
         DiscountPercentage = 0M,
         Id = "1509398f-98e2-436d-8a5d-c042e0c74ffc",
-        IssueDate = "2022-10-23T00:00:00.000Z",
+        IssueDate = "2022-10-23T00:00:00Z",
         LineItems = new List<BillCreditNoteLineItem>() {
             new BillCreditNoteLineItem() {
                 AccountRef = new AccountRef() {},
@@ -79,23 +79,23 @@ CreateBillCreditNoteRequest req = new CreateBillCreditNoteRequest() {
             },
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
         Note = "Bill Credit Note with 1 line items, totaling 805.78",
         PaymentAllocations = new List<Items>() {
             new Items() {
                 Allocation = new Allocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
                     Currency = "EUR",
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {},
                     Currency = "EUR",
-                    PaidOnDate = "2022-10-23T00:00:00.000Z",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
                 },
             },
         },
         RemainingCredit = 0M,
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         Status = BillCreditNoteStatus.Paid,
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {
@@ -304,12 +304,12 @@ var sdk = new CodatSyncPayables(
 
 UpdateBillCreditNoteRequest req = new UpdateBillCreditNoteRequest() {
     BillCreditNote = new BillCreditNote() {
-        AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+        AllocatedOnDate = "2022-10-23T00:00:00Z",
         BillCreditNoteNumber = "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
         Currency = "GBP",
         DiscountPercentage = 0M,
         Id = "1509398f-98e2-436d-8a5d-c042e0c74ffc",
-        IssueDate = "2022-10-23T00:00:00.000Z",
+        IssueDate = "2022-10-23T00:00:00Z",
         LineItems = new List<BillCreditNoteLineItem>() {
             new BillCreditNoteLineItem() {
                 AccountRef = new AccountRef() {},
@@ -342,23 +342,23 @@ UpdateBillCreditNoteRequest req = new UpdateBillCreditNoteRequest() {
             },
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
         Note = "Bill Credit Note with 1 line items, totaling 805.78",
         PaymentAllocations = new List<Items>() {
             new Items() {
                 Allocation = new Allocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
                     Currency = "EUR",
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {},
                     Currency = "USD",
-                    PaidOnDate = "2022-10-23T00:00:00.000Z",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
                 },
             },
         },
         RemainingCredit = 0M,
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         Status = BillCreditNoteStatus.Paid,
         SubTotal = 805.78M,
         SupplementalData = new SupplementalData() {

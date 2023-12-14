@@ -71,6 +71,11 @@ namespace Codat.Sync.Payables
         public IBills Bills { get; }
 
         /// <summary>
+        /// Bank accounts
+        /// </summary>
+        public IBankAccounts BankAccounts { get; }
+
+        /// <summary>
         /// Bill credit notes
         /// </summary>
         public IBillCreditNotes BillCreditNotes { get; }
@@ -188,16 +193,17 @@ namespace Codat.Sync.Payables
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.210.6";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.214.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.210.6 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.214.3 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
         public IBills Bills { get; private set; }
+        public IBankAccounts BankAccounts { get; private set; }
         public IBillCreditNotes BillCreditNotes { get; private set; }
         public IBillPayments BillPayments { get; private set; }
         public IAccounts Accounts { get; private set; }
@@ -236,6 +242,7 @@ namespace Codat.Sync.Payables
             Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             Bills = new Bills(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BankAccounts = new BankAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             BillCreditNotes = new BillCreditNotes(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             BillPayments = new BillPayments(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             Accounts = new Accounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);

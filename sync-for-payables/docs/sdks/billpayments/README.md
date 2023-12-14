@@ -43,11 +43,11 @@ CreateBillPaymentRequest req = new CreateBillPaymentRequest() {
     BillPayment = new BillPayment() {
         AccountRef = new AccountRef() {},
         Currency = "USD",
-        Date = "2022-10-23T00:00:00.000Z",
+        Date = "2022-10-23T00:00:00Z",
         Id = "3d5a8e00-d108-4045-8823-7f342676cffa",
         Lines = new List<BillPaymentLine>() {
             new BillPaymentLine() {
-                AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+                AllocatedOnDate = "2022-10-23T00:00:00Z",
                 Amount = 8592.13M,
                 Links = new List<BillPaymentLineLink>() {
                     new BillPaymentLineLink() {
@@ -57,12 +57,12 @@ CreateBillPaymentRequest req = new CreateBillPaymentRequest() {
             },
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
         Note = "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
         PaymentMethodRef = new PaymentMethodRef() {
             Id = "<ID>",
         },
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {

@@ -1,6 +1,7 @@
 CodatSyncPayables/Companies.cs
 CodatSyncPayables/Connections.cs
 CodatSyncPayables/Bills.cs
+CodatSyncPayables/BankAccounts.cs
 CodatSyncPayables/BillCreditNotes.cs
 CodatSyncPayables/BillPayments.cs
 CodatSyncPayables/Accounts.cs
@@ -71,6 +72,10 @@ CodatSyncPayables/Models/Operations/UpdateBillRequest.cs
 CodatSyncPayables/Models/Operations/UpdateBillResponse.cs
 CodatSyncPayables/Models/Operations/UploadBillAttachmentRequest.cs
 CodatSyncPayables/Models/Operations/UploadBillAttachmentResponse.cs
+CodatSyncPayables/Models/Operations/CreateBankAccountRequest.cs
+CodatSyncPayables/Models/Operations/CreateBankAccountResponse.cs
+CodatSyncPayables/Models/Operations/GetCreateBankAccountsModelRequest.cs
+CodatSyncPayables/Models/Operations/GetCreateBankAccountsModelResponse.cs
 CodatSyncPayables/Models/Operations/CreateBillCreditNoteRequest.cs
 CodatSyncPayables/Models/Operations/CreateBillCreditNoteResponse.cs
 CodatSyncPayables/Models/Operations/GetBillCreditNoteRequest.cs
@@ -202,6 +207,11 @@ CodatSyncPayables/Models/Shared/Attachments.cs
 CodatSyncPayables/Models/Shared/UpdateBillResponse.cs
 CodatSyncPayables/Models/Shared/AttachmentUpload.cs
 CodatSyncPayables/Models/Shared/CodatFile.cs
+CodatSyncPayables/Models/Shared/BankAccountCreateResponse.cs
+CodatSyncPayables/Models/Shared/BankAccountBankAccountType.cs
+CodatSyncPayables/Models/Shared/BankAccount.cs
+CodatSyncPayables/Models/Shared/BankAccountType.cs
+CodatSyncPayables/Models/Shared/BankAccountPrototype.cs
 CodatSyncPayables/Models/Shared/CreateBillCreditNoteResponse.cs
 CodatSyncPayables/Models/Shared/BillCreditNote.cs
 CodatSyncPayables/Models/Shared/WithholdingTaxItems.cs
@@ -324,6 +334,10 @@ docs/Models/Operations/UpdateBillRequest.md
 docs/Models/Operations/UpdateBillResponse.md
 docs/Models/Operations/UploadBillAttachmentRequest.md
 docs/Models/Operations/UploadBillAttachmentResponse.md
+docs/Models/Operations/CreateBankAccountRequest.md
+docs/Models/Operations/CreateBankAccountResponse.md
+docs/Models/Operations/GetCreateBankAccountsModelRequest.md
+docs/Models/Operations/GetCreateBankAccountsModelResponse.md
 docs/Models/Operations/CreateBillCreditNoteRequest.md
 docs/Models/Operations/CreateBillCreditNoteResponse.md
 docs/Models/Operations/GetBillCreditNoteRequest.md
@@ -455,6 +469,11 @@ docs/Models/Shared/Attachments.md
 docs/Models/Shared/UpdateBillResponse.md
 docs/Models/Shared/AttachmentUpload.md
 docs/Models/Shared/CodatFile.md
+docs/Models/Shared/BankAccountCreateResponse.md
+docs/Models/Shared/BankAccountBankAccountType.md
+docs/Models/Shared/BankAccount.md
+docs/Models/Shared/BankAccountType.md
+docs/Models/Shared/BankAccountPrototype.md
 docs/Models/Shared/CreateBillCreditNoteResponse.md
 docs/Models/Shared/BillCreditNote.md
 docs/Models/Shared/WithholdingTaxItems.md
@@ -538,6 +557,7 @@ docs/sdks/codatsyncpayables/README.md
 docs/sdks/companies/README.md
 docs/sdks/connections/README.md
 docs/sdks/bills/README.md
+docs/sdks/bankaccounts/README.md
 docs/sdks/billcreditnotes/README.md
 docs/sdks/billpayments/README.md
 docs/sdks/accounts/README.md

@@ -54,7 +54,14 @@ namespace Codat.Sync.Payables.Models.Shared
         /// | :--------------- | :------------- | :------------ | :------------------------- |<br/>
         /// | **GBP**          | £20            | 1.277         | $25.54                     |<br/>
         /// | **EUR**          | €20            | 1.134         | $22.68                     |<br/>
-        /// | **RUB**          | ₽20            | 0.015         | $0.30                      |
+        /// | **RUB**          | ₽20            | 0.015         | $0.30                      |<br/>
+        /// <br/>
+        /// <br/>
+        /// ### Integration-specific details<br/>
+        /// <br/>
+        /// | Integration       | Scenario                                        | System behavior                                                                                                                                                      |<br/>
+        /// |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, include the required currency rate in the expense transaction.  |
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]

@@ -48,8 +48,8 @@ var sdk = new CodatSyncPayables(
 CreateBillRequest req = new CreateBillRequest() {
     Bill = new Bill() {
         Currency = "USD",
-        DueDate = "2022-10-23T00:00:00.000Z",
-        IssueDate = "2022-10-23T00:00:00.000Z",
+        DueDate = "2022-10-23T00:00:00Z",
+        IssueDate = "2022-10-23T00:00:00Z",
         LineItems = new List<BillLineItem>() {
             new BillLineItem() {
                 AccountRef = new AccountRef() {},
@@ -83,24 +83,24 @@ CreateBillRequest req = new CreateBillRequest() {
             },
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
         PaymentAllocations = new List<AccountingPaymentAllocation>() {
             new AccountingPaymentAllocation() {
                 Allocation = new BillAllocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
                     Currency = "EUR",
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {},
                     Currency = "EUR",
-                    PaidOnDate = "2022-10-23T00:00:00.000Z",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
                 },
             },
         },
         PurchaseOrderRefs = new List<PurchaseOrderReference>() {
             new PurchaseOrderReference() {},
         },
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         Status = BillStatus.Draft,
         SubTotal = 0.86M,
         SupplementalData = new SupplementalData() {
@@ -570,8 +570,8 @@ var sdk = new CodatSyncPayables(
 UpdateBillRequest req = new UpdateBillRequest() {
     Bill = new Bill() {
         Currency = "EUR",
-        DueDate = "2022-10-23T00:00:00.000Z",
-        IssueDate = "2022-10-23T00:00:00.000Z",
+        DueDate = "2022-10-23T00:00:00Z",
+        IssueDate = "2022-10-23T00:00:00Z",
         LineItems = new List<BillLineItem>() {
             new BillLineItem() {
                 AccountRef = new AccountRef() {},
@@ -605,24 +605,24 @@ UpdateBillRequest req = new UpdateBillRequest() {
             },
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
         PaymentAllocations = new List<AccountingPaymentAllocation>() {
             new AccountingPaymentAllocation() {
                 Allocation = new BillAllocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
                     Currency = "EUR",
                 },
                 Payment = new PaymentAllocationPayment() {
                     AccountRef = new AccountRef() {},
                     Currency = "USD",
-                    PaidOnDate = "2022-10-23T00:00:00.000Z",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
                 },
             },
         },
         PurchaseOrderRefs = new List<PurchaseOrderReference>() {
             new PurchaseOrderReference() {},
         },
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         Status = BillStatus.Unknown,
         SubTotal = 540.62M,
         SupplementalData = new SupplementalData() {

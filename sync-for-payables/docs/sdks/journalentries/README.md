@@ -38,7 +38,7 @@ var sdk = new CodatSyncPayables(
 
 CreateJournalEntryRequest req = new CreateJournalEntryRequest() {
     JournalEntry = new JournalEntry() {
-        CreatedOn = "2022-10-23T00:00:00.000Z",
+        CreatedOn = "2022-10-23T00:00:00Z",
         JournalLines = new List<JournalLine>() {
             new JournalLine() {
                 AccountRef = new AccountRef() {},
@@ -56,12 +56,12 @@ CreateJournalEntryRequest req = new CreateJournalEntryRequest() {
             Id = "<ID>",
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        PostedOn = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        PostedOn = "2022-10-23T00:00:00Z",
         RecordRef = new RecordReference() {
             DataType = "invoice",
         },
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {
@@ -69,7 +69,7 @@ CreateJournalEntryRequest req = new CreateJournalEntryRequest() {
                 } },
             },
         },
-        UpdatedOn = "2022-10-23T00:00:00.000Z",
+        UpdatedOn = "2022-10-23T00:00:00Z",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",

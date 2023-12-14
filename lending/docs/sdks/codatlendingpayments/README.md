@@ -39,10 +39,10 @@ CreatePaymentRequest req = new CreatePaymentRequest() {
         CustomerRef = new AccountingCustomerRef() {
             Id = "<ID>",
         },
-        Date = "2022-10-23T00:00:00.000Z",
+        Date = "2022-10-23T00:00:00Z",
         Lines = new List<PaymentLine>() {
             new PaymentLine() {
-                AllocatedOnDate = "2022-10-23T00:00:00.000Z",
+                AllocatedOnDate = "2022-10-23T00:00:00Z",
                 Amount = 8592.13M,
                 Links = new List<PaymentLineLink>() {
                     new PaymentLineLink() {
@@ -52,11 +52,11 @@ CreatePaymentRequest req = new CreatePaymentRequest() {
             },
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
         PaymentMethodRef = new PaymentMethodRef() {
             Id = "<ID>",
         },
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "key", new Dictionary<string, object>() {

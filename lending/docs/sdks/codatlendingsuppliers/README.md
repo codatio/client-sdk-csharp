@@ -40,9 +40,9 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
             },
         },
         Metadata = new Metadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
+        ModifiedDate = "2022-10-23T00:00:00Z",
         Phone = "(877) 492-8687",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
         Status = SupplierStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {

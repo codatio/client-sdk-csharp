@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -44,6 +44,6 @@ namespace CodatSyncExpenses.Models.Shared
         /// Supported transaction types for the account.
         /// </summary>
         [JsonProperty("validTransactionTypes")]
-        public List<AccountMappingInfoValidTransactionTypes>? ValidTransactionTypes { get; set; }
+        public List<ValidTransactionTypes>? ValidTransactionTypes { get; set; }
     }
 }

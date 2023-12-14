@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses
+namespace Codat.Sync.Expenses
 {
-    using CodatSyncExpenses.Models.Operations;
-    using CodatSyncExpenses.Models.Shared;
-    using CodatSyncExpenses.Utils;
+    using Codat.Sync.Expenses.Models.Operations;
+    using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using System.Net.Http;
@@ -22,14 +22,28 @@ namespace CodatSyncExpenses
     /// <summary>
     /// Create expense datasets and upload receipts.
     /// </summary>
-    public interface IExpensesSDK
+    public interface IExpenses
     {
 
         /// <summary>
         /// Create expense transaction
         /// 
         /// <remarks>
-        /// Create an expense transaction
+        /// The *Create expense* endpoint creates an <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">expense transaction</a> in the accounting platform for a given company&apos;s connection. <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. <br/>
+        /// <br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Some accounting platforms support the option of pushing transactions to a draft state. This can be done by setting the postAsDraft property on the transaction to true. For platforms without this feature, the postAsDraft property should be ignored or set to false.<br/>
+        /// <br/>
+        /// | Integration | Draft State | Details                                                                                                      |  <br/>
+        /// |-------------|-------------|--------------------------------------------------------------------------------------------------------------|<br/>
+        /// | Dynamics 365 Business Central | Yes   | Setting postAsDraft to true will push the transactions to a drafted state rather than posting directly to the ledger. For transactions in a draft state, they can then be approved and posted within the accounting platform. |<br/>
+        /// | Quickbooks Online | No | -  |<br/>
+        /// | Xero | No | - |<br/>
+        /// | NetSuite | No | - |
         /// </remarks>
         /// </summary>
         Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null);
@@ -38,7 +52,14 @@ namespace CodatSyncExpenses
         /// Update expense-transactions
         /// 
         /// <remarks>
-        /// Update an expense transaction
+        /// The *Update expense* endpoint updates an existing <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">expense transaction</a> in the accounting platform for a given company&apos;s connection. <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. <br/>
+        /// <br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// At the moment you can update expenses only for Xero (<a href="https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types">Payment</a> transaction type only).
         /// </remarks>
         /// </summary>
         Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null);
@@ -47,7 +68,20 @@ namespace CodatSyncExpenses
         /// Upload attachment
         /// 
         /// <remarks>
-        /// Creates an attachment in the accounting software against the given transactionId
+        /// The *Upload attachment* endpoint uploads an attachment in the accounting software against the given transactionId. <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. <br/>
+        /// <br/>
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Each accounting software supports different file formats and sizes.<br/>
+        /// <br/>
+        /// | Integration | File Size | File Extension                                                                                                      |  <br/>
+        /// |-------------|-------------|--------------------------------------------------------------------------------------------------------------|<br/>
+        /// | Xero | 4MB  | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF, ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP |<br/>
+        /// | QuickBooks Online | 100MB | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML  |<br/>
+        /// | NetSuite | 100MB | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |<br/>
+        /// | Dynamics 365 Business Central | 350 MB | Dynamics do not explicitly outline which file types are supported but they do state &lt;a className=&quot;external&quot; href=&quot;https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; that &quot;You can attach any type of file, such as text, image, or video files&quot;. |
         /// </remarks>
         /// </summary>
         Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null);
@@ -56,37 +90,32 @@ namespace CodatSyncExpenses
     /// <summary>
     /// Create expense datasets and upload receipts.
     /// </summary>
-    public class ExpensesSDK: IExpensesSDK
+    public class Expenses: IExpenses
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.2.0";
-        private const string _sdkGenVersion = "2.159.2";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.214.3";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.2.0 2.159.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.214.3 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public ExpensesSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Expenses(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/data/expense-transactions", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -118,7 +147,7 @@ namespace CodatSyncExpenses
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -133,14 +162,9 @@ namespace CodatSyncExpenses
 
         public async Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
@@ -172,7 +196,7 @@ namespace CodatSyncExpenses
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
@@ -187,18 +211,13 @@ namespace CodatSyncExpenses
 
         public async Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "multipart");
+            var serializedBody = RequestBodySerializer.Serialize(request, "AttachmentUpload", "multipart");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -226,7 +245,7 @@ namespace CodatSyncExpenses
                 
                 return response;
             }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 429))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

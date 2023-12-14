@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Operations
+namespace Codat.Sync.Expenses.Models.Operations
 {
-    using CodatSyncExpenses.Models.Shared;
-    using CodatSyncExpenses.Utils;
+    using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     
     public class RefreshDataTypeRequest
     {
@@ -32,6 +32,6 @@ namespace CodatSyncExpenses.Models.Operations
         /// The key of a Codat data type
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public DataType DataType { get; set; } = default!;
+        public SchemaDataType DataType { get; set; } = default!;
     }
 }

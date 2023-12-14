@@ -1,6 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodatSyncExpenses", "CodatSyncExpenses\CodatSyncExpenses.csproj", "{F0CE92B5-F3CC-45A2-AA83-118C38724EB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codat.Sync.Expenses", "CodatSyncExpenses\CodatSyncExpenses.csproj", "{F0CE92B5-F3CC-45A2-AA83-118C38724EB1}"
 EndProject
 
 Global

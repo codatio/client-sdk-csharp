@@ -1,4 +1,4 @@
-# AccountsSDK
+# Accounts
 (*Accounts*)
 
 ## Overview
@@ -26,49 +26,47 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
-    Account = new Account() {
+CreateAccountRequest req = new CreateAccountRequest() {
+    AccountPrototype = new AccountPrototype() {
         Currency = "USD",
         CurrentBalance = 0M,
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
         FullyQualifiedName = "Cash On Hand",
-        Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        Metadata = new AccountMetadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
         Name = "Accounts Receivable",
         NominalCode = "610",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncExpenses.Models.Shared.AccountStatus.Active,
+        Status = AccountStatus.Active,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
+                { "key", new Dictionary<string, object>() {
+                    { "key", "string" },
                 } },
             },
         },
-        Type = CodatSyncExpenses.Models.Shared.AccountType.Asset,
-        ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
-            new AccountValidDataTypeLinks() {
+        Type = AccountType.Asset,
+        ValidDatatypeLinks = new List<ValidDataTypeLinks>() {
+            new ValidDataTypeLinks() {
                 Links = new List<string>() {
-                    "abnormally",
+                    "string",
                 },
             },
         },
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Accounts.CreateAsync(req);
 
 // handle response
 ```
@@ -77,12 +75,12 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [CreateAccountRequest](../../models/operations/CreateAccountRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [CreateAccountRequest](../../Models/Operations/CreateAccountRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response
 
-**[Models.Operations.CreateAccountResponse](../../models/operations/CreateAccountResponse.md)**
+**[Models.Operations.CreateAccountResponse](../../Models/Operations/CreateAccountResponse.md)**
 
 
 ## GetCreateModel
@@ -101,20 +99,21 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ### Example Usage
 
 ```csharp
-using CodatSyncExpenses;
-using CodatSyncExpenses.Models.Shared;
-using CodatSyncExpenses.Models.Operations;
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpensesSDK(
+var sdk = new CodatSyncExpenses(
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.GetCreateModelAsync(new GetCreateChartOfAccountsModelRequest() {
+GetCreateChartOfAccountsModelRequest req = new GetCreateChartOfAccountsModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+};
+
+var res = await sdk.Accounts.GetCreateModelAsync(req);
 
 // handle response
 ```
@@ -123,10 +122,10 @@ var res = await sdk.Accounts.GetCreateModelAsync(new GetCreateChartOfAccountsMod
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [GetCreateChartOfAccountsModelRequest](../../models/operations/GetCreateChartOfAccountsModelRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| `request`                                                                                               | [GetCreateChartOfAccountsModelRequest](../../Models/Operations/GetCreateChartOfAccountsModelRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 
 ### Response
 
-**[GetCreateChartOfAccountsModelResponse](../../models/operations/GetCreateChartOfAccountsModelResponse.md)**
+**[GetCreateChartOfAccountsModelResponse](../../Models/Operations/GetCreateChartOfAccountsModelResponse.md)**
 

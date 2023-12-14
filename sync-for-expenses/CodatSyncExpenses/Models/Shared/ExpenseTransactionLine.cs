@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -18,6 +18,12 @@ namespace CodatSyncExpenses.Models.Shared
 
         [JsonProperty("accountRef")]
         public RecordRef AccountRef { get; set; } = default!;
+
+        /// <summary>
+        /// Unique identifier of the customer the expense is billable to. The invoiceTo object is currently only supported for QBO.
+        /// </summary>
+        [JsonProperty("invoiceTo")]
+        public InvoiceTo? InvoiceTo { get; set; }
 
         /// <summary>
         /// Amount of the line, exclusive of tax.
@@ -35,6 +41,6 @@ namespace CodatSyncExpenses.Models.Shared
         public RecordRef? TaxRateRef { get; set; }
 
         [JsonProperty("trackingRefs")]
-        public List<RecordRef>? TrackingRefs { get; set; }
+        public List<TrackingRef>? TrackingRefs { get; set; }
     }
 }

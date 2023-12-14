@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Operations
+namespace Codat.Sync.Expenses.Models.Operations
 {
-    using CodatSyncExpenses.Models.Shared;
+    using Codat.Sync.Expenses.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -23,7 +23,7 @@ namespace CodatSyncExpenses.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// If model is incorrect
+        /// The request made is not valid.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 
@@ -35,7 +35,7 @@ namespace CodatSyncExpenses.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
 
         /// <summary>
         /// Returns the newly created SyncId

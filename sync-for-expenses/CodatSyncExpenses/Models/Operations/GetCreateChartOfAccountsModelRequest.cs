@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Operations
+namespace Codat.Sync.Expenses.Models.Operations
 {
-    using CodatSyncExpenses.Utils;
+    using Codat.Sync.Expenses.Utils;
     
     public class GetCreateChartOfAccountsModelRequest
     {

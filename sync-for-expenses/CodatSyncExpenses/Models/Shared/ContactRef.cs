@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Shared
+namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -25,6 +25,6 @@ namespace CodatSyncExpenses.Models.Shared
         /// The type of contact.
         /// </summary>
         [JsonProperty("type")]
-        public ContactRefType? Type { get; set; }
+        public Type? Type { get; set; }
     }
 }

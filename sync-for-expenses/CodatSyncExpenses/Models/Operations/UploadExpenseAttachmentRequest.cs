@@ -8,15 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncExpenses.Models.Operations
+namespace Codat.Sync.Expenses.Models.Operations
 {
-    using CodatSyncExpenses.Utils;
+    using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     
     public class UploadExpenseAttachmentRequest
     {
 
-        [SpeakeasyMetadata("multipartForm:file request:mediaType=multipart/form-data")]
-        public UploadExpenseAttachmentRequestBody? RequestBody { get; set; }
+        [SpeakeasyMetadata("request:mediaType=multipart/form-data")]
+        public AttachmentUpload? AttachmentUpload { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

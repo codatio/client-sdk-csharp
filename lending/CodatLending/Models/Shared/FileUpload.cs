@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Lending.Models.Operations
+namespace Codat.Lending.Models.Shared
 {
     using Codat.Lending.Utils;
     
-    public class UploadFilesRequestBody
+    public class FileUpload
     {
 
-        [SpeakeasyMetadata("multipartForm:content")]
-        public byte[] Content { get; set; } = default!;
-
-        [SpeakeasyMetadata("multipartForm:name=fileName")]
-        public string FileName { get; set; } = default!;
+        /// <summary>
+        /// The file to be uploaded as an attachment.
+        /// </summary>
+        [SpeakeasyMetadata("multipartForm:file")]
+        public CodatFile File { get; set; } = default!;
     }
 }

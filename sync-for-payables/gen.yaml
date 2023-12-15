@@ -11,6 +11,7 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
+  singleTagPerOp: false
 features:
   csharp:
     core: 3.2.0

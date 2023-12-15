@@ -1,4 +1,4 @@
-# PushDataSDK
+# PushData
 (*PushData*)
 
 ## Overview
@@ -27,21 +27,22 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
-        AuthHeader = "",
-    }
-);
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
 
-var res = await sdk.PushData.GetModelOptionsAsync(new GetCreateUpdateModelOptionsByDataTypeRequest() {
+GetCreateUpdateModelOptionsByDataTypeRequest req = new GetCreateUpdateModelOptionsByDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DataType = CodatPlatform.Models.Shared.DataType.Invoices,
-});
+    DataType = SchemaDataType.Invoices,
+};
+
+var res = await sdk.PushData.GetModelOptionsAsync(req);
 
 // handle response
 ```
@@ -50,12 +51,12 @@ var res = await sdk.PushData.GetModelOptionsAsync(new GetCreateUpdateModelOption
 
 | Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [GetCreateUpdateModelOptionsByDataTypeRequest](../../models/operations/GetCreateUpdateModelOptionsByDataTypeRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| `request`                                                                                                               | [GetCreateUpdateModelOptionsByDataTypeRequest](../../Models/Operations/GetCreateUpdateModelOptionsByDataTypeRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
 
 ### Response
 
-**[GetCreateUpdateModelOptionsByDataTypeResponse](../../models/operations/GetCreateUpdateModelOptionsByDataTypeResponse.md)**
+**[GetCreateUpdateModelOptionsByDataTypeResponse](../../Models/Operations/GetCreateUpdateModelOptionsByDataTypeResponse.md)**
 
 
 ## GetOperation
@@ -65,20 +66,21 @@ Retrieve push operation.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
-        AuthHeader = "",
-    }
-);
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
 
-var res = await sdk.PushData.GetOperationAsync(new GetPushOperationRequest() {
+GetPushOperationRequest req = new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     PushOperationKey = "59acd79e-29d3-4138-91d3-91d4641bf7ed",
-});
+};
+
+var res = await sdk.PushData.GetOperationAsync(req);
 
 // handle response
 ```
@@ -87,12 +89,12 @@ var res = await sdk.PushData.GetOperationAsync(new GetPushOperationRequest() {
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPushOperationRequest](../../models/operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [GetPushOperationRequest](../../Models/Operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 
 ### Response
 
-**[GetPushOperationResponse](../../models/operations/GetPushOperationResponse.md)**
+**[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
 
 
 ## ListOperations
@@ -102,22 +104,23 @@ List push operation records.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
-        AuthHeader = "",
-    }
-);
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
 
-var res = await sdk.PushData.ListOperationsAsync(new GetCompanyPushHistoryRequest() {
+GetCompanyPushHistoryRequest req = new GetCompanyPushHistoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.PushData.ListOperationsAsync(req);
 
 // handle response
 ```
@@ -126,10 +129,10 @@ var res = await sdk.PushData.ListOperationsAsync(new GetCompanyPushHistoryReques
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetCompanyPushHistoryRequest](../../models/operations/GetCompanyPushHistoryRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| `request`                                                                               | [GetCompanyPushHistoryRequest](../../Models/Operations/GetCompanyPushHistoryRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
 
 ### Response
 
-**[GetCompanyPushHistoryResponse](../../models/operations/GetCompanyPushHistoryResponse.md)**
+**[GetCompanyPushHistoryResponse](../../Models/Operations/GetCompanyPushHistoryResponse.md)**
 

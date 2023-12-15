@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Datetime in UTC the API key was created. The created date will be null if the API key created before YYYY-MM-DD.
+    /// Details of the API key.
     /// </summary>
     public class ApiKeyDetails
     {

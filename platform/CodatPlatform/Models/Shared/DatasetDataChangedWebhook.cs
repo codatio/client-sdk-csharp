@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -43,7 +43,7 @@ namespace CodatPlatform.Models.Shared
         public string? CompanyId { get; set; }
 
         [JsonProperty("Data")]
-        public DatasetDataChangedWebhookDatasetDataChangedWebhookData? Data { get; set; }
+        public DatasetDataChangedWebhookData? Data { get; set; }
 
         /// <summary>
         /// Unique identifier for a company&apos;s data connection.

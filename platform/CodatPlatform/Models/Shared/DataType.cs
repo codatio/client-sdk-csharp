@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
     using System;
@@ -48,6 +48,8 @@ namespace CodatPlatform.Models.Shared
         DirectIncomes,
         [JsonProperty("invoices")]
         Invoices,
+        [JsonProperty("itemReceipts")]
+        ItemReceipts,
         [JsonProperty("items")]
         Items,
         [JsonProperty("journalEntries")]

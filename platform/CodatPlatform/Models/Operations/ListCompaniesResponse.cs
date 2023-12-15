@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Operations
+namespace Codat.Platform.Models.Operations
 {
-    using CodatPlatform.Models.Shared;
+    using Codat.Platform.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -20,7 +20,7 @@ namespace CodatPlatform.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public Companies? Companies { get; set; }
+        public Models.Shared.Companies? Companies { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation
@@ -40,6 +40,6 @@ namespace CodatPlatform.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

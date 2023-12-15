@@ -1,4 +1,4 @@
-# WebhooksSDK
+# Webhooks
 (*Webhooks*)
 
 ## Overview
@@ -18,39 +18,27 @@ Create a new webhook configuration
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
-        AuthHeader = "",
-    }
-);
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
 
-var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
+CreateRule req = new CreateRule() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Notifiers = new WebhookNotifier() {
         Emails = new List<string>() {
-            "i",
-            "n",
-            "f",
-            "o",
-            "@",
-            "c",
-            "l",
-            "i",
-            "e",
-            "n",
-            "t",
-            ".",
-            "c",
-            "o",
-            "m",
+            "info@client.com",
         },
         Webhook = "https://webhook.client.com",
     },
-    Type = "bluetooth Extended",
-});
+    Type = "string",
+};
+
+var res = await sdk.Webhooks.CreateAsync(req);
 
 // handle response
 ```
@@ -59,12 +47,12 @@ var res = await sdk.Webhooks.CreateAsync(new CreateRule() {
 
 | Parameter                                       | Type                                            | Required                                        | Description                                     |
 | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| `request`                                       | [CreateRule](../../models/shared/CreateRule.md) | :heavy_check_mark:                              | The request object to use for the request.      |
+| `request`                                       | [CreateRule](../../Models/Shared/CreateRule.md) | :heavy_check_mark:                              | The request object to use for the request.      |
 
 
 ### Response
 
-**[CreateRuleResponse](../../models/operations/CreateRuleResponse.md)**
+**[CreateRuleResponse](../../Models/Operations/CreateRuleResponse.md)**
 
 
 ## Get
@@ -74,19 +62,20 @@ Get a single webhook
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
-        AuthHeader = "",
-    }
-);
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
 
-var res = await sdk.Webhooks.GetAsync(new GetWebhookRequest() {
+GetWebhookRequest req = new GetWebhookRequest() {
     RuleId = "7318949f-c008-4936-a8ff-10d7ab563fa6",
-});
+};
+
+var res = await sdk.Webhooks.GetAsync(req);
 
 // handle response
 ```
@@ -95,12 +84,12 @@ var res = await sdk.Webhooks.GetAsync(new GetWebhookRequest() {
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [GetWebhookRequest](../../models/operations/GetWebhookRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| `request`                                                         | [GetWebhookRequest](../../Models/Operations/GetWebhookRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
 
-**[GetWebhookResponse](../../models/operations/GetWebhookResponse.md)**
+**[GetWebhookResponse](../../Models/Operations/GetWebhookResponse.md)**
 
 
 ## List
@@ -110,21 +99,22 @@ List webhooks that you are subscribed to.
 ### Example Usage
 
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
-using CodatPlatform.Models.Operations;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
-        AuthHeader = "",
-    }
-);
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
 
-var res = await sdk.Webhooks.ListAsync(new ListRulesRequest() {
+ListRulesRequest req = new ListRulesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
-});
+};
+
+var res = await sdk.Webhooks.ListAsync(req);
 
 // handle response
 ```
@@ -133,10 +123,10 @@ var res = await sdk.Webhooks.ListAsync(new ListRulesRequest() {
 
 | Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `request`                                                       | [ListRulesRequest](../../models/operations/ListRulesRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
+| `request`                                                       | [ListRulesRequest](../../Models/Operations/ListRulesRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 
 ### Response
 
-**[ListRulesResponse](../../models/operations/ListRulesResponse.md)**
+**[ListRulesResponse](../../Models/Operations/ListRulesResponse.md)**
 

@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Operations
+namespace Codat.Platform.Models.Operations
 {
-    using CodatPlatform.Utils;
+    using Codat.Platform.Utils;
     using System.Collections.Generic;
     
     public class UpdateConnectionAuthorizationRequest

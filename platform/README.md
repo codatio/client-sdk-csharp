@@ -4,7 +4,7 @@
 Manage the building blocks of Codat, including companies, connections, and more.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Nuget
@@ -12,32 +12,45 @@ Manage the building blocks of Codat, including companies, connections, and more.
 ```bash
 dotnet add package Codat.Platform
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
+### Example
+
 ```csharp
-using CodatPlatform;
-using CodatPlatform.Models.Shared;
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatformSDK(
+var sdk = new CodatPlatform(
     security: new Security() {
-        AuthHeader = "",
-    }
-);
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
 
-var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Name = "Bank of Dave",
-});
+CreateApiKey req = new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+### [Settings](docs/sdks/settings/README.md)
+
+* [CreateApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
+* [DeleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
+* [GetProfile](docs/sdks/settings/README.md#getprofile) - Get profile
+* [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
+* [ListApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
+* [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
+* [UpdateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 
 ### [Companies](docs/sdks/companies/README.md)
 
@@ -56,11 +69,12 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
-### [Integrations](docs/sdks/integrations/README.md)
+### [CustomDataType](docs/sdks/customdatatype/README.md)
 
-* [Get](docs/sdks/integrations/README.md#get) - Get integration
-* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
-* [List](docs/sdks/integrations/README.md#list) - List integrations
+* [Configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
+* [GetConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
+* [List](docs/sdks/customdatatype/README.md#list) - List custom data type records
+* [Refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
 
 ### [PushData](docs/sdks/pushdata/README.md)
 
@@ -76,15 +90,11 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 * [GetPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
 * [ListPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 
-### [Settings](docs/sdks/settings/README.md)
+### [Integrations](docs/sdks/integrations/README.md)
 
-* [CreateApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
-* [DeleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
-* [~~GetProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
-* [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
-* [ListApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
-* [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
-* [UpdateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
+* [Get](docs/sdks/integrations/README.md#get) - Get integration
+* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
+* [List](docs/sdks/integrations/README.md#list) - List integrations
 
 ### [SupplementalData](docs/sdks/supplementaldata/README.md)
 
@@ -96,11 +106,28 @@ var res = await sdk.Companies.CreateAsync(new CompanyRequestBody() {
 * [Create](docs/sdks/webhooks/README.md#create) - Create webhook
 * [Get](docs/sdks/webhooks/README.md#get) - Get webhook
 * [List](docs/sdks/webhooks/README.md#list) - List webhooks
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
+<!-- Start Server Selection [server] -->
+## Server Selection
 
-<!-- End Dev Containers -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

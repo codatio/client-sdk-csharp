@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Shared
+namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Create an event notification to a URL or list of email addresses based on the given type or condition.
+    /// Configuration to provide an event notification to a URL or list of email addresses based on the given type or condition.
     /// </summary>
     public class Webhook
     {

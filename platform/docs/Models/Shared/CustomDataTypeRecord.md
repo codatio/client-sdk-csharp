@@ -1,0 +1,10 @@
+# CustomDataTypeRecord
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `Content`                                                                                       | Dictionary<String, [Content](../../Models/Shared/Content.md)>                                   | :heavy_minus_sign:                                                                              | Values from the source system for the properties defined in the custom data type configuration. |
+| `Id`                                                                                            | *string*                                                                                        | :heavy_minus_sign:                                                                              | Unique identifier of the record.                                                                |
+| `ModifiedDate`                                                                                  | [ModifiedDate](../../Models/Shared/ModifiedDate.md)                                             | :heavy_minus_sign:                                                                              | N/A                                                                                             |

@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatPlatform.Models.Operations
+namespace Codat.Platform.Models.Operations
 {
-    using CodatPlatform.Models.Shared;
+    using Codat.Platform.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -23,7 +23,7 @@ namespace CodatPlatform.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Your API request was not properly authorized.
+        /// Too many requests were made in a given amount of time. Wait a short period and then try again.
         /// </summary>
         public ErrorMessage? ErrorMessage { get; set; }
 
@@ -35,6 +35,6 @@ namespace CodatPlatform.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

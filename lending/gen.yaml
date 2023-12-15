@@ -24,7 +24,8 @@ features:
 csharp:
   version: 5.2.0
   author: Codat
-  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
+  description: Make credit decisions backed by enhanced financials, metrics, reports,
+    and data integrity features.
   dotnetVersion: net6.0
   imports:
     option: openapi

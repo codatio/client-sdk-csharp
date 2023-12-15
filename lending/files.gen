@@ -276,7 +276,6 @@ CodatLending/Models/Operations/DownloadFilesRequest.cs
 CodatLending/Models/Operations/DownloadFilesResponse.cs
 CodatLending/Models/Operations/ListFilesRequest.cs
 CodatLending/Models/Operations/ListFilesResponse.cs
-CodatLending/Models/Operations/UploadFilesRequestBody.cs
 CodatLending/Models/Operations/UploadFilesRequest.cs
 CodatLending/Models/Operations/UploadFilesResponse.cs
 CodatLending/Models/Operations/CreateBankAccountRequest.cs
@@ -561,6 +560,8 @@ CodatLending/Models/Shared/AgedOutstandingAmountDetail.cs
 CodatLending/Models/Shared/AccountingAgedDebtorReport.cs
 CodatLending/Models/Shared/AgedDebtor.cs
 CodatLending/Models/Shared/File.cs
+CodatLending/Models/Shared/FileUpload.cs
+CodatLending/Models/Shared/CodatFile.cs
 CodatLending/Models/Shared/AccountingCreateBankAccountResponse.cs
 CodatLending/Models/Shared/Validation.cs
 CodatLending/Models/Shared/ValidationItem.cs
@@ -854,7 +855,6 @@ docs/Models/Operations/DownloadFilesRequest.md
 docs/Models/Operations/DownloadFilesResponse.md
 docs/Models/Operations/ListFilesRequest.md
 docs/Models/Operations/ListFilesResponse.md
-docs/Models/Operations/UploadFilesRequestBody.md
 docs/Models/Operations/UploadFilesRequest.md
 docs/Models/Operations/UploadFilesResponse.md
 docs/Models/Operations/CreateBankAccountRequest.md
@@ -1139,6 +1139,8 @@ docs/Models/Shared/AgedOutstandingAmountDetail.md
 docs/Models/Shared/AccountingAgedDebtorReport.md
 docs/Models/Shared/AgedDebtor.md
 docs/Models/Shared/File.md
+docs/Models/Shared/FileUpload.md
+docs/Models/Shared/CodatFile.md
 docs/Models/Shared/AccountingCreateBankAccountResponse.md
 docs/Models/Shared/Validation.md
 docs/Models/Shared/ValidationItem.md

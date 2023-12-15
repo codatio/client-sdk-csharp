@@ -10,13 +10,14 @@
 #nullable enable
 namespace Codat.Lending.Models.Operations
 {
+    using Codat.Lending.Models.Shared;
     using Codat.Lending.Utils;
     
     public class UploadFilesRequest
     {
 
-        [SpeakeasyMetadata("multipartForm:file request:mediaType=multipart/form-data")]
-        public UploadFilesRequestBody? RequestBody { get; set; }
+        [SpeakeasyMetadata("request:mediaType=multipart/form-data")]
+        public Models.Shared.FileUpload? FileUpload { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

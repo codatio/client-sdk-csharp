@@ -67,10 +67,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.1.0";
+        private const string _sdkVersion = "5.2.0";
         private const string _sdkGenVersion = "2.214.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.1.0 2.214.3 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.214.3 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -180,7 +180,7 @@ namespace Codat.Lending
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "multipart");
+            var serializedBody = RequestBodySerializer.Serialize(request, "FileUpload", "multipart");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;

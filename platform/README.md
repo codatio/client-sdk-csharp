@@ -90,6 +90,13 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 * [GetPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
 * [ListPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 
+### [Groups](docs/sdks/groups/README.md)
+
+* [AddCompany](docs/sdks/groups/README.md#addcompany) - Add company
+* [CreateGroup](docs/sdks/groups/README.md#creategroup) - Create group
+* [List](docs/sdks/groups/README.md#list) - List groups
+* [RemoveCompany](docs/sdks/groups/README.md#removecompany) - Remove company
+
 ### [Integrations](docs/sdks/integrations/README.md)
 
 * [Get](docs/sdks/integrations/README.md#get) - Get integration

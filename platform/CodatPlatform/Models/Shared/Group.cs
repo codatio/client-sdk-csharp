@@ -11,27 +11,23 @@
 namespace Codat.Platform.Models.Shared
 {
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     
-    public class CompanyRequestBody
+    /// <summary>
+    /// A container you can use to organize companies together according to a shared characteristic of your choice.
+    /// </summary>
+    public class Group
     {
 
         /// <summary>
-        /// Additional information about the company. This can be used to store foreign IDs, references, etc.
+        /// Unique identifier for the group.
         /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
 
         /// <summary>
-        /// Reference to the groups that the company is assigned to.
-        /// </summary>
-        [JsonProperty("groups")]
-        public List<GroupRef>? Groups { get; set; }
-
-        /// <summary>
-        /// Name of company being connected.
+        /// Descriptive name of the group.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
     }
 }

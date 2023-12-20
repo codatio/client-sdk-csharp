@@ -20,66 +20,65 @@ namespace Codat.Platform
     using System;
 
     /// <summary>
-    /// View and configure custom data types for supported integrations.
+    /// Create groups and link them to your Codat companies.
     /// </summary>
-    public interface ICustomDataType
+    public interface IGroups
     {
 
         /// <summary>
-        /// Configure custom data type
+        /// Add company
         /// 
         /// <remarks>
-        /// The *Configure custom data type* endpoint allows you to maintain or change the configuration required to return a custom data type for a specific integration. <br/>
+        /// Use the *Add company* endpoint to assign a company to a group. A company can belong to multiple groups, but can only be added to one group at a time.<br/>
         /// <br/>
-        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/Group">Groups</a> define a set of companies that are organized based on a chosen characteristic and can be managed in the same way.
+        /// </remarks>
+        /// </summary>
+        Task<AddCompanyToGroupResponse> AddCompanyAsync(AddCompanyToGroupRequest? request = null);
+
+        /// <summary>
+        /// Create group
+        /// 
+        /// <remarks>
+        /// Use the *Create group* endpoint to generate a new group that you can assign your companies to.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/Group">Groups</a> define a set of companies that are organized based on a chosen characteristic and can be managed in the same way.<br/>
         /// <br/>
         /// ### Tips and traps<br/>
         /// <br/>
-        /// - You can only configure a single custom data type for a single platform at a time. Use the endpoint multiple times if you need to configure it for multiple platforms. <br/>
-        /// <br/>
-        /// - You can only indicate a single data source for each customer data type. <br/>
-        /// <br/>
-        /// - Make your custom configuration as similar as possible to our standard data types so you can interact with them in exactly the same way.
+        /// * The maximum length for the group name is 50 characters.<br/>
+        /// * It&apos;s possible to create up to 20 groups per client.
         /// </remarks>
         /// </summary>
-        Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest? request = null);
+        Task<CreateGroupResponse> CreateAsync(GroupPrototype? request = null);
 
         /// <summary>
-        /// Get custom data configuration
+        /// List groups
         /// 
         /// <remarks>
-        /// The *Get custom data configuration* endpoint returns existing configuration details for the specified custom data type and integration pair you previously configured.<br/>
+        /// Use the *List group* endpoint to return a list of all groups that currently exist for your client.<br/>
         /// <br/>
-        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.
+        /// <a href="https://docs.codat.io/platform-api#/schemas/Group">Groups</a> define a set of companies that are organized based on a chosen characteristic and can be managed in the same way.
         /// </remarks>
         /// </summary>
-        Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest? request = null);
+        Task<ListGroupsResponse> ListAsync();
 
         /// <summary>
-        /// List custom data type records
+        /// Remove company
         /// 
         /// <remarks>
-        /// The *List custom data type records* endpoint returns a paginated list of records pulled for the specified custom data type you previously configured.<br/>
+        /// Use the *Remove company* endpoint to remove a company from a group.<br/>
         /// <br/>
-        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.s endpoint returns a paginated list of records whose schema is defined <a href="https://docs.codat.io/platform-api#/operations/configure-custom-data-type">Configure custom data type</a>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/Group">Groups</a> define a set of companies that are organized based on a chosen characteristic and can be managed in the same way.
         /// </remarks>
         /// </summary>
-        Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest? request = null);
-
-        /// <summary>
-        /// Refresh custom data type
-        /// 
-        /// <remarks>
-        /// The *Refresh custom data type* endpoint refreshes the specified custom data type for a given company. This is an asynchronous operation that will sync updated data from the linked integration into Codat for you to view.
-        /// </remarks>
-        /// </summary>
-        Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest? request = null);
+        Task<RemoveCompanyFromGroupResponse> RemoveCompanyAsync(RemoveCompanyFromGroupRequest? request = null);
     }
 
     /// <summary>
-    /// View and configure custom data types for supported integrations.
+    /// Create groups and link them to your Codat companies.
     /// </summary>
-    public class CustomDataType: ICustomDataType
+    public class Groups: IGroups
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
@@ -91,7 +90,7 @@ namespace Codat.Platform
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public CustomDataType(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Groups(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -100,15 +99,15 @@ namespace Codat.Platform
         }
         
 
-        public async Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest? request = null)
+        public async Task<AddCompanyToGroupResponse> AddCompanyAsync(AddCompanyToGroupRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/groups", request);
             
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "CustomDataTypeConfiguration", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "CompanyGroupAssignment", "json");
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -120,7 +119,7 @@ namespace Codat.Platform
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new ConfigureCustomDataTypeResponse
+            var response = new AddCompanyToGroupResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -131,7 +130,7 @@ namespace Codat.Platform
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CustomDataTypeConfiguration = JsonConvert.DeserializeObject<CustomDataTypeConfiguration>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Company = JsonConvert.DeserializeObject<Company>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -149,102 +148,19 @@ namespace Codat.Platform
         }
         
 
-        public async Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest? request = null)
+        public async Task<CreateGroupResponse> CreateAsync(GroupPrototype? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new GetCustomDataTypeConfigurationResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CustomDataTypeRecords = JsonConvert.DeserializeObject<CustomDataTypeRecords>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/custom/{customDataIdentifier}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new ListCustomDataTypeRecordsResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CustomDataTypeRecords = JsonConvert.DeserializeObject<CustomDataTypeRecords>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 451) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/queue/custom/{customDataIdentifier}", request);
+            var urlString = baseUrl + "/groups";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
+            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
             
             var client = _securityClient;
             
@@ -252,7 +168,7 @@ namespace Codat.Platform
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             
-            var response = new RefreshCustomDataTypeResponse
+            var response = new CreateGroupResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
@@ -263,12 +179,96 @@ namespace Codat.Platform
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.PullOperation = JsonConvert.DeserializeObject<PullOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Group = JsonConvert.DeserializeObject<Group>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
                 
                 return response;
             }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 451) || (response.StatusCode == 500) || (response.StatusCode == 503))
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        public async Task<ListGroupsResponse> ListAsync()
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = baseUrl + "/groups";
+            
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new ListGroupsResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.Groups = JsonConvert.DeserializeObject<Models.Shared.Groups>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+                
+                return response;
+            }
+            return response;
+        }
+        
+
+        public async Task<RemoveCompanyFromGroupResponse> RemoveCompanyAsync(RemoveCompanyFromGroupRequest? request = null)
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/groups/{groupId}", request);
+            
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+            
+            
+            var client = _securityClient;
+            
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            
+            var response = new RemoveCompanyFromGroupResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            
+            if((response.StatusCode == 204))
+            {
+                
+                return response;
+            }
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

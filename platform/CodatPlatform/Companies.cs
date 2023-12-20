@@ -29,11 +29,12 @@ namespace Codat.Platform
         /// Create company
         /// 
         /// <remarks>
-        /// Creates a new company that can be used to assign connections to. <br/>
+        /// Use the *Create company* endpoint to create a new <a href="https://docs.codat.io/platform-api#/schemas/Company">company</a> that represents your customer in Codat. <br/>
         /// <br/>
-        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.<br/>
+        /// A <a href="https://docs.codat.io/platform-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
         /// <br/>
-        /// 
+        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
         /// </remarks>
         /// </summary>
         Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null);
@@ -42,8 +43,11 @@ namespace Codat.Platform
         /// Delete a company
         /// 
         /// <remarks>
+        /// The *Delete company* endpoint permanently deletes a <a href="https://docs.codat.io/platform-api#/schemas/Company">company</a>, its <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> and any cached data. This operation is irreversible.<br/>
         /// <br/>
-        /// Permanently deletes a company, its connections and any cached data. This operation is irreversible. If the company ID does not exist an error is returned.
+        /// A <a href="https://docs.codat.io/platform-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// 
         /// </remarks>
         /// </summary>
         Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest? request = null);
@@ -52,7 +56,11 @@ namespace Codat.Platform
         /// Get company
         /// 
         /// <remarks>
-        /// Returns the company for a valid identifier. If the identifier is for a deleted company, a not found response is returned.
+        /// The *Get company* endpoint returns a single company for a given `companyId`.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/platform-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// 
         /// </remarks>
         /// </summary>
         Task<GetCompanyResponse> GetAsync(GetCompanyRequest? request = null);
@@ -61,7 +69,10 @@ namespace Codat.Platform
         /// List companies
         /// 
         /// <remarks>
-        /// Returns a list of your companies. The company schema contains a list of <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> related to the company.
+        /// The *List companies* endpoint returns a list of [companies] associated to your instances.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/platform-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
         /// </summary>
         Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null);
@@ -70,7 +81,11 @@ namespace Codat.Platform
         /// Update company
         /// 
         /// <remarks>
-        /// Updates both the name and description of the company.
+        /// Use the *Update company* endpoint to update both the name and description of the company. <br/>
+        /// If you use <a href="https://docs.codat.io/platform-api#/schemas/Group">groups</a> to manage a set of companies, use the <a href="https://docs.codat.io/platform-api#/operations/add-company-to-group">Add company</a> or <a href="https://docs.codat.io/platform-api#/operations/remove-company-from-group">Remove company</a> endpoints to add or remove a company from a group.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/platform-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/platform-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
         /// </summary>
         Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest? request = null);
@@ -83,10 +98,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.214.10";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.221.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.214.10 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.221.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

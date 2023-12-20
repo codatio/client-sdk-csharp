@@ -67,6 +67,11 @@ namespace Codat.Platform
         public IRefreshData RefreshData { get; }
 
         /// <summary>
+        /// Create groups and link them to your Codat companies.
+        /// </summary>
+        public IGroups Groups { get; }
+
+        /// <summary>
         /// View and manage your available integrations in Codat.
         /// </summary>
         public IIntegrations Integrations { get; }
@@ -120,10 +125,10 @@ namespace Codat.Platform
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.0.0";
-        private const string _sdkGenVersion = "2.214.10";
+        private const string _sdkVersion = "3.1.0";
+        private const string _sdkGenVersion = "2.221.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.0.0 2.214.10 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.221.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -133,6 +138,7 @@ namespace Codat.Platform
         public ICustomDataType CustomDataType { get; private set; }
         public IPushData PushData { get; private set; }
         public IRefreshData RefreshData { get; private set; }
+        public IGroups Groups { get; private set; }
         public IIntegrations Integrations { get; private set; }
         public ISupplementalData SupplementalData { get; private set; }
         public IWebhooks Webhooks { get; private set; }
@@ -165,6 +171,7 @@ namespace Codat.Platform
             CustomDataType = new CustomDataType(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             PushData = new PushData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             RefreshData = new RefreshData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Groups = new Groups(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             Integrations = new Integrations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             SupplementalData = new SupplementalData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             Webhooks = new Webhooks(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);

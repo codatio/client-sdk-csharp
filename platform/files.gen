@@ -4,6 +4,7 @@ CodatPlatform/Connections.cs
 CodatPlatform/CustomDataType.cs
 CodatPlatform/PushData.cs
 CodatPlatform/RefreshData.cs
+CodatPlatform/Groups.cs
 CodatPlatform/Integrations.cs
 CodatPlatform/SupplementalData.cs
 CodatPlatform/Webhooks.cs
@@ -77,6 +78,12 @@ CodatPlatform/Models/Operations/GetPullOperationRequest.cs
 CodatPlatform/Models/Operations/GetPullOperationResponse.cs
 CodatPlatform/Models/Operations/ListPullOperationsRequest.cs
 CodatPlatform/Models/Operations/ListPullOperationsResponse.cs
+CodatPlatform/Models/Operations/AddCompanyToGroupRequest.cs
+CodatPlatform/Models/Operations/AddCompanyToGroupResponse.cs
+CodatPlatform/Models/Operations/CreateGroupResponse.cs
+CodatPlatform/Models/Operations/ListGroupsResponse.cs
+CodatPlatform/Models/Operations/RemoveCompanyFromGroupRequest.cs
+CodatPlatform/Models/Operations/RemoveCompanyFromGroupResponse.cs
 CodatPlatform/Models/Operations/GetIntegrationRequest.cs
 CodatPlatform/Models/Operations/GetIntegrationResponse.cs
 CodatPlatform/Models/Operations/GetIntegrationsBrandingRequest.cs
@@ -103,6 +110,7 @@ CodatPlatform/Models/Shared/SyncSetting.cs
 CodatPlatform/Models/Shared/DataType.cs
 CodatPlatform/Models/Shared/ApiKeys.cs
 CodatPlatform/Models/Shared/Company.cs
+CodatPlatform/Models/Shared/GroupRef.cs
 CodatPlatform/Models/Shared/Connection.cs
 CodatPlatform/Models/Shared/DataConnectionStatus.cs
 CodatPlatform/Models/Shared/SourceType.cs
@@ -138,6 +146,10 @@ CodatPlatform/Models/Shared/PushOperations.cs
 CodatPlatform/Models/Shared/DataTypes.cs
 CodatPlatform/Models/Shared/DataStatus.cs
 CodatPlatform/Models/Shared/PullOperations.cs
+CodatPlatform/Models/Shared/CompanyGroupAssignment.cs
+CodatPlatform/Models/Shared/Group.cs
+CodatPlatform/Models/Shared/GroupPrototype.cs
+CodatPlatform/Models/Shared/Groups.cs
 CodatPlatform/Models/Shared/Integration.cs
 CodatPlatform/Models/Shared/DataTypeFeature.cs
 CodatPlatform/Models/Shared/SupportedFeature.cs
@@ -238,6 +250,12 @@ docs/Models/Operations/GetPullOperationRequest.md
 docs/Models/Operations/GetPullOperationResponse.md
 docs/Models/Operations/ListPullOperationsRequest.md
 docs/Models/Operations/ListPullOperationsResponse.md
+docs/Models/Operations/AddCompanyToGroupRequest.md
+docs/Models/Operations/AddCompanyToGroupResponse.md
+docs/Models/Operations/CreateGroupResponse.md
+docs/Models/Operations/ListGroupsResponse.md
+docs/Models/Operations/RemoveCompanyFromGroupRequest.md
+docs/Models/Operations/RemoveCompanyFromGroupResponse.md
 docs/Models/Operations/GetIntegrationRequest.md
 docs/Models/Operations/GetIntegrationResponse.md
 docs/Models/Operations/GetIntegrationsBrandingRequest.md
@@ -264,6 +282,7 @@ docs/Models/Shared/SyncSetting.md
 docs/Models/Shared/DataType.md
 docs/Models/Shared/ApiKeys.md
 docs/Models/Shared/Company.md
+docs/Models/Shared/GroupRef.md
 docs/Models/Shared/Connection.md
 docs/Models/Shared/DataConnectionStatus.md
 docs/Models/Shared/SourceType.md
@@ -299,6 +318,10 @@ docs/Models/Shared/PushOperations.md
 docs/Models/Shared/DataTypes.md
 docs/Models/Shared/DataStatus.md
 docs/Models/Shared/PullOperations.md
+docs/Models/Shared/CompanyGroupAssignment.md
+docs/Models/Shared/Group.md
+docs/Models/Shared/GroupPrototype.md
+docs/Models/Shared/Groups.md
 docs/Models/Shared/Integration.md
 docs/Models/Shared/DataTypeFeature.md
 docs/Models/Shared/SupportedFeature.md
@@ -351,6 +374,7 @@ docs/sdks/connections/README.md
 docs/sdks/customdatatype/README.md
 docs/sdks/pushdata/README.md
 docs/sdks/refreshdata/README.md
+docs/sdks/groups/README.md
 docs/sdks/integrations/README.md
 docs/sdks/supplementaldata/README.md
 docs/sdks/webhooks/README.md

@@ -70,6 +70,12 @@ namespace Codat.Platform.Models.Shared
         public string? Description { get; set; }
 
         /// <summary>
+        /// An array of groups the company has been assigned to.
+        /// </summary>
+        [JsonProperty("groups")]
+        public List<GroupRef>? Groups { get; set; }
+
+        /// <summary>
         /// Unique identifier for your SMB in Codat.
         /// </summary>
         [JsonProperty("id")]

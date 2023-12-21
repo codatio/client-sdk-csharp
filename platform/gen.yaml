@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: effa1c8743eab2438636b1d71f8dad26
+  docChecksum: 3379fc07db559975ff4cd7f90f6d1910
   docVersion: 3.0.0
-  speakeasyVersion: 1.128.0
-  generationVersion: 2.221.0
+  speakeasyVersion: 1.128.1
+  generationVersion: 2.223.0
 generation:
   comments: {}
   sdkClassName: Codat.Platform
@@ -23,10 +23,9 @@ features:
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
 csharp:
-  version: 3.1.0
+  version: 3.2.0
   author: Codat
-  description: Manage the building blocks of Codat, including companies, connections,
-    and more.
+  description: Manage the building blocks of Codat, including companies, connections, and more.
   dotnetVersion: net6.0
   imports:
     option: openapi

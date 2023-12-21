@@ -24,6 +24,8 @@ namespace Codat.Platform.Models.Shared
         Banking,
         [JsonProperty("Commerce")]
         Commerce,
+        [JsonProperty("BankFeed")]
+        BankFeed,
         [JsonProperty("Other")]
         Other,
         [JsonProperty("Unknown")]

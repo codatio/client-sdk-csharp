@@ -22,10 +22,12 @@ namespace Codat.Platform.Models.Shared
         Accounting,
         [JsonProperty("Banking")]
         Banking,
-        [JsonProperty("Commerce")]
-        Commerce,
         [JsonProperty("BankFeed")]
         BankFeed,
+        [JsonProperty("Commerce")]
+        Commerce,
+        [JsonProperty("Expense")]
+        Expense,
         [JsonProperty("Other")]
         Other,
         [JsonProperty("Unknown")]

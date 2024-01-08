@@ -2,6 +2,7 @@
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(
     security: new Security() {
@@ -10,6 +11,11 @@ var sdk = new CodatBankFeeds(
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 

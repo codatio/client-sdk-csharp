@@ -11,6 +11,7 @@
 namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Shared;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -28,11 +29,6 @@ namespace Codat.BankFeeds.Models.Operations
         public ErrorMessage? ErrorMessage { get; set; }
 
         /// <summary>
-        /// Success
-        /// </summary>
-        public SourceAccount? SourceAccount { get; set; }
-
-        /// <summary>
         /// HTTP response status code for this operation
         /// </summary>
         public int StatusCode { get; set; } = default!;
@@ -41,5 +37,10 @@ namespace Codat.BankFeeds.Models.Operations
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        public List<SourceAccount>? SourceAccounts { get; set; }
     }
 }

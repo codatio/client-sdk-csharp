@@ -22,8 +22,12 @@ namespace Codat.BankFeeds.Models.Shared
         Accounting,
         [JsonProperty("Banking")]
         Banking,
+        [JsonProperty("BankFeed")]
+        BankFeed,
         [JsonProperty("Commerce")]
         Commerce,
+        [JsonProperty("Expense")]
+        Expense,
         [JsonProperty("Other")]
         Other,
         [JsonProperty("Unknown")]
@@ -62,4 +66,5 @@ namespace Codat.BankFeeds.Models.Shared
             throw new Exception($"Unknown value {value} for enum SourceType");
         }
     }
+
 }

@@ -1,29 +1,15 @@
-configVersion: 1.0.0
-management:
-  docChecksum: a19e6e4f901ace72e0fa1bb907ccb71c
-  docVersion: 3.0.0
-  speakeasyVersion: 1.126.3
-  generationVersion: 2.214.3
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: Codat.BankFeeds
-  repoURL: https://github.com/codatio/client-sdk-csharp.git
   usageSnippets:
     optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
   telemetryEnabled: true
-features:
-  csharp:
-    core: 3.2.0
-    deprecations: 2.81.1
-    examples: 2.81.3
-    globalSecurity: 2.81.2
-    globalServerURLs: 2.82.2
-    nameOverrides: 2.81.1
 csharp:
-  version: 3.1.0
+  version: 4.0.0
   author: Codat
-  description: Set up bank feeds from accounts in your application to supported accounting
-    platforms.
+  description: Set up bank feeds from accounts in your application to supported accounting platforms.
   dotnetVersion: net6.0
   imports:
     option: openapi
@@ -37,5 +23,3 @@ csharp:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.BankFeeds
-  published: true
-  repoSubDirectory: bank-feeds

@@ -88,4 +88,5 @@ namespace Codat.BankFeeds.Models.Shared
             throw new Exception($"Unknown value {value} for enum BankTransactionType");
         }
     }
+
 }

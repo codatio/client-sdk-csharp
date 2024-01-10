@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: b095b0a347cf654b362ab0929e984eb2
+  docChecksum: 3a0b899f2dc3766b39e4fd3e931ebe0c
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.228.3
-  releaseVersion: 4.0.0
-  configChecksum: 4139839a7587bcd223818f58d67588d9
+  generationVersion: 2.230.3
+  releaseVersion: 4.0.1
+  configChecksum: 50a31dadee0c2f34640461ed64c36527
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
@@ -23,7 +23,9 @@ generatedFiles:
   - CodatBankFeeds/Connections.cs
   - CodatBankFeeds/AccountMapping.cs
   - CodatBankFeeds/SourceAccounts.cs
+  - CodatBankFeeds/BankAccounts.cs
   - CodatBankFeeds/Transactions.cs
+  - CodatBankFeeds/Configuration.cs
   - CodatBankFeeds/CodatBankFeeds.cs
   - CodatBankFeeds/Utils/BigIntSerializer.cs
   - CodatBankFeeds/Utils/DecimalSerializer.cs
@@ -76,12 +78,18 @@ generatedFiles:
   - CodatBankFeeds/Models/Operations/ListSourceAccountsResponse.cs
   - CodatBankFeeds/Models/Operations/UpdateSourceAccountRequest.cs
   - CodatBankFeeds/Models/Operations/UpdateSourceAccountResponse.cs
+  - CodatBankFeeds/Models/Operations/ListBankAccountsRequest.cs
+  - CodatBankFeeds/Models/Operations/ListBankAccountsResponse.cs
   - CodatBankFeeds/Models/Operations/CreateBankTransactionsRequest.cs
   - CodatBankFeeds/Models/Operations/CreateBankTransactionsResponse.cs
   - CodatBankFeeds/Models/Operations/GetCreateOperationRequest.cs
   - CodatBankFeeds/Models/Operations/GetCreateOperationResponse.cs
   - CodatBankFeeds/Models/Operations/ListCreateOperationsRequest.cs
   - CodatBankFeeds/Models/Operations/ListCreateOperationsResponse.cs
+  - CodatBankFeeds/Models/Operations/GetConfigurationRequest.cs
+  - CodatBankFeeds/Models/Operations/GetConfigurationResponse.cs
+  - CodatBankFeeds/Models/Operations/SetConfigurationRequest.cs
+  - CodatBankFeeds/Models/Operations/SetConfigurationResponse.cs
   - CodatBankFeeds/Models/Shared/Zero.cs
   - CodatBankFeeds/Models/Shared/ErrorMessage.cs
   - CodatBankFeeds/Models/Shared/GroupReference.cs
@@ -101,6 +109,11 @@ generatedFiles:
   - CodatBankFeeds/Models/Shared/TargetAccountOption.cs
   - CodatBankFeeds/Models/Shared/SourceAccount.cs
   - CodatBankFeeds/Models/Shared/BankAccountCredentials.cs
+  - CodatBankFeeds/Models/Shared/BankAccountType.cs
+  - CodatBankFeeds/Models/Shared/Metadata.cs
+  - CodatBankFeeds/Models/Shared/SupplementalData.cs
+  - CodatBankFeeds/Models/Shared/AccountingBankAccount.cs
+  - CodatBankFeeds/Models/Shared/BankAccounts.cs
   - CodatBankFeeds/Models/Shared/CreateBankTransactionsResponse.cs
   - CodatBankFeeds/Models/Shared/Validation.cs
   - CodatBankFeeds/Models/Shared/ValidationItem.cs
@@ -114,6 +127,15 @@ generatedFiles:
   - CodatBankFeeds/Models/Shared/PushOperationRef.cs
   - CodatBankFeeds/Models/Shared/PushOperation.cs
   - CodatBankFeeds/Models/Shared/PushOperations.cs
+  - CodatBankFeeds/Models/Shared/Configuration.cs
+  - CodatBankFeeds/Models/Shared/ConfigurationSchedule.cs
+  - CodatBankFeeds/Models/Shared/SyncConfiguration.cs
+  - CodatBankFeeds/Models/Shared/SyncAsExpenses.cs
+  - CodatBankFeeds/Models/Shared/ConfigurationSupplier.cs
+  - CodatBankFeeds/Models/Shared/ConfigurationContactRef.cs
+  - CodatBankFeeds/Models/Shared/ConfigurationCustomer.cs
+  - CodatBankFeeds/Models/Shared/BankAccountOption.cs
+  - CodatBankFeeds/Models/Shared/SyncAsBankFeeds.cs
   - CodatBankFeeds/Models/Shared/Security.cs
   - CodatBankFeeds/Models/Shared/ClientRateLimitReachedWebhook.cs
   - CodatBankFeeds/Models/Shared/ClientRateLimitReachedWebhookData.cs
@@ -158,12 +180,18 @@ generatedFiles:
   - docs/Models/Operations/ListSourceAccountsResponse.md
   - docs/Models/Operations/UpdateSourceAccountRequest.md
   - docs/Models/Operations/UpdateSourceAccountResponse.md
+  - docs/Models/Operations/ListBankAccountsRequest.md
+  - docs/Models/Operations/ListBankAccountsResponse.md
   - docs/Models/Operations/CreateBankTransactionsRequest.md
   - docs/Models/Operations/CreateBankTransactionsResponse.md
   - docs/Models/Operations/GetCreateOperationRequest.md
   - docs/Models/Operations/GetCreateOperationResponse.md
   - docs/Models/Operations/ListCreateOperationsRequest.md
   - docs/Models/Operations/ListCreateOperationsResponse.md
+  - docs/Models/Operations/GetConfigurationRequest.md
+  - docs/Models/Operations/GetConfigurationResponse.md
+  - docs/Models/Operations/SetConfigurationRequest.md
+  - docs/Models/Operations/SetConfigurationResponse.md
   - docs/Models/Shared/Zero.md
   - docs/Models/Shared/ErrorMessage.md
   - docs/Models/Shared/GroupReference.md
@@ -183,6 +211,11 @@ generatedFiles:
   - docs/Models/Shared/TargetAccountOption.md
   - docs/Models/Shared/SourceAccount.md
   - docs/Models/Shared/BankAccountCredentials.md
+  - docs/Models/Shared/BankAccountType.md
+  - docs/Models/Shared/Metadata.md
+  - docs/Models/Shared/SupplementalData.md
+  - docs/Models/Shared/AccountingBankAccount.md
+  - docs/Models/Shared/BankAccounts.md
   - docs/Models/Shared/CreateBankTransactionsResponse.md
   - docs/Models/Shared/Validation.md
   - docs/Models/Shared/ValidationItem.md
@@ -196,6 +229,15 @@ generatedFiles:
   - docs/Models/Shared/PushOperationRef.md
   - docs/Models/Shared/PushOperation.md
   - docs/Models/Shared/PushOperations.md
+  - docs/Models/Shared/Configuration.md
+  - docs/Models/Shared/ConfigurationSchedule.md
+  - docs/Models/Shared/SyncConfiguration.md
+  - docs/Models/Shared/SyncAsExpenses.md
+  - docs/Models/Shared/ConfigurationSupplier.md
+  - docs/Models/Shared/ConfigurationContactRef.md
+  - docs/Models/Shared/ConfigurationCustomer.md
+  - docs/Models/Shared/BankAccountOption.md
+  - docs/Models/Shared/SyncAsBankFeeds.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ClientRateLimitReachedWebhook.md
   - docs/Models/Shared/ClientRateLimitReachedWebhookData.md
@@ -208,6 +250,8 @@ generatedFiles:
   - docs/sdks/connections/README.md
   - docs/sdks/accountmapping/README.md
   - docs/sdks/sourceaccounts/README.md
+  - docs/sdks/bankaccounts/README.md
   - docs/sdks/transactions/README.md
+  - docs/sdks/configuration/README.md
   - USAGE.md
   - .gitattributes

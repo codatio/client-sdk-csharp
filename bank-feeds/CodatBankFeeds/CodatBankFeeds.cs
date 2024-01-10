@@ -66,9 +66,19 @@ namespace Codat.BankFeeds
         public ISourceAccounts SourceAccounts { get; }
 
         /// <summary>
+        /// Access bank accounts in an SMBs accounting platform.
+        /// </summary>
+        public IBankAccounts BankAccounts { get; }
+
+        /// <summary>
         /// Transactions represent debits and credits from a source account.
         /// </summary>
         public ITransactions Transactions { get; }
+
+        /// <summary>
+        /// Configure bank feeds for a company.
+        /// </summary>
+        public IConfiguration Configuration { get; }
     }
     
     public class SDKConfig
@@ -118,10 +128,10 @@ namespace Codat.BankFeeds
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.0.0";
-        private const string _sdkGenVersion = "2.228.3";
+        private const string _sdkVersion = "4.0.1";
+        private const string _sdkGenVersion = "2.230.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.228.3 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.1 2.230.3 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -129,7 +139,9 @@ namespace Codat.BankFeeds
         public IConnections Connections { get; private set; }
         public IAccountMapping AccountMapping { get; private set; }
         public ISourceAccounts SourceAccounts { get; private set; }
+        public IBankAccounts BankAccounts { get; private set; }
         public ITransactions Transactions { get; private set; }
+        public IConfiguration Configuration { get; private set; }
 
         public CodatBankFeeds(Security? security = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
@@ -157,7 +169,9 @@ namespace Codat.BankFeeds
             Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             AccountMapping = new AccountMapping(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             SourceAccounts = new SourceAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BankAccounts = new BankAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             Transactions = new Transactions(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Configuration = new Configuration(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }

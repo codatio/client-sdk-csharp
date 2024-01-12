@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: 3a0b899f2dc3766b39e4fd3e931ebe0c
+  docChecksum: d8a3c846c6e6c943937af494c3623e4f
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.230.3
-  releaseVersion: 4.0.1
-  configChecksum: 50a31dadee0c2f34640461ed64c36527
+  generationVersion: 2.231.0
+  releaseVersion: 4.1.0
+  configChecksum: c8523722d6a3d25e87ba781150e508bb
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
@@ -17,6 +17,7 @@ features:
     examples: 2.81.3
     globalSecurity: 2.81.2
     globalServerURLs: 2.82.2
+    inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
 generatedFiles:
   - CodatBankFeeds/Companies.cs
@@ -78,6 +79,10 @@ generatedFiles:
   - CodatBankFeeds/Models/Operations/ListSourceAccountsResponse.cs
   - CodatBankFeeds/Models/Operations/UpdateSourceAccountRequest.cs
   - CodatBankFeeds/Models/Operations/UpdateSourceAccountResponse.cs
+  - CodatBankFeeds/Models/Operations/CreateBankAccountRequest.cs
+  - CodatBankFeeds/Models/Operations/CreateBankAccountResponse.cs
+  - CodatBankFeeds/Models/Operations/GetCreateBankAccountsModelRequest.cs
+  - CodatBankFeeds/Models/Operations/GetCreateBankAccountsModelResponse.cs
   - CodatBankFeeds/Models/Operations/ListBankAccountsRequest.cs
   - CodatBankFeeds/Models/Operations/ListBankAccountsResponse.cs
   - CodatBankFeeds/Models/Operations/CreateBankTransactionsRequest.cs
@@ -109,22 +114,35 @@ generatedFiles:
   - CodatBankFeeds/Models/Shared/TargetAccountOption.cs
   - CodatBankFeeds/Models/Shared/SourceAccount.cs
   - CodatBankFeeds/Models/Shared/BankAccountCredentials.cs
-  - CodatBankFeeds/Models/Shared/BankAccountType.cs
+  - CodatBankFeeds/Models/Shared/BankAccountCreateResponseBankAccountType.cs
   - CodatBankFeeds/Models/Shared/Metadata.cs
   - CodatBankFeeds/Models/Shared/SupplementalData.cs
   - CodatBankFeeds/Models/Shared/AccountingBankAccount.cs
-  - CodatBankFeeds/Models/Shared/BankAccounts.cs
-  - CodatBankFeeds/Models/Shared/CreateBankTransactionsResponse.cs
+  - CodatBankFeeds/Models/Shared/BankAccountCreateResponse.cs
   - CodatBankFeeds/Models/Shared/Validation.cs
   - CodatBankFeeds/Models/Shared/ValidationItem.cs
   - CodatBankFeeds/Models/Shared/PushOperationStatus.cs
   - CodatBankFeeds/Models/Shared/DataType.cs
-  - CodatBankFeeds/Models/Shared/CreateBankTransactions.cs
-  - CodatBankFeeds/Models/Shared/BankTransactionType.cs
-  - CodatBankFeeds/Models/Shared/BankTransactions.cs
   - CodatBankFeeds/Models/Shared/PushOperationChange.cs
   - CodatBankFeeds/Models/Shared/PushChangeType.cs
   - CodatBankFeeds/Models/Shared/PushOperationRef.cs
+  - CodatBankFeeds/Models/Shared/BankAccountType.cs
+  - CodatBankFeeds/Models/Shared/BankAccountPrototype.cs
+  - CodatBankFeeds/Models/Shared/PushOption.cs
+  - CodatBankFeeds/Models/Shared/PushValidationInfo.cs
+  - CodatBankFeeds/Models/Shared/PushFieldValidation.cs
+  - CodatBankFeeds/Models/Shared/PushOptionType.cs
+  - CodatBankFeeds/Models/Shared/PushOptionProperty.cs
+  - CodatBankFeeds/Models/Shared/PushOptionChoice.cs
+  - CodatBankFeeds/Models/Shared/BankAccountsBankAccountType.cs
+  - CodatBankFeeds/Models/Shared/BankAccountsMetadata.cs
+  - CodatBankFeeds/Models/Shared/BankAccountsSupplementalData.cs
+  - CodatBankFeeds/Models/Shared/BankAccountsAccountingBankAccount.cs
+  - CodatBankFeeds/Models/Shared/BankAccounts.cs
+  - CodatBankFeeds/Models/Shared/CreateBankTransactionsResponse.cs
+  - CodatBankFeeds/Models/Shared/CreateBankTransactions.cs
+  - CodatBankFeeds/Models/Shared/BankTransactionType.cs
+  - CodatBankFeeds/Models/Shared/BankTransactions.cs
   - CodatBankFeeds/Models/Shared/PushOperation.cs
   - CodatBankFeeds/Models/Shared/PushOperations.cs
   - CodatBankFeeds/Models/Shared/Configuration.cs
@@ -180,6 +198,10 @@ generatedFiles:
   - docs/Models/Operations/ListSourceAccountsResponse.md
   - docs/Models/Operations/UpdateSourceAccountRequest.md
   - docs/Models/Operations/UpdateSourceAccountResponse.md
+  - docs/Models/Operations/CreateBankAccountRequest.md
+  - docs/Models/Operations/CreateBankAccountResponse.md
+  - docs/Models/Operations/GetCreateBankAccountsModelRequest.md
+  - docs/Models/Operations/GetCreateBankAccountsModelResponse.md
   - docs/Models/Operations/ListBankAccountsRequest.md
   - docs/Models/Operations/ListBankAccountsResponse.md
   - docs/Models/Operations/CreateBankTransactionsRequest.md
@@ -211,22 +233,35 @@ generatedFiles:
   - docs/Models/Shared/TargetAccountOption.md
   - docs/Models/Shared/SourceAccount.md
   - docs/Models/Shared/BankAccountCredentials.md
-  - docs/Models/Shared/BankAccountType.md
+  - docs/Models/Shared/BankAccountCreateResponseBankAccountType.md
   - docs/Models/Shared/Metadata.md
   - docs/Models/Shared/SupplementalData.md
   - docs/Models/Shared/AccountingBankAccount.md
-  - docs/Models/Shared/BankAccounts.md
-  - docs/Models/Shared/CreateBankTransactionsResponse.md
+  - docs/Models/Shared/BankAccountCreateResponse.md
   - docs/Models/Shared/Validation.md
   - docs/Models/Shared/ValidationItem.md
   - docs/Models/Shared/PushOperationStatus.md
   - docs/Models/Shared/DataType.md
-  - docs/Models/Shared/CreateBankTransactions.md
-  - docs/Models/Shared/BankTransactionType.md
-  - docs/Models/Shared/BankTransactions.md
   - docs/Models/Shared/PushOperationChange.md
   - docs/Models/Shared/PushChangeType.md
   - docs/Models/Shared/PushOperationRef.md
+  - docs/Models/Shared/BankAccountType.md
+  - docs/Models/Shared/BankAccountPrototype.md
+  - docs/Models/Shared/PushOption.md
+  - docs/Models/Shared/PushValidationInfo.md
+  - docs/Models/Shared/PushFieldValidation.md
+  - docs/Models/Shared/PushOptionType.md
+  - docs/Models/Shared/PushOptionProperty.md
+  - docs/Models/Shared/PushOptionChoice.md
+  - docs/Models/Shared/BankAccountsBankAccountType.md
+  - docs/Models/Shared/BankAccountsMetadata.md
+  - docs/Models/Shared/BankAccountsSupplementalData.md
+  - docs/Models/Shared/BankAccountsAccountingBankAccount.md
+  - docs/Models/Shared/BankAccounts.md
+  - docs/Models/Shared/CreateBankTransactionsResponse.md
+  - docs/Models/Shared/CreateBankTransactions.md
+  - docs/Models/Shared/BankTransactionType.md
+  - docs/Models/Shared/BankTransactions.md
   - docs/Models/Shared/PushOperation.md
   - docs/Models/Shared/PushOperations.md
   - docs/Models/Shared/Configuration.md

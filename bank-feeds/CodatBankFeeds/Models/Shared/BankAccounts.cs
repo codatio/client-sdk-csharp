@@ -32,7 +32,7 @@ namespace Codat.BankFeeds.Models.Shared
         public long PageSize { get; set; } = default!;
 
         [JsonProperty("results")]
-        public List<AccountingBankAccount>? Results { get; set; }
+        public List<BankAccountsAccountingBankAccount>? Results { get; set; }
 
         /// <summary>
         /// Total number of items.

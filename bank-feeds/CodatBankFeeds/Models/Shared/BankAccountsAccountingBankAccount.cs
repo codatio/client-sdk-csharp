@@ -11,7 +11,6 @@
 namespace Codat.BankFeeds.Models.Shared
 {
     using Newtonsoft.Json;
-    using System;
     
     /// <summary>
     /// &gt; **Accessing Bank Accounts through Banking API**<br/>
@@ -33,8 +32,8 @@ namespace Codat.BankFeeds.Models.Shared
     /// * The currency and balance of the account.<br/>
     /// * The sort code and account number.
     /// </remarks>
-    /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
-    public class AccountingBankAccount
+    /// </summary>
+    public class BankAccountsAccountingBankAccount
     {
 
         /// <summary>
@@ -67,7 +66,7 @@ namespace Codat.BankFeeds.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("accountType")]
-        public BankAccountCreateResponseBankAccountType? AccountType { get; set; }
+        public BankAccountsBankAccountType? AccountType { get; set; }
 
         /// <summary>
         /// Total available balance of the bank account as reported by the underlying data source. This may take into account overdrafts or pending transactions for example.
@@ -115,7 +114,7 @@ namespace Codat.BankFeeds.Models.Shared
         public string? Institution { get; set; }
 
         [JsonProperty("metadata")]
-        public Metadata? Metadata { get; set; }
+        public BankAccountsMetadata? Metadata { get; set; }
 
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
@@ -161,6 +160,6 @@ namespace Codat.BankFeeds.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
-        public SupplementalData? SupplementalData { get; set; }
+        public BankAccountsSupplementalData? SupplementalData { get; set; }
     }
 }

@@ -139,3 +139,13 @@ Based on:
 - [csharp v4.0.1] bank-feeds
 ### Releases
 - [NuGet v4.0.1] https://www.nuget.org/packages/Codat.BankFeeds/4.0.1 - bank-feeds
+
+## 2024-01-12 10:29:56
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Speakeasy CLI 1.136.1 (2.231.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v4.1.0] bank-feeds
+### Releases
+- [NuGet v4.1.0] https://www.nuget.org/packages/Codat.BankFeeds/4.1.0 - bank-feeds

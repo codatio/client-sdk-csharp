@@ -21,8 +21,7 @@ using Codat.Sync.Expenses;
 using Codat.Sync.Expenses.Models.Shared;
 using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpenses(
-    security: new Security() {
+var sdk = new CodatSyncExpenses(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -59,8 +58,7 @@ using Codat.Sync.Expenses;
 using Codat.Sync.Expenses.Models.Shared;
 using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpenses(
-    security: new Security() {
+var sdk = new CodatSyncExpenses(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

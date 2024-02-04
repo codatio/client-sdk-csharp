@@ -10,11 +10,24 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Newtonsoft.Json;
     
     /// <summary>
     /// Unique identifier of the customer the expense is billable to. The invoiceTo object is currently only supported for QBO.
     /// </summary>
     public class InvoiceTo
     {
+
+        /// <summary>
+        /// The type of contact.
+        /// </summary>
+        [JsonProperty("dataType")]
+        public InvoiceToDataType? DataType { get; set; }
+
+        /// <summary>
+        /// identifier of customer.
+        /// </summary>
+        [JsonProperty("id")]
+        public string? Id { get; set; }
     }
 }

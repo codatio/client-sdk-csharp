@@ -58,7 +58,7 @@ namespace Codat.Sync.Expenses.Models.Shared
     /// If you&apos;d like us to extend support to more data types or integrations, suggest or vote for this on our &lt;a href=&quot;https://portal.productboard.com/codat/5-product-roadmap&quot;&gt;Product Roadmap&lt;/a&gt;.
     /// </remarks>
     /// </summary>
-    public class AccountValidDataTypeLinks
+    public class CreateAccountResponseValidDataTypeLinks
     {
 
         /// <summary>

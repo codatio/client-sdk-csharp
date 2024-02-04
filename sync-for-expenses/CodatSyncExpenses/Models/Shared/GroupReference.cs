@@ -12,13 +12,13 @@ namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     
-    public class AccountMetadata
+    public class GroupReference
     {
 
         /// <summary>
-        /// Indicates whether the record has been deleted in the third-party system this record originated from.
+        /// Unique identifier for the group.
         /// </summary>
-        [JsonProperty("isDeleted")]
-        public bool? IsDeleted { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
     }
 }

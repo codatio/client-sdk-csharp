@@ -37,8 +37,7 @@ using Codat.Sync.Expenses.Models.Shared;
 using Codat.Sync.Expenses.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatSyncExpenses(
-    security: new Security() {
+var sdk = new CodatSyncExpenses(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -61,7 +60,10 @@ CreateExpenseTransactionRequest req = new CreateExpenseTransactionRequest() {
                         AccountRef = new RecordRef() {
                             Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
                         },
-                        InvoiceTo = new InvoiceTo() {},
+                        InvoiceTo = new InvoiceTo() {
+                            DataType = InvoiceToDataType.Customers,
+                            Id = "80000002-1674552702",
+                        },
                         NetAmount = 110.42M,
                         TaxAmount = 14.43M,
                         TaxRateRef = new RecordRef() {
@@ -120,8 +122,7 @@ using Codat.Sync.Expenses.Models.Shared;
 using Codat.Sync.Expenses.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatSyncExpenses(
-    security: new Security() {
+var sdk = new CodatSyncExpenses(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -141,7 +142,10 @@ UpdateExpenseTransactionRequest req = new UpdateExpenseTransactionRequest() {
                 AccountRef = new RecordRef() {
                     Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
                 },
-                InvoiceTo = new InvoiceTo() {},
+                InvoiceTo = new InvoiceTo() {
+                    DataType = InvoiceToDataType.Customers,
+                    Id = "80000002-1674552702",
+                },
                 NetAmount = 110.42M,
                 TaxAmount = 14.43M,
                 TaxRateRef = new RecordRef() {
@@ -204,8 +208,7 @@ using Codat.Sync.Expenses;
 using Codat.Sync.Expenses.Models.Shared;
 using Codat.Sync.Expenses.Models.Operations;
 
-var sdk = new CodatSyncExpenses(
-    security: new Security() {
+var sdk = new CodatSyncExpenses(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

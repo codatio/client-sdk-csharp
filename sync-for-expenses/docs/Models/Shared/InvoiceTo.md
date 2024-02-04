@@ -5,5 +5,7 @@ Unique identifier of the customer the expense is billable to. The invoiceTo obje
 
 ## Fields
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `DataType`                                                    | [InvoiceToDataType](../../Models/Shared/InvoiceToDataType.md) | :heavy_minus_sign:                                            | The type of contact.                                          | customers                                                     |
+| `Id`                                                          | *string*                                                      | :heavy_minus_sign:                                            | identifier of customer.                                       | 80000002-1674552702                                           |

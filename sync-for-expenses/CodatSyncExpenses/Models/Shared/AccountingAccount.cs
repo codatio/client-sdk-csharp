@@ -12,6 +12,7 @@ namespace Codat.Sync.Expenses.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
+    using System;
     
     /// <summary>
     /// &gt; **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.<br/>
@@ -45,8 +46,8 @@ namespace Codat.Sync.Expenses.Models.Shared
     /// &gt;<br/>
     /// &gt; This approach gives a true representation of the company&apos;s accounts whilst preventing distorting financials such as a company&apos;s profit and loss and balance sheet reports.
     /// </remarks>
-    /// </summary>
-    public class Account
+    /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
+    public class AccountingAccount
     {
 
         /// <summary>
@@ -112,7 +113,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         public bool? IsBankAccount { get; set; }
 
         [JsonProperty("metadata")]
-        public AccountMetadata? Metadata { get; set; }
+        public CreateAccountResponseMetadata? Metadata { get; set; }
 
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
@@ -159,6 +160,6 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see <a href="/sync-for-expenses-api#/schemas/ValidDataTypeLinks">Valid Data Type Links</a>.
         /// </summary>
         [JsonProperty("validDatatypeLinks")]
-        public List<AccountValidDataTypeLinks>? ValidDatatypeLinks { get; set; }
+        public List<CreateAccountResponseValidDataTypeLinks>? ValidDatatypeLinks { get; set; }
     }
 }

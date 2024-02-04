@@ -136,11 +136,12 @@ namespace Codat.Sync.Expenses
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.0.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.248.6";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.214.3 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.248.6 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
+        private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
         public ICompanies Companies { get; private set; }
@@ -157,8 +158,15 @@ namespace Codat.Sync.Expenses
 
         public CodatSyncExpenses(Security? security = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            if (serverUrl != null) {
-                if (urlParams != null) {
+            if (serverIndex != null)
+            {
+                _serverIndex = serverIndex.Value;
+            }
+
+            if (serverUrl != null)
+            {
+                if (urlParams != null)
+                {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
                 _serverUrl = serverUrl;
@@ -166,14 +174,15 @@ namespace Codat.Sync.Expenses
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
-            
+
             if(security != null)
             {
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
-            
+
             SDKConfiguration = new SDKConfig()
             {
+                serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
 

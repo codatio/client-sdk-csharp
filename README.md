@@ -40,13 +40,13 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 <!-- Start Codat Client Libraries -->
 | Library | Description | NuGet |
 | :- | :- | :- |
-| **[Platform](https://github.com/codatio/client-sdk-csharp/tree/main/platform)** | Manage the building blocks of Codat, including companies, connections, and more. | [Codat.Platform](https://www.nuget.org/packages/Codat.Platform) |
-| **[Bank Feeds](https://github.com/codatio/client-sdk-csharp/tree/main/bank-feeds)** | Set up bank feeds from accounts in your application to supported accounting platforms. | [Codat.BankFeeds](https://www.nuget.org/packages/Codat.BankFeeds) |
-| **[Sync for Commerce](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-commerce)** | Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform. | [Codat.Sync.Commerce](https://www.nuget.org/packages/Codat.Sync.Commerce) |
-| **[Sync for Expenses](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-expenses)** | Push expenses to accounting platforms. | [Codat.Sync.Expenses](https://www.nuget.org/packages/Codat.Sync.Expenses) |
-| **[Lending](https://github.com/codatio/client-sdk-csharp/tree/main/lending)** | Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features. | [Codat.Lending](https://www.nuget.org/packages/Codat.Lending) |
-| **[Sync for Payroll](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payroll)** | Push payroll to accounting platforms. | [Codat.Sync.Payroll](https://www.nuget.org/packages/Codat.Sync.Payroll) |
-| **[Sync for Payables](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payables)** | Streamline your customers' accounts payable workflow. | [Codat.Sync.Payables](https://www.nuget.org/packages/Codat.Sync.Payables) |
+| **[Platform](https://github.com/codatio/client-sdk-csharp/tree/main/platform)** | Manage the building blocks of Codat, including companies, connections, and more. | [![Nuget](https://img.shields.io/nuget/v/Codat.Platform)](https://www.nuget.org/packages/Codat.Platform) |
+| **[Bank Feeds](https://github.com/codatio/client-sdk-csharp/tree/main/bank-feeds)** | Set up bank feeds from accounts in your application to supported accounting platforms. | [![Nuget](https://img.shields.io/nuget/v/Codat.BankFeeds)](https://www.nuget.org/packages/Codat.BankFeeds) |
+| **[Sync for Commerce](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-commerce)** | Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Commerce)](https://www.nuget.org/packages/Codat.Sync.Commerce) |
+| **[Sync for Expenses](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-expenses)** | Push expenses to accounting platforms. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Expenses)](https://www.nuget.org/packages/Codat.Sync.Expenses) |
+| **[Lending](https://github.com/codatio/client-sdk-csharp/tree/main/lending)** | Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features. | [![Nuget](https://img.shields.io/nuget/v/Codat.Lending)](https://www.nuget.org/packages/Codat.Lending) |
+| **[Sync for Payroll](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payroll)** | Push payroll to accounting platforms. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payroll)](https://www.nuget.org/packages/Codat.Sync.Payroll) |
+| **[Sync for Payables](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payables)** | Streamline your customers' accounts payable workflow. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payables)](https://www.nuget.org/packages/Codat.Sync.Payables) |
 <!-- End Codat Client Libraries -->
 
 <!-- Start Codat Support Notes -->

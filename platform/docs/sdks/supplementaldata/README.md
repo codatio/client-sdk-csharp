@@ -27,20 +27,20 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
     SupplementalDataConfiguration = new SupplementalDataConfiguration() {
         SupplementalDataConfig = new Dictionary<string, SupplementalDataSourceConfiguration>() {
-            { "key", new SupplementalDataSourceConfiguration() {
+            { "orders-supplemental-data", new SupplementalDataSourceConfiguration() {
+                DataSource = "/orders",
                 PullData = new Dictionary<string, string>() {
-                    { "key", "string" },
+                    { "orderNumber", "order_num" },
                 },
                 PushData = new Dictionary<string, string>() {
-                    { "key", "string" },
+                    { "orderNumber", "order_num" },
                 },
             } },
         },
@@ -79,8 +79,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 

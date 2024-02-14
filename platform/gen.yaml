@@ -1,33 +1,19 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 1573d3af37949ec5c2ba8ed38e783946
-  docVersion: 3.0.0
-  speakeasyVersion: 1.128.1
-  generationVersion: 2.223.0
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: Codat.Platform
-  repoURL: https://github.com/codatio/client-sdk-csharp.git
   usageSnippets:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
   telemetryEnabled: true
-features:
-  csharp:
-    core: 3.2.1
-    deprecations: 2.81.1
-    examples: 2.81.3
-    globalSecurity: 2.81.2
-    globalServerURLs: 2.82.2
-    inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
 csharp:
-  version: 3.3.0
+  version: 3.4.0
   author: Codat
-  description: Manage the building blocks of Codat, including companies, connections,
-    and more.
+  description: Manage the building blocks of Codat, including companies, connections, and more.
   dotnetVersion: net6.0
+  flattenGlobalSecurity: false
   imports:
     option: openapi
     paths:
@@ -40,5 +26,3 @@ csharp:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.Platform
-  published: true
-  repoSubDirectory: platform

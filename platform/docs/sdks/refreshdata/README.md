@@ -28,8 +28,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -67,8 +66,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -105,8 +103,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -142,8 +139,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -180,8 +176,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 

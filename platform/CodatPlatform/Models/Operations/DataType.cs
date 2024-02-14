@@ -94,4 +94,5 @@ namespace Codat.Platform.Models.Operations
             throw new Exception($"Unknown value {value} for enum DataType");
         }
     }
+
 }

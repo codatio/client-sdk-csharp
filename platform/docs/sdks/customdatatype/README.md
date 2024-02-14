@@ -34,21 +34,27 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
+        DataSource = "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
         KeyBy = new List<string>() {
-            "string",
+            "$[*].id",
         },
         RequiredData = new Dictionary<string, string>() {
-            { "key", "string" },
+            { "currencyCode", "$[*].currencyCode" },
+            { "id", "$[*].id" },
+            { "number", "$[*].number" },
+            { "orderDate", "$[*].orderDate" },
+            { "totalAmountExcludingTax", "$[*].totalAmountExcludingTax" },
+            { "totalTaxAmount", "$[*].totalTaxAmount" },
+            { "vendorName", "$[*].number" },
         },
         SourceModifiedDate = new List<string>() {
-            "string",
+            "$[*].lastModifiedDateTime",
         },
     },
     CustomDataIdentifier = "DynamicsPurchaseOrders",
@@ -85,8 +91,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -125,8 +130,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -166,8 +170,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 

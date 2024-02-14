@@ -25,15 +25,11 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 AddCompanyToGroupRequest req = new AddCompanyToGroupRequest() {
-    CompanyGroupAssignment = new CompanyGroupAssignment() {
-        GroupId = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -71,8 +67,7 @@ var res = await sdk.Groups.AddCompanyAsync(req);
 using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -109,8 +104,7 @@ Use the *List group* endpoint to return a list of all groups that currently exis
 using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -138,8 +132,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 

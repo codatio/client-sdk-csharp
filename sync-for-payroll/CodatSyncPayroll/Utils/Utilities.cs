@@ -8,31 +8,59 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Utils
+namespace Codat.Sync.Payroll.Utils
 {
     using System;
     using System.Linq;
     using System.Net.Http.Headers;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    using System.Numerics;
     using Newtonsoft.Json;
     using NodaTime;
     using System.Collections;
 
     public class Utilities
     {
-        public static string SerializeJSON(object obj)
+        public static JsonConverter[] GetJsonConverters(Type type, string format = "")
         {
+            if (format == "string")
+            {
+                if (type == typeof(BigInteger))
+                {
+                    return new JsonConverter[] { new BigIntSerializer() };
+                }
+                if (type == typeof(Decimal))
+                {
+                    return new JsonConverter[] { new DecimalSerializer() };
+                }
+            }
+
+            return new JsonConverter[]
+            {
+                new IsoDateTimeSerializer(),
+                new EnumSerializer(),
+            };
+        }
+
+        public static string SerializeJSON(object obj, string format = "")
+        {
+            var type = obj.GetType();
+            if (IsList(obj))
+            {
+                type = type.GetGenericArguments().Single();
+            }
+            else if (IsDictionary(obj))
+            {
+                type = type.GetGenericArguments().Last();
+            }
+
             return JsonConvert.SerializeObject(
                 obj,
                 new JsonSerializerSettings()
                 {
                     NullValueHandling = NullValueHandling.Ignore,
-                    Converters = new JsonConverter[]
-                    {
-                        new IsoDateTimeSerializer(),
-                        new EnumSerializer()
-                    }
+                    Converters = GetJsonConverters(type, format)
                 }
             );
         }
@@ -59,7 +87,7 @@ namespace CodatSyncPayroll.Utils
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("CodatSyncPayroll.Models");
+            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.Sync.Payroll.Models");
         }
 
         // TODO: code review polyfilled for IsAssignableTo
@@ -220,6 +248,22 @@ namespace CodatSyncPayroll.Utils
             }
 
             return $"Bearer {authHeaderValue}";
+        }
+        public static string RemoveSuffix(string inputString, string suffix)
+        {
+            if (!String.IsNullOrEmpty(suffix) && inputString.EndsWith(suffix))
+            {
+                return inputString.Remove(inputString.Length - suffix.Length, suffix.Length);
+            }
+            return inputString;
+        }
+        public static string TemplateUrl(string template, Dictionary<string, string> paramDict)
+        {
+            foreach(KeyValuePair<string, string> entry in paramDict)
+            {
+                template = template.Replace('{' + entry.Key + '}', entry.Value);
+            }
+            return template;
         }
     }
 }

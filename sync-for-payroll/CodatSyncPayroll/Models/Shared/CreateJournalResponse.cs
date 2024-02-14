@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Shared
+namespace Codat.Sync.Payroll.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -56,36 +56,8 @@ namespace CodatSyncPayroll.Models.Shared
         [JsonProperty("completedOnUtc")]
         public string? CompletedOnUtc { get; set; }
 
-        /// <summary>
-        /// &gt; **Language tip:** For line items, or individual transactions, of a company&apos;s financial documents, refer to the <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">Journal entries</a> data type<br/>
-        /// 
-        /// <remarks>
-        /// <br/>
-        /// &gt; View the coverage for journals in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journals&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-        /// <br/>
-        /// ## Overview<br/>
-        /// <br/>
-        /// In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry">journal entry</a>. These entries are used to create the general ledger, which is then used to create the financial statements of a business.<br/>
-        /// <br/>
-        /// When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.<br/>
-        /// <br/>
-        /// Such journals can be divided into two categories:<br/>
-        /// <br/>
-        /// - Special journals: journals used to record specific types of transactions; for example, a purchases journal, a sales journal, or a cash management journal.<br/>
-        /// - General journals: journals used to record transactions that fall outside the scope of the special journals.<br/>
-        /// <br/>
-        /// Multiple journals or subjournals are used in the following Codat integrations:<br/>
-        /// <br/>
-        /// - <a href="https://docs.codat.io/integrations/accounting/sage-intacct/accounting-sage-intacct">Sage Intacct</a>  (mandatory)<br/>
-        /// - <a href="https://docs.codat.io/integrations/accounting/exact-online/accounting-exact-online">Exact Online</a>  (mandatory)<br/>
-        /// - <a href="https://docs.codat.io/integrations/accounting/netsuite/accounting-netsuite">Oracle NetSuite</a> (optional)<br/>
-        /// <br/>
-        /// &gt; When pushing journal entries to an accounting platform that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
         [JsonProperty("data")]
-        public Journal? Data { get; set; }
+        public AccountingJournal? Data { get; set; }
 
         /// <summary>
         /// Unique identifier for a company&apos;s data connection.

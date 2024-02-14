@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Shared
+namespace Codat.Sync.Payroll.Models.Shared
 {
     using Newtonsoft.Json;
     using System;
@@ -48,6 +48,8 @@ namespace CodatSyncPayroll.Models.Shared
         DirectIncomes,
         [JsonProperty("invoices")]
         Invoices,
+        [JsonProperty("itemReceipts")]
+        ItemReceipts,
         [JsonProperty("items")]
         Items,
         [JsonProperty("journalEntries")]
@@ -136,4 +138,5 @@ namespace CodatSyncPayroll.Models.Shared
             throw new Exception($"Unknown value {value} for enum DataType");
         }
     }
+
 }

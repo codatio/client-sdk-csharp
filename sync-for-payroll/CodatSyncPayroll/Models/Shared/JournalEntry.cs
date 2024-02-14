@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Shared
+namespace Codat.Sync.Payroll.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -128,15 +128,10 @@ namespace CodatSyncPayroll.Models.Shared
         public string? PostedOn { get; set; }
 
         /// <summary>
-        /// Links the current record to the underlying record or data type that created it. <br/>
-        /// 
-        /// <remarks>
-        /// <br/>
-        /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model. 
-        /// </remarks>
+        /// Links a journal entry to the underlying record that created it.
         /// </summary>
         [JsonProperty("recordRef")]
-        public JournalEntryRecordReference? RecordRef { get; set; }
+        public JournalEntryRecordRef? RecordRef { get; set; }
 
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Shared
+namespace Codat.Sync.Payroll.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -56,35 +56,8 @@ namespace CodatSyncPayroll.Models.Shared
         [JsonProperty("completedOnUtc")]
         public string? CompletedOnUtc { get; set; }
 
-        /// <summary>
-        /// &gt; **Language tip:** For the top-level record of a company&apos;s financial transactions, refer to the <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Journal">Journals</a> data type<br/>
-        /// 
-        /// <remarks>
-        /// <br/>
-        /// &gt; View the coverage for journal entries in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-        /// <br/>
-        /// ## Overview<br/>
-        /// <br/>
-        /// A journal entry report shows the entries made in a company&apos;s general ledger, or <a href="https://docs.codat.io/sync-for-payroll-api#/schemas/Account">accounts</a>, when transactions are approved. The journal line items for each journal entry should balance.<br/>
-        /// <br/>
-        /// A journal entry line item is a single transaction line on the journal entry. For example: <br/>
-        /// <br/>
-        /// - When a journal entry is recording a receipt of cash, the credit to accounts receivable and the debit to cash are separate line items. <br/>
-        /// - When a company needs to recognise revenue from an annual contract on a monthly basis, on receipt of cash for month one, they make a debit to deferred income and a credit to revenue.<br/>
-        /// <br/>
-        /// In Codat a journal entry contains details of:<br/>
-        /// <br/>
-        /// - The date on which the entry was created and posted.<br/>
-        /// - Itemised lines, including amounts and currency.<br/>
-        /// - A reference to the associated accounts.<br/>
-        /// - A reference to the underlying record. For example, the invoice, bill, or other data type that triggered the posting of the journal entry to the general ledger. <br/>
-        /// <br/>
-        /// &gt; **Pushing journal entries**  <br/>
-        /// &gt; Codat only supports journal entries in the base currency of the company that are pushed into accounts denominated in the same base currency.
-        /// </remarks>
-        /// </summary>
         [JsonProperty("data")]
-        public JournalEntry? Data { get; set; }
+        public AccountingJournalEntry? Data { get; set; }
 
         /// <summary>
         /// Unique identifier for a company&apos;s data connection.

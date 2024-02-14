@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Operations
+namespace Codat.Sync.Payroll.Models.Operations
 {
-    using CodatSyncPayroll.Models.Shared;
+    using Codat.Sync.Payroll.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -20,7 +20,7 @@ namespace CodatSyncPayroll.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public Accounts? Accounts { get; set; }
+        public Models.Shared.Accounts? Accounts { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation
@@ -40,6 +40,6 @@ namespace CodatSyncPayroll.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

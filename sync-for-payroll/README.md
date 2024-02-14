@@ -4,7 +4,7 @@
 Push payroll to accounting platforms.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Nuget
@@ -12,69 +12,36 @@ Push payroll to accounting platforms.
 ```bash
 dotnet add package Codat.Sync.Payroll
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
+### Example
+
 ```csharp
-using CodatSyncPayroll;
-using CodatSyncPayroll.Models.Shared;
-using CodatSyncPayroll.Models.Operations;
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayrollSDK(
-    security: new Security() {
+var sdk = new CodatSyncPayroll(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
-    Account = new Account() {
-        Currency = "USD",
-        CurrentBalance = 0M,
-        Description = "Invoices the business has issued but has not yet collected payment on.",
-        FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Cash On Hand",
-        Id = "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-        Metadata = new AccountMetadata() {},
-        ModifiedDate = "2022-10-23T00:00:00.000Z",
-        Name = "Accounts Receivable",
-        NominalCode = "610",
-        SourceModifiedDate = "2022-10-23T00:00:00.000Z",
-        Status = CodatSyncPayroll.Models.Shared.AccountStatus.Active,
-        SupplementalData = new SupplementalData() {
-            Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "Money", new Dictionary<string, object>() {
-                    { "blue", "shred" },
-                } },
-            },
-        },
-        Type = CodatSyncPayroll.Models.Shared.AccountType.Asset,
-        ValidDatatypeLinks = new List<AccountValidDataTypeLinks>() {
-            new AccountValidDataTypeLinks() {
-                Links = new List<string>() {
-                    "abnormally",
-                },
-            },
-        },
-    },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-});
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
-
-### [Accounts](docs/sdks/accounts/README.md)
-
-* [Create](docs/sdks/accounts/README.md#create) - Create account
-* [Get](docs/sdks/accounts/README.md#get) - Get account
-* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
-* [List](docs/sdks/accounts/README.md#list) - List accounts
 
 ### [Companies](docs/sdks/companies/README.md)
 
@@ -84,10 +51,6 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
-### [CompanyInfo](docs/sdks/companyinfo/README.md)
-
-* [GetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
-
 ### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
@@ -95,6 +58,13 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [Get](docs/sdks/connections/README.md#get) - Get connection
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+
+### [Accounts](docs/sdks/accounts/README.md)
+
+* [Create](docs/sdks/accounts/README.md#create) - Create account
+* [Get](docs/sdks/accounts/README.md#get) - Get account
+* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+* [List](docs/sdks/accounts/README.md#list) - List accounts
 
 ### [JournalEntries](docs/sdks/journalentries/README.md)
 
@@ -121,15 +91,68 @@ var res = await sdk.Accounts.CreateAsync(new CreateAccountRequest() {
 * [RefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [RefreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
+### [CompanyInfo](docs/sdks/companyinfo/README.md)
+
+* [GetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
+
 ### [TrackingCategories](docs/sdks/trackingcategories/README.md)
 
 * [Get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 * [List](docs/sdks/trackingcategories/README.md#list) - List tracking categories
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
+<!-- Start Server Selection [server] -->
+## Server Selection
 
-<!-- End Dev Containers -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `authHeader` | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using Codat.Sync.Payroll;
+using Codat.Sync.Payroll.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatSyncPayroll(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
+
+// handle response
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

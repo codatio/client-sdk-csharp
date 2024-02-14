@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Utils
+namespace Codat.Sync.Payroll.Utils
 {
     using System;
     using System.Collections.Generic;

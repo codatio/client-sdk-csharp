@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Shared
+namespace Codat.Sync.Payroll.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -50,5 +50,11 @@ namespace CodatSyncPayroll.Models.Shared
         /// </summary>
         [JsonProperty("statusCode")]
         public long? StatusCode { get; set; }
+
+        /// <summary>
+        /// A human-readable object describing validation decisions Codat has made. If an operation has failed because of validation errors, they will be detailed here.
+        /// </summary>
+        [JsonProperty("validation")]
+        public ErrorValidation? Validation { get; set; }
     }
 }

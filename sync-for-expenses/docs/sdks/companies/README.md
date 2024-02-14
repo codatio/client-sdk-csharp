@@ -35,11 +35,6 @@ var sdk = new CodatSyncExpenses(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<GroupItems>() {
-        new GroupItems() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
     Name = "Bank of Dave",
 };
 
@@ -202,15 +197,6 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
-    CompanyRequestBody = new CompanyRequestBody() {
-        Description = "Requested early access to the new financing scheme.",
-        Groups = new List<GroupItems>() {
-            new GroupItems() {
-                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        },
-        Name = "Bank of Dave",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 

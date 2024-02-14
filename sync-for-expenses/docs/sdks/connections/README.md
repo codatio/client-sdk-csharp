@@ -32,9 +32,6 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 CreateConnectionRequest req = new CreateConnectionRequest() {
-    RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "gbol",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -221,7 +218,6 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
-    RequestBody = new UnlinkConnectionUpdateConnection() {},
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };

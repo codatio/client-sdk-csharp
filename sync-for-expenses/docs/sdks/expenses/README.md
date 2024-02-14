@@ -42,47 +42,6 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 CreateExpenseTransactionRequest req = new CreateExpenseTransactionRequest() {
-    CreateExpenseRequest = new CreateExpenseRequest() {
-        Items = new List<ExpenseTransaction>() {
-            new ExpenseTransaction() {
-                BankAccountRef = new BankAccountReference() {
-                    Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-                },
-                ContactRef = new ContactRef() {
-                    Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                    Type = Type.Supplier,
-                },
-                Currency = "GBP",
-                Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
-                IssueDate = "2022-10-23T00:00:00Z",
-                Lines = new List<ExpenseTransactionLine>() {
-                    new ExpenseTransactionLine() {
-                        AccountRef = new RecordRef() {
-                            Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                        },
-                        InvoiceTo = new InvoiceTo() {
-                            DataType = InvoiceToDataType.Customers,
-                            Id = "80000002-1674552702",
-                        },
-                        NetAmount = 110.42M,
-                        TaxAmount = 14.43M,
-                        TaxRateRef = new RecordRef() {
-                            Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                        },
-                        TrackingRefs = new List<TrackingRef>() {
-                            new TrackingRef() {
-                                DataType = TrackingRefDataType.TrackingCategories,
-                                Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-                            },
-                        },
-                    },
-                },
-                MerchantName = "Amazon UK",
-                Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-                Type = ExpenseTransactionType.Payment,
-            },
-        },
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -127,42 +86,6 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 UpdateExpenseTransactionRequest req = new UpdateExpenseTransactionRequest() {
-    UpdateExpenseRequest = new UpdateExpenseRequest() {
-        BankAccountRef = new UpdateExpenseRequestBankAccountReference() {
-            Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-        },
-        ContactRef = new ContactRef() {
-            Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            Type = Type.Supplier,
-        },
-        Currency = "GBP",
-        IssueDate = "2022-06-28T00:00:00.000Z",
-        Lines = new List<ExpenseTransactionLine>() {
-            new ExpenseTransactionLine() {
-                AccountRef = new RecordRef() {
-                    Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                },
-                InvoiceTo = new InvoiceTo() {
-                    DataType = InvoiceToDataType.Customers,
-                    Id = "80000002-1674552702",
-                },
-                NetAmount = 110.42M,
-                TaxAmount = 14.43M,
-                TaxRateRef = new RecordRef() {
-                    Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                },
-                TrackingRefs = new List<TrackingRef>() {
-                    new TrackingRef() {
-                        DataType = TrackingRefDataType.TrackingCategories,
-                        Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-                    },
-                },
-            },
-        },
-        MerchantName = "Amazon UK",
-        Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        Type = "string",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
 };
@@ -213,12 +136,6 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 UploadExpenseAttachmentRequest req = new UploadExpenseAttachmentRequest() {
-    AttachmentUpload = new AttachmentUpload() {
-        File = new CodatFile() {
-            Content = "0xE3ABc1980E as bytes <<<>>>",
-            FileName = "elegant_producer_electric.jpeg",
-        },
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",

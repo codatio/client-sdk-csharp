@@ -22,7 +22,8 @@ namespace Codat.Sync.Expenses.Utils
         public static HttpContent? Serialize(
             object? request,
             string requestFieldName,
-            string serializationMethod
+            string serializationMethod,
+            string format = ""
         )
         {
             if (request == null)
@@ -56,14 +57,15 @@ namespace Codat.Sync.Expenses.Utils
             }
 
             // Not an object or flattened request
-            return TrySerialize(request, requestFieldName, serializationMethod);
+            return TrySerialize(request, requestFieldName, serializationMethod, "", format);
         }
 
         private static HttpContent? TrySerialize(
             object request,
             string requestFieldName,
             string serializationMethod,
-            string mediaType = ""
+            string mediaType = "",
+            string format = ""
         )
         {
             if (mediaType == "")
@@ -81,7 +83,7 @@ namespace Codat.Sync.Expenses.Utils
             switch (serializationMethod)
             {
                 case "json":
-                    return SerializeJson(request, mediaType);
+                    return SerializeJson(request, mediaType, format);
                 case "form":
                     return SerializeForm(request, requestFieldName, mediaType);
                 case "multipart":
@@ -109,9 +111,9 @@ namespace Codat.Sync.Expenses.Utils
             }
         }
 
-        private static HttpContent SerializeJson(object request, string mediaType)
+        private static HttpContent SerializeJson(object request, string mediaType, string format = "")
         {
-            return new StringContent(Utilities.SerializeJSON(request), Encoding.UTF8, mediaType);
+            return new StringContent(Utilities.SerializeJSON(request, format), Encoding.UTF8, mediaType);
         }
 
         private static HttpContent SerializeForm(
@@ -482,7 +484,7 @@ namespace Codat.Sync.Expenses.Utils
                 {
                     form[fieldName] = new List<string>();
                 }
-                
+
                 form[fieldName].Add(Utilities.ValueToString(value));
             }
         }

@@ -1,21 +1,21 @@
 lockVersion: 2.0.0
 id: 18b9d064-aee3-46b6-b773-6d0ab95e296c
 management:
-  docChecksum: fdc7285c8f3a9d1b51e0ac7f1c98ee14
+  docChecksum: cd6fa6671764b38bed9a8592c0f117ad
   docVersion: prealpha
   speakeasyVersion: internal
-  generationVersion: 2.248.6
-  releaseVersion: 5.0.0
-  configChecksum: bd15d9cec6d935b0b22be299083653f4
+  generationVersion: 2.257.2
+  releaseVersion: 5.1.0
+  configChecksum: bf2e9b4d2b7342b0024cf499f9ef09f6
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-expenses
   published: true
 features:
   csharp:
-    core: 3.3.1
+    core: 3.3.2
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.82.0
+    globalSecurity: 2.83.0
     globalServerURLs: 2.82.2
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
@@ -130,6 +130,8 @@ generatedFiles:
   - CodatSyncExpenses/Models/Operations/ListSyncTransactionsRequest.cs
   - CodatSyncExpenses/Models/Operations/ListSyncTransactionsResponse.cs
   - CodatSyncExpenses/Models/Shared/ErrorMessage.cs
+  - CodatSyncExpenses/Models/Shared/ErrorValidation.cs
+  - CodatSyncExpenses/Models/Shared/ErrorValidationItem.cs
   - CodatSyncExpenses/Models/Shared/GroupReference.cs
   - CodatSyncExpenses/Models/Shared/Company.cs
   - CodatSyncExpenses/Models/Shared/SourceType.cs
@@ -332,6 +334,8 @@ generatedFiles:
   - docs/Models/Operations/ListSyncTransactionsRequest.md
   - docs/Models/Operations/ListSyncTransactionsResponse.md
   - docs/Models/Shared/ErrorMessage.md
+  - docs/Models/Shared/ErrorValidation.md
+  - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/GroupReference.md
   - docs/Models/Shared/Company.md
   - docs/Models/Shared/SourceType.md

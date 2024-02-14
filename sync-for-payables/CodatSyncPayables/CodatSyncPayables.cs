@@ -61,79 +61,14 @@ namespace Codat.Sync.Payables
         public ICompanies Companies { get; }
 
         /// <summary>
-        /// Manage your companies&apos; data connections.
-        /// </summary>
-        public IConnections Connections { get; }
-
-        /// <summary>
         /// Bills
         /// </summary>
         public IBills Bills { get; }
 
         /// <summary>
-        /// Bank accounts
+        /// Manage your companies&apos; data connections.
         /// </summary>
-        public IBankAccounts BankAccounts { get; }
-
-        /// <summary>
-        /// Bill credit notes
-        /// </summary>
-        public IBillCreditNotes BillCreditNotes { get; }
-
-        /// <summary>
-        /// Bill payments
-        /// </summary>
-        public IBillPayments BillPayments { get; }
-
-        /// <summary>
-        /// Accounts
-        /// </summary>
-        public IAccounts Accounts { get; }
-
-        /// <summary>
-        /// Journal entries
-        /// </summary>
-        public IJournalEntries JournalEntries { get; }
-
-        /// <summary>
-        /// Journals
-        /// </summary>
-        public IJournals Journals { get; }
-
-        /// <summary>
-        /// Suppliers
-        /// </summary>
-        public ISuppliers Suppliers { get; }
-
-        /// <summary>
-        /// Asynchronously retrieve data from an integration to refresh data in Codat.
-        /// </summary>
-        public IManageData ManageData { get; }
-
-        /// <summary>
-        /// View company information fetched from the source platform.
-        /// </summary>
-        public ICompanyInfo CompanyInfo { get; }
-
-        /// <summary>
-        /// Payment methods
-        /// </summary>
-        public IPaymentMethods PaymentMethods { get; }
-
-        /// <summary>
-        /// Tax rates
-        /// </summary>
-        public ITaxRates TaxRates { get; }
-
-        /// <summary>
-        /// Tracking categories
-        /// </summary>
-        public ITrackingCategories TrackingCategories { get; }
-
-        /// <summary>
-        /// Access create, update and delete operations made to an SMB&apos;s data connection.
-        /// </summary>
-        public IPushOperations PushOperations { get; }
+        public IConnections Connections { get; }
     }
     
     public class SDKConfig
@@ -193,68 +128,54 @@ namespace Codat.Sync.Payables
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.1.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "3.2.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.214.3 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.2.0 2.257.2 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
+        private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public ICompanies Companies { get; private set; }
-        public IConnections Connections { get; private set; }
         public IBills Bills { get; private set; }
-        public IBankAccounts BankAccounts { get; private set; }
-        public IBillCreditNotes BillCreditNotes { get; private set; }
-        public IBillPayments BillPayments { get; private set; }
-        public IAccounts Accounts { get; private set; }
-        public IJournalEntries JournalEntries { get; private set; }
-        public IJournals Journals { get; private set; }
-        public ISuppliers Suppliers { get; private set; }
-        public IManageData ManageData { get; private set; }
-        public ICompanyInfo CompanyInfo { get; private set; }
-        public IPaymentMethods PaymentMethods { get; private set; }
-        public ITaxRates TaxRates { get; private set; }
-        public ITrackingCategories TrackingCategories { get; private set; }
-        public IPushOperations PushOperations { get; private set; }
+        public IConnections Connections { get; private set; }
 
-        public CodatSyncPayables(Security? security = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public CodatSyncPayables(Security? security = null, Func<Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            if (serverUrl != null) {
-                if (urlParams != null) {
+            if (serverIndex != null)
+            {
+                _serverIndex = serverIndex.Value;
+            }
+
+            if (serverUrl != null)
+            {
+                if (urlParams != null)
+                {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
                 _serverUrl = serverUrl;
             }
 
             _defaultClient = new SpeakeasyHttpClient(client);
-            _securityClient = _defaultClient;
-            
-            if(security != null)
+
+            if(securitySource != null)
             {
-                _securityClient = SecuritySerializer.Apply(_defaultClient, security);
+                _securitySource = securitySource;
             }
-            
+            else if(security != null)
+            {
+                _securitySource = () => security;
+            }
+
             SDKConfiguration = new SDKConfig()
             {
+                serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
 
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Bills = new Bills(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BankAccounts = new BankAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BillCreditNotes = new BillCreditNotes(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BillPayments = new BillPayments(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Accounts = new Accounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            JournalEntries = new JournalEntries(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Journals = new Journals(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Suppliers = new Suppliers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            CompanyInfo = new CompanyInfo(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            PaymentMethods = new PaymentMethods(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            TaxRates = new TaxRates(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            TrackingCategories = new TrackingCategories(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            PushOperations = new PushOperations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Companies = new Companies(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Bills = new Bills(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

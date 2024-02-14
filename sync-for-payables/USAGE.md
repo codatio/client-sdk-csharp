@@ -2,9 +2,9 @@
 ```csharp
 using Codat.Sync.Payables;
 using Codat.Sync.Payables.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayables(
-    security: new Security() {
+var sdk = new CodatSyncPayables(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

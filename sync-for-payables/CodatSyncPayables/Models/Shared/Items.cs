@@ -15,10 +15,10 @@ namespace Codat.Sync.Payables.Models.Shared
     public class Items
     {
 
-        [JsonProperty("allocation")]
-        public Allocation Allocation { get; set; } = default!;
-
-        [JsonProperty("payment")]
-        public PaymentAllocationPayment Payment { get; set; } = default!;
+        /// <summary>
+        /// Unique identifier for the group.
+        /// </summary>
+        [JsonProperty("id")]
+        public string? Id { get; set; }
     }
 }

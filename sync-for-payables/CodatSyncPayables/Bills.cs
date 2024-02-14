@@ -26,214 +26,18 @@ namespace Codat.Sync.Payables
     {
 
         /// <summary>
-        /// Create bill
-        /// 
-        /// <remarks>
-        /// The *Create bill* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bill</a> for a given company&apos;s connection.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// **Integration-specific behaviour**<br/>
-        /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-bills-model">Get create/update bill model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support creating a bill.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<Models.Operations.CreateBillResponse> CreateAsync(CreateBillRequest? request = null);
-
-        /// <summary>
-        /// Delete bill
-        /// 
-        /// <remarks>
-        /// The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. <br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are itemized records of goods received or services provided to the SMB.<br/>
-        /// <br/>
-        /// ### Process <br/>
-        /// 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.<br/>
-        /// 2. Check the status of the delete operation by checking the status of the push operation either via<br/>
-        ///     1. <a href="https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed">Push operation webhook</a> (advised),<br/>
-        ///     2. <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation">Push operation status endpoint</a>.<br/>
-        /// <br/>
-        ///    A `Success` status indicates that the bill object was deleted from the accounting platform.<br/>
-        /// 3. (Optional) Check that the bill was deleted from the accounting platform.<br/>
-        /// <br/>
-        /// ### Effect on related objects<br/>
-        /// <br/>
-        /// Be aware that deleting a bill from an accounting platform might cause related objects to be modified. For example, if you delete a paid bill in QuickBooks Online, the bill is deleted but the bill payment against that bill is not. The bill payment is converted to a payment on account.<br/>
-        /// <br/>
-        /// ## Integration specifics<br/>
-        /// Integrations that support soft delete do not permanently delete the object in the accounting platform.<br/>
-        /// <br/>
-        /// | Integration | Soft Delete | Details                                                                                                      |  <br/>
-        /// |-------------|-------------|--------------------------------------------------------------------------------------------------------------|<br/>
-        /// | QuickBooks Online | No          | -                                                                                                            |<br/>
-        /// | Oracle NetSuite   | No          | When deleting a bill that&apos;s already linked to a bill payment, you must delete the linked bill payment first. |                                                                                                      |<br/>
-        /// | Sage Intacct   | No          | When deleting a bill that&apos;s already linked to a bill payment, you must delete the linked bill payment first. |<br/>
-        /// <br/>
-        /// &gt; **Supported Integrations**<br/>
-        /// &gt; <br/>
-        /// &gt; This functionality is currently supported for our QuickBooks Online, Xero, Oracle NetSuite and Sage Intacct integrations.
-        /// </remarks>
-        /// </summary>
-        Task<DeleteBillResponse> DeleteAsync(DeleteBillRequest? request = null);
-
-        /// <summary>
-        /// Delete bill attachment
-        /// 
-        /// <remarks>
-        /// The *Delete bill attachment* endpoint allows you to delete a specified bill attachment from an accounting platform.  <br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices<br/>
-        /// that represent the SMB&apos;s financial obligations to their supplier for a<br/>
-        /// purchase of goods or services. <br/>
-        /// <br/>
-        /// ### Process  <br/>
-        /// <br/>
-        /// 1. Pass the `{billId}` and `{attachmentId}` to the *Delete bill attachment* endpoint and store the `pushOperationKey` returned. <br/>
-        /// <br/>
-        /// 2. Check the status of the delete operation by checking the status of push operation either via <br/>
-        /// <br/>
-        /// 1. <a href="https://docs.codat.io/introduction/webhookscore-rules-types#push-operation-status-has-changed">Push operation webhook</a> (advised), <br/>
-        /// <br/>
-        /// 2. <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation">Push operation status endpoint</a>. A `Success` status indicates that the bill attachment object was deleted from the accounting platform. <br/>
-        /// <br/>
-        /// 3. (Optional) Check that the bill attachment was deleted from the accounting platform. <br/>
-        /// <br/>
-        /// &gt;**Supported Integrations**<br/>
-        /// &gt;<br/>
-        /// &gt;This functionality is currently only supported for our QuickBooks Online integration. 
-        /// </remarks>
-        /// </summary>
-        Task<DeleteBillAttachmentResponse> DeleteAttachmentAsync(DeleteBillAttachmentRequest? request = null);
-
-        /// <summary>
-        /// Download bill attachment
-        /// 
-        /// <remarks>
-        /// The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support downloading a bill attachment.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<DownloadBillAttachmentResponse> DownloadAttachmentAsync(DownloadBillAttachmentRequest? request = null);
-
-        /// <summary>
-        /// Get bill
-        /// 
-        /// <remarks>
-        /// The *Get bill* endpoint returns a single bill for a given `billId`.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support getting a specific bill.<br/>
-        /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<GetBillResponse> GetAsync(GetBillRequest? request = null);
-
-        /// <summary>
-        /// Get bill attachment
-        /// 
-        /// <remarks>
-        /// The *Get bill attachment* endpoint returns a specific attachment for a given `billId` and `attachmentId`.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support getting a bill attachment.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<GetBillAttachmentResponse> GetAttachmentAsync(GetBillAttachmentRequest? request = null);
-
-        /// <summary>
-        /// Get create/update bill model
-        /// 
-        /// <remarks>
-        /// The *Get create/update bill model* endpoint returns the expected data for the request payload when creating and updating a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bill</a> for a given company and integration.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// **Integration-specific behaviour**<br/>
-        /// <br/>
-        /// See the *response examples* for integration-specific indicative models.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support creating and updating a bill.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<GetCreateUpdateBillModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBillModelRequest? request = null);
-
-        /// <summary>
         /// List bills
         /// 
         /// <remarks>
         /// The *List bills* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bills</a> for a given company&apos;s connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
+        /// By default, the endpoint will return all bills irrespective of payment status. To filter outstanding bills use the `outstandingBills=true` query parameter to return all unpaid and partially paid bills. <br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
         ///     
         /// </remarks>
         /// </summary>
         Task<ListBillsResponse> ListAsync(ListBillsRequest? request = null);
-
-        /// <summary>
-        /// List bill attachments
-        /// 
-        /// <remarks>
-        /// The *List bill attachments* endpoint returns a list of attachments available to download for a given `billId`.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support listing bill attachments.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<ListBillAttachmentsResponse> ListAttachmentsAsync(ListBillAttachmentsRequest? request = null);
-
-        /// <summary>
-        /// Update bill
-        /// 
-        /// <remarks>
-        /// The *Update bill* endpoint updates an existing <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">bill</a> for a given company&apos;s connection.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// **Integration-specific behaviour**<br/>
-        /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-bills-model">Get create/update bill model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support creating a bill.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<Models.Operations.UpdateBillResponse> UpdateAsync(UpdateBillRequest? request = null);
-
-        /// <summary>
-        /// Upload bill attachment
-        /// 
-        /// <remarks>
-        /// The *Upload bill attachment* endpoint uploads an attachment and assigns it against a specific `billId`.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB&apos;s financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// **Integration-specific behaviour**<br/>
-        /// <br/>
-        /// For more details on supported file types by integration see <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Attachment">Attachments</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support uploading a bill attachment.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
-        Task<UploadBillAttachmentResponse> UploadAttachmentAsync(UploadBillAttachmentRequest? request = null);
     }
 
     /// <summary>
@@ -243,347 +47,38 @@ namespace Codat.Sync.Payables
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.1.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "3.2.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.214.3 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.2.0 2.257.2 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public Bills(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Bills(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
-        }
-        
-
-        public async Task<Models.Operations.CreateBillResponse> CreateAsync(CreateBillRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/bills", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "Bill", "json");
-            if (serializedBody != null)
-            {
-                httpRequest.Content = serializedBody;
-            }
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new Models.Operations.CreateBillResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateBillResponseValue = JsonConvert.DeserializeObject<Models.Shared.CreateBillResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<DeleteBillResponse> DeleteAsync(DeleteBillRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new DeleteBillResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<DeleteBillAttachmentResponse> DeleteAttachmentAsync(DeleteBillAttachmentRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}/attachments/{attachmentId}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new DeleteBillAttachmentResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.PushOperation = JsonConvert.DeserializeObject<PushOperation>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<DownloadBillAttachmentResponse> DownloadAttachmentAsync(DownloadBillAttachmentRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}/download", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new DownloadBillAttachmentResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/octet-stream",response.ContentType))
-                {
-                    response.Data = await httpResponse.Content.ReadAsByteArrayAsync();
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<GetBillResponse> GetAsync(GetBillRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/bills/{billId}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new GetBillResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.Bill = JsonConvert.DeserializeObject<Bill>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<GetBillAttachmentResponse> GetAttachmentAsync(GetBillAttachmentRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new GetBillAttachmentResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.Attachment = JsonConvert.DeserializeObject<Attachment>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<GetCreateUpdateBillModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBillModelRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/bills", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new GetCreateUpdateBillModelResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.PushOption = JsonConvert.DeserializeObject<PushOption>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
         }
         
 
         public async Task<ListBillsResponse> ListAsync(ListBillsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/bills", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connection/{connectionId}/payables/bills", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -601,7 +96,7 @@ namespace Codat.Sync.Payables
                 {
                     response.Bills = JsonConvert.DeserializeObject<Models.Shared.Bills>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -610,149 +105,12 @@ namespace Codat.Sync.Payables
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
-        
 
-        public async Task<ListBillAttachmentsResponse> ListAttachmentsAsync(ListBillAttachmentsRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new ListBillAttachmentsResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.Attachments = JsonConvert.DeserializeObject<Attachments>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<Models.Operations.UpdateBillResponse> UpdateAsync(UpdateBillRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "Bill", "json");
-            if (serializedBody != null)
-            {
-                httpRequest.Content = serializedBody;
-            }
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new Models.Operations.UpdateBillResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.UpdateBillResponseValue = JsonConvert.DeserializeObject<Models.Shared.UpdateBillResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
-        
-
-        public async Task<UploadBillAttachmentResponse> UploadAttachmentAsync(UploadBillAttachmentRequest? request = null)
-        {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}/attachments", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "AttachmentUpload", "multipart");
-            if (serializedBody != null)
-            {
-                httpRequest.Content = serializedBody;
-            }
-            
-            var client = _securityClient;
-            
-            var httpResponse = await client.SendAsync(httpRequest);
-
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new UploadBillAttachmentResponse
-            {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            
-            if((response.StatusCode == 200))
-            {
-                
-                return response;
-            }
-            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
-                }
-                
-                return response;
-            }
-            return response;
-        }
         
     }
 }

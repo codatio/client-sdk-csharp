@@ -21,8 +21,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -59,42 +58,11 @@ using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 SetConfigurationRequest req = new SetConfigurationRequest() {
-    Configuration = new Models.Shared.Configuration() {
-        CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-        Configuration = new SyncConfiguration() {
-            SyncAsBankFeeds = new SyncAsBankFeeds() {
-                BankAccountOptions = new List<BankAccountOption>() {
-                    new BankAccountOption() {},
-                },
-            },
-            SyncAsExpenses = new SyncAsExpenses() {
-                BankAccountOptions = new List<BankAccountOption>() {
-                    new BankAccountOption() {},
-                },
-                Customer = new ConfigurationCustomer() {
-                    CustomerOptions = new List<ConfigurationContactRef>() {
-                        new ConfigurationContactRef() {},
-                    },
-                },
-                Supplier = new ConfigurationSupplier() {
-                    SupplierOptions = new List<ConfigurationContactRef>() {
-                        new ConfigurationContactRef() {},
-                    },
-                },
-            },
-        },
-        Schedule = new ConfigurationSchedule() {
-            FrequencyOptions = new List<string>() {
-                "string",
-            },
-        },
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 

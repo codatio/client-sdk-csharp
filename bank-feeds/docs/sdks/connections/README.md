@@ -26,15 +26,11 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateConnectionRequest req = new CreateConnectionRequest() {
-    RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "gbol",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -67,8 +63,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -105,8 +100,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -143,8 +137,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -183,13 +176,11 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
-    RequestBody = new UnlinkConnectionUpdateConnection() {},
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };

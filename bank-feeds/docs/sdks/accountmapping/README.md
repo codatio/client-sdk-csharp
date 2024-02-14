@@ -27,14 +27,15 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateBankAccountMappingRequest req = new CreateBankAccountMappingRequest() {
     Zero = new Zero() {
-        FeedStartDate = "2022-10-23T00:00:00Z",
+        FeedStartDate = "2023-01-09T14:14:14.1057478Z",
+        SourceAccountId = "acc-002",
+        TargetAccountId = "account-081",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -72,8 +73,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

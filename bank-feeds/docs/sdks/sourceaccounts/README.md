@@ -46,17 +46,22 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
-        Currency = "USD",
+        AccountName = "account-081",
+        AccountNumber = "12345670",
+        AccountType = "Credit",
+        Balance = 99.99M,
+        Currency = "GBP",
         FeedStartDate = "2022-10-23T00:00:00Z",
-        Id = "<ID>",
-        ModifiedDate = "2022-10-23T00:00:00Z",
+        Id = "acc-002",
+        ModifiedDate = "2023-01-09T14:14:14.1057478Z",
+        SortCode = "123456",
+        Status = "pending",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -93,8 +98,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -134,8 +138,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -175,8 +178,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -217,8 +219,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -256,19 +257,24 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 UpdateSourceAccountRequest req = new UpdateSourceAccountRequest() {
     SourceAccount = new SourceAccount() {
-        Currency = "EUR",
+        AccountName = "account-095",
+        AccountNumber = "12345671",
+        AccountType = "Credit",
+        Balance = 0M,
+        Currency = "USD",
         FeedStartDate = "2022-10-23T00:00:00Z",
-        Id = "<ID>",
-        ModifiedDate = "2022-10-23T00:00:00Z",
+        Id = "acc-003",
+        ModifiedDate = "2023-01-09T14:14:14.1057478Z",
+        SortCode = "123456",
+        Status = "pending",
     },
-    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };

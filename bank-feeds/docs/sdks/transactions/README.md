@@ -32,28 +32,12 @@ using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
-    CreateBankTransactions = new CreateBankTransactions() {
-        AccountId = "7110701885",
-        Transactions = new List<BankTransactions>() {
-            new BankTransactions() {
-                Amount = 999.99M,
-                Balance = -999.99M,
-                Counterparty = "ACME INC",
-                Date = "2022-10-23T00:00:00Z",
-                Description = "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
-                Id = "716422529",
-                Reconciled = false,
-                Reference = "reference for transaction",
-            },
-        },
-    },
-    AccountId = "7110701885",
+    AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -86,8 +70,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -124,8 +107,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

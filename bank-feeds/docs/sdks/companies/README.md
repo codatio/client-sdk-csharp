@@ -29,18 +29,12 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using System.Collections.Generic;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
     Name = "Bank of Dave",
 };
 
@@ -76,8 +70,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -117,8 +110,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -157,8 +149,7 @@ using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -201,21 +192,11 @@ using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatBankFeeds(
-    security: new Security() {
+var sdk = new CodatBankFeeds(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
-    CompanyRequestBody = new CompanyRequestBody() {
-        Description = "Requested early access to the new financing scheme.",
-        Groups = new List<Items>() {
-            new Items() {
-                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        },
-        Name = "Bank of Dave",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 

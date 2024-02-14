@@ -10,7 +10,9 @@
 #nullable enable
 namespace Codat.Sync.Payables.Models.Operations
 {
+    using Codat.Sync.Payables.Models.Shared;
     using Codat.Sync.Payables.Utils;
+    using System.Collections.Generic;
     
     public class ListBillsRequest
     {
@@ -22,10 +24,10 @@ namespace Codat.Sync.Payables.Models.Operations
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Field to order results by. <a href="https://docs.codat.io/using-the-api/ordering-results">Read more</a>.
+        /// Unique identifier for a connection.
         /// </summary>
-        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=orderBy")]
-        public string? OrderBy { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=connectionId")]
+        public string ConnectionId { get; set; } = default!;
 
         /// <summary>
         /// Page number. <a href="https://docs.codat.io/using-the-api/paging">Read more</a>.
@@ -40,9 +42,15 @@ namespace Codat.Sync.Payables.Models.Operations
         public int? PageSize { get; set; }
 
         /// <summary>
-        /// Codat query string. <a href="https://docs.codat.io/using-the-api/querying">Read more</a>.
+        /// Filter bills by `sourceModifiedDate` to return bills that have changed after a specified date.
         /// </summary>
-        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=query")]
-        public string? Query { get; set; }
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sourceModifiedDate")]
+        public string? SourceModifiedDate { get; set; }
+
+        /// <summary>
+        /// Filter bills by `status`.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=false,name=status")]
+        public List<BillStatus>? Status { get; set; }
     }
 }

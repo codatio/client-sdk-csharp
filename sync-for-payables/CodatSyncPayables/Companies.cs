@@ -29,11 +29,12 @@ namespace Codat.Sync.Payables
         /// Create company
         /// 
         /// <remarks>
-        /// Creates a new company that can be used to assign connections to. <br/>
+        /// Use the *Create company* endpoint to create a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> that represents your customer in Codat. <br/>
         /// <br/>
-        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.<br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
         /// <br/>
-        /// 
+        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
         /// </remarks>
         /// </summary>
         Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null);
@@ -42,8 +43,11 @@ namespace Codat.Sync.Payables
         /// Delete a company
         /// 
         /// <remarks>
+        /// The *Delete company* endpoint permanently deletes a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a>, its <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> and any cached data. This operation is irreversible.<br/>
         /// <br/>
-        /// Permanently deletes a company, its connections and any cached data. This operation is irreversible. If the company ID does not exist an error is returned.
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// 
         /// </remarks>
         /// </summary>
         Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest? request = null);
@@ -52,7 +56,11 @@ namespace Codat.Sync.Payables
         /// Get company
         /// 
         /// <remarks>
-        /// Returns the company for a valid identifier. If the identifier is for a deleted company, a not found response is returned.
+        /// The *Get company* endpoint returns a single company for a given `companyId`.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// 
         /// </remarks>
         /// </summary>
         Task<GetCompanyResponse> GetAsync(GetCompanyRequest? request = null);
@@ -61,7 +69,10 @@ namespace Codat.Sync.Payables
         /// List companies
         /// 
         /// <remarks>
-        /// Returns a list of your companies. The company schema contains a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> related to the company.
+        /// The *List companies* endpoint returns a list of [companies] associated to your instances.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
         /// </summary>
         Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null);
@@ -70,7 +81,11 @@ namespace Codat.Sync.Payables
         /// Update company
         /// 
         /// <remarks>
-        /// Updates both the name and description of the company.
+        /// Use the *Update company* endpoint to update both the name and description of the company. <br/>
+        /// If you use <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Group">groups</a> to manage a set of companies, use the <a href="https://docs.codat.io/sync-for-payables-api#/operations/add-company-to-group">Add company</a> or <a href="https://docs.codat.io/sync-for-payables-api#/operations/remove-company-from-group">Remove company</a> endpoints to add or remove a company from a group.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
         /// </summary>
         Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest? request = null);
@@ -83,18 +98,18 @@ namespace Codat.Sync.Payables
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.1.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "3.2.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.1.0 2.214.3 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.2.0 2.257.2 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public Companies(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Companies(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
@@ -114,8 +129,12 @@ namespace Codat.Sync.Payables
                 httpRequest.Content = serializedBody;
             }
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -133,7 +152,7 @@ namespace Codat.Sync.Payables
                 {
                     response.Company = JsonConvert.DeserializeObject<Company>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -142,11 +161,12 @@ namespace Codat.Sync.Payables
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest? request = null)
@@ -158,8 +178,12 @@ namespace Codat.Sync.Payables
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -173,7 +197,7 @@ namespace Codat.Sync.Payables
             
             if((response.StatusCode == 204))
             {
-                
+
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -182,11 +206,12 @@ namespace Codat.Sync.Payables
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<GetCompanyResponse> GetAsync(GetCompanyRequest? request = null)
@@ -198,8 +223,12 @@ namespace Codat.Sync.Payables
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -217,7 +246,7 @@ namespace Codat.Sync.Payables
                 {
                     response.Company = JsonConvert.DeserializeObject<Company>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -226,11 +255,12 @@ namespace Codat.Sync.Payables
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null)
@@ -242,8 +272,12 @@ namespace Codat.Sync.Payables
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -261,7 +295,7 @@ namespace Codat.Sync.Payables
                 {
                     response.Companies = JsonConvert.DeserializeObject<Models.Shared.Companies>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -270,11 +304,12 @@ namespace Codat.Sync.Payables
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest? request = null)
@@ -291,8 +326,12 @@ namespace Codat.Sync.Payables
                 httpRequest.Content = serializedBody;
             }
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -310,7 +349,7 @@ namespace Codat.Sync.Payables
                 {
                     response.Company = JsonConvert.DeserializeObject<Company>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -319,11 +358,12 @@ namespace Codat.Sync.Payables
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
     }
 }

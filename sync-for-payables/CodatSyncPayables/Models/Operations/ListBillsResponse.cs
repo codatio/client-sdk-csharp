@@ -18,11 +18,6 @@ namespace Codat.Sync.Payables.Models.Operations
     {
 
         /// <summary>
-        /// Success
-        /// </summary>
-        public Models.Shared.Bills? Bills { get; set; }
-
-        /// <summary>
         /// HTTP response content type for this operation
         /// </summary>
         public string? ContentType { get; set; } = default!;
@@ -41,5 +36,10 @@ namespace Codat.Sync.Payables.Models.Operations
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        public Models.Shared.Bills? Bills { get; set; }
     }
 }

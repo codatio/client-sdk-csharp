@@ -1,30 +1,19 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 90e818f74893781f7aeb0c8b06b2715f
-  docVersion: 3.0.0
-  speakeasyVersion: 1.126.3
-  generationVersion: 2.214.3
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: Codat.SyncPayables
-  repoURL: https://github.com/codatio/client-sdk-csharp.git
   usageSnippets:
     optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
   telemetryEnabled: true
-features:
-  csharp:
-    core: 3.2.0
-    deprecations: 2.81.1
-    examples: 2.81.3
-    globalSecurity: 2.81.2
-    globalServerURLs: 2.82.2
-    inputOutputModels: 2.82.0
-    nameOverrides: 2.81.1
 csharp:
-  version: 3.1.0
+  version: 3.2.0
   author: Codat
   description: Streamline your customers' accounts payable workflow.
   dotnetVersion: net6.0
+  flattenGlobalSecurity: false
   imports:
     option: openapi
     paths:
@@ -37,5 +26,3 @@ csharp:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.Sync.Payables
-  published: true
-  repoSubDirectory: sync-for-payables

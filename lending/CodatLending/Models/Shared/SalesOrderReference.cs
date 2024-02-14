@@ -16,10 +16,10 @@ namespace Codat.Lending.Models.Shared
     {
 
         /// <summary>
-        /// Available Data types
+        /// The underlying data type associated to the reference `id`.
         /// </summary>
         [JsonProperty("dataType")]
-        public DataType? DataType { get; set; }
+        public AccountingInvoiceDataType? DataType { get; set; }
 
         /// <summary>
         /// Unique identifier to a record in `dataType`.

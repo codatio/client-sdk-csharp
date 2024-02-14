@@ -15,20 +15,21 @@ Create and manage your Codat companies.
 
 ## Create
 
-﻿Creates a new company that can be used to assign connections to. 
+﻿Use the *Create company* endpoint to create a new [company](https://docs.codat.io/lending-api#/schemas/Company) that represents your customer in Codat. 
+
+A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
+Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
 If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
-
-
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -56,8 +57,11 @@ var res = await sdk.Companies.CreateAsync(req);
 
 ## Delete
 
-﻿
-Permanently deletes a company, its connections and any cached data. This operation is irreversible. If the company ID does not exist an error is returned.
+﻿The *Delete company* endpoint permanently deletes a [company](https://docs.codat.io/lending-api#/schemas/Company), its [connections](https://docs.codat.io/lending-api#/schemas/Connection) and any cached data. This operation is irreversible.
+
+A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
+Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+
 
 ### Example Usage
 
@@ -66,8 +70,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -94,7 +97,11 @@ var res = await sdk.Companies.DeleteAsync(req);
 
 ## Get
 
-﻿Returns the company for a valid identifier. If the identifier is for a deleted company, a not found response is returned.
+﻿The *Get company* endpoint returns a single company for a given `companyId`.
+
+A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
+Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+
 
 ### Example Usage
 
@@ -103,8 +110,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -131,7 +137,10 @@ var res = await sdk.Companies.GetAsync(req);
 
 ## List
 
-﻿Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/lending-api#/schemas/Connection) related to the company.
+﻿The *List companies* endpoint returns a list of [companies] associated to your instances.
+
+A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
+Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
 ### Example Usage
 
@@ -140,8 +149,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -170,7 +178,11 @@ var res = await sdk.Companies.ListAsync(req);
 
 ## Update
 
-﻿Updates both the name and description of the company.
+﻿Use the *Update company* endpoint to update both the name and description of the company. 
+If you use [groups](https://docs.codat.io/lending-api#/schemas/Group) to manage a set of companies, use the [Add company](https://docs.codat.io/lending-api#/operations/add-company-to-group) or [Remove company](https://docs.codat.io/lending-api#/operations/remove-company-from-group) endpoints to add or remove a company from a group.
+
+A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
+Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
 ### Example Usage
 
@@ -178,17 +190,13 @@ var res = await sdk.Companies.ListAsync(req);
 using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
-    CompanyRequestBody = new CompanyRequestBody() {
-        Description = "Requested early access to the new financing scheme.",
-        Name = "Bank of Dave",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 

@@ -56,29 +56,8 @@ namespace Codat.Lending.Models.Shared
         [JsonProperty("completedOnUtc")]
         public string? CompletedOnUtc { get; set; }
 
-        /// <summary>
-        /// &gt; **Accessing Bank Accounts through Banking API**<br/>
-        /// 
-        /// <remarks>
-        /// &gt; <br/>
-        /// &gt; This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. <br/>
-        /// &gt; <br/>
-        /// &gt; To view bank account data through the Banking API, please refer to the new datatype <a href="https://docs.codat.io/lending-api#/schemas/Account">here</a><br/>
-        /// <br/>
-        /// &gt; View the coverage for bank accounts in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-        /// <br/>
-        /// ## Overview<br/>
-        /// <br/>
-        /// A list of bank accounts associated with a company and a specific data connection.<br/>
-        /// <br/>
-        /// Bank accounts data includes:<br/>
-        /// * The name and ID of the account in the accounting platform.<br/>
-        /// * The currency and balance of the account.<br/>
-        /// * The sort code and account number.
-        /// </remarks>
-        /// </summary>
         [JsonProperty("data")]
-        public AccountingBankAccount? Data { get; set; }
+        public AccountingCreateBankAccountResponseAccountingBankAccount? Data { get; set; }
 
         /// <summary>
         /// Unique identifier for a company&apos;s data connection.

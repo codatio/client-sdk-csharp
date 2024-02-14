@@ -25,8 +25,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -34,7 +33,7 @@ DownloadAccountingDirectIncomeAttachmentRequest req = new DownloadAccountingDire
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "string",
+    DirectIncomeId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.DirectIncomes.DownloadAttachmentAsync(req);
@@ -72,15 +71,14 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "string",
+    DirectIncomeId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
@@ -116,8 +114,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -125,7 +122,7 @@ GetAccountingDirectIncomeAttachmentRequest req = new GetAccountingDirectIncomeAt
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "string",
+    DirectIncomeId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.DirectIncomes.GetAttachmentAsync(req);
@@ -161,8 +158,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -207,15 +203,14 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ListAccountingDirectIncomeAttachmentsRequest req = new ListAccountingDirectIncomeAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "string",
+    DirectIncomeId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.DirectIncomes.ListAttachmentsAsync(req);

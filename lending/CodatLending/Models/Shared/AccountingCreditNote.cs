@@ -247,6 +247,6 @@ namespace Codat.Lending.Models.Shared
         public decimal TotalTaxAmount { get; set; } = default!;
 
         [JsonProperty("withholdingTax")]
-        public List<Items>? WithholdingTax { get; set; }
+        public List<WithholdingTaxItems>? WithholdingTax { get; set; }
     }
 }

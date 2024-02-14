@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Lending
 {
+    using Codat.Lending.Models.Shared;
     using Codat.Lending.Utils;
     using System;
 
@@ -25,28 +26,28 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.2.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "5.3.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.214.3 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.257.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public IBills Bills { get; private set; }
         public ISuppliers Suppliers { get; private set; }
         public IBillCreditNotes BillCreditNotes { get; private set; }
         public IBillPayments BillPayments { get; private set; }
 
-        public AccountsPayable(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public AccountsPayable(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
-            Bills = new Bills(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Suppliers = new Suppliers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BillCreditNotes = new BillCreditNotes(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BillPayments = new BillPayments(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Bills = new Bills(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Suppliers = new Suppliers(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            BillCreditNotes = new BillCreditNotes(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            BillPayments = new BillPayments(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
         
     }

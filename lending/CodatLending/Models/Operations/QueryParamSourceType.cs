@@ -58,4 +58,5 @@ namespace Codat.Lending.Models.Operations
             throw new Exception($"Unknown value {value} for enum QueryParamSourceType");
         }
     }
+
 }

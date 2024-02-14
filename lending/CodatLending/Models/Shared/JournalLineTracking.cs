@@ -20,6 +20,6 @@ namespace Codat.Lending.Models.Shared
     {
 
         [JsonProperty("recordRefs")]
-        public List<RecordRef>? RecordRefs { get; set; }
+        public List<TrackingRecordRef>? RecordRefs { get; set; }
     }
 }

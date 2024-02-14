@@ -15,14 +15,14 @@ namespace Codat.Lending.Models.Shared
     /// <summary>
     /// A customer or supplier associated with the direct cost.
     /// </summary>
-    public class DirectCostPrototypeContactRef
+    public class AccountingDirectCostContactReference
     {
 
         /// <summary>
-        /// Available Data types
+        /// Allowed name of the &apos;dataType&apos;.
         /// </summary>
         [JsonProperty("dataType")]
-        public DataType? DataType { get; set; }
+        public AccountingDirectCostDataType? DataType { get; set; }
 
         /// <summary>
         /// Unique identifier for a customer or supplier.

@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Lending
 {
+    using Codat.Lending.Models.Shared;
     using Codat.Lending.Utils;
     using System;
 
@@ -29,13 +30,13 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.2.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "5.3.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.214.3 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.257.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public IBankAccounts BankAccounts { get; private set; }
         public IBankTransactions BankTransactions { get; private set; }
         public ICodatLendingLoanWritebackAccounts Accounts { get; private set; }
@@ -45,20 +46,20 @@ namespace Codat.Lending
         public ITransfers Transfers { get; private set; }
         public ICreateOperations CreateOperations { get; private set; }
 
-        public LoanWriteback(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public LoanWriteback(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
-            BankAccounts = new BankAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BankTransactions = new BankTransactions(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Accounts = new CodatLendingLoanWritebackAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            DirectCosts = new DirectCosts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Payments = new CodatLendingPayments(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Suppliers = new CodatLendingSuppliers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Transfers = new Transfers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            CreateOperations = new CreateOperations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BankAccounts = new BankAccounts(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            BankTransactions = new BankTransactions(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Accounts = new CodatLendingLoanWritebackAccounts(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            DirectCosts = new DirectCosts(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Payments = new CodatLendingPayments(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Suppliers = new CodatLendingSuppliers(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Transfers = new Transfers(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            CreateOperations = new CreateOperations(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
         
     }

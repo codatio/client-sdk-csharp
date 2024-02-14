@@ -57,7 +57,7 @@ namespace Codat.Lending.Models.Shared
         public string? CompletedOnUtc { get; set; }
 
         [JsonProperty("data")]
-        public AccountingCreateBankTransactions? Data { get; set; }
+        public AccountingCreateBankAccountTransactions? Data { get; set; }
 
         /// <summary>
         /// Unique identifier for a company&apos;s data connection.

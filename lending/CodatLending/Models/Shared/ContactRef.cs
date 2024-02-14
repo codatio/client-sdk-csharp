@@ -19,10 +19,10 @@ namespace Codat.Lending.Models.Shared
     {
 
         /// <summary>
-        /// Available Data types
+        /// Allowed name of the &apos;dataType&apos;.
         /// </summary>
         [JsonProperty("dataType")]
-        public DataType? DataType { get; set; }
+        public ContactRefDataType? DataType { get; set; }
 
         /// <summary>
         /// Unique identifier for a customer or supplier.

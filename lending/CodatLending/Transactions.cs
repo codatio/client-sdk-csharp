@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Lending
 {
+    using Codat.Lending.Models.Shared;
     using Codat.Lending.Utils;
     using System;
 
@@ -26,30 +27,30 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.2.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "5.3.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.214.3 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.257.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public IAccountTransactions AccountTransactions { get; private set; }
         public ICodatLendingDirectCosts DirectCosts { get; private set; }
         public ICodatLendingTransfers Transfers { get; private set; }
         public IJournalEntries JournalEntries { get; private set; }
         public IJournals Journals { get; private set; }
 
-        public Transactions(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public Transactions(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
-            AccountTransactions = new AccountTransactions(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            DirectCosts = new CodatLendingDirectCosts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Transfers = new CodatLendingTransfers(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            JournalEntries = new JournalEntries(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Journals = new Journals(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AccountTransactions = new AccountTransactions(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            DirectCosts = new CodatLendingDirectCosts(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Transfers = new CodatLendingTransfers(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            JournalEntries = new JournalEntries(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Journals = new Journals(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
         
     }

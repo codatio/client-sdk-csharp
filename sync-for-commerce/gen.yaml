@@ -1,26 +1,28 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 8c98eef70ca98a975bed0f84ad9cd374
-  docVersion: '1.1'
-  speakeasyVersion: 1.100.2
-  generationVersion: 2.159.2
+configVersion: 2.0.0
 generation:
   sdkClassName: Codat.Sync.Commerce
-  singleTagPerOp: false
+  usageSnippets:
+    optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
   telemetryEnabled: true
-features:
-  csharp:
-    core: 2.89.4
-    deprecations: 2.81.1
-    examples: 2.81.2
-    globalSecurity: 2.81.1
-    globalServerURLs: 2.82.0
-    nameOverrides: 2.81.1
 csharp:
-  version: 2.2.0
+  version: 3.0.0
   author: Codat
-  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform
-    into your merchants' accounting platform.
+  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   dotnetVersion: net6.0
+  flattenGlobalSecurity: false
+  imports:
+    option: openapi
+    paths:
+      callbacks: Models/Callbacks
+      errors: Models/Errors
+      operations: Models/Operations
+      shared: Models/Shared
+      webhooks: Models/Webhooks
+  inputModelSuffix: input
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: Codat.Sync.Commerce

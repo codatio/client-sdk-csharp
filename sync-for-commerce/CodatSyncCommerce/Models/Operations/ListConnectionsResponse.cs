@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Operations
+namespace Codat.Sync.Commerce.Models.Operations
 {
-    using CodatSyncCommerce.Models.Shared;
+    using Codat.Sync.Commerce.Models.Shared;
     using System.Net.Http;
     using System;
     
@@ -20,7 +20,7 @@ namespace CodatSyncCommerce.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public Connections? Connections { get; set; }
+        public Models.Shared.Connections? Connections { get; set; }
 
         /// <summary>
         /// HTTP response content type for this operation
@@ -40,6 +40,6 @@ namespace CodatSyncCommerce.Models.Operations
         /// <summary>
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
-        public HttpResponseMessage? RawResponse { get; set; }
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

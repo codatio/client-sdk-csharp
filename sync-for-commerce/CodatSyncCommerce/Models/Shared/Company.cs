@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Shared
+namespace Codat.Sync.Commerce.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -68,6 +68,12 @@ namespace CodatSyncCommerce.Models.Shared
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// An array of groups the company has been assigned to.
+        /// </summary>
+        [JsonProperty("groups")]
+        public List<GroupReference>? Groups { get; set; }
 
         /// <summary>
         /// Unique identifier for your SMB in Codat.

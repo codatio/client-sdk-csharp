@@ -23,9 +23,9 @@ dotnet add package Codat.Lending
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -375,6 +375,38 @@ You can override the default server globally by passing a server index to the `s
 
 The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `authHeader` | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatLending(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
+
+// handle response
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

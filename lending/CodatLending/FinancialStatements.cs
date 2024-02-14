@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Lending
 {
+    using Codat.Lending.Models.Shared;
     using Codat.Lending.Utils;
     using System;
 
@@ -25,28 +26,28 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.2.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "5.3.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.214.3 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.257.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public ICodatLendingFinancialStatementsAccounts Accounts { get; private set; }
         public IBalanceSheet BalanceSheet { get; private set; }
         public ICashFlow CashFlow { get; private set; }
         public IProfitAndLoss ProfitAndLoss { get; private set; }
 
-        public FinancialStatements(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public FinancialStatements(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
-            Accounts = new CodatLendingFinancialStatementsAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BalanceSheet = new BalanceSheet(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            CashFlow = new CashFlow(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            ProfitAndLoss = new ProfitAndLoss(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Accounts = new CodatLendingFinancialStatementsAccounts(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            BalanceSheet = new BalanceSheet(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            CashFlow = new CashFlow(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            ProfitAndLoss = new ProfitAndLoss(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
         
     }

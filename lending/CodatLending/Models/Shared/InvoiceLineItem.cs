@@ -12,7 +12,6 @@ namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    using System;
     
     public class InvoiceLineItem
     {
@@ -104,7 +103,6 @@ namespace Codat.Lending.Models.Shared
         /// <summary>
         /// Reference to the tracking categories to which the line item is linked.
         /// </summary>
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("trackingCategoryRefs")]
         public List<TrackingCategoryRef>? TrackingCategoryRefs { get; set; }
 

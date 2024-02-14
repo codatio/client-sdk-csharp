@@ -24,14 +24,13 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetAccountingPaymentRequest req = new GetAccountingPaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PaymentId = "string",
+    PaymentId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.Payments.GetAsync(req);
@@ -67,8 +66,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

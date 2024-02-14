@@ -79,4 +79,5 @@ namespace Codat.Lending.Models.Shared
             throw new Exception($"Unknown value {value} for enum TransactionType");
         }
     }
+
 }

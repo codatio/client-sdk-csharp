@@ -22,7 +22,7 @@ namespace Codat.Lending.Models.Operations
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Push operation key.
+        /// Unique identifier for the push operation.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=pushOperationKey")]
         public string PushOperationKey { get; set; } = default!;

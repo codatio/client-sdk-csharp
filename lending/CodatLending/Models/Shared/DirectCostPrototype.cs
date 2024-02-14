@@ -20,7 +20,7 @@ namespace Codat.Lending.Models.Shared
         /// A customer or supplier associated with the direct cost.
         /// </summary>
         [JsonProperty("contactRef")]
-        public DirectCostPrototypeContactRef? ContactRef { get; set; }
+        public ContactReference? ContactRef { get; set; }
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>

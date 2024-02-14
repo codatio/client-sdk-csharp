@@ -24,13 +24,12 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetAccountingBillCreditNoteRequest req = new GetAccountingBillCreditNoteRequest() {
-    BillCreditNoteId = "string",
+    BillCreditNoteId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -67,8 +66,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

@@ -2,9 +2,9 @@
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Shared;
+using System.Collections.Generic;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

@@ -46,8 +46,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -110,8 +109,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -175,8 +173,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

@@ -27,8 +27,7 @@ using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -36,21 +35,40 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
     AccountingSupplier = new AccountingSupplier() {
         Addresses = new List<AccountingAddress>() {
             new AccountingAddress() {
+                City = "Bakersfield",
+                Country = "USA",
+                Line1 = "Unit 51",
+                Line2 = "Bakersfield Industrial Estate",
+                Region = "California",
                 Type = AccountingAddressType.Billing,
             },
         },
-        Metadata = new Metadata() {},
+        ContactName = "Kelly's Industrial Supplies",
+        DefaultCurrency = "string",
+        EmailAddress = "sales@kellysupplies.com",
+        Id = "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F",
+        Metadata = new Metadata() {
+            IsDeleted = true,
+        },
         ModifiedDate = "2022-10-23T00:00:00Z",
-        Phone = "(877) 492-8687",
+        Phone = "07999 999999",
+        RegistrationNumber = "string",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Status = SupplierStatus.Active,
+        Status = SupplierStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "key", new Dictionary<string, object>() {
-                    { "key", "string" },
+                { "property1", new Dictionary<string, object>() {
+                    { "property1", null },
+                    { "property2", null },
+                } },
+                { "property2", new Dictionary<string, object>() {
+                    { "property1", null },
+                    { "property2", null },
                 } },
             },
         },
+        SupplierName = "Kelly's Industrial Supplies",
+        TaxNumber = "string",
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -93,8 +111,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

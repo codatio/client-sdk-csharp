@@ -161,13 +161,14 @@ namespace Codat.Lending
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.2.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "5.3.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.214.3 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.257.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
+        private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
         public ITransactions Transactions { get; private set; }
@@ -185,44 +186,55 @@ namespace Codat.Lending
         public IDataIntegrity DataIntegrity { get; private set; }
         public IExcelReports ExcelReports { get; private set; }
 
-        public CodatLending(Security? security = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public CodatLending(Security? security = null, Func<Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            if (serverUrl != null) {
-                if (urlParams != null) {
+            if (serverIndex != null)
+            {
+                _serverIndex = serverIndex.Value;
+            }
+
+            if (serverUrl != null)
+            {
+                if (urlParams != null)
+                {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
                 _serverUrl = serverUrl;
             }
 
             _defaultClient = new SpeakeasyHttpClient(client);
-            _securityClient = _defaultClient;
-            
-            if(security != null)
+
+            if(securitySource != null)
             {
-                _securityClient = SecuritySerializer.Apply(_defaultClient, security);
+                _securitySource = securitySource;
             }
-            
+            else if(security != null)
+            {
+                _securitySource = () => security;
+            }
+
             SDKConfiguration = new SDKConfig()
             {
+                serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
 
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Transactions = new Transactions(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            AccountingBankData = new CodatLendingAccountingBankData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Banking = new Banking(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            AccountsPayable = new AccountsPayable(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Sales = new Sales(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            CompanyInfo = new CompanyInfo(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            AccountsReceivable = new AccountsReceivable(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            FileUpload = new FileUpload(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            LoanWriteback = new LoanWriteback(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            FinancialStatements = new FinancialStatements(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            ManageData = new ManageData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Liabilities = new Liabilities(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            DataIntegrity = new DataIntegrity(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            ExcelReports = new ExcelReports(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Companies = new Companies(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Transactions = new Transactions(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            AccountingBankData = new CodatLendingAccountingBankData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Banking = new Banking(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            AccountsPayable = new AccountsPayable(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Sales = new Sales(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            CompanyInfo = new CompanyInfo(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            AccountsReceivable = new AccountsReceivable(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            FileUpload = new FileUpload(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            LoanWriteback = new LoanWriteback(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            FinancialStatements = new FinancialStatements(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            ManageData = new ManageData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Liabilities = new Liabilities(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            DataIntegrity = new DataIntegrity(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            ExcelReports = new ExcelReports(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

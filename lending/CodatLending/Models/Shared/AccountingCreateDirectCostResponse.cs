@@ -56,28 +56,8 @@ namespace Codat.Lending.Models.Shared
         [JsonProperty("completedOnUtc")]
         public string? CompletedOnUtc { get; set; }
 
-        /// <summary>
-        /// &gt; **Language tip:** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.<br/>
-        /// 
-        /// <remarks>
-        /// <br/>
-        /// &gt; View the coverage for direct costs in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directCosts&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-        /// <br/>
-        /// ## Overview<br/>
-        /// <br/>
-        /// Direct costs are the expenses associated with a business&apos; operations. For example, purchases of raw materials and service fees are considered direct costs.<br/>
-        /// <br/>
-        /// Direct costs include:<br/>
-        ///   * Purchasing an item and paying it off at the point of the purchase<br/>
-        ///   * Receiving cash from a refunded item if the refund is made by the supplier<br/>
-        ///   * Withdrawing money from a bank account <br/>
-        ///   * Writing a cheque<br/>
-        /// <br/>
-        /// Direct costs is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.
-        /// </remarks>
-        /// </summary>
         [JsonProperty("data")]
-        public AccountingDirectCost? Data { get; set; }
+        public AccountingCreateDirectCostResponseAccountingDirectCost? Data { get; set; }
 
         /// <summary>
         /// Unique identifier for a company&apos;s data connection.

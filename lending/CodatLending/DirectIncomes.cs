@@ -99,18 +99,18 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.2.0";
-        private const string _sdkGenVersion = "2.214.3";
+        private const string _sdkVersion = "5.3.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.214.3 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.257.2 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public DirectIncomes(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public DirectIncomes(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
@@ -125,8 +125,12 @@ namespace Codat.Lending
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -144,7 +148,7 @@ namespace Codat.Lending
                 {
                     response.Data = await httpResponse.Content.ReadAsByteArrayAsync();
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -153,11 +157,12 @@ namespace Codat.Lending
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<GetAccountingDirectIncomeResponse> GetAsync(GetAccountingDirectIncomeRequest? request = null)
@@ -169,8 +174,12 @@ namespace Codat.Lending
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -188,7 +197,7 @@ namespace Codat.Lending
                 {
                     response.AccountingDirectIncome = JsonConvert.DeserializeObject<AccountingDirectIncome>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -197,11 +206,12 @@ namespace Codat.Lending
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<GetAccountingDirectIncomeAttachmentResponse> GetAttachmentAsync(GetAccountingDirectIncomeAttachmentRequest? request = null)
@@ -213,8 +223,12 @@ namespace Codat.Lending
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -232,7 +246,7 @@ namespace Codat.Lending
                 {
                     response.AccountingAttachment = JsonConvert.DeserializeObject<AccountingAttachment>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -241,11 +255,12 @@ namespace Codat.Lending
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<ListAccountingDirectIncomesResponse> ListAsync(ListAccountingDirectIncomesRequest? request = null)
@@ -257,8 +272,12 @@ namespace Codat.Lending
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -276,7 +295,7 @@ namespace Codat.Lending
                 {
                     response.AccountingDirectIncomes = JsonConvert.DeserializeObject<AccountingDirectIncomes>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -285,11 +304,12 @@ namespace Codat.Lending
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<ListAccountingDirectIncomeAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectIncomeAttachmentsRequest? request = null)
@@ -301,8 +321,12 @@ namespace Codat.Lending
             httpRequest.Headers.Add("user-agent", _userAgent);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -320,7 +344,7 @@ namespace Codat.Lending
                 {
                     response.Attachments = JsonConvert.DeserializeObject<Attachments>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 409) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
@@ -329,11 +353,12 @@ namespace Codat.Lending
                 {
                     response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
     }
 }

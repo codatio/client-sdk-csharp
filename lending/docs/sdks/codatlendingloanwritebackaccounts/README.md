@@ -27,37 +27,11 @@ using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateAccountRequest req = new CreateAccountRequest() {
-    AccountPrototype = new AccountPrototype() {
-        Currency = "USD",
-        CurrentBalance = 0M,
-        Description = "Invoices the business has issued but has not yet collected payment on.",
-        FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Cash On Hand",
-        Name = "Accounts Receivable",
-        NominalCode = "610",
-        Status = AccountStatus.Active,
-        SupplementalData = new SupplementalData() {
-            Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "key", new Dictionary<string, object>() {
-                    { "key", "string" },
-                } },
-            },
-        },
-        Type = AccountType.Asset,
-        ValidDatatypeLinks = new List<ValidDataTypeLinks>() {
-            new ValidDataTypeLinks() {
-                Links = new List<string>() {
-                    "string",
-                },
-            },
-        },
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -99,8 +73,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

@@ -25,14 +25,13 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 DownloadAccountingBillAttachmentRequest req = new DownloadAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "string",
+    BillId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -72,13 +71,12 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetAccountingBillRequest req = new GetAccountingBillRequest() {
-    BillId = "string",
+    BillId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -115,14 +113,13 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetAccountingBillAttachmentRequest req = new GetAccountingBillAttachmentRequest() {
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "string",
+    BillId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -160,8 +157,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -205,13 +201,12 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ListAccountingBillAttachmentsRequest req = new ListAccountingBillAttachmentsRequest() {
-    BillId = "string",
+    BillId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };

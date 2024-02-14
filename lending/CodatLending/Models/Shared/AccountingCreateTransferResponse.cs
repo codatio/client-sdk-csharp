@@ -56,16 +56,8 @@ namespace Codat.Lending.Models.Shared
         [JsonProperty("completedOnUtc")]
         public string? CompletedOnUtc { get; set; }
 
-        /// <summary>
-        /// &gt; View the coverage for transfers in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=transfers&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-        /// 
-        /// <remarks>
-        /// <br/>
-        /// A transfer records the movement of money between two bank accounts, or between a bank account and a nominal account. It is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.
-        /// </remarks>
-        /// </summary>
         [JsonProperty("data")]
-        public AccountingTransfer? Data { get; set; }
+        public AccountingCreateTransferResponseAccountingTransfer? Data { get; set; }
 
         /// <summary>
         /// Unique identifier for a company&apos;s data connection.

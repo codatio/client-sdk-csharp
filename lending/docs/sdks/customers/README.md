@@ -25,8 +25,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -34,7 +33,7 @@ DownloadAccountingCustomerAttachmentRequest req = new DownloadAccountingCustomer
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "string",
+    CustomerId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(req);
@@ -72,14 +71,13 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "string",
+    CustomerId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
@@ -115,8 +113,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -124,7 +121,7 @@ GetAccountingCustomerAttachmentRequest req = new GetAccountingCustomerAttachment
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "string",
+    CustomerId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(req);
@@ -160,8 +157,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
@@ -205,15 +201,14 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ListAccountingCustomerAttachmentsRequest req = new ListAccountingCustomerAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "string",
+    CustomerId = "<value>",
 };
 
 var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(req);

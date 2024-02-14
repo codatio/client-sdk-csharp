@@ -12,22 +12,19 @@ namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
     
-    /// <summary>
-    /// A customer or supplier associated with the direct cost.
-    /// </summary>
-    public class AccountingDirectCostContactRef
+    public class WithholdingTaxItems
     {
 
         /// <summary>
-        /// Available Data types
+        /// Amount of tax withheld.
         /// </summary>
-        [JsonProperty("dataType")]
-        public DataType? DataType { get; set; }
+        [JsonProperty("amount")]
+        public decimal Amount { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for a customer or supplier.
+        /// Name assigned to withheld tax.
         /// </summary>
-        [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        [JsonProperty("name")]
+        public string Name { get; set; } = default!;
     }
 }

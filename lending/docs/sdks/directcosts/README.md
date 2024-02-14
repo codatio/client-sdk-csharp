@@ -27,71 +27,13 @@ using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateDirectCostRequest req = new CreateDirectCostRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostPrototype = new DirectCostPrototype() {
-        ContactRef = new DirectCostPrototypeContactRef() {
-            DataType = DataType.Invoices,
-            Id = "<ID>",
-        },
-        Currency = "USD",
-        IssueDate = "2022-10-23T00:00:00Z",
-        LineItems = new List<DirectCostLineItem>() {
-            new DirectCostLineItem() {
-                AccountRef = new AccountRef() {},
-                ItemRef = new PropertieItemRef() {
-                    Id = "<ID>",
-                },
-                Quantity = 6384.24M,
-                TaxRateRef = new TaxRateRef() {},
-                Tracking = new Tracking() {
-                    InvoiceTo = new RecordRef() {
-                        DataType = "transfer",
-                    },
-                    RecordRefs = new List<RecordRef>() {
-                        new RecordRef() {
-                            DataType = "invoice",
-                        },
-                    },
-                },
-                TrackingCategoryRefs = new List<TrackingCategoryRef>() {
-                    new TrackingCategoryRef() {
-                        Id = "<ID>",
-                    },
-                },
-                UnitAmount = 2884.08M,
-            },
-        },
-        PaymentAllocations = new List<AccountingPaymentAllocation>() {
-            new AccountingPaymentAllocation() {
-                Allocation = new Allocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00Z",
-                    Currency = "EUR",
-                },
-                Payment = new PaymentAllocationPayment() {
-                    AccountRef = new AccountRef() {},
-                    Currency = "GBP",
-                    PaidOnDate = "2022-10-23T00:00:00Z",
-                },
-            },
-        },
-        SubTotal = 7964.74M,
-        SupplementalData = new SupplementalData() {
-            Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "key", new Dictionary<string, object>() {
-                    { "key", "string" },
-                } },
-            },
-        },
-        TaxAmount = 3768.44M,
-        TotalAmount = 9510.62M,
-    },
 };
 
 var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(req);
@@ -131,8 +73,7 @@ using Codat.Lending;
 using Codat.Lending.Models.Shared;
 using Codat.Lending.Models.Operations;
 
-var sdk = new CodatLending(
-    security: new Security() {
+var sdk = new CodatLending(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 

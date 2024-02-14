@@ -11,6 +11,7 @@
 namespace Codat.Lending.Models.Shared
 {
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     public class CompanyRequestBody
     {
@@ -20,6 +21,12 @@ namespace Codat.Lending.Models.Shared
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// Reference to the groups that the company is assigned to.
+        /// </summary>
+        [JsonProperty("groups")]
+        public List<Items>? Groups { get; set; }
 
         /// <summary>
         /// Name of company being connected.

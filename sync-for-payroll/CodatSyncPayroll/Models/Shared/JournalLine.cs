@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncPayroll.Models.Shared
+namespace Codat.Sync.Payroll.Models.Shared
 {
     using Newtonsoft.Json;
     
@@ -43,6 +43,6 @@ namespace CodatSyncPayroll.Models.Shared
         /// List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
         /// </summary>
         [JsonProperty("tracking")]
-        public JournalLineTracking? Tracking { get; set; }
+        public Tracking? Tracking { get; set; }
     }
 }

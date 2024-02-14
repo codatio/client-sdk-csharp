@@ -1,4 +1,4 @@
-# SyncFlowSettingsSDK
+# SyncFlowSettings
 (*SyncFlowSettings*)
 
 ## Overview
@@ -19,24 +19,33 @@ Return preferences set for the text fields on sync flow.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerceSDK(
-    security: new Security() {
+var sdk = new CodatSyncCommerce(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync();
+GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
+    Locale = Locale.EnUs,
+};
+
+var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
 
 // handle response
 ```
 
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [GetConfigTextSyncFlowRequest](../../Models/Operations/GetConfigTextSyncFlowRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
 
 ### Response
 
-**[GetConfigTextSyncFlowResponse](../../models/operations/GetConfigTextSyncFlowResponse.md)**
+**[GetConfigTextSyncFlowResponse](../../Models/Operations/GetConfigTextSyncFlowResponse.md)**
 
 
 ## GetVisibleAccounts
@@ -46,20 +55,20 @@ Return accounts which are visible on sync flow.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerceSDK(
-    security: new Security() {
+var sdk = new CodatSyncCommerce(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(new GetVisibleAccountsRequest() {
+GetVisibleAccountsRequest req = new GetVisibleAccountsRequest() {
     ClientId = "86fe9741-738d-4f2c-8e96-9c3f84156e91",
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(req);
 
 // handle response
 ```
@@ -68,12 +77,12 @@ var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(new GetVisibleAccou
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [GetVisibleAccountsRequest](../../models/operations/GetVisibleAccountsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+| `request`                                                                         | [GetVisibleAccountsRequest](../../Models/Operations/GetVisibleAccountsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 
 ### Response
 
-**[GetVisibleAccountsResponse](../../models/operations/GetVisibleAccountsResponse.md)**
+**[GetVisibleAccountsResponse](../../Models/Operations/GetVisibleAccountsResponse.md)**
 
 
 ## UpdateConfigTextSyncFlow
@@ -83,32 +92,34 @@ Set preferences for the text fields on sync flow.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncCommerceSDK(
-    security: new Security() {
+var sdk = new CodatSyncCommerce(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(new Dictionary<string, Localization>() {
-    { "West", new Localization() {} },
-});
+UpdateConfigTextSyncFlowRequest req = new UpdateConfigTextSyncFlowRequest() {
+    Locale = Locale.EnUs,
+};
+
+var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | Dictionary<String, [Localization](../../models/shared/Localization.md)> | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [UpdateConfigTextSyncFlowRequest](../../Models/Operations/UpdateConfigTextSyncFlowRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
 
-**[UpdateConfigTextSyncFlowResponse](../../models/operations/UpdateConfigTextSyncFlowResponse.md)**
+**[UpdateConfigTextSyncFlowResponse](../../Models/Operations/UpdateConfigTextSyncFlowResponse.md)**
 
 
 ## UpdateVisibleAccountsSyncFlow
@@ -118,24 +129,20 @@ Update which accounts are visible on sync flow.
 ### Example Usage
 
 ```csharp
-using CodatSyncCommerce;
-using CodatSyncCommerce.Models.Shared;
-using CodatSyncCommerce.Models.Operations;
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncCommerceSDK(
-    security: new Security() {
+var sdk = new CodatSyncCommerce(security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
-);
+    });
 
-var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(new UpdateVisibleAccountsSyncFlowRequest() {
-    VisibleAccounts = new VisibleAccounts() {
-        VisibleAccounts = new List<string>() {
-            "Coordinator",
-        },
-    },
+UpdateVisibleAccountsSyncFlowRequest req = new UpdateVisibleAccountsSyncFlowRequest() {
     PlatformKey = "gbol",
-});
+};
+
+var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(req);
 
 // handle response
 ```
@@ -144,10 +151,10 @@ var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(new Upda
 
 | Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [UpdateVisibleAccountsSyncFlowRequest](../../models/operations/UpdateVisibleAccountsSyncFlowRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| `request`                                                                                               | [UpdateVisibleAccountsSyncFlowRequest](../../Models/Operations/UpdateVisibleAccountsSyncFlowRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 
 ### Response
 
-**[UpdateVisibleAccountsSyncFlowResponse](../../models/operations/UpdateVisibleAccountsSyncFlowResponse.md)**
+**[UpdateVisibleAccountsSyncFlowResponse](../../Models/Operations/UpdateVisibleAccountsSyncFlowResponse.md)**
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Shared
+namespace Codat.Sync.Commerce.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -47,7 +47,7 @@ namespace CodatSyncCommerce.Models.Shared
         public string? ErrorMessage { get; set; }
 
         [JsonProperty("syncDateRangeUtc")]
-        public SyncSummarySyncDateRangeUtc? SyncDateRangeUtc { get; set; }
+        public SyncDateRangeUtc? SyncDateRangeUtc { get; set; }
 
         /// <summary>
         /// Exception message for the sync operation.

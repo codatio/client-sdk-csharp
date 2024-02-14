@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Shared
+namespace Codat.Sync.Commerce.Models.Shared
 {
     using Newtonsoft.Json;
     using System;
@@ -72,4 +72,5 @@ namespace CodatSyncCommerce.Models.Shared
             throw new Exception($"Unknown value {value} for enum FeatureType");
         }
     }
+
 }

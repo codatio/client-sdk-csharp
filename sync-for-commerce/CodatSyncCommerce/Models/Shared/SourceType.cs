@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Shared
+namespace Codat.Sync.Commerce.Models.Shared
 {
     using Newtonsoft.Json;
     using System;
@@ -22,8 +22,12 @@ namespace CodatSyncCommerce.Models.Shared
         Accounting,
         [JsonProperty("Banking")]
         Banking,
+        [JsonProperty("BankFeed")]
+        BankFeed,
         [JsonProperty("Commerce")]
         Commerce,
+        [JsonProperty("Expense")]
+        Expense,
         [JsonProperty("Other")]
         Other,
         [JsonProperty("Unknown")]
@@ -62,4 +66,5 @@ namespace CodatSyncCommerce.Models.Shared
             throw new Exception($"Unknown value {value} for enum SourceType");
         }
     }
+
 }

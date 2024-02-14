@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace CodatSyncCommerce.Models.Shared
+namespace Codat.Sync.Commerce.Models.Shared
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace CodatSyncCommerce.Models.Shared
         /// Available Data types
         /// </summary>
         [JsonProperty("dataType")]
-        public DataTypeFeatureDataTypes? DataType { get; set; }
+        public DataTypes? DataType { get; set; }
 
         [JsonProperty("supportedFeatures")]
         public List<SupportedFeature> SupportedFeatures { get; set; } = default!;

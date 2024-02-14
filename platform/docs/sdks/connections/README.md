@@ -27,15 +27,11 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 CreateConnectionRequest req = new CreateConnectionRequest() {
-    RequestBody = new CreateConnectionRequestBody() {
-        PlatformKey = "gbol",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -68,8 +64,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -106,8 +101,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -144,8 +138,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -184,13 +177,11 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
-    UpdateConnectionStatus = new UpdateConnectionStatus() {},
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -224,15 +215,11 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 UpdateConnectionAuthorizationRequest req = new UpdateConnectionAuthorizationRequest() {
-    RequestBody = new Dictionary<string, string>() {
-        { "key", "string" },
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };

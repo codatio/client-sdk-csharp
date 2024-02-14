@@ -24,8 +24,7 @@ dotnet add package Codat.Platform
 using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -135,6 +134,36 @@ You can override the default server globally by passing a server index to the `s
 
 The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `authHeader` | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+
+var sdk = new CodatPlatform(security: new Security() {
+        AuthHeader = "<YOUR_API_KEY_HERE>",
+    });
+
+CreateApiKey req = new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
+
+// handle response
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

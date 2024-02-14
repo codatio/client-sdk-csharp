@@ -125,13 +125,14 @@ namespace Codat.Platform
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.3.0";
-        private const string _sdkGenVersion = "2.223.0";
+        private const string _sdkVersion = "3.4.0";
+        private const string _sdkGenVersion = "2.257.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.3.0 2.223.0 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.4.0 2.257.2 3.0.0 Codat.Platform";
         private string _serverUrl = "";
+        private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public ISettings Settings { get; private set; }
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
@@ -143,38 +144,49 @@ namespace Codat.Platform
         public ISupplementalData SupplementalData { get; private set; }
         public IWebhooks Webhooks { get; private set; }
 
-        public CodatPlatform(Security? security = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public CodatPlatform(Security? security = null, Func<Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            if (serverUrl != null) {
-                if (urlParams != null) {
+            if (serverIndex != null)
+            {
+                _serverIndex = serverIndex.Value;
+            }
+
+            if (serverUrl != null)
+            {
+                if (urlParams != null)
+                {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
                 _serverUrl = serverUrl;
             }
 
             _defaultClient = new SpeakeasyHttpClient(client);
-            _securityClient = _defaultClient;
-            
-            if(security != null)
+
+            if(securitySource != null)
             {
-                _securityClient = SecuritySerializer.Apply(_defaultClient, security);
+                _securitySource = securitySource;
             }
-            
+            else if(security != null)
+            {
+                _securitySource = () => security;
+            }
+
             SDKConfiguration = new SDKConfig()
             {
+                serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
 
-            Settings = new Settings(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Companies = new Companies(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Connections = new Connections(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            CustomDataType = new CustomDataType(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            PushData = new PushData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            RefreshData = new RefreshData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Groups = new Groups(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Integrations = new Integrations(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            SupplementalData = new SupplementalData(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Webhooks = new Webhooks(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Settings = new Settings(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Companies = new Companies(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Connections = new Connections(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            CustomDataType = new CustomDataType(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            PushData = new PushData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            RefreshData = new RefreshData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Groups = new Groups(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Integrations = new Integrations(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            SupplementalData = new SupplementalData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Webhooks = new Webhooks(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

@@ -22,20 +22,19 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 CreateRule req = new CreateRule() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CompanyId = "39b73b17-cc2e-429e-915d-71654e9dcd1e",
     Notifiers = new WebhookNotifier() {
         Emails = new List<string>() {
             "info@client.com",
         },
         Webhook = "https://webhook.client.com",
     },
-    Type = "string",
+    Type = "DataConnectionStatusChanged",
 };
 
 var res = await sdk.Webhooks.CreateAsync(req);
@@ -66,8 +65,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -103,8 +101,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 

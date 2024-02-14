@@ -35,8 +35,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -81,8 +80,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -117,8 +115,7 @@ Fetch your Codat profile.
 using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -143,8 +140,7 @@ Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-
 using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -173,8 +169,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -200,20 +195,21 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 Profile req = new Profile() {
     AlertAuthHeader = "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
     ApiKey = "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
+    ConfirmCompanyName = true,
     IconUrl = "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
     LogoUrl = "https://client-images.codat.io/logo/042399f5-d104-4f38-9ce8-cac3524f4e88_5806cb1f-7342-4c0e-a0a8-99bfbc47b0ff.png",
     Name = "Bob's Burgers",
     RedirectUrl = "https://bobs-burgers.{countrySuffix}/{companyId}",
     WhiteListUrls = new List<string>() {
         "https://bobs-burgers.com",
+        "https://bobs-burgers.co.uk",
     },
 };
 
@@ -246,21 +242,22 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 UpdateProfileSyncSettingsRequestBody req = new UpdateProfileSyncSettingsRequestBody() {
     ClientId = "ce429104-79f0-4085-a720-e2d40fcc800f",
+    OverridesDefaults = false,
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
             DataType = Models.Shared.DataType.Invoices,
-            FetchOnFirstLink = false,
+            FetchOnFirstLink = true,
+            IsLocked = true,
             MonthsToSync = 24,
-            SyncFromUtc = "2022-10-23T00:00:00Z",
+            SyncFromUtc = "2020-01-01T12:00:00.000Z",
             SyncFromWindow = 24,
-            SyncOrder = 334238,
+            SyncOrder = 0,
             SyncSchedule = 24,
         },
     },

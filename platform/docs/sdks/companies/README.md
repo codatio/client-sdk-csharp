@@ -29,18 +29,12 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<GroupRef>() {
-        new GroupRef() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
     Name = "Bank of Dave",
 };
 
@@ -76,8 +70,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -117,8 +110,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -157,8 +149,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
@@ -201,21 +192,11 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(
-    security: new Security() {
+var sdk = new CodatPlatform(security: new Security() {
         AuthHeader = "<YOUR_API_KEY_HERE>",
     });
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
-    CompanyRequestBody = new CompanyRequestBody() {
-        Description = "Requested early access to the new financing scheme.",
-        Groups = new List<GroupRef>() {
-            new GroupRef() {
-                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        },
-        Name = "Bank of Dave",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 

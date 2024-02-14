@@ -34,7 +34,7 @@ namespace Codat.Platform.Models.Operations
         /// Set to `True` if you want to override default <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a>.
         /// </summary>
         [JsonProperty("overridesDefaults")]
-        public bool? OverridesDefaults { get; set; }
+        public bool OverridesDefaults { get; set; } = default!;
 
         [JsonProperty("settings")]
         public List<SyncSetting> Settings { get; set; } = default!;

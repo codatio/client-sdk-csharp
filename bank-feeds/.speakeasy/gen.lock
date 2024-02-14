@@ -1,21 +1,21 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: d8a3c846c6e6c943937af494c3623e4f
+  docChecksum: 4dc8263ccdcfe623fbd51a2f54a06f5d
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.231.0
-  releaseVersion: 4.1.0
-  configChecksum: c8523722d6a3d25e87ba781150e508bb
+  generationVersion: 2.257.2
+  releaseVersion: 4.2.0
+  configChecksum: 18858f1ad996dc3cbd0f95bd1b84ef6b
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
 features:
   csharp:
-    core: 3.3.0
+    core: 3.3.2
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.81.2
+    globalSecurity: 2.83.0
     globalServerURLs: 2.82.2
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
@@ -97,6 +97,8 @@ generatedFiles:
   - CodatBankFeeds/Models/Operations/SetConfigurationResponse.cs
   - CodatBankFeeds/Models/Shared/Zero.cs
   - CodatBankFeeds/Models/Shared/ErrorMessage.cs
+  - CodatBankFeeds/Models/Shared/ErrorValidation.cs
+  - CodatBankFeeds/Models/Shared/ErrorValidationItem.cs
   - CodatBankFeeds/Models/Shared/GroupReference.cs
   - CodatBankFeeds/Models/Shared/Company.cs
   - CodatBankFeeds/Models/Shared/SourceType.cs
@@ -216,6 +218,8 @@ generatedFiles:
   - docs/Models/Operations/SetConfigurationResponse.md
   - docs/Models/Shared/Zero.md
   - docs/Models/Shared/ErrorMessage.md
+  - docs/Models/Shared/ErrorValidation.md
+  - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/GroupReference.md
   - docs/Models/Shared/Company.md
   - docs/Models/Shared/SourceType.md

@@ -47,6 +47,12 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 | **[Lending](https://github.com/codatio/client-sdk-csharp/tree/main/lending)** | Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features. | [![Nuget](https://img.shields.io/nuget/v/Codat.Lending)](https://www.nuget.org/packages/Codat.Lending) |
 | **[Sync for Payroll](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payroll)** | Push payroll to accounting platforms. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payroll)](https://www.nuget.org/packages/Codat.Sync.Payroll) |
 | **[Sync for Payables](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payables)** | Streamline your customers' accounts payable workflow. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payables)](https://www.nuget.org/packages/Codat.Sync.Payables) |
+
+### Alternative products and versions
+
+| Library | Description | NuGet |
+| :- | :- | :- |
+| **[Sync for Payables version 1](https://github.com/codatio/client-sdk-csharp/tree/main/previous-versions/sync-for-payables-version-1)** | Push expenses to accounting platforms. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payables.V1)](https://www.nuget.org/packages/Codat.Sync.Payables.V1) |
 <!-- End Codat Client Libraries -->
 
 <!-- Start Codat Support Notes -->

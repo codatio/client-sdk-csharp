@@ -11,7 +11,7 @@ generation:
 csharp:
   version: 3.2.0
   author: Codat
-  description: Streamline your customers' accounts payable workflow.
+  description: Push expenses to accounting platforms.
   dotnetVersion: net6.0
   flattenGlobalSecurity: false
   imports:
@@ -25,4 +25,4 @@ csharp:
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
-  packageName: Codat.Sync.Payables
+  packageName: Codat.Sync.Payables.V1

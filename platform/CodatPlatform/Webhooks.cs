@@ -35,13 +35,35 @@ namespace Codat.Platform
         Task<CreateRuleResponse> CreateAsync(CreateRule? request = null);
 
         /// <summary>
+        /// Create webhook consumer
+        /// 
+        /// <remarks>
+        /// Use the *Create webhook consumer* endpoint to create a new webhook consumer that will listen to messages we send you.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat&apos;s webhook service</a>.
+        /// </remarks>
+        /// </summary>
+        Task<CreateWebhookConsumerResponse> CreateConsumerAsync(WebhookConsumerPrototype? request = null);
+
+        /// <summary>
+        /// Delete webhook consumer
+        /// 
+        /// <remarks>
+        /// Use the *Delete webhook consumer* endpoint to delete an existing webhoook consumer, providing its valid `id` as a parameter.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat&apos;s webhook service</a>.
+        /// </remarks>
+        /// </summary>
+        Task<DeleteWebhookConsumerResponse> DeleteConsumerAsync(DeleteWebhookConsumerRequest request);
+
+        /// <summary>
         /// Get webhook
         /// 
         /// <remarks>
         /// Get a single webhook
         /// </remarks>
         /// </summary>
-        Task<GetWebhookResponse> GetAsync(GetWebhookRequest? request = null);
+        Task<GetWebhookResponse> GetAsync(GetWebhookRequest request);
 
         /// <summary>
         /// List webhooks
@@ -50,7 +72,18 @@ namespace Codat.Platform
         /// List webhooks that you are subscribed to.
         /// </remarks>
         /// </summary>
-        Task<ListRulesResponse> ListAsync(ListRulesRequest? request = null);
+        Task<ListRulesResponse> ListAsync(ListRulesRequest request);
+
+        /// <summary>
+        /// List webhook consumers
+        /// 
+        /// <remarks>
+        /// Use the *List webhook consumers* endpoint to return a list of all webhook consumers that currently exist for your client.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat&apos;s webhook service</a>.
+        /// </remarks>
+        /// </summary>
+        Task<ListWebhookConsumersResponse> ListConsumersAsync();
     }
 
     /// <summary>
@@ -60,10 +93,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.4.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "3.5.0";
+        private const string _sdkGenVersion = "2.277.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.4.0 2.257.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.5.0 2.277.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -77,20 +110,22 @@ namespace Codat.Platform
         }
         
 
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreateRuleResponse> CreateAsync(CreateRule? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+
             var urlString = baseUrl + "/rules";
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
             }
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -100,28 +135,29 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new CreateRuleResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Webhook = JsonConvert.DeserializeObject<Webhook>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.Webhook = JsonConvert.DeserializeObject<Webhook>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Include, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Include, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
 
                 return response;
@@ -131,15 +167,21 @@ namespace Codat.Platform
 
         
 
-        public async Task<GetWebhookResponse> GetAsync(GetWebhookRequest? request = null)
+        public async Task<CreateWebhookConsumerResponse> CreateConsumerAsync(WebhookConsumerPrototype? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/rules/{ruleId}", request);
-            
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+
+            var urlString = baseUrl + "/webhooks";
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -149,23 +191,69 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
-            var response = new GetWebhookResponse
+
+            var response = new CreateWebhookConsumerResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
-            if((response.StatusCode == 200))
+
+            if((response.StatusCode == 201))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Webhook = JsonConvert.DeserializeObject<Webhook>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.WebhookConsumer = JsonConvert.DeserializeObject<WebhookConsumer>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Include, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
 
                 return response;
             }
+
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Include, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+
+                return response;
+            }
+            return response;
+        }
+
+        
+
+        public async Task<DeleteWebhookConsumerResponse> DeleteConsumerAsync(DeleteWebhookConsumerRequest request)
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/webhooks/{webhookId}", request);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+
+            var response = new DeleteWebhookConsumerResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+
+            if((response.StatusCode == 204))
+            {
+
+                return response;
+            }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -180,15 +268,15 @@ namespace Codat.Platform
 
         
 
-        public async Task<ListRulesResponse> ListAsync(ListRulesRequest? request = null)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetWebhookResponse> GetAsync(GetWebhookRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/rules", request);
-            
+            var urlString = URLBuilder.Build(baseUrl, "/rules/{ruleId}", request);
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -198,14 +286,64 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
+            var response = new GetWebhookResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.Webhook = JsonConvert.DeserializeObject<Webhook>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+
+                return response;
+            }
+
+            if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+
+                return response;
+            }
+            return response;
+        }
+
+        
+
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<ListRulesResponse> ListAsync(ListRulesRequest request)
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/rules", request);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+
             var response = new ListRulesResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -215,7 +353,58 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.ErrorMessage = JsonConvert.DeserializeObject<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+
+                return response;
+            }
+            return response;
+        }
+
+        
+
+        public async Task<ListWebhookConsumersResponse> ListConsumersAsync()
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+
+            var urlString = baseUrl + "/webhooks";
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+
+            var response = new ListWebhookConsumersResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.WebhookConsumers = JsonConvert.DeserializeObject<WebhookConsumers>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+
+                return response;
+            }
+
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {

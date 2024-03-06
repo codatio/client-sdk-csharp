@@ -7,13 +7,18 @@ Manage webhooks, rules, and events.
 
 ### Available Operations
 
-* [Create](#create) - Create webhook
-* [Get](#get) - Get webhook
-* [List](#list) - List webhooks
+* [~~Create~~](#create) - Create webhook :warning: **Deprecated**
+* [CreateConsumer](#createconsumer) - Create webhook consumer
+* [DeleteConsumer](#deleteconsumer) - Delete webhook consumer
+* [~~Get~~](#get) - Get webhook :warning: **Deprecated**
+* [~~List~~](#list) - List webhooks :warning: **Deprecated**
+* [ListConsumers](#listconsumers) - List webhook consumers
 
-## Create
+## ~~Create~~
 
 Create a new webhook configuration
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -23,7 +28,7 @@ using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateRule req = new CreateRule() {
@@ -54,9 +59,47 @@ var res = await sdk.Webhooks.CreateAsync(req);
 **[CreateRuleResponse](../../Models/Operations/CreateRuleResponse.md)**
 
 
-## Get
+## CreateConsumer
 
-Get a single webhook
+﻿Use the *Create webhook consumer* endpoint to create a new webhook consumer that will listen to messages we send you.
+
+[Webhook consumer](https://docs.codat.io/platform-api#/schemas/WebhookConsumer) is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on [Codat's webhook service](https://docs.codat.io/using-the-api/webhooks/overview).
+
+### Example Usage
+
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+WebhookConsumerPrototype req = new WebhookConsumerPrototype() {};
+
+var res = await sdk.Webhooks.CreateConsumerAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [WebhookConsumerPrototype](../../Models/Shared/WebhookConsumerPrototype.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+
+
+### Response
+
+**[CreateWebhookConsumerResponse](../../Models/Operations/CreateWebhookConsumerResponse.md)**
+
+
+## DeleteConsumer
+
+﻿Use the *Delete webhook consumer* endpoint to delete an existing webhoook consumer, providing its valid `id` as a parameter.
+
+[Webhook consumer](https://docs.codat.io/platform-api#/schemas/WebhookConsumer) is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on [Codat's webhook service](https://docs.codat.io/using-the-api/webhooks/overview).
 
 ### Example Usage
 
@@ -66,7 +109,45 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+DeleteWebhookConsumerRequest req = new DeleteWebhookConsumerRequest() {
+    WebhookId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Webhooks.DeleteConsumerAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [DeleteWebhookConsumerRequest](../../Models/Operations/DeleteWebhookConsumerRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+
+### Response
+
+**[DeleteWebhookConsumerResponse](../../Models/Operations/DeleteWebhookConsumerResponse.md)**
+
+
+## ~~Get~~
+
+Get a single webhook
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
+### Example Usage
+
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Operations;
+
+var sdk = new CodatPlatform(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetWebhookRequest req = new GetWebhookRequest() {
@@ -90,9 +171,11 @@ var res = await sdk.Webhooks.GetAsync(req);
 **[GetWebhookResponse](../../Models/Operations/GetWebhookResponse.md)**
 
 
-## List
+## ~~List~~
 
 List webhooks that you are subscribed to.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -102,7 +185,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ListRulesRequest req = new ListRulesRequest() {
@@ -126,4 +209,31 @@ var res = await sdk.Webhooks.ListAsync(req);
 ### Response
 
 **[ListRulesResponse](../../Models/Operations/ListRulesResponse.md)**
+
+
+## ListConsumers
+
+﻿Use the *List webhook consumers* endpoint to return a list of all webhook consumers that currently exist for your client.
+
+[Webhook consumer](https://docs.codat.io/platform-api#/schemas/WebhookConsumer) is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on [Codat's webhook service](https://docs.codat.io/using-the-api/webhooks/overview).
+
+### Example Usage
+
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+
+var sdk = new CodatPlatform(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+var res = await sdk.Webhooks.ListConsumersAsync();
+
+// handle response
+```
+
+
+### Response
+
+**[ListWebhookConsumersResponse](../../Models/Operations/ListWebhookConsumersResponse.md)**
 

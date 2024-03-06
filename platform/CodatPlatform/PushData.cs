@@ -41,7 +41,7 @@ namespace Codat.Platform
         /// &gt; Check out our <a href="https://knowledge.codat.io/">coverage explorer</a> for integrations that support push (POST/PUT methods).
         /// </remarks>
         /// </summary>
-        Task<GetCreateUpdateModelOptionsByDataTypeResponse> GetModelOptionsAsync(GetCreateUpdateModelOptionsByDataTypeRequest? request = null);
+        Task<GetCreateUpdateModelOptionsByDataTypeResponse> GetModelOptionsAsync(GetCreateUpdateModelOptionsByDataTypeRequest request);
 
         /// <summary>
         /// Get push operation
@@ -50,7 +50,7 @@ namespace Codat.Platform
         /// Retrieve push operation.
         /// </remarks>
         /// </summary>
-        Task<GetPushOperationResponse> GetOperationAsync(GetPushOperationRequest? request = null);
+        Task<GetPushOperationResponse> GetOperationAsync(GetPushOperationRequest request);
 
         /// <summary>
         /// List push operations
@@ -59,7 +59,7 @@ namespace Codat.Platform
         /// List push operation records.
         /// </remarks>
         /// </summary>
-        Task<GetCompanyPushHistoryResponse> ListOperationsAsync(GetCompanyPushHistoryRequest? request = null);
+        Task<GetCompanyPushHistoryResponse> ListOperationsAsync(GetCompanyPushHistoryRequest request);
     }
 
     /// <summary>
@@ -69,10 +69,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.4.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "3.5.0";
+        private const string _sdkGenVersion = "2.277.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.4.0 2.257.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.5.0 2.277.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -86,15 +86,14 @@ namespace Codat.Platform
         }
         
 
-        public async Task<GetCreateUpdateModelOptionsByDataTypeResponse> GetModelOptionsAsync(GetCreateUpdateModelOptionsByDataTypeRequest? request = null)
+        public async Task<GetCreateUpdateModelOptionsByDataTypeResponse> GetModelOptionsAsync(GetCreateUpdateModelOptionsByDataTypeRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/{dataType}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -104,14 +103,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetCreateUpdateModelOptionsByDataTypeResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -121,6 +120,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -135,15 +135,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<GetPushOperationResponse> GetOperationAsync(GetPushOperationRequest? request = null)
+        public async Task<GetPushOperationResponse> GetOperationAsync(GetPushOperationRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/push/{pushOperationKey}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -153,14 +152,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetPushOperationResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -170,6 +169,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -184,15 +184,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<GetCompanyPushHistoryResponse> ListOperationsAsync(GetCompanyPushHistoryRequest? request = null)
+        public async Task<GetCompanyPushHistoryResponse> ListOperationsAsync(GetCompanyPushHistoryRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/push", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -202,14 +201,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetCompanyPushHistoryResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -219,6 +218,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

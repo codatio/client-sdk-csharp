@@ -30,7 +30,7 @@ using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CompanyRequestBody req = new CompanyRequestBody() {
@@ -71,7 +71,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 DeleteCompanyRequest req = new DeleteCompanyRequest() {
@@ -111,7 +111,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetCompanyRequest req = new GetCompanyRequest() {
@@ -150,7 +150,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
@@ -193,7 +193,7 @@ using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {

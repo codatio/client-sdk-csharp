@@ -42,7 +42,7 @@ namespace Codat.Platform
         /// - Make your custom configuration as similar as possible to our standard data types so you can interact with them in exactly the same way.
         /// </remarks>
         /// </summary>
-        Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest? request = null);
+        Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest request);
 
         /// <summary>
         /// Get custom data configuration
@@ -53,7 +53,7 @@ namespace Codat.Platform
         /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.
         /// </remarks>
         /// </summary>
-        Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest? request = null);
+        Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest request);
 
         /// <summary>
         /// List custom data type records
@@ -64,7 +64,7 @@ namespace Codat.Platform
         /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.s endpoint returns a paginated list of records whose schema is defined <a href="https://docs.codat.io/platform-api#/operations/configure-custom-data-type">Configure custom data type</a>
         /// </remarks>
         /// </summary>
-        Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest? request = null);
+        Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest request);
 
         /// <summary>
         /// Refresh custom data type
@@ -73,7 +73,7 @@ namespace Codat.Platform
         /// The *Refresh custom data type* endpoint refreshes the specified custom data type for a given company. This is an asynchronous operation that will sync updated data from the linked integration into Codat for you to view.
         /// </remarks>
         /// </summary>
-        Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest? request = null);
+        Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest request);
     }
 
     /// <summary>
@@ -83,10 +83,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.4.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "3.5.0";
+        private const string _sdkGenVersion = "2.277.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.4.0 2.257.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.5.0 2.277.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -100,20 +100,20 @@ namespace Codat.Platform
         }
         
 
-        public async Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest? request = null)
+        public async Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "CustomDataTypeConfiguration", "json");
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "CustomDataTypeConfiguration", "json", false, true);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
             }
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -123,14 +123,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ConfigureCustomDataTypeResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -140,6 +140,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -154,15 +155,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest? request = null)
+        public async Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -172,14 +172,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetCustomDataTypeConfigurationResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -189,6 +189,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -203,15 +204,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest? request = null)
+        public async Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/custom/{customDataIdentifier}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -221,14 +221,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ListCustomDataTypeRecordsResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -238,6 +238,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 451) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -252,15 +253,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest? request = null)
+        public async Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/queue/custom/{customDataIdentifier}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -270,14 +270,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new RefreshCustomDataTypeResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -287,6 +287,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 451) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

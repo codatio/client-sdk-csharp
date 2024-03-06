@@ -26,7 +26,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 AddCompanyToGroupRequest req = new AddCompanyToGroupRequest() {
@@ -68,7 +68,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GroupPrototype req = new GroupPrototype() {
@@ -105,7 +105,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 var res = await sdk.Groups.ListAsync();
@@ -133,7 +133,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 RemoveCompanyFromGroupRequest req = new RemoveCompanyFromGroupRequest() {

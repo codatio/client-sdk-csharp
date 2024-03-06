@@ -1,24 +1,25 @@
 lockVersion: 2.0.0
 id: 803b84ac-e26a-4a5c-9224-dbc3d0c7712a
 management:
-  docChecksum: 1c413a5d3d57588774d54236c89a147e
+  docChecksum: 6b9afa35a1ca4d8a1834643e80dd9a19
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.257.2
-  releaseVersion: 3.4.0
-  configChecksum: c35de55f827439e1846a18313bb2cec3
+  generationVersion: 2.277.0
+  releaseVersion: 3.5.0
+  configChecksum: 605930df391788cea1af3125ed3a7244
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: platform
   published: true
 features:
   csharp:
-    core: 3.3.2
+    core: 3.4.3
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.83.0
+    globalSecurity: 2.83.3
     globalServerURLs: 2.82.2
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
+    webhooks: 1.0.0
 generatedFiles:
   - CodatPlatform/Settings.cs
   - CodatPlatform/Companies.cs
@@ -31,6 +32,7 @@ generatedFiles:
   - CodatPlatform/SupplementalData.cs
   - CodatPlatform/Webhooks.cs
   - CodatPlatform/CodatPlatform.cs
+  - global.json
   - CodatPlatform/Utils/BigIntSerializer.cs
   - CodatPlatform/Utils/DecimalSerializer.cs
   - CodatPlatform/Utils/EnumSerializer.cs
@@ -119,10 +121,14 @@ generatedFiles:
   - CodatPlatform/Models/Operations/GetSupplementalDataConfigurationRequest.cs
   - CodatPlatform/Models/Operations/GetSupplementalDataConfigurationResponse.cs
   - CodatPlatform/Models/Operations/CreateRuleResponse.cs
+  - CodatPlatform/Models/Operations/CreateWebhookConsumerResponse.cs
+  - CodatPlatform/Models/Operations/DeleteWebhookConsumerRequest.cs
+  - CodatPlatform/Models/Operations/DeleteWebhookConsumerResponse.cs
   - CodatPlatform/Models/Operations/GetWebhookRequest.cs
   - CodatPlatform/Models/Operations/GetWebhookResponse.cs
   - CodatPlatform/Models/Operations/ListRulesRequest.cs
   - CodatPlatform/Models/Operations/ListRulesResponse.cs
+  - CodatPlatform/Models/Operations/ListWebhookConsumersResponse.cs
   - CodatPlatform/Models/Shared/ErrorMessage.cs
   - CodatPlatform/Models/Shared/ErrorValidation.cs
   - CodatPlatform/Models/Shared/ErrorValidationItem.cs
@@ -190,7 +196,10 @@ generatedFiles:
   - CodatPlatform/Models/Shared/Webhook.cs
   - CodatPlatform/Models/Shared/WebhookNotifier.cs
   - CodatPlatform/Models/Shared/CreateRule.cs
+  - CodatPlatform/Models/Shared/WebhookConsumer.cs
+  - CodatPlatform/Models/Shared/WebhookConsumerPrototype.cs
   - CodatPlatform/Models/Shared/Webhooks.cs
+  - CodatPlatform/Models/Shared/WebhookConsumers.cs
   - CodatPlatform/Models/Shared/Security.cs
   - CodatPlatform/Models/Shared/ClientRateLimitReachedWebhook.cs
   - CodatPlatform/Models/Shared/ClientRateLimitReachedWebhookData.cs
@@ -293,10 +302,14 @@ generatedFiles:
   - docs/Models/Operations/GetSupplementalDataConfigurationRequest.md
   - docs/Models/Operations/GetSupplementalDataConfigurationResponse.md
   - docs/Models/Operations/CreateRuleResponse.md
+  - docs/Models/Operations/CreateWebhookConsumerResponse.md
+  - docs/Models/Operations/DeleteWebhookConsumerRequest.md
+  - docs/Models/Operations/DeleteWebhookConsumerResponse.md
   - docs/Models/Operations/GetWebhookRequest.md
   - docs/Models/Operations/GetWebhookResponse.md
   - docs/Models/Operations/ListRulesRequest.md
   - docs/Models/Operations/ListRulesResponse.md
+  - docs/Models/Operations/ListWebhookConsumersResponse.md
   - docs/Models/Shared/ErrorMessage.md
   - docs/Models/Shared/ErrorValidation.md
   - docs/Models/Shared/ErrorValidationItem.md
@@ -364,7 +377,10 @@ generatedFiles:
   - docs/Models/Shared/Webhook.md
   - docs/Models/Shared/WebhookNotifier.md
   - docs/Models/Shared/CreateRule.md
+  - docs/Models/Shared/WebhookConsumer.md
+  - docs/Models/Shared/WebhookConsumerPrototype.md
   - docs/Models/Shared/Webhooks.md
+  - docs/Models/Shared/WebhookConsumers.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ClientRateLimitReachedWebhook.md
   - docs/Models/Shared/ClientRateLimitReachedWebhookData.md

@@ -25,7 +25,7 @@ namespace Codat.Platform.Models.Shared
         public string CurrentStatus { get; set; } = default!;
 
         /// <summary>
-        /// Available Data types
+        /// Available data types
         /// </summary>
         [JsonProperty("dataType")]
         public DataTypes DataType { get; set; } = default!;

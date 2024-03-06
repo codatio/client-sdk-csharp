@@ -25,7 +25,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateApiKey req = new CreateApiKey() {
@@ -109,9 +109,12 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
-* [Create](docs/sdks/webhooks/README.md#create) - Create webhook
-* [Get](docs/sdks/webhooks/README.md#get) - Get webhook
-* [List](docs/sdks/webhooks/README.md#list) - List webhooks
+* [~~Create~~](docs/sdks/webhooks/README.md#create) - Create webhook :warning: **Deprecated**
+* [CreateConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
+* [DeleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
+* [~~Get~~](docs/sdks/webhooks/README.md#get) - Get webhook :warning: **Deprecated**
+* [~~List~~](docs/sdks/webhooks/README.md#list) - List webhooks :warning: **Deprecated**
+* [ListConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Server Selection [server] -->
@@ -144,7 +147,7 @@ This SDK supports the following security scheme globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| `AuthHeader` | apiKey       | API key      |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp
@@ -152,7 +155,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateApiKey req = new CreateApiKey() {

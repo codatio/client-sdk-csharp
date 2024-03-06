@@ -14,7 +14,7 @@ namespace Codat.Platform.Models.Shared
     using System;
     
     /// <summary>
-    /// Available Data types
+    /// Available data types
     /// </summary>
     public enum DataTypes
     {

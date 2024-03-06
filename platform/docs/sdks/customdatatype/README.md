@@ -35,7 +35,7 @@ using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
@@ -92,7 +92,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetCustomDataTypeConfigurationRequest req = new GetCustomDataTypeConfigurationRequest() {
@@ -131,7 +131,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ListCustomDataTypeRecordsRequest req = new ListCustomDataTypeRecordsRequest() {
@@ -171,7 +171,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 RefreshCustomDataTypeRequest req = new RefreshCustomDataTypeRequest() {

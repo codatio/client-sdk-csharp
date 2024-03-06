@@ -32,7 +32,7 @@ namespace Codat.Platform
         /// Get single integration, by platformKey
         /// </remarks>
         /// </summary>
-        Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest? request = null);
+        Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest request);
 
         /// <summary>
         /// Get branding
@@ -41,7 +41,7 @@ namespace Codat.Platform
         /// Get branding for platform.
         /// </remarks>
         /// </summary>
-        Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest? request = null);
+        Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest request);
 
         /// <summary>
         /// List integrations
@@ -50,7 +50,7 @@ namespace Codat.Platform
         /// List your available integrations
         /// </remarks>
         /// </summary>
-        Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null);
+        Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest request);
     }
 
     /// <summary>
@@ -60,10 +60,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.4.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "3.5.0";
+        private const string _sdkGenVersion = "2.277.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.4.0 2.257.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.5.0 2.277.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -77,15 +77,14 @@ namespace Codat.Platform
         }
         
 
-        public async Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest? request = null)
+        public async Task<GetIntegrationResponse> GetAsync(GetIntegrationRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -95,14 +94,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetIntegrationResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -112,6 +111,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -126,15 +126,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest? request = null)
+        public async Task<GetIntegrationsBrandingResponse> GetBrandingAsync(GetIntegrationsBrandingRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/branding", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -144,14 +143,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetIntegrationsBrandingResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -161,6 +160,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -175,15 +175,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest? request = null)
+        public async Task<ListIntegrationsResponse> ListAsync(ListIntegrationsRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/integrations", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -193,14 +192,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ListIntegrationsResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -210,6 +209,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

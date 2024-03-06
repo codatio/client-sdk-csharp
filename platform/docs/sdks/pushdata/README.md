@@ -32,7 +32,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetCreateUpdateModelOptionsByDataTypeRequest req = new GetCreateUpdateModelOptionsByDataTypeRequest() {
@@ -70,7 +70,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetPushOperationRequest req = new GetPushOperationRequest() {
@@ -107,7 +107,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetCompanyPushHistoryRequest req = new GetCompanyPushHistoryRequest() {

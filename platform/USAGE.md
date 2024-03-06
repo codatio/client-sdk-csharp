@@ -4,7 +4,7 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 CreateApiKey req = new CreateApiKey() {

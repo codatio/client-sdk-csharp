@@ -37,7 +37,7 @@ namespace Codat.Platform
         /// <a href="https://docs.codat.io/core-concepts/data-type-settings">Read more</a> about data type settings and `fetch on first link`.
         /// </remarks>
         /// </summary>
-        Task<RefreshCompanyDataResponse> AllAsync(RefreshCompanyDataRequest? request = null);
+        Task<RefreshCompanyDataResponse> AllAsync(RefreshCompanyDataRequest request);
 
         /// <summary>
         /// Refresh data type
@@ -48,7 +48,7 @@ namespace Codat.Platform
         /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
         /// </remarks>
         /// </summary>
-        Task<RefreshDataTypeResponse> ByDataTypeAsync(RefreshDataTypeRequest? request = null);
+        Task<RefreshDataTypeResponse> ByDataTypeAsync(RefreshDataTypeRequest request);
 
         /// <summary>
         /// Get data status
@@ -57,7 +57,7 @@ namespace Codat.Platform
         /// Get the state of each data type for a company
         /// </remarks>
         /// </summary>
-        Task<GetCompanyDataStatusResponse> GetAsync(GetCompanyDataStatusRequest? request = null);
+        Task<GetCompanyDataStatusResponse> GetAsync(GetCompanyDataStatusRequest request);
 
         /// <summary>
         /// Get pull operation
@@ -66,7 +66,7 @@ namespace Codat.Platform
         /// Retrieve information about a single dataset or pull operation.
         /// </remarks>
         /// </summary>
-        Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest? request = null);
+        Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest request);
 
         /// <summary>
         /// List pull operations
@@ -75,7 +75,7 @@ namespace Codat.Platform
         /// Gets the pull operation history (datasets) for a given company.
         /// </remarks>
         /// </summary>
-        Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null);
+        Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest request);
     }
 
     /// <summary>
@@ -85,10 +85,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.4.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "3.5.0";
+        private const string _sdkGenVersion = "2.277.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.4.0 2.257.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.5.0 2.277.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -102,15 +102,14 @@ namespace Codat.Platform
         }
         
 
-        public async Task<RefreshCompanyDataResponse> AllAsync(RefreshCompanyDataRequest? request = null)
+        public async Task<RefreshCompanyDataResponse> AllAsync(RefreshCompanyDataRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/all", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -120,19 +119,20 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new RefreshCompanyDataResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 204))
             {
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -147,15 +147,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<RefreshDataTypeResponse> ByDataTypeAsync(RefreshDataTypeRequest? request = null)
+        public async Task<RefreshDataTypeResponse> ByDataTypeAsync(RefreshDataTypeRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/queue/{dataType}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -165,14 +164,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new RefreshDataTypeResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -182,6 +181,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -196,15 +196,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<GetCompanyDataStatusResponse> GetAsync(GetCompanyDataStatusRequest? request = null)
+        public async Task<GetCompanyDataStatusResponse> GetAsync(GetCompanyDataStatusRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/dataStatus", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -214,14 +213,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetCompanyDataStatusResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -231,6 +230,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -245,15 +245,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest? request = null)
+        public async Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/history/{datasetId}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -263,14 +262,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetPullOperationResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -280,6 +279,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -294,15 +294,14 @@ namespace Codat.Platform
 
         
 
-        public async Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null)
+        public async Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/history", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -312,14 +311,14 @@ namespace Codat.Platform
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ListPullOperationsResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -329,6 +328,7 @@ namespace Codat.Platform
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

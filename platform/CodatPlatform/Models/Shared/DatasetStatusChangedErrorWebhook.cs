@@ -52,7 +52,7 @@ namespace Codat.Platform.Models.Shared
         public string? DataConnectionId { get; set; }
 
         /// <summary>
-        /// A human readable message about the webhook.
+        /// A human-readable message about the webhook.
         /// </summary>
         [JsonProperty("Message")]
         public string? Message { get; set; }

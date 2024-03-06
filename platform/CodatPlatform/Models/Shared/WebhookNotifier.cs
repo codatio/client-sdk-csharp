@@ -20,7 +20,7 @@ namespace Codat.Platform.Models.Shared
         public List<string>? Emails { get; set; }
 
         /// <summary>
-        /// The URI the webhook service will POST events.
+        /// The URI the webhook service will use to post events.
         /// </summary>
         [JsonProperty("webhook")]
         public string? Webhook { get; set; }

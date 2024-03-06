@@ -22,7 +22,7 @@ namespace Codat.Platform.Models.Operations
         public string CustomDataIdentifier { get; set; } = default!;
 
         /// <summary>
-        /// A unique 4-letter key to represent a platform in each integration. View <a href="https://docs.codat.io/integrations/accounting/overview#platform-keys">accounting</a>, <a href="https://docs.codat.io/integrations/banking/overview#platform-keys">banking</a>, and <a href="https://docs.codat.io/integrations/commerce/overview#platform-keys">commerce</a> platform keys.
+        /// A unique 4-letter key to represent a platform in each integration.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=platformKey")]
         public string PlatformKey { get; set; } = default!;

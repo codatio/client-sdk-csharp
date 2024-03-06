@@ -13,7 +13,7 @@ namespace Codat.Platform.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Create an event notification to a URL or list of email addresses based on the given type or condition.
+    /// Create a message that notifies a URL of an event based on its given type or condition.
     /// </summary>
     public class CreateRule
     {

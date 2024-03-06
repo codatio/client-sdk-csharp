@@ -16,7 +16,7 @@ namespace Codat.Platform.Models.Shared
     {
 
         /// <summary>
-        /// Available Data types
+        /// Available data types
         /// </summary>
         [JsonProperty("dataType")]
         public Models.Shared.DataType? DataType { get; set; }

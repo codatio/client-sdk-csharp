@@ -63,7 +63,7 @@ namespace Codat.Platform.Models.Shared
         public string DataConnectionKey { get; set; } = default!;
 
         /// <summary>
-        /// Available Data types
+        /// Available data types
         /// </summary>
         [JsonProperty("dataType")]
         public Models.Shared.DataType? DataType { get; set; }

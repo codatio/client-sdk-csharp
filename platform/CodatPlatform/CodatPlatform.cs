@@ -125,10 +125,10 @@ namespace Codat.Platform
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.4.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "3.5.0";
+        private const string _sdkGenVersion = "2.277.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.4.0 2.257.2 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.5.0 2.277.0 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -169,6 +169,10 @@ namespace Codat.Platform
             else if(security != null)
             {
                 _securitySource = () => security;
+            }
+            else
+            {
+                throw new Exception("security and securitySource cannot both be null");
             }
 
             SDKConfiguration = new SDKConfig()

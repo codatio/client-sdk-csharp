@@ -28,7 +28,7 @@ using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
@@ -80,7 +80,7 @@ using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "<YOUR_API_KEY_HERE>",
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
     });
 
 GetSupplementalDataConfigurationRequest req = new GetSupplementalDataConfigurationRequest() {

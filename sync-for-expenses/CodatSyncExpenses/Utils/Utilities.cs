@@ -40,6 +40,7 @@ namespace Codat.Sync.Expenses.Utils
             {
                 new IsoDateTimeSerializer(),
                 new EnumSerializer(),
+                new FlexibleObjectDeserializer()
             };
         }
 
@@ -110,11 +111,11 @@ namespace Codat.Sync.Expenses.Utils
             }
         }
 
-        public static bool IsPrimitive(object obj) => obj != null && obj.GetType().IsPrimitive;
+        public static bool IsPrimitive(object? obj) => obj != null && obj.GetType().IsPrimitive;
 
-        public static bool IsEnum(object obj) => obj != null && obj.GetType().IsEnum;
+        public static bool IsEnum(object? obj) => obj != null && obj.GetType().IsEnum;
 
-        public static bool IsDate(object obj) =>
+        public static bool IsDate(object? obj) =>
             obj != null && (obj.GetType() == typeof(DateTime) || obj.GetType() == typeof(LocalDate));
 
         private static string StripSurroundingQuotes(string input)

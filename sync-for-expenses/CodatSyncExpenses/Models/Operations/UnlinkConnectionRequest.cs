@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Operations
 {
+    using Codat.Sync.Expenses.Models.Operations;
     using Codat.Sync.Expenses.Utils;
     
     public class UnlinkConnectionRequest

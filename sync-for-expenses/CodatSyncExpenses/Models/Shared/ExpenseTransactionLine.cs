@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -35,7 +36,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Amount of tax for the line.
         /// </summary>
         [JsonProperty("taxAmount")]
-        public decimal TaxAmount { get; set; } = default!;
+        public decimal? TaxAmount { get; set; }
 
         [JsonProperty("taxRateRef")]
         public RecordRef? TaxRateRef { get; set; }

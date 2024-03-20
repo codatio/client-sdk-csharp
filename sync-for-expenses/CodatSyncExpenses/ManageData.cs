@@ -33,7 +33,7 @@ namespace Codat.Sync.Expenses
         /// Get the state of each data type for a company
         /// </remarks>
         /// </summary>
-        Task<GetDataStatusResponse> GetAsync(GetDataStatusRequest? request = null);
+        Task<GetDataStatusResponse> GetAsync(GetDataStatusRequest request);
 
         /// <summary>
         /// Get pull operation
@@ -42,7 +42,7 @@ namespace Codat.Sync.Expenses
         /// Retrieve information about a single dataset or pull operation.
         /// </remarks>
         /// </summary>
-        Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest? request = null);
+        Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest request);
 
         /// <summary>
         /// List pull operations
@@ -51,7 +51,7 @@ namespace Codat.Sync.Expenses
         /// Gets the pull operation history (datasets) for a given company.
         /// </remarks>
         /// </summary>
-        Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null);
+        Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest request);
 
         /// <summary>
         /// Refresh all data
@@ -64,7 +64,7 @@ namespace Codat.Sync.Expenses
         /// <a href="https://docs.codat.io/core-concepts/data-type-settings">Read more</a> about data type settings and `fetch on first link`.
         /// </remarks>
         /// </summary>
-        Task<RefreshAllDataTypesResponse> RefreshAllDataTypesAsync(RefreshAllDataTypesRequest? request = null);
+        Task<RefreshAllDataTypesResponse> RefreshAllDataTypesAsync(RefreshAllDataTypesRequest request);
 
         /// <summary>
         /// Refresh data type
@@ -75,7 +75,7 @@ namespace Codat.Sync.Expenses
         /// This is an asynchronous operation, and will bring updated data into Codat from the linked integration for you to view.
         /// </remarks>
         /// </summary>
-        Task<RefreshDataTypeResponse> RefreshDataTypeAsync(RefreshDataTypeRequest? request = null);
+        Task<RefreshDataTypeResponse> RefreshDataTypeAsync(RefreshDataTypeRequest request);
     }
 
     /// <summary>
@@ -85,10 +85,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.1.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "5.2.0";
+        private const string _sdkGenVersion = "2.286.2";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.1.0 2.257.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.286.2 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -100,17 +100,15 @@ namespace Codat.Sync.Expenses
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
-        
 
-        public async Task<GetDataStatusResponse> GetAsync(GetDataStatusRequest? request = null)
+        public async Task<GetDataStatusResponse> GetAsync(GetDataStatusRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/dataStatus", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -120,14 +118,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetDataStatusResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -137,6 +135,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -149,17 +148,15 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest? request = null)
+        public async Task<GetPullOperationResponse> GetPullOperationAsync(GetPullOperationRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/history/{datasetId}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -169,14 +166,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetPullOperationResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -186,6 +183,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -198,17 +196,15 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest? request = null)
+        public async Task<ListPullOperationsResponse> ListPullOperationsAsync(ListPullOperationsRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/history", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -218,14 +214,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ListPullOperationsResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -235,6 +231,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -247,17 +244,15 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<RefreshAllDataTypesResponse> RefreshAllDataTypesAsync(RefreshAllDataTypesRequest? request = null)
+        public async Task<RefreshAllDataTypesResponse> RefreshAllDataTypesAsync(RefreshAllDataTypesRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/all", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -267,19 +262,20 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new RefreshAllDataTypesResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 204))
             {
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -292,17 +288,15 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<RefreshDataTypeResponse> RefreshDataTypeAsync(RefreshDataTypeRequest? request = null)
+        public async Task<RefreshDataTypeResponse> RefreshDataTypeAsync(RefreshDataTypeRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/queue/{dataType}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -312,14 +306,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new RefreshDataTypeResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -329,6 +323,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -341,6 +336,5 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
     }
 }

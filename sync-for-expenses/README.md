@@ -101,7 +101,7 @@ var res = await sdk.Companies.CreateAsync(req);
 ### [Expenses](docs/sdks/expenses/README.md)
 
 * [Create](docs/sdks/expenses/README.md#create) - Create expense transaction
-* [Update](docs/sdks/expenses/README.md#update) - Update expense-transactions
+* [Update](docs/sdks/expenses/README.md#update) - Update expense transactions
 * [UploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
 
 ### [Sync](docs/sdks/sync/README.md)
@@ -148,7 +148,7 @@ This SDK supports the following security scheme globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| `AuthHeader` | apiKey       | API key      |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp

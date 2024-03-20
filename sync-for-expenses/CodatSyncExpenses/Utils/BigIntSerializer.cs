@@ -17,7 +17,16 @@ namespace Codat.Sync.Expenses.Utils
 
     internal class BigIntSerializer : JsonConverter
     {
-        public override bool CanConvert(Type objectType) => objectType == typeof(BigInteger);
+        public override bool CanConvert(Type objectType)
+        {
+            var  nullableType = Nullable.GetUnderlyingType(objectType);
+            if (nullableType != null)
+            {
+                return nullableType == typeof(BigInteger);
+            }
+
+            return objectType == typeof(BigInteger);
+        }
 
         public override bool CanRead => true;
 
@@ -33,7 +42,11 @@ namespace Codat.Sync.Expenses.Utils
                 return null;
             }
 
-            return BigInteger.Parse(reader.Value.ToString()!);
+            try {
+                return BigInteger.Parse(reader.Value.ToString()!);
+            } catch (System.FormatException ex) {
+                throw new Newtonsoft.Json.JsonSerializationException("Could not parse BigInteger", ex);
+            }
         }
 
         public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)

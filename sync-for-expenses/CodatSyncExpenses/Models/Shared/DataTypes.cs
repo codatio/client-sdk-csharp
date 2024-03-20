@@ -14,7 +14,7 @@ namespace Codat.Sync.Expenses.Models.Shared
     using System;
     
     /// <summary>
-    /// Available Data types
+    /// Available data types
     /// </summary>
     public enum DataTypes
     {

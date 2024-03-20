@@ -14,6 +14,7 @@ namespace Codat.Sync.Expenses
     using Codat.Sync.Expenses.Models.Shared;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     using System.Net.Http.Headers;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace Codat.Sync.Expenses
         /// Gets the status of a transaction for a sync
         /// </remarks>
         /// </summary>
-        Task<GetSyncTransactionResponse> GetAsync(GetSyncTransactionRequest? request = null);
+        Task<GetSyncTransactionResponse> GetAsync(GetSyncTransactionRequest request);
 
         /// <summary>
         /// List sync transactions
@@ -41,7 +42,7 @@ namespace Codat.Sync.Expenses
         /// Gets the transactions and status for a sync
         /// </remarks>
         /// </summary>
-        Task<ListSyncTransactionsResponse> ListAsync(ListSyncTransactionsRequest? request = null);
+        Task<ListSyncTransactionsResponse> ListAsync(ListSyncTransactionsRequest request);
     }
 
     /// <summary>
@@ -51,10 +52,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.1.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "5.2.0";
+        private const string _sdkGenVersion = "2.286.2";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.1.0 2.257.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.286.2 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -66,17 +67,15 @@ namespace Codat.Sync.Expenses
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
-        
 
-        public async Task<GetSyncTransactionResponse> GetAsync(GetSyncTransactionRequest? request = null)
+        public async Task<GetSyncTransactionResponse> GetAsync(GetSyncTransactionRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -86,23 +85,24 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetSyncTransactionResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Transaction = JsonConvert.DeserializeObject<Transaction>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                    response.TransactionResponse = JsonConvert.DeserializeObject<List<Transaction>>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -115,17 +115,15 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<ListSyncTransactionsResponse> ListAsync(ListSyncTransactionsRequest? request = null)
+        public async Task<ListSyncTransactionsResponse> ListAsync(ListSyncTransactionsRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -135,14 +133,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ListSyncTransactionsResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -152,6 +150,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -164,6 +163,5 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
     }
 }

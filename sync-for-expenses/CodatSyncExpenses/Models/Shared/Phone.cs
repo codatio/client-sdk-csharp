@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Models.Shared;
     using Newtonsoft.Json;
     
     public class Phone
@@ -19,7 +20,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// A phone number.
         /// </summary>
         [JsonProperty("number")]
-        public string Number { get; set; } = default!;
+        public string? Number { get; set; }
 
         /// <summary>
         /// The type of phone number

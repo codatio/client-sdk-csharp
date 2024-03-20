@@ -41,7 +41,7 @@ namespace Codat.Sync.Expenses
         /// 
         /// </remarks>
         /// </summary>
-        Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null);
+        Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest request);
 
         /// <summary>
         /// Get create account model
@@ -59,7 +59,7 @@ namespace Codat.Sync.Expenses
         /// 
         /// </remarks>
         /// </summary>
-        Task<GetCreateChartOfAccountsModelResponse> GetCreateModelAsync(GetCreateChartOfAccountsModelRequest? request = null);
+        Task<GetCreateChartOfAccountsModelResponse> GetCreateModelAsync(GetCreateChartOfAccountsModelRequest request);
     }
 
     /// <summary>
@@ -69,10 +69,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.1.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "5.2.0";
+        private const string _sdkGenVersion = "2.286.2";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.1.0 2.257.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.286.2 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -84,22 +84,21 @@ namespace Codat.Sync.Expenses
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
-        
 
-        public async Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest? request = null)
+        public async Task<Models.Operations.CreateAccountResponse> CreateAsync(CreateAccountRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/accounts", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "AccountPrototype", "json");
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "AccountPrototype", "json", false, true);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
             }
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -109,14 +108,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new Models.Operations.CreateAccountResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -126,6 +125,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -138,17 +138,15 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<GetCreateChartOfAccountsModelResponse> GetCreateModelAsync(GetCreateChartOfAccountsModelRequest? request = null)
+        public async Task<GetCreateChartOfAccountsModelResponse> GetCreateModelAsync(GetCreateChartOfAccountsModelRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/options/chartOfAccounts", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -158,14 +156,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new GetCreateChartOfAccountsModelResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -175,6 +173,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -187,6 +186,5 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
     }
 }

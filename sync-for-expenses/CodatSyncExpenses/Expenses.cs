@@ -46,10 +46,10 @@ namespace Codat.Sync.Expenses
         /// | NetSuite | No | - |
         /// </remarks>
         /// </summary>
-        Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null);
+        Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest request);
 
         /// <summary>
-        /// Update expense-transactions
+        /// Update expense transactions
         /// 
         /// <remarks>
         /// The *Update expense* endpoint updates an existing <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">expense transaction</a> in the accounting platform for a given company&apos;s connection. <br/>
@@ -62,7 +62,7 @@ namespace Codat.Sync.Expenses
         /// At the moment you can update expenses only for Xero (<a href="https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types">Payment</a> transaction type only).
         /// </remarks>
         /// </summary>
-        Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null);
+        Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest request);
 
         /// <summary>
         /// Upload attachment
@@ -84,7 +84,7 @@ namespace Codat.Sync.Expenses
         /// | Dynamics 365 Business Central | 350 MB | Dynamics do not explicitly outline which file types are supported but they do state &lt;a className=&quot;external&quot; href=&quot;https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; that &quot;You can attach any type of file, such as text, image, or video files&quot;. |
         /// </remarks>
         /// </summary>
-        Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null);
+        Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest request);
     }
 
     /// <summary>
@@ -94,10 +94,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.1.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "5.2.0";
+        private const string _sdkGenVersion = "2.286.2";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.1.0 2.257.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.286.2 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -109,22 +109,21 @@ namespace Codat.Sync.Expenses
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
-        
 
-        public async Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest? request = null)
+        public async Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/data/expense-transactions", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "CreateExpenseRequest", "json");
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "CreateExpenseRequest", "json", false, true);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
             }
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -134,14 +133,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new CreateExpenseTransactionResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -151,6 +150,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -163,22 +163,21 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest? request = null)
+        public async Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "UpdateExpenseRequest", "json");
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "UpdateExpenseRequest", "json", false, true);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
             }
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -188,14 +187,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new UpdateExpenseTransactionResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 202))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -205,6 +204,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -217,22 +217,21 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
 
-        public async Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest? request = null)
+        public async Task<UploadExpenseAttachmentResponse> UploadAttachmentAsync(UploadExpenseAttachmentRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "AttachmentUpload", "multipart");
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "AttachmentUpload", "multipart", false, true);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
             }
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -242,14 +241,14 @@ namespace Codat.Sync.Expenses
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new UploadExpenseAttachmentResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -259,6 +258,7 @@ namespace Codat.Sync.Expenses
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 403) || (response.StatusCode == 404) || (response.StatusCode == 429) || (response.StatusCode == 500) || (response.StatusCode == 503))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -271,6 +271,5 @@ namespace Codat.Sync.Expenses
             return response;
         }
 
-        
     }
 }

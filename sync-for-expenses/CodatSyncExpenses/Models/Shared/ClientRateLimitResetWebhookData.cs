@@ -49,7 +49,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         public string? ExpiresUtc { get; set; }
 
         /// <summary>
-        /// Total number of request remaining for your client.
+        /// Total number of requests remaining for your client.
         /// </summary>
         [JsonProperty("QuotaRemaining")]
         public long? QuotaRemaining { get; set; }

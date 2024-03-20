@@ -8,7 +8,7 @@ Create expense datasets and upload receipts.
 ### Available Operations
 
 * [Create](#create) - Create expense transaction
-* [Update](#update) - Update expense-transactions
+* [Update](#update) - Update expense transactions
 * [UploadAttachment](#uploadattachment) - Upload attachment
 
 ## Create

@@ -18,8 +18,6 @@ namespace Codat.Sync.Expenses
     using System.Threading.Tasks;
     using System;
 
-
-
     /// <summary>
     /// Sync for Expenses: The API for Sync for Expenses.<br/>
     /// 
@@ -94,14 +92,16 @@ namespace Codat.Sync.Expenses
         /// </summary>
         public ITransactionStatus TransactionStatus { get; }
     }
-    
+
     public class SDKConfig
     {
-        public static string[] ServerList = new string[]
-        {
+        /// <summary>
+        /// List of server URLs available to the SDK.
+        /// </summary>
+        public static readonly string[] ServerList = {
             "https://api.codat.io",
         };
-        /// Contains the list of servers available to the SDK
+
         public string serverUrl = "";
         public int serverIndex = 0;
 
@@ -136,10 +136,10 @@ namespace Codat.Sync.Expenses
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.1.0";
-        private const string _sdkGenVersion = "2.257.2";
+        private const string _sdkVersion = "5.2.0";
+        private const string _sdkGenVersion = "2.286.2";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.1.0 2.257.2 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.2.0 2.286.2 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -160,6 +160,10 @@ namespace Codat.Sync.Expenses
         {
             if (serverIndex != null)
             {
+                if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                }
                 _serverIndex = serverIndex.Value;
             }
 
@@ -181,6 +185,10 @@ namespace Codat.Sync.Expenses
             else if(security != null)
             {
                 _securitySource = () => security;
+            }
+            else
+            {
+                throw new Exception("security and securitySource cannot both be null");
             }
 
             SDKConfiguration = new SDKConfig()

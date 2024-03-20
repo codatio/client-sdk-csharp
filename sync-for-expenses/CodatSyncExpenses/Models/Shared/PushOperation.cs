@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -63,7 +64,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         public string DataConnectionKey { get; set; } = default!;
 
         /// <summary>
-        /// Available Data types
+        /// Available data types
         /// </summary>
         [JsonProperty("dataType")]
         public DataType? DataType { get; set; }

@@ -1,24 +1,26 @@
 lockVersion: 2.0.0
 id: 18b9d064-aee3-46b6-b773-6d0ab95e296c
 management:
-  docChecksum: cd6fa6671764b38bed9a8592c0f117ad
+  docChecksum: f7909a451d1597b90dec569f16a52c39
   docVersion: prealpha
-  speakeasyVersion: internal
-  generationVersion: 2.257.2
-  releaseVersion: 5.1.0
-  configChecksum: bf2e9b4d2b7342b0024cf499f9ef09f6
+  speakeasyVersion: 1.214.0
+  generationVersion: 2.286.2
+  releaseVersion: 5.2.0
+  configChecksum: fe759e3700991ca9b6120e29fae8da94
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-expenses
   published: true
 features:
   csharp:
-    core: 3.3.2
+    core: 3.4.3
+    decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.83.0
-    globalServerURLs: 2.82.2
+    globalSecurity: 2.83.4
+    globalServerURLs: 2.82.3
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
+    webhooks: 1.0.0
 generatedFiles:
   - CodatSyncExpenses/Companies.cs
   - CodatSyncExpenses/Connections.cs
@@ -32,6 +34,7 @@ generatedFiles:
   - CodatSyncExpenses/Sync.cs
   - CodatSyncExpenses/TransactionStatus.cs
   - CodatSyncExpenses/CodatSyncExpenses.cs
+  - global.json
   - CodatSyncExpenses/Utils/BigIntSerializer.cs
   - CodatSyncExpenses/Utils/DecimalSerializer.cs
   - CodatSyncExpenses/Utils/EnumSerializer.cs

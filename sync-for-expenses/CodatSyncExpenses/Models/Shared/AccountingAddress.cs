@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Models.Shared;
     using Newtonsoft.Json;
     
     public class AccountingAddress

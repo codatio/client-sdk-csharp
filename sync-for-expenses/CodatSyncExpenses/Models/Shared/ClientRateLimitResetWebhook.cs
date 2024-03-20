@@ -10,7 +10,9 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Models.Shared;
     using Newtonsoft.Json;
+    using System;
     
     /// <summary>
     /// Webhook request body for a client that has had their rate limit reset.
@@ -40,7 +42,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         public ClientRateLimitResetWebhookData? Data { get; set; }
 
         /// <summary>
-        /// A human readable message about the webhook.
+        /// A human-readable message about the webhook.
         /// </summary>
         [JsonProperty("Message")]
         public string? Message { get; set; }
@@ -48,6 +50,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// <summary>
         /// Unique identifier for the rule.
         /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("RuleId")]
         public string? RuleId { get; set; }
 

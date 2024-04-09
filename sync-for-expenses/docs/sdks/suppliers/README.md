@@ -95,7 +95,12 @@ var res = await sdk.Suppliers.CreateAsync(req);
 ### Response
 
 **[Models.Operations.CreateSupplierResponse](../../Models/Operations/CreateSupplierResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Get
 
@@ -139,7 +144,12 @@ var res = await sdk.Suppliers.GetAsync(req);
 ### Response
 
 **[GetSupplierResponse](../../Models/Operations/GetSupplierResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List
 
@@ -183,7 +193,12 @@ var res = await sdk.Suppliers.ListAsync(req);
 ### Response
 
 **[ListSuppliersResponse](../../Models/Operations/ListSuppliersResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503            | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Update
 
@@ -269,4 +284,9 @@ var res = await sdk.Suppliers.UpdateAsync(req);
 ### Response
 
 **[Models.Operations.UpdateSupplierResponse](../../Models/Operations/UpdateSupplierResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

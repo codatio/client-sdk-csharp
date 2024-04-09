@@ -55,7 +55,12 @@ var res = await sdk.Accounts.CreateAsync(req);
 ### Response
 
 **[Models.Operations.CreateAccountResponse](../../Models/Operations/CreateAccountResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetCreateModel
 
@@ -101,4 +106,9 @@ var res = await sdk.Accounts.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateChartOfAccountsModelResponse](../../Models/Operations/GetCreateChartOfAccountsModelResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

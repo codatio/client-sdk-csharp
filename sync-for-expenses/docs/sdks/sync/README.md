@@ -48,7 +48,12 @@ var res = await sdk.Sync.GetAsync(req);
 ### Response
 
 **[GetSyncByIdResponse](../../Models/Operations/GetSyncByIdResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetLastSuccessfulSync
 
@@ -84,7 +89,12 @@ var res = await sdk.Sync.GetLastSuccessfulSyncAsync(req);
 ### Response
 
 **[GetLastSuccessfulSyncResponse](../../Models/Operations/GetLastSuccessfulSyncResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetLatestSync
 
@@ -120,7 +130,12 @@ var res = await sdk.Sync.GetLatestSyncAsync(req);
 ### Response
 
 **[GetLatestSyncResponse](../../Models/Operations/GetLatestSyncResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## InitiateSync
 
@@ -157,7 +172,12 @@ var res = await sdk.Sync.InitiateSyncAsync(req);
 ### Response
 
 **[InitiateSyncResponse](../../Models/Operations/InitiateSyncResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,422,429,500,503            | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List
 
@@ -193,4 +213,9 @@ var res = await sdk.Sync.ListAsync(req);
 ### Response
 
 **[ListSyncsResponse](../../Models/Operations/ListSyncsResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

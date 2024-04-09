@@ -45,7 +45,12 @@ var res = await sdk.Configuration.GetAsync(req);
 ### Response
 
 **[GetCompanyConfigurationResponse](../../Models/Operations/GetCompanyConfigurationResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetMappingOptions
 
@@ -81,7 +86,12 @@ var res = await sdk.Configuration.GetMappingOptionsAsync(req);
 ### Response
 
 **[GetMappingOptionsResponse](../../Models/Operations/GetMappingOptionsResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Set
 
@@ -117,4 +127,9 @@ var res = await sdk.Configuration.SetAsync(req);
 ### Response
 
 **[SetCompanyConfigurationResponse](../../Models/Operations/SetCompanyConfigurationResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

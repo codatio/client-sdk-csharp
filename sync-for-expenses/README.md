@@ -102,7 +102,11 @@ var res = await sdk.Companies.CreateAsync(req);
 
 * [Create](docs/sdks/expenses/README.md#create) - Create expense transaction
 * [Update](docs/sdks/expenses/README.md#update) - Update expense transactions
-* [UploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
+
+### [Reimbursements](docs/sdks/reimbursements/README.md)
+
+* [Create](docs/sdks/reimbursements/README.md#create) - Create reimbursable expense transaction
+* [Update](docs/sdks/reimbursements/README.md#update) - Update reimbursable expense transaction
 
 ### [Sync](docs/sdks/sync/README.md)
 
@@ -116,11 +120,17 @@ var res = await sdk.Companies.CreateAsync(req);
 
 * [Get](docs/sdks/transactionstatus/README.md#get) - Get sync transaction
 * [List](docs/sdks/transactionstatus/README.md#list) - List sync transactions
+
+### [Attachments](docs/sdks/attachments/README.md)
+
+* [Upload](docs/sdks/attachments/README.md#upload) - Upload attachment
+
+### [Transfers](docs/sdks/transfers/README.md)
+
+* [Create](docs/sdks/transfers/README.md#create) - Create transfer transaction
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Server Selection [server] -->
-## Server Selection
-
 ## Server Selection
 
 ### Select Server by Index
@@ -170,6 +180,54 @@ var res = await sdk.Companies.CreateAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+
+### Example
+
+```csharp
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Shared;
+using System;
+using Codat.Sync.Expenses.Models.Errors;
+using System.Collections.Generic;
+
+var sdk = new CodatSyncExpenses(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Name = "Bank of Dave",
+};
+
+try
+{
+    var res = await sdk.Companies.CreateAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorMessage)
+    {
+        // handle exception
+    }
+    else if (ex is Codat.Sync.Expenses.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

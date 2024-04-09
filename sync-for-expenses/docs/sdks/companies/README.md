@@ -53,7 +53,12 @@ var res = await sdk.Companies.CreateAsync(req);
 ### Response
 
 **[CreateCompanyResponse](../../Models/Operations/CreateCompanyResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Delete
 
@@ -93,7 +98,12 @@ var res = await sdk.Companies.DeleteAsync(req);
 ### Response
 
 **[DeleteCompanyResponse](../../Models/Operations/DeleteCompanyResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Get
 
@@ -133,7 +143,12 @@ var res = await sdk.Companies.GetAsync(req);
 ### Response
 
 **[GetCompanyResponse](../../Models/Operations/GetCompanyResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List
 
@@ -174,7 +189,12 @@ var res = await sdk.Companies.ListAsync(req);
 ### Response
 
 **[ListCompaniesResponse](../../Models/Operations/ListCompaniesResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Update
 
@@ -215,4 +235,9 @@ var res = await sdk.Companies.UpdateAsync(req);
 ### Response
 
 **[UpdateCompanyResponse](../../Models/Operations/UpdateCompanyResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

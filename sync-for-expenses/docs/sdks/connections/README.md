@@ -50,7 +50,12 @@ var res = await sdk.Connections.CreateAsync(req);
 ### Response
 
 **[CreateConnectionResponse](../../Models/Operations/CreateConnectionResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## CreatePartnerExpenseConnection
 
@@ -86,7 +91,12 @@ var res = await sdk.Connections.CreatePartnerExpenseConnectionAsync(req);
 ### Response
 
 **[CreatePartnerExpenseConnectionResponse](../../Models/Operations/CreatePartnerExpenseConnectionResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Delete
 
@@ -124,7 +134,12 @@ var res = await sdk.Connections.DeleteAsync(req);
 ### Response
 
 **[DeleteConnectionResponse](../../Models/Operations/DeleteConnectionResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Get
 
@@ -161,7 +176,12 @@ var res = await sdk.Connections.GetAsync(req);
 ### Response
 
 **[GetConnectionResponse](../../Models/Operations/GetConnectionResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List
 
@@ -200,7 +220,12 @@ var res = await sdk.Connections.ListAsync(req);
 ### Response
 
 **[ListConnectionsResponse](../../Models/Operations/ListConnectionsResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Unlink
 
@@ -237,4 +262,9 @@ var res = await sdk.Connections.UnlinkAsync(req);
 ### Response
 
 **[UnlinkConnectionResponse](../../Models/Operations/UnlinkConnectionResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

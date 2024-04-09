@@ -11,9 +11,11 @@ generation:
     oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 csharp:
-  version: 5.2.0
+  version: 5.3.0
   author: Codat
+  clientServerStatusCodesAsErrors: true
   description: Push expenses to accounting platforms.
+  disableNamespacePascalCasingApr2024: false
   dotnetVersion: net6.0
   flattenGlobalSecurity: false
   imports:

@@ -1,258 +1,279 @@
 lockVersion: 2.0.0
 id: 18b9d064-aee3-46b6-b773-6d0ab95e296c
 management:
-  docChecksum: f7909a451d1597b90dec569f16a52c39
+  docChecksum: 179208fc9435d796d44c0ed26220e8ea
   docVersion: prealpha
-  speakeasyVersion: 1.214.0
-  generationVersion: 2.286.2
-  releaseVersion: 5.2.0
-  configChecksum: fe759e3700991ca9b6120e29fae8da94
+  speakeasyVersion: 1.244.1
+  generationVersion: 2.301.2
+  releaseVersion: 5.3.0
+  configChecksum: bad107a511c277a733a0fa7b66a61de8
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-expenses
   published: true
 features:
   csharp:
-    core: 3.4.3
+    core: 3.7.0
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
     inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
     webhooks: 1.0.0
 generatedFiles:
-  - CodatSyncExpenses/Companies.cs
-  - CodatSyncExpenses/Connections.cs
-  - CodatSyncExpenses/Accounts.cs
-  - CodatSyncExpenses/Customers.cs
-  - CodatSyncExpenses/Suppliers.cs
-  - CodatSyncExpenses/ManageData.cs
-  - CodatSyncExpenses/PushOperations.cs
-  - CodatSyncExpenses/Configuration.cs
-  - CodatSyncExpenses/Expenses.cs
-  - CodatSyncExpenses/Sync.cs
-  - CodatSyncExpenses/TransactionStatus.cs
-  - CodatSyncExpenses/CodatSyncExpenses.cs
+  - Codat/Sync/Expenses/Companies.cs
+  - Codat/Sync/Expenses/Connections.cs
+  - Codat/Sync/Expenses/Accounts.cs
+  - Codat/Sync/Expenses/Customers.cs
+  - Codat/Sync/Expenses/Suppliers.cs
+  - Codat/Sync/Expenses/ManageData.cs
+  - Codat/Sync/Expenses/PushOperations.cs
+  - Codat/Sync/Expenses/Configuration.cs
+  - Codat/Sync/Expenses/Expenses.cs
+  - Codat/Sync/Expenses/Reimbursements.cs
+  - Codat/Sync/Expenses/Sync.cs
+  - Codat/Sync/Expenses/TransactionStatus.cs
+  - Codat/Sync/Expenses/Attachments.cs
+  - Codat/Sync/Expenses/Transfers.cs
+  - Codat/Sync/Expenses/CodatSyncExpenses.cs
   - global.json
-  - CodatSyncExpenses/Utils/BigIntSerializer.cs
-  - CodatSyncExpenses/Utils/DecimalSerializer.cs
-  - CodatSyncExpenses/Utils/EnumSerializer.cs
-  - CodatSyncExpenses/Utils/FlexibleObjectDeserializer.cs
-  - CodatSyncExpenses/Utils/HeaderSerializer.cs
-  - CodatSyncExpenses/Utils/IsoDateTimeSerializer.cs
-  - CodatSyncExpenses/Utils/RequestBodySerializer.cs
-  - CodatSyncExpenses/Utils/SecuritySerializer.cs
-  - CodatSyncExpenses/Utils/SpeakeasyHttpClient.cs
-  - CodatSyncExpenses/Utils/SpeakeasyMetadata.cs
-  - CodatSyncExpenses/Utils/URLBuilder.cs
-  - CodatSyncExpenses/Utils/Utilities.cs
-  - CodatSyncExpenses/CodatSyncExpenses.csproj
-  - CodatSyncExpenses.sln
-  - CodatSyncExpenses/Models/Operations/CreateCompanyResponse.cs
-  - CodatSyncExpenses/Models/Operations/DeleteCompanyRequest.cs
-  - CodatSyncExpenses/Models/Operations/DeleteCompanyResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetCompanyRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetCompanyResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListCompaniesRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListCompaniesResponse.cs
-  - CodatSyncExpenses/Models/Operations/UpdateCompanyRequest.cs
-  - CodatSyncExpenses/Models/Operations/UpdateCompanyResponse.cs
-  - CodatSyncExpenses/Models/Operations/CreateConnectionRequestBody.cs
-  - CodatSyncExpenses/Models/Operations/CreateConnectionRequest.cs
-  - CodatSyncExpenses/Models/Operations/CreateConnectionResponse.cs
-  - CodatSyncExpenses/Models/Operations/CreatePartnerExpenseConnectionRequest.cs
-  - CodatSyncExpenses/Models/Operations/CreatePartnerExpenseConnectionResponse.cs
-  - CodatSyncExpenses/Models/Operations/DeleteConnectionRequest.cs
-  - CodatSyncExpenses/Models/Operations/DeleteConnectionResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetConnectionRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetConnectionResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListConnectionsRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListConnectionsResponse.cs
-  - CodatSyncExpenses/Models/Operations/UnlinkConnectionUpdateConnection.cs
-  - CodatSyncExpenses/Models/Operations/UnlinkConnectionRequest.cs
-  - CodatSyncExpenses/Models/Operations/UnlinkConnectionResponse.cs
-  - CodatSyncExpenses/Models/Operations/CreateAccountRequest.cs
-  - CodatSyncExpenses/Models/Operations/CreateAccountResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetCreateChartOfAccountsModelRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetCreateChartOfAccountsModelResponse.cs
-  - CodatSyncExpenses/Models/Operations/CreateCustomerRequest.cs
-  - CodatSyncExpenses/Models/Operations/CreateCustomerResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetCustomerRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetCustomerResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListCustomersRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListCustomersResponse.cs
-  - CodatSyncExpenses/Models/Operations/UpdateCustomerRequest.cs
-  - CodatSyncExpenses/Models/Operations/UpdateCustomerResponse.cs
-  - CodatSyncExpenses/Models/Operations/CreateSupplierRequest.cs
-  - CodatSyncExpenses/Models/Operations/CreateSupplierResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetSupplierRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetSupplierResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListSuppliersRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListSuppliersResponse.cs
-  - CodatSyncExpenses/Models/Operations/UpdateSupplierRequest.cs
-  - CodatSyncExpenses/Models/Operations/UpdateSupplierResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetDataStatusRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetDataStatusResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetPullOperationRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetPullOperationResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListPullOperationsRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListPullOperationsResponse.cs
-  - CodatSyncExpenses/Models/Operations/RefreshAllDataTypesRequest.cs
-  - CodatSyncExpenses/Models/Operations/RefreshAllDataTypesResponse.cs
-  - CodatSyncExpenses/Models/Operations/RefreshDataTypeRequest.cs
-  - CodatSyncExpenses/Models/Operations/RefreshDataTypeResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetPushOperationRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetPushOperationResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListPushOperationsRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListPushOperationsResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetCompanyConfigurationRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetCompanyConfigurationResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetMappingOptionsRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetMappingOptionsResponse.cs
-  - CodatSyncExpenses/Models/Operations/SetCompanyConfigurationRequest.cs
-  - CodatSyncExpenses/Models/Operations/SetCompanyConfigurationResponse.cs
-  - CodatSyncExpenses/Models/Operations/CreateExpenseTransactionRequest.cs
-  - CodatSyncExpenses/Models/Operations/CreateExpenseTransactionResponse.cs
-  - CodatSyncExpenses/Models/Operations/UpdateExpenseTransactionRequest.cs
-  - CodatSyncExpenses/Models/Operations/UpdateExpenseTransactionResponse.cs
-  - CodatSyncExpenses/Models/Operations/UploadExpenseAttachmentRequest.cs
-  - CodatSyncExpenses/Models/Operations/UploadExpenseAttachmentResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetSyncByIdRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetSyncByIdResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetLastSuccessfulSyncRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetLastSuccessfulSyncResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetLatestSyncRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetLatestSyncResponse.cs
-  - CodatSyncExpenses/Models/Operations/InitiateSyncRequest.cs
-  - CodatSyncExpenses/Models/Operations/InitiateSyncResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListSyncsRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListSyncsResponse.cs
-  - CodatSyncExpenses/Models/Operations/GetSyncTransactionRequest.cs
-  - CodatSyncExpenses/Models/Operations/GetSyncTransactionResponse.cs
-  - CodatSyncExpenses/Models/Operations/ListSyncTransactionsRequest.cs
-  - CodatSyncExpenses/Models/Operations/ListSyncTransactionsResponse.cs
-  - CodatSyncExpenses/Models/Shared/ErrorMessage.cs
-  - CodatSyncExpenses/Models/Shared/ErrorValidation.cs
-  - CodatSyncExpenses/Models/Shared/ErrorValidationItem.cs
-  - CodatSyncExpenses/Models/Shared/GroupReference.cs
-  - CodatSyncExpenses/Models/Shared/Company.cs
-  - CodatSyncExpenses/Models/Shared/SourceType.cs
-  - CodatSyncExpenses/Models/Shared/Connection.cs
-  - CodatSyncExpenses/Models/Shared/DataConnectionStatus.cs
-  - CodatSyncExpenses/Models/Shared/DataConnectionError.cs
-  - CodatSyncExpenses/Models/Shared/CompanyRequestBody.cs
-  - CodatSyncExpenses/Models/Shared/GroupItems.cs
-  - CodatSyncExpenses/Models/Shared/Companies.cs
-  - CodatSyncExpenses/Models/Shared/Links.cs
-  - CodatSyncExpenses/Models/Shared/HalRef.cs
-  - CodatSyncExpenses/Models/Shared/Connections.cs
-  - CodatSyncExpenses/Models/Shared/CreateAccountResponseMetadata.cs
-  - CodatSyncExpenses/Models/Shared/CreateAccountResponseValidDataTypeLinks.cs
-  - CodatSyncExpenses/Models/Shared/AccountingAccount.cs
-  - CodatSyncExpenses/Models/Shared/CreateAccountResponse.cs
-  - CodatSyncExpenses/Models/Shared/Validation.cs
-  - CodatSyncExpenses/Models/Shared/ValidationItem.cs
-  - CodatSyncExpenses/Models/Shared/PushOperationStatus.cs
-  - CodatSyncExpenses/Models/Shared/DataType.cs
-  - CodatSyncExpenses/Models/Shared/AccountType.cs
-  - CodatSyncExpenses/Models/Shared/SupplementalData.cs
-  - CodatSyncExpenses/Models/Shared/AccountStatus.cs
-  - CodatSyncExpenses/Models/Shared/PushOperationChange.cs
-  - CodatSyncExpenses/Models/Shared/PushChangeType.cs
-  - CodatSyncExpenses/Models/Shared/PushOperationRef.cs
-  - CodatSyncExpenses/Models/Shared/ValidDataTypeLinks.cs
-  - CodatSyncExpenses/Models/Shared/AccountPrototype.cs
-  - CodatSyncExpenses/Models/Shared/PushOption.cs
-  - CodatSyncExpenses/Models/Shared/PushValidationInfo.cs
-  - CodatSyncExpenses/Models/Shared/PushFieldValidation.cs
-  - CodatSyncExpenses/Models/Shared/PushOptionType.cs
-  - CodatSyncExpenses/Models/Shared/PushOptionProperty.cs
-  - CodatSyncExpenses/Models/Shared/PushOptionChoice.cs
-  - CodatSyncExpenses/Models/Shared/CreateCustomerResponseAccountingAddress.cs
-  - CodatSyncExpenses/Models/Shared/AccountingCustomer.cs
-  - CodatSyncExpenses/Models/Shared/CreateCustomerResponse.cs
-  - CodatSyncExpenses/Models/Shared/CustomerStatus.cs
-  - CodatSyncExpenses/Models/Shared/Metadata.cs
-  - CodatSyncExpenses/Models/Shared/Phone.cs
-  - CodatSyncExpenses/Models/Shared/Contact.cs
-  - CodatSyncExpenses/Models/Shared/PhoneNumberType.cs
-  - CodatSyncExpenses/Models/Shared/Items.cs
-  - CodatSyncExpenses/Models/Shared/AccountingAddressType.cs
-  - CodatSyncExpenses/Models/Shared/AccountingAddress.cs
-  - CodatSyncExpenses/Models/Shared/Customer.cs
-  - CodatSyncExpenses/Models/Shared/Customers.cs
-  - CodatSyncExpenses/Models/Shared/UpdateCustomerResponseAccountingAddress.cs
-  - CodatSyncExpenses/Models/Shared/UpdateCustomerResponseAccountingCustomer.cs
-  - CodatSyncExpenses/Models/Shared/UpdateCustomerResponse.cs
-  - CodatSyncExpenses/Models/Shared/AccountingSupplier.cs
-  - CodatSyncExpenses/Models/Shared/CreateSupplierResponse.cs
-  - CodatSyncExpenses/Models/Shared/SupplierStatus.cs
-  - CodatSyncExpenses/Models/Shared/Supplier.cs
-  - CodatSyncExpenses/Models/Shared/Suppliers.cs
-  - CodatSyncExpenses/Models/Shared/UpdateSupplierResponseAccountingSupplier.cs
-  - CodatSyncExpenses/Models/Shared/UpdateSupplierResponse.cs
-  - CodatSyncExpenses/Models/Shared/DataTypes.cs
-  - CodatSyncExpenses/Models/Shared/DataStatus.cs
-  - CodatSyncExpenses/Models/Shared/Status.cs
-  - CodatSyncExpenses/Models/Shared/PullOperation.cs
-  - CodatSyncExpenses/Models/Shared/PullOperations.cs
-  - CodatSyncExpenses/Models/Shared/SchemaDataType.cs
-  - CodatSyncExpenses/Models/Shared/PushOperation.cs
-  - CodatSyncExpenses/Models/Shared/PushOperations.cs
-  - CodatSyncExpenses/Models/Shared/CompanyConfiguration.cs
-  - CodatSyncExpenses/Models/Shared/SupplierDetails.cs
-  - CodatSyncExpenses/Models/Shared/CustomerDetails.cs
-  - CodatSyncExpenses/Models/Shared/BankAccount.cs
-  - CodatSyncExpenses/Models/Shared/MappingOptions.cs
-  - CodatSyncExpenses/Models/Shared/TrackingCategoryMappingInfo.cs
-  - CodatSyncExpenses/Models/Shared/TaxRateMappingInfoValidTransactionTypes.cs
-  - CodatSyncExpenses/Models/Shared/TaxRateMappingInfo.cs
-  - CodatSyncExpenses/Models/Shared/AccountMappingInfoAccountType.cs
-  - CodatSyncExpenses/Models/Shared/ValidTransactionTypes.cs
-  - CodatSyncExpenses/Models/Shared/AccountMappingInfo.cs
-  - CodatSyncExpenses/Models/Shared/CreateExpenseResponse.cs
-  - CodatSyncExpenses/Models/Shared/CreateExpenseRequest.cs
-  - CodatSyncExpenses/Models/Shared/BankAccountReference.cs
-  - CodatSyncExpenses/Models/Shared/ExpenseTransactionType.cs
-  - CodatSyncExpenses/Models/Shared/ExpenseTransaction.cs
-  - CodatSyncExpenses/Models/Shared/ExpenseTransactionLine.cs
-  - CodatSyncExpenses/Models/Shared/TrackingRefDataType.cs
-  - CodatSyncExpenses/Models/Shared/TrackingRef.cs
-  - CodatSyncExpenses/Models/Shared/RecordRef.cs
-  - CodatSyncExpenses/Models/Shared/InvoiceToDataType.cs
-  - CodatSyncExpenses/Models/Shared/InvoiceTo.cs
-  - CodatSyncExpenses/Models/Shared/Type.cs
-  - CodatSyncExpenses/Models/Shared/ContactRef.cs
-  - CodatSyncExpenses/Models/Shared/UpdateExpenseResponse.cs
-  - CodatSyncExpenses/Models/Shared/UpdateExpenseRequestBankAccountReference.cs
-  - CodatSyncExpenses/Models/Shared/UpdateExpenseRequest.cs
-  - CodatSyncExpenses/Models/Shared/Attachment.cs
-  - CodatSyncExpenses/Models/Shared/AttachmentUpload.cs
-  - CodatSyncExpenses/Models/Shared/CodatFile.cs
-  - CodatSyncExpenses/Models/Shared/CompanySyncStatus.cs
-  - CodatSyncExpenses/Models/Shared/SyncInitiated.cs
-  - CodatSyncExpenses/Models/Shared/InitiateSync.cs
-  - CodatSyncExpenses/Models/Shared/Transaction.cs
-  - CodatSyncExpenses/Models/Shared/TransactionStatus.cs
-  - CodatSyncExpenses/Models/Shared/IntegrationType.cs
-  - CodatSyncExpenses/Models/Shared/Transactions.cs
-  - CodatSyncExpenses/Models/Shared/Security.cs
-  - CodatSyncExpenses/Models/Shared/ClientRateLimitReachedWebhook.cs
-  - CodatSyncExpenses/Models/Shared/ClientRateLimitReachedWebhookData.cs
-  - CodatSyncExpenses/Models/Shared/ClientRateLimitResetWebhook.cs
-  - CodatSyncExpenses/Models/Shared/ClientRateLimitResetWebhookData.cs
-  - CodatSyncExpenses/Models/Shared/SyncCompleteWebhook.cs
-  - CodatSyncExpenses/Models/Shared/SyncCompleteWebhookData.cs
-  - CodatSyncExpenses/Models/Shared/SyncFailedWebhook.cs
-  - CodatSyncExpenses/Models/Shared/SyncFailedWebhookData.cs
-  - CodatSyncExpenses/Models/Shared/Data.cs
-  - CodatSyncExpenses/Models/Shared/SyncStartedWebhook.cs
-  - CodatSyncExpenses/Models/Webhooks/ClientRateLimitReachedResponse.cs
-  - CodatSyncExpenses/Models/Webhooks/ClientRateLimitResetResponse.cs
-  - CodatSyncExpenses/Models/Webhooks/SyncCompleteResponse.cs
-  - CodatSyncExpenses/Models/Webhooks/SyncFailedResponse.cs
-  - CodatSyncExpenses/Models/Webhooks/SyncStartedResponse.cs
+  - Codat.Sync.Expenses.sln
+  - Codat/Sync/Expenses/Utils/AnyDeserializer.cs
+  - Codat/Sync/Expenses/Utils/BigIntStrConverter.cs
+  - Codat/Sync/Expenses/Utils/DecimalStrConverter.cs
+  - Codat/Sync/Expenses/Utils/EnumConverter.cs
+  - Codat/Sync/Expenses/Utils/FlexibleObjectDeserializer.cs
+  - Codat/Sync/Expenses/Utils/HeaderSerializer.cs
+  - Codat/Sync/Expenses/Utils/IsoDateTimeSerializer.cs
+  - Codat/Sync/Expenses/Utils/RequestBodySerializer.cs
+  - Codat/Sync/Expenses/Utils/ResponseBodyDeserializer.cs
+  - Codat/Sync/Expenses/Utils/SecuritySerializer.cs
+  - Codat/Sync/Expenses/Utils/SpeakeasyHttpClient.cs
+  - Codat/Sync/Expenses/Utils/SpeakeasyMetadata.cs
+  - Codat/Sync/Expenses/Utils/URLBuilder.cs
+  - Codat/Sync/Expenses/Utils/Utilities.cs
+  - Codat/Sync/Expenses/Codat.Sync.Expenses.csproj
+  - Codat/Sync/Expenses/Models/Errors/SDKException.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateCompanyResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/DeleteCompanyRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/DeleteCompanyResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCompanyRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCompanyResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListCompaniesRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListCompaniesResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateCompanyRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateCompanyResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateConnectionRequestBody.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateConnectionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateConnectionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreatePartnerExpenseConnectionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreatePartnerExpenseConnectionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/DeleteConnectionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/DeleteConnectionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetConnectionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetConnectionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListConnectionsRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListConnectionsResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/UnlinkConnectionUpdateConnection.cs
+  - Codat/Sync/Expenses/Models/Operations/UnlinkConnectionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/UnlinkConnectionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateAccountRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateAccountResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCreateChartOfAccountsModelRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCreateChartOfAccountsModelResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateCustomerRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateCustomerResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCustomerRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCustomerResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListCustomersRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListCustomersResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateCustomerRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateCustomerResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateSupplierRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateSupplierResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetSupplierRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetSupplierResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListSuppliersRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListSuppliersResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateSupplierRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateSupplierResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetDataStatusRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetDataStatusResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetPullOperationRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetPullOperationResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListPullOperationsRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListPullOperationsResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/RefreshAllDataTypesRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/RefreshAllDataTypesResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/RefreshDataTypeRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/RefreshDataTypeResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetPushOperationRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetPushOperationResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListPushOperationsRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListPushOperationsResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCompanyConfigurationRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetCompanyConfigurationResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetMappingOptionsRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetMappingOptionsResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/SetCompanyConfigurationRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/SetCompanyConfigurationResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateExpenseTransactionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateExpenseTransactionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateExpenseTransactionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateExpenseTransactionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateReimbursableExpenseTransactionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateReimbursableExpenseTransactionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateReimbursableExpenseTransactionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/UpdateReimbursableExpenseTransactionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetSyncByIdRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetSyncByIdResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetLastSuccessfulSyncRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetLastSuccessfulSyncResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetLatestSyncRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetLatestSyncResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/InitiateSyncRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/InitiateSyncResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListSyncsRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListSyncsResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/GetSyncTransactionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetSyncTransactionResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/ListSyncTransactionsRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/ListSyncTransactionsResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/UploadExpenseAttachmentRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/UploadExpenseAttachmentResponse.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateTransferTransactionRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/CreateTransferTransactionResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/GroupReference.cs
+  - Codat/Sync/Expenses/Models/Shared/Company.cs
+  - Codat/Sync/Expenses/Models/Shared/SourceType.cs
+  - Codat/Sync/Expenses/Models/Shared/Connection.cs
+  - Codat/Sync/Expenses/Models/Shared/DataConnectionStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/DataConnectionError.cs
+  - Codat/Sync/Expenses/Models/Shared/ErrorValidation.cs
+  - Codat/Sync/Expenses/Models/Shared/ErrorValidationItem.cs
+  - Codat/Sync/Expenses/Models/Shared/CompanyRequestBody.cs
+  - Codat/Sync/Expenses/Models/Shared/GroupItems.cs
+  - Codat/Sync/Expenses/Models/Shared/Companies.cs
+  - Codat/Sync/Expenses/Models/Shared/Links.cs
+  - Codat/Sync/Expenses/Models/Shared/HalRef.cs
+  - Codat/Sync/Expenses/Models/Shared/Connections.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateAccountResponseMetadata.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateAccountResponseValidDataTypeLinks.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountingAccount.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateAccountResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/Validation.cs
+  - Codat/Sync/Expenses/Models/Shared/ValidationItem.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOperationStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/DataType.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountType.cs
+  - Codat/Sync/Expenses/Models/Shared/SupplementalData.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOperationChange.cs
+  - Codat/Sync/Expenses/Models/Shared/PushChangeType.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOperationRef.cs
+  - Codat/Sync/Expenses/Models/Shared/ValidDataTypeLinks.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountPrototype.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOption.cs
+  - Codat/Sync/Expenses/Models/Shared/PushValidationInfo.cs
+  - Codat/Sync/Expenses/Models/Shared/PushFieldValidation.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOptionType.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOptionProperty.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOptionChoice.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateCustomerResponseAccountingAddress.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountingCustomer.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateCustomerResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/CustomerStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/Metadata.cs
+  - Codat/Sync/Expenses/Models/Shared/Phone.cs
+  - Codat/Sync/Expenses/Models/Shared/Contact.cs
+  - Codat/Sync/Expenses/Models/Shared/PhoneNumberType.cs
+  - Codat/Sync/Expenses/Models/Shared/Items.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountingAddressType.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountingAddress.cs
+  - Codat/Sync/Expenses/Models/Shared/Customer.cs
+  - Codat/Sync/Expenses/Models/Shared/Customers.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateCustomerResponseAccountingAddress.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateCustomerResponseAccountingCustomer.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateCustomerResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountingSupplier.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateSupplierResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/SupplierStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/Supplier.cs
+  - Codat/Sync/Expenses/Models/Shared/Suppliers.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateSupplierResponseAccountingSupplier.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateSupplierResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/DataTypes.cs
+  - Codat/Sync/Expenses/Models/Shared/DataStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/Status.cs
+  - Codat/Sync/Expenses/Models/Shared/PullOperation.cs
+  - Codat/Sync/Expenses/Models/Shared/PullOperations.cs
+  - Codat/Sync/Expenses/Models/Shared/SchemaDataType.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOperation.cs
+  - Codat/Sync/Expenses/Models/Shared/PushOperations.cs
+  - Codat/Sync/Expenses/Models/Shared/CompanyConfiguration.cs
+  - Codat/Sync/Expenses/Models/Shared/SupplierDetails.cs
+  - Codat/Sync/Expenses/Models/Shared/CustomerDetails.cs
+  - Codat/Sync/Expenses/Models/Shared/BankAccount.cs
+  - Codat/Sync/Expenses/Models/Shared/MappingOptions.cs
+  - Codat/Sync/Expenses/Models/Shared/TrackingCategoryMappingInfo.cs
+  - Codat/Sync/Expenses/Models/Shared/TaxRateMappingInfoValidTransactionTypes.cs
+  - Codat/Sync/Expenses/Models/Shared/TaxRateMappingInfo.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountMappingInfoAccountType.cs
+  - Codat/Sync/Expenses/Models/Shared/ValidTransactionTypes.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountMappingInfo.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateExpenseResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateExpenseRequest.cs
+  - Codat/Sync/Expenses/Models/Shared/ExpenseTransactionBankAccountReference.cs
+  - Codat/Sync/Expenses/Models/Shared/ExpenseTransactionType.cs
+  - Codat/Sync/Expenses/Models/Shared/ExpenseTransaction.cs
+  - Codat/Sync/Expenses/Models/Shared/ExpenseTransactionLine.cs
+  - Codat/Sync/Expenses/Models/Shared/TrackingRefDataType.cs
+  - Codat/Sync/Expenses/Models/Shared/TrackingRef.cs
+  - Codat/Sync/Expenses/Models/Shared/RecordRef.cs
+  - Codat/Sync/Expenses/Models/Shared/InvoiceToDataType.cs
+  - Codat/Sync/Expenses/Models/Shared/InvoiceTo.cs
+  - Codat/Sync/Expenses/Models/Shared/Type.cs
+  - Codat/Sync/Expenses/Models/Shared/ContactRef.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateExpenseResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateExpenseRequestBankAccountReference.cs
+  - Codat/Sync/Expenses/Models/Shared/UpdateExpenseRequest.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateReimbursableExpenseResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateReimbursableExpenseRequest.cs
+  - Codat/Sync/Expenses/Models/Shared/BankAccountReference.cs
+  - Codat/Sync/Expenses/Models/Shared/ReimbursableExpenseTransaction.cs
+  - Codat/Sync/Expenses/Models/Shared/ReimbursableExpenseTransactionLine.cs
+  - Codat/Sync/Expenses/Models/Shared/CompanySyncStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/SyncInitiated.cs
+  - Codat/Sync/Expenses/Models/Shared/InitiateSync.cs
+  - Codat/Sync/Expenses/Models/Shared/Transaction.cs
+  - Codat/Sync/Expenses/Models/Shared/TransactionStatus.cs
+  - Codat/Sync/Expenses/Models/Shared/IntegrationType.cs
+  - Codat/Sync/Expenses/Models/Shared/Transactions.cs
+  - Codat/Sync/Expenses/Models/Shared/Attachment.cs
+  - Codat/Sync/Expenses/Models/Shared/AttachmentUpload.cs
+  - Codat/Sync/Expenses/Models/Shared/CodatFile.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateTransferResponse.cs
+  - Codat/Sync/Expenses/Models/Shared/CreateTransferRequest.cs
+  - Codat/Sync/Expenses/Models/Shared/TransferDetails.cs
+  - Codat/Sync/Expenses/Models/Shared/AccountRef.cs
+  - Codat/Sync/Expenses/Models/Shared/Security.cs
+  - Codat/Sync/Expenses/Models/Shared/ClientRateLimitReachedWebhook.cs
+  - Codat/Sync/Expenses/Models/Shared/ClientRateLimitReachedWebhookData.cs
+  - Codat/Sync/Expenses/Models/Shared/ClientRateLimitResetWebhook.cs
+  - Codat/Sync/Expenses/Models/Shared/ClientRateLimitResetWebhookData.cs
+  - Codat/Sync/Expenses/Models/Shared/SyncCompleteWebhook.cs
+  - Codat/Sync/Expenses/Models/Shared/SyncCompleteWebhookData.cs
+  - Codat/Sync/Expenses/Models/Shared/SyncFailedWebhook.cs
+  - Codat/Sync/Expenses/Models/Shared/SyncFailedWebhookData.cs
+  - Codat/Sync/Expenses/Models/Shared/Data.cs
+  - Codat/Sync/Expenses/Models/Shared/SyncStartedWebhook.cs
+  - Codat/Sync/Expenses/Models/Errors/ErrorMessage.cs
+  - Codat/Sync/Expenses/Models/Webhooks/ClientRateLimitReachedResponse.cs
+  - Codat/Sync/Expenses/Models/Webhooks/ClientRateLimitResetResponse.cs
+  - Codat/Sync/Expenses/Models/Webhooks/SyncCompleteResponse.cs
+  - Codat/Sync/Expenses/Models/Webhooks/SyncFailedResponse.cs
+  - Codat/Sync/Expenses/Models/Webhooks/SyncStartedResponse.cs
   - docs/Models/Operations/CreateCompanyResponse.md
   - docs/Models/Operations/DeleteCompanyRequest.md
   - docs/Models/Operations/DeleteCompanyResponse.md
@@ -320,8 +341,10 @@ generatedFiles:
   - docs/Models/Operations/CreateExpenseTransactionResponse.md
   - docs/Models/Operations/UpdateExpenseTransactionRequest.md
   - docs/Models/Operations/UpdateExpenseTransactionResponse.md
-  - docs/Models/Operations/UploadExpenseAttachmentRequest.md
-  - docs/Models/Operations/UploadExpenseAttachmentResponse.md
+  - docs/Models/Operations/CreateReimbursableExpenseTransactionRequest.md
+  - docs/Models/Operations/CreateReimbursableExpenseTransactionResponse.md
+  - docs/Models/Operations/UpdateReimbursableExpenseTransactionRequest.md
+  - docs/Models/Operations/UpdateReimbursableExpenseTransactionResponse.md
   - docs/Models/Operations/GetSyncByIdRequest.md
   - docs/Models/Operations/GetSyncByIdResponse.md
   - docs/Models/Operations/GetLastSuccessfulSyncRequest.md
@@ -336,15 +359,18 @@ generatedFiles:
   - docs/Models/Operations/GetSyncTransactionResponse.md
   - docs/Models/Operations/ListSyncTransactionsRequest.md
   - docs/Models/Operations/ListSyncTransactionsResponse.md
-  - docs/Models/Shared/ErrorMessage.md
-  - docs/Models/Shared/ErrorValidation.md
-  - docs/Models/Shared/ErrorValidationItem.md
+  - docs/Models/Operations/UploadExpenseAttachmentRequest.md
+  - docs/Models/Operations/UploadExpenseAttachmentResponse.md
+  - docs/Models/Operations/CreateTransferTransactionRequest.md
+  - docs/Models/Operations/CreateTransferTransactionResponse.md
   - docs/Models/Shared/GroupReference.md
   - docs/Models/Shared/Company.md
   - docs/Models/Shared/SourceType.md
   - docs/Models/Shared/Connection.md
   - docs/Models/Shared/DataConnectionStatus.md
   - docs/Models/Shared/DataConnectionError.md
+  - docs/Models/Shared/ErrorValidation.md
+  - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/CompanyRequestBody.md
   - docs/Models/Shared/GroupItems.md
   - docs/Models/Shared/Companies.md
@@ -417,7 +443,7 @@ generatedFiles:
   - docs/Models/Shared/AccountMappingInfo.md
   - docs/Models/Shared/CreateExpenseResponse.md
   - docs/Models/Shared/CreateExpenseRequest.md
-  - docs/Models/Shared/BankAccountReference.md
+  - docs/Models/Shared/ExpenseTransactionBankAccountReference.md
   - docs/Models/Shared/ExpenseTransactionType.md
   - docs/Models/Shared/ExpenseTransaction.md
   - docs/Models/Shared/ExpenseTransactionLine.md
@@ -431,9 +457,11 @@ generatedFiles:
   - docs/Models/Shared/UpdateExpenseResponse.md
   - docs/Models/Shared/UpdateExpenseRequestBankAccountReference.md
   - docs/Models/Shared/UpdateExpenseRequest.md
-  - docs/Models/Shared/Attachment.md
-  - docs/Models/Shared/AttachmentUpload.md
-  - docs/Models/Shared/CodatFile.md
+  - docs/Models/Shared/CreateReimbursableExpenseResponse.md
+  - docs/Models/Shared/CreateReimbursableExpenseRequest.md
+  - docs/Models/Shared/BankAccountReference.md
+  - docs/Models/Shared/ReimbursableExpenseTransaction.md
+  - docs/Models/Shared/ReimbursableExpenseTransactionLine.md
   - docs/Models/Shared/CompanySyncStatus.md
   - docs/Models/Shared/SyncInitiated.md
   - docs/Models/Shared/InitiateSync.md
@@ -441,6 +469,13 @@ generatedFiles:
   - docs/Models/Shared/TransactionStatus.md
   - docs/Models/Shared/IntegrationType.md
   - docs/Models/Shared/Transactions.md
+  - docs/Models/Shared/Attachment.md
+  - docs/Models/Shared/AttachmentUpload.md
+  - docs/Models/Shared/CodatFile.md
+  - docs/Models/Shared/CreateTransferResponse.md
+  - docs/Models/Shared/CreateTransferRequest.md
+  - docs/Models/Shared/TransferDetails.md
+  - docs/Models/Shared/AccountRef.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ClientRateLimitReachedWebhook.md
   - docs/Models/Shared/ClientRateLimitReachedWebhookData.md
@@ -452,6 +487,7 @@ generatedFiles:
   - docs/Models/Shared/SyncFailedWebhookData.md
   - docs/Models/Shared/Data.md
   - docs/Models/Shared/SyncStartedWebhook.md
+  - docs/Models/Errors/ErrorMessage.md
   - docs/Models/Webhooks/ClientRateLimitReachedResponse.md
   - docs/Models/Webhooks/ClientRateLimitResetResponse.md
   - docs/Models/Webhooks/SyncCompleteResponse.md
@@ -467,7 +503,10 @@ generatedFiles:
   - docs/sdks/pushoperations/README.md
   - docs/sdks/configuration/README.md
   - docs/sdks/expenses/README.md
+  - docs/sdks/reimbursements/README.md
   - docs/sdks/sync/README.md
   - docs/sdks/transactionstatus/README.md
+  - docs/sdks/attachments/README.md
+  - docs/sdks/transfers/README.md
   - USAGE.md
   - .gitattributes

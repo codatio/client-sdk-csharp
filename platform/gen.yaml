@@ -13,7 +13,8 @@ generation:
 csharp:
   version: 3.5.0
   author: Codat
-  description: Manage the building blocks of Codat, including companies, connections, and more.
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
   dotnetVersion: net6.0
   flattenGlobalSecurity: false
   imports:

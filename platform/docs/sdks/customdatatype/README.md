@@ -3,7 +3,7 @@
 
 ## Overview
 
-View and configure custom data types for supported integrations.
+Configure and pull additional data types that are not included in Codat's standardized data model.
 
 ### Available Operations
 
@@ -76,7 +76,12 @@ var res = await sdk.CustomDataType.ConfigureAsync(req);
 ### Response
 
 **[ConfigureCustomDataTypeResponse](../../Models/Operations/ConfigureCustomDataTypeResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## GetConfiguration
 
@@ -115,7 +120,12 @@ var res = await sdk.CustomDataType.GetConfigurationAsync(req);
 ### Response
 
 **[GetCustomDataTypeConfigurationResponse](../../Models/Operations/GetCustomDataTypeConfigurationResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## List
 
@@ -157,7 +167,12 @@ var res = await sdk.CustomDataType.ListAsync(req);
 ### Response
 
 **[ListCustomDataTypeRecordsResponse](../../Models/Operations/ListCustomDataTypeRecordsResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,451,500,503       | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## Refresh
 
@@ -195,4 +210,9 @@ var res = await sdk.CustomDataType.RefreshAsync(req);
 ### Response
 
 **[RefreshCustomDataTypeResponse](../../Models/Operations/RefreshCustomDataTypeResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,451,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

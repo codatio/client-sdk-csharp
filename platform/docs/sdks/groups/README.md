@@ -3,7 +3,7 @@
 
 ## Overview
 
-Create groups and link them to your Codat companies.
+Define and manage sets of companies based on a chosen characteristic.
 
 ### Available Operations
 
@@ -48,7 +48,12 @@ var res = await sdk.Groups.AddCompanyAsync(req);
 ### Response
 
 **[AddCompanyToGroupResponse](../../Models/Operations/AddCompanyToGroupResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## Create
 
@@ -90,7 +95,12 @@ var res = await sdk.Groups.CreateAsync(req);
 ### Response
 
 **[CreateGroupResponse](../../Models/Operations/CreateGroupResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,409,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## List
 
@@ -117,7 +127,12 @@ var res = await sdk.Groups.ListAsync();
 ### Response
 
 **[ListGroupsResponse](../../Models/Operations/ListGroupsResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## RemoveCompany
 
@@ -156,4 +171,9 @@ var res = await sdk.Groups.RemoveCompanyAsync(req);
 ### Response
 
 **[RemoveCompanyFromGroupResponse](../../Models/Operations/RemoveCompanyFromGroupResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

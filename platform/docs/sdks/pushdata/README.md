@@ -3,7 +3,7 @@
 
 ## Overview
 
-View push options and get push statuses.
+Initiate and monitor Create, Update, and Delete operations.
 
 ### Available Operations
 
@@ -38,7 +38,7 @@ var sdk = new CodatPlatform(security: new Security() {
 GetCreateUpdateModelOptionsByDataTypeRequest req = new GetCreateUpdateModelOptionsByDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DataType = SchemaDataType.Invoices,
+    DataType = Codat.Platform.Models.Shared.SchemaDataType.Invoices,
 };
 
 var res = await sdk.PushData.GetModelOptionsAsync(req);
@@ -56,7 +56,12 @@ var res = await sdk.PushData.GetModelOptionsAsync(req);
 ### Response
 
 **[GetCreateUpdateModelOptionsByDataTypeResponse](../../Models/Operations/GetCreateUpdateModelOptionsByDataTypeResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## GetOperation
 
@@ -93,7 +98,12 @@ var res = await sdk.PushData.GetOperationAsync(req);
 ### Response
 
 **[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## ListOperations
 
@@ -132,4 +142,9 @@ var res = await sdk.PushData.ListOperationsAsync(req);
 ### Response
 
 **[GetCompanyPushHistoryResponse](../../Models/Operations/GetCompanyPushHistoryResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

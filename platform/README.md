@@ -59,6 +59,12 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
+### [ConnectionManagement](docs/sdks/connectionmanagement/README.md)
+
+* [ConnectionManagementCorsSettingsGet](docs/sdks/connectionmanagement/README.md#connectionmanagementcorssettingsget) - Get CORS settings
+* [ConnectionManagementCorsSettingsSet](docs/sdks/connectionmanagement/README.md#connectionmanagementcorssettingsset) - Set CORS settings
+* [Get](docs/sdks/connectionmanagement/README.md#get) - Get access token
+
 ### [Connections](docs/sdks/connections/README.md)
 
 * [Create](docs/sdks/connections/README.md#create) - Create connection
@@ -120,8 +126,6 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
@@ -167,6 +171,52 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,409,429,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
+### Example
+
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Shared;
+using System;
+using Codat.Platform.Models.Errors;
+
+var sdk = new CodatPlatform(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+CreateApiKey req = new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
+};
+
+try
+{
+    var res = await sdk.Settings.CreateApiKeyAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorMessage)
+    {
+        // handle exception
+    }
+    else if (ex is Codat.Platform.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

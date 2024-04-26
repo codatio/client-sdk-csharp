@@ -3,7 +3,7 @@
 
 ## Overview
 
-Manage your Codat instance.
+Manage company profile configuration, sync settings, and API keys.
 
 ### Available Operations
 
@@ -58,7 +58,12 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 ### Response
 
 **[CreateApiKeyResponse](../../Models/Operations/CreateApiKeyResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,409,429,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## DeleteApiKey
 
@@ -103,7 +108,12 @@ var res = await sdk.Settings.DeleteApiKeyAsync(req);
 ### Response
 
 **[DeleteApiKeyResponse](../../Models/Operations/DeleteApiKeyResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## GetProfile
 
@@ -128,7 +138,12 @@ var res = await sdk.Settings.GetProfileAsync();
 ### Response
 
 **[GetProfileResponse](../../Models/Operations/GetProfileResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## GetSyncSettings
 
@@ -153,7 +168,12 @@ var res = await sdk.Settings.GetSyncSettingsAsync();
 ### Response
 
 **[GetProfileSyncSettingsResponse](../../Models/Operations/GetProfileSyncSettingsResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## ListApiKeys
 
@@ -182,7 +202,12 @@ var res = await sdk.Settings.ListApiKeysAsync();
 ### Response
 
 **[ListApiKeysResponse](../../Models/Operations/ListApiKeysResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## UpdateProfile
 
@@ -228,7 +253,12 @@ var res = await sdk.Settings.UpdateProfileAsync(req);
 ### Response
 
 **[UpdateProfileResponse](../../Models/Operations/UpdateProfileResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## UpdateSyncSettings
 
@@ -248,10 +278,9 @@ var sdk = new CodatPlatform(security: new Security() {
 
 UpdateProfileSyncSettingsRequestBody req = new UpdateProfileSyncSettingsRequestBody() {
     ClientId = "ce429104-79f0-4085-a720-e2d40fcc800f",
-    OverridesDefaults = false,
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
-            DataType = Models.Shared.DataType.Invoices,
+            DataType = Codat.Platform.Models.Shared.DataType.Invoices,
             FetchOnFirstLink = true,
             IsLocked = true,
             MonthsToSync = 24,
@@ -278,4 +307,9 @@ var res = await sdk.Settings.UpdateSyncSettingsAsync(req);
 ### Response
 
 **[UpdateProfileSyncSettingsResponse](../../Models/Operations/UpdateProfileSyncSettingsResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

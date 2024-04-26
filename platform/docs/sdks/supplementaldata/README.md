@@ -3,7 +3,7 @@
 
 ## Overview
 
-View and configure supplemental data for supported data types.
+Configure and pull additional data you can include in Codat's standard data types.
 
 ### Available Operations
 
@@ -45,7 +45,7 @@ ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
             } },
         },
     },
-    DataType = Models.Operations.DataType.Invoices,
+    DataType = Codat.Platform.Models.Operations.DataType.Invoices,
     PlatformKey = "gbol",
 };
 
@@ -64,7 +64,12 @@ var res = await sdk.SupplementalData.ConfigureAsync(req);
 ### Response
 
 **[ConfigureSupplementalDataResponse](../../Models/Operations/ConfigureSupplementalDataResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## GetConfiguration
 
@@ -84,7 +89,7 @@ var sdk = new CodatPlatform(security: new Security() {
     });
 
 GetSupplementalDataConfigurationRequest req = new GetSupplementalDataConfigurationRequest() {
-    DataType = PathParamDataType.Invoices,
+    DataType = Codat.Platform.Models.Operations.PathParamDataType.Invoices,
     PlatformKey = "gbol",
 };
 
@@ -103,4 +108,9 @@ var res = await sdk.SupplementalData.GetConfigurationAsync(req);
 ### Response
 
 **[GetSupplementalDataConfigurationResponse](../../Models/Operations/GetSupplementalDataConfigurationResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

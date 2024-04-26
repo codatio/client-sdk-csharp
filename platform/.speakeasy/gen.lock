@@ -1,233 +1,250 @@
 lockVersion: 2.0.0
 id: 803b84ac-e26a-4a5c-9224-dbc3d0c7712a
 management:
-  docChecksum: 6b9afa35a1ca4d8a1834643e80dd9a19
+  docChecksum: 91b86a7707fc536ccbdc7b7345d775a0
   docVersion: 3.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.277.0
-  releaseVersion: 3.5.0
-  configChecksum: 605930df391788cea1af3125ed3a7244
+  speakeasyVersion: 1.274.1
+  generationVersion: 2.314.0
+  releaseVersion: 3.6.0
+  configChecksum: da622ef0f54bd9e9d3a34c5694447ea5
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: platform
   published: true
 features:
   csharp:
-    core: 3.4.3
+    constsAndDefaults: 0.0.1
+    core: 3.8.0
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.83.3
-    globalServerURLs: 2.82.2
+    globalSecurity: 2.83.4
+    globalServerURLs: 2.82.3
+    groups: 2.81.2
+    ignores: 2.81.1
     inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
+    responseFormat: 0.0.1
     webhooks: 1.0.0
 generatedFiles:
-  - CodatPlatform/Settings.cs
-  - CodatPlatform/Companies.cs
-  - CodatPlatform/Connections.cs
-  - CodatPlatform/CustomDataType.cs
-  - CodatPlatform/PushData.cs
-  - CodatPlatform/RefreshData.cs
-  - CodatPlatform/Groups.cs
-  - CodatPlatform/Integrations.cs
-  - CodatPlatform/SupplementalData.cs
-  - CodatPlatform/Webhooks.cs
-  - CodatPlatform/CodatPlatform.cs
+  - Codat/Platform/Settings.cs
+  - Codat/Platform/Companies.cs
+  - Codat/Platform/CorsSettings.cs
+  - Codat/Platform/ConnectionManagement.cs
+  - Codat/Platform/Connections.cs
+  - Codat/Platform/CustomDataType.cs
+  - Codat/Platform/PushData.cs
+  - Codat/Platform/RefreshData.cs
+  - Codat/Platform/Groups.cs
+  - Codat/Platform/Integrations.cs
+  - Codat/Platform/SupplementalData.cs
+  - Codat/Platform/Webhooks.cs
+  - Codat/Platform/CodatPlatform.cs
   - global.json
-  - CodatPlatform/Utils/BigIntSerializer.cs
-  - CodatPlatform/Utils/DecimalSerializer.cs
-  - CodatPlatform/Utils/EnumSerializer.cs
-  - CodatPlatform/Utils/FlexibleObjectDeserializer.cs
-  - CodatPlatform/Utils/HeaderSerializer.cs
-  - CodatPlatform/Utils/IsoDateTimeSerializer.cs
-  - CodatPlatform/Utils/RequestBodySerializer.cs
-  - CodatPlatform/Utils/SecuritySerializer.cs
-  - CodatPlatform/Utils/SpeakeasyHttpClient.cs
-  - CodatPlatform/Utils/SpeakeasyMetadata.cs
-  - CodatPlatform/Utils/URLBuilder.cs
-  - CodatPlatform/Utils/Utilities.cs
-  - CodatPlatform/CodatPlatform.csproj
-  - CodatPlatform.sln
-  - CodatPlatform/Models/Operations/CreateApiKeyResponse.cs
-  - CodatPlatform/Models/Operations/DeleteApiKeyRequest.cs
-  - CodatPlatform/Models/Operations/DeleteApiKeyResponse.cs
-  - CodatPlatform/Models/Operations/GetProfileResponse.cs
-  - CodatPlatform/Models/Operations/GetProfileSyncSettingsResponse.cs
-  - CodatPlatform/Models/Operations/ListApiKeysResponse.cs
-  - CodatPlatform/Models/Operations/UpdateProfileResponse.cs
-  - CodatPlatform/Models/Operations/UpdateProfileSyncSettingsRequestBody.cs
-  - CodatPlatform/Models/Operations/UpdateProfileSyncSettingsResponse.cs
-  - CodatPlatform/Models/Operations/CreateCompanyResponse.cs
-  - CodatPlatform/Models/Operations/DeleteCompanyRequest.cs
-  - CodatPlatform/Models/Operations/DeleteCompanyResponse.cs
-  - CodatPlatform/Models/Operations/GetCompanyRequest.cs
-  - CodatPlatform/Models/Operations/GetCompanyResponse.cs
-  - CodatPlatform/Models/Operations/ListCompaniesRequest.cs
-  - CodatPlatform/Models/Operations/ListCompaniesResponse.cs
-  - CodatPlatform/Models/Operations/UpdateCompanyRequest.cs
-  - CodatPlatform/Models/Operations/UpdateCompanyResponse.cs
-  - CodatPlatform/Models/Operations/CreateConnectionRequestBody.cs
-  - CodatPlatform/Models/Operations/CreateConnectionRequest.cs
-  - CodatPlatform/Models/Operations/CreateConnectionResponse.cs
-  - CodatPlatform/Models/Operations/DeleteConnectionRequest.cs
-  - CodatPlatform/Models/Operations/DeleteConnectionResponse.cs
-  - CodatPlatform/Models/Operations/GetConnectionRequest.cs
-  - CodatPlatform/Models/Operations/GetConnectionResponse.cs
-  - CodatPlatform/Models/Operations/ListConnectionsRequest.cs
-  - CodatPlatform/Models/Operations/ListConnectionsResponse.cs
-  - CodatPlatform/Models/Operations/UnlinkConnectionRequest.cs
-  - CodatPlatform/Models/Operations/UnlinkConnectionResponse.cs
-  - CodatPlatform/Models/Operations/UpdateConnectionAuthorizationRequest.cs
-  - CodatPlatform/Models/Operations/UpdateConnectionAuthorizationResponse.cs
-  - CodatPlatform/Models/Operations/ConfigureCustomDataTypeRequest.cs
-  - CodatPlatform/Models/Operations/ConfigureCustomDataTypeResponse.cs
-  - CodatPlatform/Models/Operations/GetCustomDataTypeConfigurationRequest.cs
-  - CodatPlatform/Models/Operations/GetCustomDataTypeConfigurationResponse.cs
-  - CodatPlatform/Models/Operations/ListCustomDataTypeRecordsRequest.cs
-  - CodatPlatform/Models/Operations/ListCustomDataTypeRecordsResponse.cs
-  - CodatPlatform/Models/Operations/RefreshCustomDataTypeRequest.cs
-  - CodatPlatform/Models/Operations/RefreshCustomDataTypeResponse.cs
-  - CodatPlatform/Models/Operations/GetCreateUpdateModelOptionsByDataTypeRequest.cs
-  - CodatPlatform/Models/Operations/GetCreateUpdateModelOptionsByDataTypeResponse.cs
-  - CodatPlatform/Models/Operations/GetPushOperationRequest.cs
-  - CodatPlatform/Models/Operations/GetPushOperationResponse.cs
-  - CodatPlatform/Models/Operations/GetCompanyPushHistoryRequest.cs
-  - CodatPlatform/Models/Operations/GetCompanyPushHistoryResponse.cs
-  - CodatPlatform/Models/Operations/RefreshCompanyDataRequest.cs
-  - CodatPlatform/Models/Operations/RefreshCompanyDataResponse.cs
-  - CodatPlatform/Models/Operations/RefreshDataTypeRequest.cs
-  - CodatPlatform/Models/Operations/RefreshDataTypeResponse.cs
-  - CodatPlatform/Models/Operations/GetCompanyDataStatusRequest.cs
-  - CodatPlatform/Models/Operations/GetCompanyDataStatusResponse.cs
-  - CodatPlatform/Models/Operations/GetPullOperationRequest.cs
-  - CodatPlatform/Models/Operations/GetPullOperationResponse.cs
-  - CodatPlatform/Models/Operations/ListPullOperationsRequest.cs
-  - CodatPlatform/Models/Operations/ListPullOperationsResponse.cs
-  - CodatPlatform/Models/Operations/AddCompanyToGroupRequest.cs
-  - CodatPlatform/Models/Operations/AddCompanyToGroupResponse.cs
-  - CodatPlatform/Models/Operations/CreateGroupResponse.cs
-  - CodatPlatform/Models/Operations/ListGroupsResponse.cs
-  - CodatPlatform/Models/Operations/RemoveCompanyFromGroupRequest.cs
-  - CodatPlatform/Models/Operations/RemoveCompanyFromGroupResponse.cs
-  - CodatPlatform/Models/Operations/GetIntegrationRequest.cs
-  - CodatPlatform/Models/Operations/GetIntegrationResponse.cs
-  - CodatPlatform/Models/Operations/GetIntegrationsBrandingRequest.cs
-  - CodatPlatform/Models/Operations/GetIntegrationsBrandingResponse.cs
-  - CodatPlatform/Models/Operations/ListIntegrationsRequest.cs
-  - CodatPlatform/Models/Operations/ListIntegrationsResponse.cs
-  - CodatPlatform/Models/Operations/DataType.cs
-  - CodatPlatform/Models/Operations/ConfigureSupplementalDataRequest.cs
-  - CodatPlatform/Models/Operations/ConfigureSupplementalDataResponse.cs
-  - CodatPlatform/Models/Operations/PathParamDataType.cs
-  - CodatPlatform/Models/Operations/GetSupplementalDataConfigurationRequest.cs
-  - CodatPlatform/Models/Operations/GetSupplementalDataConfigurationResponse.cs
-  - CodatPlatform/Models/Operations/CreateRuleResponse.cs
-  - CodatPlatform/Models/Operations/CreateWebhookConsumerResponse.cs
-  - CodatPlatform/Models/Operations/DeleteWebhookConsumerRequest.cs
-  - CodatPlatform/Models/Operations/DeleteWebhookConsumerResponse.cs
-  - CodatPlatform/Models/Operations/GetWebhookRequest.cs
-  - CodatPlatform/Models/Operations/GetWebhookResponse.cs
-  - CodatPlatform/Models/Operations/ListRulesRequest.cs
-  - CodatPlatform/Models/Operations/ListRulesResponse.cs
-  - CodatPlatform/Models/Operations/ListWebhookConsumersResponse.cs
-  - CodatPlatform/Models/Shared/ErrorMessage.cs
-  - CodatPlatform/Models/Shared/ErrorValidation.cs
-  - CodatPlatform/Models/Shared/ErrorValidationItem.cs
-  - CodatPlatform/Models/Shared/ApiKeyDetails.cs
-  - CodatPlatform/Models/Shared/CreateApiKey.cs
-  - CodatPlatform/Models/Shared/Profile.cs
-  - CodatPlatform/Models/Shared/SyncSettings.cs
-  - CodatPlatform/Models/Shared/SyncSetting.cs
-  - CodatPlatform/Models/Shared/DataType.cs
-  - CodatPlatform/Models/Shared/ApiKeys.cs
-  - CodatPlatform/Models/Shared/Company.cs
-  - CodatPlatform/Models/Shared/GroupRef.cs
-  - CodatPlatform/Models/Shared/Connection.cs
-  - CodatPlatform/Models/Shared/DataConnectionStatus.cs
-  - CodatPlatform/Models/Shared/SourceType.cs
-  - CodatPlatform/Models/Shared/DataConnectionError.cs
-  - CodatPlatform/Models/Shared/CompanyRequestBody.cs
-  - CodatPlatform/Models/Shared/Companies.cs
-  - CodatPlatform/Models/Shared/Links.cs
-  - CodatPlatform/Models/Shared/HalRef.cs
-  - CodatPlatform/Models/Shared/Connections.cs
-  - CodatPlatform/Models/Shared/UpdateConnectionStatus.cs
-  - CodatPlatform/Models/Shared/CustomDataTypeConfiguration.cs
-  - CodatPlatform/Models/Shared/CustomDataTypeRecords.cs
-  - CodatPlatform/Models/Shared/Content.cs
-  - CodatPlatform/Models/Shared/ModifiedDate.cs
-  - CodatPlatform/Models/Shared/CustomDataTypeRecord.cs
-  - CodatPlatform/Models/Shared/Status.cs
-  - CodatPlatform/Models/Shared/PullOperation.cs
-  - CodatPlatform/Models/Shared/PushOption.cs
-  - CodatPlatform/Models/Shared/PushValidationInfo.cs
-  - CodatPlatform/Models/Shared/PushFieldValidation.cs
-  - CodatPlatform/Models/Shared/PushOptionType.cs
-  - CodatPlatform/Models/Shared/PushOptionProperty.cs
-  - CodatPlatform/Models/Shared/PushOptionChoice.cs
-  - CodatPlatform/Models/Shared/SchemaDataType.cs
-  - CodatPlatform/Models/Shared/PushOperation.cs
-  - CodatPlatform/Models/Shared/Validation.cs
-  - CodatPlatform/Models/Shared/ValidationItem.cs
-  - CodatPlatform/Models/Shared/PushOperationStatus.cs
-  - CodatPlatform/Models/Shared/PushOperationChange.cs
-  - CodatPlatform/Models/Shared/PushChangeType.cs
-  - CodatPlatform/Models/Shared/PushOperationRef.cs
-  - CodatPlatform/Models/Shared/PushOperations.cs
-  - CodatPlatform/Models/Shared/DataTypes.cs
-  - CodatPlatform/Models/Shared/DataStatus.cs
-  - CodatPlatform/Models/Shared/PullOperations.cs
-  - CodatPlatform/Models/Shared/CompanyGroupAssignment.cs
-  - CodatPlatform/Models/Shared/Group.cs
-  - CodatPlatform/Models/Shared/GroupPrototype.cs
-  - CodatPlatform/Models/Shared/Groups.cs
-  - CodatPlatform/Models/Shared/Integration.cs
-  - CodatPlatform/Models/Shared/DataTypeFeature.cs
-  - CodatPlatform/Models/Shared/SupportedFeature.cs
-  - CodatPlatform/Models/Shared/FeatureType.cs
-  - CodatPlatform/Models/Shared/FeatureState.cs
-  - CodatPlatform/Models/Shared/Branding.cs
-  - CodatPlatform/Models/Shared/BrandingLogo.cs
-  - CodatPlatform/Models/Shared/BrandingImage.cs
-  - CodatPlatform/Models/Shared/ImageReference.cs
-  - CodatPlatform/Models/Shared/BrandingButton.cs
-  - CodatPlatform/Models/Shared/Integrations.cs
-  - CodatPlatform/Models/Shared/SupplementalDataSourceConfiguration.cs
-  - CodatPlatform/Models/Shared/SupplementalDataConfiguration.cs
-  - CodatPlatform/Models/Shared/Webhook.cs
-  - CodatPlatform/Models/Shared/WebhookNotifier.cs
-  - CodatPlatform/Models/Shared/CreateRule.cs
-  - CodatPlatform/Models/Shared/WebhookConsumer.cs
-  - CodatPlatform/Models/Shared/WebhookConsumerPrototype.cs
-  - CodatPlatform/Models/Shared/Webhooks.cs
-  - CodatPlatform/Models/Shared/WebhookConsumers.cs
-  - CodatPlatform/Models/Shared/Security.cs
-  - CodatPlatform/Models/Shared/ClientRateLimitReachedWebhook.cs
-  - CodatPlatform/Models/Shared/ClientRateLimitReachedWebhookData.cs
-  - CodatPlatform/Models/Shared/ClientRateLimitResetWebhook.cs
-  - CodatPlatform/Models/Shared/ClientRateLimitResetWebhookData.cs
-  - CodatPlatform/Models/Shared/ConnectionStatusChangedWebhook.cs
-  - CodatPlatform/Models/Shared/ConnectionStatusChangedWebhookData.cs
-  - CodatPlatform/Models/Shared/DataSyncCompletedWebhook.cs
-  - CodatPlatform/Models/Shared/DataSyncCompletedWebhookData.cs
-  - CodatPlatform/Models/Shared/DatasetDataChangedWebhookData.cs
-  - CodatPlatform/Models/Shared/DatasetDataChangedWebhook.cs
-  - CodatPlatform/Models/Shared/DatasetStatusChangedErrorWebhook.cs
-  - CodatPlatform/Models/Shared/DatasetStatusChangedErrorWebhookData.cs
-  - CodatPlatform/Models/Shared/NewCompanySynchronizedWebhook.cs
-  - CodatPlatform/Models/Shared/NewCompanySynchronizedWebhookData.cs
-  - CodatPlatform/Models/Shared/PushOperationTimedOutWebhook.cs
-  - CodatPlatform/Models/Shared/PushOperationTimedOutWebhookData.cs
-  - CodatPlatform/Models/Shared/PushOperationStatusChangedWebhook.cs
-  - CodatPlatform/Models/Shared/PushOperationStatusChangedWebhookData.cs
-  - CodatPlatform/Models/Webhooks/ClientRateLimitReachedResponse.cs
-  - CodatPlatform/Models/Webhooks/ClientRateLimitResetResponse.cs
-  - CodatPlatform/Models/Webhooks/CompanyDataConnectionStatusChangedResponse.cs
-  - CodatPlatform/Models/Webhooks/DataSyncCompletedResponse.cs
-  - CodatPlatform/Models/Webhooks/DatasetDataChangedResponse.cs
-  - CodatPlatform/Models/Webhooks/DatasetStatusHasChangedToAnErrorStateResponse.cs
-  - CodatPlatform/Models/Webhooks/NewCompanySynchronizedResponse.cs
-  - CodatPlatform/Models/Webhooks/PushOperationHasTimedOutResponse.cs
-  - CodatPlatform/Models/Webhooks/PushOperationStatusHasChangedResponse.cs
+  - Codat.Platform.sln
+  - Codat/Platform/Utils/AnyDeserializer.cs
+  - Codat/Platform/Utils/BigIntStrConverter.cs
+  - Codat/Platform/Utils/DecimalStrConverter.cs
+  - Codat/Platform/Utils/EnumConverter.cs
+  - Codat/Platform/Utils/FlexibleObjectDeserializer.cs
+  - Codat/Platform/Utils/HeaderSerializer.cs
+  - Codat/Platform/Utils/IsoDateTimeSerializer.cs
+  - Codat/Platform/Utils/RequestBodySerializer.cs
+  - Codat/Platform/Utils/ResponseBodyDeserializer.cs
+  - Codat/Platform/Utils/SecuritySerializer.cs
+  - Codat/Platform/Utils/SpeakeasyHttpClient.cs
+  - Codat/Platform/Utils/SpeakeasyMetadata.cs
+  - Codat/Platform/Utils/URLBuilder.cs
+  - Codat/Platform/Utils/Utilities.cs
+  - Codat/Platform/Codat.Platform.csproj
+  - Codat/Platform/Models/Errors/SDKException.cs
+  - Codat/Platform/Models/Operations/CreateApiKeyResponse.cs
+  - Codat/Platform/Models/Operations/DeleteApiKeyRequest.cs
+  - Codat/Platform/Models/Operations/DeleteApiKeyResponse.cs
+  - Codat/Platform/Models/Operations/GetProfileResponse.cs
+  - Codat/Platform/Models/Operations/GetProfileSyncSettingsResponse.cs
+  - Codat/Platform/Models/Operations/ListApiKeysResponse.cs
+  - Codat/Platform/Models/Operations/UpdateProfileResponse.cs
+  - Codat/Platform/Models/Operations/UpdateProfileSyncSettingsRequestBody.cs
+  - Codat/Platform/Models/Operations/UpdateProfileSyncSettingsResponse.cs
+  - Codat/Platform/Models/Operations/CreateCompanyResponse.cs
+  - Codat/Platform/Models/Operations/DeleteCompanyRequest.cs
+  - Codat/Platform/Models/Operations/DeleteCompanyResponse.cs
+  - Codat/Platform/Models/Operations/GetCompanyRequest.cs
+  - Codat/Platform/Models/Operations/GetCompanyResponse.cs
+  - Codat/Platform/Models/Operations/ListCompaniesRequest.cs
+  - Codat/Platform/Models/Operations/ListCompaniesResponse.cs
+  - Codat/Platform/Models/Operations/UpdateCompanyRequest.cs
+  - Codat/Platform/Models/Operations/UpdateCompanyResponse.cs
+  - Codat/Platform/Models/Operations/GetConnectionManagementAccessTokenRequest.cs
+  - Codat/Platform/Models/Operations/GetConnectionManagementAccessTokenResponse.cs
+  - Codat/Platform/Models/Operations/GetConnectionManagementCorsSettingsResponse.cs
+  - Codat/Platform/Models/Operations/SetConnectionManagementCorsSettingsResponse.cs
+  - Codat/Platform/Models/Operations/CreateConnectionRequestBody.cs
+  - Codat/Platform/Models/Operations/CreateConnectionRequest.cs
+  - Codat/Platform/Models/Operations/CreateConnectionResponse.cs
+  - Codat/Platform/Models/Operations/DeleteConnectionRequest.cs
+  - Codat/Platform/Models/Operations/DeleteConnectionResponse.cs
+  - Codat/Platform/Models/Operations/GetConnectionRequest.cs
+  - Codat/Platform/Models/Operations/GetConnectionResponse.cs
+  - Codat/Platform/Models/Operations/ListConnectionsRequest.cs
+  - Codat/Platform/Models/Operations/ListConnectionsResponse.cs
+  - Codat/Platform/Models/Operations/UnlinkConnectionRequest.cs
+  - Codat/Platform/Models/Operations/UnlinkConnectionResponse.cs
+  - Codat/Platform/Models/Operations/UpdateConnectionAuthorizationRequest.cs
+  - Codat/Platform/Models/Operations/UpdateConnectionAuthorizationResponse.cs
+  - Codat/Platform/Models/Operations/ConfigureCustomDataTypeRequest.cs
+  - Codat/Platform/Models/Operations/ConfigureCustomDataTypeResponse.cs
+  - Codat/Platform/Models/Operations/GetCustomDataTypeConfigurationRequest.cs
+  - Codat/Platform/Models/Operations/GetCustomDataTypeConfigurationResponse.cs
+  - Codat/Platform/Models/Operations/ListCustomDataTypeRecordsRequest.cs
+  - Codat/Platform/Models/Operations/ListCustomDataTypeRecordsResponse.cs
+  - Codat/Platform/Models/Operations/RefreshCustomDataTypeRequest.cs
+  - Codat/Platform/Models/Operations/RefreshCustomDataTypeResponse.cs
+  - Codat/Platform/Models/Operations/GetCreateUpdateModelOptionsByDataTypeRequest.cs
+  - Codat/Platform/Models/Operations/GetCreateUpdateModelOptionsByDataTypeResponse.cs
+  - Codat/Platform/Models/Operations/GetPushOperationRequest.cs
+  - Codat/Platform/Models/Operations/GetPushOperationResponse.cs
+  - Codat/Platform/Models/Operations/GetCompanyPushHistoryRequest.cs
+  - Codat/Platform/Models/Operations/GetCompanyPushHistoryResponse.cs
+  - Codat/Platform/Models/Operations/RefreshCompanyDataRequest.cs
+  - Codat/Platform/Models/Operations/RefreshCompanyDataResponse.cs
+  - Codat/Platform/Models/Operations/RefreshDataTypeRequest.cs
+  - Codat/Platform/Models/Operations/RefreshDataTypeResponse.cs
+  - Codat/Platform/Models/Operations/GetCompanyDataStatusRequest.cs
+  - Codat/Platform/Models/Operations/GetCompanyDataStatusResponse.cs
+  - Codat/Platform/Models/Operations/GetPullOperationRequest.cs
+  - Codat/Platform/Models/Operations/GetPullOperationResponse.cs
+  - Codat/Platform/Models/Operations/ListPullOperationsRequest.cs
+  - Codat/Platform/Models/Operations/ListPullOperationsResponse.cs
+  - Codat/Platform/Models/Operations/AddCompanyToGroupRequest.cs
+  - Codat/Platform/Models/Operations/AddCompanyToGroupResponse.cs
+  - Codat/Platform/Models/Operations/CreateGroupResponse.cs
+  - Codat/Platform/Models/Operations/ListGroupsResponse.cs
+  - Codat/Platform/Models/Operations/RemoveCompanyFromGroupRequest.cs
+  - Codat/Platform/Models/Operations/RemoveCompanyFromGroupResponse.cs
+  - Codat/Platform/Models/Operations/GetIntegrationRequest.cs
+  - Codat/Platform/Models/Operations/GetIntegrationResponse.cs
+  - Codat/Platform/Models/Operations/GetIntegrationsBrandingRequest.cs
+  - Codat/Platform/Models/Operations/GetIntegrationsBrandingResponse.cs
+  - Codat/Platform/Models/Operations/ListIntegrationsRequest.cs
+  - Codat/Platform/Models/Operations/ListIntegrationsResponse.cs
+  - Codat/Platform/Models/Operations/DataType.cs
+  - Codat/Platform/Models/Operations/ConfigureSupplementalDataRequest.cs
+  - Codat/Platform/Models/Operations/ConfigureSupplementalDataResponse.cs
+  - Codat/Platform/Models/Operations/PathParamDataType.cs
+  - Codat/Platform/Models/Operations/GetSupplementalDataConfigurationRequest.cs
+  - Codat/Platform/Models/Operations/GetSupplementalDataConfigurationResponse.cs
+  - Codat/Platform/Models/Operations/CreateRuleResponse.cs
+  - Codat/Platform/Models/Operations/CreateWebhookConsumerResponse.cs
+  - Codat/Platform/Models/Operations/DeleteWebhookConsumerRequest.cs
+  - Codat/Platform/Models/Operations/DeleteWebhookConsumerResponse.cs
+  - Codat/Platform/Models/Operations/GetWebhookRequest.cs
+  - Codat/Platform/Models/Operations/GetWebhookResponse.cs
+  - Codat/Platform/Models/Operations/ListRulesRequest.cs
+  - Codat/Platform/Models/Operations/ListRulesResponse.cs
+  - Codat/Platform/Models/Operations/ListWebhookConsumersResponse.cs
+  - Codat/Platform/Models/Shared/ApiKeyDetails.cs
+  - Codat/Platform/Models/Shared/ErrorValidation.cs
+  - Codat/Platform/Models/Shared/ErrorValidationItem.cs
+  - Codat/Platform/Models/Shared/CreateApiKey.cs
+  - Codat/Platform/Models/Shared/Profile.cs
+  - Codat/Platform/Models/Shared/SyncSettings.cs
+  - Codat/Platform/Models/Shared/SyncSetting.cs
+  - Codat/Platform/Models/Shared/DataType.cs
+  - Codat/Platform/Models/Shared/ApiKeys.cs
+  - Codat/Platform/Models/Shared/Company.cs
+  - Codat/Platform/Models/Shared/GroupRef.cs
+  - Codat/Platform/Models/Shared/Connection.cs
+  - Codat/Platform/Models/Shared/DataConnectionStatus.cs
+  - Codat/Platform/Models/Shared/SourceType.cs
+  - Codat/Platform/Models/Shared/DataConnectionError.cs
+  - Codat/Platform/Models/Shared/CompanyRequestBody.cs
+  - Codat/Platform/Models/Shared/Companies.cs
+  - Codat/Platform/Models/Shared/Links.cs
+  - Codat/Platform/Models/Shared/HalRef.cs
+  - Codat/Platform/Models/Shared/ConnectionManagementAccessToken.cs
+  - Codat/Platform/Models/Shared/ConnectionManagementAllowedOrigins.cs
+  - Codat/Platform/Models/Shared/Connections.cs
+  - Codat/Platform/Models/Shared/UpdateConnectionStatus.cs
+  - Codat/Platform/Models/Shared/CustomDataTypeConfiguration.cs
+  - Codat/Platform/Models/Shared/CustomDataTypeRecords.cs
+  - Codat/Platform/Models/Shared/Content.cs
+  - Codat/Platform/Models/Shared/ModifiedDate.cs
+  - Codat/Platform/Models/Shared/CustomDataTypeRecord.cs
+  - Codat/Platform/Models/Shared/DatasetStatus.cs
+  - Codat/Platform/Models/Shared/PullOperation.cs
+  - Codat/Platform/Models/Shared/PushOption.cs
+  - Codat/Platform/Models/Shared/PushValidationInfo.cs
+  - Codat/Platform/Models/Shared/PushFieldValidation.cs
+  - Codat/Platform/Models/Shared/PushOptionType.cs
+  - Codat/Platform/Models/Shared/PushOptionProperty.cs
+  - Codat/Platform/Models/Shared/PushOptionChoice.cs
+  - Codat/Platform/Models/Shared/SchemaDataType.cs
+  - Codat/Platform/Models/Shared/PushOperation.cs
+  - Codat/Platform/Models/Shared/Validation.cs
+  - Codat/Platform/Models/Shared/ValidationItem.cs
+  - Codat/Platform/Models/Shared/PushOperationStatus.cs
+  - Codat/Platform/Models/Shared/PushOperationChange.cs
+  - Codat/Platform/Models/Shared/PushChangeType.cs
+  - Codat/Platform/Models/Shared/PushOperationRef.cs
+  - Codat/Platform/Models/Shared/PushOperations.cs
+  - Codat/Platform/Models/Shared/DataStatuses.cs
+  - Codat/Platform/Models/Shared/DataTypes.cs
+  - Codat/Platform/Models/Shared/DataStatus.cs
+  - Codat/Platform/Models/Shared/Status.cs
+  - Codat/Platform/Models/Shared/PullOperations.cs
+  - Codat/Platform/Models/Shared/CompanyGroupAssignment.cs
+  - Codat/Platform/Models/Shared/Group.cs
+  - Codat/Platform/Models/Shared/GroupPrototype.cs
+  - Codat/Platform/Models/Shared/Groups.cs
+  - Codat/Platform/Models/Shared/Integration.cs
+  - Codat/Platform/Models/Shared/DataTypeFeature.cs
+  - Codat/Platform/Models/Shared/SupportedFeature.cs
+  - Codat/Platform/Models/Shared/FeatureType.cs
+  - Codat/Platform/Models/Shared/FeatureState.cs
+  - Codat/Platform/Models/Shared/Branding.cs
+  - Codat/Platform/Models/Shared/BrandingLogo.cs
+  - Codat/Platform/Models/Shared/BrandingImage.cs
+  - Codat/Platform/Models/Shared/ImageReference.cs
+  - Codat/Platform/Models/Shared/BrandingButton.cs
+  - Codat/Platform/Models/Shared/Integrations.cs
+  - Codat/Platform/Models/Shared/SupplementalDataSourceConfiguration.cs
+  - Codat/Platform/Models/Shared/SupplementalDataConfiguration.cs
+  - Codat/Platform/Models/Shared/Webhook.cs
+  - Codat/Platform/Models/Shared/WebhookNotifier.cs
+  - Codat/Platform/Models/Shared/CreateRule.cs
+  - Codat/Platform/Models/Shared/WebhookConsumer.cs
+  - Codat/Platform/Models/Shared/WebhookConsumerPrototype.cs
+  - Codat/Platform/Models/Shared/Webhooks.cs
+  - Codat/Platform/Models/Shared/WebhookConsumers.cs
+  - Codat/Platform/Models/Shared/Security.cs
+  - Codat/Platform/Models/Shared/ClientRateLimitReachedWebhook.cs
+  - Codat/Platform/Models/Shared/ClientRateLimitReachedWebhookData.cs
+  - Codat/Platform/Models/Shared/ClientRateLimitResetWebhook.cs
+  - Codat/Platform/Models/Shared/ClientRateLimitResetWebhookData.cs
+  - Codat/Platform/Models/Shared/ConnectionStatusChangedWebhook.cs
+  - Codat/Platform/Models/Shared/ConnectionStatusChangedWebhookData.cs
+  - Codat/Platform/Models/Shared/DataSyncCompletedWebhook.cs
+  - Codat/Platform/Models/Shared/DataSyncCompletedWebhookData.cs
+  - Codat/Platform/Models/Shared/DatasetDataChangedWebhookData.cs
+  - Codat/Platform/Models/Shared/DatasetDataChangedWebhook.cs
+  - Codat/Platform/Models/Shared/DatasetStatusChangedErrorWebhook.cs
+  - Codat/Platform/Models/Shared/DatasetStatusChangedErrorWebhookData.cs
+  - Codat/Platform/Models/Shared/NewCompanySynchronizedWebhook.cs
+  - Codat/Platform/Models/Shared/NewCompanySynchronizedWebhookData.cs
+  - Codat/Platform/Models/Shared/PushOperationTimedOutWebhook.cs
+  - Codat/Platform/Models/Shared/PushOperationTimedOutWebhookData.cs
+  - Codat/Platform/Models/Shared/PushOperationStatusChangedWebhook.cs
+  - Codat/Platform/Models/Shared/PushOperationStatusChangedWebhookData.cs
+  - Codat/Platform/Models/Errors/ErrorMessage.cs
+  - Codat/Platform/Models/Webhooks/ClientRateLimitReachedResponse.cs
+  - Codat/Platform/Models/Webhooks/ClientRateLimitResetResponse.cs
+  - Codat/Platform/Models/Webhooks/CompanyDataConnectionStatusChangedResponse.cs
+  - Codat/Platform/Models/Webhooks/DataSyncCompletedResponse.cs
+  - Codat/Platform/Models/Webhooks/DatasetDataChangedResponse.cs
+  - Codat/Platform/Models/Webhooks/DatasetStatusHasChangedToAnErrorStateResponse.cs
+  - Codat/Platform/Models/Webhooks/NewCompanySynchronizedResponse.cs
+  - Codat/Platform/Models/Webhooks/PushOperationHasTimedOutResponse.cs
+  - Codat/Platform/Models/Webhooks/PushOperationStatusHasChangedResponse.cs
   - docs/Models/Operations/CreateApiKeyResponse.md
   - docs/Models/Operations/DeleteApiKeyRequest.md
   - docs/Models/Operations/DeleteApiKeyResponse.md
@@ -246,6 +263,10 @@ generatedFiles:
   - docs/Models/Operations/ListCompaniesResponse.md
   - docs/Models/Operations/UpdateCompanyRequest.md
   - docs/Models/Operations/UpdateCompanyResponse.md
+  - docs/Models/Operations/GetConnectionManagementAccessTokenRequest.md
+  - docs/Models/Operations/GetConnectionManagementAccessTokenResponse.md
+  - docs/Models/Operations/GetConnectionManagementCorsSettingsResponse.md
+  - docs/Models/Operations/SetConnectionManagementCorsSettingsResponse.md
   - docs/Models/Operations/CreateConnectionRequestBody.md
   - docs/Models/Operations/CreateConnectionRequest.md
   - docs/Models/Operations/CreateConnectionResponse.md
@@ -310,10 +331,9 @@ generatedFiles:
   - docs/Models/Operations/ListRulesRequest.md
   - docs/Models/Operations/ListRulesResponse.md
   - docs/Models/Operations/ListWebhookConsumersResponse.md
-  - docs/Models/Shared/ErrorMessage.md
+  - docs/Models/Shared/ApiKeyDetails.md
   - docs/Models/Shared/ErrorValidation.md
   - docs/Models/Shared/ErrorValidationItem.md
-  - docs/Models/Shared/ApiKeyDetails.md
   - docs/Models/Shared/CreateApiKey.md
   - docs/Models/Shared/Profile.md
   - docs/Models/Shared/SyncSettings.md
@@ -330,6 +350,8 @@ generatedFiles:
   - docs/Models/Shared/Companies.md
   - docs/Models/Shared/Links.md
   - docs/Models/Shared/HalRef.md
+  - docs/Models/Shared/ConnectionManagementAccessToken.md
+  - docs/Models/Shared/ConnectionManagementAllowedOrigins.md
   - docs/Models/Shared/Connections.md
   - docs/Models/Shared/UpdateConnectionStatus.md
   - docs/Models/Shared/CustomDataTypeConfiguration.md
@@ -337,7 +359,7 @@ generatedFiles:
   - docs/Models/Shared/Content.md
   - docs/Models/Shared/ModifiedDate.md
   - docs/Models/Shared/CustomDataTypeRecord.md
-  - docs/Models/Shared/Status.md
+  - docs/Models/Shared/DatasetStatus.md
   - docs/Models/Shared/PullOperation.md
   - docs/Models/Shared/PushOption.md
   - docs/Models/Shared/PushValidationInfo.md
@@ -354,8 +376,10 @@ generatedFiles:
   - docs/Models/Shared/PushChangeType.md
   - docs/Models/Shared/PushOperationRef.md
   - docs/Models/Shared/PushOperations.md
+  - docs/Models/Shared/DataStatuses.md
   - docs/Models/Shared/DataTypes.md
   - docs/Models/Shared/DataStatus.md
+  - docs/Models/Shared/Status.md
   - docs/Models/Shared/PullOperations.md
   - docs/Models/Shared/CompanyGroupAssignment.md
   - docs/Models/Shared/Group.md
@@ -400,6 +424,7 @@ generatedFiles:
   - docs/Models/Shared/PushOperationTimedOutWebhookData.md
   - docs/Models/Shared/PushOperationStatusChangedWebhook.md
   - docs/Models/Shared/PushOperationStatusChangedWebhookData.md
+  - docs/Models/Errors/ErrorMessage.md
   - docs/Models/Webhooks/ClientRateLimitReachedResponse.md
   - docs/Models/Webhooks/ClientRateLimitResetResponse.md
   - docs/Models/Webhooks/CompanyDataConnectionStatusChangedResponse.md
@@ -412,6 +437,8 @@ generatedFiles:
   - docs/sdks/codatplatform/README.md
   - docs/sdks/settings/README.md
   - docs/sdks/companies/README.md
+  - docs/sdks/connectionmanagement/README.md
+  - docs/sdks/corssettings/README.md
   - docs/sdks/connections/README.md
   - docs/sdks/customdatatype/README.md
   - docs/sdks/pushdata/README.md

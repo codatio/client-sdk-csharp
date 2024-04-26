@@ -3,7 +3,7 @@
 
 ## Overview
 
-Asynchronously retrieve data from an integration to refresh data in Codat.
+Initiate data refreshes, view pull status and history.
 
 ### Available Operations
 
@@ -51,7 +51,12 @@ var res = await sdk.RefreshData.AllAsync(req);
 ### Response
 
 **[RefreshCompanyDataResponse](../../Models/Operations/RefreshCompanyDataResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## ByDataType
 
@@ -72,7 +77,7 @@ var sdk = new CodatPlatform(security: new Security() {
 
 RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = SchemaDataType.Invoices,
+    DataType = Codat.Platform.Models.Shared.SchemaDataType.Invoices,
 };
 
 var res = await sdk.RefreshData.ByDataTypeAsync(req);
@@ -90,7 +95,12 @@ var res = await sdk.RefreshData.ByDataTypeAsync(req);
 ### Response
 
 **[RefreshDataTypeResponse](../../Models/Operations/RefreshDataTypeResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## Get
 
@@ -126,7 +136,12 @@ var res = await sdk.RefreshData.GetAsync(req);
 ### Response
 
 **[GetCompanyDataStatusResponse](../../Models/Operations/GetCompanyDataStatusResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## GetPullOperation
 
@@ -163,7 +178,12 @@ var res = await sdk.RefreshData.GetPullOperationAsync(req);
 ### Response
 
 **[GetPullOperationResponse](../../Models/Operations/GetPullOperationResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## ListPullOperations
 
@@ -202,4 +222,9 @@ var res = await sdk.RefreshData.ListPullOperationsAsync(req);
 ### Response
 
 **[ListPullOperationsResponse](../../Models/Operations/ListPullOperationsResponse.md)**
+### Errors
 
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

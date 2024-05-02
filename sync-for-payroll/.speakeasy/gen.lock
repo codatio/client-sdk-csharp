@@ -1,201 +1,211 @@
 lockVersion: 2.0.0
 id: c60f20d2-c319-4f3b-9b31-8f8b8c99baad
 management:
-  docChecksum: a15261c2e04a7bd37f34fe39f6ce446f
+  docChecksum: ee1fff3698722f577a7d769881607f31
   docVersion: 3.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.257.2
-  releaseVersion: 3.0.0
-  configChecksum: 6964fcff687c8305b0ffb2544a8b0ff6
+  speakeasyVersion: 1.277.6
+  generationVersion: 2.319.7
+  releaseVersion: 3.1.0
+  configChecksum: 621a67b94dd36814c30686fd8b86e0c3
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payroll
   published: true
 features:
   csharp:
-    core: 3.3.2
+    constsAndDefaults: 0.0.1
+    core: 3.8.2
+    decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.83.0
-    globalServerURLs: 2.82.2
+    globalSecurity: 2.83.4
+    globalServerURLs: 2.82.3
     inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
+    responseFormat: 0.0.2
+    webhooks: 1.0.0
 generatedFiles:
-  - CodatSyncPayroll/Companies.cs
-  - CodatSyncPayroll/Connections.cs
-  - CodatSyncPayroll/Accounts.cs
-  - CodatSyncPayroll/JournalEntries.cs
-  - CodatSyncPayroll/Journals.cs
-  - CodatSyncPayroll/ManageData.cs
-  - CodatSyncPayroll/CompanyInfo.cs
-  - CodatSyncPayroll/TrackingCategories.cs
-  - CodatSyncPayroll/CodatSyncPayroll.cs
-  - CodatSyncPayroll/Utils/BigIntSerializer.cs
-  - CodatSyncPayroll/Utils/DecimalSerializer.cs
-  - CodatSyncPayroll/Utils/EnumSerializer.cs
-  - CodatSyncPayroll/Utils/FlexibleObjectDeserializer.cs
-  - CodatSyncPayroll/Utils/HeaderSerializer.cs
-  - CodatSyncPayroll/Utils/IsoDateTimeSerializer.cs
-  - CodatSyncPayroll/Utils/RequestBodySerializer.cs
-  - CodatSyncPayroll/Utils/SecuritySerializer.cs
-  - CodatSyncPayroll/Utils/SpeakeasyHttpClient.cs
-  - CodatSyncPayroll/Utils/SpeakeasyMetadata.cs
-  - CodatSyncPayroll/Utils/URLBuilder.cs
-  - CodatSyncPayroll/Utils/Utilities.cs
-  - CodatSyncPayroll/CodatSyncPayroll.csproj
-  - CodatSyncPayroll.sln
-  - CodatSyncPayroll/Models/Operations/CreateCompanyResponse.cs
-  - CodatSyncPayroll/Models/Operations/DeleteCompanyRequest.cs
-  - CodatSyncPayroll/Models/Operations/DeleteCompanyResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetCompanyRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetCompanyResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListCompaniesRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListCompaniesResponse.cs
-  - CodatSyncPayroll/Models/Operations/UpdateCompanyRequest.cs
-  - CodatSyncPayroll/Models/Operations/UpdateCompanyResponse.cs
-  - CodatSyncPayroll/Models/Operations/CreateConnectionRequestBody.cs
-  - CodatSyncPayroll/Models/Operations/CreateConnectionRequest.cs
-  - CodatSyncPayroll/Models/Operations/CreateConnectionResponse.cs
-  - CodatSyncPayroll/Models/Operations/DeleteConnectionRequest.cs
-  - CodatSyncPayroll/Models/Operations/DeleteConnectionResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetConnectionRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetConnectionResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListConnectionsRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListConnectionsResponse.cs
-  - CodatSyncPayroll/Models/Operations/UnlinkConnectionUpdateConnection.cs
-  - CodatSyncPayroll/Models/Operations/UnlinkConnectionRequest.cs
-  - CodatSyncPayroll/Models/Operations/UnlinkConnectionResponse.cs
-  - CodatSyncPayroll/Models/Operations/CreateAccountRequest.cs
-  - CodatSyncPayroll/Models/Operations/CreateAccountResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetAccountRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetAccountResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetCreateAccountsModelRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetCreateAccountsModelResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListAccountsRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListAccountsResponse.cs
-  - CodatSyncPayroll/Models/Operations/CreateJournalEntryRequest.cs
-  - CodatSyncPayroll/Models/Operations/CreateJournalEntryResponse.cs
-  - CodatSyncPayroll/Models/Operations/DeleteJournalEntryRequest.cs
-  - CodatSyncPayroll/Models/Operations/DeleteJournalEntryResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetJournalEntryRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetJournalEntryResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetCreateJournalEntryModelRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetCreateJournalEntryModelResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListJournalEntriesRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListJournalEntriesResponse.cs
-  - CodatSyncPayroll/Models/Operations/CreateJournalRequest.cs
-  - CodatSyncPayroll/Models/Operations/CreateJournalResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetJournalRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetJournalResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetCreateJournalModelRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetCreateJournalModelResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListJournalsRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListJournalsResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetDataStatusRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetDataStatusResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetPullOperationRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetPullOperationResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetPushOperationRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetPushOperationResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListPushOperationsRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListPushOperationsResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListPullOperationsRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListPullOperationsResponse.cs
-  - CodatSyncPayroll/Models/Operations/RefreshAllDataTypesRequest.cs
-  - CodatSyncPayroll/Models/Operations/RefreshAllDataTypesResponse.cs
-  - CodatSyncPayroll/Models/Operations/RefreshDataTypeRequest.cs
-  - CodatSyncPayroll/Models/Operations/RefreshDataTypeResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetAccountingProfileRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetAccountingProfileResponse.cs
-  - CodatSyncPayroll/Models/Operations/GetTrackingCategoryRequest.cs
-  - CodatSyncPayroll/Models/Operations/GetTrackingCategoryResponse.cs
-  - CodatSyncPayroll/Models/Operations/ListTrackingCategoriesRequest.cs
-  - CodatSyncPayroll/Models/Operations/ListTrackingCategoriesResponse.cs
-  - CodatSyncPayroll/Models/Shared/ErrorMessage.cs
-  - CodatSyncPayroll/Models/Shared/ErrorValidation.cs
-  - CodatSyncPayroll/Models/Shared/ErrorValidationItem.cs
-  - CodatSyncPayroll/Models/Shared/GroupReference.cs
-  - CodatSyncPayroll/Models/Shared/Company.cs
-  - CodatSyncPayroll/Models/Shared/SourceType.cs
-  - CodatSyncPayroll/Models/Shared/Connection.cs
-  - CodatSyncPayroll/Models/Shared/DataConnectionStatus.cs
-  - CodatSyncPayroll/Models/Shared/DataConnectionError.cs
-  - CodatSyncPayroll/Models/Shared/CompanyRequestBody.cs
-  - CodatSyncPayroll/Models/Shared/Items.cs
-  - CodatSyncPayroll/Models/Shared/Companies.cs
-  - CodatSyncPayroll/Models/Shared/Links.cs
-  - CodatSyncPayroll/Models/Shared/HalRef.cs
-  - CodatSyncPayroll/Models/Shared/Connections.cs
-  - CodatSyncPayroll/Models/Shared/CreateAccountResponseMetadata.cs
-  - CodatSyncPayroll/Models/Shared/CreateAccountResponseValidDataTypeLinks.cs
-  - CodatSyncPayroll/Models/Shared/AccountingAccount.cs
-  - CodatSyncPayroll/Models/Shared/CreateAccountResponse.cs
-  - CodatSyncPayroll/Models/Shared/Validation.cs
-  - CodatSyncPayroll/Models/Shared/ValidationItem.cs
-  - CodatSyncPayroll/Models/Shared/PushOperationStatus.cs
-  - CodatSyncPayroll/Models/Shared/DataType.cs
-  - CodatSyncPayroll/Models/Shared/AccountType.cs
-  - CodatSyncPayroll/Models/Shared/SupplementalData.cs
-  - CodatSyncPayroll/Models/Shared/AccountStatus.cs
-  - CodatSyncPayroll/Models/Shared/PushOperationChange.cs
-  - CodatSyncPayroll/Models/Shared/PushChangeType.cs
-  - CodatSyncPayroll/Models/Shared/PushOperationRef.cs
-  - CodatSyncPayroll/Models/Shared/ValidDataTypeLinks.cs
-  - CodatSyncPayroll/Models/Shared/AccountPrototype.cs
-  - CodatSyncPayroll/Models/Shared/AccountMetadata.cs
-  - CodatSyncPayroll/Models/Shared/AccountValidDataTypeLinks.cs
-  - CodatSyncPayroll/Models/Shared/Account.cs
-  - CodatSyncPayroll/Models/Shared/PushOption.cs
-  - CodatSyncPayroll/Models/Shared/PushValidationInfo.cs
-  - CodatSyncPayroll/Models/Shared/PushFieldValidation.cs
-  - CodatSyncPayroll/Models/Shared/PushOptionType.cs
-  - CodatSyncPayroll/Models/Shared/PushOptionProperty.cs
-  - CodatSyncPayroll/Models/Shared/PushOptionChoice.cs
-  - CodatSyncPayroll/Models/Shared/Accounts.cs
-  - CodatSyncPayroll/Models/Shared/AccountingJournalEntry.cs
-  - CodatSyncPayroll/Models/Shared/CreateJournalEntryResponse.cs
-  - CodatSyncPayroll/Models/Shared/JournalEntryRecordRefDataType.cs
-  - CodatSyncPayroll/Models/Shared/JournalEntryRecordRef.cs
-  - CodatSyncPayroll/Models/Shared/Metadata.cs
-  - CodatSyncPayroll/Models/Shared/JournalRef.cs
-  - CodatSyncPayroll/Models/Shared/Tracking.cs
-  - CodatSyncPayroll/Models/Shared/JournalLine.cs
-  - CodatSyncPayroll/Models/Shared/TrackingRecordRefDataType.cs
-  - CodatSyncPayroll/Models/Shared/TrackingRecordRef.cs
-  - CodatSyncPayroll/Models/Shared/AccountRef.cs
-  - CodatSyncPayroll/Models/Shared/JournalEntry.cs
-  - CodatSyncPayroll/Models/Shared/PushOperation.cs
-  - CodatSyncPayroll/Models/Shared/JournalEntries.cs
-  - CodatSyncPayroll/Models/Shared/AccountingJournal.cs
-  - CodatSyncPayroll/Models/Shared/CreateJournalResponse.cs
-  - CodatSyncPayroll/Models/Shared/JournalStatus.cs
-  - CodatSyncPayroll/Models/Shared/JournalPrototype.cs
-  - CodatSyncPayroll/Models/Shared/Journal.cs
-  - CodatSyncPayroll/Models/Shared/Journals.cs
-  - CodatSyncPayroll/Models/Shared/DataTypes.cs
-  - CodatSyncPayroll/Models/Shared/DataStatus.cs
-  - CodatSyncPayroll/Models/Shared/PullOperationStatus.cs
-  - CodatSyncPayroll/Models/Shared/PullOperation.cs
-  - CodatSyncPayroll/Models/Shared/PushOperations.cs
-  - CodatSyncPayroll/Models/Shared/PullOperations.cs
-  - CodatSyncPayroll/Models/Shared/SchemaDataType.cs
-  - CodatSyncPayroll/Models/Shared/CompanyInfo.cs
-  - CodatSyncPayroll/Models/Shared/Type.cs
-  - CodatSyncPayroll/Models/Shared/WebLink.cs
-  - CodatSyncPayroll/Models/Shared/PhoneNumber.cs
-  - CodatSyncPayroll/Models/Shared/PhoneNumberType.cs
-  - CodatSyncPayroll/Models/Shared/Address.cs
-  - CodatSyncPayroll/Models/Shared/AccountingAddressType.cs
-  - CodatSyncPayroll/Models/Shared/TrackingCategoryTree.cs
-  - CodatSyncPayroll/Models/Shared/Status.cs
-  - CodatSyncPayroll/Models/Shared/TrackingCategories.cs
-  - CodatSyncPayroll/Models/Shared/TrackingCategory.cs
-  - CodatSyncPayroll/Models/Shared/Security.cs
-  - CodatSyncPayroll/Models/Shared/ClientRateLimitReachedWebhook.cs
-  - CodatSyncPayroll/Models/Shared/ClientRateLimitReachedWebhookData.cs
-  - CodatSyncPayroll/Models/Shared/ClientRateLimitResetWebhook.cs
-  - CodatSyncPayroll/Models/Shared/ClientRateLimitResetWebhookData.cs
-  - CodatSyncPayroll/Models/Webhooks/ClientRateLimitReachedResponse.cs
-  - CodatSyncPayroll/Models/Webhooks/ClientRateLimitResetResponse.cs
+  - Codat/Sync/Payroll/Companies.cs
+  - Codat/Sync/Payroll/Connections.cs
+  - Codat/Sync/Payroll/Accounts.cs
+  - Codat/Sync/Payroll/JournalEntries.cs
+  - Codat/Sync/Payroll/Journals.cs
+  - Codat/Sync/Payroll/ManageData.cs
+  - Codat/Sync/Payroll/CompanyInfo.cs
+  - Codat/Sync/Payroll/TrackingCategories.cs
+  - Codat/Sync/Payroll/CodatSyncPayroll.cs
+  - global.json
+  - Codat.Sync.Payroll.sln
+  - Codat/Sync/Payroll/Utils/AnyDeserializer.cs
+  - Codat/Sync/Payroll/Utils/BigIntStrConverter.cs
+  - Codat/Sync/Payroll/Utils/DecimalStrConverter.cs
+  - Codat/Sync/Payroll/Utils/EnumConverter.cs
+  - Codat/Sync/Payroll/Utils/FlexibleObjectDeserializer.cs
+  - Codat/Sync/Payroll/Utils/HeaderSerializer.cs
+  - Codat/Sync/Payroll/Utils/IsoDateTimeSerializer.cs
+  - Codat/Sync/Payroll/Utils/RequestBodySerializer.cs
+  - Codat/Sync/Payroll/Utils/ResponseBodyDeserializer.cs
+  - Codat/Sync/Payroll/Utils/SecurityMetadata.cs
+  - Codat/Sync/Payroll/Utils/SpeakeasyHttpClient.cs
+  - Codat/Sync/Payroll/Utils/SpeakeasyMetadata.cs
+  - Codat/Sync/Payroll/Utils/URLBuilder.cs
+  - Codat/Sync/Payroll/Utils/Utilities.cs
+  - Codat/Sync/Payroll/Codat.Sync.Payroll.csproj
+  - Codat/Sync/Payroll/Models/Errors/SDKException.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateCompanyResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/DeleteCompanyRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/DeleteCompanyResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCompanyRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCompanyResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListCompaniesRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListCompaniesResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/UpdateCompanyRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/UpdateCompanyResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateConnectionRequestBody.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateConnectionRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateConnectionResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/DeleteConnectionRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/DeleteConnectionResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetConnectionRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetConnectionResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListConnectionsRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListConnectionsResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/UnlinkConnectionUpdateConnection.cs
+  - Codat/Sync/Payroll/Models/Operations/UnlinkConnectionRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/UnlinkConnectionResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateAccountRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateAccountResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetAccountRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetAccountResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCreateAccountsModelRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCreateAccountsModelResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListAccountsRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListAccountsResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateJournalEntryRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateJournalEntryResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/DeleteJournalEntryRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/DeleteJournalEntryResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetJournalEntryRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetJournalEntryResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCreateJournalEntryModelRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCreateJournalEntryModelResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListJournalEntriesRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListJournalEntriesResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateJournalRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/CreateJournalResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetJournalRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetJournalResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCreateJournalModelRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetCreateJournalModelResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListJournalsRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListJournalsResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetDataStatusRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetDataStatusDataStatuses.cs
+  - Codat/Sync/Payroll/Models/Operations/GetDataStatusResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetPullOperationRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetPullOperationResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetPushOperationRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetPushOperationResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListPushOperationsRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListPushOperationsResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListPullOperationsRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListPullOperationsResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/RefreshAllDataTypesRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/RefreshAllDataTypesResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/RefreshDataTypeRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/RefreshDataTypeResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetAccountingProfileRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetAccountingProfileResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/GetTrackingCategoryRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/GetTrackingCategoryResponse.cs
+  - Codat/Sync/Payroll/Models/Operations/ListTrackingCategoriesRequest.cs
+  - Codat/Sync/Payroll/Models/Operations/ListTrackingCategoriesResponse.cs
+  - Codat/Sync/Payroll/Models/Shared/GroupReference.cs
+  - Codat/Sync/Payroll/Models/Shared/Company.cs
+  - Codat/Sync/Payroll/Models/Shared/SourceType.cs
+  - Codat/Sync/Payroll/Models/Shared/Connection.cs
+  - Codat/Sync/Payroll/Models/Shared/DataConnectionStatus.cs
+  - Codat/Sync/Payroll/Models/Shared/DataConnectionError.cs
+  - Codat/Sync/Payroll/Models/Shared/ErrorValidation.cs
+  - Codat/Sync/Payroll/Models/Shared/ErrorValidationItem.cs
+  - Codat/Sync/Payroll/Models/Shared/CompanyRequestBody.cs
+  - Codat/Sync/Payroll/Models/Shared/Items.cs
+  - Codat/Sync/Payroll/Models/Shared/Companies.cs
+  - Codat/Sync/Payroll/Models/Shared/Links.cs
+  - Codat/Sync/Payroll/Models/Shared/HalRef.cs
+  - Codat/Sync/Payroll/Models/Shared/Connections.cs
+  - Codat/Sync/Payroll/Models/Shared/CreateAccountResponseMetadata.cs
+  - Codat/Sync/Payroll/Models/Shared/CreateAccountResponseValidDataTypeLinks.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountingAccount.cs
+  - Codat/Sync/Payroll/Models/Shared/CreateAccountResponse.cs
+  - Codat/Sync/Payroll/Models/Shared/Validation.cs
+  - Codat/Sync/Payroll/Models/Shared/ValidationItem.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOperationStatus.cs
+  - Codat/Sync/Payroll/Models/Shared/DataType.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountType.cs
+  - Codat/Sync/Payroll/Models/Shared/SupplementalData.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountStatus.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOperationChange.cs
+  - Codat/Sync/Payroll/Models/Shared/PushChangeType.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOperationRef.cs
+  - Codat/Sync/Payroll/Models/Shared/ValidDataTypeLinks.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountPrototype.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountMetadata.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountValidDataTypeLinks.cs
+  - Codat/Sync/Payroll/Models/Shared/Account.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOption.cs
+  - Codat/Sync/Payroll/Models/Shared/PushValidationInfo.cs
+  - Codat/Sync/Payroll/Models/Shared/PushFieldValidation.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOptionType.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOptionProperty.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOptionChoice.cs
+  - Codat/Sync/Payroll/Models/Shared/Accounts.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountingJournalEntry.cs
+  - Codat/Sync/Payroll/Models/Shared/CreateJournalEntryResponse.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalEntryRecordRefDataType.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalEntryRecordRef.cs
+  - Codat/Sync/Payroll/Models/Shared/Metadata.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalRef.cs
+  - Codat/Sync/Payroll/Models/Shared/Tracking.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalLine.cs
+  - Codat/Sync/Payroll/Models/Shared/TrackingRecordRefDataType.cs
+  - Codat/Sync/Payroll/Models/Shared/TrackingRecordRef.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountRef.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalEntry.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOperation.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalEntries.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountingJournal.cs
+  - Codat/Sync/Payroll/Models/Shared/CreateJournalResponse.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalStatus.cs
+  - Codat/Sync/Payroll/Models/Shared/JournalPrototype.cs
+  - Codat/Sync/Payroll/Models/Shared/Journal.cs
+  - Codat/Sync/Payroll/Models/Shared/Journals.cs
+  - Codat/Sync/Payroll/Models/Shared/DataTypes.cs
+  - Codat/Sync/Payroll/Models/Shared/DataStatus.cs
+  - Codat/Sync/Payroll/Models/Shared/PropertieStatus.cs
+  - Codat/Sync/Payroll/Models/Shared/DatasetStatus.cs
+  - Codat/Sync/Payroll/Models/Shared/PullOperation.cs
+  - Codat/Sync/Payroll/Models/Shared/PushOperations.cs
+  - Codat/Sync/Payroll/Models/Shared/PullOperations.cs
+  - Codat/Sync/Payroll/Models/Shared/SchemaDataType.cs
+  - Codat/Sync/Payroll/Models/Shared/CompanyInfo.cs
+  - Codat/Sync/Payroll/Models/Shared/Type.cs
+  - Codat/Sync/Payroll/Models/Shared/WebLink.cs
+  - Codat/Sync/Payroll/Models/Shared/PhoneNumber.cs
+  - Codat/Sync/Payroll/Models/Shared/PhoneNumberType.cs
+  - Codat/Sync/Payroll/Models/Shared/Address.cs
+  - Codat/Sync/Payroll/Models/Shared/AccountingAddressType.cs
+  - Codat/Sync/Payroll/Models/Shared/TrackingCategoryTree.cs
+  - Codat/Sync/Payroll/Models/Shared/Status.cs
+  - Codat/Sync/Payroll/Models/Shared/TrackingCategories.cs
+  - Codat/Sync/Payroll/Models/Shared/TrackingCategory.cs
+  - Codat/Sync/Payroll/Models/Shared/Security.cs
+  - Codat/Sync/Payroll/Models/Shared/ClientRateLimitReachedWebhook.cs
+  - Codat/Sync/Payroll/Models/Shared/ClientRateLimitReachedWebhookData.cs
+  - Codat/Sync/Payroll/Models/Shared/ClientRateLimitResetWebhook.cs
+  - Codat/Sync/Payroll/Models/Shared/ClientRateLimitResetWebhookData.cs
+  - Codat/Sync/Payroll/Models/Errors/ErrorMessage.cs
+  - Codat/Sync/Payroll/Models/Webhooks/ClientRateLimitReachedResponse.cs
+  - Codat/Sync/Payroll/Models/Webhooks/ClientRateLimitResetResponse.cs
   - docs/Models/Operations/CreateCompanyResponse.md
   - docs/Models/Operations/DeleteCompanyRequest.md
   - docs/Models/Operations/DeleteCompanyResponse.md
@@ -244,6 +254,7 @@ generatedFiles:
   - docs/Models/Operations/ListJournalsRequest.md
   - docs/Models/Operations/ListJournalsResponse.md
   - docs/Models/Operations/GetDataStatusRequest.md
+  - docs/Models/Operations/GetDataStatusDataStatuses.md
   - docs/Models/Operations/GetDataStatusResponse.md
   - docs/Models/Operations/GetPullOperationRequest.md
   - docs/Models/Operations/GetPullOperationResponse.md
@@ -263,15 +274,14 @@ generatedFiles:
   - docs/Models/Operations/GetTrackingCategoryResponse.md
   - docs/Models/Operations/ListTrackingCategoriesRequest.md
   - docs/Models/Operations/ListTrackingCategoriesResponse.md
-  - docs/Models/Shared/ErrorMessage.md
-  - docs/Models/Shared/ErrorValidation.md
-  - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/GroupReference.md
   - docs/Models/Shared/Company.md
   - docs/Models/Shared/SourceType.md
   - docs/Models/Shared/Connection.md
   - docs/Models/Shared/DataConnectionStatus.md
   - docs/Models/Shared/DataConnectionError.md
+  - docs/Models/Shared/ErrorValidation.md
+  - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/CompanyRequestBody.md
   - docs/Models/Shared/Items.md
   - docs/Models/Shared/Companies.md
@@ -326,7 +336,8 @@ generatedFiles:
   - docs/Models/Shared/Journals.md
   - docs/Models/Shared/DataTypes.md
   - docs/Models/Shared/DataStatus.md
-  - docs/Models/Shared/PullOperationStatus.md
+  - docs/Models/Shared/PropertieStatus.md
+  - docs/Models/Shared/DatasetStatus.md
   - docs/Models/Shared/PullOperation.md
   - docs/Models/Shared/PushOperations.md
   - docs/Models/Shared/PullOperations.md
@@ -347,6 +358,7 @@ generatedFiles:
   - docs/Models/Shared/ClientRateLimitReachedWebhookData.md
   - docs/Models/Shared/ClientRateLimitResetWebhook.md
   - docs/Models/Shared/ClientRateLimitResetWebhookData.md
+  - docs/Models/Errors/ErrorMessage.md
   - docs/Models/Webhooks/ClientRateLimitReachedResponse.md
   - docs/Models/Webhooks/ClientRateLimitResetResponse.md
   - docs/sdks/codatsyncpayroll/README.md
@@ -360,3 +372,5 @@ generatedFiles:
   - docs/sdks/trackingcategories/README.md
   - USAGE.md
   - .gitattributes
+  - Codat/Sync/Payroll/Hooks/SDKHooks.cs
+  - Codat/Sync/Payroll/Hooks/HookTypes.cs

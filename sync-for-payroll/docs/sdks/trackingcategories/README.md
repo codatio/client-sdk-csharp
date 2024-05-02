@@ -3,7 +3,7 @@
 
 ## Overview
 
-Tracking categories
+Get, create, and update Tracking Categories for additional categorization of payroll components.
 
 ### Available Operations
 
@@ -52,7 +52,12 @@ var res = await sdk.TrackingCategories.GetAsync(req);
 ### Response
 
 **[GetTrackingCategoryResponse](../../Models/Operations/GetTrackingCategoryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## List
 
@@ -96,4 +101,9 @@ var res = await sdk.TrackingCategories.ListAsync(req);
 ### Response
 
 **[ListTrackingCategoriesResponse](../../Models/Operations/ListTrackingCategoriesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503           | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |

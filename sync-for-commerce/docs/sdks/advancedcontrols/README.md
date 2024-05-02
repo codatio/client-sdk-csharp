@@ -3,7 +3,7 @@
 
 ## Overview
 
-Advanced company management and sync preferences.
+View and manage mapping configured for a company's commerce sync.
 
 ### Available Operations
 
@@ -29,6 +29,11 @@ var sdk = new CodatSyncCommerce(security: new Security() {
 
 CreateCompany req = new CreateCompany() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -47,7 +52,12 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(req);
 ### Response
 
 **[CreateCompanyResponse](../../Models/Operations/CreateCompanyResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetConfiguration
 
@@ -83,7 +93,12 @@ var res = await sdk.AdvancedControls.GetConfigurationAsync(req);
 ### Response
 
 **[GetConfigurationResponse](../../Models/Operations/GetConfigurationResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## ListCompanies
 
@@ -121,7 +136,12 @@ var res = await sdk.AdvancedControls.ListCompaniesAsync(req);
 ### Response
 
 **[ListCompaniesResponse](../../Models/Operations/ListCompaniesResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## SetConfiguration
 
@@ -157,4 +177,9 @@ var res = await sdk.AdvancedControls.SetConfigurationAsync(req);
 ### Response
 
 **[SetConfigurationResponse](../../Models/Operations/SetConfigurationResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503            | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

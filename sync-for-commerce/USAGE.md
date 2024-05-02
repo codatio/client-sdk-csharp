@@ -9,7 +9,7 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Locale.EnUs,
+    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
 };
 
 var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);

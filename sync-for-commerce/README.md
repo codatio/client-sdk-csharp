@@ -30,7 +30,7 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Locale.EnUs,
+    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
 };
 
 var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
@@ -83,8 +83,6 @@ var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
@@ -110,7 +108,7 @@ This SDK supports the following security scheme globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| `AuthHeader` | apiKey       | API key      |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp
@@ -123,7 +121,7 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Locale.EnUs,
+    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
 };
 
 var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
@@ -131,6 +129,53 @@ var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,429,500,503                        | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+
+### Example
+
+```csharp
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Shared;
+using System;
+using Codat.Sync.Commerce.Models.Errors;
+using Codat.Sync.Commerce.Models.Operations;
+
+var sdk = new CodatSyncCommerce(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
+    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
+};
+
+try
+{
+    var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorMessage)
+    {
+        // handle exception
+    }
+    else if (ex is Codat.Sync.Commerce.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

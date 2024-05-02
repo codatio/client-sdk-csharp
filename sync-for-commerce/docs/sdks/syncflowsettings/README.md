@@ -3,7 +3,7 @@
 
 ## Overview
 
-Configure preferences for any given Sync for Commerce company using sync flow.
+Control text and visibility settings for the Sync Flow.
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Locale.EnUs,
+    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
 };
 
 var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
@@ -46,7 +46,12 @@ var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
 ### Response
 
 **[GetConfigTextSyncFlowResponse](../../Models/Operations/GetConfigTextSyncFlowResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,429,500,503                        | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetVisibleAccounts
 
@@ -83,7 +88,12 @@ var res = await sdk.SyncFlowSettings.GetVisibleAccountsAsync(req);
 ### Response
 
 **[GetVisibleAccountsResponse](../../Models/Operations/GetVisibleAccountsResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## UpdateConfigTextSyncFlow
 
@@ -102,7 +112,7 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 UpdateConfigTextSyncFlowRequest req = new UpdateConfigTextSyncFlowRequest() {
-    Locale = Locale.EnUs,
+    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
 };
 
 var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(req);
@@ -120,7 +130,12 @@ var res = await sdk.SyncFlowSettings.UpdateConfigTextSyncFlowAsync(req);
 ### Response
 
 **[UpdateConfigTextSyncFlowResponse](../../Models/Operations/UpdateConfigTextSyncFlowResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## UpdateVisibleAccountsSyncFlow
 
@@ -157,4 +172,9 @@ var res = await sdk.SyncFlowSettings.UpdateVisibleAccountsSyncFlowAsync(req);
 ### Response
 
 **[UpdateVisibleAccountsSyncFlowResponse](../../Models/Operations/UpdateVisibleAccountsSyncFlowResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

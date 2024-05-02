@@ -3,7 +3,7 @@
 
 ## Overview
 
-Initiate and monitor the sync of company data into accounting software.
+Initiate data syncs and monitor their status.
 
 ### Available Operations
 
@@ -50,7 +50,12 @@ var res = await sdk.Sync.GetAsync(req);
 ### Response
 
 **[GetSyncByIdResponse](../../Models/Operations/GetSyncByIdResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetLastSuccessfulSync
 
@@ -86,7 +91,12 @@ var res = await sdk.Sync.GetLastSuccessfulSyncAsync(req);
 ### Response
 
 **[GetLastSuccessfulSyncResponse](../../Models/Operations/GetLastSuccessfulSyncResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetLatestSync
 
@@ -122,7 +132,12 @@ var res = await sdk.Sync.GetLatestSyncAsync(req);
 ### Response
 
 **[GetLatestSyncResponse](../../Models/Operations/GetLatestSyncResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetStatus
 
@@ -158,7 +173,12 @@ var res = await sdk.Sync.GetStatusAsync(req);
 ### Response
 
 **[GetSyncStatusResponse](../../Models/Operations/GetSyncStatusResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List
 
@@ -194,7 +214,12 @@ var res = await sdk.Sync.ListAsync(req);
 ### Response
 
 **[ListSyncsResponse](../../Models/Operations/ListSyncsResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## Request
 
@@ -212,6 +237,9 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 RequestSyncRequest req = new RequestSyncRequest() {
+    SyncToLatestArgs = new SyncToLatestArgs() {
+        SyncTo = "2022-10-23T00:00:00Z",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -230,7 +258,12 @@ var res = await sdk.Sync.RequestAsync(req);
 ### Response
 
 **[RequestSyncResponse](../../Models/Operations/RequestSyncResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## RequestForDateRange
 
@@ -248,6 +281,12 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 RequestSyncForDateRangeRequest req = new RequestSyncForDateRangeRequest() {
+    SyncRange = new SyncRange() {
+        DateRange = new DateRange() {
+            Finish = "2022-10-23T00:00:00Z",
+            Start = "2022-10-23T00:00:00Z",
+        },
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -266,4 +305,9 @@ var res = await sdk.Sync.RequestForDateRangeAsync(req);
 ### Response
 
 **[RequestSyncForDateRangeResponse](../../Models/Operations/RequestSyncForDateRangeResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

@@ -3,7 +3,7 @@
 
 ## Overview
 
-Create new and manage existing Sync for Commerce connections using the Sync flow UI.
+Create new and manage existing data connections for a company.
 
 ### Available Operations
 
@@ -31,6 +31,9 @@ var sdk = new CodatSyncCommerce(security: new Security() {
     });
 
 CreateConnectionRequest req = new CreateConnectionRequest() {
+    RequestBody = new CreateConnectionRequestBody() {
+        PlatformKey = "gbol",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -49,7 +52,12 @@ var res = await sdk.Connections.CreateAsync(req);
 ### Response
 
 **[CreateConnectionResponse](../../Models/Operations/CreateConnectionResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## GetSyncFlowUrl
 
@@ -86,7 +94,12 @@ var res = await sdk.Connections.GetSyncFlowUrlAsync(req);
 ### Response
 
 **[GetSyncFlowUrlResponse](../../Models/Operations/GetSyncFlowUrlResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List
 
@@ -125,7 +138,12 @@ var res = await sdk.Connections.ListAsync(req);
 ### Response
 
 **[ListConnectionsResponse](../../Models/Operations/ListConnectionsResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## UpdateAuthorization
 
@@ -163,7 +181,12 @@ var res = await sdk.Connections.UpdateAuthorizationAsync(req);
 ### Response
 
 **[UpdateConnectionAuthorizationResponse](../../Models/Operations/UpdateConnectionAuthorizationResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## UpdateConnection
 
@@ -200,4 +223,9 @@ var res = await sdk.Connections.UpdateConnectionAsync(req);
 ### Response
 
 **[UpdateConnectionResponse](../../Models/Operations/UpdateConnectionResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

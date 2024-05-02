@@ -1,149 +1,161 @@
 lockVersion: 2.0.0
 id: 797f11e4-ae23-429d-b24e-dd7bb1e87a41
 management:
-  docChecksum: ae73f74761e7691167b6cb5030c24dcf
+  docChecksum: cef9428f22ad38f7077c532c7623f4fd
   docVersion: "1.1"
-  speakeasyVersion: internal
-  generationVersion: 2.257.2
-  releaseVersion: 3.0.0
-  configChecksum: 6732232c57ac5246d958a62cd6751473
+  speakeasyVersion: 1.277.6
+  generationVersion: 2.319.7
+  releaseVersion: 3.1.0
+  configChecksum: bf8683a8c471e02a36aa4fcc194b9903
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-commerce
   published: true
 features:
   csharp:
-    core: 3.3.2
+    constsAndDefaults: 0.0.1
+    core: 3.8.2
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.83.0
-    globalServerURLs: 2.82.2
-    nameOverrides: 2.81.1
+    globalSecurity: 2.83.4
+    globalServerURLs: 2.82.3
+    nameOverrides: 2.81.2
+    responseFormat: 0.0.2
+    webhooks: 1.0.0
 generatedFiles:
-  - CodatSyncCommerce/SyncFlowSettings.cs
-  - CodatSyncCommerce/AdvancedControls.cs
-  - CodatSyncCommerce/Connections.cs
-  - CodatSyncCommerce/Sync.cs
-  - CodatSyncCommerce/Integrations.cs
-  - CodatSyncCommerce/CodatSyncCommerce.cs
-  - CodatSyncCommerce/Utils/BigIntSerializer.cs
-  - CodatSyncCommerce/Utils/DecimalSerializer.cs
-  - CodatSyncCommerce/Utils/EnumSerializer.cs
-  - CodatSyncCommerce/Utils/FlexibleObjectDeserializer.cs
-  - CodatSyncCommerce/Utils/HeaderSerializer.cs
-  - CodatSyncCommerce/Utils/IsoDateTimeSerializer.cs
-  - CodatSyncCommerce/Utils/RequestBodySerializer.cs
-  - CodatSyncCommerce/Utils/SecuritySerializer.cs
-  - CodatSyncCommerce/Utils/SpeakeasyHttpClient.cs
-  - CodatSyncCommerce/Utils/SpeakeasyMetadata.cs
-  - CodatSyncCommerce/Utils/URLBuilder.cs
-  - CodatSyncCommerce/Utils/Utilities.cs
-  - CodatSyncCommerce/CodatSyncCommerce.csproj
-  - CodatSyncCommerce.sln
-  - CodatSyncCommerce/Models/Operations/GetConfigTextSyncFlowRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetConfigTextSyncFlowResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetVisibleAccountsRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetVisibleAccountsResponse.cs
-  - CodatSyncCommerce/Models/Operations/UpdateConfigTextSyncFlowRequest.cs
-  - CodatSyncCommerce/Models/Operations/UpdateConfigTextSyncFlowResponse.cs
-  - CodatSyncCommerce/Models/Operations/UpdateVisibleAccountsSyncFlowRequest.cs
-  - CodatSyncCommerce/Models/Operations/UpdateVisibleAccountsSyncFlowResponse.cs
-  - CodatSyncCommerce/Models/Operations/CreateCompanyResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetConfigurationRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetConfigurationResponse.cs
-  - CodatSyncCommerce/Models/Operations/ListCompaniesRequest.cs
-  - CodatSyncCommerce/Models/Operations/ListCompaniesResponse.cs
-  - CodatSyncCommerce/Models/Operations/SetConfigurationRequest.cs
-  - CodatSyncCommerce/Models/Operations/SetConfigurationResponse.cs
-  - CodatSyncCommerce/Models/Operations/CreateConnectionRequestBody.cs
-  - CodatSyncCommerce/Models/Operations/CreateConnectionRequest.cs
-  - CodatSyncCommerce/Models/Operations/CreateConnectionResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetSyncFlowUrlRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetSyncFlowUrlResponse.cs
-  - CodatSyncCommerce/Models/Operations/ListConnectionsRequest.cs
-  - CodatSyncCommerce/Models/Operations/ListConnectionsResponse.cs
-  - CodatSyncCommerce/Models/Operations/UpdateConnectionAuthorizationRequest.cs
-  - CodatSyncCommerce/Models/Operations/UpdateConnectionAuthorizationResponse.cs
-  - CodatSyncCommerce/Models/Operations/UpdateConnectionRequest.cs
-  - CodatSyncCommerce/Models/Operations/UpdateConnectionResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetSyncByIdRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetSyncByIdResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetLastSuccessfulSyncRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetLastSuccessfulSyncResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetLatestSyncRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetLatestSyncResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetSyncStatusRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetSyncStatusResponse.cs
-  - CodatSyncCommerce/Models/Operations/ListSyncsRequest.cs
-  - CodatSyncCommerce/Models/Operations/ListSyncsResponse.cs
-  - CodatSyncCommerce/Models/Operations/RequestSyncRequest.cs
-  - CodatSyncCommerce/Models/Operations/RequestSyncResponse.cs
-  - CodatSyncCommerce/Models/Operations/RequestSyncForDateRangeRequest.cs
-  - CodatSyncCommerce/Models/Operations/RequestSyncForDateRangeResponse.cs
-  - CodatSyncCommerce/Models/Operations/GetIntegrationBrandingRequest.cs
-  - CodatSyncCommerce/Models/Operations/GetIntegrationBrandingResponse.cs
-  - CodatSyncCommerce/Models/Operations/ListIntegrationsRequest.cs
-  - CodatSyncCommerce/Models/Operations/ListIntegrationsResponse.cs
-  - CodatSyncCommerce/Models/Shared/Localization.cs
-  - CodatSyncCommerce/Models/Shared/ErrorMessage.cs
-  - CodatSyncCommerce/Models/Shared/ErrorValidation.cs
-  - CodatSyncCommerce/Models/Shared/ErrorValidationItem.cs
-  - CodatSyncCommerce/Models/Shared/Locale.cs
-  - CodatSyncCommerce/Models/Shared/VisibleAccounts.cs
-  - CodatSyncCommerce/Models/Shared/GroupReference.cs
-  - CodatSyncCommerce/Models/Shared/Company.cs
-  - CodatSyncCommerce/Models/Shared/Connection.cs
-  - CodatSyncCommerce/Models/Shared/DataConnectionStatus.cs
-  - CodatSyncCommerce/Models/Shared/SourceType.cs
-  - CodatSyncCommerce/Models/Shared/DataConnectionError.cs
-  - CodatSyncCommerce/Models/Shared/CreateCompany.cs
-  - CodatSyncCommerce/Models/Shared/Items.cs
-  - CodatSyncCommerce/Models/Shared/Configuration.cs
-  - CodatSyncCommerce/Models/Shared/Sales.cs
-  - CodatSyncCommerce/Models/Shared/TaxRateAmount.cs
-  - CodatSyncCommerce/Models/Shared/Option.cs
-  - CodatSyncCommerce/Models/Shared/Customer.cs
-  - CodatSyncCommerce/Models/Shared/NewTaxRates.cs
-  - CodatSyncCommerce/Models/Shared/TaxRateMapping.cs
-  - CodatSyncCommerce/Models/Shared/InvoiceStatus.cs
-  - CodatSyncCommerce/Models/Shared/Grouping.cs
-  - CodatSyncCommerce/Models/Shared/GroupingPeriod.cs
-  - CodatSyncCommerce/Models/Shared/GroupingLevels.cs
-  - CodatSyncCommerce/Models/Shared/InvoiceLineLevelSelection.cs
-  - CodatSyncCommerce/Models/Shared/InvoiceLevelSelection.cs
-  - CodatSyncCommerce/Models/Shared/ConfigAccount.cs
-  - CodatSyncCommerce/Models/Shared/AccountOption.cs
-  - CodatSyncCommerce/Models/Shared/Payments.cs
-  - CodatSyncCommerce/Models/Shared/NewPayments.cs
-  - CodatSyncCommerce/Models/Shared/Fees.cs
-  - CodatSyncCommerce/Models/Shared/FeesSupplier.cs
-  - CodatSyncCommerce/Models/Shared/Companies.cs
-  - CodatSyncCommerce/Models/Shared/Links.cs
-  - CodatSyncCommerce/Models/Shared/HalRef.cs
-  - CodatSyncCommerce/Models/Shared/SyncFlowUrl.cs
-  - CodatSyncCommerce/Models/Shared/Connections.cs
-  - CodatSyncCommerce/Models/Shared/UpdateConnection.cs
-  - CodatSyncCommerce/Models/Shared/CompanySyncStatus.cs
-  - CodatSyncCommerce/Models/Shared/SyncStatus.cs
-  - CodatSyncCommerce/Models/Shared/SyncDateRangeUtc.cs
-  - CodatSyncCommerce/Models/Shared/SyncSummary.cs
-  - CodatSyncCommerce/Models/Shared/SyncToLatestArgs.cs
-  - CodatSyncCommerce/Models/Shared/DateRange.cs
-  - CodatSyncCommerce/Models/Shared/SyncRange.cs
-  - CodatSyncCommerce/Models/Shared/Branding.cs
-  - CodatSyncCommerce/Models/Shared/BrandingLogo.cs
-  - CodatSyncCommerce/Models/Shared/BrandingImage.cs
-  - CodatSyncCommerce/Models/Shared/ImageReference.cs
-  - CodatSyncCommerce/Models/Shared/BrandingButton.cs
-  - CodatSyncCommerce/Models/Shared/Integrations.cs
-  - CodatSyncCommerce/Models/Shared/Integration.cs
-  - CodatSyncCommerce/Models/Shared/DataTypes.cs
-  - CodatSyncCommerce/Models/Shared/DataTypeFeature.cs
-  - CodatSyncCommerce/Models/Shared/SupportedFeature.cs
-  - CodatSyncCommerce/Models/Shared/FeatureType.cs
-  - CodatSyncCommerce/Models/Shared/FeatureState.cs
-  - CodatSyncCommerce/Models/Shared/Security.cs
-  - CodatSyncCommerce/Models/Shared/SyncConnectionDeletedWebhook.cs
-  - CodatSyncCommerce/Models/Webhooks/SyncConnectionDeletedResponse.cs
+  - Codat/Sync/Commerce/SyncFlowSettings.cs
+  - Codat/Sync/Commerce/AdvancedControls.cs
+  - Codat/Sync/Commerce/Connections.cs
+  - Codat/Sync/Commerce/Sync.cs
+  - Codat/Sync/Commerce/Integrations.cs
+  - Codat/Sync/Commerce/CodatSyncCommerce.cs
+  - global.json
+  - Codat.Sync.Commerce.sln
+  - Codat/Sync/Commerce/Utils/AnyDeserializer.cs
+  - Codat/Sync/Commerce/Utils/BigIntStrConverter.cs
+  - Codat/Sync/Commerce/Utils/DecimalStrConverter.cs
+  - Codat/Sync/Commerce/Utils/EnumConverter.cs
+  - Codat/Sync/Commerce/Utils/FlexibleObjectDeserializer.cs
+  - Codat/Sync/Commerce/Utils/HeaderSerializer.cs
+  - Codat/Sync/Commerce/Utils/IsoDateTimeSerializer.cs
+  - Codat/Sync/Commerce/Utils/RequestBodySerializer.cs
+  - Codat/Sync/Commerce/Utils/ResponseBodyDeserializer.cs
+  - Codat/Sync/Commerce/Utils/SecurityMetadata.cs
+  - Codat/Sync/Commerce/Utils/SpeakeasyHttpClient.cs
+  - Codat/Sync/Commerce/Utils/SpeakeasyMetadata.cs
+  - Codat/Sync/Commerce/Utils/URLBuilder.cs
+  - Codat/Sync/Commerce/Utils/Utilities.cs
+  - Codat/Sync/Commerce/Codat.Sync.Commerce.csproj
+  - Codat/Sync/Commerce/Models/Errors/SDKException.cs
+  - Codat/Sync/Commerce/Models/Operations/GetConfigTextSyncFlowRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetConfigTextSyncFlowResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetVisibleAccountsRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetVisibleAccountsResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateConfigTextSyncFlowRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateConfigTextSyncFlowResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateVisibleAccountsSyncFlowRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateVisibleAccountsSyncFlowResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/CreateCompanyResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetConfigurationRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetConfigurationResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/ListCompaniesRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/ListCompaniesResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/SetConfigurationRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/SetConfigurationResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/CreateConnectionRequestBody.cs
+  - Codat/Sync/Commerce/Models/Operations/CreateConnectionRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/CreateConnectionResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetSyncFlowUrlRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetSyncFlowUrlResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/ListConnectionsRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/ListConnectionsResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionAuthorizationRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionAuthorizationResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetSyncByIdRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetSyncByIdResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetLastSuccessfulSyncRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetLastSuccessfulSyncResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetLatestSyncRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetLatestSyncResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetSyncStatusRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetSyncStatusResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/ListSyncsRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/ListSyncsResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/RequestSyncRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/RequestSyncResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/RequestSyncForDateRangeRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/RequestSyncForDateRangeResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/GetIntegrationBrandingRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/GetIntegrationBrandingResponse.cs
+  - Codat/Sync/Commerce/Models/Operations/ListIntegrationsRequest.cs
+  - Codat/Sync/Commerce/Models/Operations/ListIntegrationsResponse.cs
+  - Codat/Sync/Commerce/Models/Shared/Localization.cs
+  - Codat/Sync/Commerce/Models/Shared/ErrorValidation.cs
+  - Codat/Sync/Commerce/Models/Shared/ErrorValidationItem.cs
+  - Codat/Sync/Commerce/Models/Shared/Locale.cs
+  - Codat/Sync/Commerce/Models/Shared/VisibleAccounts.cs
+  - Codat/Sync/Commerce/Models/Shared/GroupReference.cs
+  - Codat/Sync/Commerce/Models/Shared/Company.cs
+  - Codat/Sync/Commerce/Models/Shared/Connection.cs
+  - Codat/Sync/Commerce/Models/Shared/DataConnectionStatus.cs
+  - Codat/Sync/Commerce/Models/Shared/SourceType.cs
+  - Codat/Sync/Commerce/Models/Shared/DataConnectionError.cs
+  - Codat/Sync/Commerce/Models/Shared/CreateCompany.cs
+  - Codat/Sync/Commerce/Models/Shared/Items.cs
+  - Codat/Sync/Commerce/Models/Shared/Configuration.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncSchedule.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncFrequency.cs
+  - Codat/Sync/Commerce/Models/Shared/CommerceConfiguration.cs
+  - Codat/Sync/Commerce/Models/Shared/SalesConfiguration.cs
+  - Codat/Sync/Commerce/Models/Shared/TaxRateAmount.cs
+  - Codat/Sync/Commerce/Models/Shared/ConfigurationOption.cs
+  - Codat/Sync/Commerce/Models/Shared/SalesCustomer.cs
+  - Codat/Sync/Commerce/Models/Shared/NewTaxRates.cs
+  - Codat/Sync/Commerce/Models/Shared/TaxRateMapping.cs
+  - Codat/Sync/Commerce/Models/Shared/InvoiceStatus.cs
+  - Codat/Sync/Commerce/Models/Shared/Grouping.cs
+  - Codat/Sync/Commerce/Models/Shared/GroupingPeriod.cs
+  - Codat/Sync/Commerce/Models/Shared/GroupingLevels.cs
+  - Codat/Sync/Commerce/Models/Shared/InvoiceLineLevelSelection.cs
+  - Codat/Sync/Commerce/Models/Shared/InvoiceLevelSelection.cs
+  - Codat/Sync/Commerce/Models/Shared/AccountConfiguration.cs
+  - Codat/Sync/Commerce/Models/Shared/AccountConfigurationOption.cs
+  - Codat/Sync/Commerce/Models/Shared/PaymentsConfiguration.cs
+  - Codat/Sync/Commerce/Models/Shared/NewPaymentsConfiguration.cs
+  - Codat/Sync/Commerce/Models/Shared/OutputFormat.cs
+  - Codat/Sync/Commerce/Models/Shared/ConfigurationMapSettings.cs
+  - Codat/Sync/Commerce/Models/Shared/FeesConfiguration.cs
+  - Codat/Sync/Commerce/Models/Shared/FeesSupplier.cs
+  - Codat/Sync/Commerce/Models/Shared/Companies.cs
+  - Codat/Sync/Commerce/Models/Shared/Links.cs
+  - Codat/Sync/Commerce/Models/Shared/HalRef.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncFlowUrl.cs
+  - Codat/Sync/Commerce/Models/Shared/Connections.cs
+  - Codat/Sync/Commerce/Models/Shared/UpdateConnection.cs
+  - Codat/Sync/Commerce/Models/Shared/CompanySyncStatus.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncStatus.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncDateRangeUtc.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncSummary.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncToLatestArgs.cs
+  - Codat/Sync/Commerce/Models/Shared/DateRange.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncRange.cs
+  - Codat/Sync/Commerce/Models/Shared/Branding.cs
+  - Codat/Sync/Commerce/Models/Shared/BrandingLogo.cs
+  - Codat/Sync/Commerce/Models/Shared/BrandingImage.cs
+  - Codat/Sync/Commerce/Models/Shared/ImageReference.cs
+  - Codat/Sync/Commerce/Models/Shared/BrandingButton.cs
+  - Codat/Sync/Commerce/Models/Shared/Integrations.cs
+  - Codat/Sync/Commerce/Models/Shared/Integration.cs
+  - Codat/Sync/Commerce/Models/Shared/DataTypes.cs
+  - Codat/Sync/Commerce/Models/Shared/DataTypeFeature.cs
+  - Codat/Sync/Commerce/Models/Shared/SupportedFeature.cs
+  - Codat/Sync/Commerce/Models/Shared/FeatureType.cs
+  - Codat/Sync/Commerce/Models/Shared/FeatureState.cs
+  - Codat/Sync/Commerce/Models/Shared/Security.cs
+  - Codat/Sync/Commerce/Models/Shared/SyncConnectionDeletedWebhook.cs
+  - Codat/Sync/Commerce/Models/Errors/ErrorMessage.cs
+  - Codat/Sync/Commerce/Models/Webhooks/SyncConnectionDeletedResponse.cs
   - docs/Models/Operations/GetConfigTextSyncFlowRequest.md
   - docs/Models/Operations/GetConfigTextSyncFlowResponse.md
   - docs/Models/Operations/GetVisibleAccountsRequest.md
@@ -189,7 +201,6 @@ generatedFiles:
   - docs/Models/Operations/ListIntegrationsRequest.md
   - docs/Models/Operations/ListIntegrationsResponse.md
   - docs/Models/Shared/Localization.md
-  - docs/Models/Shared/ErrorMessage.md
   - docs/Models/Shared/ErrorValidation.md
   - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/Locale.md
@@ -203,10 +214,13 @@ generatedFiles:
   - docs/Models/Shared/CreateCompany.md
   - docs/Models/Shared/Items.md
   - docs/Models/Shared/Configuration.md
-  - docs/Models/Shared/Sales.md
+  - docs/Models/Shared/SyncSchedule.md
+  - docs/Models/Shared/SyncFrequency.md
+  - docs/Models/Shared/CommerceConfiguration.md
+  - docs/Models/Shared/SalesConfiguration.md
   - docs/Models/Shared/TaxRateAmount.md
-  - docs/Models/Shared/Option.md
-  - docs/Models/Shared/Customer.md
+  - docs/Models/Shared/ConfigurationOption.md
+  - docs/Models/Shared/SalesCustomer.md
   - docs/Models/Shared/NewTaxRates.md
   - docs/Models/Shared/TaxRateMapping.md
   - docs/Models/Shared/InvoiceStatus.md
@@ -215,11 +229,13 @@ generatedFiles:
   - docs/Models/Shared/GroupingLevels.md
   - docs/Models/Shared/InvoiceLineLevelSelection.md
   - docs/Models/Shared/InvoiceLevelSelection.md
-  - docs/Models/Shared/ConfigAccount.md
-  - docs/Models/Shared/AccountOption.md
-  - docs/Models/Shared/Payments.md
-  - docs/Models/Shared/NewPayments.md
-  - docs/Models/Shared/Fees.md
+  - docs/Models/Shared/AccountConfiguration.md
+  - docs/Models/Shared/AccountConfigurationOption.md
+  - docs/Models/Shared/PaymentsConfiguration.md
+  - docs/Models/Shared/NewPaymentsConfiguration.md
+  - docs/Models/Shared/OutputFormat.md
+  - docs/Models/Shared/ConfigurationMapSettings.md
+  - docs/Models/Shared/FeesConfiguration.md
   - docs/Models/Shared/FeesSupplier.md
   - docs/Models/Shared/Companies.md
   - docs/Models/Shared/Links.md
@@ -248,6 +264,7 @@ generatedFiles:
   - docs/Models/Shared/FeatureState.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/SyncConnectionDeletedWebhook.md
+  - docs/Models/Errors/ErrorMessage.md
   - docs/Models/Webhooks/SyncConnectionDeletedResponse.md
   - docs/sdks/codatsynccommerce/README.md
   - docs/sdks/syncflowsettings/README.md
@@ -257,3 +274,5 @@ generatedFiles:
   - docs/sdks/integrations/README.md
   - USAGE.md
   - .gitattributes
+  - Codat/Sync/Commerce/Hooks/SDKHooks.cs
+  - Codat/Sync/Commerce/Hooks/HookTypes.cs

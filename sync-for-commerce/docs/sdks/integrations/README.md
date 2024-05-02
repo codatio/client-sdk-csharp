@@ -3,7 +3,7 @@
 
 ## Overview
 
-View useful information about codat's integrations.
+Get a list of integrations supported by Sync for Commerce and their logos.
 
 ### Available Operations
 
@@ -44,7 +44,12 @@ var res = await sdk.Integrations.GetBrandingAsync(req);
 ### Response
 
 **[GetIntegrationBrandingResponse](../../Models/Operations/GetIntegrationBrandingResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List
 
@@ -82,4 +87,9 @@ var res = await sdk.Integrations.ListAsync(req);
 ### Response
 
 **[ListIntegrationsResponse](../../Models/Operations/ListIntegrationsResponse.md)**
+### Errors
 
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

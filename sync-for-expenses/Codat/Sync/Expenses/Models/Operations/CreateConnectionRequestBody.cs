@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Operations
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class CreateConnectionRequestBody

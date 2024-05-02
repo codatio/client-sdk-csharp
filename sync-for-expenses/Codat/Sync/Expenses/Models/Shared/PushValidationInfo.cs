@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -18,9 +19,9 @@ namespace Codat.Sync.Expenses.Models.Shared
     {
 
         [JsonProperty("information")]
-        public List<PushFieldValidation>? Information { get; set; }
+        public List<PushFieldValidation>? Information { get; set; } = null;
 
         [JsonProperty("warnings")]
-        public List<PushFieldValidation>? Warnings { get; set; }
+        public List<PushFieldValidation>? Warnings { get; set; } = null;
     }
 }

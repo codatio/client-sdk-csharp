@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -32,25 +33,25 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<Items>? Addresses { get; set; }
+        public List<Items>? Addresses { get; set; } = null;
 
         /// <summary>
         /// Name of the main contact for the supplier.
         /// </summary>
         [JsonProperty("contactName")]
-        public string? ContactName { get; set; }
+        public string? ContactName { get; set; } = null;
 
         /// <summary>
         /// Default currency the supplier&apos;s transactional data is recorded in.
         /// </summary>
         [JsonProperty("defaultCurrency")]
-        public string? DefaultCurrency { get; set; }
+        public string? DefaultCurrency { get; set; } = null;
 
         /// <summary>
         /// Email address that the supplier may be contacted on.
         /// </summary>
         [JsonProperty("emailAddress")]
-        public string? EmailAddress { get; set; }
+        public string? EmailAddress { get; set; } = null;
 
         /// <summary>
         /// Identifier for the supplier, unique to the company in the accounting platform.
@@ -68,13 +69,13 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Phone number that the supplier may be contacted on.
         /// </summary>
         [JsonProperty("phone")]
-        public string? Phone { get; set; }
+        public string? Phone { get; set; } = null;
 
         /// <summary>
         /// Company number of the supplier. In the UK, this is typically the company registration number issued by Companies House.
         /// </summary>
         [JsonProperty("registrationNumber")]
-        public string? RegistrationNumber { get; set; }
+        public string? RegistrationNumber { get; set; } = null;
 
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
@@ -100,12 +101,12 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Name of the supplier as recorded in the accounting system, typically the company name.
         /// </summary>
         [JsonProperty("supplierName")]
-        public string? SupplierName { get; set; }
+        public string? SupplierName { get; set; } = null;
 
         /// <summary>
         /// Supplier&apos;s company tax number.
         /// </summary>
         [JsonProperty("taxNumber")]
-        public string? TaxNumber { get; set; }
+        public string? TaxNumber { get; set; } = null;
     }
 }

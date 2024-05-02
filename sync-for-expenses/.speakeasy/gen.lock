@@ -1,18 +1,19 @@
 lockVersion: 2.0.0
 id: 18b9d064-aee3-46b6-b773-6d0ab95e296c
 management:
-  docChecksum: b84c137b488c9aa6b56fa6e53acdf2cc
+  docChecksum: d0831c7904c0e0112b45eedc703e9951
   docVersion: prealpha
-  speakeasyVersion: 1.244.2
-  generationVersion: 2.301.3
-  releaseVersion: 5.3.0
-  configChecksum: bad107a511c277a733a0fa7b66a61de8
+  speakeasyVersion: 1.277.6
+  generationVersion: 2.319.7
+  releaseVersion: 5.4.0
+  configChecksum: 8eec4c47d4a05592dd8ec1cb457ae7c6
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-expenses
   published: true
 features:
   csharp:
-    core: 3.7.0
+    constsAndDefaults: 0.0.1
+    core: 3.8.2
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
@@ -20,6 +21,7 @@ features:
     globalServerURLs: 2.82.3
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.2
+    responseFormat: 0.0.2
     webhooks: 1.0.0
 generatedFiles:
   - Codat/Sync/Expenses/Companies.cs
@@ -48,7 +50,7 @@ generatedFiles:
   - Codat/Sync/Expenses/Utils/IsoDateTimeSerializer.cs
   - Codat/Sync/Expenses/Utils/RequestBodySerializer.cs
   - Codat/Sync/Expenses/Utils/ResponseBodyDeserializer.cs
-  - Codat/Sync/Expenses/Utils/SecuritySerializer.cs
+  - Codat/Sync/Expenses/Utils/SecurityMetadata.cs
   - Codat/Sync/Expenses/Utils/SpeakeasyHttpClient.cs
   - Codat/Sync/Expenses/Utils/SpeakeasyMetadata.cs
   - Codat/Sync/Expenses/Utils/URLBuilder.cs
@@ -99,6 +101,7 @@ generatedFiles:
   - Codat/Sync/Expenses/Models/Operations/UpdateSupplierRequest.cs
   - Codat/Sync/Expenses/Models/Operations/UpdateSupplierResponse.cs
   - Codat/Sync/Expenses/Models/Operations/GetDataStatusRequest.cs
+  - Codat/Sync/Expenses/Models/Operations/GetDataStatusDataStatuses.cs
   - Codat/Sync/Expenses/Models/Operations/GetDataStatusResponse.cs
   - Codat/Sync/Expenses/Models/Operations/GetPullOperationRequest.cs
   - Codat/Sync/Expenses/Models/Operations/GetPullOperationResponse.cs
@@ -132,8 +135,6 @@ generatedFiles:
   - Codat/Sync/Expenses/Models/Operations/GetLastSuccessfulSyncResponse.cs
   - Codat/Sync/Expenses/Models/Operations/GetLatestSyncRequest.cs
   - Codat/Sync/Expenses/Models/Operations/GetLatestSyncResponse.cs
-  - Codat/Sync/Expenses/Models/Operations/InitiateSyncRequest.cs
-  - Codat/Sync/Expenses/Models/Operations/InitiateSyncResponse.cs
   - Codat/Sync/Expenses/Models/Operations/ListSyncsRequest.cs
   - Codat/Sync/Expenses/Models/Operations/ListSyncsResponse.cs
   - Codat/Sync/Expenses/Models/Operations/GetSyncTransactionRequest.cs
@@ -206,6 +207,7 @@ generatedFiles:
   - Codat/Sync/Expenses/Models/Shared/DataTypes.cs
   - Codat/Sync/Expenses/Models/Shared/DataStatus.cs
   - Codat/Sync/Expenses/Models/Shared/Status.cs
+  - Codat/Sync/Expenses/Models/Shared/DatasetStatus.cs
   - Codat/Sync/Expenses/Models/Shared/PullOperation.cs
   - Codat/Sync/Expenses/Models/Shared/PullOperations.cs
   - Codat/Sync/Expenses/Models/Shared/SchemaDataType.cs
@@ -223,7 +225,6 @@ generatedFiles:
   - Codat/Sync/Expenses/Models/Shared/ValidTransactionTypes.cs
   - Codat/Sync/Expenses/Models/Shared/AccountMappingInfo.cs
   - Codat/Sync/Expenses/Models/Shared/CreateExpenseResponse.cs
-  - Codat/Sync/Expenses/Models/Shared/CreateExpenseRequest.cs
   - Codat/Sync/Expenses/Models/Shared/ExpenseTransactionBankAccountReference.cs
   - Codat/Sync/Expenses/Models/Shared/ExpenseTransactionType.cs
   - Codat/Sync/Expenses/Models/Shared/ExpenseTransaction.cs
@@ -239,13 +240,11 @@ generatedFiles:
   - Codat/Sync/Expenses/Models/Shared/UpdateExpenseRequestBankAccountReference.cs
   - Codat/Sync/Expenses/Models/Shared/UpdateExpenseRequest.cs
   - Codat/Sync/Expenses/Models/Shared/CreateReimbursableExpenseResponse.cs
-  - Codat/Sync/Expenses/Models/Shared/CreateReimbursableExpenseRequest.cs
   - Codat/Sync/Expenses/Models/Shared/BankAccountReference.cs
   - Codat/Sync/Expenses/Models/Shared/ReimbursableExpenseTransaction.cs
   - Codat/Sync/Expenses/Models/Shared/ReimbursableExpenseTransactionLine.cs
+  - Codat/Sync/Expenses/Models/Shared/ContactRefReimbursableExpense.cs
   - Codat/Sync/Expenses/Models/Shared/CompanySyncStatus.cs
-  - Codat/Sync/Expenses/Models/Shared/SyncInitiated.cs
-  - Codat/Sync/Expenses/Models/Shared/InitiateSync.cs
   - Codat/Sync/Expenses/Models/Shared/Transaction.cs
   - Codat/Sync/Expenses/Models/Shared/TransactionStatus.cs
   - Codat/Sync/Expenses/Models/Shared/IntegrationType.cs
@@ -318,6 +317,7 @@ generatedFiles:
   - docs/Models/Operations/UpdateSupplierRequest.md
   - docs/Models/Operations/UpdateSupplierResponse.md
   - docs/Models/Operations/GetDataStatusRequest.md
+  - docs/Models/Operations/GetDataStatusDataStatuses.md
   - docs/Models/Operations/GetDataStatusResponse.md
   - docs/Models/Operations/GetPullOperationRequest.md
   - docs/Models/Operations/GetPullOperationResponse.md
@@ -351,8 +351,6 @@ generatedFiles:
   - docs/Models/Operations/GetLastSuccessfulSyncResponse.md
   - docs/Models/Operations/GetLatestSyncRequest.md
   - docs/Models/Operations/GetLatestSyncResponse.md
-  - docs/Models/Operations/InitiateSyncRequest.md
-  - docs/Models/Operations/InitiateSyncResponse.md
   - docs/Models/Operations/ListSyncsRequest.md
   - docs/Models/Operations/ListSyncsResponse.md
   - docs/Models/Operations/GetSyncTransactionRequest.md
@@ -425,6 +423,7 @@ generatedFiles:
   - docs/Models/Shared/DataTypes.md
   - docs/Models/Shared/DataStatus.md
   - docs/Models/Shared/Status.md
+  - docs/Models/Shared/DatasetStatus.md
   - docs/Models/Shared/PullOperation.md
   - docs/Models/Shared/PullOperations.md
   - docs/Models/Shared/SchemaDataType.md
@@ -442,7 +441,6 @@ generatedFiles:
   - docs/Models/Shared/ValidTransactionTypes.md
   - docs/Models/Shared/AccountMappingInfo.md
   - docs/Models/Shared/CreateExpenseResponse.md
-  - docs/Models/Shared/CreateExpenseRequest.md
   - docs/Models/Shared/ExpenseTransactionBankAccountReference.md
   - docs/Models/Shared/ExpenseTransactionType.md
   - docs/Models/Shared/ExpenseTransaction.md
@@ -458,13 +456,11 @@ generatedFiles:
   - docs/Models/Shared/UpdateExpenseRequestBankAccountReference.md
   - docs/Models/Shared/UpdateExpenseRequest.md
   - docs/Models/Shared/CreateReimbursableExpenseResponse.md
-  - docs/Models/Shared/CreateReimbursableExpenseRequest.md
   - docs/Models/Shared/BankAccountReference.md
   - docs/Models/Shared/ReimbursableExpenseTransaction.md
   - docs/Models/Shared/ReimbursableExpenseTransactionLine.md
+  - docs/Models/Shared/ContactRefReimbursableExpense.md
   - docs/Models/Shared/CompanySyncStatus.md
-  - docs/Models/Shared/SyncInitiated.md
-  - docs/Models/Shared/InitiateSync.md
   - docs/Models/Shared/Transaction.md
   - docs/Models/Shared/TransactionStatus.md
   - docs/Models/Shared/IntegrationType.md
@@ -510,3 +506,5 @@ generatedFiles:
   - docs/sdks/transfers/README.md
   - USAGE.md
   - .gitattributes
+  - Codat/Sync/Expenses/Hooks/SDKHooks.cs
+  - Codat/Sync/Expenses/Hooks/HookTypes.cs

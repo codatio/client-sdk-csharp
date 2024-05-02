@@ -3,7 +3,7 @@
 
 ## Overview
 
-Suppliers
+Get, create, and update suppliers.
 
 ### Available Operations
 
@@ -46,7 +46,7 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
                 Line1 = "Unit 51",
                 Line2 = "Bakersfield Industrial Estate",
                 Region = "California",
-                Type = AccountingAddressType.Billing,
+                Type = Codat.Sync.Expenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
         ContactName = "Kelly's Industrial Supplies",
@@ -60,7 +60,7 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
         Phone = "07999 999999",
         RegistrationNumber = "string",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Status = SupplierStatus.Unknown,
+        Status = Codat.Sync.Expenses.Models.Shared.SupplierStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "property1", new Dictionary<string, object>() {
@@ -234,7 +234,7 @@ UpdateSupplierRequest req = new UpdateSupplierRequest() {
                 Line1 = "Unit 51",
                 Line2 = "Bakersfield Industrial Estate",
                 Region = "California",
-                Type = AccountingAddressType.Billing,
+                Type = Codat.Sync.Expenses.Models.Shared.AccountingAddressType.Billing,
             },
         },
         ContactName = "Kelly's Industrial Supplies",
@@ -248,7 +248,7 @@ UpdateSupplierRequest req = new UpdateSupplierRequest() {
         Phone = "07999 999999",
         RegistrationNumber = "string",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Status = SupplierStatus.Unknown,
+        Status = Codat.Sync.Expenses.Models.Shared.SupplierStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "property1", new Dictionary<string, object>() {

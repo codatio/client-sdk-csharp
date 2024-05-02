@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -21,7 +22,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Code for the tax rate from the accounting platform.
         /// </summary>
         [JsonProperty("code")]
-        public string? Code { get; set; }
+        public string? Code { get; set; } = null;
 
         /// <summary>
         /// Effective tax rate.
@@ -33,13 +34,13 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Unique identifier of tax rate.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string? Id { get; set; } = null;
 
         /// <summary>
         /// Name of the tax rate in the accounting platform.
         /// </summary>
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string? Name { get; set; } = null;
 
         /// <summary>
         /// Total (not compounded) sum of the components of a tax rate.
@@ -51,6 +52,6 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Supported transaction types for the account.
         /// </summary>
         [JsonProperty("validTransactionTypes")]
-        public List<TaxRateMappingInfoValidTransactionTypes>? ValidTransactionTypes { get; set; }
+        public List<TaxRateMappingInfoValidTransactionTypes>? ValidTransactionTypes { get; set; } = null;
     }
 }

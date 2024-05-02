@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -21,24 +22,24 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Array of available accounts for mapping.
         /// </summary>
         [JsonProperty("accounts")]
-        public List<AccountMappingInfo>? Accounts { get; set; }
+        public List<AccountMappingInfo>? Accounts { get; set; } = null;
 
         /// <summary>
         /// Name of the expense integration.
         /// </summary>
         [JsonProperty("expenseProvider")]
-        public string? ExpenseProvider { get; set; }
+        public string? ExpenseProvider { get; set; } = null;
 
         /// <summary>
         /// Array of available tax rates for mapping.
         /// </summary>
         [JsonProperty("taxRates")]
-        public List<TaxRateMappingInfo>? TaxRates { get; set; }
+        public List<TaxRateMappingInfo>? TaxRates { get; set; } = null;
 
         /// <summary>
         /// Array of available tracking categories for mapping.
         /// </summary>
         [JsonProperty("trackingCategories")]
-        public List<TrackingCategoryMappingInfo>? TrackingCategories { get; set; }
+        public List<TrackingCategoryMappingInfo>? TrackingCategories { get; set; } = null;
     }
 }

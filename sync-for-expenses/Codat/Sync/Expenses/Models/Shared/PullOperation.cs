@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     /// <summary>
@@ -72,7 +73,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// A message about a transient or persistent error.
         /// </summary>
         [JsonProperty("errorMessage")]
-        public string? ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; } = null;
 
         /// <summary>
         /// Unique identifier of the pull operation.
@@ -126,15 +127,15 @@ namespace Codat.Sync.Expenses.Models.Shared
         public string Requested { get; set; } = default!;
 
         /// <summary>
-        /// The current status of the pull operation.
+        /// The current status of the dataset.
         /// </summary>
         [JsonProperty("status")]
-        public Status Status { get; set; } = default!;
+        public DatasetStatus Status { get; set; } = default!;
 
         /// <summary>
         /// Additional information about the dataset status.
         /// </summary>
         [JsonProperty("statusDescription")]
-        public string? StatusDescription { get; set; }
+        public string? StatusDescription { get; set; } = null;
     }
 }

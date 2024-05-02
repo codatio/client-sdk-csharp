@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -30,10 +31,10 @@ namespace Codat.Sync.Expenses.Models.Shared
         public string DisplayName { get; set; } = default!;
 
         [JsonProperty("options")]
-        public List<PushOptionChoice>? Options { get; set; }
+        public List<PushOptionChoice>? Options { get; set; } = null;
 
         [JsonProperty("properties")]
-        public Dictionary<string, PushOptionProperty>? Properties { get; set; }
+        public Dictionary<string, PushOptionProperty>? Properties { get; set; } = null;
 
         /// <summary>
         /// The property is required if `True`.

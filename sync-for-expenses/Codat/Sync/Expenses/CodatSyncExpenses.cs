@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses
 {
+    using Codat.Sync.Expenses.Hooks;
     using Codat.Sync.Expenses.Models.Errors;
     using Codat.Sync.Expenses.Models.Shared;
     using Codat.Sync.Expenses.Utils;
@@ -28,83 +29,103 @@ namespace Codat.Sync.Expenses
     /// enable corporate card and expense management platforms to provide high-quality<br/>
     /// integrations with multiple accounting platforms through a standardized API.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Read more...</a><br/>
+    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See our OpenAPI spec</a><br/>
     /// <br/>
-    /// <a href="https://github.com/codatio/oas">See our OpenAPI spec</a><br/>
+    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Sync for Expenses</a>.<br/>
     /// <br/>
-    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Sync for Expenses</a>.
+    /// ---<br/>
+    /// &lt;!-- Start Codat Tags Table --&gt;<br/>
+    /// ## Endpoints<br/>
+    /// <br/>
+    /// | Endpoints | Description |<br/>
+    /// | :- |:- |<br/>
+    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Connections | Create new and manage existing data connections for a company. |<br/>
+    /// | Configuration | View and manage mapping configuration and defaults for expense transactions. |<br/>
+    /// | Sync | Monitor the status of data syncs. |<br/>
+    /// | Expenses | Create and update transactions that represent your customers&apos; spend. |<br/>
+    /// | Transfers | Create and update transactions that represent the movement of your customers&apos; money. |<br/>
+    /// | Reimbursements | Create and update transactions that represent your customers&apos; repayable spend. |<br/>
+    /// | Attachments | Attach receipts to a transaction for a complete audit trail. |<br/>
+    /// | Transaction status | Monitor the status of individual transactions in data syncs. |<br/>
+    /// | Manage data | Control and monitor the retrieval of data from an integration. |<br/>
+    /// | Push operations | View historic push operations. |<br/>
+    /// | Accounts | Create accounts and view account schemas. |<br/>
+    /// | Customers | Get, create, and update customers. |<br/>
+    /// | Suppliers | Get, create, and update suppliers. |<br/>
+    /// &lt;!-- End Codat Tags Table --&gt;
     /// </remarks>
     /// </summary>
     public interface ICodatSyncExpenses
     {
 
         /// <summary>
-        /// Create and manage your Codat companies.
+        /// Create and manage your SMB users&apos; companies.
         /// </summary>
         public ICompanies Companies { get; }
 
         /// <summary>
-        /// Create and manage partner expense connection.
+        /// Create new and manage existing data connections for a company.
         /// </summary>
         public IConnections Connections { get; }
 
         /// <summary>
-        /// Accounts
+        /// Create accounts and view account schemas.
         /// </summary>
         public IAccounts Accounts { get; }
 
         /// <summary>
-        /// Customers
+        /// Get, create, and update customers.
         /// </summary>
         public ICustomers Customers { get; }
 
         /// <summary>
-        /// Suppliers
+        /// Get, create, and update suppliers.
         /// </summary>
         public ISuppliers Suppliers { get; }
 
         /// <summary>
-        /// Asynchronously retrieve data from an integration to refresh data in Codat.
+        /// Control and monitor the retrieval of data from an integration.
         /// </summary>
         public IManageData ManageData { get; }
 
         /// <summary>
-        /// Access create, update and delete operations made to an SMB&apos;s data connection.
+        /// View historic push operations.
         /// </summary>
         public IPushOperations PushOperations { get; }
 
         /// <summary>
-        /// Manage mapping options and sync configuration.
+        /// View and manage mapping configuration and defaults for expense transactions.
         /// </summary>
         public IConfiguration Configuration { get; }
 
         /// <summary>
-        /// Create expense transactions.
+        /// Create and update transactions that represent your customers&apos; spend.
         /// </summary>
         public IExpenses Expenses { get; }
 
         /// <summary>
-        /// Create reimbursable expense transactions.
+        /// Create and update transactions that represent your customers&apos; repayable spend.
         /// </summary>
         public IReimbursements Reimbursements { get; }
 
         /// <summary>
-        /// Trigger and monitor expense syncs to accounting software.
+        /// Monitor the status of data syncs.
         /// </summary>
         public ISync Sync { get; }
 
         /// <summary>
-        /// Retrieve the status of transactions within a sync.
+        /// Monitor the status of individual transactions in data syncs.
         /// </summary>
         public ITransactionStatus TransactionStatus { get; }
 
         /// <summary>
-        /// Upload attachmens to expenses, transfers and reimbursable expense transactions.
+        /// Attach receipts to a transaction for a complete audit trail.
         /// </summary>
         public IAttachments Attachments { get; }
 
         /// <summary>
-        /// Create transfer transactions.
+        /// Create and update transactions that represent the movement of your customers&apos; money.
         /// </summary>
         public ITransfers Transfers { get; }
     }
@@ -118,16 +139,28 @@ namespace Codat.Sync.Expenses
             "https://api.codat.io",
         };
 
-        public string serverUrl = "";
-        public int serverIndex = 0;
+        public string ServerUrl = "";
+        public int ServerIndex = 0;
+        public SDKHooks hooks = new SDKHooks();
 
-        public string GetTemplatedServerDetails()
+        public string GetTemplatedServerUrl()
         {
-            if (!String.IsNullOrEmpty(this.serverUrl))
+            if (!String.IsNullOrEmpty(this.ServerUrl))
             {
-                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
+                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.ServerUrl, "/"), new Dictionary<string, string>());
             }
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], new Dictionary<string, string>());
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.ServerIndex], new Dictionary<string, string>());
+        }
+
+        public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
+        {
+            string preHooksUrl = GetTemplatedServerUrl();
+            var (postHooksUrl, postHooksClient) = this.hooks.SDKInit(preHooksUrl, client);
+            if (preHooksUrl != postHooksUrl)
+            {
+                this.ServerUrl = postHooksUrl;
+            }
+            return postHooksClient;
         }
     }
 
@@ -140,11 +173,31 @@ namespace Codat.Sync.Expenses
     /// enable corporate card and expense management platforms to provide high-quality<br/>
     /// integrations with multiple accounting platforms through a standardized API.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Read more...</a><br/>
+    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See our OpenAPI spec</a><br/>
     /// <br/>
-    /// <a href="https://github.com/codatio/oas">See our OpenAPI spec</a><br/>
+    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Sync for Expenses</a>.<br/>
     /// <br/>
-    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Sync for Expenses</a>.
+    /// ---<br/>
+    /// &lt;!-- Start Codat Tags Table --&gt;<br/>
+    /// ## Endpoints<br/>
+    /// <br/>
+    /// | Endpoints | Description |<br/>
+    /// | :- |:- |<br/>
+    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Connections | Create new and manage existing data connections for a company. |<br/>
+    /// | Configuration | View and manage mapping configuration and defaults for expense transactions. |<br/>
+    /// | Sync | Monitor the status of data syncs. |<br/>
+    /// | Expenses | Create and update transactions that represent your customers&apos; spend. |<br/>
+    /// | Transfers | Create and update transactions that represent the movement of your customers&apos; money. |<br/>
+    /// | Reimbursements | Create and update transactions that represent your customers&apos; repayable spend. |<br/>
+    /// | Attachments | Attach receipts to a transaction for a complete audit trail. |<br/>
+    /// | Transaction status | Monitor the status of individual transactions in data syncs. |<br/>
+    /// | Manage data | Control and monitor the retrieval of data from an integration. |<br/>
+    /// | Push operations | View historic push operations. |<br/>
+    /// | Accounts | Create accounts and view account schemas. |<br/>
+    /// | Customers | Get, create, and update customers. |<br/>
+    /// | Suppliers | Get, create, and update suppliers. |<br/>
+    /// &lt;!-- End Codat Tags Table --&gt;
     /// </remarks>
     /// </summary>
     public class CodatSyncExpenses: ICodatSyncExpenses
@@ -152,10 +205,10 @@ namespace Codat.Sync.Expenses
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.3.0";
-        private const string _sdkGenVersion = "2.301.3";
+        private const string _sdkVersion = "5.4.0";
+        private const string _sdkGenVersion = "2.319.7";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.301.3 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.4.0 2.319.7 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -212,23 +265,52 @@ namespace Codat.Sync.Expenses
 
             SDKConfiguration = new SDKConfig()
             {
-                serverIndex = _serverIndex,
-                serverUrl = _serverUrl
+                ServerIndex = _serverIndex,
+                ServerUrl = _serverUrl
             };
 
+            _defaultClient = SDKConfiguration.InitHooks(_defaultClient);
+
+
             Companies = new Companies(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Connections = new Connections(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Accounts = new Accounts(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Customers = new Customers(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Suppliers = new Suppliers(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             ManageData = new ManageData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             PushOperations = new PushOperations(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Configuration = new Configuration(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Expenses = new Expenses(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Reimbursements = new Reimbursements(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Sync = new Sync(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             TransactionStatus = new TransactionStatus(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Attachments = new Attachments(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Transfers = new Transfers(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }

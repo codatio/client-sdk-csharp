@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Operations
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using System.Net.Http;
     using System;
     
@@ -35,6 +36,6 @@ namespace Codat.Sync.Expenses.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public Supplier? Supplier { get; set; }
+        public Supplier? Supplier { get; set; } = null;
     }
 }

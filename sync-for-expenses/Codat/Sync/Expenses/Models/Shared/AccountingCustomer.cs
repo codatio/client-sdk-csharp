@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -35,25 +36,25 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<CreateCustomerResponseAccountingAddress>? Addresses { get; set; }
+        public List<CreateCustomerResponseAccountingAddress>? Addresses { get; set; } = null;
 
         /// <summary>
         /// Name of the main contact for the identified customer.
         /// </summary>
         [JsonProperty("contactName")]
-        public string? ContactName { get; set; }
+        public string? ContactName { get; set; } = null;
 
         /// <summary>
         /// An array of Contacts.
         /// </summary>
         [JsonProperty("contacts")]
-        public List<Contact>? Contacts { get; set; }
+        public List<Contact>? Contacts { get; set; } = null;
 
         /// <summary>
         /// Name of the customer as recorded in the accounting system, typically the company name.
         /// </summary>
         [JsonProperty("customerName")]
-        public string? CustomerName { get; set; }
+        public string? CustomerName { get; set; } = null;
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
@@ -74,7 +75,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Email address the customer can be contacted by.
         /// </summary>
         [JsonProperty("emailAddress")]
-        public string? EmailAddress { get; set; }
+        public string? EmailAddress { get; set; } = null;
 
         /// <summary>
         /// Identifier for the customer, unique to the company in the accounting platform.
@@ -92,13 +93,13 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Phone number the customer can be contacted by.
         /// </summary>
         [JsonProperty("phone")]
-        public string? Phone { get; set; }
+        public string? Phone { get; set; } = null;
 
         /// <summary>
         /// Company number. In the UK, this is typically the Companies House company registration number.
         /// </summary>
         [JsonProperty("registrationNumber")]
-        public string? RegistrationNumber { get; set; }
+        public string? RegistrationNumber { get; set; } = null;
 
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
@@ -124,6 +125,6 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Company tax number.
         /// </summary>
         [JsonProperty("taxNumber")]
-        public string? TaxNumber { get; set; }
+        public string? TaxNumber { get; set; } = null;
     }
 }

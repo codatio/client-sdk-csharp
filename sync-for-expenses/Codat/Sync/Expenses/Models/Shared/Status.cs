@@ -10,11 +10,12 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System;
     
     /// <summary>
-    /// The current status of the pull operation.
+    /// The current status of the dataset.
     /// </summary>
     public enum Status
     {
@@ -52,10 +53,6 @@ namespace Codat.Sync.Expenses.Models.Shared
         AuthError,
         [JsonProperty("Cancelled")]
         Cancelled,
-        [JsonProperty("Routing")]
-        Routing,
-        [JsonProperty("RoutingError")]
-        RoutingError,
         [JsonProperty("NotSupported")]
         NotSupported,
         [JsonProperty("RateLimitError")]

@@ -17,13 +17,13 @@ namespace Codat.Sync.Expenses.Models.Operations
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Supplier? Supplier { get; set; }
+        public Supplier? Supplier { get; set; } = null;
 
         /// <summary>
         /// Allow a sync upon push completion.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=allowSyncOnPushComplete")]
-        public bool? AllowSyncOnPushComplete { get; set; }
+        public bool? AllowSyncOnPushComplete { get; set; } = true;
 
         /// <summary>
         /// Unique identifier for a company.

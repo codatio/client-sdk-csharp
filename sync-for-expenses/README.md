@@ -31,6 +31,11 @@ var sdk = new CodatSyncExpenses(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<GroupItems>() {
+        new GroupItems() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -113,7 +118,6 @@ var res = await sdk.Companies.CreateAsync(req);
 * [Get](docs/sdks/sync/README.md#get) - Get sync status
 * [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
 * [GetLatestSync](docs/sdks/sync/README.md#getlatestsync) - Latest sync status
-* [InitiateSync](docs/sdks/sync/README.md#initiatesync) - Initiate sync
 * [List](docs/sdks/sync/README.md#list) - List sync statuses
 
 ### [TransactionStatus](docs/sdks/transactionstatus/README.md)
@@ -172,6 +176,11 @@ var sdk = new CodatSyncExpenses(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<GroupItems>() {
+        new GroupItems() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -206,6 +215,11 @@ var sdk = new CodatSyncExpenses(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<GroupItems>() {
+        new GroupItems() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 

@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class ContactRef
@@ -20,12 +21,12 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Identifier of supplier or customer.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The type of contact.
         /// </summary>
         [JsonProperty("type")]
-        public Type? Type { get; set; }
+        public Type? Type { get; set; } = Codat.Sync.Expenses.Models.Shared.Type.Supplier;
     }
 }

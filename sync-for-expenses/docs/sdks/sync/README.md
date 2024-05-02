@@ -3,14 +3,13 @@
 
 ## Overview
 
-Trigger and monitor expense syncs to accounting software.
+Monitor the status of data syncs.
 
 ### Available Operations
 
 * [Get](#get) - Get sync status
 * [GetLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
 * [GetLatestSync](#getlatestsync) - Latest sync status
-* [InitiateSync](#initiatesync) - Initiate sync
 * [List](#list) - List sync statuses
 
 ## Get
@@ -135,48 +134,6 @@ var res = await sdk.Sync.GetLatestSyncAsync(req);
 | Error Object                                   | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
-## InitiateSync
-
-Initiate sync of pending transactions.
-
-### Example Usage
-
-```csharp
-using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
-using System.Collections.Generic;
-
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-InitiateSyncRequest req = new InitiateSyncRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-var res = await sdk.Sync.InitiateSyncAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [InitiateSyncRequest](../../Models/Operations/InitiateSyncRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
-
-
-### Response
-
-**[InitiateSyncResponse](../../Models/Operations/InitiateSyncResponse.md)**
-### Errors
-
-| Error Object                                   | Status Code                                    | Content Type                                   |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,422,429,500,503            | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ## List

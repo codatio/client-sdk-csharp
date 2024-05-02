@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -21,30 +22,30 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Type of the account.
         /// </summary>
         [JsonProperty("accountType")]
-        public AccountMappingInfoAccountType? AccountType { get; set; }
+        public AccountMappingInfoAccountType? AccountType { get; set; } = null;
 
         /// <summary>
         /// Currency of the account.
         /// </summary>
         [JsonProperty("currency")]
-        public string? Currency { get; set; }
+        public string? Currency { get; set; } = null;
 
         /// <summary>
         /// Unique identifier of account.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string? Id { get; set; } = null;
 
         /// <summary>
         /// Name of the account as it appears in the companies accounting software.
         /// </summary>
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string? Name { get; set; } = null;
 
         /// <summary>
         /// Supported transaction types for the account.
         /// </summary>
         [JsonProperty("validTransactionTypes")]
-        public List<ValidTransactionTypes>? ValidTransactionTypes { get; set; }
+        public List<ValidTransactionTypes>? ValidTransactionTypes { get; set; } = null;
     }
 }

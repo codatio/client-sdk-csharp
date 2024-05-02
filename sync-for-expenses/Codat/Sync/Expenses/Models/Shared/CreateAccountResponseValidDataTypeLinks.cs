@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -65,12 +66,12 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Supported `dataTypes` that the record can be linked to.
         /// </summary>
         [JsonProperty("links")]
-        public List<string>? Links { get; set; }
+        public List<string>? Links { get; set; } = null;
 
         /// <summary>
         /// The property from the account that can be linked.
         /// </summary>
         [JsonProperty("property")]
-        public string? Property { get; set; }
+        public string? Property { get; set; } = null;
     }
 }

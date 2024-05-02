@@ -3,7 +3,7 @@
 
 ## Overview
 
-Create transfer transactions.
+Create and update transactions that represent the movement of your customers' money.
 
 ### Available Operations
 
@@ -30,6 +30,10 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 CreateTransferTransactionRequest req = new CreateTransferTransactionRequest() {
+    CreateTransferRequest = new CreateTransferRequest() {
+        Date = "2022-10-23T00:00:00Z",
+        Description = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
 };

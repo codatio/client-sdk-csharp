@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses
 {
+    using Codat.Sync.Expenses.Hooks;
     using Codat.Sync.Expenses.Models.Errors;
     using Codat.Sync.Expenses.Models.Operations;
     using Codat.Sync.Expenses.Models.Shared;
@@ -22,7 +23,7 @@ namespace Codat.Sync.Expenses
     using System;
 
     /// <summary>
-    /// Create expense transactions.
+    /// Create and update transactions that represent your customers&apos; spend.
     /// </summary>
     public interface IExpenses
     {
@@ -33,19 +34,7 @@ namespace Codat.Sync.Expenses
         /// <remarks>
         /// The *Create expense* endpoint creates an <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">expense transaction</a> in the accounting platform for a given company&apos;s connection. <br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. <br/>
-        /// <br/>
-        /// <br/>
-        /// **Integration-specific behaviour**<br/>
-        /// <br/>
-        /// Some accounting platforms support the option of pushing transactions to a draft state. This can be done by setting the postAsDraft property on the transaction to true. For platforms without this feature, the postAsDraft property should be ignored or set to false.<br/>
-        /// <br/>
-        /// | Integration | Draft State | Details                                                                                                      |  <br/>
-        /// |-------------|-------------|--------------------------------------------------------------------------------------------------------------|<br/>
-        /// | Dynamics 365 Business Central | Yes   | Setting postAsDraft to true will push the transactions to a drafted state rather than posting directly to the ledger. For transactions in a draft state, they can then be approved and posted within the accounting platform. |<br/>
-        /// | Quickbooks Online | No | -  |<br/>
-        /// | Xero | No | - |<br/>
-        /// | NetSuite | No | - |
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. 
         /// </remarks>
         /// </summary>
         Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest request);
@@ -61,23 +50,23 @@ namespace Codat.Sync.Expenses
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// At the moment you can update expenses only for Xero (<a href="https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types">Payment</a> transaction type only).
+        /// At the moment you can update expenses only for Xero and QuickBooks Online (<a href="https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types">Payment</a> transaction type only).
         /// </remarks>
         /// </summary>
         Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest request);
     }
 
     /// <summary>
-    /// Create expense transactions.
+    /// Create and update transactions that represent your customers&apos; spend.
     /// </summary>
     public class Expenses: IExpenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.3.0";
-        private const string _sdkGenVersion = "2.301.3";
+        private const string _sdkVersion = "5.4.0";
+        private const string _sdkGenVersion = "2.319.7";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.3.0 2.301.3 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.4.0 2.319.7 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -92,75 +81,102 @@ namespace Codat.Sync.Expenses
 
         public async Task<CreateExpenseTransactionResponse> CreateAsync(CreateExpenseTransactionRequest request)
         {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/data/expense-transactions", request);
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/expense-transactions", request);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
 
-            var serializedBody = RequestBodySerializer.Serialize(request, "CreateExpenseRequest", "json", false, true);
+            var serializedBody = RequestBodySerializer.Serialize(request, "RequestBody", "json", false, true);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
             }
 
-            var client = _defaultClient;
             if (_securitySource != null)
             {
-                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var httpResponse = await client.SendAsync(httpRequest);
+            var hookCtx = new HookContext("create-expense-transaction", null, _securitySource);
 
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            var response = new CreateExpenseTransactionResponse
+            httpRequest = await this.SDKConfiguration.hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            HttpResponseMessage httpResponse;
+            try
             {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if (response.StatusCode == 200)
+                httpResponse = await _defaultClient.SendAsync(httpRequest);
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception error)
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
-                    var obj = ResponseBodyDeserializer.Deserialize<CreateExpenseResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    response.CreateExpenseResponse = obj;
+                var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw;
                 }
-
             }
-            else if (new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(response.StatusCode))
+
+            httpResponse = await this.SDKConfiguration.hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<CreateExpenseResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new CreateExpenseTransactionResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
+                    response.CreateExpenseResponse = obj;
+                    return response;
+                }
+                else
+                {
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                }
+            }
+            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode >= 400 && response.StatusCode < 500 || response.StatusCode >= 500 && response.StatusCode < 600)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-
+                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else
             {
-                throw new SDKException("unknown status code received", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            return response;
         }
-
 
         public async Task<UpdateExpenseTransactionResponse> UpdateAsync(UpdateExpenseTransactionRequest request)
         {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}", request);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
@@ -172,58 +188,85 @@ namespace Codat.Sync.Expenses
                 httpRequest.Content = serializedBody;
             }
 
-            var client = _defaultClient;
             if (_securitySource != null)
             {
-                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var httpResponse = await client.SendAsync(httpRequest);
+            var hookCtx = new HookContext("update-expense-transaction", null, _securitySource);
 
-            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            var response = new UpdateExpenseTransactionResponse
+            httpRequest = await this.SDKConfiguration.hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            HttpResponseMessage httpResponse;
+            try
             {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if (response.StatusCode == 202)
+                httpResponse = await _defaultClient.SendAsync(httpRequest);
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 422 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception error)
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
-                    var obj = ResponseBodyDeserializer.Deserialize<UpdateExpenseResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    response.UpdateExpenseResponse = obj;
+                var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw;
                 }
-
             }
-            else if (new List<int>{400, 401, 402, 403, 404, 422, 429, 500, 503}.Contains(response.StatusCode))
+
+            httpResponse = await this.SDKConfiguration.hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 202)
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<UpdateExpenseResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new UpdateExpenseTransactionResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
+                    response.UpdateExpenseResponse = obj;
+                    return response;
+                }
+                else
+                {
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                }
+            }
+            else if(new List<int>{400, 401, 402, 403, 404, 422, 429, 500, 503}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode >= 400 && response.StatusCode < 500 || response.StatusCode >= 500 && response.StatusCode < 600)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-
+                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else
             {
-                throw new SDKException("unknown status code received", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            return response;
         }
-
     }
 }

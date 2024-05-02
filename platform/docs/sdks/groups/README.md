@@ -30,6 +30,9 @@ var sdk = new CodatPlatform(security: new Security() {
     });
 
 AddCompanyToGroupRequest req = new AddCompanyToGroupRequest() {
+    CompanyGroupAssignment = new CompanyGroupAssignment() {
+        GroupId = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 

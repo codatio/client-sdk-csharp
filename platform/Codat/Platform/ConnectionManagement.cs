@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Platform
 {
+    using Codat.Platform.Hooks;
     using Codat.Platform.Models.Errors;
     using Codat.Platform.Models.Operations;
     using Codat.Platform.Models.Shared;
@@ -32,7 +33,7 @@ namespace Codat.Platform
         /// Get access token
         /// 
         /// <remarks>
-        /// Use the *Get access token* endpoint to retrieve a new access token for use by the <a href="https://docs.codat.io/auth-flow/optimize/connection-management">connection management UI</a>.<br/>
+        /// Use the *Get access token* endpoint to retrieve a new access token for use by the <a href="https://docs.codat.io/auth-flow/optimize/connection-management">connection management UI</a>. The token is only valid for one hour and applies to a single company.<br/>
         /// <br/>
         /// The embedded <a href="https://docs.codat.io/auth-flow/optimize/connection-management">connection management UI</a> lets your customers control access to their data by allowing them to manage their existing connections.
         /// </remarks>
@@ -47,10 +48,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.6.0";
-        private const string _sdkGenVersion = "2.314.0";
+        private const string _sdkVersion = "3.6.1";
+        private const string _sdkGenVersion = "2.319.7";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.6.0 2.314.0 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.6.1 2.319.7 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -67,19 +68,49 @@ namespace Codat.Platform
 
         public async Task<GetConnectionManagementAccessTokenResponse> GetAccessTokenAsync(GetConnectionManagementAccessTokenRequest request)
         {
-            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connectionManagement/accessToken", request);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
 
-            var client = _defaultClient;
             if (_securitySource != null)
             {
-                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var httpResponse = await client.SendAsync(httpRequest);
+            var hookCtx = new HookContext("get-connection-management-access-token", null, _securitySource);
+
+            httpRequest = await this.SDKConfiguration.hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await _defaultClient.SendAsync(httpRequest);
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;

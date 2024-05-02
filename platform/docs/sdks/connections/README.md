@@ -32,6 +32,9 @@ var sdk = new CodatPlatform(security: new Security() {
     });
 
 CreateConnectionRequest req = new CreateConnectionRequest() {
+    RequestBody = new CreateConnectionRequestBody() {
+        PlatformKey = "gbol",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 

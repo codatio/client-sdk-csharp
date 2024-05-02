@@ -3,7 +3,7 @@
 
 ## Overview
 
-Create reimbursable expense transactions.
+Create and update transactions that represent your customers' repayable spend.
 
 ### Available Operations
 
@@ -29,6 +29,43 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 CreateReimbursableExpenseTransactionRequest req = new CreateReimbursableExpenseTransactionRequest() {
+    RequestBody = new List<ReimbursableExpenseTransaction>() {
+        new ReimbursableExpenseTransaction() {
+            BankAccountRef = new BankAccountReference() {
+                Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+            },
+            ContactRef = new ContactRefReimbursableExpense() {
+                Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+            Currency = "GBP",
+            DueDate = "2022-10-23T00:00:00Z",
+            Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
+            IssueDate = "2022-10-23T00:00:00Z",
+            Lines = new List<ReimbursableExpenseTransactionLine>() {
+                new ReimbursableExpenseTransactionLine() {
+                    AccountRef = new RecordRef() {
+                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                    },
+                    InvoiceTo = new InvoiceTo() {
+                        DataType = InvoiceToDataType.Customers,
+                        Id = "80000002-1674552702",
+                    },
+                    NetAmount = 110.42M,
+                    TaxAmount = 14.43M,
+                    TaxRateRef = new RecordRef() {
+                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                    },
+                    TrackingRefs = new List<TrackingRef>() {
+                        new TrackingRef() {
+                            DataType = TrackingRefDataType.TrackingCategories,
+                            Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                        },
+                    },
+                },
+            },
+            Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+        },
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -73,6 +110,43 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 UpdateReimbursableExpenseTransactionRequest req = new UpdateReimbursableExpenseTransactionRequest() {
+    RequestBody = new List<ReimbursableExpenseTransaction>() {
+        new ReimbursableExpenseTransaction() {
+            BankAccountRef = new BankAccountReference() {
+                Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+            },
+            ContactRef = new ContactRefReimbursableExpense() {
+                Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+            Currency = "GBP",
+            DueDate = "2022-10-23T00:00:00Z",
+            Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
+            IssueDate = "2022-10-23T00:00:00Z",
+            Lines = new List<ReimbursableExpenseTransactionLine>() {
+                new ReimbursableExpenseTransactionLine() {
+                    AccountRef = new RecordRef() {
+                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                    },
+                    InvoiceTo = new InvoiceTo() {
+                        DataType = InvoiceToDataType.Customers,
+                        Id = "80000002-1674552702",
+                    },
+                    NetAmount = 110.42M,
+                    TaxAmount = 14.43M,
+                    TaxRateRef = new RecordRef() {
+                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                    },
+                    TrackingRefs = new List<TrackingRef>() {
+                        new TrackingRef() {
+                            DataType = TrackingRefDataType.TrackingCategories,
+                            Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                        },
+                    },
+                },
+            },
+            Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+        },
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
 };

@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class TrackingRef
@@ -20,7 +21,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// The type of the linked reference
         /// </summary>
         [JsonProperty("dataType")]
-        public TrackingRefDataType? DataType { get; set; }
+        public TrackingRefDataType? DataType { get; set; } = Codat.Sync.Expenses.Models.Shared.TrackingRefDataType.TrackingCategories;
 
         /// <summary>
         /// Unique identifier of the linked reference from mapping options or the unique identifier of the linked customer.

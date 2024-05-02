@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class ValidationItem
@@ -19,18 +20,18 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Unique identifier for a validation item.
         /// </summary>
         [JsonProperty("itemId")]
-        public string? ItemId { get; set; }
+        public string? ItemId { get; set; } = null;
 
         /// <summary>
         /// A message outlining validation item&apos;s issue.
         /// </summary>
         [JsonProperty("message")]
-        public string? Message { get; set; }
+        public string? Message { get; set; } = null;
 
         /// <summary>
         /// Name of validator.
         /// </summary>
         [JsonProperty("validatorName")]
-        public string? ValidatorName { get; set; }
+        public string? ValidatorName { get; set; } = null;
     }
 }

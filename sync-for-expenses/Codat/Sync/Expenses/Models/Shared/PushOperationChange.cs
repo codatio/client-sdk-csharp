@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class PushOperationChange
@@ -20,7 +21,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Unique identifier for the attachment created otherwise null.
         /// </summary>
         [JsonProperty("attachmentId")]
-        public string? AttachmentId { get; set; }
+        public string? AttachmentId { get; set; } = null;
 
         [JsonProperty("recordRef")]
         public PushOperationRef? RecordRef { get; set; }

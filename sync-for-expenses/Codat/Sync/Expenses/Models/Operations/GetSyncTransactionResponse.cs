@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Operations
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using System.Collections.Generic;
     using System.Net.Http;
     using System;

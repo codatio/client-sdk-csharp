@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class Items
@@ -20,37 +21,37 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// City of the customer address.
         /// </summary>
         [JsonProperty("city")]
-        public string? City { get; set; }
+        public string? City { get; set; } = null;
 
         /// <summary>
         /// Country of the customer address.
         /// </summary>
         [JsonProperty("country")]
-        public string? Country { get; set; }
+        public string? Country { get; set; } = null;
 
         /// <summary>
         /// Line 1 of the customer address.
         /// </summary>
         [JsonProperty("line1")]
-        public string? Line1 { get; set; }
+        public string? Line1 { get; set; } = null;
 
         /// <summary>
         /// Line 2 of the customer address.
         /// </summary>
         [JsonProperty("line2")]
-        public string? Line2 { get; set; }
+        public string? Line2 { get; set; } = null;
 
         /// <summary>
         /// Postal code or zip code.
         /// </summary>
         [JsonProperty("postalCode")]
-        public string? PostalCode { get; set; }
+        public string? PostalCode { get; set; } = null;
 
         /// <summary>
         /// Region of the customer address.
         /// </summary>
         [JsonProperty("region")]
-        public string? Region { get; set; }
+        public string? Region { get; set; } = null;
 
         /// <summary>
         /// The type of the address

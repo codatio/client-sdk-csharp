@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Webhooks
 {
+    using Codat.Sync.Expenses.Utils;
     using System.Net.Http;
     using System;
     

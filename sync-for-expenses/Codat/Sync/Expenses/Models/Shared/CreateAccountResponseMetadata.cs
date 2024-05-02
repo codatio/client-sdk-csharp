@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class CreateAccountResponseMetadata
@@ -19,6 +20,6 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Indicates whether the record has been deleted in the third-party system this record originated from.
         /// </summary>
         [JsonProperty("isDeleted")]
-        public bool? IsDeleted { get; set; }
+        public bool? IsDeleted { get; set; } = null;
     }
 }

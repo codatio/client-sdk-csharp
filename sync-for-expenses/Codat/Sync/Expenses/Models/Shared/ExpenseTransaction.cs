@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -67,7 +68,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public decimal? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; } = null;
 
         /// <summary>
         /// Your unique identifier for the transaction.
@@ -124,7 +125,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// For supported accouting platforms, setting this optional property to true will post the transaction to a drafted state.
         /// </summary>
         [JsonProperty("postAsDraft")]
-        public bool? PostAsDraft { get; set; }
+        public bool? PostAsDraft { get; set; } = null;
 
         /// <summary>
         /// The type of transaction.

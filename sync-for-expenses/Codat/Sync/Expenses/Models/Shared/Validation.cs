@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -21,9 +22,9 @@ namespace Codat.Sync.Expenses.Models.Shared
     {
 
         [JsonProperty("errors")]
-        public List<ValidationItem>? Errors { get; set; }
+        public List<ValidationItem>? Errors { get; set; } = null;
 
         [JsonProperty("warnings")]
-        public List<ValidationItem>? Warnings { get; set; }
+        public List<ValidationItem>? Warnings { get; set; } = null;
     }
 }

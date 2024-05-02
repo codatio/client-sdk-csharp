@@ -3,7 +3,7 @@
 
 ## Overview
 
-Access create, update and delete operations made to an SMB's data connection.
+View historic push operations.
 
 ### Available Operations
 

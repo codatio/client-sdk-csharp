@@ -10,14 +10,16 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
-    using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     
-    public class CreateExpenseRequest
+    public class ContactRefReimbursableExpense
     {
 
-        [JsonProperty("items")]
-        public List<ExpenseTransaction>? Items { get; set; }
+        /// <summary>
+        /// Identifier of supplier.
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; } = default!;
     }
 }

@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class TrackingCategoryMappingInfo
@@ -25,7 +26,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Unique identifier of the tracking category.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string? Id { get; set; } = null;
 
         /// <summary>
         /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
@@ -58,12 +59,12 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Name of the tracking category as it appears in the accounting software.
         /// </summary>
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string? Name { get; set; } = null;
 
         /// <summary>
         /// ID of the parent tracking category
         /// </summary>
         [JsonProperty("parentId")]
-        public string? ParentId { get; set; }
+        public string? ParentId { get; set; } = null;
     }
 }

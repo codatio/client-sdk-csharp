@@ -3,7 +3,7 @@
 
 ## Overview
 
-Upload attachmens to expenses, transfers and reimbursable expense transactions.
+Attach receipts to a transaction for a complete audit trail.
 
 ### Available Operations
 

@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class CompanySyncStatus
@@ -19,7 +20,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Unique identifier for your SMB in Codat.
         /// </summary>
         [JsonProperty("companyId")]
-        public string? CompanyId { get; set; }
+        public string? CompanyId { get; set; } = null;
 
         /// <summary>
         /// Boolean of whether the sync resulted in data being pushed.
@@ -31,25 +32,25 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Error message of the sync.
         /// </summary>
         [JsonProperty("errorMessage")]
-        public string? ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; } = null;
 
         /// <summary>
         /// Exception message of the sync.
         /// </summary>
         [JsonProperty("syncExceptionMessage")]
-        public string? SyncExceptionMessage { get; set; }
+        public string? SyncExceptionMessage { get; set; } = null;
 
         /// <summary>
         /// Unique identifier of the sync.
         /// </summary>
         [JsonProperty("syncId")]
-        public string? SyncId { get; set; }
+        public string? SyncId { get; set; } = null;
 
         /// <summary>
         /// Text status of the sync.
         /// </summary>
         [JsonProperty("syncStatus")]
-        public string? SyncStatus { get; set; }
+        public string? SyncStatus { get; set; } = null;
 
         /// <summary>
         /// Status code of the sync.

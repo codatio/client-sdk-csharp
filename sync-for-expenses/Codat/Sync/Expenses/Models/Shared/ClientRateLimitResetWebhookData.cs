@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class ClientRateLimitResetWebhookData
@@ -52,7 +53,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Total number of requests remaining for your client.
         /// </summary>
         [JsonProperty("QuotaRemaining")]
-        public long? QuotaRemaining { get; set; }
+        public long? QuotaRemaining { get; set; } = null;
 
         /// <summary>
         /// The reason for your rate limit quota being reset.

@@ -17,13 +17,13 @@ namespace Codat.Sync.Expenses.Models.Operations
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Customer? Customer { get; set; }
+        public Customer? Customer { get; set; } = null;
 
         /// <summary>
         /// Allow a sync upon push completion.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=allowSyncOnPushComplete")]
-        public bool? AllowSyncOnPushComplete { get; set; }
+        public bool? AllowSyncOnPushComplete { get; set; } = true;
 
         /// <summary>
         /// Unique identifier for a company.
@@ -47,7 +47,7 @@ namespace Codat.Sync.Expenses.Models.Operations
         /// When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting platform, if they&apos;re different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=forceUpdate")]
-        public bool? ForceUpdate { get; set; }
+        public bool? ForceUpdate { get; set; } = false;
 
         /// <summary>
         /// Time limit for the push operation to complete before it is timed out.

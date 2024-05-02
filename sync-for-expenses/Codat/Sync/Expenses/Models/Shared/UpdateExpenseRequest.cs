@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -67,7 +68,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
-        public decimal? CurrencyRate { get; set; }
+        public decimal? CurrencyRate { get; set; } = null;
 
         /// <summary>
         /// Date the transaction was recorded.

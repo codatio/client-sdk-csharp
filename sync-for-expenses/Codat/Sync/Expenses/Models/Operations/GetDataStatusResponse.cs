@@ -10,8 +10,8 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Operations
 {
-    using Codat.Sync.Expenses.Models.Shared;
-    using System.Collections.Generic;
+    using Codat.Sync.Expenses.Models.Operations;
+    using Codat.Sync.Expenses.Utils;
     using System.Net.Http;
     using System;
     
@@ -26,7 +26,7 @@ namespace Codat.Sync.Expenses.Models.Operations
         /// <summary>
         /// OK
         /// </summary>
-        public Dictionary<string, DataStatus>? DataStatuses { get; set; }
+        public GetDataStatusDataStatuses? DataStatuses { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

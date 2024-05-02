@@ -23,7 +23,7 @@ namespace Codat.Sync.Expenses.Models.Operations
         /// Allow a sync upon push completion.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=allowSyncOnPushComplete")]
-        public bool? AllowSyncOnPushComplete { get; set; }
+        public bool? AllowSyncOnPushComplete { get; set; } = true;
 
         /// <summary>
         /// Unique identifier for a company.

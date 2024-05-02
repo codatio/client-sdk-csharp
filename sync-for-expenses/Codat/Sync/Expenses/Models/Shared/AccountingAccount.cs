@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -70,13 +71,13 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Current balance in the account.
         /// </summary>
         [JsonProperty("currentBalance")]
-        public decimal? CurrentBalance { get; set; }
+        public decimal? CurrentBalance { get; set; } = null;
 
         /// <summary>
         /// Description for the account.
         /// </summary>
         [JsonProperty("description")]
-        public string? Description { get; set; }
+        public string? Description { get; set; } = null;
 
         /// <summary>
         /// Full category of the account. <br/>
@@ -87,7 +88,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("fullyQualifiedCategory")]
-        public string? FullyQualifiedCategory { get; set; }
+        public string? FullyQualifiedCategory { get; set; } = null;
 
         /// <summary>
         /// Full name of the account, for example:<br/>
@@ -99,7 +100,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("fullyQualifiedName")]
-        public string? FullyQualifiedName { get; set; }
+        public string? FullyQualifiedName { get; set; } = null;
 
         /// <summary>
         /// Identifier for the account, unique for the company.
@@ -123,13 +124,13 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Name of the account.
         /// </summary>
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string? Name { get; set; } = null;
 
         /// <summary>
         /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn&apos;t a unique identifier in the Codat system.
         /// </summary>
         [JsonProperty("nominalCode")]
-        public string? NominalCode { get; set; }
+        public string? NominalCode { get; set; } = null;
 
         [JsonProperty("sourceModifiedDate")]
         public string? SourceModifiedDate { get; set; }
@@ -161,6 +162,6 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see <a href="/sync-for-expenses-api#/schemas/ValidDataTypeLinks">Valid Data Type Links</a>.
         /// </summary>
         [JsonProperty("validDatatypeLinks")]
-        public List<CreateAccountResponseValidDataTypeLinks>? ValidDatatypeLinks { get; set; }
+        public List<CreateAccountResponseValidDataTypeLinks>? ValidDatatypeLinks { get; set; } = null;
     }
 }

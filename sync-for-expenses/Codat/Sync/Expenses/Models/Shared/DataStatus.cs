@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     /// <summary>
@@ -20,10 +21,10 @@ namespace Codat.Sync.Expenses.Models.Shared
     {
 
         /// <summary>
-        /// The current status of the dataset in Codat&apos;s cache.
+        /// The current status of the dataset.
         /// </summary>
         [JsonProperty("currentStatus")]
-        public string CurrentStatus { get; set; } = default!;
+        public Status CurrentStatus { get; set; } = default!;
 
         /// <summary>
         /// Available data types

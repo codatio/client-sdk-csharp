@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -25,6 +26,6 @@ namespace Codat.Sync.Expenses.Models.Shared
     {
 
         [JsonProperty("content")]
-        public Dictionary<string, Dictionary<string, object>>? Content { get; set; }
+        public Dictionary<string, Dictionary<string, object>>? Content { get; set; } = null;
     }
 }

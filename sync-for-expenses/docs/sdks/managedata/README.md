@@ -3,7 +3,7 @@
 
 ## Overview
 
-Asynchronously retrieve data from an integration to refresh data in Codat.
+Control and monitor the retrieval of data from an integration.
 
 ### Available Operations
 
@@ -204,7 +204,7 @@ var sdk = new CodatSyncExpenses(security: new Security() {
 
 RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = SchemaDataType.Invoices,
+    DataType = Codat.Sync.Expenses.Models.Shared.SchemaDataType.Invoices,
 };
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(req);

@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class Phone
@@ -20,7 +21,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// A phone number.
         /// </summary>
         [JsonProperty("number")]
-        public string? Number { get; set; }
+        public string? Number { get; set; } = null;
 
         /// <summary>
         /// The type of phone number

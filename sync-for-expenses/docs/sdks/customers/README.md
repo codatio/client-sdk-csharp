@@ -3,7 +3,7 @@
 
 ## Overview
 
-Customers
+Get, create, and update customers.
 
 ### Available Operations
 
@@ -38,6 +38,24 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 CreateCustomerRequest req = new CreateCustomerRequest() {
+    Customer = new Customer() {
+        Contacts = new List<Contact>() {
+            new Contact() {
+                ModifiedDate = "2022-10-23T00:00:00Z",
+                Phone = new List<Phone>() {
+                    new Phone() {
+                        Number = "(877) 492-8687",
+                        Type = Codat.Sync.Expenses.Models.Shared.PhoneNumberType.Fax,
+                    },
+                },
+                Status = Codat.Sync.Expenses.Models.Shared.CustomerStatus.Archived,
+            },
+        },
+        DefaultCurrency = "USD",
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+        Status = Codat.Sync.Expenses.Models.Shared.CustomerStatus.Archived,
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -188,6 +206,24 @@ var sdk = new CodatSyncExpenses(security: new Security() {
     });
 
 UpdateCustomerRequest req = new UpdateCustomerRequest() {
+    Customer = new Customer() {
+        Contacts = new List<Contact>() {
+            new Contact() {
+                ModifiedDate = "2022-10-23T00:00:00Z",
+                Phone = new List<Phone>() {
+                    new Phone() {
+                        Number = "+44 25691 154789",
+                        Type = Codat.Sync.Expenses.Models.Shared.PhoneNumberType.Mobile,
+                    },
+                },
+                Status = Codat.Sync.Expenses.Models.Shared.CustomerStatus.Unknown,
+            },
+        },
+        DefaultCurrency = "USD",
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+        Status = Codat.Sync.Expenses.Models.Shared.CustomerStatus.Unknown,
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     CustomerId = "<value>",

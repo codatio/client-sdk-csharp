@@ -10,15 +10,16 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class CreateExpenseResponse
     {
 
         /// <summary>
-        /// Unique id of dataset created
+        /// Unique id of sync created
         /// </summary>
-        [JsonProperty("datasetId")]
-        public string? DatasetId { get; set; }
+        [JsonProperty("syncId")]
+        public string? SyncId { get; set; }
     }
 }

@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class Transaction
@@ -20,24 +21,24 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Type of transaction that has been processed e.g. Expense or Bank Feed.
         /// </summary>
         [JsonProperty("integrationType")]
-        public IntegrationType? IntegrationType { get; set; }
+        public IntegrationType? IntegrationType { get; set; } = Codat.Sync.Expenses.Models.Shared.IntegrationType.Expenses;
 
         /// <summary>
         /// Metadata such as validation errors or the resulting record created in the accounting software.
         /// </summary>
         [JsonProperty("message")]
-        public string? Message { get; set; }
+        public string? Message { get; set; } = null;
 
         /// <summary>
         /// Status of the transaction.
         /// </summary>
         [JsonProperty("status")]
-        public Models.Shared.TransactionStatus? Status { get; set; }
+        public Models.Shared.TransactionStatus? Status { get; set; } = null;
 
         /// <summary>
         /// Your unique idenfier of the transaction.
         /// </summary>
         [JsonProperty("transactionId")]
-        public string? TransactionId { get; set; }
+        public string? TransactionId { get; set; } = null;
     }
 }

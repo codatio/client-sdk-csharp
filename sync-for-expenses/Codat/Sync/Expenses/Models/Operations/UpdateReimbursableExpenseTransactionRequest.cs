@@ -12,12 +12,13 @@ namespace Codat.Sync.Expenses.Models.Operations
 {
     using Codat.Sync.Expenses.Models.Shared;
     using Codat.Sync.Expenses.Utils;
+    using System.Collections.Generic;
     
     public class UpdateReimbursableExpenseTransactionRequest
     {
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CreateReimbursableExpenseRequest? CreateReimbursableExpenseRequest { get; set; }
+        public List<ReimbursableExpenseTransaction>? RequestBody { get; set; }
 
         /// <summary>
         /// Unique identifier for a company.

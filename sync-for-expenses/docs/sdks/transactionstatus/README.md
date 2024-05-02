@@ -3,7 +3,7 @@
 
 ## Overview
 
-Retrieve the status of transactions within a sync.
+Monitor the status of individual transactions in data syncs.
 
 ### Available Operations
 

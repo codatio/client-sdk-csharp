@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Shared
 {
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
     public class PushFieldValidation
@@ -31,6 +32,6 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Unique reference identifier for the validation issue.
         /// </summary>
         [JsonProperty("ref")]
-        public string? Ref { get; set; }
+        public string? Ref { get; set; } = null;
     }
 }

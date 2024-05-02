@@ -11,6 +11,7 @@
 namespace Codat.Sync.Expenses.Models.Shared
 {
     using Codat.Sync.Expenses.Models.Shared;
+    using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
@@ -24,7 +25,7 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Email of a contact for a customer.
         /// </summary>
         [JsonProperty("email")]
-        public string? Email { get; set; }
+        public string? Email { get; set; } = null;
 
         /// <summary>
         /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
@@ -57,13 +58,13 @@ namespace Codat.Sync.Expenses.Models.Shared
         /// Name of a contact for a customer.
         /// </summary>
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string? Name { get; set; } = null;
 
         /// <summary>
         /// An array of Phone numbers.
         /// </summary>
         [JsonProperty("phone")]
-        public List<Phone>? Phone { get; set; }
+        public List<Phone>? Phone { get; set; } = null;
 
         /// <summary>
         /// Status of customer.

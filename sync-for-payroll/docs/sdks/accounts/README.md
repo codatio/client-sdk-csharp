@@ -3,7 +3,7 @@
 
 ## Overview
 
-Accounts
+Get, create, and update Accounts.
 
 ### Available Operations
 
@@ -38,6 +38,17 @@ var sdk = new CodatSyncPayroll(security: new Security() {
     });
 
 CreateAccountRequest req = new CreateAccountRequest() {
+    AccountPrototype = new AccountPrototype() {
+        Currency = "USD",
+        CurrentBalance = 0M,
+        Description = "Invoices the business has issued but has not yet collected payment on.",
+        FullyQualifiedCategory = "Asset.Current",
+        FullyQualifiedName = "Cash On Hand",
+        Name = "Accounts Receivable",
+        NominalCode = "610",
+        Status = AccountStatus.Active,
+        Type = AccountType.Asset,
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -57,7 +68,12 @@ var res = await sdk.Accounts.CreateAsync(req);
 ### Response
 
 **[Models.Operations.CreateAccountResponse](../../Models/Operations/CreateAccountResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## Get
 
@@ -101,7 +117,12 @@ var res = await sdk.Accounts.GetAsync(req);
 ### Response
 
 **[GetAccountResponse](../../Models/Operations/GetAccountResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## GetCreateModel
 
@@ -147,7 +168,12 @@ var res = await sdk.Accounts.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateAccountsModelResponse](../../Models/Operations/GetCreateAccountsModelResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## List
 
@@ -190,4 +216,9 @@ var res = await sdk.Accounts.ListAsync(req);
 ### Response
 
 **[ListAccountsResponse](../../Models/Operations/ListAccountsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503           | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |

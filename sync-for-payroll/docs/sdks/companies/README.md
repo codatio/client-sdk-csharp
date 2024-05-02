@@ -3,7 +3,7 @@
 
 ## Overview
 
-Create and manage your Codat companies.
+Create and manage your SMB users' companies.
 
 ### Available Operations
 
@@ -35,6 +35,11 @@ var sdk = new CodatSyncPayroll(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -53,7 +58,12 @@ var res = await sdk.Companies.CreateAsync(req);
 ### Response
 
 **[CreateCompanyResponse](../../Models/Operations/CreateCompanyResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## Delete
 
@@ -93,7 +103,12 @@ var res = await sdk.Companies.DeleteAsync(req);
 ### Response
 
 **[DeleteCompanyResponse](../../Models/Operations/DeleteCompanyResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## Get
 
@@ -133,7 +148,12 @@ var res = await sdk.Companies.GetAsync(req);
 ### Response
 
 **[GetCompanyResponse](../../Models/Operations/GetCompanyResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## List
 
@@ -174,7 +194,12 @@ var res = await sdk.Companies.ListAsync(req);
 ### Response
 
 **[ListCompaniesResponse](../../Models/Operations/ListCompaniesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## Update
 
@@ -197,6 +222,15 @@ var sdk = new CodatSyncPayroll(security: new Security() {
     });
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
+    CompanyRequestBody = new CompanyRequestBody() {
+        Description = "Requested early access to the new financing scheme.",
+        Groups = new List<Items>() {
+            new Items() {
+                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        },
+        Name = "Bank of Dave",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -215,4 +249,9 @@ var res = await sdk.Companies.UpdateAsync(req);
 ### Response
 
 **[UpdateCompanyResponse](../../Models/Operations/UpdateCompanyResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |

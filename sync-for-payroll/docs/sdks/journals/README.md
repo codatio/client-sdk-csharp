@@ -3,7 +3,7 @@
 
 ## Overview
 
-Journals
+Get, create, and update Journals.
 
 ### Available Operations
 
@@ -39,6 +39,9 @@ var sdk = new CodatSyncPayroll(security: new Security() {
 CreateJournalRequest req = new CreateJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    JournalPrototype = new JournalPrototype() {
+        CreatedOn = "2022-10-23T00:00:00Z",
+    },
 };
 
 var res = await sdk.Journals.CreateAsync(req);
@@ -56,7 +59,12 @@ var res = await sdk.Journals.CreateAsync(req);
 ### Response
 
 **[Models.Operations.CreateJournalResponse](../../Models/Operations/CreateJournalResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## Get
 
@@ -100,7 +108,12 @@ var res = await sdk.Journals.GetAsync(req);
 ### Response
 
 **[GetJournalResponse](../../Models/Operations/GetJournalResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## GetCreateModel
 
@@ -146,7 +159,12 @@ var res = await sdk.Journals.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateJournalModelResponse](../../Models/Operations/GetCreateJournalModelResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## List
 
@@ -190,4 +208,9 @@ var res = await sdk.Journals.ListAsync(req);
 ### Response
 
 **[ListJournalsResponse](../../Models/Operations/ListJournalsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503           | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |

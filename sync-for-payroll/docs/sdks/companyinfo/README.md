@@ -3,7 +3,7 @@
 
 ## Overview
 
-View company information fetched from the source platform.
+View company profile from the source platform.
 
 ### Available Operations
 
@@ -43,4 +43,9 @@ var res = await sdk.CompanyInfo.GetAccountingProfileAsync(req);
 ### Response
 
 **[GetAccountingProfileResponse](../../Models/Operations/GetAccountingProfileResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |

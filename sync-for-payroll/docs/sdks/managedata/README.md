@@ -3,7 +3,7 @@
 
 ## Overview
 
-Asynchronously retrieve data from an integration to refresh data in Codat.
+Control how data is retrieved from an integration.
 
 ### Available Operations
 
@@ -49,7 +49,12 @@ var res = await sdk.ManageData.GetDataStatusAsync(req);
 ### Response
 
 **[GetDataStatusResponse](../../Models/Operations/GetDataStatusResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## GetPullOperation
 
@@ -86,7 +91,12 @@ var res = await sdk.ManageData.GetPullOperationAsync(req);
 ### Response
 
 **[GetPullOperationResponse](../../Models/Operations/GetPullOperationResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## GetPushOperation
 
@@ -123,7 +133,12 @@ var res = await sdk.ManageData.GetPushOperationAsync(req);
 ### Response
 
 **[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## List
 
@@ -162,7 +177,12 @@ var res = await sdk.ManageData.ListAsync(req);
 ### Response
 
 **[ListPushOperationsResponse](../../Models/Operations/ListPushOperationsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## ListPullOperations
 
@@ -201,7 +221,12 @@ var res = await sdk.ManageData.ListPullOperationsAsync(req);
 ### Response
 
 **[ListPullOperationsResponse](../../Models/Operations/ListPullOperationsResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## RefreshAllDataTypes
 
@@ -241,7 +266,12 @@ var res = await sdk.ManageData.RefreshAllDataTypesAsync(req);
 ### Response
 
 **[RefreshAllDataTypesResponse](../../Models/Operations/RefreshAllDataTypesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## RefreshDataType
 
@@ -262,7 +292,7 @@ var sdk = new CodatSyncPayroll(security: new Security() {
 
 RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = SchemaDataType.Invoices,
+    DataType = Codat.Sync.Payroll.Models.Shared.SchemaDataType.Invoices,
 };
 
 var res = await sdk.ManageData.RefreshDataTypeAsync(req);
@@ -280,4 +310,9 @@ var res = await sdk.ManageData.RefreshDataTypeAsync(req);
 ### Response
 
 **[RefreshDataTypeResponse](../../Models/Operations/RefreshDataTypeResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |

@@ -3,7 +3,7 @@
 
 ## Overview
 
-Journal entries
+Get, create, and update Journal entries.
 
 ### Available Operations
 
@@ -39,6 +39,28 @@ var sdk = new CodatSyncPayroll(security: new Security() {
     });
 
 CreateJournalEntryRequest req = new CreateJournalEntryRequest() {
+    JournalEntry = new JournalEntry() {
+        CreatedOn = "2022-10-23T00:00:00Z",
+        JournalLines = new List<JournalLine>() {
+            new JournalLine() {
+                NetAmount = 4893.82M,
+                Tracking = new Tracking() {
+                    RecordRefs = new List<TrackingRecordRef>() {
+                        new TrackingRecordRef() {
+                            DataType = TrackingRecordRefDataType.TrackingCategories,
+                        },
+                    },
+                },
+            },
+        },
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        PostedOn = "2022-10-23T00:00:00Z",
+        RecordRef = new JournalEntryRecordRef() {
+            DataType = JournalEntryRecordRefDataType.Transfers,
+        },
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+        UpdatedOn = "2022-10-23T00:00:00Z",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -58,7 +80,12 @@ var res = await sdk.JournalEntries.CreateAsync(req);
 ### Response
 
 **[Models.Operations.CreateJournalEntryResponse](../../Models/Operations/CreateJournalEntryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## Delete
 
@@ -125,7 +152,12 @@ var res = await sdk.JournalEntries.DeleteAsync(req);
 ### Response
 
 **[DeleteJournalEntryResponse](../../Models/Operations/DeleteJournalEntryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## Get
 
@@ -169,7 +201,12 @@ var res = await sdk.JournalEntries.GetAsync(req);
 ### Response
 
 **[GetJournalEntryResponse](../../Models/Operations/GetJournalEntryResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503               | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## GetCreateModel
 
@@ -215,7 +252,12 @@ var res = await sdk.JournalEntries.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateJournalEntryModelResponse](../../Models/Operations/GetCreateJournalEntryModelResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                   | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |
 
 ## List
 
@@ -259,4 +301,9 @@ var res = await sdk.JournalEntries.ListAsync(req);
 ### Response
 
 **[ListJournalEntriesResponse](../../Models/Operations/ListJournalEntriesResponse.md)**
+### Errors
 
+| Error Object                                  | Status Code                                   | Content Type                                  |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| Codat.Sync.Payroll.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503           | application/json                              |
+| Codat.Sync.Payroll.Models.Errors.SDKException | 4xx-5xx                                       | */*                                           |

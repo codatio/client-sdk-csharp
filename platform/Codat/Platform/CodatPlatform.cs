@@ -10,6 +10,7 @@
 #nullable enable
 namespace Codat.Platform
 {
+    using Codat.Platform.Hooks;
     using Codat.Platform.Models.Errors;
     using Codat.Platform.Models.Shared;
     using Codat.Platform.Utils;
@@ -117,16 +118,28 @@ namespace Codat.Platform
             "https://api.codat.io",
         };
 
-        public string serverUrl = "";
-        public int serverIndex = 0;
+        public string ServerUrl = "";
+        public int ServerIndex = 0;
+        public SDKHooks hooks = new SDKHooks();
 
-        public string GetTemplatedServerDetails()
+        public string GetTemplatedServerUrl()
         {
-            if (!String.IsNullOrEmpty(this.serverUrl))
+            if (!String.IsNullOrEmpty(this.ServerUrl))
             {
-                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
+                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.ServerUrl, "/"), new Dictionary<string, string>());
             }
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], new Dictionary<string, string>());
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.ServerIndex], new Dictionary<string, string>());
+        }
+
+        public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
+        {
+            string preHooksUrl = GetTemplatedServerUrl();
+            var (postHooksUrl, postHooksClient) = this.hooks.SDKInit(preHooksUrl, client);
+            if (preHooksUrl != postHooksUrl)
+            {
+                this.ServerUrl = postHooksUrl;
+            }
+            return postHooksClient;
         }
     }
 
@@ -165,10 +178,10 @@ namespace Codat.Platform
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.6.0";
-        private const string _sdkGenVersion = "2.314.0";
+        private const string _sdkVersion = "3.6.1";
+        private const string _sdkGenVersion = "2.319.7";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.6.0 2.314.0 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 3.6.1 2.319.7 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -222,20 +235,43 @@ namespace Codat.Platform
 
             SDKConfiguration = new SDKConfig()
             {
-                serverIndex = _serverIndex,
-                serverUrl = _serverUrl
+                ServerIndex = _serverIndex,
+                ServerUrl = _serverUrl
             };
 
+            _defaultClient = SDKConfiguration.InitHooks(_defaultClient);
+
+
             Settings = new Settings(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Companies = new Companies(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             ConnectionManagement = new ConnectionManagement(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Connections = new Connections(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             CustomDataType = new CustomDataType(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             PushData = new PushData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             RefreshData = new RefreshData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Groups = new Groups(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Integrations = new Integrations(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             SupplementalData = new SupplementalData(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Webhooks = new Webhooks(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 803b84ac-e26a-4a5c-9224-dbc3d0c7712a
 management:
-  docChecksum: 91b86a7707fc536ccbdc7b7345d775a0
+  docChecksum: 45c9274f0e3c7dac25b46ab3b4007b5f
   docVersion: 3.0.0
-  speakeasyVersion: 1.274.1
-  generationVersion: 2.314.0
-  releaseVersion: 3.6.0
-  configChecksum: da622ef0f54bd9e9d3a34c5694447ea5
+  speakeasyVersion: 1.277.6
+  generationVersion: 2.319.7
+  releaseVersion: 3.6.1
+  configChecksum: e1137e6a45616de97875384f08e19dd5
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: platform
   published: true
 features:
   csharp:
     constsAndDefaults: 0.0.1
-    core: 3.8.0
+    core: 3.8.2
     deprecations: 2.81.2
     examples: 2.81.3
     globalSecurity: 2.83.4
@@ -22,7 +22,7 @@ features:
     ignores: 2.81.1
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.2
-    responseFormat: 0.0.1
+    responseFormat: 0.0.2
     webhooks: 1.0.0
 generatedFiles:
   - Codat/Platform/Settings.cs
@@ -49,7 +49,7 @@ generatedFiles:
   - Codat/Platform/Utils/IsoDateTimeSerializer.cs
   - Codat/Platform/Utils/RequestBodySerializer.cs
   - Codat/Platform/Utils/ResponseBodyDeserializer.cs
-  - Codat/Platform/Utils/SecuritySerializer.cs
+  - Codat/Platform/Utils/SecurityMetadata.cs
   - Codat/Platform/Utils/SpeakeasyHttpClient.cs
   - Codat/Platform/Utils/SpeakeasyMetadata.cs
   - Codat/Platform/Utils/URLBuilder.cs
@@ -449,3 +449,5 @@ generatedFiles:
   - docs/sdks/webhooks/README.md
   - USAGE.md
   - .gitattributes
+  - Codat/Platform/Hooks/SDKHooks.cs
+  - Codat/Platform/Hooks/HookTypes.cs

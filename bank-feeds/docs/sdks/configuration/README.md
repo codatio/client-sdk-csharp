@@ -44,7 +44,12 @@ var res = await sdk.Configuration.GetAsync(req);
 ### Response
 
 **[GetConfigurationResponse](../../Models/Operations/GetConfigurationResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## Set
 
@@ -63,6 +68,9 @@ var sdk = new CodatBankFeeds(security: new Security() {
     });
 
 SetConfigurationRequest req = new SetConfigurationRequest() {
+    Configuration = new Models.Shared.Configuration() {
+        CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -81,4 +89,9 @@ var res = await sdk.Configuration.SetAsync(req);
 ### Response
 
 **[SetConfigurationResponse](../../Models/Operations/SetConfigurationResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |

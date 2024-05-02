@@ -3,7 +3,7 @@
 
 ## Overview
 
-Transactions represent debits and credits from a source account.
+Create new bank account transactions for a company's connections, and see previous operations.
 
 ### Available Operations
 
@@ -37,7 +37,22 @@ var sdk = new CodatBankFeeds(security: new Security() {
     });
 
 CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
-    AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    CreateBankTransactions = new CreateBankTransactions() {
+        AccountId = "7110701885",
+        Transactions = new List<BankTransactions>() {
+            new BankTransactions() {
+                Amount = 999.99M,
+                Balance = -999.99M,
+                Counterparty = "ACME INC",
+                Date = "2022-10-23T00:00:00Z",
+                Description = "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
+                Id = "716422529",
+                Reconciled = false,
+                Reference = "reference for transaction",
+            },
+        },
+    },
+    AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -57,7 +72,12 @@ var res = await sdk.Transactions.CreateAsync(req);
 ### Response
 
 **[Models.Operations.CreateBankTransactionsResponse](../../Models/Operations/CreateBankTransactionsResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## GetCreateOperation
 
@@ -94,7 +114,12 @@ var res = await sdk.Transactions.GetCreateOperationAsync(req);
 ### Response
 
 **[GetCreateOperationResponse](../../Models/Operations/GetCreateOperationResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## ListCreateOperations
 
@@ -133,4 +158,9 @@ var res = await sdk.Transactions.ListCreateOperationsAsync(req);
 ### Response
 
 **[ListCreateOperationsResponse](../../Models/Operations/ListCreateOperationsResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |

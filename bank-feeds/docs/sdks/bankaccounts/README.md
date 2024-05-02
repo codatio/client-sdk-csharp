@@ -35,6 +35,9 @@ var sdk = new CodatBankFeeds(security: new Security() {
     });
 
 CreateBankAccountRequest req = new CreateBankAccountRequest() {
+    BankAccountPrototype = new BankAccountPrototype() {
+        Currency = "USD",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -54,7 +57,12 @@ var res = await sdk.BankAccounts.CreateAsync(req);
 ### Response
 
 **[CreateBankAccountResponse](../../Models/Operations/CreateBankAccountResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## GetCreateModel
 
@@ -100,7 +108,12 @@ var res = await sdk.BankAccounts.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateBankAccountsModelResponse](../../Models/Operations/GetCreateBankAccountsModelResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## List
 
@@ -145,4 +158,9 @@ var res = await sdk.BankAccounts.ListAsync(req);
 ### Response
 
 **[ListBankAccountsResponse](../../Models/Operations/ListBankAccountsResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503        | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |

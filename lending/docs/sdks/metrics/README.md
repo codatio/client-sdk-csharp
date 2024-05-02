@@ -55,7 +55,7 @@ GetCommerceCustomerRetentionMetricsRequest req = new GetCommerceCustomerRetentio
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 497588,
     PeriodLength = 613110,
-    PeriodUnit = PeriodUnit.Week,
+    PeriodUnit = Codat.Lending.Models.Shared.PeriodUnit.Week,
     ReportDate = "29-09-2020",
 };
 
@@ -74,7 +74,12 @@ var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
 ### Response
 
 **[GetCommerceCustomerRetentionMetricsResponse](../../Models/Operations/GetCommerceCustomerRetentionMetricsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetLifetimeValue
 
@@ -118,7 +123,7 @@ GetCommerceLifetimeValueMetricsRequest req = new GetCommerceLifetimeValueMetrics
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 900865,
     PeriodLength = 614777,
-    PeriodUnit = PeriodUnit.Month,
+    PeriodUnit = Codat.Lending.Models.Shared.PeriodUnit.Month,
     ReportDate = "29-09-2020",
 };
 
@@ -137,7 +142,12 @@ var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
 ### Response
 
 **[GetCommerceLifetimeValueMetricsResponse](../../Models/Operations/GetCommerceLifetimeValueMetricsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetRevenue
 
@@ -182,7 +192,7 @@ GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     NumberOfPeriods = 307462,
     PeriodLength = 944219,
-    PeriodUnit = PeriodUnit.Day,
+    PeriodUnit = Codat.Lending.Models.Shared.PeriodUnit.Day,
     ReportDate = "29-09-2020",
 };
 
@@ -201,4 +211,9 @@ var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
 ### Response
 
 **[GetCommerceRevenueMetricsResponse](../../Models/Operations/GetCommerceRevenueMetricsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

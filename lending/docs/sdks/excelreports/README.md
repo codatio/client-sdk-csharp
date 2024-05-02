@@ -32,7 +32,7 @@ var sdk = new CodatLending(security: new Security() {
 
 DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedFinancials,
+    ReportType = Codat.Lending.Models.Shared.ExcelReportTypes.EnhancedFinancials,
 };
 
 var res = await sdk.ExcelReports.DownloadAsync(req);
@@ -50,7 +50,12 @@ var res = await sdk.ExcelReports.DownloadAsync(req);
 ### Response
 
 **[DownloadExcelReportResponse](../../Models/Operations/DownloadExcelReportResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Generate
 
@@ -85,7 +90,7 @@ var sdk = new CodatLending(security: new Security() {
 
 GenerateExcelReportRequest req = new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedInvoices,
+    ReportType = Codat.Lending.Models.Shared.ExcelReportTypes.EnhancedInvoices,
 };
 
 var res = await sdk.ExcelReports.GenerateAsync(req);
@@ -103,7 +108,12 @@ var res = await sdk.ExcelReports.GenerateAsync(req);
 ### Response
 
 **[GenerateExcelReportResponse](../../Models/Operations/GenerateExcelReportResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetStatus
 
@@ -126,7 +136,7 @@ var sdk = new CodatLending(security: new Security() {
 
 GetExcelReportGenerationStatusRequest req = new GetExcelReportGenerationStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedCashFlow,
+    ReportType = Codat.Lending.Models.Shared.ExcelReportTypes.EnhancedCashFlow,
 };
 
 var res = await sdk.ExcelReports.GetStatusAsync(req);
@@ -144,4 +154,9 @@ var res = await sdk.ExcelReports.GetStatusAsync(req);
 ### Response
 
 **[GetExcelReportGenerationStatusResponse](../../Models/Operations/GetExcelReportGenerationStatusResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

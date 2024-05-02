@@ -9,27 +9,27 @@ The Lending API is built on top of the latest accounting, commerce, and banking 
 
 [Explore product](https://docs.codat.io/lending/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
----
-
+<!-- Start Codat Tags Table -->
 ## Endpoints
 
-| Endpoints            | Description                                                                                                |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------|
-| Companies            | Create and manage your SMB users' companies.                                                               |
-| Connections          | Create new and manage existing data connections for a company.                                             |
-| Bank statements      | Retrieve banking data from linked bank accounts.                                                           |
-| Sales                | Retrieve standardized sales data from a linked commerce platform.                                          |
-| Financial statements | Financial data and reports from a linked accounting platform.                                              |
-| Liabilities          | Debt and other liabilities.                                                                                |
-| Accounts payable     | Data from a linked accounting platform representing money the business owes money to its suppliers.        |
-| Accounts receivable  | Data from a linked accounting platform representing money owed to the business for sold goods or services. |
-| Transactions         | Data from a linked accounting platform representing transactions.                                          |
-| Data integrity       | Match mutable accounting data with immutable banking data to increase confidence in financial data.        |
-| Company info         | View company profile from the source platform.                                                             |
-| Excel reports        | Download reports in Excel format.                                                                          |
-| Categories           | Manage Codat's automatic account categorization functionality.                                             |
-| Manage data          | Control how data is retrieved from an integration.                                                         |
-| File upload          | Endpoints to manage uploaded files.                                                                        |
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Bank statements | Retrieve banking data from linked bank accounts. |
+| Sales | Retrieve standardized sales data from a linked commerce platform. |
+| Financial statements | Financial data and reports from a linked accounting platform. |
+| Liabilities | Debt and other liabilities. |
+| Accounts payable | Data from a linked accounting platform representing money the business owes money to its suppliers. |
+| Accounts receivable | Data from a linked accounting platform representing money owed to the business for sold goods or services. |
+| Transactions | Data from a linked accounting platform representing transactions. |
+| Company info | View company information fetched from the source platform. |
+| Data integrity | Match mutable accounting data with immutable banking data to increase confidence in financial data. |
+| Excel reports | Download reports in Excel format. |
+| Manage data | Control how data is retrieved from an integration. |
+| File upload | Endpoints to manage uploaded files. |
+| Loan writeback | Implement the [loan writeback](https://docs.codat.io/lending/guides/loan-writeback/introduction) procedure in your lending process to maintain an accurate position of a loan during the entire lending cycle. |
+<!-- End Codat Tags Table -->
 
 ### Available Operations
 

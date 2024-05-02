@@ -7,11 +7,16 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 csharp:
-  version: 5.3.0
+  version: 5.4.0
+  additionalDependencies: []
   author: Codat
+  clientServerStatusCodesAsErrors: true
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
+  disableNamespacePascalCasingApr2024: false
   dotnetVersion: net6.0
   flattenGlobalSecurity: false
   imports:
@@ -26,3 +31,4 @@ csharp:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.Lending
+  responseFormat: envelope

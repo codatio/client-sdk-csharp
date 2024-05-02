@@ -44,7 +44,12 @@ var res = await sdk.ManageData.Refresh.AllDataTypesAsync(req);
 ### Response
 
 **[RefreshAllDataTypesResponse](../../Models/Operations/RefreshAllDataTypesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## DataType
 
@@ -65,7 +70,7 @@ var sdk = new CodatLending(security: new Security() {
 
 RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = SchemaDataType.Invoices,
+    DataType = Codat.Lending.Models.Shared.SchemaDataType.Invoices,
 };
 
 var res = await sdk.ManageData.Refresh.DataTypeAsync(req);
@@ -83,4 +88,9 @@ var res = await sdk.ManageData.Refresh.DataTypeAsync(req);
 ### Response
 
 **[RefreshDataTypeResponse](../../Models/Operations/RefreshDataTypeResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

@@ -53,7 +53,12 @@ var res = await sdk.AccountsReceivable.Invoices.DownloadAttachmentAsync(req);
 ### Response
 
 **[DownloadAccountingInvoiceAttachmentResponse](../../Models/Operations/DownloadAccountingInvoiceAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## DownloadPdf
 
@@ -90,7 +95,12 @@ var res = await sdk.AccountsReceivable.Invoices.DownloadPdfAsync(req);
 ### Response
 
 **[DownloadAccountingInvoicePdfResponse](../../Models/Operations/DownloadAccountingInvoicePdfResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Get
 
@@ -133,7 +143,12 @@ var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
 ### Response
 
 **[GetAccountingInvoiceResponse](../../Models/Operations/GetAccountingInvoiceResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetAttachment
 
@@ -177,7 +192,12 @@ var res = await sdk.AccountsReceivable.Invoices.GetAttachmentAsync(req);
 ### Response
 
 **[GetAccountingInvoiceAttachmentResponse](../../Models/Operations/GetAccountingInvoiceAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -227,7 +247,12 @@ var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
 ### Response
 
 **[ListAccountingInvoicesResponse](../../Models/Operations/ListAccountingInvoicesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListAttachments
 
@@ -270,7 +295,12 @@ var res = await sdk.AccountsReceivable.Invoices.ListAttachmentsAsync(req);
 ### Response
 
 **[ListAccountingInvoiceAttachmentsResponse](../../Models/Operations/ListAccountingInvoiceAttachmentsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListReconciled
 
@@ -308,4 +338,9 @@ var res = await sdk.AccountsReceivable.Invoices.ListReconciledAsync(req);
 ### Response
 
 **[ListReconciledInvoicesResponse](../../Models/Operations/ListReconciledInvoicesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

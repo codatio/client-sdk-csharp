@@ -43,7 +43,12 @@ var res = await sdk.FinancialStatements.ProfitAndLoss.GetAsync(req);
 ### Response
 
 **[GetAccountingProfitAndLossResponse](../../Models/Operations/GetAccountingProfitAndLossResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetCategorizedAccounts
 
@@ -82,4 +87,9 @@ var res = await sdk.FinancialStatements.ProfitAndLoss.GetCategorizedAccountsAsyn
 ### Response
 
 **[GetCategorizedProfitAndLossStatementResponse](../../Models/Operations/GetCategorizedProfitAndLossStatementResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

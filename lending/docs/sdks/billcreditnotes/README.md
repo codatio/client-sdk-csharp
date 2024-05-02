@@ -48,7 +48,12 @@ var res = await sdk.AccountsPayable.BillCreditNotes.GetAsync(req);
 ### Response
 
 **[GetAccountingBillCreditNoteResponse](../../Models/Operations/GetAccountingBillCreditNoteResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -92,4 +97,9 @@ var res = await sdk.AccountsPayable.BillCreditNotes.ListAsync(req);
 ### Response
 
 **[ListAccountingBillCreditNotesResponse](../../Models/Operations/ListAccountingBillCreditNotesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

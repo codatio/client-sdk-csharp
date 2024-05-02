@@ -32,6 +32,17 @@ var sdk = new CodatLending(security: new Security() {
     });
 
 CreateAccountRequest req = new CreateAccountRequest() {
+    AccountPrototype = new AccountPrototype() {
+        Currency = "USD",
+        CurrentBalance = 0M,
+        Description = "Invoices the business has issued but has not yet collected payment on.",
+        FullyQualifiedCategory = "Asset.Current",
+        FullyQualifiedName = "Cash On Hand",
+        Name = "Accounts Receivable",
+        NominalCode = "610",
+        Status = AccountStatus.Active,
+        Type = AccountType.Asset,
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -51,7 +62,12 @@ var res = await sdk.LoanWriteback.Accounts.CreateAsync(req);
 ### Response
 
 **[CreateAccountResponse](../../Models/Operations/CreateAccountResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetCreateModel
 
@@ -97,4 +113,9 @@ var res = await sdk.LoanWriteback.Accounts.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateChartOfAccountsModelResponse](../../Models/Operations/GetCreateChartOfAccountsModelResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

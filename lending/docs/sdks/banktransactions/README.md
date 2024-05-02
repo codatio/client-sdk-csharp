@@ -32,6 +32,14 @@ var sdk = new CodatLending(security: new Security() {
     });
 
 CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
+    AccountingCreateBankTransactions = new AccountingCreateBankTransactions() {
+        AccountId = "7110701885",
+        Transactions = new List<CreateBankAccountTransaction>() {
+            new CreateBankAccountTransaction() {
+                Date = "2022-10-23T00:00:00Z",
+            },
+        },
+    },
     AccountId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -52,7 +60,12 @@ var res = await sdk.LoanWriteback.BankTransactions.CreateAsync(req);
 ### Response
 
 **[CreateBankTransactionsResponse](../../Models/Operations/CreateBankTransactionsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetCreateModel
 
@@ -99,4 +112,9 @@ var res = await sdk.LoanWriteback.BankTransactions.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateBankTransactionsModelResponse](../../Models/Operations/GetCreateBankTransactionsModelResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

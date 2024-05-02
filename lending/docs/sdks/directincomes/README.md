@@ -51,7 +51,12 @@ var res = await sdk.AccountsReceivable.DirectIncomes.DownloadAttachmentAsync(req
 ### Response
 
 **[DownloadAccountingDirectIncomeAttachmentResponse](../../Models/Operations/DownloadAccountingDirectIncomeAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Get
 
@@ -96,7 +101,12 @@ var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
 ### Response
 
 **[GetAccountingDirectIncomeResponse](../../Models/Operations/GetAccountingDirectIncomeResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetAttachment
 
@@ -140,7 +150,12 @@ var res = await sdk.AccountsReceivable.DirectIncomes.GetAttachmentAsync(req);
 ### Response
 
 **[GetAccountingDirectIncomeAttachmentResponse](../../Models/Operations/GetAccountingDirectIncomeAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -185,7 +200,12 @@ var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
 ### Response
 
 **[ListAccountingDirectIncomesResponse](../../Models/Operations/ListAccountingDirectIncomesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListAttachments
 
@@ -228,4 +248,9 @@ var res = await sdk.AccountsReceivable.DirectIncomes.ListAttachmentsAsync(req);
 ### Response
 
 **[ListAccountingDirectIncomeAttachmentsResponse](../../Models/Operations/ListAccountingDirectIncomeAttachmentsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

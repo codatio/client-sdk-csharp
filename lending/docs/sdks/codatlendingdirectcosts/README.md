@@ -51,7 +51,12 @@ var res = await sdk.Transactions.DirectCosts.DownloadAttachmentAsync(req);
 ### Response
 
 **[DownloadAccountingDirectCostAttachmentResponse](../../Models/Operations/DownloadAccountingDirectCostAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Get
 
@@ -96,7 +101,12 @@ var res = await sdk.Transactions.DirectCosts.GetAsync(req);
 ### Response
 
 **[GetAccountingDirectCostResponse](../../Models/Operations/GetAccountingDirectCostResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetAttachment
 
@@ -140,7 +150,12 @@ var res = await sdk.Transactions.DirectCosts.GetAttachmentAsync(req);
 ### Response
 
 **[GetAccountingDirectCostAttachmentResponse](../../Models/Operations/GetAccountingDirectCostAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -185,7 +200,12 @@ var res = await sdk.Transactions.DirectCosts.ListAsync(req);
 ### Response
 
 **[ListAccountingDirectCostsResponse](../../Models/Operations/ListAccountingDirectCostsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListAttachments
 
@@ -228,4 +248,9 @@ var res = await sdk.Transactions.DirectCosts.ListAttachmentsAsync(req);
 ### Response
 
 **[ListAccountingDirectCostAttachmentsResponse](../../Models/Operations/ListAccountingDirectCostAttachmentsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

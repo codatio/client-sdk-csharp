@@ -34,6 +34,41 @@ var sdk = new CodatLending(security: new Security() {
 CreateDirectCostRequest req = new CreateDirectCostRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectCostPrototype = new DirectCostPrototype() {
+        Currency = "USD",
+        IssueDate = "2022-10-23T00:00:00Z",
+        LineItems = new List<DirectCostLineItem>() {
+            new DirectCostLineItem() {
+                Quantity = 6384.24M,
+                Tracking = new Tracking() {
+                    InvoiceTo = new RecordRef() {
+                        DataType = "transfer",
+                    },
+                    RecordRefs = new List<TrackingRecordRef>() {
+                        new TrackingRecordRef() {
+                            DataType = TrackingRecordRefDataType.TrackingCategories,
+                        },
+                    },
+                },
+                UnitAmount = 4174.58M,
+            },
+        },
+        PaymentAllocations = new List<AccountingPaymentAllocation>() {
+            new AccountingPaymentAllocation() {
+                Allocation = new Allocation() {
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
+                    Currency = "GBP",
+                },
+                Payment = new PaymentAllocationPayment() {
+                    Currency = "EUR",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
+                },
+            },
+        },
+        SubTotal = 9967.06M,
+        TaxAmount = 7964.74M,
+        TotalAmount = 3768.44M,
+    },
 };
 
 var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(req);
@@ -51,7 +86,12 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(req);
 ### Response
 
 **[CreateDirectCostResponse](../../Models/Operations/CreateDirectCostResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetCreateModel
 
@@ -97,4 +137,9 @@ var res = await sdk.LoanWriteback.DirectCosts.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateDirectCostsModelResponse](../../Models/Operations/GetCreateDirectCostsModelResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

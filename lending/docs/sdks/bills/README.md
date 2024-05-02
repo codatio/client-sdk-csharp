@@ -51,7 +51,12 @@ var res = await sdk.AccountsPayable.Bills.DownloadAttachmentAsync(req);
 ### Response
 
 **[DownloadAccountingBillAttachmentResponse](../../Models/Operations/DownloadAccountingBillAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Get
 
@@ -95,7 +100,12 @@ var res = await sdk.AccountsPayable.Bills.GetAsync(req);
 ### Response
 
 **[GetAccountingBillResponse](../../Models/Operations/GetAccountingBillResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetAttachment
 
@@ -139,7 +149,12 @@ var res = await sdk.AccountsPayable.Bills.GetAttachmentAsync(req);
 ### Response
 
 **[GetAccountingBillAttachmentResponse](../../Models/Operations/GetAccountingBillAttachmentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -183,7 +198,12 @@ var res = await sdk.AccountsPayable.Bills.ListAsync(req);
 ### Response
 
 **[ListAccountingBillsResponse](../../Models/Operations/ListAccountingBillsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListAttachments
 
@@ -226,4 +246,9 @@ var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(req);
 ### Response
 
 **[ListAccountingBillAttachmentsResponse](../../Models/Operations/ListAccountingBillAttachmentsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

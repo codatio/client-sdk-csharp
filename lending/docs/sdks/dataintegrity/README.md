@@ -30,7 +30,7 @@ var sdk = new CodatLending(security: new Security() {
 
 ListDataIntegrityDetailsRequest req = new ListDataIntegrityDetailsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = DataIntegrityDataType.BankingAccounts,
+    DataType = Codat.Lending.Models.Shared.DataIntegrityDataType.BankingAccounts,
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
@@ -51,7 +51,12 @@ var res = await sdk.DataIntegrity.DetailsAsync(req);
 ### Response
 
 **[ListDataIntegrityDetailsResponse](../../Models/Operations/ListDataIntegrityDetailsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Status
 
@@ -77,7 +82,7 @@ var sdk = new CodatLending(security: new Security() {
 
 GetDataIntegrityStatusRequest req = new GetDataIntegrityStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = DataIntegrityDataType.BankingAccounts,
+    DataType = Codat.Lending.Models.Shared.DataIntegrityDataType.BankingAccounts,
 };
 
 var res = await sdk.DataIntegrity.StatusAsync(req);
@@ -95,7 +100,12 @@ var res = await sdk.DataIntegrity.StatusAsync(req);
 ### Response
 
 **[GetDataIntegrityStatusResponse](../../Models/Operations/GetDataIntegrityStatusResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Summaries
 
@@ -118,7 +128,7 @@ var sdk = new CodatLending(security: new Security() {
 
 GetDataIntegritySummariesRequest req = new GetDataIntegritySummariesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = DataIntegrityDataType.BankingAccounts,
+    DataType = Codat.Lending.Models.Shared.DataIntegrityDataType.BankingAccounts,
 };
 
 var res = await sdk.DataIntegrity.SummariesAsync(req);
@@ -136,4 +146,9 @@ var res = await sdk.DataIntegrity.SummariesAsync(req);
 ### Response
 
 **[GetDataIntegritySummariesResponse](../../Models/Operations/GetDataIntegritySummariesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

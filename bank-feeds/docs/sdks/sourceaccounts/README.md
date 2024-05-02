@@ -3,7 +3,7 @@
 
 ## Overview
 
-Source accounts act as a bridge to bank accounts in accounting software.
+Provide and manage lists of source bank accounts.
 
 ### Available Operations
 
@@ -61,7 +61,7 @@ CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
         Id = "acc-002",
         ModifiedDate = "2023-01-09T14:14:14.1057478Z",
         SortCode = "123456",
-        Status = "pending",
+        Status = Status.Pending,
     },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -82,7 +82,12 @@ var res = await sdk.SourceAccounts.CreateAsync(req);
 ### Response
 
 **[CreateSourceAccountResponse](../../Models/Operations/CreateSourceAccountResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## Delete
 
@@ -123,7 +128,12 @@ var res = await sdk.SourceAccounts.DeleteAsync(req);
 ### Response
 
 **[DeleteSourceAccountResponse](../../Models/Operations/DeleteSourceAccountResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## DeleteCredentials
 
@@ -162,7 +172,12 @@ var res = await sdk.SourceAccounts.DeleteCredentialsAsync(req);
 ### Response
 
 **[DeleteBankFeedCredentialsResponse](../../Models/Operations/DeleteBankFeedCredentialsResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## GenerateCredentials
 
@@ -203,7 +218,12 @@ var res = await sdk.SourceAccounts.GenerateCredentialsAsync(req);
 ### Response
 
 **[GenerateCredentialsResponse](../../Models/Operations/GenerateCredentialsResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## List
 
@@ -243,7 +263,12 @@ var res = await sdk.SourceAccounts.ListAsync(req);
 ### Response
 
 **[ListSourceAccountsResponse](../../Models/Operations/ListSourceAccountsResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## Update
 
@@ -272,7 +297,7 @@ UpdateSourceAccountRequest req = new UpdateSourceAccountRequest() {
         Id = "acc-003",
         ModifiedDate = "2023-01-09T14:14:14.1057478Z",
         SortCode = "123456",
-        Status = "pending",
+        Status = Status.Pending,
     },
     AccountId = "7110701885",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -294,4 +319,9 @@ var res = await sdk.SourceAccounts.UpdateAsync(req);
 ### Response
 
 **[UpdateSourceAccountResponse](../../Models/Operations/UpdateSourceAccountResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |

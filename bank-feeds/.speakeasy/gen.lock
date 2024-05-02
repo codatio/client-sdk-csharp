@@ -1,168 +1,185 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: 4dc8263ccdcfe623fbd51a2f54a06f5d
+  docChecksum: 5449a4fd5256a871748750f2a89b14d0
   docVersion: 3.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.257.2
-  releaseVersion: 4.2.0
-  configChecksum: 18858f1ad996dc3cbd0f95bd1b84ef6b
+  speakeasyVersion: 1.277.6
+  generationVersion: 2.319.7
+  releaseVersion: 4.3.0
+  configChecksum: 0ed2052916b7c28b2618ebed840a98f1
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
 features:
   csharp:
-    core: 3.3.2
+    constsAndDefaults: 0.0.1
+    core: 3.8.2
+    decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.83.0
-    globalServerURLs: 2.82.2
+    globalSecurity: 2.83.4
+    globalServerURLs: 2.82.3
     inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
+    responseFormat: 0.0.2
+    webhooks: 1.0.0
 generatedFiles:
-  - CodatBankFeeds/Companies.cs
-  - CodatBankFeeds/Connections.cs
-  - CodatBankFeeds/AccountMapping.cs
-  - CodatBankFeeds/SourceAccounts.cs
-  - CodatBankFeeds/BankAccounts.cs
-  - CodatBankFeeds/Transactions.cs
-  - CodatBankFeeds/Configuration.cs
-  - CodatBankFeeds/CodatBankFeeds.cs
-  - CodatBankFeeds/Utils/BigIntSerializer.cs
-  - CodatBankFeeds/Utils/DecimalSerializer.cs
-  - CodatBankFeeds/Utils/EnumSerializer.cs
-  - CodatBankFeeds/Utils/FlexibleObjectDeserializer.cs
-  - CodatBankFeeds/Utils/HeaderSerializer.cs
-  - CodatBankFeeds/Utils/IsoDateTimeSerializer.cs
-  - CodatBankFeeds/Utils/RequestBodySerializer.cs
-  - CodatBankFeeds/Utils/SecuritySerializer.cs
-  - CodatBankFeeds/Utils/SpeakeasyHttpClient.cs
-  - CodatBankFeeds/Utils/SpeakeasyMetadata.cs
-  - CodatBankFeeds/Utils/URLBuilder.cs
-  - CodatBankFeeds/Utils/Utilities.cs
-  - CodatBankFeeds/CodatBankFeeds.csproj
-  - CodatBankFeeds.sln
-  - CodatBankFeeds/Models/Operations/CreateCompanyResponse.cs
-  - CodatBankFeeds/Models/Operations/DeleteCompanyRequest.cs
-  - CodatBankFeeds/Models/Operations/DeleteCompanyResponse.cs
-  - CodatBankFeeds/Models/Operations/GetCompanyRequest.cs
-  - CodatBankFeeds/Models/Operations/GetCompanyResponse.cs
-  - CodatBankFeeds/Models/Operations/ListCompaniesRequest.cs
-  - CodatBankFeeds/Models/Operations/ListCompaniesResponse.cs
-  - CodatBankFeeds/Models/Operations/UpdateCompanyRequest.cs
-  - CodatBankFeeds/Models/Operations/UpdateCompanyResponse.cs
-  - CodatBankFeeds/Models/Operations/CreateConnectionRequestBody.cs
-  - CodatBankFeeds/Models/Operations/CreateConnectionRequest.cs
-  - CodatBankFeeds/Models/Operations/CreateConnectionResponse.cs
-  - CodatBankFeeds/Models/Operations/DeleteConnectionRequest.cs
-  - CodatBankFeeds/Models/Operations/DeleteConnectionResponse.cs
-  - CodatBankFeeds/Models/Operations/GetConnectionRequest.cs
-  - CodatBankFeeds/Models/Operations/GetConnectionResponse.cs
-  - CodatBankFeeds/Models/Operations/ListConnectionsRequest.cs
-  - CodatBankFeeds/Models/Operations/ListConnectionsResponse.cs
-  - CodatBankFeeds/Models/Operations/UnlinkConnectionUpdateConnection.cs
-  - CodatBankFeeds/Models/Operations/UnlinkConnectionRequest.cs
-  - CodatBankFeeds/Models/Operations/UnlinkConnectionResponse.cs
-  - CodatBankFeeds/Models/Operations/CreateBankAccountMappingRequest.cs
-  - CodatBankFeeds/Models/Operations/CreateBankAccountMappingResponse.cs
-  - CodatBankFeeds/Models/Operations/GetBankAccountMappingRequest.cs
-  - CodatBankFeeds/Models/Operations/GetBankAccountMappingResponse.cs
-  - CodatBankFeeds/Models/Operations/CreateSourceAccountRequest.cs
-  - CodatBankFeeds/Models/Operations/CreateSourceAccountResponse.cs
-  - CodatBankFeeds/Models/Operations/DeleteSourceAccountRequest.cs
-  - CodatBankFeeds/Models/Operations/DeleteSourceAccountResponse.cs
-  - CodatBankFeeds/Models/Operations/DeleteBankFeedCredentialsRequest.cs
-  - CodatBankFeeds/Models/Operations/DeleteBankFeedCredentialsResponse.cs
-  - CodatBankFeeds/Models/Operations/GenerateCredentialsRequest.cs
-  - CodatBankFeeds/Models/Operations/GenerateCredentialsResponse.cs
-  - CodatBankFeeds/Models/Operations/ListSourceAccountsRequest.cs
-  - CodatBankFeeds/Models/Operations/ListSourceAccountsResponse.cs
-  - CodatBankFeeds/Models/Operations/UpdateSourceAccountRequest.cs
-  - CodatBankFeeds/Models/Operations/UpdateSourceAccountResponse.cs
-  - CodatBankFeeds/Models/Operations/CreateBankAccountRequest.cs
-  - CodatBankFeeds/Models/Operations/CreateBankAccountResponse.cs
-  - CodatBankFeeds/Models/Operations/GetCreateBankAccountsModelRequest.cs
-  - CodatBankFeeds/Models/Operations/GetCreateBankAccountsModelResponse.cs
-  - CodatBankFeeds/Models/Operations/ListBankAccountsRequest.cs
-  - CodatBankFeeds/Models/Operations/ListBankAccountsResponse.cs
-  - CodatBankFeeds/Models/Operations/CreateBankTransactionsRequest.cs
-  - CodatBankFeeds/Models/Operations/CreateBankTransactionsResponse.cs
-  - CodatBankFeeds/Models/Operations/GetCreateOperationRequest.cs
-  - CodatBankFeeds/Models/Operations/GetCreateOperationResponse.cs
-  - CodatBankFeeds/Models/Operations/ListCreateOperationsRequest.cs
-  - CodatBankFeeds/Models/Operations/ListCreateOperationsResponse.cs
-  - CodatBankFeeds/Models/Operations/GetConfigurationRequest.cs
-  - CodatBankFeeds/Models/Operations/GetConfigurationResponse.cs
-  - CodatBankFeeds/Models/Operations/SetConfigurationRequest.cs
-  - CodatBankFeeds/Models/Operations/SetConfigurationResponse.cs
-  - CodatBankFeeds/Models/Shared/Zero.cs
-  - CodatBankFeeds/Models/Shared/ErrorMessage.cs
-  - CodatBankFeeds/Models/Shared/ErrorValidation.cs
-  - CodatBankFeeds/Models/Shared/ErrorValidationItem.cs
-  - CodatBankFeeds/Models/Shared/GroupReference.cs
-  - CodatBankFeeds/Models/Shared/Company.cs
-  - CodatBankFeeds/Models/Shared/SourceType.cs
-  - CodatBankFeeds/Models/Shared/Connection.cs
-  - CodatBankFeeds/Models/Shared/DataConnectionStatus.cs
-  - CodatBankFeeds/Models/Shared/DataConnectionError.cs
-  - CodatBankFeeds/Models/Shared/CompanyRequestBody.cs
-  - CodatBankFeeds/Models/Shared/Items.cs
-  - CodatBankFeeds/Models/Shared/Companies.cs
-  - CodatBankFeeds/Models/Shared/Links.cs
-  - CodatBankFeeds/Models/Shared/HalRef.cs
-  - CodatBankFeeds/Models/Shared/Connections.cs
-  - CodatBankFeeds/Models/Shared/BankFeedAccountMappingResponse.cs
-  - CodatBankFeeds/Models/Shared/BankFeedMapping.cs
-  - CodatBankFeeds/Models/Shared/TargetAccountOption.cs
-  - CodatBankFeeds/Models/Shared/SourceAccount.cs
-  - CodatBankFeeds/Models/Shared/BankAccountCredentials.cs
-  - CodatBankFeeds/Models/Shared/BankAccountCreateResponseBankAccountType.cs
-  - CodatBankFeeds/Models/Shared/Metadata.cs
-  - CodatBankFeeds/Models/Shared/SupplementalData.cs
-  - CodatBankFeeds/Models/Shared/AccountingBankAccount.cs
-  - CodatBankFeeds/Models/Shared/BankAccountCreateResponse.cs
-  - CodatBankFeeds/Models/Shared/Validation.cs
-  - CodatBankFeeds/Models/Shared/ValidationItem.cs
-  - CodatBankFeeds/Models/Shared/PushOperationStatus.cs
-  - CodatBankFeeds/Models/Shared/DataType.cs
-  - CodatBankFeeds/Models/Shared/PushOperationChange.cs
-  - CodatBankFeeds/Models/Shared/PushChangeType.cs
-  - CodatBankFeeds/Models/Shared/PushOperationRef.cs
-  - CodatBankFeeds/Models/Shared/BankAccountType.cs
-  - CodatBankFeeds/Models/Shared/BankAccountPrototype.cs
-  - CodatBankFeeds/Models/Shared/PushOption.cs
-  - CodatBankFeeds/Models/Shared/PushValidationInfo.cs
-  - CodatBankFeeds/Models/Shared/PushFieldValidation.cs
-  - CodatBankFeeds/Models/Shared/PushOptionType.cs
-  - CodatBankFeeds/Models/Shared/PushOptionProperty.cs
-  - CodatBankFeeds/Models/Shared/PushOptionChoice.cs
-  - CodatBankFeeds/Models/Shared/BankAccountsBankAccountType.cs
-  - CodatBankFeeds/Models/Shared/BankAccountsMetadata.cs
-  - CodatBankFeeds/Models/Shared/BankAccountsSupplementalData.cs
-  - CodatBankFeeds/Models/Shared/BankAccountsAccountingBankAccount.cs
-  - CodatBankFeeds/Models/Shared/BankAccounts.cs
-  - CodatBankFeeds/Models/Shared/CreateBankTransactionsResponse.cs
-  - CodatBankFeeds/Models/Shared/CreateBankTransactions.cs
-  - CodatBankFeeds/Models/Shared/BankTransactionType.cs
-  - CodatBankFeeds/Models/Shared/BankTransactions.cs
-  - CodatBankFeeds/Models/Shared/PushOperation.cs
-  - CodatBankFeeds/Models/Shared/PushOperations.cs
-  - CodatBankFeeds/Models/Shared/Configuration.cs
-  - CodatBankFeeds/Models/Shared/ConfigurationSchedule.cs
-  - CodatBankFeeds/Models/Shared/SyncConfiguration.cs
-  - CodatBankFeeds/Models/Shared/SyncAsExpenses.cs
-  - CodatBankFeeds/Models/Shared/ConfigurationSupplier.cs
-  - CodatBankFeeds/Models/Shared/ConfigurationContactRef.cs
-  - CodatBankFeeds/Models/Shared/ConfigurationCustomer.cs
-  - CodatBankFeeds/Models/Shared/BankAccountOption.cs
-  - CodatBankFeeds/Models/Shared/SyncAsBankFeeds.cs
-  - CodatBankFeeds/Models/Shared/Security.cs
-  - CodatBankFeeds/Models/Shared/ClientRateLimitReachedWebhook.cs
-  - CodatBankFeeds/Models/Shared/ClientRateLimitReachedWebhookData.cs
-  - CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhook.cs
-  - CodatBankFeeds/Models/Shared/ClientRateLimitResetWebhookData.cs
-  - CodatBankFeeds/Models/Webhooks/ClientRateLimitReachedResponse.cs
-  - CodatBankFeeds/Models/Webhooks/ClientRateLimitResetResponse.cs
+  - Codat/BankFeeds/Companies.cs
+  - Codat/BankFeeds/Connections.cs
+  - Codat/BankFeeds/AccountMapping.cs
+  - Codat/BankFeeds/CompanyInformation.cs
+  - Codat/BankFeeds/SourceAccounts.cs
+  - Codat/BankFeeds/BankAccounts.cs
+  - Codat/BankFeeds/Transactions.cs
+  - Codat/BankFeeds/Configuration.cs
+  - Codat/BankFeeds/CodatBankFeeds.cs
+  - global.json
+  - Codat.BankFeeds.sln
+  - Codat/BankFeeds/Utils/AnyDeserializer.cs
+  - Codat/BankFeeds/Utils/BigIntStrConverter.cs
+  - Codat/BankFeeds/Utils/DecimalStrConverter.cs
+  - Codat/BankFeeds/Utils/EnumConverter.cs
+  - Codat/BankFeeds/Utils/FlexibleObjectDeserializer.cs
+  - Codat/BankFeeds/Utils/HeaderSerializer.cs
+  - Codat/BankFeeds/Utils/IsoDateTimeSerializer.cs
+  - Codat/BankFeeds/Utils/RequestBodySerializer.cs
+  - Codat/BankFeeds/Utils/ResponseBodyDeserializer.cs
+  - Codat/BankFeeds/Utils/SecurityMetadata.cs
+  - Codat/BankFeeds/Utils/SpeakeasyHttpClient.cs
+  - Codat/BankFeeds/Utils/SpeakeasyMetadata.cs
+  - Codat/BankFeeds/Utils/URLBuilder.cs
+  - Codat/BankFeeds/Utils/Utilities.cs
+  - Codat/BankFeeds/Codat.BankFeeds.csproj
+  - Codat/BankFeeds/Models/Errors/SDKException.cs
+  - Codat/BankFeeds/Models/Operations/CreateCompanyResponse.cs
+  - Codat/BankFeeds/Models/Operations/DeleteCompanyRequest.cs
+  - Codat/BankFeeds/Models/Operations/DeleteCompanyResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetCompanyRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetCompanyResponse.cs
+  - Codat/BankFeeds/Models/Operations/ListCompaniesRequest.cs
+  - Codat/BankFeeds/Models/Operations/ListCompaniesResponse.cs
+  - Codat/BankFeeds/Models/Operations/UpdateCompanyRequest.cs
+  - Codat/BankFeeds/Models/Operations/UpdateCompanyResponse.cs
+  - Codat/BankFeeds/Models/Operations/CreateConnectionRequestBody.cs
+  - Codat/BankFeeds/Models/Operations/CreateConnectionRequest.cs
+  - Codat/BankFeeds/Models/Operations/CreateConnectionResponse.cs
+  - Codat/BankFeeds/Models/Operations/DeleteConnectionRequest.cs
+  - Codat/BankFeeds/Models/Operations/DeleteConnectionResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetConnectionRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetConnectionResponse.cs
+  - Codat/BankFeeds/Models/Operations/ListConnectionsRequest.cs
+  - Codat/BankFeeds/Models/Operations/ListConnectionsResponse.cs
+  - Codat/BankFeeds/Models/Operations/UnlinkConnectionUpdateConnection.cs
+  - Codat/BankFeeds/Models/Operations/UnlinkConnectionRequest.cs
+  - Codat/BankFeeds/Models/Operations/UnlinkConnectionResponse.cs
+  - Codat/BankFeeds/Models/Operations/CreateBankAccountMappingRequest.cs
+  - Codat/BankFeeds/Models/Operations/CreateBankAccountMappingResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetBankAccountMappingRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetBankAccountMappingResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetCompanyInformationRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetCompanyInformationResponse.cs
+  - Codat/BankFeeds/Models/Operations/CreateSourceAccountRequest.cs
+  - Codat/BankFeeds/Models/Operations/CreateSourceAccountResponse.cs
+  - Codat/BankFeeds/Models/Operations/DeleteSourceAccountRequest.cs
+  - Codat/BankFeeds/Models/Operations/DeleteSourceAccountResponse.cs
+  - Codat/BankFeeds/Models/Operations/DeleteBankFeedCredentialsRequest.cs
+  - Codat/BankFeeds/Models/Operations/DeleteBankFeedCredentialsResponse.cs
+  - Codat/BankFeeds/Models/Operations/GenerateCredentialsRequest.cs
+  - Codat/BankFeeds/Models/Operations/GenerateCredentialsResponse.cs
+  - Codat/BankFeeds/Models/Operations/ListSourceAccountsRequest.cs
+  - Codat/BankFeeds/Models/Operations/ListSourceAccountsResponse.cs
+  - Codat/BankFeeds/Models/Operations/UpdateSourceAccountRequest.cs
+  - Codat/BankFeeds/Models/Operations/UpdateSourceAccountResponse.cs
+  - Codat/BankFeeds/Models/Operations/CreateBankAccountRequest.cs
+  - Codat/BankFeeds/Models/Operations/CreateBankAccountResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetCreateBankAccountsModelRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetCreateBankAccountsModelResponse.cs
+  - Codat/BankFeeds/Models/Operations/ListBankAccountsRequest.cs
+  - Codat/BankFeeds/Models/Operations/ListBankAccountsResponse.cs
+  - Codat/BankFeeds/Models/Operations/CreateBankTransactionsRequest.cs
+  - Codat/BankFeeds/Models/Operations/CreateBankTransactionsResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetCreateOperationRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetCreateOperationResponse.cs
+  - Codat/BankFeeds/Models/Operations/ListCreateOperationsRequest.cs
+  - Codat/BankFeeds/Models/Operations/ListCreateOperationsResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetConfigurationRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetConfigurationResponse.cs
+  - Codat/BankFeeds/Models/Operations/SetConfigurationRequest.cs
+  - Codat/BankFeeds/Models/Operations/SetConfigurationResponse.cs
+  - Codat/BankFeeds/Models/Shared/Zero.cs
+  - Codat/BankFeeds/Models/Shared/GroupReference.cs
+  - Codat/BankFeeds/Models/Shared/Company.cs
+  - Codat/BankFeeds/Models/Shared/SourceType.cs
+  - Codat/BankFeeds/Models/Shared/Connection.cs
+  - Codat/BankFeeds/Models/Shared/DataConnectionStatus.cs
+  - Codat/BankFeeds/Models/Shared/DataConnectionError.cs
+  - Codat/BankFeeds/Models/Shared/ErrorValidation.cs
+  - Codat/BankFeeds/Models/Shared/ErrorValidationItem.cs
+  - Codat/BankFeeds/Models/Shared/CompanyRequestBody.cs
+  - Codat/BankFeeds/Models/Shared/Items.cs
+  - Codat/BankFeeds/Models/Shared/Companies.cs
+  - Codat/BankFeeds/Models/Shared/Links.cs
+  - Codat/BankFeeds/Models/Shared/HalRef.cs
+  - Codat/BankFeeds/Models/Shared/Connections.cs
+  - Codat/BankFeeds/Models/Shared/BankFeedAccountMappingResponse.cs
+  - Codat/BankFeeds/Models/Shared/BankFeedMapping.cs
+  - Codat/BankFeeds/Models/Shared/TargetAccountOption.cs
+  - Codat/BankFeeds/Models/Shared/CompanyInformation.cs
+  - Codat/BankFeeds/Models/Shared/Status.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccount.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountCredentials.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountCreateResponseBankAccountType.cs
+  - Codat/BankFeeds/Models/Shared/Metadata.cs
+  - Codat/BankFeeds/Models/Shared/SupplementalData.cs
+  - Codat/BankFeeds/Models/Shared/AccountingBankAccount.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountCreateResponse.cs
+  - Codat/BankFeeds/Models/Shared/Validation.cs
+  - Codat/BankFeeds/Models/Shared/ValidationItem.cs
+  - Codat/BankFeeds/Models/Shared/PushOperationStatus.cs
+  - Codat/BankFeeds/Models/Shared/DataType.cs
+  - Codat/BankFeeds/Models/Shared/PushOperationChange.cs
+  - Codat/BankFeeds/Models/Shared/PushChangeType.cs
+  - Codat/BankFeeds/Models/Shared/PushOperationRef.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountType.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountPrototype.cs
+  - Codat/BankFeeds/Models/Shared/PushOption.cs
+  - Codat/BankFeeds/Models/Shared/PushValidationInfo.cs
+  - Codat/BankFeeds/Models/Shared/PushFieldValidation.cs
+  - Codat/BankFeeds/Models/Shared/PushOptionType.cs
+  - Codat/BankFeeds/Models/Shared/PushOptionProperty.cs
+  - Codat/BankFeeds/Models/Shared/PushOptionChoice.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountsBankAccountType.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountsMetadata.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountsSupplementalData.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountsAccountingBankAccount.cs
+  - Codat/BankFeeds/Models/Shared/BankAccounts.cs
+  - Codat/BankFeeds/Models/Shared/CreateBankTransactionsResponse.cs
+  - Codat/BankFeeds/Models/Shared/CreateBankTransactions.cs
+  - Codat/BankFeeds/Models/Shared/BankTransactionType.cs
+  - Codat/BankFeeds/Models/Shared/BankTransactions.cs
+  - Codat/BankFeeds/Models/Shared/PushOperation.cs
+  - Codat/BankFeeds/Models/Shared/PushOperations.cs
+  - Codat/BankFeeds/Models/Shared/Configuration.cs
+  - Codat/BankFeeds/Models/Shared/ConfigurationSchedule.cs
+  - Codat/BankFeeds/Models/Shared/SyncConfiguration.cs
+  - Codat/BankFeeds/Models/Shared/SyncAsExpenses.cs
+  - Codat/BankFeeds/Models/Shared/ConfigurationSupplier.cs
+  - Codat/BankFeeds/Models/Shared/ConfigurationContactRef.cs
+  - Codat/BankFeeds/Models/Shared/ConfigurationCustomer.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountOption.cs
+  - Codat/BankFeeds/Models/Shared/SyncAsBankFeeds.cs
+  - Codat/BankFeeds/Models/Shared/Security.cs
+  - Codat/BankFeeds/Models/Shared/ClientRateLimitReachedWebhook.cs
+  - Codat/BankFeeds/Models/Shared/ClientRateLimitReachedWebhookData.cs
+  - Codat/BankFeeds/Models/Shared/ClientRateLimitResetWebhook.cs
+  - Codat/BankFeeds/Models/Shared/ClientRateLimitResetWebhookData.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountWebhook.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountWebhookPayload.cs
+  - Codat/BankFeeds/Models/Errors/ErrorMessage.cs
+  - Codat/BankFeeds/Models/Webhooks/ClientRateLimitReachedResponse.cs
+  - Codat/BankFeeds/Models/Webhooks/ClientRateLimitResetResponse.cs
+  - Codat/BankFeeds/Models/Webhooks/BankFeedsSourceAccountConnectedResponse.cs
+  - Codat/BankFeeds/Models/Webhooks/BankFeedsSourceAccountDisconnectedResponse.cs
   - docs/Models/Operations/CreateCompanyResponse.md
   - docs/Models/Operations/DeleteCompanyRequest.md
   - docs/Models/Operations/DeleteCompanyResponse.md
@@ -188,6 +205,8 @@ generatedFiles:
   - docs/Models/Operations/CreateBankAccountMappingResponse.md
   - docs/Models/Operations/GetBankAccountMappingRequest.md
   - docs/Models/Operations/GetBankAccountMappingResponse.md
+  - docs/Models/Operations/GetCompanyInformationRequest.md
+  - docs/Models/Operations/GetCompanyInformationResponse.md
   - docs/Models/Operations/CreateSourceAccountRequest.md
   - docs/Models/Operations/CreateSourceAccountResponse.md
   - docs/Models/Operations/DeleteSourceAccountRequest.md
@@ -217,15 +236,14 @@ generatedFiles:
   - docs/Models/Operations/SetConfigurationRequest.md
   - docs/Models/Operations/SetConfigurationResponse.md
   - docs/Models/Shared/Zero.md
-  - docs/Models/Shared/ErrorMessage.md
-  - docs/Models/Shared/ErrorValidation.md
-  - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/GroupReference.md
   - docs/Models/Shared/Company.md
   - docs/Models/Shared/SourceType.md
   - docs/Models/Shared/Connection.md
   - docs/Models/Shared/DataConnectionStatus.md
   - docs/Models/Shared/DataConnectionError.md
+  - docs/Models/Shared/ErrorValidation.md
+  - docs/Models/Shared/ErrorValidationItem.md
   - docs/Models/Shared/CompanyRequestBody.md
   - docs/Models/Shared/Items.md
   - docs/Models/Shared/Companies.md
@@ -235,6 +253,8 @@ generatedFiles:
   - docs/Models/Shared/BankFeedAccountMappingResponse.md
   - docs/Models/Shared/BankFeedMapping.md
   - docs/Models/Shared/TargetAccountOption.md
+  - docs/Models/Shared/CompanyInformation.md
+  - docs/Models/Shared/Status.md
   - docs/Models/Shared/SourceAccount.md
   - docs/Models/Shared/BankAccountCredentials.md
   - docs/Models/Shared/BankAccountCreateResponseBankAccountType.md
@@ -282,15 +302,23 @@ generatedFiles:
   - docs/Models/Shared/ClientRateLimitReachedWebhookData.md
   - docs/Models/Shared/ClientRateLimitResetWebhook.md
   - docs/Models/Shared/ClientRateLimitResetWebhookData.md
+  - docs/Models/Shared/SourceAccountWebhook.md
+  - docs/Models/Shared/SourceAccountWebhookPayload.md
+  - docs/Models/Errors/ErrorMessage.md
   - docs/Models/Webhooks/ClientRateLimitReachedResponse.md
   - docs/Models/Webhooks/ClientRateLimitResetResponse.md
+  - docs/Models/Webhooks/BankFeedsSourceAccountConnectedResponse.md
+  - docs/Models/Webhooks/BankFeedsSourceAccountDisconnectedResponse.md
   - docs/sdks/codatbankfeeds/README.md
   - docs/sdks/companies/README.md
   - docs/sdks/connections/README.md
   - docs/sdks/accountmapping/README.md
+  - docs/sdks/companyinformation/README.md
   - docs/sdks/sourceaccounts/README.md
   - docs/sdks/bankaccounts/README.md
   - docs/sdks/transactions/README.md
   - docs/sdks/configuration/README.md
   - USAGE.md
   - .gitattributes
+  - Codat/BankFeeds/Hooks/SDKHooks.cs
+  - Codat/BankFeeds/Hooks/HookTypes.cs

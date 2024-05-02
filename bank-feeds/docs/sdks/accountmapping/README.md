@@ -3,7 +3,7 @@
 
 ## Overview
 
-Bank feed bank account mapping.
+Extra functionality for building an account management UI.
 
 ### Available Operations
 
@@ -56,7 +56,12 @@ var res = await sdk.AccountMapping.CreateAsync(req);
 ### Response
 
 **[CreateBankAccountMappingResponse](../../Models/Operations/CreateBankAccountMappingResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## Get
 
@@ -97,4 +102,9 @@ var res = await sdk.AccountMapping.GetAsync(req);
 ### Response
 
 **[GetBankAccountMappingResponse](../../Models/Operations/GetBankAccountMappingResponse.md)**
+### Errors
 
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |

@@ -7,11 +7,16 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 csharp:
-  version: 4.2.0
+  version: 4.3.0
+  additionalDependencies: []
   author: Codat
+  clientServerStatusCodesAsErrors: true
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
+  disableNamespacePascalCasingApr2024: false
   dotnetVersion: net6.0
   flattenGlobalSecurity: false
   imports:
@@ -26,3 +31,4 @@ csharp:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.BankFeeds
+  responseFormat: envelope

@@ -31,6 +31,11 @@ var sdk = new CodatBankFeeds(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -64,6 +69,10 @@ var res = await sdk.Companies.CreateAsync(req);
 * [Create](docs/sdks/accountmapping/README.md#create) - Create bank feed account mapping
 * [Get](docs/sdks/accountmapping/README.md#get) - List bank feed account mappings
 
+### [CompanyInformation](docs/sdks/companyinformation/README.md)
+
+* [Get](docs/sdks/companyinformation/README.md#get) - Get company information
+
 ### [SourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [Create](docs/sdks/sourceaccounts/README.md#create) - Create source account
@@ -94,8 +103,6 @@ var res = await sdk.Companies.CreateAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
@@ -121,7 +128,7 @@ This SDK supports the following security scheme globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| `AuthHeader` | apiKey       | API key      |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp
@@ -135,6 +142,11 @@ var sdk = new CodatBankFeeds(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -143,6 +155,59 @@ var res = await sdk.Companies.CreateAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+
+### Example
+
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using System;
+using Codat.BankFeeds.Models.Errors;
+using System.Collections.Generic;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
+    Name = "Bank of Dave",
+};
+
+try
+{
+    var res = await sdk.Companies.CreateAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorMessage)
+    {
+        // handle exception
+    }
+    else if (ex is Codat.BankFeeds.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

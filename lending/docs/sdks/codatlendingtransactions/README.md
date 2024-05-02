@@ -49,7 +49,12 @@ var res = await sdk.Sales.Transactions.GetAsync(req);
 ### Response
 
 **[GetCommerceTransactionResponse](../../Models/Operations/GetCommerceTransactionResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -94,4 +99,9 @@ var res = await sdk.Sales.Transactions.ListAsync(req);
 ### Response
 
 **[ListCommerceTransactionsResponse](../../Models/Operations/ListCommerceTransactionsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

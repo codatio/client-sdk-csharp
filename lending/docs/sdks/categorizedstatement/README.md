@@ -45,4 +45,9 @@ var res = await sdk.Banking.CategorizedStatement.GetAsync(req);
 ### Response
 
 **[GetCategorizedBankStatementResponse](../../Models/Operations/GetCategorizedBankStatementResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

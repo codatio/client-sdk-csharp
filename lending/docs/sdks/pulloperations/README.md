@@ -41,7 +41,12 @@ var res = await sdk.ManageData.PullOperations.GetAsync(req);
 ### Response
 
 **[GetPullOperationResponse](../../Models/Operations/GetPullOperationResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -80,4 +85,9 @@ var res = await sdk.ManageData.PullOperations.ListAsync(req);
 ### Response
 
 **[ListPullOperationsResponse](../../Models/Operations/ListPullOperationsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

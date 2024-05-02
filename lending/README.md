@@ -31,6 +31,11 @@ var sdk = new CodatLending(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -58,6 +63,13 @@ var res = await sdk.Companies.CreateAsync(req);
 * [Get](docs/sdks/connections/README.md#get) - Get connection
 * [List](docs/sdks/connections/README.md#list) - List connections
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+
+### [BankStatements](docs/sdks/bankstatements/README.md)
+
+* [EndUploadSession](docs/sdks/bankstatements/README.md#enduploadsession) - End upload session
+* [GetUploadConfiguration](docs/sdks/bankstatements/README.md#getuploadconfiguration) - Get upload configuration
+* [SetUploadConfiguration](docs/sdks/bankstatements/README.md#setuploadconfiguration) - Set upload configuration
+* [StartUploadSession](docs/sdks/bankstatements/README.md#startuploadsession) - Start upload session
 
 
 ### [Transactions.AccountTransactions](docs/sdks/accounttransactions/README.md)
@@ -358,8 +370,6 @@ var res = await sdk.Companies.CreateAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
@@ -385,7 +395,7 @@ This SDK supports the following security scheme globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| `AuthHeader` | apiKey       | API key      |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp
@@ -399,6 +409,11 @@ var sdk = new CodatLending(security: new Security() {
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 
@@ -407,6 +422,59 @@ var res = await sdk.Companies.CreateAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+### Example
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Shared;
+using System;
+using Codat.Lending.Models.Errors;
+using System.Collections.Generic;
+
+var sdk = new CodatLending(security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    });
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
+    Name = "Bank of Dave",
+};
+
+try
+{
+    var res = await sdk.Companies.CreateAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorMessage)
+    {
+        // handle exception
+    }
+    else if (ex is Codat.Lending.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

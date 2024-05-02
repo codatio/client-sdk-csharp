@@ -49,7 +49,12 @@ var res = await sdk.Sales.Locations.GetAsync(req);
 ### Response
 
 **[GetCommerceLocationResponse](../../Models/Operations/GetCommerceLocationResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## List
 
@@ -91,4 +96,9 @@ var res = await sdk.Sales.Locations.ListAsync(req);
 ### Response
 
 **[ListCommerceLocationsResponse](../../Models/Operations/ListCommerceLocationsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

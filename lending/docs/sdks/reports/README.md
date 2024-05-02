@@ -46,7 +46,12 @@ var res = await sdk.AccountsReceivable.Reports.GetAgedCreditorsAsync(req);
 ### Response
 
 **[GetAccountingAgedCreditorsReportResponse](../../Models/Operations/GetAccountingAgedCreditorsReportResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetAgedDebtors
 
@@ -86,7 +91,12 @@ var res = await sdk.AccountsReceivable.Reports.GetAgedDebtorsAsync(req);
 ### Response
 
 **[GetAccountingAgedDebtorsReportResponse](../../Models/Operations/GetAccountingAgedDebtorsReportResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## IsAgedCreditorsAvailable
 
@@ -122,7 +132,12 @@ var res = await sdk.AccountsReceivable.Reports.IsAgedCreditorsAvailableAsync(req
 ### Response
 
 **[IsAgedCreditorsReportAvailableResponse](../../Models/Operations/IsAgedCreditorsReportAvailableResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## IsAgedDebtorsAvailable
 
@@ -158,4 +173,9 @@ var res = await sdk.AccountsReceivable.Reports.IsAgedDebtorsAvailableAsync(req);
 ### Response
 
 **[IsAgedDebtorsReportAvailableResponse](../../Models/Operations/IsAgedDebtorsReportAvailableResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

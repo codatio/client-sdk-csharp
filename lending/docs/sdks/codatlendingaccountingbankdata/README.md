@@ -55,4 +55,9 @@ var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
 ### Response
 
 **[ListAccountingBankAccountTransactionsResponse](../../Models/Operations/ListAccountingBankAccountTransactionsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

@@ -34,7 +34,7 @@ var sdk = new CodatLending(security: new Security() {
 
 GenerateLoanSummaryRequest req = new GenerateLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Models.Operations.SourceType.Accounting,
+    SourceType = Codat.Lending.Models.Operations.SourceType.Accounting,
 };
 
 var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
@@ -52,7 +52,12 @@ var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
 ### Response
 
 **[GenerateLoanSummaryResponse](../../Models/Operations/GenerateLoanSummaryResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GenerateLoanTransactions
 
@@ -76,7 +81,7 @@ var sdk = new CodatLending(security: new Security() {
 
 GenerateLoanTransactionsRequest req = new GenerateLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = QueryParamSourceType.Accounting,
+    SourceType = Codat.Lending.Models.Operations.QueryParamSourceType.Accounting,
 };
 
 var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
@@ -94,7 +99,12 @@ var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
 ### Response
 
 **[GenerateLoanTransactionsResponse](../../Models/Operations/GenerateLoanTransactionsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetLoanSummary
 
@@ -118,7 +128,7 @@ var sdk = new CodatLending(security: new Security() {
 
 GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = GetLoanSummaryQueryParamSourceType.Banking,
+    SourceType = Codat.Lending.Models.Operations.GetLoanSummaryQueryParamSourceType.Banking,
 };
 
 var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
@@ -136,7 +146,12 @@ var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
 ### Response
 
 **[GetLoanSummaryResponse](../../Models/Operations/GetLoanSummaryResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListLoanTransactions
 
@@ -160,7 +175,7 @@ var sdk = new CodatLending(security: new Security() {
 
 ListLoanTransactionsRequest req = new ListLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = ListLoanTransactionsQueryParamSourceType.Commerce,
+    SourceType = Codat.Lending.Models.Operations.ListLoanTransactionsQueryParamSourceType.Commerce,
 };
 
 var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
@@ -178,4 +193,9 @@ var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
 ### Response
 
 **[ListLoanTransactionsResponse](../../Models/Operations/ListLoanTransactionsResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

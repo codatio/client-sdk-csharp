@@ -46,7 +46,12 @@ var res = await sdk.FileUpload.DownloadAsync(req);
 ### Response
 
 **[DownloadFilesResponse](../../Models/Operations/DownloadFilesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListUploaded
 
@@ -82,7 +87,12 @@ var res = await sdk.FileUpload.ListUploadedAsync(req);
 ### Response
 
 **[ListFilesResponse](../../Models/Operations/ListFilesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Upload
 
@@ -125,4 +135,9 @@ var res = await sdk.FileUpload.UploadAsync(req);
 ### Response
 
 **[UploadFilesResponse](../../Models/Operations/UploadFilesResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

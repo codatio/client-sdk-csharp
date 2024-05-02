@@ -32,6 +32,22 @@ var sdk = new CodatLending(security: new Security() {
     });
 
 CreateTransferRequest req = new CreateTransferRequest() {
+    AccountingTransfer = new AccountingTransfer() {
+        Date = "2022-10-23T00:00:00Z",
+        DepositedRecordRefs = new List<RecordRef>() {
+            new RecordRef() {
+                DataType = "invoice",
+            },
+        },
+        From = new TransferAccount() {
+            Currency = "USD",
+        },
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+        To = new TransferAccount() {
+            Currency = "GBP",
+        },
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -51,7 +67,12 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(req);
 ### Response
 
 **[CreateTransferResponse](../../Models/Operations/CreateTransferResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetCreateModel
 
@@ -97,4 +118,9 @@ var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreateTransfersModelResponse](../../Models/Operations/GetCreateTransfersModelResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

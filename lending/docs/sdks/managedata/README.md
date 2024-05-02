@@ -39,4 +39,9 @@ var res = await sdk.ManageData.GetStatusAsync(req);
 ### Response
 
 **[GetDataStatusResponse](../../Models/Operations/GetDataStatusResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

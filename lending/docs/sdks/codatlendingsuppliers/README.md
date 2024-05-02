@@ -40,7 +40,7 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
                 Line1 = "Unit 51",
                 Line2 = "Bakersfield Industrial Estate",
                 Region = "California",
-                Type = AccountingAddressType.Billing,
+                Type = Codat.Lending.Models.Shared.AccountingAddressType.Billing,
             },
         },
         ContactName = "Kelly's Industrial Supplies",
@@ -54,7 +54,7 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
         Phone = "07999 999999",
         RegistrationNumber = "string",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Status = SupplierStatus.Unknown,
+        Status = Codat.Lending.Models.Shared.SupplierStatus.Unknown,
         SupplementalData = new SupplementalData() {
             Content = new Dictionary<string, Dictionary<string, object>>() {
                 { "property1", new Dictionary<string, object>() {
@@ -89,7 +89,12 @@ var res = await sdk.LoanWriteback.Suppliers.CreateAsync(req);
 ### Response
 
 **[CreateSupplierResponse](../../Models/Operations/CreateSupplierResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetCreateUpdateModel
 
@@ -135,4 +140,9 @@ var res = await sdk.LoanWriteback.Suppliers.GetCreateUpdateModelAsync(req);
 ### Response
 
 **[GetCreateUpdateSuppliersModelResponse](../../Models/Operations/GetCreateUpdateSuppliersModelResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

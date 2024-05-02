@@ -32,6 +32,22 @@ var sdk = new CodatLending(security: new Security() {
     });
 
 CreatePaymentRequest req = new CreatePaymentRequest() {
+    AccountingPayment = new AccountingPayment() {
+        Currency = "USD",
+        Date = "2022-10-23T00:00:00Z",
+        Lines = new List<PaymentLine>() {
+            new PaymentLine() {
+                AllocatedOnDate = "2022-10-23T00:00:00Z",
+                Amount = 8592.13M,
+            },
+        },
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        PaymentMethodRef = new PaymentMethodRef() {
+            Id = "EILBDVJVNUAGVKRQ",
+            Name = "AliPay",
+        },
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -51,7 +67,12 @@ var res = await sdk.LoanWriteback.Payments.CreateAsync(req);
 ### Response
 
 **[CreatePaymentResponse](../../Models/Operations/CreatePaymentResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## GetCreateModel
 
@@ -97,4 +118,9 @@ var res = await sdk.LoanWriteback.Payments.GetCreateModelAsync(req);
 ### Response
 
 **[GetCreatePaymentModelResponse](../../Models/Operations/GetCreatePaymentModelResponse.md)**
+### Errors
 
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

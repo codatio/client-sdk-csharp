@@ -198,7 +198,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
     });
 
 GenerateCredentialsRequest req = new GenerateCredentialsRequest() {
-    RequestBody = "0xeDCfFBde9E as bytes <<<>>>",
+    RequestBody = System.Text.Encoding.UTF8.GetBytes("0xeDCfFBde9E"),
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };

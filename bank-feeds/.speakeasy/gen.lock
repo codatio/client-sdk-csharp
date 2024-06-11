@@ -1,27 +1,33 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: 5449a4fd5256a871748750f2a89b14d0
+  docChecksum: 840e360f00d8eec53937c7001982344a
   docVersion: 3.0.0
-  speakeasyVersion: 1.277.6
-  generationVersion: 2.319.7
-  releaseVersion: 4.3.0
-  configChecksum: 0ed2052916b7c28b2618ebed840a98f1
+  speakeasyVersion: 1.303.3
+  generationVersion: 2.339.1
+  releaseVersion: 4.4.0
+  configChecksum: 553b61cc5f34c6d8487fbb5ea88f5910
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
 features:
   csharp:
+    additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.8.2
+    core: 3.9.4
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
     globalSecurity: 2.83.4
+    globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
     inputOutputModels: 2.83.0
+    intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
-    responseFormat: 0.0.2
+    nullables: 0.1.0
+    responseFormat: 0.0.4
+    retries: 0.0.1
+    sdkHooks: 0.1.0
     webhooks: 1.0.0
 generatedFiles:
   - Codat/BankFeeds/Companies.cs
@@ -32,6 +38,7 @@ generatedFiles:
   - Codat/BankFeeds/BankAccounts.cs
   - Codat/BankFeeds/Transactions.cs
   - Codat/BankFeeds/Configuration.cs
+  - Codat/BankFeeds/Sync.cs
   - Codat/BankFeeds/CodatBankFeeds.cs
   - global.json
   - Codat.BankFeeds.sln
@@ -44,6 +51,9 @@ generatedFiles:
   - Codat/BankFeeds/Utils/IsoDateTimeSerializer.cs
   - Codat/BankFeeds/Utils/RequestBodySerializer.cs
   - Codat/BankFeeds/Utils/ResponseBodyDeserializer.cs
+  - Codat/BankFeeds/Utils/Retries/BackoffStrategy.cs
+  - Codat/BankFeeds/Utils/Retries/Retries.cs
+  - Codat/BankFeeds/Utils/Retries/RetryConfig.cs
   - Codat/BankFeeds/Utils/SecurityMetadata.cs
   - Codat/BankFeeds/Utils/SpeakeasyHttpClient.cs
   - Codat/BankFeeds/Utils/SpeakeasyMetadata.cs
@@ -106,12 +116,14 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/GetConfigurationResponse.cs
   - Codat/BankFeeds/Models/Operations/SetConfigurationRequest.cs
   - Codat/BankFeeds/Models/Operations/SetConfigurationResponse.cs
-  - Codat/BankFeeds/Models/Shared/Zero.cs
+  - Codat/BankFeeds/Models/Operations/GetLastSuccessfulRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetLastSuccessfulResponse.cs
   - Codat/BankFeeds/Models/Shared/GroupReference.cs
   - Codat/BankFeeds/Models/Shared/Company.cs
   - Codat/BankFeeds/Models/Shared/SourceType.cs
   - Codat/BankFeeds/Models/Shared/Connection.cs
   - Codat/BankFeeds/Models/Shared/DataConnectionStatus.cs
+  - Codat/BankFeeds/Models/Shared/ErrorStatus.cs
   - Codat/BankFeeds/Models/Shared/DataConnectionError.cs
   - Codat/BankFeeds/Models/Shared/ErrorValidation.cs
   - Codat/BankFeeds/Models/Shared/ErrorValidationItem.cs
@@ -122,6 +134,7 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/HalRef.cs
   - Codat/BankFeeds/Models/Shared/Connections.cs
   - Codat/BankFeeds/Models/Shared/BankFeedAccountMappingResponse.cs
+  - Codat/BankFeeds/Models/Shared/BankFeedAccountMapping.cs
   - Codat/BankFeeds/Models/Shared/BankFeedMapping.cs
   - Codat/BankFeeds/Models/Shared/TargetAccountOption.cs
   - Codat/BankFeeds/Models/Shared/CompanyInformation.cs
@@ -137,6 +150,7 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/ValidationItem.cs
   - Codat/BankFeeds/Models/Shared/PushOperationStatus.cs
   - Codat/BankFeeds/Models/Shared/DataType.cs
+  - Codat/BankFeeds/Models/Shared/BankAccountStatus.cs
   - Codat/BankFeeds/Models/Shared/PushOperationChange.cs
   - Codat/BankFeeds/Models/Shared/PushChangeType.cs
   - Codat/BankFeeds/Models/Shared/PushOperationRef.cs
@@ -168,6 +182,7 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/ConfigurationCustomer.cs
   - Codat/BankFeeds/Models/Shared/BankAccountOption.cs
   - Codat/BankFeeds/Models/Shared/SyncAsBankFeeds.cs
+  - Codat/BankFeeds/Models/Shared/CompanySyncStatus.cs
   - Codat/BankFeeds/Models/Shared/Security.cs
   - Codat/BankFeeds/Models/Shared/ClientRateLimitReachedWebhook.cs
   - Codat/BankFeeds/Models/Shared/ClientRateLimitReachedWebhookData.cs
@@ -235,12 +250,14 @@ generatedFiles:
   - docs/Models/Operations/GetConfigurationResponse.md
   - docs/Models/Operations/SetConfigurationRequest.md
   - docs/Models/Operations/SetConfigurationResponse.md
-  - docs/Models/Shared/Zero.md
+  - docs/Models/Operations/GetLastSuccessfulRequest.md
+  - docs/Models/Operations/GetLastSuccessfulResponse.md
   - docs/Models/Shared/GroupReference.md
   - docs/Models/Shared/Company.md
   - docs/Models/Shared/SourceType.md
   - docs/Models/Shared/Connection.md
   - docs/Models/Shared/DataConnectionStatus.md
+  - docs/Models/Shared/ErrorStatus.md
   - docs/Models/Shared/DataConnectionError.md
   - docs/Models/Shared/ErrorValidation.md
   - docs/Models/Shared/ErrorValidationItem.md
@@ -251,6 +268,7 @@ generatedFiles:
   - docs/Models/Shared/HalRef.md
   - docs/Models/Shared/Connections.md
   - docs/Models/Shared/BankFeedAccountMappingResponse.md
+  - docs/Models/Shared/BankFeedAccountMapping.md
   - docs/Models/Shared/BankFeedMapping.md
   - docs/Models/Shared/TargetAccountOption.md
   - docs/Models/Shared/CompanyInformation.md
@@ -266,6 +284,7 @@ generatedFiles:
   - docs/Models/Shared/ValidationItem.md
   - docs/Models/Shared/PushOperationStatus.md
   - docs/Models/Shared/DataType.md
+  - docs/Models/Shared/BankAccountStatus.md
   - docs/Models/Shared/PushOperationChange.md
   - docs/Models/Shared/PushChangeType.md
   - docs/Models/Shared/PushOperationRef.md
@@ -297,6 +316,7 @@ generatedFiles:
   - docs/Models/Shared/ConfigurationCustomer.md
   - docs/Models/Shared/BankAccountOption.md
   - docs/Models/Shared/SyncAsBankFeeds.md
+  - docs/Models/Shared/CompanySyncStatus.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/ClientRateLimitReachedWebhook.md
   - docs/Models/Shared/ClientRateLimitReachedWebhookData.md
@@ -318,6 +338,7 @@ generatedFiles:
   - docs/sdks/bankaccounts/README.md
   - docs/sdks/transactions/README.md
   - docs/sdks/configuration/README.md
+  - docs/sdks/sync/README.md
   - USAGE.md
   - .gitattributes
   - Codat/BankFeeds/Hooks/SDKHooks.cs

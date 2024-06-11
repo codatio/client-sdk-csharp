@@ -141,6 +141,7 @@ ListCreateOperationsRequest req = new ListCreateOperationsRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
 };
 
 var res = await sdk.Transactions.ListCreateOperationsAsync(req);

@@ -32,8 +32,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
     });
 
 CreateBankAccountMappingRequest req = new CreateBankAccountMappingRequest() {
-    Zero = new Zero() {
-        FeedStartDate = "2023-01-09T14:14:14.1057478Z",
+    BankFeedAccountMapping = new BankFeedAccountMapping() {
         SourceAccountId = "acc-002",
         TargetAccountId = "account-081",
     },

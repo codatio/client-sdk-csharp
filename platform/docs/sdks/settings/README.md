@@ -226,7 +226,6 @@ var sdk = new CodatPlatform(security: new Security() {
 
 Profile req = new Profile() {
     AlertAuthHeader = "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
-    ApiKey = "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
     ConfirmCompanyName = true,
     IconUrl = "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
     LogoUrl = "https://client-images.codat.io/logo/042399f5-d104-4f38-9ce8-cac3524f4e88_5806cb1f-7342-4c0e-a0a8-99bfbc47b0ff.png",

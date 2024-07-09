@@ -70,6 +70,9 @@ var res = await sdk.Webhooks.CreateAsync(req);
 
 [Webhook consumer](https://docs.codat.io/platform-api#/schemas/WebhookConsumer) is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on [Codat's webhook service](https://docs.codat.io/using-the-api/webhooks/overview).
 
+### Tips and traps
+- The number of webhook consumers you can create is limited to 50. If you have reached the maximum number of consumers, use the [*Delete webhook consumer*](https://docs.codat.io/platform-api#/operations/delete-webhook-consumer) endpoint to delete an unused consumer first.
+
 ### Example Usage
 
 ```csharp
@@ -104,7 +107,7 @@ var res = await sdk.Webhooks.CreateConsumerAsync(req);
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ## DeleteConsumer
@@ -214,6 +217,7 @@ ListRulesRequest req = new ListRulesRequest() {
     OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
 };
 
 var res = await sdk.Webhooks.ListAsync(req);

@@ -3,7 +3,7 @@
 
 ## Overview
 
-Configure connection management UI and retrieve access tokens for authentication.
+Configure UI and retrieve access tokens for authentication used by **Connections SDK**.
 
 ### Available Operations
 
@@ -11,9 +11,9 @@ Configure connection management UI and retrieve access tokens for authentication
 
 ## GetAccessToken
 
-﻿Use the *Get access token* endpoint to retrieve a new access token for use by the [connection management UI](https://docs.codat.io/auth-flow/optimize/connection-management). The token is only valid for one hour and applies to a single company.
+﻿Use the *Get access token* endpoint to retrieve a new access token for use with the [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management). The token is only valid for one hour and applies to a single company.
 
-The embedded [connection management UI](https://docs.codat.io/auth-flow/optimize/connection-management) lets your customers control access to their data by allowing them to manage their existing connections.
+The embeddable [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) lets your customers control access to their data by allowing them to manage their existing connections.
 
 ### Example Usage
 

@@ -46,7 +46,7 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 | **[Sync for Expenses](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-expenses)** | Push expenses to accounting platforms. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Expenses)](https://www.nuget.org/packages/Codat.Sync.Expenses) |
 | **[Lending](https://github.com/codatio/client-sdk-csharp/tree/main/lending)** | Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features. | [![Nuget](https://img.shields.io/nuget/v/Codat.Lending)](https://www.nuget.org/packages/Codat.Lending) |
 | **[Sync for Payroll](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payroll)** | Push payroll to accounting platforms. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payroll)](https://www.nuget.org/packages/Codat.Sync.Payroll) |
-| **[Sync for Payables](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payables)** | Streamline your customers' accounts payable workflow. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payables)](https://www.nuget.org/packages/Codat.Sync.Payables) |
+| **[Sync for Payables](https://github.com/codatio/client-sdk-csharp/tree/main/sync-for-payables)**<br/>[![Generate Sync for Payables library](https://github.com/codatio/client-sdk-csharp/actions/workflows/sync_for_payables_generate.yaml/badge.svg)](https://github.com/codatio/client-sdk-csharp/actions/workflows/sync_for_payables_generate.yaml) | Streamline your customers' accounts payable workflow. | [![Nuget](https://img.shields.io/nuget/v/Codat.Sync.Payables)](https://www.nuget.org/packages/Codat.Sync.Payables) |
 <!-- End Codat Client Libraries -->
 
 <!-- Start Codat Support Notes -->

@@ -35,7 +35,8 @@ var res = await sdk.Bills.GetBillOptionsAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
-    statusQuery: "status=Archived");
+    statusQuery: "status=Archived"
+);
 
 // handle response
 ```
@@ -82,7 +83,8 @@ var res = await sdk.Bills.ListAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
-    query: "<value>");
+    query: "<value>"
+);
 
 // handle response
 ```
@@ -129,14 +131,15 @@ var res = await sdk.Bills.CreateAsync(
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     idempotencyKey: "<value>",
     billPrototype: new BillPrototype() {
-    SupplierRef = new SupplierRef() {
-        Id = "<id>",
-    },
-    IssueDate = "2022-10-23T00:00:00Z",
-    DueDate = "2022-10-23T00:00:00Z",
-    Currency = "USD",
-    Status = Openapi.Models.Components.BillStatus.Open,
-});
+        SupplierRef = new SupplierRef() {
+            Id = "<id>",
+        },
+        IssueDate = "2022-10-23T00:00:00Z",
+        DueDate = "2022-10-23T00:00:00Z",
+        Currency = "USD",
+        Status = Openapi.Models.Components.BillStatus.Open,
+    }
+);
 
 // handle response
 ```
@@ -182,11 +185,12 @@ var res = await sdk.Bills.UploadAttachmentAsync(
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "EILBDVJVNUAGVKRQ",
     attachmentUpload: new AttachmentUpload() {
-    File = new CodatFile() {
-        FileName = "your_file_here",
-        Content = System.Text.Encoding.UTF8.GetBytes("0x3ABc1980Ef"),
-    },
-});
+        File = new CodatFile() {
+            FileName = "your_file_here",
+            Content = System.Text.Encoding.UTF8.GetBytes("0x3ABc1980Ef"),
+        },
+    }
+);
 
 // handle response
 ```
@@ -230,7 +234,8 @@ var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 var res = await sdk.Bills.ListAttachmentsAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ");
+    billId: "EILBDVJVNUAGVKRQ"
+);
 
 // handle response
 ```
@@ -277,7 +282,8 @@ var res = await sdk.Bills.DownloadAttachmentAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "EILBDVJVNUAGVKRQ",
-    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002");
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+);
 
 // handle response
 ```

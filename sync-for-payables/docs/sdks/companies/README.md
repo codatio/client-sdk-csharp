@@ -33,7 +33,8 @@ var res = await sdk.Companies.ListAsync(
     page: 1,
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```
@@ -131,14 +132,15 @@ var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 var res = await sdk.Companies.UpdateAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyRequestBody: new CompanyRequestBody() {
-    Name = "Bank of Dave",
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        Name = "Bank of Dave",
+        Description = "Requested early access to the new financing scheme.",
+        Groups = new List<Items>() {
+            new Items() {
+                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
         },
-    },
-});
+    }
+);
 
 // handle response
 ```

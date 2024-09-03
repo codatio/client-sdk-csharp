@@ -3,10 +3,10 @@ id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
   docChecksum: 0d5e6db903200fe527a4756c50a29993
   docVersion: 3.0.0
-  speakeasyVersion: 1.381.0
-  generationVersion: 2.404.9
-  releaseVersion: 0.0.2
-  configChecksum: 817d6436951bf17dedd471943b753352
+  speakeasyVersion: 1.386.0
+  generationVersion: 2.407.2
+  releaseVersion: 0.0.3
+  configChecksum: e63998c49db1fe8c138a30d9cc4081b6
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true

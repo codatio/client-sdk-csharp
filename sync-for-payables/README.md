@@ -16,19 +16,58 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasy.com/docs/advanced-setup/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Bill pay kit: The API reference for the Bill Pay kit. 
+
+The bill pay kit is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.
+
+[Explore product](https://docs.codat.io/payables/bill-pay-kit) | [See OpenAPI spec](https://github.com/codatio/oas)
+
+---
+<!-- Start Codat Tags Table -->
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Company information | View company profile from the source platform. |
+| Bills | Get, create, and update Bills. |
+| Bill payments | Get, create, and update Bill payments. |
+| Suppliers | Get, create, and update Suppliers. |
+| Bank accounts | Create a bank account for a given company's connection. |
+<!-- End Codat Tags Table -->
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NuGet
 
+To add the [NuGet](https://www.nuget.org/) package to a .NET project:
 ```bash
 dotnet add package Openapi
 ```
 
 ### Locally
 
+To add a reference to a local instance of the SDK in a .NET project:
 ```bash
-dotnet add reference path/to/Openapi.csproj
+dotnet add reference Openapi/Openapi.csproj
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -48,7 +87,8 @@ var res = await sdk.Companies.ListAsync(
     page: 1,
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```
@@ -115,10 +155,6 @@ using Openapi.Models.Components;
 var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 var res = await sdk.Companies.ListAsync(
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate",
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -128,7 +164,12 @@ var res = await sdk.Companies.ListAsync(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-));
+    ),
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```
@@ -149,14 +190,16 @@ var sdk = new SDK(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-),
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+    ),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
 
 var res = await sdk.Companies.ListAsync(
     page: 1,
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```
@@ -186,10 +229,12 @@ var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 try
 {
     var res = await sdk.Companies.ListAsync(
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+        page: 1,
+        pageSize: 100,
+        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        orderBy: "-modifiedDate"
+    );
+
     // handle response
 }
 catch (Exception ex)
@@ -203,7 +248,6 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -249,7 +293,8 @@ var res = await sdk.Companies.ListAsync(
     page: 1,
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```

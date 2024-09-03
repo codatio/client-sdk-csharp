@@ -29,11 +29,12 @@ var res = await sdk.BankAccounts.CreateAsync(
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     idempotencyKey: "<value>",
     bankAccountPrototype: new BankAccountPrototype() {
-    Name = "<value>",
-    AccountType = Openapi.Models.Components.AccountType.Credit,
-    AccountNumber = "<value>",
-    Currency = "USD",
-});
+        Name = "<value>",
+        AccountType = Openapi.Models.Components.AccountType.Credit,
+        AccountNumber = "<value>",
+        Currency = "USD",
+    }
+);
 
 // handle response
 ```

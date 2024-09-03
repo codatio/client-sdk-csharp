@@ -17,7 +17,8 @@ var res = await sdk.Companies.ListAsync(
     page: 1,
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```
@@ -37,10 +38,6 @@ using Openapi.Models.Components;
 var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 var res = await sdk.Companies.ListAsync(
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate",
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -50,7 +47,12 @@ var res = await sdk.Companies.ListAsync(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-));
+    ),
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```
@@ -71,14 +73,16 @@ var sdk = new SDK(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-),
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+    ),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
 
 var res = await sdk.Companies.ListAsync(
     page: 1,
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```
@@ -108,10 +112,12 @@ var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 try
 {
     var res = await sdk.Companies.ListAsync(
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+        page: 1,
+        pageSize: 100,
+        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        orderBy: "-modifiedDate"
+    );
+
     // handle response
 }
 catch (Exception ex)
@@ -125,7 +131,6 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -171,7 +176,8 @@ var res = await sdk.Companies.ListAsync(
     page: 1,
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate");
+    orderBy: "-modifiedDate"
+);
 
 // handle response
 ```

@@ -33,7 +33,8 @@ var res = await sdk.Suppliers.ListAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
-    query: "<value>");
+    query: "<value>"
+);
 
 // handle response
 ```
@@ -81,10 +82,11 @@ var res = await sdk.Suppliers.CreateAsync(
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     idempotencyKey: "<value>",
     supplierPrototype: new SupplierPrototype() {
-    SupplierName = "<value>",
-    Phone = "(877) 492-8687",
-    Status = Openapi.Models.Components.SupplierStatus.Active,
-});
+        SupplierName = "<value>",
+        Phone = "(877) 492-8687",
+        Status = Openapi.Models.Components.SupplierStatus.Active,
+    }
+);
 
 // handle response
 ```

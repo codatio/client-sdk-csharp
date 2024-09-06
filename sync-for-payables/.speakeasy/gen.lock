@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.0
   speakeasyVersion: 1.391.3
   generationVersion: 2.411.5
-  releaseVersion: 0.0.4
-  configChecksum: 420434dcd922be345b4ffdccdb09be3d
+  releaseVersion: 0.0.5
+  configChecksum: a9234522e7e7f836f9c1df453e336488
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true
@@ -583,6 +583,7 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "200": {}
   get-mapping-options-bills:
     "":
       parameters:
@@ -798,6 +799,7 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "200": {}
   get-mapping-options-payments:
     "":
       parameters:

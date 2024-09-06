@@ -3,10 +3,10 @@ id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
   docChecksum: 0d5e6db903200fe527a4756c50a29993
   docVersion: 3.0.0
-  speakeasyVersion: 1.386.0
-  generationVersion: 2.407.2
-  releaseVersion: 0.0.3
-  configChecksum: e63998c49db1fe8c138a30d9cc4081b6
+  speakeasyVersion: 1.391.3
+  generationVersion: 2.411.5
+  releaseVersion: 0.0.4
+  configChecksum: 420434dcd922be345b4ffdccdb09be3d
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true
@@ -14,7 +14,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.9.16
+    core: 3.9.17
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
@@ -31,16 +31,126 @@ features:
     sdkHooks: 0.1.0
     webhooks: 1.0.0
 generatedFiles:
-  - Openapi/Companies.cs
-  - Openapi/Connections.cs
-  - Openapi/CompanyInformation.cs
-  - Openapi/Bills.cs
-  - Openapi/BillPayments.cs
-  - Openapi/Suppliers.cs
-  - Openapi/BankAccounts.cs
-  - Openapi/SDK.cs
-  - global.json
+  - .gitattributes
+  - CONTRIBUTING.md
+  - NUGET.md
   - Openapi.sln
+  - Openapi/BankAccounts.cs
+  - Openapi/BillPayments.cs
+  - Openapi/Bills.cs
+  - Openapi/Companies.cs
+  - Openapi/CompanyInformation.cs
+  - Openapi/Connections.cs
+  - Openapi/Hooks/HookTypes.cs
+  - Openapi/Hooks/SDKHooks.cs
+  - Openapi/Models/Components/AccountMappingOption.cs
+  - Openapi/Models/Components/AccountStatus.cs
+  - Openapi/Models/Components/AccountType.cs
+  - Openapi/Models/Components/Address.cs
+  - Openapi/Models/Components/AddressType.cs
+  - Openapi/Models/Components/Attachment.cs
+  - Openapi/Models/Components/AttachmentUpload.cs
+  - Openapi/Models/Components/BankAccount.cs
+  - Openapi/Models/Components/BankAccountMappingOption.cs
+  - Openapi/Models/Components/BankAccountPrototype.cs
+  - Openapi/Models/Components/BankAccountStatus.cs
+  - Openapi/Models/Components/BankAccountType.cs
+  - Openapi/Models/Components/Bill.cs
+  - Openapi/Models/Components/BillAccountRef.cs
+  - Openapi/Models/Components/BillLineItem.cs
+  - Openapi/Models/Components/BillMappingOptions.cs
+  - Openapi/Models/Components/BillPayment.cs
+  - Openapi/Models/Components/BillPaymentAccountRef.cs
+  - Openapi/Models/Components/BillPaymentPrototype.cs
+  - Openapi/Models/Components/BillPrototype.cs
+  - Openapi/Models/Components/BillStatus.cs
+  - Openapi/Models/Components/BillTaxRateRef.cs
+  - Openapi/Models/Components/Bills.cs
+  - Openapi/Models/Components/ClientRateLimitReachedWebhook.cs
+  - Openapi/Models/Components/ClientRateLimitReachedWebhookData.cs
+  - Openapi/Models/Components/ClientRateLimitResetWebhook.cs
+  - Openapi/Models/Components/ClientRateLimitResetWebhookData.cs
+  - Openapi/Models/Components/CodatFile.cs
+  - Openapi/Models/Components/Companies.cs
+  - Openapi/Models/Components/Company.cs
+  - Openapi/Models/Components/CompanyInformation.cs
+  - Openapi/Models/Components/CompanyRequestBody.cs
+  - Openapi/Models/Components/Connection.cs
+  - Openapi/Models/Components/Connections.cs
+  - Openapi/Models/Components/DataConnectionError.cs
+  - Openapi/Models/Components/DataConnectionStatus.cs
+  - Openapi/Models/Components/ErrorStatus.cs
+  - Openapi/Models/Components/ErrorValidation.cs
+  - Openapi/Models/Components/ErrorValidationItem.cs
+  - Openapi/Models/Components/GroupReference.cs
+  - Openapi/Models/Components/HTTPMetadata.cs
+  - Openapi/Models/Components/HalRef.cs
+  - Openapi/Models/Components/Items.cs
+  - Openapi/Models/Components/Links.cs
+  - Openapi/Models/Components/One.cs
+  - Openapi/Models/Components/Pagination.cs
+  - Openapi/Models/Components/PaymentMappingOptions.cs
+  - Openapi/Models/Components/Security.cs
+  - Openapi/Models/Components/SourceType.cs
+  - Openapi/Models/Components/Supplier.cs
+  - Openapi/Models/Components/SupplierPrototype.cs
+  - Openapi/Models/Components/SupplierRef.cs
+  - Openapi/Models/Components/SupplierStatus.cs
+  - Openapi/Models/Components/Suppliers.cs
+  - Openapi/Models/Components/TaxRateMappingOption.cs
+  - Openapi/Models/Components/TaxRateStatus.cs
+  - Openapi/Models/Errors/ErrorMessage.cs
+  - Openapi/Models/Errors/SDKException.cs
+  - Openapi/Models/Requests/CreateBankAccountRequest.cs
+  - Openapi/Models/Requests/CreateBankAccountResponse.cs
+  - Openapi/Models/Requests/CreateBillPaymentRequest.cs
+  - Openapi/Models/Requests/CreateBillPaymentResponse.cs
+  - Openapi/Models/Requests/CreateBillRequest.cs
+  - Openapi/Models/Requests/CreateBillResponse.cs
+  - Openapi/Models/Requests/CreateCompanyResponse.cs
+  - Openapi/Models/Requests/CreateConnectionRequest.cs
+  - Openapi/Models/Requests/CreateConnectionRequestBody.cs
+  - Openapi/Models/Requests/CreateConnectionResponse.cs
+  - Openapi/Models/Requests/CreateSupplierRequest.cs
+  - Openapi/Models/Requests/CreateSupplierResponse.cs
+  - Openapi/Models/Requests/DeleteCompanyRequest.cs
+  - Openapi/Models/Requests/DeleteCompanyResponse.cs
+  - Openapi/Models/Requests/DeleteConnectionRequest.cs
+  - Openapi/Models/Requests/DeleteConnectionResponse.cs
+  - Openapi/Models/Requests/DownloadBillAttachmentRequest.cs
+  - Openapi/Models/Requests/DownloadBillAttachmentResponse.cs
+  - Openapi/Models/Requests/GetCompanyInformationRequest.cs
+  - Openapi/Models/Requests/GetCompanyInformationResponse.cs
+  - Openapi/Models/Requests/GetCompanyRequest.cs
+  - Openapi/Models/Requests/GetCompanyResponse.cs
+  - Openapi/Models/Requests/GetConnectionRequest.cs
+  - Openapi/Models/Requests/GetConnectionResponse.cs
+  - Openapi/Models/Requests/GetMappingOptionsBillsRequest.cs
+  - Openapi/Models/Requests/GetMappingOptionsBillsResponse.cs
+  - Openapi/Models/Requests/GetMappingOptionsPaymentsRequest.cs
+  - Openapi/Models/Requests/GetMappingOptionsPaymentsResponse.cs
+  - Openapi/Models/Requests/ListBillAttachmentsRequest.cs
+  - Openapi/Models/Requests/ListBillAttachmentsResponse.cs
+  - Openapi/Models/Requests/ListBillsRequest.cs
+  - Openapi/Models/Requests/ListBillsResponse.cs
+  - Openapi/Models/Requests/ListCompaniesRequest.cs
+  - Openapi/Models/Requests/ListCompaniesResponse.cs
+  - Openapi/Models/Requests/ListConnectionsRequest.cs
+  - Openapi/Models/Requests/ListConnectionsResponse.cs
+  - Openapi/Models/Requests/ListSuppliersRequest.cs
+  - Openapi/Models/Requests/ListSuppliersResponse.cs
+  - Openapi/Models/Requests/UnlinkConnectionRequest.cs
+  - Openapi/Models/Requests/UnlinkConnectionResponse.cs
+  - Openapi/Models/Requests/UnlinkConnectionUpdateConnection.cs
+  - Openapi/Models/Requests/UpdateCompanyRequest.cs
+  - Openapi/Models/Requests/UpdateCompanyResponse.cs
+  - Openapi/Models/Requests/UploadBillAttachmentRequest.cs
+  - Openapi/Models/Requests/UploadBillAttachmentResponse.cs
+  - Openapi/Models/Webhooks/ClientRateLimitReachedResponse.cs
+  - Openapi/Models/Webhooks/ClientRateLimitResetResponse.cs
+  - Openapi/Openapi.csproj
+  - Openapi/SDK.cs
+  - Openapi/Suppliers.cs
   - Openapi/Utils/AnyDeserializer.cs
   - Openapi/Utils/BigIntStrConverter.cs
   - Openapi/Utils/DecimalStrConverter.cs
@@ -58,227 +168,860 @@ generatedFiles:
   - Openapi/Utils/SpeakeasyMetadata.cs
   - Openapi/Utils/URLBuilder.cs
   - Openapi/Utils/Utilities.cs
-  - Openapi/Openapi.csproj
-  - Openapi/Models/Errors/SDKException.cs
-  - Openapi/Models/Requests/ListCompaniesRequest.cs
-  - Openapi/Models/Requests/ListCompaniesResponse.cs
-  - Openapi/Models/Requests/CreateCompanyResponse.cs
-  - Openapi/Models/Requests/UpdateCompanyRequest.cs
-  - Openapi/Models/Requests/UpdateCompanyResponse.cs
-  - Openapi/Models/Requests/DeleteCompanyRequest.cs
-  - Openapi/Models/Requests/DeleteCompanyResponse.cs
-  - Openapi/Models/Requests/GetCompanyRequest.cs
-  - Openapi/Models/Requests/GetCompanyResponse.cs
-  - Openapi/Models/Requests/ListConnectionsRequest.cs
-  - Openapi/Models/Requests/ListConnectionsResponse.cs
-  - Openapi/Models/Requests/CreateConnectionRequestBody.cs
-  - Openapi/Models/Requests/CreateConnectionRequest.cs
-  - Openapi/Models/Requests/CreateConnectionResponse.cs
-  - Openapi/Models/Requests/GetConnectionRequest.cs
-  - Openapi/Models/Requests/GetConnectionResponse.cs
-  - Openapi/Models/Requests/DeleteConnectionRequest.cs
-  - Openapi/Models/Requests/DeleteConnectionResponse.cs
-  - Openapi/Models/Requests/UnlinkConnectionUpdateConnection.cs
-  - Openapi/Models/Requests/UnlinkConnectionRequest.cs
-  - Openapi/Models/Requests/UnlinkConnectionResponse.cs
-  - Openapi/Models/Requests/GetCompanyInformationRequest.cs
-  - Openapi/Models/Requests/GetCompanyInformationResponse.cs
-  - Openapi/Models/Requests/GetMappingOptionsBillsRequest.cs
-  - Openapi/Models/Requests/GetMappingOptionsBillsResponse.cs
-  - Openapi/Models/Requests/ListBillsRequest.cs
-  - Openapi/Models/Requests/ListBillsResponse.cs
-  - Openapi/Models/Requests/CreateBillRequest.cs
-  - Openapi/Models/Requests/CreateBillResponse.cs
-  - Openapi/Models/Requests/UploadBillAttachmentRequest.cs
-  - Openapi/Models/Requests/UploadBillAttachmentResponse.cs
-  - Openapi/Models/Requests/ListBillAttachmentsRequest.cs
-  - Openapi/Models/Requests/ListBillAttachmentsResponse.cs
-  - Openapi/Models/Requests/DownloadBillAttachmentRequest.cs
-  - Openapi/Models/Requests/DownloadBillAttachmentResponse.cs
-  - Openapi/Models/Requests/GetMappingOptionsPaymentsRequest.cs
-  - Openapi/Models/Requests/GetMappingOptionsPaymentsResponse.cs
-  - Openapi/Models/Requests/CreateBillPaymentRequest.cs
-  - Openapi/Models/Requests/CreateBillPaymentResponse.cs
-  - Openapi/Models/Requests/ListSuppliersRequest.cs
-  - Openapi/Models/Requests/ListSuppliersResponse.cs
-  - Openapi/Models/Requests/CreateSupplierRequest.cs
-  - Openapi/Models/Requests/CreateSupplierResponse.cs
-  - Openapi/Models/Requests/CreateBankAccountRequest.cs
-  - Openapi/Models/Requests/CreateBankAccountResponse.cs
-  - Openapi/Models/Components/One.cs
-  - Openapi/Models/Components/Companies.cs
-  - Openapi/Models/Components/Links.cs
-  - Openapi/Models/Components/HalRef.cs
-  - Openapi/Models/Components/GroupReference.cs
-  - Openapi/Models/Components/Company.cs
-  - Openapi/Models/Components/SourceType.cs
-  - Openapi/Models/Components/Connection.cs
-  - Openapi/Models/Components/ErrorStatus.cs
-  - Openapi/Models/Components/DataConnectionError.cs
-  - Openapi/Models/Components/DataConnectionStatus.cs
-  - Openapi/Models/Components/HTTPMetadata.cs
-  - Openapi/Models/Components/ErrorValidation.cs
-  - Openapi/Models/Components/ErrorValidationItem.cs
-  - Openapi/Models/Components/CompanyRequestBody.cs
-  - Openapi/Models/Components/Items.cs
-  - Openapi/Models/Components/Connections.cs
-  - Openapi/Models/Components/CompanyInformation.cs
-  - Openapi/Models/Components/BillMappingOptions.cs
-  - Openapi/Models/Components/Pagination.cs
-  - Openapi/Models/Components/TaxRateStatus.cs
-  - Openapi/Models/Components/TaxRateMappingOption.cs
-  - Openapi/Models/Components/AccountMappingOption.cs
-  - Openapi/Models/Components/AccountStatus.cs
-  - Openapi/Models/Components/Bills.cs
-  - Openapi/Models/Components/Bill.cs
-  - Openapi/Models/Components/BillStatus.cs
-  - Openapi/Models/Components/BillLineItem.cs
-  - Openapi/Models/Components/BillTaxRateRef.cs
-  - Openapi/Models/Components/BillAccountRef.cs
-  - Openapi/Models/Components/SupplierRef.cs
-  - Openapi/Models/Components/BillPrototype.cs
-  - Openapi/Models/Components/AttachmentUpload.cs
-  - Openapi/Models/Components/CodatFile.cs
-  - Openapi/Models/Components/Attachment.cs
-  - Openapi/Models/Components/PaymentMappingOptions.cs
-  - Openapi/Models/Components/BankAccountMappingOption.cs
-  - Openapi/Models/Components/AccountType.cs
-  - Openapi/Models/Components/BankAccountStatus.cs
-  - Openapi/Models/Components/BillPayment.cs
-  - Openapi/Models/Components/BillPaymentAccountRef.cs
-  - Openapi/Models/Components/BillPaymentPrototype.cs
-  - Openapi/Models/Components/Suppliers.cs
-  - Openapi/Models/Components/Supplier.cs
-  - Openapi/Models/Components/SupplierStatus.cs
-  - Openapi/Models/Components/Address.cs
-  - Openapi/Models/Components/AddressType.cs
-  - Openapi/Models/Components/SupplierPrototype.cs
-  - Openapi/Models/Components/BankAccountType.cs
-  - Openapi/Models/Components/BankAccount.cs
-  - Openapi/Models/Components/BankAccountPrototype.cs
-  - Openapi/Models/Components/Security.cs
-  - Openapi/Models/Components/ClientRateLimitReachedWebhook.cs
-  - Openapi/Models/Components/ClientRateLimitReachedWebhookData.cs
-  - Openapi/Models/Components/ClientRateLimitResetWebhook.cs
-  - Openapi/Models/Components/ClientRateLimitResetWebhookData.cs
-  - Openapi/Models/Errors/ErrorMessage.cs
-  - Openapi/Models/Webhooks/ClientRateLimitReachedResponse.cs
-  - Openapi/Models/Webhooks/ClientRateLimitResetResponse.cs
-  - docs/Models/Requests/ListCompaniesRequest.md
-  - docs/Models/Requests/ListCompaniesResponse.md
-  - docs/Models/Requests/CreateCompanyResponse.md
-  - docs/Models/Requests/UpdateCompanyRequest.md
-  - docs/Models/Requests/UpdateCompanyResponse.md
-  - docs/Models/Requests/DeleteCompanyRequest.md
-  - docs/Models/Requests/DeleteCompanyResponse.md
-  - docs/Models/Requests/GetCompanyRequest.md
-  - docs/Models/Requests/GetCompanyResponse.md
-  - docs/Models/Requests/ListConnectionsRequest.md
-  - docs/Models/Requests/ListConnectionsResponse.md
-  - docs/Models/Requests/CreateConnectionRequestBody.md
-  - docs/Models/Requests/CreateConnectionRequest.md
-  - docs/Models/Requests/CreateConnectionResponse.md
-  - docs/Models/Requests/GetConnectionRequest.md
-  - docs/Models/Requests/GetConnectionResponse.md
-  - docs/Models/Requests/DeleteConnectionRequest.md
-  - docs/Models/Requests/DeleteConnectionResponse.md
-  - docs/Models/Requests/UnlinkConnectionUpdateConnection.md
-  - docs/Models/Requests/UnlinkConnectionRequest.md
-  - docs/Models/Requests/UnlinkConnectionResponse.md
-  - docs/Models/Requests/GetCompanyInformationRequest.md
-  - docs/Models/Requests/GetCompanyInformationResponse.md
-  - docs/Models/Requests/GetMappingOptionsBillsRequest.md
-  - docs/Models/Requests/GetMappingOptionsBillsResponse.md
-  - docs/Models/Requests/ListBillsRequest.md
-  - docs/Models/Requests/ListBillsResponse.md
-  - docs/Models/Requests/CreateBillRequest.md
-  - docs/Models/Requests/CreateBillResponse.md
-  - docs/Models/Requests/UploadBillAttachmentRequest.md
-  - docs/Models/Requests/UploadBillAttachmentResponse.md
-  - docs/Models/Requests/ListBillAttachmentsRequest.md
-  - docs/Models/Requests/ListBillAttachmentsResponse.md
-  - docs/Models/Requests/DownloadBillAttachmentRequest.md
-  - docs/Models/Requests/DownloadBillAttachmentResponse.md
-  - docs/Models/Requests/GetMappingOptionsPaymentsRequest.md
-  - docs/Models/Requests/GetMappingOptionsPaymentsResponse.md
-  - docs/Models/Requests/CreateBillPaymentRequest.md
-  - docs/Models/Requests/CreateBillPaymentResponse.md
-  - docs/Models/Requests/ListSuppliersRequest.md
-  - docs/Models/Requests/ListSuppliersResponse.md
-  - docs/Models/Requests/CreateSupplierRequest.md
-  - docs/Models/Requests/CreateSupplierResponse.md
-  - docs/Models/Requests/CreateBankAccountRequest.md
-  - docs/Models/Requests/CreateBankAccountResponse.md
-  - docs/Models/Components/One.md
-  - docs/Models/Components/Companies.md
-  - docs/Models/Components/Links.md
-  - docs/Models/Components/HalRef.md
-  - docs/Models/Components/GroupReference.md
-  - docs/Models/Components/Company.md
-  - docs/Models/Components/SourceType.md
-  - docs/Models/Components/Connection.md
-  - docs/Models/Components/ErrorStatus.md
-  - docs/Models/Components/DataConnectionError.md
-  - docs/Models/Components/DataConnectionStatus.md
-  - docs/Models/Components/HTTPMetadata.md
-  - docs/Models/Components/ErrorValidation.md
-  - docs/Models/Components/ErrorValidationItem.md
-  - docs/Models/Components/CompanyRequestBody.md
-  - docs/Models/Components/Items.md
-  - docs/Models/Components/Connections.md
-  - docs/Models/Components/CompanyInformation.md
-  - docs/Models/Components/BillMappingOptions.md
-  - docs/Models/Components/Pagination.md
-  - docs/Models/Components/TaxRateStatus.md
-  - docs/Models/Components/TaxRateMappingOption.md
+  - USAGE.md
   - docs/Models/Components/AccountMappingOption.md
   - docs/Models/Components/AccountStatus.md
-  - docs/Models/Components/Bills.md
-  - docs/Models/Components/Bill.md
-  - docs/Models/Components/BillStatus.md
-  - docs/Models/Components/BillLineItem.md
-  - docs/Models/Components/BillTaxRateRef.md
-  - docs/Models/Components/BillAccountRef.md
-  - docs/Models/Components/SupplierRef.md
-  - docs/Models/Components/BillPrototype.md
-  - docs/Models/Components/AttachmentUpload.md
-  - docs/Models/Components/CodatFile.md
-  - docs/Models/Components/Attachment.md
-  - docs/Models/Components/PaymentMappingOptions.md
-  - docs/Models/Components/BankAccountMappingOption.md
   - docs/Models/Components/AccountType.md
+  - docs/Models/Components/Address.md
+  - docs/Models/Components/AddressType.md
+  - docs/Models/Components/Attachment.md
+  - docs/Models/Components/AttachmentUpload.md
+  - docs/Models/Components/BankAccount.md
+  - docs/Models/Components/BankAccountMappingOption.md
+  - docs/Models/Components/BankAccountPrototype.md
   - docs/Models/Components/BankAccountStatus.md
+  - docs/Models/Components/BankAccountType.md
+  - docs/Models/Components/Bill.md
+  - docs/Models/Components/BillAccountRef.md
+  - docs/Models/Components/BillLineItem.md
+  - docs/Models/Components/BillMappingOptions.md
   - docs/Models/Components/BillPayment.md
   - docs/Models/Components/BillPaymentAccountRef.md
   - docs/Models/Components/BillPaymentPrototype.md
-  - docs/Models/Components/Suppliers.md
-  - docs/Models/Components/Supplier.md
-  - docs/Models/Components/SupplierStatus.md
-  - docs/Models/Components/Address.md
-  - docs/Models/Components/AddressType.md
-  - docs/Models/Components/SupplierPrototype.md
-  - docs/Models/Components/BankAccountType.md
-  - docs/Models/Components/BankAccount.md
-  - docs/Models/Components/BankAccountPrototype.md
-  - docs/Models/Components/Security.md
+  - docs/Models/Components/BillPrototype.md
+  - docs/Models/Components/BillStatus.md
+  - docs/Models/Components/BillTaxRateRef.md
+  - docs/Models/Components/Bills.md
   - docs/Models/Components/ClientRateLimitReachedWebhook.md
   - docs/Models/Components/ClientRateLimitReachedWebhookData.md
   - docs/Models/Components/ClientRateLimitResetWebhook.md
   - docs/Models/Components/ClientRateLimitResetWebhookData.md
+  - docs/Models/Components/CodatFile.md
+  - docs/Models/Components/Companies.md
+  - docs/Models/Components/Company.md
+  - docs/Models/Components/CompanyInformation.md
+  - docs/Models/Components/CompanyRequestBody.md
+  - docs/Models/Components/Connection.md
+  - docs/Models/Components/Connections.md
+  - docs/Models/Components/DataConnectionError.md
+  - docs/Models/Components/DataConnectionStatus.md
+  - docs/Models/Components/ErrorStatus.md
+  - docs/Models/Components/ErrorValidation.md
+  - docs/Models/Components/ErrorValidationItem.md
+  - docs/Models/Components/GroupReference.md
+  - docs/Models/Components/HTTPMetadata.md
+  - docs/Models/Components/HalRef.md
+  - docs/Models/Components/Items.md
+  - docs/Models/Components/Links.md
+  - docs/Models/Components/One.md
+  - docs/Models/Components/Pagination.md
+  - docs/Models/Components/PaymentMappingOptions.md
+  - docs/Models/Components/Security.md
+  - docs/Models/Components/SourceType.md
+  - docs/Models/Components/Supplier.md
+  - docs/Models/Components/SupplierPrototype.md
+  - docs/Models/Components/SupplierRef.md
+  - docs/Models/Components/SupplierStatus.md
+  - docs/Models/Components/Suppliers.md
+  - docs/Models/Components/TaxRateMappingOption.md
+  - docs/Models/Components/TaxRateStatus.md
   - docs/Models/Errors/ErrorMessage.md
+  - docs/Models/Requests/CreateBankAccountRequest.md
+  - docs/Models/Requests/CreateBankAccountResponse.md
+  - docs/Models/Requests/CreateBillPaymentRequest.md
+  - docs/Models/Requests/CreateBillPaymentResponse.md
+  - docs/Models/Requests/CreateBillRequest.md
+  - docs/Models/Requests/CreateBillResponse.md
+  - docs/Models/Requests/CreateCompanyResponse.md
+  - docs/Models/Requests/CreateConnectionRequest.md
+  - docs/Models/Requests/CreateConnectionRequestBody.md
+  - docs/Models/Requests/CreateConnectionResponse.md
+  - docs/Models/Requests/CreateSupplierRequest.md
+  - docs/Models/Requests/CreateSupplierResponse.md
+  - docs/Models/Requests/DeleteCompanyRequest.md
+  - docs/Models/Requests/DeleteCompanyResponse.md
+  - docs/Models/Requests/DeleteConnectionRequest.md
+  - docs/Models/Requests/DeleteConnectionResponse.md
+  - docs/Models/Requests/DownloadBillAttachmentRequest.md
+  - docs/Models/Requests/DownloadBillAttachmentResponse.md
+  - docs/Models/Requests/GetCompanyInformationRequest.md
+  - docs/Models/Requests/GetCompanyInformationResponse.md
+  - docs/Models/Requests/GetCompanyRequest.md
+  - docs/Models/Requests/GetCompanyResponse.md
+  - docs/Models/Requests/GetConnectionRequest.md
+  - docs/Models/Requests/GetConnectionResponse.md
+  - docs/Models/Requests/GetMappingOptionsBillsRequest.md
+  - docs/Models/Requests/GetMappingOptionsBillsResponse.md
+  - docs/Models/Requests/GetMappingOptionsPaymentsRequest.md
+  - docs/Models/Requests/GetMappingOptionsPaymentsResponse.md
+  - docs/Models/Requests/ListBillAttachmentsRequest.md
+  - docs/Models/Requests/ListBillAttachmentsResponse.md
+  - docs/Models/Requests/ListBillsRequest.md
+  - docs/Models/Requests/ListBillsResponse.md
+  - docs/Models/Requests/ListCompaniesRequest.md
+  - docs/Models/Requests/ListCompaniesResponse.md
+  - docs/Models/Requests/ListConnectionsRequest.md
+  - docs/Models/Requests/ListConnectionsResponse.md
+  - docs/Models/Requests/ListSuppliersRequest.md
+  - docs/Models/Requests/ListSuppliersResponse.md
+  - docs/Models/Requests/UnlinkConnectionRequest.md
+  - docs/Models/Requests/UnlinkConnectionResponse.md
+  - docs/Models/Requests/UnlinkConnectionUpdateConnection.md
+  - docs/Models/Requests/UpdateCompanyRequest.md
+  - docs/Models/Requests/UpdateCompanyResponse.md
+  - docs/Models/Requests/UploadBillAttachmentRequest.md
+  - docs/Models/Requests/UploadBillAttachmentResponse.md
   - docs/Models/Webhooks/ClientRateLimitReachedResponse.md
   - docs/Models/Webhooks/ClientRateLimitResetResponse.md
-  - docs/sdks/sdk/README.md
-  - docs/sdks/companies/README.md
-  - docs/sdks/connections/README.md
-  - docs/sdks/companyinformation/README.md
-  - docs/sdks/bills/README.md
-  - docs/sdks/billpayments/README.md
-  - docs/sdks/suppliers/README.md
   - docs/sdks/bankaccounts/README.md
-  - NUGET.md
-  - USAGE.md
-  - .gitattributes
-  - Openapi/Hooks/SDKHooks.cs
-  - Openapi/Hooks/HookTypes.cs
-  - CONTRIBUTING.md
+  - docs/sdks/billpayments/README.md
+  - docs/sdks/bills/README.md
+  - docs/sdks/companies/README.md
+  - docs/sdks/companyinformation/README.md
+  - docs/sdks/connections/README.md
+  - docs/sdks/sdk/README.md
+  - docs/sdks/suppliers/README.md
+  - global.json
+examples:
+  list-companies:
+    "":
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    One company:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "platform": "", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+        "400": {}
+    List of Companies:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "platform": "", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}], "groups": []}, {"id": "096db70b-78de-4ff0-aa98-299cb5fe17a0", "name": "Godata", "description": "A new digital agency with a passion for creating amazing digital experiences", "platform": "", "redirect": "https://link.codat.io/company/096db70b-78de-4ff0-aa98-299cb5fe17a0", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "a70bc148-dc21-46b2-a257-d9c58ac15cbb", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/096db70b-78de-4ff0-aa98-299cb5fe17a0/connections/a70bc148-dc21-46b2-a257-d9c58ac15cbb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}], "groups": []}], "pageNumber": 1, "pageSize": 100, "totalResults": 2, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+        "400": {}
+    Malformed query:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-company:
+    With no description:
+      requestBody:
+        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme.", "groups": []}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "platform": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": [], "groups": []}
+        "400": {}
+    With a description:
+      requestBody:
+        application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development", "groups": []}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "platform": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": [], "groups": []}
+        "400": {}
+    With a group:
+      requestBody:
+        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme.", "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "platform": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": [], "groups": [{"id": "f8a6f6ed-9812-4d1e-ba48-4346348403c8"}]}
+        "400": {}
+    Malformed query:
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-company:
+    Update name:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme.", "groups": []}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
+        "401": {}
+    Update description:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Same name", "description": "Additional documents required", "groups": []}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
+        "401": {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  delete-company:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-company:
+    Simple company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "My First Company", "description": "", "platform": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "dataConnections": [], "groups": []}
+        "401": {}
+    With groups:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "My First Company", "description": "", "platform": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "dataConnections": [], "groups": [{"id": "f8a6f6ed-9812-4d1e-ba48-4346348403c8"}]}
+        "401": {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-connections:
+    "":
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    Connections:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-connection:
+    Connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+        "401": {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-connection:
+    Connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+        "401": {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  delete-connection:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  unlink-connection:
+    Example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"status": "Unlinked"}
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+        "401": {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-company-information:
+    Company information:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: {"companyName": "Bank of Dave", "baseCurrency": "GBP"}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-mapping-options-bills:
+    "":
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"accounts": [], "taxRate": []}
+        "400": {}
+    Mapping options:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "879-i", "name": "Accounts payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "taxRate": [], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"accounts": [], "taxRate": []}
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-bills:
+    Status (open):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=Open"
+      responses:
+        "200":
+          application/json: {"results": []}
+        "400": {}
+    Status (partially paid):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=PartiallyPaid"
+      responses:
+        "200":
+          application/json: {"results": []}
+        "400": {}
+    Source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
+      responses:
+        "200":
+          application/json: {"results": []}
+        "400": {}
+    Status (open) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Open"
+      responses:
+        "200":
+          application/json: {"results": []}
+        "400": {}
+    Status (partially paid) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=PartiallyPaid"
+      responses:
+        "200":
+          application/json: {"results": []}
+        "400": {}
+    Bills:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": [{"id": "18", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": "1,", "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Open", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}, {"id": "22", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Paid", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": []}
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": []}
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-bill:
+    Create bill:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        header: {}
+      requestBody:
+        application/json: {"reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2}
+      responses:
+        "200":
+          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "status": "Open", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}
+        "400": {}
+    Created bill:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        header: {}
+      requestBody:
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "USD", "status": "Open"}
+      responses:
+        "200":
+          application/json: {"id": "bill-1029932", "reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2, "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        header: {}
+      requestBody:
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "status": "Open"}
+      responses:
+        "200":
+          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "EUR", "status": "Open", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  upload-bill-attachment:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "EILBDVJVNUAGVKRQ"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-bill-attachments:
+    Info:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "EILBDVJVNUAGVKRQ"
+      responses:
+        "200":
+          application/json: {"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}
+        "401": {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
+      responses:
+        "200":
+          application/json: {"dateCreated": "2022-10-23T00:00:00Z", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  download-bill-attachment:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "EILBDVJVNUAGVKRQ"
+          attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-mapping-options-payments:
+    "":
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"bankAccounts": []}
+        "400": {}
+    Mapping options:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"bankAccounts": [{"id": "3d5a8e00-d108-4045-8823-7f342676cffa", "name": "Bank of Dave current account", "accountNumber": "12345678", "nominalCode": "1234567", "sortCode": "123456", "currency": "GBP", "status": "Active", "accountType": "Debit", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"bankAccounts": []}
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-bill-payment:
+    Bill payment example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "7110701885"
+        header: {}
+      requestBody:
+        application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
+      responses:
+        "200":
+          application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
+        "400": {}
+    Bill payment:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "EILBDVJVNUAGVKRQ"
+        header: {}
+      requestBody:
+        application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
+      responses:
+        "200":
+          application/json: {"id": "billPayment-1029932", "amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
+        header: {}
+      requestBody:
+        application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
+      responses:
+        "200":
+          application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-suppliers:
+    Source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
+        "400": {}
+    Status (active):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=Active"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
+        "400": {}
+    Status (archived):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=Archived"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
+        "400": {}
+    Status (active) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
+        "400": {}
+    Status (archived) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Archived"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
+        "400": {}
+    Suppliers:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": [{"id": "c523e12f-8b74-4d3a-bbd8-32d7a2f598b4", "supplierName": "City Limousines", "contactName": "Martin Dale", "emailAddress": "martyd@citylim.co", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "balance": 100, "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}, {"id": "41", "supplierName": "AI Support", "contactName": "AI Support", "phone": "+44 25691 154789", "addresses": [{"type": "Billing", "line1": "test", "region": "string", "country": "Djibouti"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-supplier:
+    Suppliers:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        header: {}
+      requestBody:
+        application/json: {"supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GBR", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
+      responses:
+        "200":
+          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        header: {}
+      requestBody:
+        application/json: {"supplierName": "<value>", "phone": "(877) 492-8687", "status": "Active"}
+      responses:
+        "200":
+          application/json: {"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-bank-account:
+    Bank account example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        header: {}
+      requestBody:
+        application/json: {"nominalCode": "22", "name": "Plutus - Payables - Bank Account 12", "accountType": "Debit", "accountNumber": "0120 0440", "sortCode": "50-50-50", "currency": "GBP"}
+      responses:
+        "200":
+          application/json: {"currency": "USD", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400": {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        header: {}
+      requestBody:
+        application/json: {"name": "<value>", "accountType": "Credit", "accountNumber": "<value>", "currency": "USD"}
+      responses:
+        "200":
+          application/json: {"currency": "USD", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}

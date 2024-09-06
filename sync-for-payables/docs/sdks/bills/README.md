@@ -183,11 +183,11 @@ var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 var res = await sdk.Bills.UploadAttachmentAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentUpload: new AttachmentUpload() {
         File = new CodatFile() {
             FileName = "your_file_here",
-            Content = System.Text.Encoding.UTF8.GetBytes("0x3ABc1980Ef"),
+            Content = System.Text.Encoding.UTF8.GetBytes("0xABc1980Ef5"),
         },
     }
 );
@@ -234,7 +234,7 @@ var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 var res = await sdk.Bills.ListAttachmentsAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ"
+    billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
 );
 
 // handle response
@@ -281,7 +281,7 @@ var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 var res = await sdk.Bills.DownloadAttachmentAsync(
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002"
 );
 

@@ -23,30 +23,29 @@ Each company can have multiple [connections](https://docs.codat.io/sync-for-paya
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.Companies.ListAsync(
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate"
-);
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `Page`                                                                                          | *int*                                                                                           | :heavy_minus_sign:                                                                              | Page number. [Read more](https://docs.codat.io/using-the-api/paging).                           | 1                                                                                               |
-| `PageSize`                                                                                      | *int*                                                                                           | :heavy_minus_sign:                                                                              | Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging). | 100                                                                                             |
-| `Query`                                                                                         | *string*                                                                                        | :heavy_minus_sign:                                                                              | Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).                  | id=e3334455-1aed-4e71-ab43-6bccf12092ee                                                         |
-| `OrderBy`                                                                                       | *string*                                                                                        | :heavy_minus_sign:                                                                              | Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).   | -modifiedDate                                                                                   |
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [ListCompaniesRequest](../../Models/Requests/ListCompaniesRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
@@ -54,10 +53,10 @@ var res = await sdk.Companies.ListAsync(
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503    | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 
 ## Create
@@ -72,11 +71,11 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Name = "Bank of Dave",
@@ -105,10 +104,10 @@ var res = await sdk.Companies.CreateAsync(req);
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503        | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 
 ## Update
@@ -122,16 +121,16 @@ Each company can have multiple [connections](https://docs.codat.io/sync-for-paya
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.Companies.UpdateAsync(
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    companyRequestBody: new CompanyRequestBody() {
+UpdateCompanyRequest req = new UpdateCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CompanyRequestBody = new CompanyRequestBody() {
         Name = "Bank of Dave",
         Description = "Requested early access to the new financing scheme.",
         Groups = new List<Items>() {
@@ -139,18 +138,19 @@ var res = await sdk.Companies.UpdateAsync(
                 Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
             },
         },
-    }
-);
+    },
+};
+
+var res = await sdk.Companies.UpdateAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `CompanyId`                                                         | *string*                                                            | :heavy_check_mark:                                                  | Unique identifier for a company.                                    | 8a210b68-6988-11ed-a1eb-0242ac120002                                |
-| `CompanyRequestBody`                                                | [CompanyRequestBody](../../Models/Components/CompanyRequestBody.md) | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [UpdateCompanyRequest](../../Models/Requests/UpdateCompanyRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
@@ -158,10 +158,10 @@ var res = await sdk.Companies.UpdateAsync(
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503        | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 
 ## Delete
@@ -175,22 +175,26 @@ Each company can have multiple [connections](https://docs.codat.io/sync-for-paya
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.Companies.DeleteAsync(companyId: "8a210b68-6988-11ed-a1eb-0242ac120002");
+DeleteCompanyRequest req = new DeleteCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Companies.DeleteAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                            | Type                                 | Required                             | Description                          | Example                              |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `CompanyId`                          | *string*                             | :heavy_check_mark:                   | Unique identifier for a company.     | 8a210b68-6988-11ed-a1eb-0242ac120002 |
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [DeleteCompanyRequest](../../Models/Requests/DeleteCompanyRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
@@ -198,10 +202,10 @@ var res = await sdk.Companies.DeleteAsync(companyId: "8a210b68-6988-11ed-a1eb-02
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503        | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 
 ## Get
@@ -215,22 +219,26 @@ Each company can have multiple [connections](https://docs.codat.io/sync-for-paya
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.Companies.GetAsync(companyId: "8a210b68-6988-11ed-a1eb-0242ac120002");
+GetCompanyRequest req = new GetCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Companies.GetAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                            | Type                                 | Required                             | Description                          | Example                              |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `CompanyId`                          | *string*                             | :heavy_check_mark:                   | Unique identifier for a company.     | 8a210b68-6988-11ed-a1eb-0242ac120002 |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `request`                                                       | [GetCompanyRequest](../../Models/Requests/GetCompanyRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 ### Response
 
@@ -238,7 +246,7 @@ var res = await sdk.Companies.GetAsync(companyId: "8a210b68-6988-11ed-a1eb-0242a
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503        | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

@@ -3,10 +3,10 @@ id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
   docChecksum: 0d5e6db903200fe527a4756c50a29993
   docVersion: 3.0.0
-  speakeasyVersion: 1.392.1
-  generationVersion: 2.411.9
-  releaseVersion: 0.0.10
-  configChecksum: deda786098dac15ae3628d4e3d92711f
+  speakeasyVersion: 1.393.0
+  generationVersion: 2.413.0
+  releaseVersion: 4.0.0
+  configChecksum: 371c6562de4e8dd8a7be9bac24ddb675
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true
@@ -18,7 +18,6 @@ features:
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
-    flattening: 2.81.2
     globalSecurity: 2.83.6
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
@@ -33,141 +32,140 @@ features:
 generatedFiles:
   - .gitattributes
   - CONTRIBUTING.md
+  - Codat.Sync.Payables.sln
+  - Codat/Sync/Payables/BankAccounts.cs
+  - Codat/Sync/Payables/BillPayments.cs
+  - Codat/Sync/Payables/Bills.cs
+  - Codat/Sync/Payables/Codat.Sync.Payables.csproj
+  - Codat/Sync/Payables/CodatSyncPayables.cs
+  - Codat/Sync/Payables/Companies.cs
+  - Codat/Sync/Payables/CompanyInformation.cs
+  - Codat/Sync/Payables/Connections.cs
+  - Codat/Sync/Payables/Hooks/HookTypes.cs
+  - Codat/Sync/Payables/Hooks/SDKHooks.cs
+  - Codat/Sync/Payables/Models/Components/AccountMappingOption.cs
+  - Codat/Sync/Payables/Models/Components/AccountStatus.cs
+  - Codat/Sync/Payables/Models/Components/AccountType.cs
+  - Codat/Sync/Payables/Models/Components/Address.cs
+  - Codat/Sync/Payables/Models/Components/AddressType.cs
+  - Codat/Sync/Payables/Models/Components/Attachment.cs
+  - Codat/Sync/Payables/Models/Components/AttachmentUpload.cs
+  - Codat/Sync/Payables/Models/Components/BankAccount.cs
+  - Codat/Sync/Payables/Models/Components/BankAccountMappingOption.cs
+  - Codat/Sync/Payables/Models/Components/BankAccountPrototype.cs
+  - Codat/Sync/Payables/Models/Components/BankAccountStatus.cs
+  - Codat/Sync/Payables/Models/Components/BankAccountType.cs
+  - Codat/Sync/Payables/Models/Components/Bill.cs
+  - Codat/Sync/Payables/Models/Components/BillAccountRef.cs
+  - Codat/Sync/Payables/Models/Components/BillLineItem.cs
+  - Codat/Sync/Payables/Models/Components/BillMappingOptions.cs
+  - Codat/Sync/Payables/Models/Components/BillPayment.cs
+  - Codat/Sync/Payables/Models/Components/BillPaymentAccountRef.cs
+  - Codat/Sync/Payables/Models/Components/BillPaymentPrototype.cs
+  - Codat/Sync/Payables/Models/Components/BillPrototype.cs
+  - Codat/Sync/Payables/Models/Components/BillStatus.cs
+  - Codat/Sync/Payables/Models/Components/BillTaxRateRef.cs
+  - Codat/Sync/Payables/Models/Components/Bills.cs
+  - Codat/Sync/Payables/Models/Components/ClientRateLimitReachedWebhook.cs
+  - Codat/Sync/Payables/Models/Components/ClientRateLimitReachedWebhookData.cs
+  - Codat/Sync/Payables/Models/Components/ClientRateLimitResetWebhook.cs
+  - Codat/Sync/Payables/Models/Components/ClientRateLimitResetWebhookData.cs
+  - Codat/Sync/Payables/Models/Components/CodatFile.cs
+  - Codat/Sync/Payables/Models/Components/Companies.cs
+  - Codat/Sync/Payables/Models/Components/Company.cs
+  - Codat/Sync/Payables/Models/Components/CompanyInformation.cs
+  - Codat/Sync/Payables/Models/Components/CompanyRequestBody.cs
+  - Codat/Sync/Payables/Models/Components/Connection.cs
+  - Codat/Sync/Payables/Models/Components/Connections.cs
+  - Codat/Sync/Payables/Models/Components/DataConnectionError.cs
+  - Codat/Sync/Payables/Models/Components/DataConnectionStatus.cs
+  - Codat/Sync/Payables/Models/Components/ErrorStatus.cs
+  - Codat/Sync/Payables/Models/Components/ErrorValidation.cs
+  - Codat/Sync/Payables/Models/Components/ErrorValidationItem.cs
+  - Codat/Sync/Payables/Models/Components/GroupReference.cs
+  - Codat/Sync/Payables/Models/Components/HalRef.cs
+  - Codat/Sync/Payables/Models/Components/Items.cs
+  - Codat/Sync/Payables/Models/Components/Links.cs
+  - Codat/Sync/Payables/Models/Components/One.cs
+  - Codat/Sync/Payables/Models/Components/Pagination.cs
+  - Codat/Sync/Payables/Models/Components/PaymentMappingOptions.cs
+  - Codat/Sync/Payables/Models/Components/Security.cs
+  - Codat/Sync/Payables/Models/Components/SourceType.cs
+  - Codat/Sync/Payables/Models/Components/Supplier.cs
+  - Codat/Sync/Payables/Models/Components/SupplierPrototype.cs
+  - Codat/Sync/Payables/Models/Components/SupplierRef.cs
+  - Codat/Sync/Payables/Models/Components/SupplierStatus.cs
+  - Codat/Sync/Payables/Models/Components/Suppliers.cs
+  - Codat/Sync/Payables/Models/Components/TaxRateMappingOption.cs
+  - Codat/Sync/Payables/Models/Components/TaxRateStatus.cs
+  - Codat/Sync/Payables/Models/Errors/ErrorMessage.cs
+  - Codat/Sync/Payables/Models/Errors/SDKException.cs
+  - Codat/Sync/Payables/Models/Requests/CreateBankAccountRequest.cs
+  - Codat/Sync/Payables/Models/Requests/CreateBankAccountResponse.cs
+  - Codat/Sync/Payables/Models/Requests/CreateBillPaymentRequest.cs
+  - Codat/Sync/Payables/Models/Requests/CreateBillPaymentResponse.cs
+  - Codat/Sync/Payables/Models/Requests/CreateBillRequest.cs
+  - Codat/Sync/Payables/Models/Requests/CreateBillResponse.cs
+  - Codat/Sync/Payables/Models/Requests/CreateCompanyResponse.cs
+  - Codat/Sync/Payables/Models/Requests/CreateConnectionRequest.cs
+  - Codat/Sync/Payables/Models/Requests/CreateConnectionRequestBody.cs
+  - Codat/Sync/Payables/Models/Requests/CreateConnectionResponse.cs
+  - Codat/Sync/Payables/Models/Requests/CreateSupplierRequest.cs
+  - Codat/Sync/Payables/Models/Requests/CreateSupplierResponse.cs
+  - Codat/Sync/Payables/Models/Requests/DeleteCompanyRequest.cs
+  - Codat/Sync/Payables/Models/Requests/DeleteCompanyResponse.cs
+  - Codat/Sync/Payables/Models/Requests/DeleteConnectionRequest.cs
+  - Codat/Sync/Payables/Models/Requests/DeleteConnectionResponse.cs
+  - Codat/Sync/Payables/Models/Requests/DownloadBillAttachmentRequest.cs
+  - Codat/Sync/Payables/Models/Requests/DownloadBillAttachmentResponse.cs
+  - Codat/Sync/Payables/Models/Requests/GetCompanyInformationRequest.cs
+  - Codat/Sync/Payables/Models/Requests/GetCompanyInformationResponse.cs
+  - Codat/Sync/Payables/Models/Requests/GetCompanyRequest.cs
+  - Codat/Sync/Payables/Models/Requests/GetCompanyResponse.cs
+  - Codat/Sync/Payables/Models/Requests/GetConnectionRequest.cs
+  - Codat/Sync/Payables/Models/Requests/GetConnectionResponse.cs
+  - Codat/Sync/Payables/Models/Requests/GetMappingOptionsBillsRequest.cs
+  - Codat/Sync/Payables/Models/Requests/GetMappingOptionsBillsResponse.cs
+  - Codat/Sync/Payables/Models/Requests/GetMappingOptionsPaymentsRequest.cs
+  - Codat/Sync/Payables/Models/Requests/GetMappingOptionsPaymentsResponse.cs
+  - Codat/Sync/Payables/Models/Requests/ListBillAttachmentsRequest.cs
+  - Codat/Sync/Payables/Models/Requests/ListBillAttachmentsResponse.cs
+  - Codat/Sync/Payables/Models/Requests/ListBillsRequest.cs
+  - Codat/Sync/Payables/Models/Requests/ListBillsResponse.cs
+  - Codat/Sync/Payables/Models/Requests/ListCompaniesRequest.cs
+  - Codat/Sync/Payables/Models/Requests/ListCompaniesResponse.cs
+  - Codat/Sync/Payables/Models/Requests/ListConnectionsRequest.cs
+  - Codat/Sync/Payables/Models/Requests/ListConnectionsResponse.cs
+  - Codat/Sync/Payables/Models/Requests/ListSuppliersRequest.cs
+  - Codat/Sync/Payables/Models/Requests/ListSuppliersResponse.cs
+  - Codat/Sync/Payables/Models/Requests/UnlinkConnectionRequest.cs
+  - Codat/Sync/Payables/Models/Requests/UnlinkConnectionResponse.cs
+  - Codat/Sync/Payables/Models/Requests/UnlinkConnectionUpdateConnection.cs
+  - Codat/Sync/Payables/Models/Requests/UpdateCompanyRequest.cs
+  - Codat/Sync/Payables/Models/Requests/UpdateCompanyResponse.cs
+  - Codat/Sync/Payables/Models/Requests/UploadBillAttachmentRequest.cs
+  - Codat/Sync/Payables/Models/Requests/UploadBillAttachmentResponse.cs
+  - Codat/Sync/Payables/Models/Webhooks/ClientRateLimitReachedResponse.cs
+  - Codat/Sync/Payables/Models/Webhooks/ClientRateLimitResetResponse.cs
+  - Codat/Sync/Payables/Suppliers.cs
+  - Codat/Sync/Payables/Utils/AnyDeserializer.cs
+  - Codat/Sync/Payables/Utils/BigIntStrConverter.cs
+  - Codat/Sync/Payables/Utils/DecimalStrConverter.cs
+  - Codat/Sync/Payables/Utils/EnumConverter.cs
+  - Codat/Sync/Payables/Utils/FlexibleObjectDeserializer.cs
+  - Codat/Sync/Payables/Utils/HeaderSerializer.cs
+  - Codat/Sync/Payables/Utils/IsoDateTimeSerializer.cs
+  - Codat/Sync/Payables/Utils/RequestBodySerializer.cs
+  - Codat/Sync/Payables/Utils/ResponseBodyDeserializer.cs
+  - Codat/Sync/Payables/Utils/Retries/BackoffStrategy.cs
+  - Codat/Sync/Payables/Utils/Retries/Retries.cs
+  - Codat/Sync/Payables/Utils/Retries/RetryConfig.cs
+  - Codat/Sync/Payables/Utils/SecurityMetadata.cs
+  - Codat/Sync/Payables/Utils/SpeakeasyHttpClient.cs
+  - Codat/Sync/Payables/Utils/SpeakeasyMetadata.cs
+  - Codat/Sync/Payables/Utils/URLBuilder.cs
+  - Codat/Sync/Payables/Utils/Utilities.cs
   - NUGET.md
-  - Openapi.sln
-  - Openapi/BankAccounts.cs
-  - Openapi/BillPayments.cs
-  - Openapi/Bills.cs
-  - Openapi/Companies.cs
-  - Openapi/CompanyInformation.cs
-  - Openapi/Connections.cs
-  - Openapi/Hooks/HookTypes.cs
-  - Openapi/Hooks/SDKHooks.cs
-  - Openapi/Models/Components/AccountMappingOption.cs
-  - Openapi/Models/Components/AccountStatus.cs
-  - Openapi/Models/Components/AccountType.cs
-  - Openapi/Models/Components/Address.cs
-  - Openapi/Models/Components/AddressType.cs
-  - Openapi/Models/Components/Attachment.cs
-  - Openapi/Models/Components/AttachmentUpload.cs
-  - Openapi/Models/Components/BankAccount.cs
-  - Openapi/Models/Components/BankAccountMappingOption.cs
-  - Openapi/Models/Components/BankAccountPrototype.cs
-  - Openapi/Models/Components/BankAccountStatus.cs
-  - Openapi/Models/Components/BankAccountType.cs
-  - Openapi/Models/Components/Bill.cs
-  - Openapi/Models/Components/BillAccountRef.cs
-  - Openapi/Models/Components/BillLineItem.cs
-  - Openapi/Models/Components/BillMappingOptions.cs
-  - Openapi/Models/Components/BillPayment.cs
-  - Openapi/Models/Components/BillPaymentAccountRef.cs
-  - Openapi/Models/Components/BillPaymentPrototype.cs
-  - Openapi/Models/Components/BillPrototype.cs
-  - Openapi/Models/Components/BillStatus.cs
-  - Openapi/Models/Components/BillTaxRateRef.cs
-  - Openapi/Models/Components/Bills.cs
-  - Openapi/Models/Components/ClientRateLimitReachedWebhook.cs
-  - Openapi/Models/Components/ClientRateLimitReachedWebhookData.cs
-  - Openapi/Models/Components/ClientRateLimitResetWebhook.cs
-  - Openapi/Models/Components/ClientRateLimitResetWebhookData.cs
-  - Openapi/Models/Components/CodatFile.cs
-  - Openapi/Models/Components/Companies.cs
-  - Openapi/Models/Components/Company.cs
-  - Openapi/Models/Components/CompanyInformation.cs
-  - Openapi/Models/Components/CompanyRequestBody.cs
-  - Openapi/Models/Components/Connection.cs
-  - Openapi/Models/Components/Connections.cs
-  - Openapi/Models/Components/DataConnectionError.cs
-  - Openapi/Models/Components/DataConnectionStatus.cs
-  - Openapi/Models/Components/ErrorStatus.cs
-  - Openapi/Models/Components/ErrorValidation.cs
-  - Openapi/Models/Components/ErrorValidationItem.cs
-  - Openapi/Models/Components/GroupReference.cs
-  - Openapi/Models/Components/HTTPMetadata.cs
-  - Openapi/Models/Components/HalRef.cs
-  - Openapi/Models/Components/Items.cs
-  - Openapi/Models/Components/Links.cs
-  - Openapi/Models/Components/One.cs
-  - Openapi/Models/Components/Pagination.cs
-  - Openapi/Models/Components/PaymentMappingOptions.cs
-  - Openapi/Models/Components/Security.cs
-  - Openapi/Models/Components/SourceType.cs
-  - Openapi/Models/Components/Supplier.cs
-  - Openapi/Models/Components/SupplierPrototype.cs
-  - Openapi/Models/Components/SupplierRef.cs
-  - Openapi/Models/Components/SupplierStatus.cs
-  - Openapi/Models/Components/Suppliers.cs
-  - Openapi/Models/Components/TaxRateMappingOption.cs
-  - Openapi/Models/Components/TaxRateStatus.cs
-  - Openapi/Models/Errors/ErrorMessage.cs
-  - Openapi/Models/Errors/SDKException.cs
-  - Openapi/Models/Requests/CreateBankAccountRequest.cs
-  - Openapi/Models/Requests/CreateBankAccountResponse.cs
-  - Openapi/Models/Requests/CreateBillPaymentRequest.cs
-  - Openapi/Models/Requests/CreateBillPaymentResponse.cs
-  - Openapi/Models/Requests/CreateBillRequest.cs
-  - Openapi/Models/Requests/CreateBillResponse.cs
-  - Openapi/Models/Requests/CreateCompanyResponse.cs
-  - Openapi/Models/Requests/CreateConnectionRequest.cs
-  - Openapi/Models/Requests/CreateConnectionRequestBody.cs
-  - Openapi/Models/Requests/CreateConnectionResponse.cs
-  - Openapi/Models/Requests/CreateSupplierRequest.cs
-  - Openapi/Models/Requests/CreateSupplierResponse.cs
-  - Openapi/Models/Requests/DeleteCompanyRequest.cs
-  - Openapi/Models/Requests/DeleteCompanyResponse.cs
-  - Openapi/Models/Requests/DeleteConnectionRequest.cs
-  - Openapi/Models/Requests/DeleteConnectionResponse.cs
-  - Openapi/Models/Requests/DownloadBillAttachmentRequest.cs
-  - Openapi/Models/Requests/DownloadBillAttachmentResponse.cs
-  - Openapi/Models/Requests/GetCompanyInformationRequest.cs
-  - Openapi/Models/Requests/GetCompanyInformationResponse.cs
-  - Openapi/Models/Requests/GetCompanyRequest.cs
-  - Openapi/Models/Requests/GetCompanyResponse.cs
-  - Openapi/Models/Requests/GetConnectionRequest.cs
-  - Openapi/Models/Requests/GetConnectionResponse.cs
-  - Openapi/Models/Requests/GetMappingOptionsBillsRequest.cs
-  - Openapi/Models/Requests/GetMappingOptionsBillsResponse.cs
-  - Openapi/Models/Requests/GetMappingOptionsPaymentsRequest.cs
-  - Openapi/Models/Requests/GetMappingOptionsPaymentsResponse.cs
-  - Openapi/Models/Requests/ListBillAttachmentsRequest.cs
-  - Openapi/Models/Requests/ListBillAttachmentsResponse.cs
-  - Openapi/Models/Requests/ListBillsRequest.cs
-  - Openapi/Models/Requests/ListBillsResponse.cs
-  - Openapi/Models/Requests/ListCompaniesRequest.cs
-  - Openapi/Models/Requests/ListCompaniesResponse.cs
-  - Openapi/Models/Requests/ListConnectionsRequest.cs
-  - Openapi/Models/Requests/ListConnectionsResponse.cs
-  - Openapi/Models/Requests/ListSuppliersRequest.cs
-  - Openapi/Models/Requests/ListSuppliersResponse.cs
-  - Openapi/Models/Requests/UnlinkConnectionRequest.cs
-  - Openapi/Models/Requests/UnlinkConnectionResponse.cs
-  - Openapi/Models/Requests/UnlinkConnectionUpdateConnection.cs
-  - Openapi/Models/Requests/UpdateCompanyRequest.cs
-  - Openapi/Models/Requests/UpdateCompanyResponse.cs
-  - Openapi/Models/Requests/UploadBillAttachmentRequest.cs
-  - Openapi/Models/Requests/UploadBillAttachmentResponse.cs
-  - Openapi/Models/Webhooks/ClientRateLimitReachedResponse.cs
-  - Openapi/Models/Webhooks/ClientRateLimitResetResponse.cs
-  - Openapi/Openapi.csproj
-  - Openapi/SDK.cs
-  - Openapi/Suppliers.cs
-  - Openapi/Utils/AnyDeserializer.cs
-  - Openapi/Utils/BigIntStrConverter.cs
-  - Openapi/Utils/DecimalStrConverter.cs
-  - Openapi/Utils/EnumConverter.cs
-  - Openapi/Utils/FlexibleObjectDeserializer.cs
-  - Openapi/Utils/HeaderSerializer.cs
-  - Openapi/Utils/IsoDateTimeSerializer.cs
-  - Openapi/Utils/RequestBodySerializer.cs
-  - Openapi/Utils/ResponseBodyDeserializer.cs
-  - Openapi/Utils/Retries/BackoffStrategy.cs
-  - Openapi/Utils/Retries/Retries.cs
-  - Openapi/Utils/Retries/RetryConfig.cs
-  - Openapi/Utils/SecurityMetadata.cs
-  - Openapi/Utils/SpeakeasyHttpClient.cs
-  - Openapi/Utils/SpeakeasyMetadata.cs
-  - Openapi/Utils/URLBuilder.cs
-  - Openapi/Utils/Utilities.cs
   - USAGE.md
   - docs/Models/Components/AccountMappingOption.md
   - docs/Models/Components/AccountStatus.md
@@ -209,7 +207,6 @@ generatedFiles:
   - docs/Models/Components/ErrorValidation.md
   - docs/Models/Components/ErrorValidationItem.md
   - docs/Models/Components/GroupReference.md
-  - docs/Models/Components/HTTPMetadata.md
   - docs/Models/Components/HalRef.md
   - docs/Models/Components/Items.md
   - docs/Models/Components/Links.md
@@ -276,10 +273,10 @@ generatedFiles:
   - docs/sdks/bankaccounts/README.md
   - docs/sdks/billpayments/README.md
   - docs/sdks/bills/README.md
+  - docs/sdks/codatsyncpayables/README.md
   - docs/sdks/companies/README.md
   - docs/sdks/companyinformation/README.md
   - docs/sdks/connections/README.md
-  - docs/sdks/sdk/README.md
   - docs/sdks/suppliers/README.md
   - global.json
 examples:

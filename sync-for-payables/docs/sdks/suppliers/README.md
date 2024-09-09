@@ -23,30 +23,28 @@ For example, to retrieve only active suppliers (i.e. `status=Active`) or supplie
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.Suppliers.ListAsync(
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
-    query: "<value>"
-);
+ListSuppliersRequest req = new ListSuppliersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    ContinuationToken = "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+};
+
+var res = await sdk.Suppliers.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                                                                                                                          | Type                                                                                                                                                                                                                               | Required                                                                                                                                                                                                                           | Description                                                                                                                                                                                                                        | Example                                                                                                                                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CompanyId`                                                                                                                                                                                                                        | *string*                                                                                                                                                                                                                           | :heavy_check_mark:                                                                                                                                                                                                                 | Unique identifier for a company.                                                                                                                                                                                                   | 8a210b68-6988-11ed-a1eb-0242ac120002                                                                                                                                                                                               |
-| `ConnectionId`                                                                                                                                                                                                                     | *string*                                                                                                                                                                                                                           | :heavy_check_mark:                                                                                                                                                                                                                 | Unique identifier for a connection.                                                                                                                                                                                                | 2e9d2c44-f675-40ba-8049-353bfcb5e171                                                                                                                                                                                               |
-| `ContinuationToken`                                                                                                                                                                                                                | *string*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                 | Retrieve the next page of results using the continuation token from the previous response.                                                                                                                                         | continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==                                                                                                                                                         |
-| `Query`                                                                                                                                                                                                                            | *string*                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                 | Codat query string allows you to filter by `sourceModifiedDate` or if a supplier is `Active` or `Archived` in the accounting software. Learn more about Codat's query string [here](https://docs.codat.io/using-the-api/querying). |                                                                                                                                                                                                                                    |
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [ListSuppliersRequest](../../Models/Requests/ListSuppliersRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
@@ -54,10 +52,10 @@ var res = await sdk.Suppliers.ListAsync(
 
 ### Errors
 
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Openapi.Models.Errors.ErrorMessage  | 400,401,402,403,404,409,429,500,503 | application/json                    |
-| Openapi.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503            | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 
 ## Create
@@ -70,35 +68,33 @@ The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sy
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.Suppliers.CreateAsync(
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    idempotencyKey: "<value>",
-    supplierPrototype: new SupplierPrototype() {
+CreateSupplierRequest req = new CreateSupplierRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    SupplierPrototype = new SupplierPrototype() {
         SupplierName = "<value>",
         Phone = "(877) 492-8687",
-        Status = Openapi.Models.Components.SupplierStatus.Active,
-    }
-);
+        Status = Codat.Sync.Payables.Models.Components.SupplierStatus.Active,
+    },
+};
+
+var res = await sdk.Suppliers.CreateAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `CompanyId`                                                                 | *string*                                                                    | :heavy_check_mark:                                                          | Unique identifier for a company.                                            | 8a210b68-6988-11ed-a1eb-0242ac120002                                        |
-| `ConnectionId`                                                              | *string*                                                                    | :heavy_check_mark:                                                          | Unique identifier for a connection.                                         | 2e9d2c44-f675-40ba-8049-353bfcb5e171                                        |
-| `IdempotencyKey`                                                            | *string*                                                                    | :heavy_minus_sign:                                                          | A unique identifier to ensure idempotent behaviour for subsequent requests. |                                                                             |
-| `SupplierPrototype`                                                         | [SupplierPrototype](../../Models/Components/SupplierPrototype.md)           | :heavy_minus_sign:                                                          | N/A                                                                         |                                                                             |
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `request`                                                               | [CreateSupplierRequest](../../Models/Requests/CreateSupplierRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 ### Response
 
@@ -106,7 +102,7 @@ var res = await sdk.Suppliers.CreateAsync(
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503    | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

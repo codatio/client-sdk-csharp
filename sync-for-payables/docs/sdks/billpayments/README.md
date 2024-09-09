@@ -21,30 +21,29 @@ Mapping options are a set of bank accounts used to configure the SMB's payables 
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.BillPayments.GetPaymentOptionsAsync(
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
-    statusQuery: "status=Archived"
-);
+GetMappingOptionsPaymentsRequest req = new GetMappingOptionsPaymentsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    ContinuationToken = "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    StatusQuery = "status=Archived",
+};
+
+var res = await sdk.BillPayments.GetPaymentOptionsAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    | Example                                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CompanyId`                                                                                                                                                                    | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | Unique identifier for a company.                                                                                                                                               | 8a210b68-6988-11ed-a1eb-0242ac120002                                                                                                                                           |
-| `ConnectionId`                                                                                                                                                                 | *string*                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                             | Unique identifier for a connection.                                                                                                                                            | 2e9d2c44-f675-40ba-8049-353bfcb5e171                                                                                                                                           |
-| `ContinuationToken`                                                                                                                                                            | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | Retrieve the next page of results using the continuation token from the previous response.                                                                                     | continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==                                                                                                     |
-| `StatusQuery`                                                                                                                                                                  | *string*                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | Codat query string allows you to filter by `status` (`status=Active\|\|status=Archived`). [Learn more](https://docs.codat.io/using-the-api/querying) about Codat's query string. | status=Archived                                                                                                                                                                |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetMappingOptionsPaymentsRequest](../../Models/Requests/GetMappingOptionsPaymentsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
@@ -52,10 +51,10 @@ var res = await sdk.BillPayments.GetPaymentOptionsAsync(
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503    | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 
 ## Create
@@ -67,11 +66,11 @@ The *Create bill payment* endpoint creates a new [bill payment](https://docs.cod
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 CreateBillPaymentRequest req = new CreateBillPaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -104,7 +103,7 @@ var res = await sdk.BillPayments.CreateAsync(req);
 
 ### Errors
 
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| Openapi.Models.Errors.ErrorMessage  | 400,401,402,403,404,409,429,500,503 | application/json                    |
-| Openapi.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503            | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

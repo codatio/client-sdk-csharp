@@ -18,35 +18,33 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 ### Example Usage
 
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.BankAccounts.CreateAsync(
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    idempotencyKey: "<value>",
-    bankAccountPrototype: new BankAccountPrototype() {
+CreateBankAccountRequest req = new CreateBankAccountRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BankAccountPrototype = new BankAccountPrototype() {
         Name = "<value>",
-        AccountType = Openapi.Models.Components.AccountType.Credit,
+        AccountType = Codat.Sync.Payables.Models.Components.AccountType.Credit,
         AccountNumber = "<value>",
         Currency = "USD",
-    }
-);
+    },
+};
+
+var res = await sdk.BankAccounts.CreateAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `CompanyId`                                                                 | *string*                                                                    | :heavy_check_mark:                                                          | Unique identifier for a company.                                            | 8a210b68-6988-11ed-a1eb-0242ac120002                                        |
-| `ConnectionId`                                                              | *string*                                                                    | :heavy_check_mark:                                                          | Unique identifier for a connection.                                         | 2e9d2c44-f675-40ba-8049-353bfcb5e171                                        |
-| `IdempotencyKey`                                                            | *string*                                                                    | :heavy_minus_sign:                                                          | A unique identifier to ensure idempotent behaviour for subsequent requests. |                                                                             |
-| `BankAccountPrototype`                                                      | [BankAccountPrototype](../../Models/Components/BankAccountPrototype.md)     | :heavy_minus_sign:                                                          | N/A                                                                         |                                                                             |
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [CreateBankAccountRequest](../../Models/Requests/CreateBankAccountRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 ### Response
 
@@ -54,7 +52,7 @@ var res = await sdk.BankAccounts.CreateAsync(
 
 ### Errors
 
-| Error Object                       | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| Openapi.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503    | application/json                   |
-| Openapi.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

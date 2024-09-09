@@ -1,17 +1,19 @@
 <!-- Start SDK Example Usage [usage] -->
 ```csharp
-using Openapi;
-using Openapi.Models.Requests;
-using Openapi.Models.Components;
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Requests;
+using Codat.Sync.Payables.Models.Components;
 
-var sdk = new SDK(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-var res = await sdk.Companies.ListAsync(
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate"
-);
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```

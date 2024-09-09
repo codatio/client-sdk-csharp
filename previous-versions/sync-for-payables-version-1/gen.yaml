@@ -25,4 +25,4 @@ csharp:
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
-  packageName: Codat.Sync.Payables
+  packageName: Codat.Sync.Payables.V1

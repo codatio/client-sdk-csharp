@@ -4,19 +4,64 @@
 Manage the building blocks of Codat, including companies, connections, and more.
 <!-- End Codat Library Description -->
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Platform API: Platform API
+
+An API for the common components of all of Codat's products.
+
+These end points cover creating and managing your companies, data connections, and integrations.
+
+[Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies) | [See our OpenAPI spec](https://github.com/codatio/oas) 
+
+---
+<!-- Start Codat Tags Table -->
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Connection management | Configure connection management UI and retrieve access tokens for authentication. |
+| Groups | Define and manage sets of companies based on a chosen characteristic. |
+| Webhooks | Create and manage webhooks that listen to Codat's events. |
+| Integrations | Get a list of integrations supported by Codat and their logos. |
+| Refresh data | Initiate data refreshes, view pull status and history. |
+| Settings | Manage company profile configuration, sync settings, and API keys. |
+| Push data | Initiate and monitor Create, Update, and Delete operations. |
+| Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |
+| Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |
+<!-- End Codat Tags Table -->
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NuGet
 
+To add the [NuGet](https://www.nuget.org/) package to a .NET project:
 ```bash
 dotnet add package Codat.Platform
 ```
 
 ### Locally
 
+To add a reference to a local instance of the SDK in a .NET project:
 ```bash
-dotnet add reference path/to/Codat/Platform.csproj
+dotnet add reference Codat/Platform/Codat.Platform.csproj
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -31,8 +76,8 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
@@ -168,8 +213,8 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
@@ -200,16 +245,17 @@ using System;
 using Codat.Platform.Models.Errors;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
-};
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 try
 {
+    CreateApiKey req = new CreateApiKey() {
+        Name = "azure-invoice-finance-processor",
+    };
+
     var res = await sdk.Settings.CreateApiKeyAsync(req);
+
     // handle response
 }
 catch (Exception ex)
@@ -223,7 +269,6 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -238,14 +283,14 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req,
+var res = await sdk.Settings.CreateApiKeyAsync(
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -255,7 +300,7 @@ var res = await sdk.Settings.CreateApiKeyAsync(req,
             exponent: 1.1
         ),
         retryConnectionErrors: false
-));
+    ),req);
 
 // handle response
 ```
@@ -275,10 +320,11 @@ var sdk = new CodatPlatform(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-),
+    ),
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    }
+);
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",

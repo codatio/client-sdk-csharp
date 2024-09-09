@@ -15,7 +15,7 @@ Initiate and monitor Create, Update, and Delete operations.
 
 This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information. 
 
-Before pushing data into accounting software, it is often necessary to collect some details from the user as to how they would like the data to be inserted. This includes names and amounts on transactional entities, but also factors such as categorisation of entities, which is often handled differently between different accounting packages. A good example of this is specifying where on the balance sheet/profit and loss reports the user would like a newly-created nominal account to appear.
+Before pushing data into accounting software, it is often necessary to collect some details from the user as to how they would like the data to be inserted. This includes names and amounts on transactional entities, but also factors such as categorisation of entities, which is often handled differently between different accounting software. A good example of this is specifying where on the balance sheet/profit and loss reports the user would like a newly-created nominal account to appear.
 
 Codat tries not to limit users to pushing to a very limited number of standard categories, so we have implemented "options" endpoints, which allow us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.
 
@@ -28,12 +28,12 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetCreateUpdateModelOptionsByDataTypeRequest req = new GetCreateUpdateModelOptionsByDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -52,16 +52,17 @@ var res = await sdk.PushData.GetModelOptionsAsync(req);
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                               | [GetCreateUpdateModelOptionsByDataTypeRequest](../../Models/Operations/GetCreateUpdateModelOptionsByDataTypeRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
 
-
 ### Response
 
 **[GetCreateUpdateModelOptionsByDataTypeResponse](../../Models/Operations/GetCreateUpdateModelOptionsByDataTypeResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## GetOperation
 
@@ -71,12 +72,12 @@ Retrieve push operation.
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetPushOperationRequest req = new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -94,16 +95,17 @@ var res = await sdk.PushData.GetOperationAsync(req);
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `request`                                                                     | [GetPushOperationRequest](../../Models/Operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
-
 ### Response
 
 **[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## ListOperations
 
@@ -113,12 +115,12 @@ List push operation records.
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetCompanyPushHistoryRequest req = new GetCompanyPushHistoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -139,10 +141,10 @@ var res = await sdk.PushData.ListOperationsAsync(req);
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `request`                                                                               | [GetCompanyPushHistoryRequest](../../Models/Operations/GetCompanyPushHistoryRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
-
 ### Response
 
 **[GetCompanyPushHistoryResponse](../../Models/Operations/GetCompanyPushHistoryResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |

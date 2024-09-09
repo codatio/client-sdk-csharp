@@ -11,13 +11,14 @@ generation:
     oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 csharp:
-  version: 3.7.0
+  version: 3.7.1
   additionalDependencies: []
   author: Codat
   clientServerStatusCodesAsErrors: true
   description: Manage the building blocks of Codat, including companies, connections, and more.
   disableNamespacePascalCasingApr2024: false
   dotnetVersion: net6.0
+  enableSourceLink: false
   flattenGlobalSecurity: false
   imports:
     option: openapi
@@ -27,8 +28,10 @@ csharp:
       operations: Models/Operations
       shared: Models/Shared
       webhooks: Models/Webhooks
+  includeDebugSymbols: false
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.Platform
+  packageTags: ""
   responseFormat: envelope

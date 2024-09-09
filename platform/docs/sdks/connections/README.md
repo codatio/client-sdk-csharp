@@ -24,12 +24,12 @@ Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateConnectionRequest req = new CreateConnectionRequest() {
     RequestBody = new CreateConnectionRequestBody() {
@@ -49,16 +49,17 @@ var res = await sdk.Connections.CreateAsync(req);
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `request`                                                                     | [CreateConnectionRequest](../../Models/Operations/CreateConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
-
 ### Response
 
 **[CreateConnectionResponse](../../Models/Operations/CreateConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Delete
 
@@ -69,12 +70,12 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 DeleteConnectionRequest req = new DeleteConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -92,16 +93,17 @@ var res = await sdk.Connections.DeleteAsync(req);
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `request`                                                                     | [DeleteConnectionRequest](../../Models/Operations/DeleteConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
-
 ### Response
 
 **[DeleteConnectionResponse](../../Models/Operations/DeleteConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Get
 
@@ -111,12 +113,12 @@ var res = await sdk.Connections.DeleteAsync(req);
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetConnectionRequest req = new GetConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -134,16 +136,17 @@ var res = await sdk.Connections.GetAsync(req);
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [GetConnectionRequest](../../Models/Operations/GetConnectionRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[GetConnectionResponse](../../Models/Operations/GetConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## List
 
@@ -153,12 +156,12 @@ var res = await sdk.Connections.GetAsync(req);
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 ListConnectionsRequest req = new ListConnectionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -179,16 +182,17 @@ var res = await sdk.Connections.ListAsync(req);
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | `request`                                                                   | [ListConnectionsRequest](../../Models/Operations/ListConnectionsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
-
 ### Response
 
 **[ListConnectionsResponse](../../Models/Operations/ListConnectionsResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Unlink
 
@@ -198,12 +202,12 @@ var res = await sdk.Connections.ListAsync(req);
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -221,16 +225,17 @@ var res = await sdk.Connections.UnlinkAsync(req);
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `request`                                                                     | [UnlinkConnectionRequest](../../Models/Operations/UnlinkConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
-
 ### Response
 
 **[UnlinkConnectionResponse](../../Models/Operations/UnlinkConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## UpdateAuthorization
 
@@ -240,13 +245,13 @@ Update data connection's authorization.
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 UpdateConnectionAuthorizationRequest req = new UpdateConnectionAuthorizationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -264,10 +269,10 @@ var res = await sdk.Connections.UpdateAuthorizationAsync(req);
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [UpdateConnectionAuthorizationRequest](../../Models/Operations/UpdateConnectionAuthorizationRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[UpdateConnectionAuthorizationResponse](../../Models/Operations/UpdateConnectionAuthorizationResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |

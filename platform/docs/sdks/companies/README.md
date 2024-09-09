@@ -30,8 +30,8 @@ using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
@@ -54,16 +54,17 @@ var res = await sdk.Companies.CreateAsync(req);
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
 | `request`                                                       | [CompanyRequestBody](../../Models/Shared/CompanyRequestBody.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
-
 ### Response
 
 **[CreateCompanyResponse](../../Models/Operations/CreateCompanyResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Delete
 
@@ -77,12 +78,12 @@ Each company can have multiple [connections](https://docs.codat.io/platform-api#
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 DeleteCompanyRequest req = new DeleteCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -99,16 +100,17 @@ var res = await sdk.Companies.DeleteAsync(req);
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [DeleteCompanyRequest](../../Models/Operations/DeleteCompanyRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[DeleteCompanyResponse](../../Models/Operations/DeleteCompanyResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Get
 
@@ -122,12 +124,12 @@ Each company can have multiple [connections](https://docs.codat.io/platform-api#
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetCompanyRequest req = new GetCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -144,16 +146,17 @@ var res = await sdk.Companies.GetAsync(req);
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `request`                                                         | [GetCompanyRequest](../../Models/Operations/GetCompanyRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
-
 ### Response
 
 **[GetCompanyResponse](../../Models/Operations/GetCompanyResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## List
 
@@ -166,12 +169,12 @@ Each company can have multiple [connections](https://docs.codat.io/platform-api#
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
     OrderBy = "-modifiedDate",
@@ -191,16 +194,17 @@ var res = await sdk.Companies.ListAsync(req);
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [ListCompaniesRequest](../../Models/Operations/ListCompaniesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[ListCompaniesResponse](../../Models/Operations/ListCompaniesResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Update
 
@@ -214,13 +218,13 @@ Each company can have multiple [connections](https://docs.codat.io/platform-api#
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
     CompanyRequestBody = new CompanyRequestBody() {
@@ -246,10 +250,10 @@ var res = await sdk.Companies.UpdateAsync(req);
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [UpdateCompanyRequest](../../Models/Operations/UpdateCompanyRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[UpdateCompanyResponse](../../Models/Operations/UpdateCompanyResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |

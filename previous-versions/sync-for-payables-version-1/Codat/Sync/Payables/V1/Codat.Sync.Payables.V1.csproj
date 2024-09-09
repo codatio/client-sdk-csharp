@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Sync.Payables.V1</PackageId>
-    <Version>3.3.0</Version>
+    <Version>3.3.1</Version>
     <TargetFramework>net6.0</TargetFramework>
     <Authors>Codat</Authors>
     <Copyright>Copyright (c) Codat 2024</Copyright>

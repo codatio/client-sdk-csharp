@@ -30,13 +30,13 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
@@ -72,16 +72,17 @@ var res = await sdk.CustomDataType.ConfigureAsync(req);
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `request`                                                                                   | [ConfigureCustomDataTypeRequest](../../Models/Operations/ConfigureCustomDataTypeRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
-
 ### Response
 
 **[ConfigureCustomDataTypeResponse](../../Models/Operations/ConfigureCustomDataTypeResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## GetConfiguration
 
@@ -93,12 +94,12 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetCustomDataTypeConfigurationRequest req = new GetCustomDataTypeConfigurationRequest() {
     CustomDataIdentifier = "DynamicsPurchaseOrders",
@@ -116,16 +117,17 @@ var res = await sdk.CustomDataType.GetConfigurationAsync(req);
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                                 | [GetCustomDataTypeConfigurationRequest](../../Models/Operations/GetCustomDataTypeConfigurationRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
-
 ### Response
 
 **[GetCustomDataTypeConfigurationResponse](../../Models/Operations/GetCustomDataTypeConfigurationResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## List
 
@@ -137,12 +139,12 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 ListCustomDataTypeRecordsRequest req = new ListCustomDataTypeRecordsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -163,16 +165,17 @@ var res = await sdk.CustomDataType.ListAsync(req);
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `request`                                                                                       | [ListCustomDataTypeRecordsRequest](../../Models/Operations/ListCustomDataTypeRecordsRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
-
 ### Response
 
 **[ListCustomDataTypeRecordsResponse](../../Models/Operations/ListCustomDataTypeRecordsResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,451,500,503       | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Refresh
 
@@ -182,12 +185,12 @@ The *Refresh custom data type* endpoint refreshes the specified custom data type
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 RefreshCustomDataTypeRequest req = new RefreshCustomDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -206,10 +209,10 @@ var res = await sdk.CustomDataType.RefreshAsync(req);
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `request`                                                                               | [RefreshCustomDataTypeRequest](../../Models/Operations/RefreshCustomDataTypeRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
-
 ### Response
 
 **[RefreshCustomDataTypeResponse](../../Models/Operations/RefreshCustomDataTypeResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |

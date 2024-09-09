@@ -36,8 +36,8 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
@@ -54,16 +54,17 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | `request`                                           | [CreateApiKey](../../Models/Shared/CreateApiKey.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
 
-
 ### Response
 
 **[CreateApiKeyResponse](../../Models/Operations/CreateApiKeyResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,409,429,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## DeleteApiKey
 
@@ -82,12 +83,12 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 DeleteApiKeyRequest req = new DeleteApiKeyRequest() {
     ApiKeyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -104,16 +105,17 @@ var res = await sdk.Settings.DeleteApiKeyAsync(req);
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `request`                                                             | [DeleteApiKeyRequest](../../Models/Operations/DeleteApiKeyRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
-
 ### Response
 
 **[DeleteApiKeyResponse](../../Models/Operations/DeleteApiKeyResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## GetProfile
 
@@ -126,24 +128,25 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 var res = await sdk.Settings.GetProfileAsync();
 
 // handle response
 ```
 
-
 ### Response
 
 **[GetProfileResponse](../../Models/Operations/GetProfileResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## GetSyncSettings
 
@@ -156,24 +159,25 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 var res = await sdk.Settings.GetSyncSettingsAsync();
 
 // handle response
 ```
 
-
 ### Response
 
 **[GetProfileSyncSettingsResponse](../../Models/Operations/GetProfileSyncSettingsResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## ListApiKeys
 
@@ -190,24 +194,25 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 var res = await sdk.Settings.ListApiKeysAsync();
 
 // handle response
 ```
 
-
 ### Response
 
 **[ListApiKeysResponse](../../Models/Operations/ListApiKeysResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## UpdateProfile
 
@@ -221,8 +226,8 @@ using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 Profile req = new Profile() {
     AlertAuthHeader = "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
@@ -248,16 +253,17 @@ var res = await sdk.Settings.UpdateProfileAsync(req);
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | `request`                                  | [Profile](../../Models/Shared/Profile.md)  | :heavy_check_mark:                         | The request object to use for the request. |
 
-
 ### Response
 
 **[UpdateProfileResponse](../../Models/Operations/UpdateProfileResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## UpdateSyncSettings
 
@@ -267,13 +273,13 @@ Update sync settings for all data types.
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
 using System.Collections.Generic;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 UpdateProfileSyncSettingsRequestBody req = new UpdateProfileSyncSettingsRequestBody() {
     ClientId = "ce429104-79f0-4085-a720-e2d40fcc800f",
@@ -302,10 +308,10 @@ var res = await sdk.Settings.UpdateSyncSettingsAsync(req);
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `request`                                                                                               | [UpdateProfileSyncSettingsRequestBody](../../Models/Operations/UpdateProfileSyncSettingsRequestBody.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
-
 ### Response
 
 **[UpdateProfileSyncSettingsResponse](../../Models/Operations/UpdateProfileSyncSettingsResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |

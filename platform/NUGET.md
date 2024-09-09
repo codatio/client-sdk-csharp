@@ -11,8 +11,8 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
@@ -35,14 +35,14 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req,
+var res = await sdk.Settings.CreateApiKeyAsync(
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -52,7 +52,7 @@ var res = await sdk.Settings.CreateApiKeyAsync(req,
             exponent: 1.1
         ),
         retryConnectionErrors: false
-));
+    ),req);
 
 // handle response
 ```
@@ -72,10 +72,11 @@ var sdk = new CodatPlatform(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-),
+    ),
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    }
+);
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",
@@ -106,16 +107,17 @@ using System;
 using Codat.Platform.Models.Errors;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
-};
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 try
 {
+    CreateApiKey req = new CreateApiKey() {
+        Name = "azure-invoice-finance-processor",
+    };
+
     var res = await sdk.Settings.CreateApiKeyAsync(req);
+
     // handle response
 }
 catch (Exception ex)
@@ -129,7 +131,6 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -169,8 +170,8 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateApiKey req = new CreateApiKey() {
     Name = "azure-invoice-finance-processor",

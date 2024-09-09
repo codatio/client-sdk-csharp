@@ -1,6 +1,8 @@
 # CorsSettings
 (*ConnectionManagement.CorsSettings*)
 
+## Overview
+
 ### Available Operations
 
 * [Get](#get) - Get CORS settings
@@ -21,24 +23,25 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 var res = await sdk.ConnectionManagement.CorsSettings.GetAsync();
 
 // handle response
 ```
 
-
 ### Response
 
 **[GetConnectionManagementCorsSettingsResponse](../../Models/Operations/GetConnectionManagementCorsSettingsResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## Set
 
@@ -56,8 +59,8 @@ using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 ConnectionManagementAllowedOrigins req = new ConnectionManagementAllowedOrigins() {
     AllowedOrigins = new List<string>() {
@@ -76,10 +79,10 @@ var res = await sdk.ConnectionManagement.CorsSettings.SetAsync(req);
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `request`                                                                                       | [ConnectionManagementAllowedOrigins](../../Models/Shared/ConnectionManagementAllowedOrigins.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
-
 ### Response
 
 **[SetConnectionManagementCorsSettingsResponse](../../Models/Operations/SetConnectionManagementCorsSettingsResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |

@@ -28,8 +28,8 @@ using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateRule req = new CreateRule() {
     CompanyId = "39b73b17-cc2e-429e-915d-71654e9dcd1e",
@@ -53,16 +53,17 @@ var res = await sdk.Webhooks.CreateAsync(req);
 | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
 | `request`                                       | [CreateRule](../../Models/Shared/CreateRule.md) | :heavy_check_mark:                              | The request object to use for the request.      |
 
-
 ### Response
 
 **[CreateRuleResponse](../../Models/Operations/CreateRuleResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## CreateConsumer
 
@@ -81,8 +82,8 @@ using Codat.Platform.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 WebhookConsumerPrototype req = new WebhookConsumerPrototype() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -99,16 +100,17 @@ var res = await sdk.Webhooks.CreateConsumerAsync(req);
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | `request`                                                                   | [WebhookConsumerPrototype](../../Models/Shared/WebhookConsumerPrototype.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
-
 ### Response
 
 **[CreateWebhookConsumerResponse](../../Models/Operations/CreateWebhookConsumerResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## DeleteConsumer
 
@@ -120,12 +122,12 @@ var res = await sdk.Webhooks.CreateConsumerAsync(req);
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 DeleteWebhookConsumerRequest req = new DeleteWebhookConsumerRequest() {
     WebhookId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -142,16 +144,17 @@ var res = await sdk.Webhooks.DeleteConsumerAsync(req);
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `request`                                                                               | [DeleteWebhookConsumerRequest](../../Models/Operations/DeleteWebhookConsumerRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
-
 ### Response
 
 **[DeleteWebhookConsumerResponse](../../Models/Operations/DeleteWebhookConsumerResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## ~~Get~~
 
@@ -163,12 +166,12 @@ Get a single webhook
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetWebhookRequest req = new GetWebhookRequest() {
     RuleId = "7318949f-c008-4936-a8ff-10d7ab563fa6",
@@ -185,16 +188,17 @@ var res = await sdk.Webhooks.GetAsync(req);
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `request`                                                         | [GetWebhookRequest](../../Models/Operations/GetWebhookRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
-
 ### Response
 
 **[GetWebhookResponse](../../Models/Operations/GetWebhookResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## ~~List~~
 
@@ -206,12 +210,12 @@ List webhooks that you are subscribed to.
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
 using Codat.Platform.Models.Operations;
+using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 ListRulesRequest req = new ListRulesRequest() {
     OrderBy = "-modifiedDate",
@@ -231,16 +235,17 @@ var res = await sdk.Webhooks.ListAsync(req);
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
 | `request`                                                       | [ListRulesRequest](../../Models/Operations/ListRulesRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
-
 ### Response
 
 **[ListRulesResponse](../../Models/Operations/ListRulesResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
 
 ## ListConsumers
 
@@ -255,18 +260,18 @@ using Codat.Platform;
 using Codat.Platform.Models.Shared;
 
 var sdk = new CodatPlatform(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 var res = await sdk.Webhooks.ListConsumersAsync();
 
 // handle response
 ```
 
-
 ### Response
 
 **[ListWebhookConsumersResponse](../../Models/Operations/ListWebhookConsumersResponse.md)**
+
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |

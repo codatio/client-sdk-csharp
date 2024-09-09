@@ -149,10 +149,10 @@ namespace Openapi
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.0.9";
+        private const string _sdkVersion = "0.0.10";
         private const string _sdkGenVersion = "2.411.9";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.0.9 2.411.9 3.0.0 Openapi";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.0.10 2.411.9 3.0.0 Openapi";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;

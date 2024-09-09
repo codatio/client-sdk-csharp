@@ -1,15 +1,20 @@
 <!-- Start SDK Example Usage [usage] -->
 ```csharp
-using Codat.Sync.Payables;
-using Codat.Sync.Payables.Models.Shared;
+using Codat.Sync.Payables.V1;
+using Codat.Sync.Payables.V1.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatSyncPayables(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Description = "Requested early access to the new financing scheme.",
+    Groups = new List<Items>() {
+        new Items() {
+            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+        },
+    },
     Name = "Bank of Dave",
 };
 

@@ -7,12 +7,18 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 csharp:
-  version: 3.2.0
+  version: 3.3.0
+  additionalDependencies: []
   author: Codat
+  clientServerStatusCodesAsErrors: true
   description: Streamline your customers' accounts payable workflow.
+  disableNamespacePascalCasingApr2024: false
   dotnetVersion: net6.0
+  enableSourceLink: false
   flattenGlobalSecurity: false
   imports:
     option: openapi
@@ -22,7 +28,10 @@ csharp:
       operations: Models/Operations
       shared: Models/Shared
       webhooks: Models/Webhooks
+  includeDebugSymbols: false
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.Sync.Payables.V1
+  packageTags: ""
+  responseFormat: envelope

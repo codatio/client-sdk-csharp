@@ -1,6 +1,6 @@
 configVersion: 2.0.0
 generation:
-  sdkClassName: SDK
+  sdkClassName: Codat.SyncPayables
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -10,11 +10,12 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
   auth:
-    oAuth2ClientCredentialsEnabled: true
+    oAuth2ClientCredentialsEnabled: false
 csharp:
-  version: 0.0.10
+  version: 3.2.0
   additionalDependencies: []
-  author: Speakeasy
+  author: Codat
+  description: Streamline your customers' accounts payable workflow.
   clientServerStatusCodesAsErrors: true
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0
@@ -30,8 +31,8 @@ csharp:
       webhooks: Models/Webhooks
   includeDebugSymbols: false
   inputModelSuffix: input
-  maxMethodParams: 4
+  maxMethodParams: 0
   outputModelSuffix: output
-  packageName: Openapi
+  packageName: Codat.Sync.Payables
   packageTags: ""
-  responseFormat: envelope-http
+  responseFormat: envelope

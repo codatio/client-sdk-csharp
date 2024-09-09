@@ -15,8 +15,8 @@ csharp:
   version: 3.2.0
   additionalDependencies: []
   author: Codat
-  description: Streamline your customers' accounts payable workflow.
   clientServerStatusCodesAsErrors: true
+  description: Streamline your customers' accounts payable workflow.
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0
   enableSourceLink: false

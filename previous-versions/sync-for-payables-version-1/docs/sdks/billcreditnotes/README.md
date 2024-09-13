@@ -7,103 +7,58 @@ Get, create, and update Bill credit notes.
 
 ### Available Operations
 
-* [Create](#create) - Create bill credit note
+* [List](#list) - List bill credit notes
 * [Get](#get) - Get bill credit note
 * [GetCreateUpdateModel](#getcreateupdatemodel) - Get create/update bill credit note model
-* [List](#list) - List bill credit notes
+* [Create](#create) - Create bill credit note
 * [Update](#update) - Update bill credit note
 
-## Create
+## List
 
-The *Create bill credit note* endpoint creates a new [bill credit note](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company's connection.
+The *List bill credit notes* endpoint returns a list of [bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company's connection.
 
 [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating a bill credit note.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateBillCreditNoteRequest req = new CreateBillCreditNoteRequest() {
-    BillCreditNote = new BillCreditNote() {
-        AllocatedOnDate = "2022-10-23T00:00:00Z",
-        BillCreditNoteNumber = "14763237",
-        CreatedFromRefs = new List<RecordReference>() {
-            new RecordReference() {
-                DataType = "invoice",
-            },
-        },
-        Currency = "USD",
-        DiscountPercentage = 0M,
-        Id = "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
-        IssueDate = "2019-02-18T16:03:07.268Z",
-        LineItems = new List<BillCreditNoteLineItem>() {
-
-        },
-        ModifiedDate = "2022-10-23T00:00:00Z",
-        Note = "Track separately",
-        PaymentAllocations = new List<PaymentAllocationItems>() {
-            new PaymentAllocationItems() {
-                Allocation = new Allocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00Z",
-                    Currency = "USD",
-                },
-                Payment = new PaymentAllocationPayment() {
-                    Currency = "GBP",
-                    PaidOnDate = "2022-10-23T00:00:00Z",
-                },
-            },
-        },
-        RemainingCredit = 693M,
-        SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Status = Codat.Sync.Payables.V1.Models.Shared.BillCreditNoteStatus.Submitted,
-        SubTotal = 805.78M,
-        SupplierRef = new SupplierRef() {
-            Id = "67C6A7A1-5E84-4AC4-B950-24A114E379D0",
-            SupplierName = "Chin's Gas and Oil",
-        },
-        TotalAmount = 693M,
-        TotalDiscount = 0M,
-        TotalTaxAmount = 0M,
-    },
+ListBillCreditNotesRequest req = new ListBillCreditNotesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.BillCreditNotes.CreateAsync(req);
+var res = await sdk.BillCreditNotes.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [CreateBillCreditNoteRequest](../../Models/Operations/CreateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [ListBillCreditNotesRequest](../../Models/Requests/ListBillCreditNotesRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 ### Response
 
-**[Models.Operations.CreateBillCreditNoteResponse](../../Models/Operations/CreateBillCreditNoteResponse.md)**
+**[ListBillCreditNotesResponse](../../Models/Requests/ListBillCreditNotesResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
@@ -122,16 +77,14 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetBillCreditNoteRequest req = new GetBillCreditNoteRequest() {
-    BillCreditNoteId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillCreditNoteId = "<value>",
 };
 
 var res = await sdk.BillCreditNotes.GetAsync(req);
@@ -141,13 +94,13 @@ var res = await sdk.BillCreditNotes.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [GetBillCreditNoteRequest](../../Models/Operations/GetBillCreditNoteRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [GetBillCreditNoteRequest](../../Models/Requests/GetBillCreditNoteRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 ### Response
 
-**[GetBillCreditNoteResponse](../../Models/Operations/GetBillCreditNoteResponse.md)**
+**[GetBillCreditNoteResponse](../../Models/Requests/GetBillCreditNoteResponse.md)**
 
 ### Errors
 
@@ -174,12 +127,10 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCreateUpdateBillCreditNoteModelRequest req = new GetCreateUpdateBillCreditNoteModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -193,13 +144,13 @@ var res = await sdk.BillCreditNotes.GetCreateUpdateModelAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [GetCreateUpdateBillCreditNoteModelRequest](../../Models/Operations/GetCreateUpdateBillCreditNoteModelRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [GetCreateUpdateBillCreditNoteModelRequest](../../Models/Requests/GetCreateUpdateBillCreditNoteModelRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[GetCreateUpdateBillCreditNoteModelResponse](../../Models/Operations/GetCreateUpdateBillCreditNoteModelResponse.md)**
+**[GetCreateUpdateBillCreditNoteModelResponse](../../Models/Requests/GetCreateUpdateBillCreditNoteModelResponse.md)**
 
 ### Errors
 
@@ -209,35 +160,76 @@ var res = await sdk.BillCreditNotes.GetCreateUpdateModelAsync(req);
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
-## List
+## Create
 
-The *List bill credit notes* endpoint returns a list of [bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company's connection.
+The *Create bill credit note* endpoint creates a new [bill credit note](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) for a given company's connection.
 
 [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-    
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating a bill credit note.
+
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-ListBillCreditNotesRequest req = new ListBillCreditNotesRequest() {
+CreateBillCreditNoteRequest req = new CreateBillCreditNoteRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BillCreditNote = new BillCreditNote() {
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+        Id = "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
+        BillCreditNoteNumber = "14763237",
+        SupplierRef = new SupplierRef() {
+            Id = "67C6A7A1-5E84-4AC4-B950-24A114E379D0",
+            SupplierName = "Chin's Gas and Oil",
+        },
+        TotalAmount = 693M,
+        TotalDiscount = 0M,
+        SubTotal = 805.78M,
+        TotalTaxAmount = 0M,
+        DiscountPercentage = 0M,
+        RemainingCredit = 693M,
+        Status = Codat.Sync.Payables.V1.Models.Components.BillCreditNoteStatus.Submitted,
+        IssueDate = "2019-02-18T16:03:07.268Z",
+        AllocatedOnDate = "2022-10-23T00:00:00Z",
+        Currency = "USD",
+        LineItems = new List<BillCreditNoteLineItem>() {
+
+        },
+        PaymentAllocations = new List<PaymentAllocationItems>() {
+            new PaymentAllocationItems() {
+                Payment = new PaymentAllocationPayment() {
+                    Currency = "EUR",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
+                },
+                Allocation = new Allocation() {
+                    Currency = "USD",
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
+                },
+            },
+        },
+        CreatedFromRefs = new List<RecordReference>() {
+            new RecordReference() {
+                DataType = "invoice",
+            },
+        },
+        Note = "Track separately",
+    },
 };
 
-var res = await sdk.BillCreditNotes.ListAsync(req);
+var res = await sdk.BillCreditNotes.CreateAsync(req);
 
 // handle response
 ```
@@ -246,17 +238,17 @@ var res = await sdk.BillCreditNotes.ListAsync(req);
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [ListBillCreditNotesRequest](../../Models/Operations/ListBillCreditNotesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [CreateBillCreditNoteRequest](../../Models/Requests/CreateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 ### Response
 
-**[ListBillCreditNotesResponse](../../Models/Operations/ListBillCreditNotesResponse.md)**
+**[Models.Requests.CreateBillCreditNoteResponse](../../Models/Requests/CreateBillCreditNoteResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
@@ -277,59 +269,57 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 UpdateBillCreditNoteRequest req = new UpdateBillCreditNoteRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BillCreditNoteId = "<value>",
     BillCreditNote = new BillCreditNote() {
-        AllocatedOnDate = "2022-10-23T00:00:00Z",
-        BillCreditNoteNumber = "14763237",
-        CreatedFromRefs = new List<RecordReference>() {
-            new RecordReference() {
-                DataType = "journalEntry",
-            },
-        },
-        Currency = "USD",
-        DiscountPercentage = 0M,
-        Id = "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
-        IssueDate = "2019-02-18T16:03:07.268Z",
-        LineItems = new List<BillCreditNoteLineItem>() {
-
-        },
         ModifiedDate = "2022-10-23T00:00:00Z",
-        Note = "Track separately",
-        PaymentAllocations = new List<PaymentAllocationItems>() {
-            new PaymentAllocationItems() {
-                Allocation = new Allocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00Z",
-                    Currency = "USD",
-                },
-                Payment = new PaymentAllocationPayment() {
-                    Currency = "EUR",
-                    PaidOnDate = "2022-10-23T00:00:00Z",
-                },
-            },
-        },
-        RemainingCredit = 693M,
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Status = Codat.Sync.Payables.V1.Models.Shared.BillCreditNoteStatus.Submitted,
-        SubTotal = 805.78M,
+        Id = "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
+        BillCreditNoteNumber = "14763237",
         SupplierRef = new SupplierRef() {
             Id = "67C6A7A1-5E84-4AC4-B950-24A114E379D0",
             SupplierName = "Chin's Gas and Oil",
         },
         TotalAmount = 693M,
         TotalDiscount = 0M,
+        SubTotal = 805.78M,
         TotalTaxAmount = 0M,
+        DiscountPercentage = 0M,
+        RemainingCredit = 693M,
+        Status = Codat.Sync.Payables.V1.Models.Components.BillCreditNoteStatus.Submitted,
+        IssueDate = "2019-02-18T16:03:07.268Z",
+        AllocatedOnDate = "2022-10-23T00:00:00Z",
+        Currency = "USD",
+        LineItems = new List<BillCreditNoteLineItem>() {
+
+        },
+        PaymentAllocations = new List<PaymentAllocationItems>() {
+            new PaymentAllocationItems() {
+                Payment = new PaymentAllocationPayment() {
+                    Currency = "GBP",
+                    PaidOnDate = "2022-10-23T00:00:00Z",
+                },
+                Allocation = new Allocation() {
+                    Currency = "USD",
+                    AllocatedOnDate = "2022-10-23T00:00:00Z",
+                },
+            },
+        },
+        CreatedFromRefs = new List<RecordReference>() {
+            new RecordReference() {
+                DataType = "invoice",
+            },
+        },
+        Note = "Track separately",
     },
-    BillCreditNoteId = "<value>",
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
 var res = await sdk.BillCreditNotes.UpdateAsync(req);
@@ -339,13 +329,13 @@ var res = await sdk.BillCreditNotes.UpdateAsync(req);
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [UpdateBillCreditNoteRequest](../../Models/Operations/UpdateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [UpdateBillCreditNoteRequest](../../Models/Requests/UpdateBillCreditNoteRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 ### Response
 
-**[Models.Operations.UpdateBillCreditNoteResponse](../../Models/Operations/UpdateBillCreditNoteResponse.md)**
+**[Models.Requests.UpdateBillCreditNoteResponse](../../Models/Requests/UpdateBillCreditNoteResponse.md)**
 
 ### Errors
 

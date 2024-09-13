@@ -10,9 +10,9 @@
 namespace Codat.Sync.Payables.V1
 {
     using Codat.Sync.Payables.V1.Hooks;
+    using Codat.Sync.Payables.V1.Models.Components;
     using Codat.Sync.Payables.V1.Models.Errors;
-    using Codat.Sync.Payables.V1.Models.Operations;
-    using Codat.Sync.Payables.V1.Models.Shared;
+    using Codat.Sync.Payables.V1.Models.Requests;
     using Codat.Sync.Payables.V1.Utils.Retries;
     using Codat.Sync.Payables.V1.Utils;
     using Newtonsoft.Json;
@@ -29,22 +29,18 @@ namespace Codat.Sync.Payables.V1
     {
 
         /// <summary>
-        /// Create journal
+        /// List journals
         /// 
         /// <remarks>
-        /// The *Create journal* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Journal">journal</a> for a given company&apos;s connection.<br/>
+        /// The *List journals* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Journal">journals</a> for a given company&apos;s connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Journal">Journals</a> are used to record all the financial transactions of a company.<br/>
         /// <br/>
-        /// **Integration-specific behaviour**<br/>
-        /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-journals-model">Get create journal model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journals">coverage explorer</a> for integrations that support creating a journal.<br/>
-        /// 
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
         /// </remarks>
         /// </summary>
-        Task<Models.Operations.CreateJournalResponse> CreateAsync(CreateJournalRequest request, RetryConfig? retryConfig = null);
+        Task<ListJournalsResponse> ListAsync(ListJournalsRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
         /// Get journal
@@ -81,18 +77,22 @@ namespace Codat.Sync.Payables.V1
         Task<GetCreateJournalModelResponse> GetCreateModelAsync(GetCreateJournalModelRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// List journals
+        /// Create journal
         /// 
         /// <remarks>
-        /// The *List journals* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Journal">journals</a> for a given company&apos;s connection.<br/>
+        /// The *Create journal* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Journal">journal</a> for a given company&apos;s connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Journal">Journals</a> are used to record all the financial transactions of a company.<br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        ///     
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-journals-model">Get create journal model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journals">coverage explorer</a> for integrations that support creating a journal.<br/>
+        /// 
         /// </remarks>
         /// </summary>
-        Task<ListJournalsResponse> ListAsync(ListJournalsRequest request, RetryConfig? retryConfig = null);
+        Task<Models.Requests.CreateJournalResponse> CreateAsync(CreateJournalRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -102,15 +102,15 @@ namespace Codat.Sync.Payables.V1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.3.1";
-        private const string _sdkGenVersion = "2.413.0";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.415.6";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.3.1 2.413.0 3.0.0 Codat.Sync.Payables.V1";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 3.0.0 Codat.Sync.Payables.V1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Payables.V1.Models.Shared.Security>? _securitySource;
+        private Func<Codat.Sync.Payables.V1.Models.Components.Security>? _securitySource;
 
-        public Journals(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.V1.Models.Shared.Security>? securitySource, string serverUrl, SDKConfig config)
+        public Journals(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.V1.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _client = client;
             _securitySource = securitySource;
@@ -118,26 +118,20 @@ namespace Codat.Sync.Payables.V1
             SDKConfiguration = config;
         }
 
-        public async Task<Models.Operations.CreateJournalResponse> CreateAsync(CreateJournalRequest request, RetryConfig? retryConfig = null)
+        public async Task<ListJournalsResponse> ListAsync(ListJournalsRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/journals", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/journals", request);
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-
-            var serializedBody = RequestBodySerializer.Serialize(request, "JournalPrototype", "json", false, true);
-            if (serializedBody != null)
-            {
-                httpRequest.Content = serializedBody;
-            }
 
             if (_securitySource != null)
             {
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("create-journal", null, _securitySource);
+            var hookCtx = new HookContext("list-journals", null, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -182,7 +176,7 @@ namespace Codat.Sync.Payables.V1
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -212,14 +206,14 @@ namespace Codat.Sync.Payables.V1
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Shared.CreateJournalResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new Models.Operations.CreateJournalResponse()
+                    var obj = ResponseBodyDeserializer.Deserialize<Models.Components.Journals>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new ListJournalsResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.CreateJournalResponseValue = obj;
+                    response.Journals = obj;
                     return response;
                 }
                 else
@@ -227,7 +221,7 @@ namespace Codat.Sync.Payables.V1
                     throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 409, 429, 500, 503}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
@@ -499,20 +493,26 @@ namespace Codat.Sync.Payables.V1
             }
         }
 
-        public async Task<ListJournalsResponse> ListAsync(ListJournalsRequest request, RetryConfig? retryConfig = null)
+        public async Task<Models.Requests.CreateJournalResponse> CreateAsync(CreateJournalRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/journals", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/journals", request);
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "JournalPrototype", "json", false, true);
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
 
             if (_securitySource != null)
             {
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("list-journals", null, _securitySource);
+            var hookCtx = new HookContext("create-journal", null, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -557,7 +557,7 @@ namespace Codat.Sync.Payables.V1
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -587,14 +587,14 @@ namespace Codat.Sync.Payables.V1
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Shared.Journals>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new ListJournalsResponse()
+                    var obj = ResponseBodyDeserializer.Deserialize<Models.Components.CreateJournalResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new Models.Requests.CreateJournalResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.Journals = obj;
+                    response.CreateJournalResponseValue = obj;
                     return response;
                 }
                 else
@@ -602,7 +602,7 @@ namespace Codat.Sync.Payables.V1
                     throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 409, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {

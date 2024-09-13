@@ -7,63 +7,57 @@ Get, create, and update Journals.
 
 ### Available Operations
 
-* [Create](#create) - Create journal
+* [List](#list) - List journals
 * [Get](#get) - Get journal
 * [GetCreateModel](#getcreatemodel) - Get create journal model
-* [List](#list) - List journals
+* [Create](#create) - Create journal
 
-## Create
+## List
 
-The *Create journal* endpoint creates a new [journal](https://docs.codat.io/sync-for-payables-api#/schemas/Journal) for a given company's connection.
+The *List journals* endpoint returns a list of [journals](https://docs.codat.io/sync-for-payables-api#/schemas/Journal) for a given company's connection.
 
 [Journals](https://docs.codat.io/sync-for-payables-api#/schemas/Journal) are used to record all the financial transactions of a company.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create journal model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-journals-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating a journal.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateJournalRequest req = new CreateJournalRequest() {
+ListJournalsRequest req = new ListJournalsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    JournalPrototype = new JournalPrototype() {
-        CreatedOn = "2022-10-23T00:00:00Z",
-    },
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Journals.CreateAsync(req);
+var res = await sdk.Journals.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [CreateJournalRequest](../../Models/Operations/CreateJournalRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [ListJournalsRequest](../../Models/Requests/ListJournalsRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 ### Response
 
-**[Models.Operations.CreateJournalResponse](../../Models/Operations/CreateJournalResponse.md)**
+**[ListJournalsResponse](../../Models/Requests/ListJournalsResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
@@ -82,12 +76,10 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetJournalRequest req = new GetJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -101,13 +93,13 @@ var res = await sdk.Journals.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [GetJournalRequest](../../Models/Operations/GetJournalRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `request`                                                       | [GetJournalRequest](../../Models/Requests/GetJournalRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 ### Response
 
-**[GetJournalResponse](../../Models/Operations/GetJournalResponse.md)**
+**[GetJournalResponse](../../Models/Requests/GetJournalResponse.md)**
 
 ### Errors
 
@@ -134,12 +126,10 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCreateJournalModelRequest req = new GetCreateJournalModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -153,13 +143,13 @@ var res = await sdk.Journals.GetCreateModelAsync(req);
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetCreateJournalModelRequest](../../Models/Operations/GetCreateJournalModelRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetCreateJournalModelRequest](../../Models/Requests/GetCreateJournalModelRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[GetCreateJournalModelResponse](../../Models/Operations/GetCreateJournalModelResponse.md)**
+**[GetCreateJournalModelResponse](../../Models/Requests/GetCreateJournalModelResponse.md)**
 
 ### Errors
 
@@ -169,35 +159,37 @@ var res = await sdk.Journals.GetCreateModelAsync(req);
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
-## List
+## Create
 
-The *List journals* endpoint returns a list of [journals](https://docs.codat.io/sync-for-payables-api#/schemas/Journal) for a given company's connection.
+The *Create journal* endpoint creates a new [journal](https://docs.codat.io/sync-for-payables-api#/schemas/Journal) for a given company's connection.
 
 [Journals](https://docs.codat.io/sync-for-payables-api#/schemas/Journal) are used to record all the financial transactions of a company.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-    
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create journal model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-journals-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating a journal.
+
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-ListJournalsRequest req = new ListJournalsRequest() {
+CreateJournalRequest req = new CreateJournalRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    JournalPrototype = new JournalPrototype() {
+        CreatedOn = "2022-10-23T00:00:00Z",
+    },
 };
 
-var res = await sdk.Journals.ListAsync(req);
+var res = await sdk.Journals.CreateAsync(req);
 
 // handle response
 ```
@@ -206,15 +198,15 @@ var res = await sdk.Journals.ListAsync(req);
 
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [ListJournalsRequest](../../Models/Operations/ListJournalsRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `request`                                                             | [CreateJournalRequest](../../Models/Requests/CreateJournalRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
-**[ListJournalsResponse](../../Models/Operations/ListJournalsResponse.md)**
+**[Models.Requests.CreateJournalResponse](../../Models/Requests/CreateJournalResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |

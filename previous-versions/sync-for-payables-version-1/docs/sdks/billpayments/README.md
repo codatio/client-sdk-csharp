@@ -7,88 +7,106 @@ Get, create, and update Bill payments.
 
 ### Available Operations
 
-* [Create](#create) - Create bill payments
-* [Delete](#delete) - Delete bill payment
-* [Get](#get) - Get bill payment
-* [GetCreateModel](#getcreatemodel) - Get create bill payment model
 * [List](#list) - List bill payments
+* [Get](#get) - Get bill payment
+* [Delete](#delete) - Delete bill payment
+* [GetCreateModel](#getcreatemodel) - Get create bill payment model
+* [Create](#create) - Create bill payments
 
-## Create
+## List
 
-The *Create bill payment* endpoint creates a new [bill payment](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company's connection.
+The *List bill payments* endpoint returns a list of [bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company's connection.
 
-[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create bill payment model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-billPayments-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating a bill payment.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateBillPaymentRequest req = new CreateBillPaymentRequest() {
-    BillPayment = new BillPayment() {
-        Currency = "USD",
-        Date = "2022-10-23T00:00:00Z",
-        Id = "3d5a8e00-d108-4045-8823-7f342676cffa",
-        Lines = new List<BillPaymentLine>() {
-            new BillPaymentLine() {
-                AllocatedOnDate = "2022-10-23T00:00:00Z",
-                Amount = 1000M,
-                Links = new List<BillPaymentLineLink>() {
-                    new BillPaymentLineLink() {
-                        Amount = -1000M,
-                        Id = "x",
-                        Type = Codat.Sync.Payables.V1.Models.Shared.BillPaymentLineLinkType.Bill,
-                    },
-                },
-            },
-        },
-        ModifiedDate = "2022-10-23T00:00:00Z",
-        Note = "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-        PaymentMethodRef = new PaymentMethodRef() {
-            Id = "EILBDVJVNUAGVKRQ",
-            Name = "AliPay",
-        },
-        SourceModifiedDate = "2022-10-23T00:00:00Z",
-        TotalAmount = 1000M,
-    },
+ListBillPaymentsRequest req = new ListBillPaymentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.BillPayments.CreateAsync(req);
+var res = await sdk.BillPayments.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [CreateBillPaymentRequest](../../Models/Operations/CreateBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [ListBillPaymentsRequest](../../Models/Requests/ListBillPaymentsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 ### Response
 
-**[Models.Operations.CreateBillPaymentResponse](../../Models/Operations/CreateBillPaymentResponse.md)**
+**[ListBillPaymentsResponse](../../Models/Requests/ListBillPaymentsResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
+
+
+## Get
+
+The *Get bill payment* endpoint returns a single bill payment for a given `billPaymentId`.
+
+[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support getting a specific bill payment.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
+
+
+### Example Usage
+
+```csharp
+using Codat.Sync.Payables.V1;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
+
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetBillPaymentsRequest req = new GetBillPaymentsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillPaymentId = "<value>",
+};
+
+var res = await sdk.BillPayments.GetAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [GetBillPaymentsRequest](../../Models/Requests/GetBillPaymentsRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+
+### Response
+
+**[GetBillPaymentsResponse](../../Models/Requests/GetBillPaymentsResponse.md)**
+
+### Errors
+
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
@@ -129,17 +147,15 @@ Integrations that support soft delete do not permanently delete the object in th
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 DeleteBillPaymentRequest req = new DeleteBillPaymentRequest() {
-    BillPaymentId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BillPaymentId = "<value>",
 };
 
 var res = await sdk.BillPayments.DeleteAsync(req);
@@ -149,69 +165,19 @@ var res = await sdk.BillPayments.DeleteAsync(req);
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [DeleteBillPaymentRequest](../../Models/Operations/DeleteBillPaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [DeleteBillPaymentRequest](../../Models/Requests/DeleteBillPaymentRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 ### Response
 
-**[DeleteBillPaymentResponse](../../Models/Operations/DeleteBillPaymentResponse.md)**
+**[DeleteBillPaymentResponse](../../Models/Requests/DeleteBillPaymentResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                       | application/json                                  |
-| Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
-
-
-## Get
-
-The *Get bill payment* endpoint returns a single bill payment for a given `billPaymentId`.
-
-[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support getting a specific bill payment.
-
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-
-
-### Example Usage
-
-```csharp
-using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
-
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
-
-GetBillPaymentsRequest req = new GetBillPaymentsRequest() {
-    BillPaymentId = "<value>",
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-var res = await sdk.BillPayments.GetAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [GetBillPaymentsRequest](../../Models/Operations/GetBillPaymentsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
-
-### Response
-
-**[GetBillPaymentsResponse](../../Models/Operations/GetBillPaymentsResponse.md)**
-
-### Errors
-
-| Error Object                                      | Status Code                                       | Content Type                                      |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
@@ -232,12 +198,10 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCreateBillPaymentModelRequest req = new GetCreateBillPaymentModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -251,13 +215,13 @@ var res = await sdk.BillPayments.GetCreateModelAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetCreateBillPaymentModelRequest](../../Models/Operations/GetCreateBillPaymentModelRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetCreateBillPaymentModelRequest](../../Models/Requests/GetCreateBillPaymentModelRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[GetCreateBillPaymentModelResponse](../../Models/Operations/GetCreateBillPaymentModelResponse.md)**
+**[GetCreateBillPaymentModelResponse](../../Models/Requests/GetCreateBillPaymentModelResponse.md)**
 
 ### Errors
 
@@ -267,35 +231,61 @@ var res = await sdk.BillPayments.GetCreateModelAsync(req);
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
-## List
+## Create
 
-The *List bill payments* endpoint returns a list of [bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company's connection.
+The *Create bill payment* endpoint creates a new [bill payment](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company's connection.
 
-[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
+[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
-    
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create bill payment model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-billPayments-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating a bill payment.
+
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-ListBillPaymentsRequest req = new ListBillPaymentsRequest() {
+CreateBillPaymentRequest req = new CreateBillPaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BillPayment = new BillPayment() {
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+        Id = "3d5a8e00-d108-4045-8823-7f342676cffa",
+        TotalAmount = 1000M,
+        Currency = "EUR",
+        Date = "2022-10-23T00:00:00Z",
+        Note = "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
+        PaymentMethodRef = new PaymentMethodRef() {
+            Id = "EILBDVJVNUAGVKRQ",
+            Name = "AliPay",
+        },
+        Lines = new List<BillPaymentLine>() {
+            new BillPaymentLine() {
+                Amount = 1000M,
+                Links = new List<BillPaymentLineLink>() {
+                    new BillPaymentLineLink() {
+                        Type = Codat.Sync.Payables.V1.Models.Components.BillPaymentLineLinkType.Bill,
+                        Id = "x",
+                        Amount = -1000M,
+                    },
+                },
+                AllocatedOnDate = "2022-10-23T00:00:00Z",
+            },
+        },
+    },
 };
 
-var res = await sdk.BillPayments.ListAsync(req);
+var res = await sdk.BillPayments.CreateAsync(req);
 
 // handle response
 ```
@@ -304,15 +294,15 @@ var res = await sdk.BillPayments.ListAsync(req);
 
 | Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [ListBillPaymentsRequest](../../Models/Operations/ListBillPaymentsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| `request`                                                                     | [CreateBillPaymentRequest](../../Models/Requests/CreateBillPaymentRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 ### Response
 
-**[ListBillPaymentsResponse](../../Models/Operations/ListBillPaymentsResponse.md)**
+**[Models.Requests.CreateBillPaymentResponse](../../Models/Requests/CreateBillPaymentResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |

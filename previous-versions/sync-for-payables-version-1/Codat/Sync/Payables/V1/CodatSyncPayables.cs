@@ -10,8 +10,8 @@
 namespace Codat.Sync.Payables.V1
 {
     using Codat.Sync.Payables.V1.Hooks;
+    using Codat.Sync.Payables.V1.Models.Components;
     using Codat.Sync.Payables.V1.Models.Errors;
-    using Codat.Sync.Payables.V1.Models.Shared;
     using Codat.Sync.Payables.V1.Utils.Retries;
     using Codat.Sync.Payables.V1.Utils;
     using Newtonsoft.Json;
@@ -68,9 +68,19 @@ namespace Codat.Sync.Payables.V1
         public IConnections Connections { get; }
 
         /// <summary>
-        /// Get, create, and update Bills.
+        /// Control how data is retrieved from an integration.
         /// </summary>
-        public IBills Bills { get; }
+        public IManageData ManageData { get; }
+
+        /// <summary>
+        /// View historic push operations.
+        /// </summary>
+        public IPushOperations PushOperations { get; }
+
+        /// <summary>
+        /// Get, create, and update Accounts.
+        /// </summary>
+        public IAccounts Accounts { get; }
 
         /// <summary>
         /// Get, create, and update Bank accounts.
@@ -88,9 +98,9 @@ namespace Codat.Sync.Payables.V1
         public IBillPayments BillPayments { get; }
 
         /// <summary>
-        /// Get, create, and update Accounts.
+        /// Get, create, and update Bills.
         /// </summary>
-        public IAccounts Accounts { get; }
+        public IBills Bills { get; }
 
         /// <summary>
         /// Get, create, and update Journal entries.
@@ -103,24 +113,14 @@ namespace Codat.Sync.Payables.V1
         public IJournals Journals { get; }
 
         /// <summary>
-        /// Get, create, and update Suppliers.
-        /// </summary>
-        public ISuppliers Suppliers { get; }
-
-        /// <summary>
-        /// Control how data is retrieved from an integration.
-        /// </summary>
-        public IManageData ManageData { get; }
-
-        /// <summary>
-        /// View company profile from the source platform.
-        /// </summary>
-        public ICompanyInfo CompanyInfo { get; }
-
-        /// <summary>
         /// Get, create, and update Payment methods.
         /// </summary>
         public IPaymentMethods PaymentMethods { get; }
+
+        /// <summary>
+        /// Get, create, and update Suppliers.
+        /// </summary>
+        public ISuppliers Suppliers { get; }
 
         /// <summary>
         /// Get, create, and update Tax rates.
@@ -133,9 +133,9 @@ namespace Codat.Sync.Payables.V1
         public ITrackingCategories TrackingCategories { get; }
 
         /// <summary>
-        /// View historic push operations.
+        /// View company profile from the source platform.
         /// </summary>
-        public IPushOperations PushOperations { get; }
+        public ICompanyInfo CompanyInfo { get; }
     }
 
     public class SDKConfig
@@ -212,32 +212,32 @@ namespace Codat.Sync.Payables.V1
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.3.1";
-        private const string _sdkGenVersion = "2.413.0";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.415.6";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.3.1 2.413.0 3.0.0 Codat.Sync.Payables.V1";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 3.0.0 Codat.Sync.Payables.V1";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Payables.V1.Models.Shared.Security>? _securitySource;
+        private Func<Codat.Sync.Payables.V1.Models.Components.Security>? _securitySource;
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
-        public IBills Bills { get; private set; }
+        public IManageData ManageData { get; private set; }
+        public IPushOperations PushOperations { get; private set; }
+        public IAccounts Accounts { get; private set; }
         public IBankAccounts BankAccounts { get; private set; }
         public IBillCreditNotes BillCreditNotes { get; private set; }
         public IBillPayments BillPayments { get; private set; }
-        public IAccounts Accounts { get; private set; }
+        public IBills Bills { get; private set; }
         public IJournalEntries JournalEntries { get; private set; }
         public IJournals Journals { get; private set; }
-        public ISuppliers Suppliers { get; private set; }
-        public IManageData ManageData { get; private set; }
-        public ICompanyInfo CompanyInfo { get; private set; }
         public IPaymentMethods PaymentMethods { get; private set; }
+        public ISuppliers Suppliers { get; private set; }
         public ITaxRates TaxRates { get; private set; }
         public ITrackingCategories TrackingCategories { get; private set; }
-        public IPushOperations PushOperations { get; private set; }
+        public ICompanyInfo CompanyInfo { get; private set; }
 
-        public CodatSyncPayables(Codat.Sync.Payables.V1.Models.Shared.Security? security = null, Func<Codat.Sync.Payables.V1.Models.Shared.Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
+        public CodatSyncPayables(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
         {
             if (serverIndex != null)
             {
@@ -259,17 +259,17 @@ namespace Codat.Sync.Payables.V1
 
             _client = client ?? new SpeakeasyHttpClient();
 
-            if(securitySource != null)
+            if(authHeaderSource != null)
             {
-                _securitySource = securitySource;
+                _securitySource = () => new Codat.Sync.Payables.V1.Models.Components.Security() { AuthHeader = authHeaderSource() };
             }
-            else if(security != null)
+            else if(authHeader != null)
             {
-                _securitySource = () => security;
+                _securitySource = () => new Codat.Sync.Payables.V1.Models.Components.Security() { AuthHeader = authHeader };
             }
             else
             {
-                throw new Exception("security and securitySource cannot both be null");
+                throw new Exception("authHeader and authHeaderSource cannot both be null");
             }
 
             SDKConfiguration = new SDKConfig()
@@ -288,7 +288,13 @@ namespace Codat.Sync.Payables.V1
             Connections = new Connections(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            Bills = new Bills(_client, _securitySource, _serverUrl, SDKConfiguration);
+            ManageData = new ManageData(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            PushOperations = new PushOperations(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            Accounts = new Accounts(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             BankAccounts = new BankAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
@@ -300,7 +306,7 @@ namespace Codat.Sync.Payables.V1
             BillPayments = new BillPayments(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            Accounts = new Accounts(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Bills = new Bills(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             JournalEntries = new JournalEntries(_client, _securitySource, _serverUrl, SDKConfiguration);
@@ -309,16 +315,10 @@ namespace Codat.Sync.Payables.V1
             Journals = new Journals(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            Suppliers = new Suppliers(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            ManageData = new ManageData(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            CompanyInfo = new CompanyInfo(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
             PaymentMethods = new PaymentMethods(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            Suppliers = new Suppliers(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             TaxRates = new TaxRates(_client, _securitySource, _serverUrl, SDKConfiguration);
@@ -327,7 +327,7 @@ namespace Codat.Sync.Payables.V1
             TrackingCategories = new TrackingCategories(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            PushOperations = new PushOperations(_client, _securitySource, _serverUrl, SDKConfiguration);
+            CompanyInfo = new CompanyInfo(_client, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

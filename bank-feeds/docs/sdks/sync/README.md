@@ -17,12 +17,12 @@ Use the _Get last successful sync_ endpoint to obtain the status information for
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetLastSuccessfulRequest req = new GetLastSuccessfulRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -39,10 +39,10 @@ var res = await sdk.Sync.GetLastSuccessfulSyncAsync(req);
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | `request`                                                                       | [GetLastSuccessfulRequest](../../Models/Operations/GetLastSuccessfulRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
-
 ### Response
 
 **[GetLastSuccessfulResponse](../../Models/Operations/GetLastSuccessfulResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |

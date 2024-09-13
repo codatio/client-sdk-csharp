@@ -1,0 +1,10 @@
+# FeesConfiguration
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `FeesSupplier`                                                                              | [FeesSupplier](../../Models/Components/FeesSupplier.md)                                     | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `SyncFees`                                                                                  | *bool*                                                                                      | :heavy_minus_sign:                                                                          | Boolean indicator to enable syncing fees.                                                   |
+| `Accounts`                                                                                  | Dictionary<String, [AccountConfiguration](../../Models/Components/AccountConfiguration.md)> | :heavy_minus_sign:                                                                          | N/A                                                                                         |

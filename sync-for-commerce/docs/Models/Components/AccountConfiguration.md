@@ -1,0 +1,14 @@
+# AccountConfiguration
+
+G/L account object for configuration.
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `LabelText`                                                                               | *string*                                                                                  | :heavy_minus_sign:                                                                        | Label text for sales configuration section.                                               |
+| `DescriptionText`                                                                         | *string*                                                                                  | :heavy_minus_sign:                                                                        | Descriptive text for sales configuration section.                                         |
+| `SelectedAccountId`                                                                       | *string*                                                                                  | :heavy_minus_sign:                                                                        | Selected account id from the list of available accounts.                                  |
+| `Required`                                                                                | *bool*                                                                                    | :heavy_minus_sign:                                                                        | Required section to be configured for sync.                                               |
+| `AccountOptions`                                                                          | List<[AccountConfigurationOption](../../Models/Components/AccountConfigurationOption.md)> | :heavy_minus_sign:                                                                        | Object containing account options.                                                        |

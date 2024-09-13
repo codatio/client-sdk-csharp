@@ -1,18 +1,17 @@
 <!-- Start SDK Example Usage [usage] -->
 ```csharp
 using Codat.Sync.Commerce;
-using Codat.Sync.Commerce.Models.Shared;
-using Codat.Sync.Commerce.Models.Operations;
+using Codat.Sync.Commerce.Models.Requests;
+using Codat.Sync.Commerce.Models.Components;
 
-var sdk = new CodatSyncCommerce(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncCommerce(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
+GetSyncFlowUrlRequest req = new GetSyncFlowUrlRequest() {
+    CommerceKey = "<value>",
+    AccountingKey = "<value>",
 };
 
-var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
+var res = await sdk.Connections.GetSyncFlowUrlAsync(req);
 
 // handle response
 ```

@@ -1,0 +1,13 @@
+# Configuration
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `CompanyId`                                                               | *object*                                                                  | :heavy_minus_sign:                                                        | Unique identifier for a company.                                          |
+| `AccountingSoftwareCompanyName`                                           | *string*                                                                  | :heavy_minus_sign:                                                        | The company name defined in the accounting software.                      |
+| `Enable`                                                                  | *bool*                                                                    | :heavy_minus_sign:                                                        | True if Sync for Commerce is enabled for the company.                     |
+| `Configured`                                                              | *bool*                                                                    | :heavy_minus_sign:                                                        | True if Sync for Commerce has been configured for the company.            |
+| `Schedule`                                                                | [SyncSchedule](../../Models/Components/SyncSchedule.md)                   | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `Configuration`                                                           | [CommerceConfiguration](../../Models/Components/CommerceConfiguration.md) | :heavy_minus_sign:                                                        | N/A                                                                       |

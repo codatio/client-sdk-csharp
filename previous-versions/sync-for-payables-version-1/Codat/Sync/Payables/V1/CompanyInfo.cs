@@ -10,9 +10,9 @@
 namespace Codat.Sync.Payables.V1
 {
     using Codat.Sync.Payables.V1.Hooks;
+    using Codat.Sync.Payables.V1.Models.Components;
     using Codat.Sync.Payables.V1.Models.Errors;
-    using Codat.Sync.Payables.V1.Models.Operations;
-    using Codat.Sync.Payables.V1.Models.Shared;
+    using Codat.Sync.Payables.V1.Models.Requests;
     using Codat.Sync.Payables.V1.Utils.Retries;
     using Codat.Sync.Payables.V1.Utils;
     using Newtonsoft.Json;
@@ -45,15 +45,15 @@ namespace Codat.Sync.Payables.V1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.3.1";
-        private const string _sdkGenVersion = "2.413.0";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.415.6";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.3.1 2.413.0 3.0.0 Codat.Sync.Payables.V1";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 3.0.0 Codat.Sync.Payables.V1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Payables.V1.Models.Shared.Security>? _securitySource;
+        private Func<Codat.Sync.Payables.V1.Models.Components.Security>? _securitySource;
 
-        public CompanyInfo(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.V1.Models.Shared.Security>? securitySource, string serverUrl, SDKConfig config)
+        public CompanyInfo(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.V1.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _client = client;
             _securitySource = securitySource;
@@ -149,7 +149,7 @@ namespace Codat.Sync.Payables.V1
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Shared.CompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var obj = ResponseBodyDeserializer.Deserialize<Models.Components.CompanyInfo>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     var response = new GetAccountingProfileResponse()
                     {
                         StatusCode = responseStatusCode,

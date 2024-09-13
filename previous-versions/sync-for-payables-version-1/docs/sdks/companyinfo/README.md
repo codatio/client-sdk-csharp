@@ -17,12 +17,10 @@ Gets the latest basic info for a company.
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingProfileRequest req = new GetAccountingProfileRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -35,13 +33,13 @@ var res = await sdk.CompanyInfo.GetAccountingProfileAsync(req);
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [GetAccountingProfileRequest](../../Models/Operations/GetAccountingProfileRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [GetAccountingProfileRequest](../../Models/Requests/GetAccountingProfileRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 ### Response
 
-**[GetAccountingProfileResponse](../../Models/Operations/GetAccountingProfileResponse.md)**
+**[GetAccountingProfileResponse](../../Models/Requests/GetAccountingProfileResponse.md)**
 
 ### Errors
 

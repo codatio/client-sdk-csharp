@@ -7,72 +7,56 @@ Get, create, and update Accounts.
 
 ### Available Operations
 
-* [Create](#create) - Create account
+* [List](#list) - List accounts
 * [Get](#get) - Get account
 * [GetCreateModel](#getcreatemodel) - Get create account model
-* [List](#list) - List accounts
+* [Create](#create) - Create account
 
-## Create
+## List
 
-The *Create account* endpoint creates a new [account](https://docs.codat.io/sync-for-payables-api#/schemas/Account) for a given company's connection.
+﻿The *List accounts* endpoint returns a list of [accounts](https://docs.codat.io/sync-for-payables-api#/schemas/Account) for a given company's connection.
 
 [Accounts](https://docs.codat.io/sync-for-payables-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-chartOfAccounts-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateAccountRequest req = new CreateAccountRequest() {
-    AccountPrototype = new AccountPrototype() {
-        Currency = "USD",
-        CurrentBalance = 0M,
-        Description = "Invoices the business has issued but has not yet collected payment on.",
-        FullyQualifiedCategory = "Asset.Current",
-        FullyQualifiedName = "Cash On Hand",
-        Name = "Accounts Receivable",
-        NominalCode = "610",
-        Status = Codat.Sync.Payables.V1.Models.Shared.AccountStatus.Active,
-        Type = Codat.Sync.Payables.V1.Models.Shared.AccountType.Asset,
-    },
+ListAccountsRequest req = new ListAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Accounts.CreateAsync(req);
+var res = await sdk.Accounts.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [CreateAccountRequest](../../Models/Operations/CreateAccountRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [ListAccountsRequest](../../Models/Requests/ListAccountsRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 ### Response
 
-**[Models.Operations.CreateAccountResponse](../../Models/Operations/CreateAccountResponse.md)**
+**[ListAccountsResponse](../../Models/Requests/ListAccountsResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
@@ -91,16 +75,14 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountRequest req = new GetAccountRequest() {
-    AccountId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    AccountId = "<value>",
 };
 
 var res = await sdk.Accounts.GetAsync(req);
@@ -110,13 +92,13 @@ var res = await sdk.Accounts.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [GetAccountRequest](../../Models/Operations/GetAccountRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `request`                                                       | [GetAccountRequest](../../Models/Requests/GetAccountRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 ### Response
 
-**[GetAccountResponse](../../Models/Operations/GetAccountResponse.md)**
+**[GetAccountResponse](../../Models/Requests/GetAccountResponse.md)**
 
 ### Errors
 
@@ -143,12 +125,10 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCreateAccountModelRequest req = new GetCreateAccountModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -162,13 +142,13 @@ var res = await sdk.Accounts.GetCreateModelAsync(req);
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetCreateAccountModelRequest](../../Models/Operations/GetCreateAccountModelRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetCreateAccountModelRequest](../../Models/Requests/GetCreateAccountModelRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[GetCreateAccountModelResponse](../../Models/Operations/GetCreateAccountModelResponse.md)**
+**[GetCreateAccountModelResponse](../../Models/Requests/GetCreateAccountModelResponse.md)**
 
 ### Errors
 
@@ -178,34 +158,46 @@ var res = await sdk.Accounts.GetCreateModelAsync(req);
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 
-## List
+## Create
 
-﻿The *List accounts* endpoint returns a list of [accounts](https://docs.codat.io/sync-for-payables-api#/schemas/Account) for a given company's connection.
+The *Create account* endpoint creates a new [account](https://docs.codat.io/sync-for-payables-api#/schemas/Account) for a given company's connection.
 
 [Accounts](https://docs.codat.io/sync-for-payables-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data).
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-chartOfAccounts-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Operations;
-using Codat.Sync.Payables.V1.Models.Shared;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
+using System.Collections.Generic;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-ListAccountsRequest req = new ListAccountsRequest() {
+CreateAccountRequest req = new CreateAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountPrototype = new AccountPrototype() {
+        NominalCode = "610",
+        Name = "Accounts Receivable",
+        Description = "Invoices the business has issued but has not yet collected payment on.",
+        FullyQualifiedCategory = "Asset.Current",
+        FullyQualifiedName = "Cash On Hand",
+        Currency = "EUR",
+        CurrentBalance = 0M,
+        Type = Codat.Sync.Payables.V1.Models.Components.AccountType.Asset,
+        Status = Codat.Sync.Payables.V1.Models.Components.AccountStatus.Active,
+    },
 };
 
-var res = await sdk.Accounts.ListAsync(req);
+var res = await sdk.Accounts.CreateAsync(req);
 
 // handle response
 ```
@@ -214,15 +206,15 @@ var res = await sdk.Accounts.ListAsync(req);
 
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [ListAccountsRequest](../../Models/Operations/ListAccountsRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `request`                                                             | [CreateAccountRequest](../../Models/Requests/CreateAccountRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
-**[ListAccountsResponse](../../Models/Operations/ListAccountsResponse.md)**
+**[Models.Requests.CreateAccountResponse](../../Models/Requests/CreateAccountResponse.md)**
 
 ### Errors
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503               | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |

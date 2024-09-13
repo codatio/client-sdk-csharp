@@ -1,0 +1,11 @@
+# CommerceReportDimension
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `Index`                                                                                       | *long*                                                                                        | :heavy_minus_sign:                                                                            | The dimension's index.                                                                        |
+| `DisplayName`                                                                                 | *string*                                                                                      | :heavy_minus_sign:                                                                            | The dimension's display name.                                                                 |
+| `Type`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | The dimension's type.                                                                         |
+| `Items`                                                                                       | List<[CommerceReportDimensionItems](../../Models/Components/CommerceReportDimensionItems.md)> | :heavy_minus_sign:                                                                            | N/A                                                                                           |

@@ -1,62 +1,65 @@
 # DirectIncomes
 (*AccountsReceivable.DirectIncomes*)
 
+## Overview
+
 ### Available Operations
 
-* [DownloadAttachment](#downloadattachment) - Download direct income attachment
+* [List](#list) - List direct incomes
 * [Get](#get) - Get direct income
 * [GetAttachment](#getattachment) - Get direct income attachment
-* [List](#list) - List direct incomes
+* [DownloadAttachment](#downloadattachment) - Download direct income attachment
 * [ListAttachments](#listattachments) - List direct income attachments
 
-## DownloadAttachment
+## List
 
-The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.
+The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) for a given company's connection.
 
 [Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support downloading a direct income attachment.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-DownloadAccountingDirectIncomeAttachmentRequest req = new DownloadAccountingDirectIncomeAttachmentRequest() {
-    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectIncomeId = "<value>",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.AccountsReceivable.DirectIncomes.DownloadAttachmentAsync(req);
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                     | [DownloadAccountingDirectIncomeAttachmentRequest](../../Models/Operations/DownloadAccountingDirectIncomeAttachmentRequest.md) | :heavy_check_mark:                                                                                                            | The request object to use for the request.                                                                                    |
-
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [ListAccountingDirectIncomesRequest](../../Models/Requests/ListAccountingDirectIncomesRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[DownloadAccountingDirectIncomeAttachmentResponse](../../Models/Operations/DownloadAccountingDirectIncomeAttachmentResponse.md)**
+**[ListAccountingDirectIncomesResponse](../../Models/Requests/ListAccountingDirectIncomesResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## Get
 
@@ -73,12 +76,10 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -93,20 +94,21 @@ var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetAccountingDirectIncomeRequest](../../Models/Operations/GetAccountingDirectIncomeRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
-
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetAccountingDirectIncomeRequest](../../Models/Requests/GetAccountingDirectIncomeRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[GetAccountingDirectIncomeResponse](../../Models/Operations/GetAccountingDirectIncomeResponse.md)**
+**[GetAccountingDirectIncomeResponse](../../Models/Requests/GetAccountingDirectIncomeResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## GetAttachment
 
@@ -121,18 +123,16 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingDirectIncomeAttachmentRequest req = new GetAccountingDirectIncomeAttachmentRequest() {
-    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     DirectIncomeId = "<value>",
+    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
 var res = await sdk.AccountsReceivable.DirectIncomes.GetAttachmentAsync(req);
@@ -142,14 +142,14 @@ var res = await sdk.AccountsReceivable.DirectIncomes.GetAttachmentAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [GetAccountingDirectIncomeAttachmentRequest](../../Models/Operations/GetAccountingDirectIncomeAttachmentRequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
-
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [GetAccountingDirectIncomeAttachmentRequest](../../Models/Requests/GetAccountingDirectIncomeAttachmentRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[GetAccountingDirectIncomeAttachmentResponse](../../Models/Operations/GetAccountingDirectIncomeAttachmentResponse.md)**
+**[GetAccountingDirectIncomeAttachmentResponse](../../Models/Requests/GetAccountingDirectIncomeAttachmentResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
@@ -157,55 +157,54 @@ var res = await sdk.AccountsReceivable.DirectIncomes.GetAttachmentAsync(req);
 | Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## List
 
-The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) for a given company's connection.
+## DownloadAttachment
+
+The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.
 
 [Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-    
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support downloading a direct income attachment.
+
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+DownloadAccountingDirectIncomeAttachmentRequest req = new DownloadAccountingDirectIncomeAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
+    DirectIncomeId = "<value>",
+    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+var res = await sdk.AccountsReceivable.DirectIncomes.DownloadAttachmentAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [ListAccountingDirectIncomesRequest](../../Models/Operations/ListAccountingDirectIncomesRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
-
+| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                   | [DownloadAccountingDirectIncomeAttachmentRequest](../../Models/Requests/DownloadAccountingDirectIncomeAttachmentRequest.md) | :heavy_check_mark:                                                                                                          | The request object to use for the request.                                                                                  |
 
 ### Response
 
-**[ListAccountingDirectIncomesResponse](../../Models/Operations/ListAccountingDirectIncomesResponse.md)**
+**[DownloadAccountingDirectIncomeAttachmentResponse](../../Models/Requests/DownloadAccountingDirectIncomeAttachmentResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## ListAttachments
 
@@ -220,12 +219,10 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListAccountingDirectIncomeAttachmentsRequest req = new ListAccountingDirectIncomeAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -240,14 +237,14 @@ var res = await sdk.AccountsReceivable.DirectIncomes.ListAttachmentsAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [ListAccountingDirectIncomeAttachmentsRequest](../../Models/Operations/ListAccountingDirectIncomeAttachmentsRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
-
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [ListAccountingDirectIncomeAttachmentsRequest](../../Models/Requests/ListAccountingDirectIncomeAttachmentsRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[ListAccountingDirectIncomeAttachmentsResponse](../../Models/Operations/ListAccountingDirectIncomeAttachmentsResponse.md)**
+**[ListAccountingDirectIncomeAttachmentsResponse](../../Models/Requests/ListAccountingDirectIncomeAttachmentsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |

@@ -1,6 +1,8 @@
 # CategorizedStatement
 (*Banking.CategorizedStatement*)
 
+## Overview
+
 ### Available Operations
 
 * [Get](#get) - Get categorized bank statement
@@ -17,17 +19,16 @@ The _Get categorized bank statement_ endpoint provides a fully categorized list 
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCategorizedBankStatementRequest req = new GetCategorizedBankStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     Page = 1,
     PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
 };
 
 var res = await sdk.Banking.CategorizedStatement.GetAsync(req);
@@ -37,14 +38,14 @@ var res = await sdk.Banking.CategorizedStatement.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [GetCategorizedBankStatementRequest](../../Models/Operations/GetCategorizedBankStatementRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
-
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [GetCategorizedBankStatementRequest](../../Models/Requests/GetCategorizedBankStatementRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 ### Response
 
-**[GetCategorizedBankStatementResponse](../../Models/Operations/GetCategorizedBankStatementResponse.md)**
+**[GetCategorizedBankStatementResponse](../../Models/Requests/GetCategorizedBankStatementResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |

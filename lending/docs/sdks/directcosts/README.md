@@ -1,145 +1,253 @@
 # DirectCosts
-(*LoanWriteback.DirectCosts*)
+(*Transactions.DirectCosts*)
+
+## Overview
 
 ### Available Operations
 
-* [Create](#create) - Create direct cost
-* [GetCreateModel](#getcreatemodel) - Get create direct cost model
+* [List](#list) - List direct costs
+* [Get](#get) - Get direct cost
+* [GetAttachment](#getattachment) - Get direct cost attachment
+* [DownloadAttachment](#downloadattachment) - Download direct cost attachment
+* [ListAttachments](#listattachments) - List direct cost attachments
 
-## Create
+## List
 
-The *Create direct cost* endpoint creates a new [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
+The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are the expenses associated with a business' operations. For example, purchases of raw materials that are paid off at the point of the purchase and service fees are considered direct costs.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create direct cost model](https://docs.codat.io/lending-api#/operations/get-create-directCosts-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating an account.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-using System.Collections.Generic;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateDirectCostRequest req = new CreateDirectCostRequest() {
+ListAccountingDirectCostsRequest req = new ListAccountingDirectCostsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostPrototype = new DirectCostPrototype() {
-        Currency = "USD",
-        IssueDate = "2022-10-23T00:00:00Z",
-        LineItems = new List<DirectCostLineItem>() {
-            new DirectCostLineItem() {
-                Quantity = 6384.24M,
-                Tracking = new Tracking() {
-                    InvoiceTo = new RecordRef() {
-                        DataType = "transfer",
-                    },
-                    RecordRefs = new List<TrackingRecordRef>() {
-                        new TrackingRecordRef() {
-                            DataType = TrackingRecordRefDataType.TrackingCategories,
-                        },
-                    },
-                },
-                UnitAmount = 4174.58M,
-            },
-        },
-        PaymentAllocations = new List<AccountingPaymentAllocation>() {
-            new AccountingPaymentAllocation() {
-                Allocation = new Allocation() {
-                    AllocatedOnDate = "2022-10-23T00:00:00Z",
-                    Currency = "GBP",
-                },
-                Payment = new PaymentAllocationPayment() {
-                    Currency = "EUR",
-                    PaidOnDate = "2022-10-23T00:00:00Z",
-                },
-            },
-        },
-        SubTotal = 9967.06M,
-        TaxAmount = 7964.74M,
-        TotalAmount = 3768.44M,
-    },
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(req);
+var res = await sdk.Transactions.DirectCosts.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [CreateDirectCostRequest](../../Models/Operations/CreateDirectCostRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
-
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [ListAccountingDirectCostsRequest](../../Models/Requests/ListAccountingDirectCostsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[CreateDirectCostResponse](../../Models/Operations/CreateDirectCostResponse.md)**
+**[ListAccountingDirectCostsResponse](../../Models/Requests/ListAccountingDirectCostsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## GetCreateModel
 
-The *Get create direct cost model* endpoint returns the expected data for the request payload when creating a [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company and integration.
+## Get
+
+The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
 
 [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
-**Integration-specific behaviour**
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a specific direct cost.
 
-See the *response examples* for integration-specific indicative models.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating a direct cost.
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetCreateDirectCostsModelRequest req = new GetCreateDirectCostsModelRequest() {
+GetAccountingDirectCostRequest req = new GetAccountingDirectCostRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectCostId = "<value>",
 };
 
-var res = await sdk.LoanWriteback.DirectCosts.GetCreateModelAsync(req);
+var res = await sdk.Transactions.DirectCosts.GetAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetCreateDirectCostsModelRequest](../../Models/Operations/GetCreateDirectCostsModelRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
-
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [GetAccountingDirectCostRequest](../../Models/Requests/GetAccountingDirectCostRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[GetCreateDirectCostsModelResponse](../../Models/Operations/GetCreateDirectCostsModelResponse.md)**
+**[GetAccountingDirectCostResponse](../../Models/Requests/GetAccountingDirectCostResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## GetAttachment
+
+The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.
+
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a direct cost attachment.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectCostAttachmentRequest req = new GetAccountingDirectCostAttachmentRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectCostId = "<value>",
+    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Transactions.DirectCosts.GetAttachmentAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [GetAccountingDirectCostAttachmentRequest](../../Models/Requests/GetAccountingDirectCostAttachmentRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+
+### Response
+
+**[GetAccountingDirectCostAttachmentResponse](../../Models/Requests/GetAccountingDirectCostAttachmentResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## DownloadAttachment
+
+The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.
+
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support downloading a direct cost attachment.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+DownloadAccountingDirectCostAttachmentRequest req = new DownloadAccountingDirectCostAttachmentRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectCostId = "<value>",
+    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Transactions.DirectCosts.DownloadAttachmentAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                               | [DownloadAccountingDirectCostAttachmentRequest](../../Models/Requests/DownloadAccountingDirectCostAttachmentRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+
+### Response
+
+**[DownloadAccountingDirectCostAttachmentResponse](../../Models/Requests/DownloadAccountingDirectCostAttachmentResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## ListAttachments
+
+The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
+
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support listing direct cost attachments.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectCostAttachmentsRequest req = new ListAccountingDirectCostAttachmentsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectCostId = "<value>",
+};
+
+var res = await sdk.Transactions.DirectCosts.ListAttachmentsAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [ListAccountingDirectCostAttachmentsRequest](../../Models/Requests/ListAccountingDirectCostAttachmentsRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+
+### Response
+
+**[ListAccountingDirectCostAttachmentsResponse](../../Models/Requests/ListAccountingDirectCostAttachmentsResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

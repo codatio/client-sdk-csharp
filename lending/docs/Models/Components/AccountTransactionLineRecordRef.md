@@ -1,0 +1,11 @@
+# AccountTransactionLineRecordRef
+
+Links an account transaction line to the underlying record that created it.
+
+
+## Fields
+
+| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   | Example                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `Id`                                                                                                          | *string*                                                                                                      | :heavy_minus_sign:                                                                                            | 'id' of the underlying record or data type.                                                                   |                                                                                                               |
+| `DataType`                                                                                                    | [AccountTransactionLineRecordRefDataType](../../Models/Components/AccountTransactionLineRecordRefDataType.md) | :heavy_minus_sign:                                                                                            | Name of underlying data type.                                                                                 | transfers                                                                                                     |

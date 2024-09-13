@@ -1,6 +1,8 @@
 # CashFlow
 (*FinancialStatements.CashFlow*)
 
+## Overview
+
 ### Available Operations
 
 * [Get](#get) - Get cash flow statement
@@ -13,12 +15,10 @@ Gets the latest cash flow statement for a company.
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingCashFlowStatementRequest req = new GetAccountingCashFlowStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -34,14 +34,14 @@ var res = await sdk.FinancialStatements.CashFlow.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [GetAccountingCashFlowStatementRequest](../../Models/Operations/GetAccountingCashFlowStatementRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
-
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [GetAccountingCashFlowStatementRequest](../../Models/Requests/GetAccountingCashFlowStatementRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[GetAccountingCashFlowStatementResponse](../../Models/Operations/GetAccountingCashFlowStatementResponse.md)**
+**[GetAccountingCashFlowStatementResponse](../../Models/Requests/GetAccountingCashFlowStatementResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |

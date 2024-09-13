@@ -1,11 +1,81 @@
 # Metrics
 (*Sales.Metrics*)
 
+## Overview
+
 ### Available Operations
 
+* [GetRevenue](#getrevenue) - Get commerce revenue metrics
 * [GetCustomerRetention](#getcustomerretention) - Get customer retention metrics
 * [GetLifetimeValue](#getlifetimevalue) - Get lifetime value metrics
-* [GetRevenue](#getrevenue) - Get commerce revenue metrics
+
+## GetRevenue
+
+The *Get revenue report* endpoint returns the revenue and revenue growth for a specific company connection over one or more periods of time.
+
+This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
+
+Learn more about the formulas used to calculate the revenue metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
+
+Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+
+#### Response structure
+
+The Revenue report's dimensions and measures are:
+
+| Index         | Dimensions |
+|---------------|------------|
+|   `index` = 0 | Period     |
+|   `index` = 1 | Revenue    |
+
+| Index         | Measures                                                                                                                 |
+|---------------|--------------------------------------------------------------------------------------------------------------------------|
+| `index` = 0   | Value                                                                                                                    |
+| `index` = 1   | Percentage change, defined as the change between the current and previous periods' values and expressed as a percentage. |
+
+The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    ReportDate = "29-09-2020",
+    PeriodLength = 307462,
+    NumberOfPeriods = 944219,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Day,
+};
+
+var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetCommerceRevenueMetricsRequest](../../Models/Requests/GetCommerceRevenueMetricsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
+
+### Response
+
+**[GetCommerceRevenueMetricsResponse](../../Models/Requests/GetCommerceRevenueMetricsResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## GetCustomerRetention
 
@@ -43,20 +113,18 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCommerceCustomerRetentionMetricsRequest req = new GetCommerceCustomerRetentionMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    NumberOfPeriods = 497588,
-    PeriodLength = 613110,
-    PeriodUnit = Codat.Lending.Models.Shared.PeriodUnit.Week,
     ReportDate = "29-09-2020",
+    PeriodLength = 497588,
+    NumberOfPeriods = 613110,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Week,
 };
 
 var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
@@ -66,20 +134,21 @@ var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [GetCommerceCustomerRetentionMetricsRequest](../../Models/Operations/GetCommerceCustomerRetentionMetricsRequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
-
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                         | [GetCommerceCustomerRetentionMetricsRequest](../../Models/Requests/GetCommerceCustomerRetentionMetricsRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
 
 ### Response
 
-**[GetCommerceCustomerRetentionMetricsResponse](../../Models/Operations/GetCommerceCustomerRetentionMetricsResponse.md)**
+**[GetCommerceCustomerRetentionMetricsResponse](../../Models/Requests/GetCommerceCustomerRetentionMetricsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## GetLifetimeValue
 
@@ -111,20 +180,18 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCommerceLifetimeValueMetricsRequest req = new GetCommerceLifetimeValueMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    NumberOfPeriods = 900865,
-    PeriodLength = 614777,
-    PeriodUnit = Codat.Lending.Models.Shared.PeriodUnit.Month,
     ReportDate = "29-09-2020",
+    PeriodLength = 900865,
+    NumberOfPeriods = 614777,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Month,
 };
 
 var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
@@ -134,83 +201,14 @@ var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                   | [GetCommerceLifetimeValueMetricsRequest](../../Models/Operations/GetCommerceLifetimeValueMetricsRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
-
-
-### Response
-
-**[GetCommerceLifetimeValueMetricsResponse](../../Models/Operations/GetCommerceLifetimeValueMetricsResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
-## GetRevenue
-
-The *Get revenue report* endpoint returns the revenue and revenue growth for a specific company connection over one or more periods of time.
-
-This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
-
-Learn more about the formulas used to calculate the revenue metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
-
-Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
-
-#### Response structure
-
-The Revenue report's dimensions and measures are:
-
-| Index         | Dimensions |
-|---------------|------------|
-|   `index` = 0 | Period     |
-|   `index` = 1 | Revenue    |
-
-| Index         | Measures                                                                                                                 |
-|---------------|--------------------------------------------------------------------------------------------------------------------------|
-| `index` = 0   | Value                                                                                                                    |
-| `index` = 1   | Percentage change, defined as the change between the current and previous periods' values and expressed as a percentage. |
-
-The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
-
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    NumberOfPeriods = 307462,
-    PeriodLength = 944219,
-    PeriodUnit = Codat.Lending.Models.Shared.PeriodUnit.Day,
-    ReportDate = "29-09-2020",
-};
-
-var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetCommerceRevenueMetricsRequest](../../Models/Operations/GetCommerceRevenueMetricsRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
-
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [GetCommerceLifetimeValueMetricsRequest](../../Models/Requests/GetCommerceLifetimeValueMetricsRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 ### Response
 
-**[GetCommerceRevenueMetricsResponse](../../Models/Operations/GetCommerceRevenueMetricsResponse.md)**
+**[GetCommerceLifetimeValueMetricsResponse](../../Models/Requests/GetCommerceLifetimeValueMetricsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |

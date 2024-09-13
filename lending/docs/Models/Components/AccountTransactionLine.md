@@ -1,0 +1,10 @@
+# AccountTransactionLine
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `Description`                                                                                 | *string*                                                                                      | :heavy_minus_sign:                                                                            | Description of the account transaction.                                                       |
+| `RecordRef`                                                                                   | [AccountTransactionLineRecordRef](../../Models/Components/AccountTransactionLineRecordRef.md) | :heavy_minus_sign:                                                                            | Links an account transaction line to the underlying record that created it.                   |
+| `Amount`                                                                                      | *decimal*                                                                                     | :heavy_minus_sign:                                                                            | Amount in the bill payment currency.                                                          |

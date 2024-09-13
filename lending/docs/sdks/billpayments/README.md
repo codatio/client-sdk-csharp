@@ -1,10 +1,61 @@
 # BillPayments
 (*AccountsPayable.BillPayments*)
 
+## Overview
+
 ### Available Operations
 
-* [Get](#get) - Get bill payment
 * [List](#list) - List bill payments
+* [Get](#get) - Get bill payment
+
+## List
+
+The *List bill payments* endpoint returns a list of [bill payments](https://docs.codat.io/lending-api#/schemas/BillPayment) for a given company's connection.
+
+[Bill payments](https://docs.codat.io/lending-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
+    
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillPaymentsRequest req = new ListAccountingBillPaymentsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.BillPayments.ListAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [ListAccountingBillPaymentsRequest](../../Models/Requests/ListAccountingBillPaymentsRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[ListAccountingBillPaymentsResponse](../../Models/Requests/ListAccountingBillPaymentsResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## Get
 
@@ -21,16 +72,14 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingBillPaymentRequest req = new GetAccountingBillPaymentRequest() {
-    BillPaymentId = "<value>",
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillPaymentId = "<value>",
 };
 
 var res = await sdk.AccountsPayable.BillPayments.GetAsync(req);
@@ -40,66 +89,17 @@ var res = await sdk.AccountsPayable.BillPayments.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [GetAccountingBillPaymentRequest](../../Models/Operations/GetAccountingBillPaymentRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
-
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [GetAccountingBillPaymentRequest](../../Models/Requests/GetAccountingBillPaymentRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[GetAccountingBillPaymentResponse](../../Models/Operations/GetAccountingBillPaymentResponse.md)**
+**[GetAccountingBillPaymentResponse](../../Models/Requests/GetAccountingBillPaymentResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
-## List
-
-The *List bill payments* endpoint returns a list of [bill payments](https://docs.codat.io/lending-api#/schemas/BillPayment) for a given company's connection.
-
-[Bill payments](https://docs.codat.io/lending-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
-
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-    
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-ListAccountingBillPaymentsRequest req = new ListAccountingBillPaymentsRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-};
-
-var res = await sdk.AccountsPayable.BillPayments.ListAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [ListAccountingBillPaymentsRequest](../../Models/Operations/ListAccountingBillPaymentsRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
-
-
-### Response
-
-**[ListAccountingBillPaymentsResponse](../../Models/Operations/ListAccountingBillPaymentsResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

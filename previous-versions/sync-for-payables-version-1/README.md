@@ -76,24 +76,19 @@ dotnet add reference Codat/Sync/Payables/V1/Codat.Sync.Payables.V1.csproj
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -102,115 +97,121 @@ var res = await sdk.Companies.CreateAsync(req);
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Companies](docs/sdks/companies/README.md)
+<details open>
+<summary>Available methods</summary>
 
-* [Create](docs/sdks/companies/README.md#create) - Create company
-* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
-* [Get](docs/sdks/companies/README.md#get) - Get company
-* [List](docs/sdks/companies/README.md#list) - List companies
-* [Update](docs/sdks/companies/README.md#update) - Update company
+### [Accounts](docs/sdks/accounts/README.md)
 
-### [Connections](docs/sdks/connections/README.md)
-
-* [Create](docs/sdks/connections/README.md#create) - Create connection
-* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
-* [Get](docs/sdks/connections/README.md#get) - Get connection
-* [List](docs/sdks/connections/README.md#list) - List connections
-* [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
-
-### [Bills](docs/sdks/bills/README.md)
-
-* [Create](docs/sdks/bills/README.md#create) - Create bill
-* [Delete](docs/sdks/bills/README.md#delete) - Delete bill
-* [DeleteAttachment](docs/sdks/bills/README.md#deleteattachment) - Delete bill attachment
-* [DownloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
-* [Get](docs/sdks/bills/README.md#get) - Get bill
-* [GetAttachment](docs/sdks/bills/README.md#getattachment) - Get bill attachment
-* [GetCreateUpdateModel](docs/sdks/bills/README.md#getcreateupdatemodel) - Get create/update bill model
-* [List](docs/sdks/bills/README.md#list) - List bills
-* [ListAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
-* [Update](docs/sdks/bills/README.md#update) - Update bill
-* [UploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
+* [List](docs/sdks/accounts/README.md#list) - List accounts
+* [Get](docs/sdks/accounts/README.md#get) - Get account
+* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+* [Create](docs/sdks/accounts/README.md#create) - Create account
 
 ### [BankAccounts](docs/sdks/bankaccounts/README.md)
 
-* [Create](docs/sdks/bankaccounts/README.md#create) - Create bank account
 * [GetCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
+* [Create](docs/sdks/bankaccounts/README.md#create) - Create bank account
 
 ### [BillCreditNotes](docs/sdks/billcreditnotes/README.md)
 
-* [Create](docs/sdks/billcreditnotes/README.md#create) - Create bill credit note
+* [List](docs/sdks/billcreditnotes/README.md#list) - List bill credit notes
 * [Get](docs/sdks/billcreditnotes/README.md#get) - Get bill credit note
 * [GetCreateUpdateModel](docs/sdks/billcreditnotes/README.md#getcreateupdatemodel) - Get create/update bill credit note model
-* [List](docs/sdks/billcreditnotes/README.md#list) - List bill credit notes
+* [Create](docs/sdks/billcreditnotes/README.md#create) - Create bill credit note
 * [Update](docs/sdks/billcreditnotes/README.md#update) - Update bill credit note
 
 ### [BillPayments](docs/sdks/billpayments/README.md)
 
-* [Create](docs/sdks/billpayments/README.md#create) - Create bill payments
-* [Delete](docs/sdks/billpayments/README.md#delete) - Delete bill payment
-* [Get](docs/sdks/billpayments/README.md#get) - Get bill payment
-* [GetCreateModel](docs/sdks/billpayments/README.md#getcreatemodel) - Get create bill payment model
 * [List](docs/sdks/billpayments/README.md#list) - List bill payments
+* [Get](docs/sdks/billpayments/README.md#get) - Get bill payment
+* [Delete](docs/sdks/billpayments/README.md#delete) - Delete bill payment
+* [GetCreateModel](docs/sdks/billpayments/README.md#getcreatemodel) - Get create bill payment model
+* [Create](docs/sdks/billpayments/README.md#create) - Create bill payments
 
-### [Accounts](docs/sdks/accounts/README.md)
+### [Bills](docs/sdks/bills/README.md)
 
-* [Create](docs/sdks/accounts/README.md#create) - Create account
-* [Get](docs/sdks/accounts/README.md#get) - Get account
-* [GetCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
-* [List](docs/sdks/accounts/README.md#list) - List accounts
+* [List](docs/sdks/bills/README.md#list) - List bills
+* [Get](docs/sdks/bills/README.md#get) - Get bill
+* [GetCreateUpdateModel](docs/sdks/bills/README.md#getcreateupdatemodel) - Get create/update bill model
+* [Create](docs/sdks/bills/README.md#create) - Create bill
+* [Update](docs/sdks/bills/README.md#update) - Update bill
+* [Delete](docs/sdks/bills/README.md#delete) - Delete bill
+* [ListAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
+* [GetAttachment](docs/sdks/bills/README.md#getattachment) - Get bill attachment
+* [DeleteAttachment](docs/sdks/bills/README.md#deleteattachment) - Delete bill attachment
+* [DownloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
+* [UploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 
-### [JournalEntries](docs/sdks/journalentries/README.md)
 
-* [Create](docs/sdks/journalentries/README.md#create) - Create journal entry
-* [GetCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
+### [Companies](docs/sdks/companies/README.md)
 
-### [Journals](docs/sdks/journals/README.md)
-
-* [Create](docs/sdks/journals/README.md#create) - Create journal
-* [Get](docs/sdks/journals/README.md#get) - Get journal
-* [GetCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
-* [List](docs/sdks/journals/README.md#list) - List journals
-
-### [Suppliers](docs/sdks/suppliers/README.md)
-
-* [Create](docs/sdks/suppliers/README.md#create) - Create supplier
-* [Get](docs/sdks/suppliers/README.md#get) - Get supplier
-* [GetCreateUpdateModel](docs/sdks/suppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
-* [List](docs/sdks/suppliers/README.md#list) - List suppliers
-* [Update](docs/sdks/suppliers/README.md#update) - Update supplier
-
-### [ManageData](docs/sdks/managedata/README.md)
-
-* [Get](docs/sdks/managedata/README.md#get) - Get data status
-* [GetPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
-* [ListPullOperations](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
-* [RefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
-* [RefreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
+* [List](docs/sdks/companies/README.md#list) - List companies
+* [Create](docs/sdks/companies/README.md#create) - Create company
+* [Update](docs/sdks/companies/README.md#update) - Update company
+* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [Get](docs/sdks/companies/README.md#get) - Get company
 
 ### [CompanyInfo](docs/sdks/companyinfo/README.md)
 
 * [GetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 
+### [Connections](docs/sdks/connections/README.md)
+
+* [List](docs/sdks/connections/README.md#list) - List connections
+* [Create](docs/sdks/connections/README.md#create) - Create connection
+* [Get](docs/sdks/connections/README.md#get) - Get connection
+* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
+* [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+
+### [JournalEntries](docs/sdks/journalentries/README.md)
+
+* [GetCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
+* [Create](docs/sdks/journalentries/README.md#create) - Create journal entry
+
+### [Journals](docs/sdks/journals/README.md)
+
+* [List](docs/sdks/journals/README.md#list) - List journals
+* [Get](docs/sdks/journals/README.md#get) - Get journal
+* [GetCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
+* [Create](docs/sdks/journals/README.md#create) - Create journal
+
+### [ManageData](docs/sdks/managedata/README.md)
+
+* [RefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
+* [Get](docs/sdks/managedata/README.md#get) - Get data status
+* [RefreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
+* [ListPullOperations](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
+* [GetPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
+
 ### [PaymentMethods](docs/sdks/paymentmethods/README.md)
 
-* [Get](docs/sdks/paymentmethods/README.md#get) - Get payment method
 * [List](docs/sdks/paymentmethods/README.md#list) - List payment methods
-
-### [TaxRates](docs/sdks/taxrates/README.md)
-
-* [Get](docs/sdks/taxrates/README.md#get) - Get tax rate
-* [List](docs/sdks/taxrates/README.md#list) - List all tax rates
-
-### [TrackingCategories](docs/sdks/trackingcategories/README.md)
-
-* [Get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
-* [List](docs/sdks/trackingcategories/README.md#list) - List tracking categories
+* [Get](docs/sdks/paymentmethods/README.md#get) - Get payment method
 
 ### [PushOperations](docs/sdks/pushoperations/README.md)
 
-* [Get](docs/sdks/pushoperations/README.md#get) - Get push operation
 * [List](docs/sdks/pushoperations/README.md#list) - List push operations
+* [Get](docs/sdks/pushoperations/README.md#get) - Get push operation
+
+### [Suppliers](docs/sdks/suppliers/README.md)
+
+* [List](docs/sdks/suppliers/README.md#list) - List suppliers
+* [Get](docs/sdks/suppliers/README.md#get) - Get supplier
+* [GetCreateUpdateModel](docs/sdks/suppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
+* [Create](docs/sdks/suppliers/README.md#create) - Create supplier
+* [Update](docs/sdks/suppliers/README.md#update) - Update supplier
+
+### [TaxRates](docs/sdks/taxrates/README.md)
+
+* [List](docs/sdks/taxrates/README.md#list) - List all tax rates
+* [Get](docs/sdks/taxrates/README.md#get) - Get tax rate
+
+### [TrackingCategories](docs/sdks/trackingcategories/README.md)
+
+* [List](docs/sdks/trackingcategories/README.md#list) - List tracking categories
+* [Get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Retries [retries] -->
@@ -221,24 +222,19 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(
+var res = await sdk.Companies.ListAsync(
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -256,8 +252,8 @@ var res = await sdk.Companies.CreateAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
 var sdk = new CodatSyncPayables(
     retryConfig: new RetryConfig(
@@ -270,22 +266,17 @@ var sdk = new CodatSyncPayables(
         ),
         retryConnectionErrors: false
     ),
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
 );
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -298,35 +289,30 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                       | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 ### Example
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 using System;
 using Codat.Sync.Payables.V1.Models.Errors;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 try
 {
-    CompanyRequestBody req = new CompanyRequestBody() {
-        Description = "Requested early access to the new financing scheme.",
-        Groups = new List<Items>() {
-            new Items() {
-                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        },
-        Name = "Bank of Dave",
+    ListCompaniesRequest req = new ListCompaniesRequest() {
+        Page = 1,
+        PageSize = 100,
+        Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        OrderBy = "-modifiedDate",
     };
 
-    var res = await sdk.Companies.CreateAsync(req);
+    var res = await sdk.Companies.ListAsync(req);
 
     // handle response
 }
@@ -374,27 +360,22 @@ This SDK supports the following security scheme globally:
 | ------------ | ------------ | ------------ |
 | `AuthHeader` | apiKey       | API key      |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```

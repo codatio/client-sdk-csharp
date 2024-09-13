@@ -8,24 +8,19 @@
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -39,24 +34,19 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(
+var res = await sdk.Companies.ListAsync(
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -74,8 +64,8 @@ var res = await sdk.Companies.CreateAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
 var sdk = new CodatSyncPayables(
     retryConfig: new RetryConfig(
@@ -88,22 +78,17 @@ var sdk = new CodatSyncPayables(
         ),
         retryConnectionErrors: false
     ),
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
 );
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -116,35 +101,30 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                       | application/json                                  |
+| Codat.Sync.Payables.V1.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                   | application/json                                  |
 | Codat.Sync.Payables.V1.Models.Errors.SDKException | 4xx-5xx                                           | */*                                               |
 
 ### Example
 
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 using System;
 using Codat.Sync.Payables.V1.Models.Errors;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 try
 {
-    CompanyRequestBody req = new CompanyRequestBody() {
-        Description = "Requested early access to the new financing scheme.",
-        Groups = new List<Items>() {
-            new Items() {
-                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        },
-        Name = "Bank of Dave",
+    ListCompaniesRequest req = new ListCompaniesRequest() {
+        Page = 1,
+        PageSize = 100,
+        Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        OrderBy = "-modifiedDate",
     };
 
-    var res = await sdk.Companies.CreateAsync(req);
+    var res = await sdk.Companies.ListAsync(req);
 
     // handle response
 }
@@ -192,27 +172,22 @@ This SDK supports the following security scheme globally:
 | ------------ | ------------ | ------------ |
 | `AuthHeader` | apiKey       | API key      |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Sync.Payables.V1;
-using Codat.Sync.Payables.V1.Models.Shared;
-using System.Collections.Generic;
+using Codat.Sync.Payables.V1.Models.Requests;
+using Codat.Sync.Payables.V1.Models.Components;
 
-var sdk = new CodatSyncPayables(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Companies.CreateAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```

@@ -10,9 +10,9 @@
 namespace Codat.Sync.Payables.V1
 {
     using Codat.Sync.Payables.V1.Hooks;
+    using Codat.Sync.Payables.V1.Models.Components;
     using Codat.Sync.Payables.V1.Models.Errors;
-    using Codat.Sync.Payables.V1.Models.Operations;
-    using Codat.Sync.Payables.V1.Models.Shared;
+    using Codat.Sync.Payables.V1.Models.Requests;
     using Codat.Sync.Payables.V1.Utils.Retries;
     using Codat.Sync.Payables.V1.Utils;
     using Newtonsoft.Json;
@@ -29,22 +29,18 @@ namespace Codat.Sync.Payables.V1
     {
 
         /// <summary>
-        /// Create bill credit note
+        /// List bill credit notes
         /// 
         /// <remarks>
-        /// The *Create bill credit note* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit note</a> for a given company&apos;s connection.<br/>
+        /// The *List bill credit notes* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit notes</a> for a given company&apos;s connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
         /// <br/>
-        /// **Integration-specific behaviour**<br/>
-        /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model">Get create/update bill credit note model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support creating a bill credit note.<br/>
-        /// 
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     
         /// </remarks>
         /// </summary>
-        Task<Models.Operations.CreateBillCreditNoteResponse> CreateAsync(CreateBillCreditNoteRequest request, RetryConfig? retryConfig = null);
+        Task<ListBillCreditNotesResponse> ListAsync(ListBillCreditNotesRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
         /// Get bill credit note
@@ -81,18 +77,22 @@ namespace Codat.Sync.Payables.V1
         Task<GetCreateUpdateBillCreditNoteModelResponse> GetCreateUpdateModelAsync(GetCreateUpdateBillCreditNoteModelRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// List bill credit notes
+        /// Create bill credit note
         /// 
         /// <remarks>
-        /// The *List bill credit notes* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit notes</a> for a given company&apos;s connection.<br/>
+        /// The *Create bill credit note* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">bill credit note</a> for a given company&apos;s connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote">Bill credit notes</a> are issued by a supplier for the purpose of recording credit.<br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-payables-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        ///     
+        /// **Integration-specific behaviour**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model">Get create/update bill credit note model</a>.<br/>
+        /// <br/>
+        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes">coverage explorer</a> for integrations that support creating a bill credit note.<br/>
+        /// 
         /// </remarks>
         /// </summary>
-        Task<ListBillCreditNotesResponse> ListAsync(ListBillCreditNotesRequest request, RetryConfig? retryConfig = null);
+        Task<Models.Requests.CreateBillCreditNoteResponse> CreateAsync(CreateBillCreditNoteRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
         /// Update bill credit note
@@ -110,7 +110,7 @@ namespace Codat.Sync.Payables.V1
         /// 
         /// </remarks>
         /// </summary>
-        Task<Models.Operations.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest request, RetryConfig? retryConfig = null);
+        Task<Models.Requests.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -120,15 +120,15 @@ namespace Codat.Sync.Payables.V1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.3.1";
-        private const string _sdkGenVersion = "2.413.0";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.415.6";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.3.1 2.413.0 3.0.0 Codat.Sync.Payables.V1";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 3.0.0 Codat.Sync.Payables.V1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Payables.V1.Models.Shared.Security>? _securitySource;
+        private Func<Codat.Sync.Payables.V1.Models.Components.Security>? _securitySource;
 
-        public BillCreditNotes(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.V1.Models.Shared.Security>? securitySource, string serverUrl, SDKConfig config)
+        public BillCreditNotes(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.V1.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _client = client;
             _securitySource = securitySource;
@@ -136,26 +136,20 @@ namespace Codat.Sync.Payables.V1
             SDKConfiguration = config;
         }
 
-        public async Task<Models.Operations.CreateBillCreditNoteResponse> CreateAsync(CreateBillCreditNoteRequest request, RetryConfig? retryConfig = null)
+        public async Task<ListBillCreditNotesResponse> ListAsync(ListBillCreditNotesRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/billCreditNotes", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billCreditNotes", request);
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-
-            var serializedBody = RequestBodySerializer.Serialize(request, "BillCreditNote", "json", true, true);
-            if (serializedBody != null)
-            {
-                httpRequest.Content = serializedBody;
-            }
 
             if (_securitySource != null)
             {
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("create-bill-credit-note", null, _securitySource);
+            var hookCtx = new HookContext("list-bill-credit-notes", null, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -200,7 +194,7 @@ namespace Codat.Sync.Payables.V1
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -230,14 +224,14 @@ namespace Codat.Sync.Payables.V1
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Shared.CreateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new Models.Operations.CreateBillCreditNoteResponse()
+                    var obj = ResponseBodyDeserializer.Deserialize<Models.Components.BillCreditNotes>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new ListBillCreditNotesResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.CreateBillCreditNoteResponseValue = obj;
+                    response.BillCreditNotes = obj;
                     return response;
                 }
                 else
@@ -245,7 +239,7 @@ namespace Codat.Sync.Payables.V1
                     throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 409, 429, 500, 503}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
@@ -517,20 +511,26 @@ namespace Codat.Sync.Payables.V1
             }
         }
 
-        public async Task<ListBillCreditNotesResponse> ListAsync(ListBillCreditNotesRequest request, RetryConfig? retryConfig = null)
+        public async Task<Models.Requests.CreateBillCreditNoteResponse> CreateAsync(CreateBillCreditNoteRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/data/billCreditNotes", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/billCreditNotes", request);
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "BillCreditNote", "json", true, true);
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
 
             if (_securitySource != null)
             {
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("list-bill-credit-notes", null, _securitySource);
+            var hookCtx = new HookContext("create-bill-credit-note", null, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -575,7 +575,7 @@ namespace Codat.Sync.Payables.V1
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -605,14 +605,14 @@ namespace Codat.Sync.Payables.V1
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Shared.BillCreditNotes>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new ListBillCreditNotesResponse()
+                    var obj = ResponseBodyDeserializer.Deserialize<Models.Components.CreateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new Models.Requests.CreateBillCreditNoteResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.BillCreditNotes = obj;
+                    response.CreateBillCreditNoteResponseValue = obj;
                     return response;
                 }
                 else
@@ -620,7 +620,7 @@ namespace Codat.Sync.Payables.V1
                     throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 409, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
@@ -642,7 +642,7 @@ namespace Codat.Sync.Payables.V1
             }
         }
 
-        public async Task<Models.Operations.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest request, RetryConfig? retryConfig = null)
+        public async Task<Models.Requests.UpdateBillCreditNoteResponse> UpdateAsync(UpdateBillCreditNoteRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/push/billCreditNotes/{billCreditNoteId}", request);
@@ -736,8 +736,8 @@ namespace Codat.Sync.Payables.V1
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Shared.UpdateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new Models.Operations.UpdateBillCreditNoteResponse()
+                    var obj = ResponseBodyDeserializer.Deserialize<Models.Components.UpdateBillCreditNoteResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new Models.Requests.UpdateBillCreditNoteResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,

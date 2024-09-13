@@ -11,31 +11,48 @@ Create and update transactions that represent the movement of your customers' mo
 
 ## Create
 
-Use the *Create transfer* endpoint to create or update a [transfer transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/TransferTransaction) in the accounting platform for a given company's connection. 
+Use the *Create transfer* endpoint to create or update a [transfer transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/TransferTransactionRequest) in the accounting software for a given company's connection. 
 
 Transfers record the movement of money between two bank accounts, or between a bank account and a nominal account. Use them to represent actions such as topping up a debit card account or a balance transfer to another credit card.
 
 The `from.amount` and `to.amount` fields are in the native currency of the account.
 
+### Supported Integrations
+| Integration           | Supported |
+|-----------------------|-----------|
+| FreeAgent             | Yes       |
+| QuickBooks Desktop    | Yes       |
+| QuickBooks Online     | Yes       |
+| Xero                  | Yes       |
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
+using Codat.Sync.Expenses.Models.Requests;
+using Codat.Sync.Expenses.Models.Components;
 
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 CreateTransferTransactionRequest req = new CreateTransferTransactionRequest() {
-    CreateTransferRequest = new CreateTransferRequest() {
-        Date = "2022-10-23T00:00:00Z",
-        Description = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+    TransferTransactionRequest = new TransferTransactionRequest() {
+        Description = "Transfer from bank account Y to bank account Z",
+        Date = "2022-10-23T00:00:00Z",
+        From = new From() {
+            AccountRef = new AccountReference() {
+                Id = "<id>",
+            },
+            Amount = 6384.24M,
+        },
+        To = new To() {
+            AccountRef = new TransferTransactionRequestAccountReference() {
+                Id = "<id>",
+            },
+            Amount = 8592.13M,
+        },
+    },
 };
 
 var res = await sdk.Transfers.CreateAsync(req);
@@ -45,14 +62,14 @@ var res = await sdk.Transfers.CreateAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [CreateTransferTransactionRequest](../../Models/Operations/CreateTransferTransactionRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
-
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [CreateTransferTransactionRequest](../../Models/Requests/CreateTransferTransactionRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[CreateTransferTransactionResponse](../../Models/Operations/CreateTransferTransactionResponse.md)**
+**[CreateTransferTransactionResponse](../../Models/Requests/CreateTransferTransactionResponse.md)**
+
 ### Errors
 
 | Error Object                                   | Status Code                                    | Content Type                                   |

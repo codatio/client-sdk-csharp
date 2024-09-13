@@ -10,9 +10,9 @@
 namespace Codat.Platform
 {
     using Codat.Platform.Hooks;
+    using Codat.Platform.Models.Components;
     using Codat.Platform.Models.Errors;
-    using Codat.Platform.Models.Operations;
-    using Codat.Platform.Models.Shared;
+    using Codat.Platform.Models.Requests;
     using Codat.Platform.Utils.Retries;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
@@ -61,15 +61,15 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.7.1";
-        private const string _sdkGenVersion = "2.411.9";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.415.6";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.7.1 2.411.9 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
-        private Func<Codat.Platform.Models.Shared.Security>? _securitySource;
+        private Func<Codat.Platform.Models.Components.Security>? _securitySource;
 
-        public SupplementalData(ISpeakeasyHttpClient client, Func<Codat.Platform.Models.Shared.Security>? securitySource, string serverUrl, SDKConfig config)
+        public SupplementalData(ISpeakeasyHttpClient client, Func<Codat.Platform.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _client = client;
             _securitySource = securitySource;

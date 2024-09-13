@@ -1,17 +1,19 @@
 <!-- Start SDK Example Usage [usage] -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```

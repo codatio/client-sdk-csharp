@@ -20,11 +20,9 @@ The embeddable [Connections SDK](https://docs.codat.io/auth-flow/optimize/connec
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 var res = await sdk.ConnectionManagement.CorsSettings.GetAsync();
 
@@ -33,7 +31,7 @@ var res = await sdk.ConnectionManagement.CorsSettings.GetAsync();
 
 ### Response
 
-**[GetConnectionManagementCorsSettingsResponse](../../Models/Operations/GetConnectionManagementCorsSettingsResponse.md)**
+**[GetConnectionManagementCorsSettingsResponse](../../Models/Requests/GetConnectionManagementCorsSettingsResponse.md)**
 
 ### Errors
 
@@ -55,12 +53,10 @@ The embeddable [Connections SDK](https://docs.codat.io/auth-flow/optimize/connec
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ConnectionManagementAllowedOrigins req = new ConnectionManagementAllowedOrigins() {
     AllowedOrigins = new List<string>() {
@@ -75,13 +71,13 @@ var res = await sdk.ConnectionManagement.CorsSettings.SetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [ConnectionManagementAllowedOrigins](../../Models/Shared/ConnectionManagementAllowedOrigins.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [ConnectionManagementAllowedOrigins](../../Models/Components/ConnectionManagementAllowedOrigins.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[SetConnectionManagementCorsSettingsResponse](../../Models/Operations/SetConnectionManagementCorsSettingsResponse.md)**
+**[SetConnectionManagementCorsSettingsResponse](../../Models/Requests/SetConnectionManagementCorsSettingsResponse.md)**
 
 ### Errors
 

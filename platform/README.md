@@ -73,17 +73,19 @@ dotnet add reference Codat/Platform/Codat.Platform.csproj
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -92,39 +94,33 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Settings](docs/sdks/settings/README.md)
+<details open>
+<summary>Available methods</summary>
 
-* [CreateApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
-* [DeleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
-* [GetProfile](docs/sdks/settings/README.md#getprofile) - Get profile
-* [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
-* [ListApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
-* [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
-* [UpdateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 
 ### [Companies](docs/sdks/companies/README.md)
 
-* [Create](docs/sdks/companies/README.md#create) - Create company
-* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
-* [Get](docs/sdks/companies/README.md#get) - Get company
 * [List](docs/sdks/companies/README.md#list) - List companies
+* [Create](docs/sdks/companies/README.md#create) - Create company
+* [Get](docs/sdks/companies/README.md#get) - Get company
+* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [Update](docs/sdks/companies/README.md#update) - Update company
 
 ### [ConnectionManagement](docs/sdks/connectionmanagement/README.md)
 
 * [GetAccessToken](docs/sdks/connectionmanagement/README.md#getaccesstoken) - Get access token
 
-### [ConnectionManagement.CorsSettings](docs/sdks/corssettings/README.md)
+#### [ConnectionManagement.CorsSettings](docs/sdks/corssettings/README.md)
 
 * [Get](docs/sdks/corssettings/README.md#get) - Get CORS settings
 * [Set](docs/sdks/corssettings/README.md#set) - Set CORS settings
 
 ### [Connections](docs/sdks/connections/README.md)
 
-* [Create](docs/sdks/connections/README.md#create) - Create connection
-* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
-* [Get](docs/sdks/connections/README.md#get) - Get connection
 * [List](docs/sdks/connections/README.md#list) - List connections
+* [Create](docs/sdks/connections/README.md#create) - Create connection
+* [Get](docs/sdks/connections/README.md#get) - Get connection
+* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
@@ -132,35 +128,45 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 * [Configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
 * [GetConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
-* [List](docs/sdks/customdatatype/README.md#list) - List custom data type records
 * [Refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
+* [List](docs/sdks/customdatatype/README.md#list) - List custom data type records
+
+### [Groups](docs/sdks/groups/README.md)
+
+* [AddCompany](docs/sdks/groups/README.md#addcompany) - Add company
+* [RemoveCompany](docs/sdks/groups/README.md#removecompany) - Remove company
+* [List](docs/sdks/groups/README.md#list) - List groups
+* [Create](docs/sdks/groups/README.md#create) - Create group
+
+### [Integrations](docs/sdks/integrations/README.md)
+
+* [List](docs/sdks/integrations/README.md#list) - List integrations
+* [Get](docs/sdks/integrations/README.md#get) - Get integration
+* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
 
 ### [PushData](docs/sdks/pushdata/README.md)
 
 * [GetModelOptions](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
-* [GetOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
 * [ListOperations](docs/sdks/pushdata/README.md#listoperations) - List push operations
+* [GetOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
 
 ### [RefreshData](docs/sdks/refreshdata/README.md)
 
 * [All](docs/sdks/refreshdata/README.md#all) - Refresh all data
 * [ByDataType](docs/sdks/refreshdata/README.md#bydatatype) - Refresh data type
 * [Get](docs/sdks/refreshdata/README.md#get) - Get data status
-* [GetPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
 * [ListPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
+* [GetPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
 
-### [Groups](docs/sdks/groups/README.md)
+### [Settings](docs/sdks/settings/README.md)
 
-* [AddCompany](docs/sdks/groups/README.md#addcompany) - Add company
-* [Create](docs/sdks/groups/README.md#create) - Create group
-* [List](docs/sdks/groups/README.md#list) - List groups
-* [RemoveCompany](docs/sdks/groups/README.md#removecompany) - Remove company
-
-### [Integrations](docs/sdks/integrations/README.md)
-
-* [Get](docs/sdks/integrations/README.md#get) - Get integration
-* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
-* [List](docs/sdks/integrations/README.md#list) - List integrations
+* [GetProfile](docs/sdks/settings/README.md#getprofile) - Get profile
+* [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
+* [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
+* [UpdateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
+* [ListApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
+* [CreateApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
+* [DeleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
 
 ### [SupplementalData](docs/sdks/supplementaldata/README.md)
 
@@ -169,12 +175,14 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
+* [~~List~~](docs/sdks/webhooks/README.md#list) - List webhooks :warning: **Deprecated**
 * [~~Create~~](docs/sdks/webhooks/README.md#create) - Create webhook :warning: **Deprecated**
+* [~~Get~~](docs/sdks/webhooks/README.md#get) - Get webhook :warning: **Deprecated**
+* [ListConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 * [CreateConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
 * [DeleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
-* [~~Get~~](docs/sdks/webhooks/README.md#get) - Get webhook :warning: **Deprecated**
-* [~~List~~](docs/sdks/webhooks/README.md#list) - List webhooks :warning: **Deprecated**
-* [ListConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Server Selection [server] -->
@@ -207,20 +215,22 @@ This SDK supports the following security scheme globally:
 | ------------ | ------------ | ------------ |
 | `AuthHeader` | apiKey       | API key      |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -233,28 +243,30 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,409,429,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ### Example
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 using System;
 using Codat.Platform.Models.Errors;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 try
 {
-    CreateApiKey req = new CreateApiKey() {
-        Name = "azure-invoice-finance-processor",
+    ListCompaniesRequest req = new ListCompaniesRequest() {
+        Page = 1,
+        PageSize = 100,
+        Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        OrderBy = "-modifiedDate",
     };
 
-    var res = await sdk.Settings.CreateApiKeyAsync(req);
+    var res = await sdk.Companies.ListAsync(req);
 
     // handle response
 }
@@ -280,17 +292,19 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(
+var res = await sdk.Companies.ListAsync(
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -308,7 +322,8 @@ var res = await sdk.Settings.CreateApiKeyAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
 var sdk = new CodatPlatform(
     retryConfig: new RetryConfig(
@@ -321,16 +336,17 @@ var sdk = new CodatPlatform(
         ),
         retryConnectionErrors: false
     ),
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
 );
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```

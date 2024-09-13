@@ -1,0 +1,13 @@
+# UpdateProfileSyncSettingsRequestBody
+
+Include a `syncSetting` object for each data type.
+`syncFromWindow`, `syncFromUTC` & `monthsToSync` only need to be included if you wish to set a value for them.
+
+
+## Fields
+
+| Field                                                                                                                       | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `ClientId`                                                                                                                  | *string*                                                                                                                    | :heavy_check_mark:                                                                                                          | Unique identifier for your client in Codat.                                                                                 |
+| `Settings`                                                                                                                  | List<[SyncSetting](../../Models/Components/SyncSetting.md)>                                                                 | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         |
+| `OverridesDefaults`                                                                                                         | *bool*                                                                                                                      | :heavy_minus_sign:                                                                                                          | Set to `True` if you want to override default [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings). |

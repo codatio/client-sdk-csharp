@@ -8,17 +8,19 @@
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -32,17 +34,19 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(
+var res = await sdk.Companies.ListAsync(
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -60,7 +64,8 @@ var res = await sdk.Settings.CreateApiKeyAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
 var sdk = new CodatPlatform(
     retryConfig: new RetryConfig(
@@ -73,16 +78,17 @@ var sdk = new CodatPlatform(
         ),
         retryConnectionErrors: false
     ),
-    security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    }
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
 );
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
@@ -95,28 +101,30 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,409,429,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 ### Example
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 using System;
 using Codat.Platform.Models.Errors;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 try
 {
-    CreateApiKey req = new CreateApiKey() {
-        Name = "azure-invoice-finance-processor",
+    ListCompaniesRequest req = new ListCompaniesRequest() {
+        Page = 1,
+        PageSize = 100,
+        Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        OrderBy = "-modifiedDate",
     };
 
-    var res = await sdk.Settings.CreateApiKeyAsync(req);
+    var res = await sdk.Companies.ListAsync(req);
 
     // handle response
 }
@@ -164,20 +172,22 @@ This SDK supports the following security scheme globally:
 | ------------ | ------------ | ------------ |
 | `AuthHeader` | apiKey       | API key      |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateApiKey req = new CreateApiKey() {
-    Name = "azure-invoice-finance-processor",
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.Settings.CreateApiKeyAsync(req);
+var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```

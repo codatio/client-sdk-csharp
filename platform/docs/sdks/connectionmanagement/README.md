@@ -19,12 +19,10 @@ The embeddable [Connections SDK](https://docs.codat.io/auth-flow/optimize/connec
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetConnectionManagementAccessTokenRequest req = new GetConnectionManagementAccessTokenRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -37,13 +35,13 @@ var res = await sdk.ConnectionManagement.GetAccessTokenAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                         | [GetConnectionManagementAccessTokenRequest](../../Models/Operations/GetConnectionManagementAccessTokenRequest.md) | :heavy_check_mark:                                                                                                | The request object to use for the request.                                                                        |
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                       | [GetConnectionManagementAccessTokenRequest](../../Models/Requests/GetConnectionManagementAccessTokenRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
 
 ### Response
 
-**[GetConnectionManagementAccessTokenResponse](../../Models/Operations/GetConnectionManagementAccessTokenResponse.md)**
+**[GetConnectionManagementAccessTokenResponse](../../Models/Requests/GetConnectionManagementAccessTokenResponse.md)**
 
 ### Errors
 

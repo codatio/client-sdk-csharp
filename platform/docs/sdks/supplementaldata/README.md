@@ -23,15 +23,15 @@ See the *examples* for integration-specific frequently requested properties.
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
     SupplementalDataConfiguration = new SupplementalDataConfiguration() {
         SupplementalDataConfig = new Dictionary<string, SupplementalDataSourceConfiguration>() {
             { "orders-supplemental-data", new SupplementalDataSourceConfiguration() {
@@ -45,8 +45,6 @@ ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
             } },
         },
     },
-    DataType = Codat.Platform.Models.Operations.DataType.Invoices,
-    PlatformKey = "gbol",
 };
 
 var res = await sdk.SupplementalData.ConfigureAsync(req);
@@ -56,13 +54,13 @@ var res = await sdk.SupplementalData.ConfigureAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [ConfigureSupplementalDataRequest](../../Models/Operations/ConfigureSupplementalDataRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [ConfigureSupplementalDataRequest](../../Models/Requests/ConfigureSupplementalDataRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[ConfigureSupplementalDataResponse](../../Models/Operations/ConfigureSupplementalDataResponse.md)**
+**[ConfigureSupplementalDataResponse](../../Models/Requests/ConfigureSupplementalDataResponse.md)**
 
 ### Errors
 
@@ -82,16 +80,14 @@ The *Get configuration* endpoint returns supplemental data configuration previou
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetSupplementalDataConfigurationRequest req = new GetSupplementalDataConfigurationRequest() {
-    DataType = Codat.Platform.Models.Operations.PathParamDataType.Invoices,
     PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.PathParamDataType.Invoices,
 };
 
 var res = await sdk.SupplementalData.GetConfigurationAsync(req);
@@ -101,13 +97,13 @@ var res = await sdk.SupplementalData.GetConfigurationAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [GetSupplementalDataConfigurationRequest](../../Models/Operations/GetSupplementalDataConfigurationRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [GetSupplementalDataConfigurationRequest](../../Models/Requests/GetSupplementalDataConfigurationRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 ### Response
 
-**[GetSupplementalDataConfigurationResponse](../../Models/Operations/GetSupplementalDataConfigurationResponse.md)**
+**[GetSupplementalDataConfigurationResponse](../../Models/Requests/GetSupplementalDataConfigurationResponse.md)**
 
 ### Errors
 

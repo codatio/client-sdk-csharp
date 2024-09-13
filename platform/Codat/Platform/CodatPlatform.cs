@@ -10,8 +10,8 @@
 namespace Codat.Platform
 {
     using Codat.Platform.Hooks;
+    using Codat.Platform.Models.Components;
     using Codat.Platform.Models.Errors;
-    using Codat.Platform.Models.Shared;
     using Codat.Platform.Utils.Retries;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
@@ -54,19 +54,9 @@ namespace Codat.Platform
     {
 
         /// <summary>
-        /// Manage company profile configuration, sync settings, and API keys.
-        /// </summary>
-        public ISettings Settings { get; }
-
-        /// <summary>
         /// Create and manage your SMB users&apos; companies.
         /// </summary>
         public ICompanies Companies { get; }
-
-        /// <summary>
-        /// Configure UI and retrieve access tokens for authentication used by **Connections SDK**.
-        /// </summary>
-        public IConnectionManagement ConnectionManagement { get; }
 
         /// <summary>
         /// Create new and manage existing data connections for a company.
@@ -74,14 +64,9 @@ namespace Codat.Platform
         public IConnections Connections { get; }
 
         /// <summary>
-        /// Configure and pull additional data types that are not included in Codat&apos;s standardized data model.
+        /// Configure UI and retrieve access tokens for authentication used by **Connections SDK**.
         /// </summary>
-        public ICustomDataType CustomDataType { get; }
-
-        /// <summary>
-        /// Initiate and monitor Create, Update, and Delete operations.
-        /// </summary>
-        public IPushData PushData { get; }
+        public IConnectionManagement ConnectionManagement { get; }
 
         /// <summary>
         /// Initiate data refreshes, view pull status and history.
@@ -94,9 +79,24 @@ namespace Codat.Platform
         public IGroups Groups { get; }
 
         /// <summary>
+        /// Create and manage webhooks that listen to Codat&apos;s events.
+        /// </summary>
+        public IWebhooks Webhooks { get; }
+
+        /// <summary>
         /// Get a list of integrations supported by Codat and their logos.
         /// </summary>
         public IIntegrations Integrations { get; }
+
+        /// <summary>
+        /// Manage company profile configuration, sync settings, and API keys.
+        /// </summary>
+        public ISettings Settings { get; }
+
+        /// <summary>
+        /// Initiate and monitor Create, Update, and Delete operations.
+        /// </summary>
+        public IPushData PushData { get; }
 
         /// <summary>
         /// Configure and pull additional data you can include in Codat&apos;s standard data types.
@@ -104,9 +104,9 @@ namespace Codat.Platform
         public ISupplementalData SupplementalData { get; }
 
         /// <summary>
-        /// Create and manage webhooks that listen to Codat&apos;s events.
+        /// Configure and pull additional data types that are not included in Codat&apos;s standardized data model.
         /// </summary>
-        public IWebhooks Webhooks { get; }
+        public ICustomDataType CustomDataType { get; }
     }
 
     public class SDKConfig
@@ -179,27 +179,27 @@ namespace Codat.Platform
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "3.7.1";
-        private const string _sdkGenVersion = "2.411.9";
+        private const string _sdkVersion = "4.0.0";
+        private const string _sdkGenVersion = "2.415.6";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 3.7.1 2.411.9 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;
-        private Func<Codat.Platform.Models.Shared.Security>? _securitySource;
-        public ISettings Settings { get; private set; }
+        private Func<Codat.Platform.Models.Components.Security>? _securitySource;
         public ICompanies Companies { get; private set; }
-        public IConnectionManagement ConnectionManagement { get; private set; }
         public IConnections Connections { get; private set; }
-        public ICustomDataType CustomDataType { get; private set; }
-        public IPushData PushData { get; private set; }
+        public IConnectionManagement ConnectionManagement { get; private set; }
         public IRefreshData RefreshData { get; private set; }
         public IGroups Groups { get; private set; }
-        public IIntegrations Integrations { get; private set; }
-        public ISupplementalData SupplementalData { get; private set; }
         public IWebhooks Webhooks { get; private set; }
+        public IIntegrations Integrations { get; private set; }
+        public ISettings Settings { get; private set; }
+        public IPushData PushData { get; private set; }
+        public ISupplementalData SupplementalData { get; private set; }
+        public ICustomDataType CustomDataType { get; private set; }
 
-        public CodatPlatform(Codat.Platform.Models.Shared.Security? security = null, Func<Codat.Platform.Models.Shared.Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
+        public CodatPlatform(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
         {
             if (serverIndex != null)
             {
@@ -221,17 +221,17 @@ namespace Codat.Platform
 
             _client = client ?? new SpeakeasyHttpClient();
 
-            if(securitySource != null)
+            if(authHeaderSource != null)
             {
-                _securitySource = securitySource;
+                _securitySource = () => new Codat.Platform.Models.Components.Security() { AuthHeader = authHeaderSource() };
             }
-            else if(security != null)
+            else if(authHeader != null)
             {
-                _securitySource = () => security;
+                _securitySource = () => new Codat.Platform.Models.Components.Security() { AuthHeader = authHeader };
             }
             else
             {
-                throw new Exception("security and securitySource cannot both be null");
+                throw new Exception("authHeader and authHeaderSource cannot both be null");
             }
 
             SDKConfiguration = new SDKConfig()
@@ -244,22 +244,13 @@ namespace Codat.Platform
             _client = SDKConfiguration.InitHooks(_client);
 
 
-            Settings = new Settings(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
             Companies = new Companies(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            ConnectionManagement = new ConnectionManagement(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             Connections = new Connections(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            CustomDataType = new CustomDataType(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            PushData = new PushData(_client, _securitySource, _serverUrl, SDKConfiguration);
+            ConnectionManagement = new ConnectionManagement(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             RefreshData = new RefreshData(_client, _securitySource, _serverUrl, SDKConfiguration);
@@ -268,13 +259,22 @@ namespace Codat.Platform
             Groups = new Groups(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
+            Webhooks = new Webhooks(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Integrations = new Integrations(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            Settings = new Settings(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            PushData = new PushData(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             SupplementalData = new SupplementalData(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            Webhooks = new Webhooks(_client, _securitySource, _serverUrl, SDKConfiguration);
+            CustomDataType = new CustomDataType(_client, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

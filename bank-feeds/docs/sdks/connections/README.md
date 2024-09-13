@@ -7,11 +7,57 @@ Create new and manage existing data connections for a company.
 
 ### Available Operations
 
-* [Create](#create) - Create connection
-* [Delete](#delete) - Delete connection
-* [Get](#get) - Get connection
 * [List](#list) - List connections
+* [Create](#create) - Create connection
+* [Get](#get) - Get connection
+* [Delete](#delete) - Delete connection
 * [Unlink](#unlink) - Unlink connection
+
+## List
+
+﻿List the connections for a company.
+
+### Example Usage
+
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+ListConnectionsRequest req = new ListConnectionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Connections.ListAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [ListConnectionsRequest](../../Models/Operations/ListConnectionsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+
+### Response
+
+**[ListConnectionsResponse](../../Models/Operations/ListConnectionsResponse.md)**
+
+### Errors
+
+| Error Object                               | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+
 
 ## Create
 
@@ -23,18 +69,18 @@ Use the [List Integrations](https://docs.codat.io/bank-feeds-api#/operations/lis
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CreateConnectionRequest req = new CreateConnectionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     RequestBody = new CreateConnectionRequestBody() {
         PlatformKey = "gbol",
     },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
 var res = await sdk.Connections.CreateAsync(req);
@@ -48,10 +94,10 @@ var res = await sdk.Connections.CreateAsync(req);
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `request`                                                                     | [CreateConnectionRequest](../../Models/Operations/CreateConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
-
 ### Response
 
 **[CreateConnectionResponse](../../Models/Operations/CreateConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |
@@ -59,48 +105,6 @@ var res = await sdk.Connections.CreateAsync(req);
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
-## Delete
-
-﻿Revoke and remove a connection from a company.
-This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
-
-### Example Usage
-
-```csharp
-using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
-using Codat.BankFeeds.Models.Operations;
-
-var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-DeleteConnectionRequest req = new DeleteConnectionRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-var res = await sdk.Connections.DeleteAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [DeleteConnectionRequest](../../Models/Operations/DeleteConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
-
-
-### Response
-
-**[DeleteConnectionResponse](../../Models/Operations/DeleteConnectionResponse.md)**
-### Errors
-
-| Error Object                               | Status Code                                | Content Type                               |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
 ## Get
 
@@ -110,12 +114,12 @@ var res = await sdk.Connections.DeleteAsync(req);
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetConnectionRequest req = new GetConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -133,10 +137,10 @@ var res = await sdk.Connections.GetAsync(req);
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [GetConnectionRequest](../../Models/Operations/GetConnectionRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[GetConnectionResponse](../../Models/Operations/GetConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |
@@ -144,50 +148,50 @@ var res = await sdk.Connections.GetAsync(req);
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
-## List
 
-﻿List the connections for a company.
+## Delete
+
+﻿Revoke and remove a connection from a company.
+This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
 
 ### Example Usage
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-ListConnectionsRequest req = new ListConnectionsRequest() {
+DeleteConnectionRequest req = new DeleteConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-var res = await sdk.Connections.ListAsync(req);
+var res = await sdk.Connections.DeleteAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [ListConnectionsRequest](../../Models/Operations/ListConnectionsRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
-
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [DeleteConnectionRequest](../../Models/Operations/DeleteConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 ### Response
 
-**[ListConnectionsResponse](../../Models/Operations/ListConnectionsResponse.md)**
+**[DeleteConnectionResponse](../../Models/Operations/DeleteConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+
 
 ## Unlink
 
@@ -197,12 +201,12 @@ var res = await sdk.Connections.ListAsync(req);
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -220,10 +224,10 @@ var res = await sdk.Connections.UnlinkAsync(req);
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `request`                                                                     | [UnlinkConnectionRequest](../../Models/Operations/UnlinkConnectionRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
-
 ### Response
 
 **[UnlinkConnectionResponse](../../Models/Operations/UnlinkConnectionResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |

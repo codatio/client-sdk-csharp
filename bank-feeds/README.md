@@ -4,13 +4,57 @@
 ﻿Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.
 <!-- End Codat Library Description -->
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.
+
+A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting software.
+
+[Explore product](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+
+---
+<!-- Start Codat Tags Table -->
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Source accounts | Provide and manage lists of source bank accounts. |
+| Account mapping | Extra functionality for building an account management UI. |
+| Company information | Get detailed information about a company from the underlying platform. |
+| Transactions | Create new bank account transactions for a company's connections, and see previous operations. |
+<!-- End Codat Tags Table -->
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### Nuget
+### NuGet
 
+To add the [NuGet](https://www.nuget.org/) package to a .NET project:
 ```bash
 dotnet add package Codat.BankFeeds
+```
+
+### Locally
+
+To add a reference to a local instance of the SDK in a .NET project:
+```bash
+dotnet add reference Codat/BankFeeds/Codat.BankFeeds.csproj
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -26,17 +70,17 @@ using Codat.BankFeeds.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
+    Groups = new List<GroupReference>() {
+        new GroupReference() {
             Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
         },
     },
-    Name = "Bank of Dave",
 };
 
 var res = await sdk.Companies.CreateAsync(req);
@@ -48,45 +92,58 @@ var res = await sdk.Companies.CreateAsync(req);
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Companies](docs/sdks/companies/README.md)
-
-* [Create](docs/sdks/companies/README.md#create) - Create company
-* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
-* [Get](docs/sdks/companies/README.md#get) - Get company
-* [List](docs/sdks/companies/README.md#list) - List companies
-* [Update](docs/sdks/companies/README.md#update) - Update company
-
-### [Connections](docs/sdks/connections/README.md)
-
-* [Create](docs/sdks/connections/README.md#create) - Create connection
-* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
-* [Get](docs/sdks/connections/README.md#get) - Get connection
-* [List](docs/sdks/connections/README.md#list) - List connections
-* [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+<details open>
+<summary>Available methods</summary>
 
 ### [AccountMapping](docs/sdks/accountmapping/README.md)
 
-* [Create](docs/sdks/accountmapping/README.md#create) - Create bank feed account mapping
 * [Get](docs/sdks/accountmapping/README.md#get) - List bank feed account mappings
+* [Create](docs/sdks/accountmapping/README.md#create) - Create bank feed account mapping
+
+### [BankAccounts](docs/sdks/bankaccounts/README.md)
+
+* [List](docs/sdks/bankaccounts/README.md#list) - List bank accounts
+* [GetCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
+* [Create](docs/sdks/bankaccounts/README.md#create) - Create bank account
+
+
+### [Companies](docs/sdks/companies/README.md)
+
+* [Create](docs/sdks/companies/README.md#create) - Create company
+* [List](docs/sdks/companies/README.md#list) - List companies
+* [Get](docs/sdks/companies/README.md#get) - Get company
+* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [Update](docs/sdks/companies/README.md#update) - Update company
 
 ### [CompanyInformation](docs/sdks/companyinformation/README.md)
 
 * [Get](docs/sdks/companyinformation/README.md#get) - Get company information
 
+### [Configuration](docs/sdks/configuration/README.md)
+
+* [Get](docs/sdks/configuration/README.md#get) - Get configuration
+* [Set](docs/sdks/configuration/README.md#set) - Set configuration
+
+### [Connections](docs/sdks/connections/README.md)
+
+* [List](docs/sdks/connections/README.md#list) - List connections
+* [Create](docs/sdks/connections/README.md#create) - Create connection
+* [Get](docs/sdks/connections/README.md#get) - Get connection
+* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
+* [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+
 ### [SourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [Create](docs/sdks/sourceaccounts/README.md#create) - Create source account
-* [Delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
-* [DeleteCredentials](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
-* [GenerateCredentials](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
 * [List](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 * [Update](docs/sdks/sourceaccounts/README.md#update) - Update source account
+* [Delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
+* [GenerateCredentials](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
+* [DeleteCredentials](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
 
-### [BankAccounts](docs/sdks/bankaccounts/README.md)
+### [Sync](docs/sdks/sync/README.md)
 
-* [Create](docs/sdks/bankaccounts/README.md#create) - Create bank account
-* [GetCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
-* [List](docs/sdks/bankaccounts/README.md#list) - List bank accounts
+* [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Get last successful sync
 
 ### [Transactions](docs/sdks/transactions/README.md)
 
@@ -94,14 +151,7 @@ var res = await sdk.Companies.CreateAsync(req);
 * [GetCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
 * [ListCreateOperations](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
 
-### [Configuration](docs/sdks/configuration/README.md)
-
-* [Get](docs/sdks/configuration/README.md#get) - Get configuration
-* [Set](docs/sdks/configuration/README.md#set) - Set configuration
-
-### [Sync](docs/sdks/sync/README.md)
-
-* [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Get last successful sync
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Server Selection [server] -->
@@ -141,17 +191,17 @@ using Codat.BankFeeds.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
+    Groups = new List<GroupReference>() {
+        new GroupReference() {
             Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
         },
     },
-    Name = "Bank of Dave",
 };
 
 var res = await sdk.Companies.CreateAsync(req);
@@ -175,27 +225,28 @@ Handling errors in this SDK should largely match your expectations.  All operati
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
 using System;
 using Codat.BankFeeds.Models.Errors;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-CompanyRequestBody req = new CompanyRequestBody() {
-    Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
-    Name = "Bank of Dave",
-};
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 try
 {
+    CompanyRequestBody req = new CompanyRequestBody() {
+        Name = "Bank of Dave",
+        Description = "Requested early access to the new financing scheme.",
+        Groups = new List<GroupReference>() {
+            new GroupReference() {
+                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        },
+    };
+
     var res = await sdk.Companies.CreateAsync(req);
+
     // handle response
 }
 catch (Exception ex)
@@ -209,7 +260,6 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -225,20 +275,20 @@ using Codat.BankFeeds.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
+    Groups = new List<GroupReference>() {
+        new GroupReference() {
             Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
         },
     },
-    Name = "Bank of Dave",
 };
 
-var res = await sdk.Companies.CreateAsync(req,
+var res = await sdk.Companies.CreateAsync(
     retryConfig: new RetryConfig(
         strategy: RetryConfig.RetryStrategy.BACKOFF,
         backoff: new BackoffStrategy(
@@ -248,7 +298,7 @@ var res = await sdk.Companies.CreateAsync(req,
             exponent: 1.1
         ),
         retryConnectionErrors: false
-));
+    ),req);
 
 // handle response
 ```
@@ -269,19 +319,20 @@ var sdk = new CodatBankFeeds(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-),
+    ),
     security: new Security() {
         AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    }
+);
 
 CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
+    Groups = new List<GroupReference>() {
+        new GroupReference() {
             Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
         },
     },
-    Name = "Bank of Dave",
 };
 
 var res = await sdk.Companies.CreateAsync(req);

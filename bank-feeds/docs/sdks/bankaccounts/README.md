@@ -3,67 +3,65 @@
 
 ## Overview
 
-Access bank accounts in an SMBs accounting platform.
+Access bank accounts in an SMBs accounting software.
 
 ### Available Operations
 
-* [Create](#create) - Create bank account
-* [GetCreateModel](#getcreatemodel) - Get create/update bank account model
 * [List](#list) - List bank accounts
+* [GetCreateModel](#getcreatemodel) - Get create/update bank account model
+* [Create](#create) - Create bank account
 
-## Create
+## List
 
-The *Create bank account* endpoint creates a new [bank account](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) for a given company's connection.
+The *List bank accounts* endpoint returns a list of [bank accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) for a given company's connection.
 
 [Bank accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/bank-feeds-api#/operations/get-create-update-bankAccounts-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating an account.
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/bank-feeds-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-CreateBankAccountRequest req = new CreateBankAccountRequest() {
-    BankAccountPrototype = new BankAccountPrototype() {
-        Currency = "USD",
-        Status = BankAccountStatus.Active,
-    },
+ListBankAccountsRequest req = new ListBankAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.BankAccounts.CreateAsync(req);
+var res = await sdk.BankAccounts.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [CreateBankAccountRequest](../../Models/Operations/CreateBankAccountRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
-
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [ListBankAccountsRequest](../../Models/Operations/ListBankAccountsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
 
 ### Response
 
-**[CreateBankAccountResponse](../../Models/Operations/CreateBankAccountResponse.md)**
+**[ListBankAccountsResponse](../../Models/Operations/ListBankAccountsResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503        | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+
 
 ## GetCreateModel
 
@@ -82,12 +80,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetCreateBankAccountsModelRequest req = new GetCreateBankAccountsModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -105,10 +103,10 @@ var res = await sdk.BankAccounts.GetCreateModelAsync(req);
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `request`                                                                                         | [GetCreateBankAccountsModelRequest](../../Models/Operations/GetCreateBankAccountsModelRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
-
 ### Response
 
 **[GetCreateBankAccountsModelResponse](../../Models/Operations/GetCreateBankAccountsModelResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |
@@ -116,53 +114,57 @@ var res = await sdk.BankAccounts.GetCreateModelAsync(req);
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
 
-## List
 
-The *List bank accounts* endpoint returns a list of [bank accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) for a given company's connection.
+## Create
+
+The *Create bank account* endpoint creates a new [bank account](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) for a given company's connection.
 
 [Bank accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/bank-feeds-api#/operations/refresh-company-data).
-    
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/bank-feeds-api#/operations/get-create-update-bankAccounts-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating an account.
 
 ### Example Usage
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-ListBankAccountsRequest req = new ListBankAccountsRequest() {
+CreateBankAccountRequest req = new CreateBankAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    BankAccountPrototype = new BankAccountPrototype() {
+        Currency = "USD",
+        Status = Codat.BankFeeds.Models.Shared.BankAccountStatus.Active,
+    },
 };
 
-var res = await sdk.BankAccounts.ListAsync(req);
+var res = await sdk.BankAccounts.CreateAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [ListBankAccountsRequest](../../Models/Operations/ListBankAccountsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
-
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [CreateBankAccountRequest](../../Models/Operations/CreateBankAccountRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 ### Response
 
-**[ListBankAccountsResponse](../../Models/Operations/ListBankAccountsResponse.md)**
+**[CreateBankAccountResponse](../../Models/Operations/CreateBankAccountResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503        | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |

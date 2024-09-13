@@ -1,0 +1,102 @@
+speakeasyVersion: 1.396.6
+sources:
+    bank-feeds-source:
+        sourceNamespace: bank-feeds-source
+        sourceRevisionDigest: sha256:ccef85376bbc987ea49cd61be000ea911639ec530399e528922e09062c02fa5f
+        sourceBlobDigest: sha256:24d837ec7ccccb55559e6de16951a64c09874b48e5ca92b7af36ea0b95b0eac2
+        tags:
+            - latest
+            - main
+targets:
+    bank-feeds-library:
+        source: bank-feeds-source
+        sourceNamespace: bank-feeds-source
+        sourceRevisionDigest: sha256:ccef85376bbc987ea49cd61be000ea911639ec530399e528922e09062c02fa5f
+        sourceBlobDigest: sha256:24d837ec7ccccb55559e6de16951a64c09874b48e5ca92b7af36ea0b95b0eac2
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        bank-feeds-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/bank-feeds-source
+        lending-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
+        platform-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+        sync-for-commerce-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+        sync-for-expenses-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+        sync-for-payables-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+        sync-for-payables-version-1-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables-v1.yaml
+        sync-for-payroll-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payroll.yaml
+    targets:
+        bank-feeds-library:
+            target: csharp
+            source: bank-feeds-source
+            output: bank-feeds
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
+        lending-library:
+            target: csharp
+            source: lending-source
+            output: lending
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
+        platform-library:
+            target: csharp
+            source: platform-source
+            output: platform
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
+        sync-for-commerce-library:
+            target: csharp
+            source: sync-for-commerce-source
+            output: sync-for-commerce
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
+        sync-for-expenses-library:
+            target: csharp
+            source: sync-for-expenses-source
+            output: sync-for-expenses
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
+        sync-for-payables-library:
+            target: csharp
+            source: sync-for-payables-source
+            output: sync-for-payables
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
+        sync-for-payables-version-1-library:
+            target: csharp
+            source: sync-for-payables-version-1-source
+            output: previous-versions/sync-for-payables-version-1
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key
+        sync-for-payroll-library:
+            target: csharp
+            source: sync-for-payroll-source
+            output: sync-for-payroll
+            publish:
+                nuget:
+                    apiKey: $nuget_api_key

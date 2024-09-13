@@ -1,4 +1,4 @@
-# BankAccountsMetadata
+# BankAccountCreateResponseMetadata
 
 
 ## Fields

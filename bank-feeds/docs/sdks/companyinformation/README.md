@@ -3,7 +3,7 @@
 
 ## Overview
 
-Get detailed information about a company from the underlying platform.
+Get detailed information about a company from the underlying accounting software.
 
 ### Available Operations
 
@@ -11,7 +11,7 @@ Get detailed information about a company from the underlying platform.
 
 ## Get
 
-Use the *Get company information* endpoint to return information about the company available from the underlying accounting platform.
+Use the *Get company information* endpoint to return information about the company available from the underlying accounting software.
 
 
 
@@ -19,12 +19,12 @@ Use the *Get company information* endpoint to return information about the compa
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
 using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 GetCompanyInformationRequest req = new GetCompanyInformationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -42,10 +42,10 @@ var res = await sdk.CompanyInformation.GetAsync(req);
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `request`                                                                               | [GetCompanyInformationRequest](../../Models/Operations/GetCompanyInformationRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 
-
 ### Response
 
 **[GetCompanyInformationResponse](../../Models/Operations/GetCompanyInformationResponse.md)**
+
 ### Errors
 
 | Error Object                               | Status Code                                | Content Type                               |

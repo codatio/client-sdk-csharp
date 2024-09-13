@@ -5,17 +5,17 @@ using Codat.BankFeeds.Models.Shared;
 using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<Items>() {
-        new Items() {
+    Groups = new List<GroupReference>() {
+        new GroupReference() {
             Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
         },
     },
-    Name = "Bank of Dave",
 };
 
 var res = await sdk.Companies.CreateAsync(req);

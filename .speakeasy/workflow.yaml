@@ -24,6 +24,8 @@ sources:
     sync-for-expenses-source:
         inputs:
             - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+        registry:
+            location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source
     sync-for-payables-source:
         inputs:
             - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml

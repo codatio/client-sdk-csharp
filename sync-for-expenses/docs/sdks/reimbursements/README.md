@@ -12,61 +12,33 @@ Create and update transactions that represent your customers' repayable spend.
 
 ## Create
 
-Use the *Create reimbursable expense* endpoint to create a [reimbursement request](https://docs.codat.io/sync-for-expenses-api#/schemas/Reimburseable-Expense-Transactions) in the accounting platform for a given company's connection. 
+Use the *Create reimbursable expense* endpoint to submit an employee expense claim in the accounting platform for a given company's connection.
 
-Employee reimbursement requests are reflected in the accounting system in the form of Bills against an employee, who is a supplier.
+[Reimbursable expense requests](https://docs.codat.io/sync-for-expenses-api#/schemas/ReimbursableExpenseTransactionRequest) are reflected in the accounting software in the form of **Bills** against an employee (who exists as a supplier in the accounting platform).
+
+### Supported Integrations
+| Integration           | Supported |
+|-----------------------|-----------|
+| FreeAgent             | Yes       |
+| QuickBooks Desktop    | Yes       |
+| QuickBooks Online     | Yes       |
+| Oracle NetSuite       | Yes       |
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
+using Codat.Sync.Expenses.Models.Requests;
 using System.Collections.Generic;
+using Codat.Sync.Expenses.Models.Components;
 
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 CreateReimbursableExpenseTransactionRequest req = new CreateReimbursableExpenseTransactionRequest() {
-    RequestBody = new List<ReimbursableExpenseTransaction>() {
-        new ReimbursableExpenseTransaction() {
-            BankAccountRef = new BankAccountReference() {
-                Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-            },
-            ContactRef = new ContactRefReimbursableExpense() {
-                Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            Currency = "GBP",
-            DueDate = "2022-10-23T00:00:00Z",
-            Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
-            IssueDate = "2022-10-23T00:00:00Z",
-            Lines = new List<ReimbursableExpenseTransactionLine>() {
-                new ReimbursableExpenseTransactionLine() {
-                    AccountRef = new RecordRef() {
-                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                    },
-                    InvoiceTo = new InvoiceTo() {
-                        DataType = InvoiceToDataType.Customers,
-                        Id = "80000002-1674552702",
-                    },
-                    NetAmount = 110.42M,
-                    TaxAmount = 14.43M,
-                    TaxRateRef = new RecordRef() {
-                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                    },
-                    TrackingRefs = new List<TrackingRef>() {
-                        new TrackingRef() {
-                            DataType = TrackingRefDataType.TrackingCategories,
-                            Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-                        },
-                    },
-                },
-            },
-            Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        },
-    },
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    RequestBody = new List<ReimbursableExpenseTransaction>() {
+
+    },
 };
 
 var res = await sdk.Reimbursements.CreateAsync(req);
@@ -76,14 +48,14 @@ var res = await sdk.Reimbursements.CreateAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [CreateReimbursableExpenseTransactionRequest](../../Models/Operations/CreateReimbursableExpenseTransactionRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
-
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [CreateReimbursableExpenseTransactionRequest](../../Models/Requests/CreateReimbursableExpenseTransactionRequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 ### Response
 
-**[CreateReimbursableExpenseTransactionResponse](../../Models/Operations/CreateReimbursableExpenseTransactionResponse.md)**
+**[CreateReimbursableExpenseTransactionResponse](../../Models/Requests/CreateReimbursableExpenseTransactionResponse.md)**
+
 ### Errors
 
 | Error Object                                   | Status Code                                    | Content Type                                   |
@@ -91,64 +63,46 @@ var res = await sdk.Reimbursements.CreateAsync(req);
 | Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
+
 ## Update
 
-The *Update reimbursable expense* endpoint updates an existing [reimbursable expense transaction](https://docs.codat.io/sync-for-expenses-api#/operations/create-reimbursable-expense-transaction) in the accounting platform for a given company's connection. 
+The *Update reimbursable expense* endpoint updates an existing employee expense claim in the accounting platform for a given company's connection. 
 
-Employee reimbursement requests are reflected in the accounting system in the form of Bills against an employee, who is a supplier.
+Updating an existing [reimbursable expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/UpdateReimbursableExpenseTransactionRequest) will update the existing **bill** against an employee (who exists as a supplier in the accounting software).
+
+### Supported Integrations
+| Integration           | Supported |
+|-----------------------|-----------|
+| FreeAgent             | Yes       |
+| QuickBooks Desktop    | Yes       |
+| QuickBooks Online     | Yes       |
+| Oracle NetSuite       | Yes       |
 
 ### Example Usage
 
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
+using Codat.Sync.Expenses.Models.Requests;
+using Codat.Sync.Expenses.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-UpdateReimbursableExpenseTransactionRequest req = new UpdateReimbursableExpenseTransactionRequest() {
-    RequestBody = new List<ReimbursableExpenseTransaction>() {
-        new ReimbursableExpenseTransaction() {
-            BankAccountRef = new BankAccountReference() {
-                Id = "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-            },
-            ContactRef = new ContactRefReimbursableExpense() {
-                Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            Currency = "GBP",
-            DueDate = "2022-10-23T00:00:00Z",
-            Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
-            IssueDate = "2022-10-23T00:00:00Z",
-            Lines = new List<ReimbursableExpenseTransactionLine>() {
-                new ReimbursableExpenseTransactionLine() {
-                    AccountRef = new RecordRef() {
-                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                    },
-                    InvoiceTo = new InvoiceTo() {
-                        DataType = InvoiceToDataType.Customers,
-                        Id = "80000002-1674552702",
-                    },
-                    NetAmount = 110.42M,
-                    TaxAmount = 14.43M,
-                    TaxRateRef = new RecordRef() {
-                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
-                    },
-                    TrackingRefs = new List<TrackingRef>() {
-                        new TrackingRef() {
-                            DataType = TrackingRefDataType.TrackingCategories,
-                            Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-                        },
-                    },
-                },
-            },
-            Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        },
-    },
+Models.Requests.UpdateReimbursableExpenseTransactionRequest req = new Models.Requests.UpdateReimbursableExpenseTransactionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     TransactionId = "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+    UpdateReimbursableExpenseTransactionRequest = new Models.Components.UpdateReimbursableExpenseTransactionRequest() {
+        ContactRef = new ReimbursementContactRef() {
+            Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+        },
+        IssueDate = "2022-10-23T00:00:00Z",
+        DueDate = "2022-10-23T00:00:00Z",
+        Currency = "GBP",
+        Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+        Lines = new List<ReimbursableExpenseTransactionLine>() {
+
+        },
+    },
 };
 
 var res = await sdk.Reimbursements.UpdateAsync(req);
@@ -158,14 +112,14 @@ var res = await sdk.Reimbursements.UpdateAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [UpdateReimbursableExpenseTransactionRequest](../../Models/Operations/UpdateReimbursableExpenseTransactionRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
-
+| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                           | [Models.Requests.UpdateReimbursableExpenseTransactionRequest](../../Models/Requests/UpdateReimbursableExpenseTransactionRequest.md) | :heavy_check_mark:                                                                                                                  | The request object to use for the request.                                                                                          |
 
 ### Response
 
-**[UpdateReimbursableExpenseTransactionResponse](../../Models/Operations/UpdateReimbursableExpenseTransactionResponse.md)**
+**[UpdateReimbursableExpenseTransactionResponse](../../Models/Requests/UpdateReimbursableExpenseTransactionResponse.md)**
+
 ### Errors
 
 | Error Object                                   | Status Code                                    | Content Type                                   |

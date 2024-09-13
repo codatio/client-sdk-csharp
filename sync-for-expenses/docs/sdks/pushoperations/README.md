@@ -7,8 +7,52 @@ View historic push operations.
 
 ### Available Operations
 
-* [Get](#get) - Get push operation
 * [List](#list) - List push operations
+* [Get](#get) - Get push operation
+
+## List
+
+List push operation records.
+
+### Example Usage
+
+```csharp
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Requests;
+using Codat.Sync.Expenses.Models.Components;
+
+var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListPushOperationsRequest req = new ListPushOperationsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.PushOperations.ListAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [ListPushOperationsRequest](../../Models/Requests/ListPushOperationsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+### Response
+
+**[ListPushOperationsResponse](../../Models/Requests/ListPushOperationsResponse.md)**
+
+### Errors
+
+| Error Object                                   | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+
 
 ## Get
 
@@ -18,12 +62,10 @@ Retrieve push operation.
 
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
+using Codat.Sync.Expenses.Models.Requests;
+using Codat.Sync.Expenses.Models.Components;
 
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetPushOperationRequest req = new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -37,61 +79,17 @@ var res = await sdk.PushOperations.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPushOperationRequest](../../Models/Operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
-
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [GetPushOperationRequest](../../Models/Requests/GetPushOperationRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 ### Response
 
-**[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
+**[GetPushOperationResponse](../../Models/Requests/GetPushOperationResponse.md)**
+
 ### Errors
 
 | Error Object                                   | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
-## List
-
-List push operation records.
-
-### Example Usage
-
-```csharp
-using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
-
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-ListPushOperationsRequest req = new ListPushOperationsRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-};
-
-var res = await sdk.PushOperations.ListAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListPushOperationsRequest](../../Models/Operations/ListPushOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
-
-
-### Response
-
-**[ListPushOperationsResponse](../../Models/Operations/ListPushOperationsResponse.md)**
-### Errors
-
-| Error Object                                   | Status Code                                    | Content Type                                   |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |

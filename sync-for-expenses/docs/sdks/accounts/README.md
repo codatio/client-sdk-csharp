@@ -3,7 +3,7 @@
 
 ## Overview
 
-Create accounts and view account schemas.
+Create accounts and view create account options.
 
 ### Available Operations
 
@@ -27,28 +27,26 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
+using Codat.Sync.Expenses.Models.Requests;
+using Codat.Sync.Expenses.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 CreateAccountRequest req = new CreateAccountRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     AccountPrototype = new AccountPrototype() {
-        Currency = "USD",
-        CurrentBalance = 0M,
+        NominalCode = "610",
+        Name = "Accounts Receivable",
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
         FullyQualifiedName = "Cash On Hand",
-        Name = "Accounts Receivable",
-        NominalCode = "610",
-        Status = AccountStatus.Active,
-        Type = AccountType.Asset,
+        Currency = "EUR",
+        CurrentBalance = 0M,
+        Type = Codat.Sync.Expenses.Models.Components.AccountType.Asset,
+        Status = Codat.Sync.Expenses.Models.Components.AccountStatus.Active,
     },
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
 var res = await sdk.Accounts.CreateAsync(req);
@@ -58,20 +56,21 @@ var res = await sdk.Accounts.CreateAsync(req);
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [CreateAccountRequest](../../Models/Operations/CreateAccountRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
-
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [CreateAccountRequest](../../Models/Requests/CreateAccountRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
-**[Models.Operations.CreateAccountResponse](../../Models/Operations/CreateAccountResponse.md)**
+**[Models.Requests.CreateAccountResponse](../../Models/Requests/CreateAccountResponse.md)**
+
 ### Errors
 
 | Error Object                                   | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+
 
 ## GetCreateModel
 
@@ -90,12 +89,10 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Shared;
-using Codat.Sync.Expenses.Models.Operations;
+using Codat.Sync.Expenses.Models.Requests;
+using Codat.Sync.Expenses.Models.Components;
 
-var sdk = new CodatSyncExpenses(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCreateChartOfAccountsModelRequest req = new GetCreateChartOfAccountsModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -109,14 +106,14 @@ var res = await sdk.Accounts.GetCreateModelAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                               | [GetCreateChartOfAccountsModelRequest](../../Models/Operations/GetCreateChartOfAccountsModelRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
-
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [GetCreateChartOfAccountsModelRequest](../../Models/Requests/GetCreateChartOfAccountsModelRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
 
 ### Response
 
-**[GetCreateChartOfAccountsModelResponse](../../Models/Operations/GetCreateChartOfAccountsModelResponse.md)**
+**[GetCreateChartOfAccountsModelResponse](../../Models/Requests/GetCreateChartOfAccountsModelResponse.md)**
+
 ### Errors
 
 | Error Object                                   | Status Code                                    | Content Type                                   |

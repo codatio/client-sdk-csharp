@@ -1,0 +1,9 @@
+# UpdateConfigTextSyncFlowRequest
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `Locale`                                                                    | [Locale](../../Models/Components/Locale.md)                                 | :heavy_check_mark:                                                          | Localization identifier for English (US) or French.                         | en-us                                                                       |
+| `RequestBody`                                                               | Dictionary<String, [Localization](../../Models/Components/Localization.md)> | :heavy_minus_sign:                                                          | N/A                                                                         |                                                                             |

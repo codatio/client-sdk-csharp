@@ -1,35 +1,158 @@
 lockVersion: 2.0.0
 id: 797f11e4-ae23-429d-b24e-dd7bb1e87a41
 management:
-  docChecksum: cef9428f22ad38f7077c532c7623f4fd
+  docChecksum: 5b17c461a98ac32ecaa078bd4f1f644d
   docVersion: "1.1"
-  speakeasyVersion: 1.277.6
-  generationVersion: 2.319.7
-  releaseVersion: 3.1.0
-  configChecksum: bf8683a8c471e02a36aa4fcc194b9903
+  speakeasyVersion: 1.396.6
+  generationVersion: 2.415.6
+  releaseVersion: 4.0.0
+  configChecksum: d0b16857d6ea8bca2a21557ced94ffa4
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-commerce
   published: true
 features:
   csharp:
+    additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.8.2
+    core: 3.9.19
     deprecations: 2.81.2
     examples: 2.81.3
-    globalSecurity: 2.83.4
+    globalSecurity: 2.83.6
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
+    intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
-    responseFormat: 0.0.2
+    nullables: 0.1.0
+    responseFormat: 0.0.4
+    retries: 0.0.1
+    sdkHooks: 0.1.0
     webhooks: 1.0.0
 generatedFiles:
-  - Codat/Sync/Commerce/SyncFlowSettings.cs
-  - Codat/Sync/Commerce/AdvancedControls.cs
-  - Codat/Sync/Commerce/Connections.cs
-  - Codat/Sync/Commerce/Sync.cs
-  - Codat/Sync/Commerce/Integrations.cs
-  - Codat/Sync/Commerce/CodatSyncCommerce.cs
-  - global.json
+  - .gitattributes
+  - CONTRIBUTING.md
   - Codat.Sync.Commerce.sln
+  - Codat/Sync/Commerce/AdvancedControls.cs
+  - Codat/Sync/Commerce/Codat.Sync.Commerce.csproj
+  - Codat/Sync/Commerce/CodatSyncCommerce.cs
+  - Codat/Sync/Commerce/Connections.cs
+  - Codat/Sync/Commerce/Hooks/HookTypes.cs
+  - Codat/Sync/Commerce/Hooks/SDKHooks.cs
+  - Codat/Sync/Commerce/Integrations.cs
+  - Codat/Sync/Commerce/Models/Components/AccountConfiguration.cs
+  - Codat/Sync/Commerce/Models/Components/AccountConfigurationOption.cs
+  - Codat/Sync/Commerce/Models/Components/Branding.cs
+  - Codat/Sync/Commerce/Models/Components/BrandingButton.cs
+  - Codat/Sync/Commerce/Models/Components/BrandingImage.cs
+  - Codat/Sync/Commerce/Models/Components/BrandingLogo.cs
+  - Codat/Sync/Commerce/Models/Components/CommerceConfiguration.cs
+  - Codat/Sync/Commerce/Models/Components/Companies.cs
+  - Codat/Sync/Commerce/Models/Components/Company.cs
+  - Codat/Sync/Commerce/Models/Components/CompanySyncStatus.cs
+  - Codat/Sync/Commerce/Models/Components/Configuration.cs
+  - Codat/Sync/Commerce/Models/Components/ConfigurationMapSettings.cs
+  - Codat/Sync/Commerce/Models/Components/ConfigurationOption.cs
+  - Codat/Sync/Commerce/Models/Components/Connection.cs
+  - Codat/Sync/Commerce/Models/Components/Connections.cs
+  - Codat/Sync/Commerce/Models/Components/CreateCompany.cs
+  - Codat/Sync/Commerce/Models/Components/DataConnectionError.cs
+  - Codat/Sync/Commerce/Models/Components/DataConnectionStatus.cs
+  - Codat/Sync/Commerce/Models/Components/DataTypeFeature.cs
+  - Codat/Sync/Commerce/Models/Components/DataTypes.cs
+  - Codat/Sync/Commerce/Models/Components/DateRange.cs
+  - Codat/Sync/Commerce/Models/Components/ErrorStatus.cs
+  - Codat/Sync/Commerce/Models/Components/ErrorValidation.cs
+  - Codat/Sync/Commerce/Models/Components/ErrorValidationItem.cs
+  - Codat/Sync/Commerce/Models/Components/FeatureState.cs
+  - Codat/Sync/Commerce/Models/Components/FeatureType.cs
+  - Codat/Sync/Commerce/Models/Components/FeesConfiguration.cs
+  - Codat/Sync/Commerce/Models/Components/FeesSupplier.cs
+  - Codat/Sync/Commerce/Models/Components/GroupReference.cs
+  - Codat/Sync/Commerce/Models/Components/Grouping.cs
+  - Codat/Sync/Commerce/Models/Components/GroupingLevels.cs
+  - Codat/Sync/Commerce/Models/Components/GroupingPeriod.cs
+  - Codat/Sync/Commerce/Models/Components/HalRef.cs
+  - Codat/Sync/Commerce/Models/Components/ImageReference.cs
+  - Codat/Sync/Commerce/Models/Components/Integration.cs
+  - Codat/Sync/Commerce/Models/Components/Integrations.cs
+  - Codat/Sync/Commerce/Models/Components/InvoiceLevelSelection.cs
+  - Codat/Sync/Commerce/Models/Components/InvoiceLineLevelSelection.cs
+  - Codat/Sync/Commerce/Models/Components/InvoiceStatus.cs
+  - Codat/Sync/Commerce/Models/Components/Links.cs
+  - Codat/Sync/Commerce/Models/Components/Locale.cs
+  - Codat/Sync/Commerce/Models/Components/Localization.cs
+  - Codat/Sync/Commerce/Models/Components/NewPaymentsConfiguration.cs
+  - Codat/Sync/Commerce/Models/Components/NewTaxRates.cs
+  - Codat/Sync/Commerce/Models/Components/OutputFormat.cs
+  - Codat/Sync/Commerce/Models/Components/PaymentsConfiguration.cs
+  - Codat/Sync/Commerce/Models/Components/SalesConfiguration.cs
+  - Codat/Sync/Commerce/Models/Components/SalesCustomer.cs
+  - Codat/Sync/Commerce/Models/Components/Security.cs
+  - Codat/Sync/Commerce/Models/Components/SourceType.cs
+  - Codat/Sync/Commerce/Models/Components/SupportedFeature.cs
+  - Codat/Sync/Commerce/Models/Components/SyncConnectionDeletedWebhook.cs
+  - Codat/Sync/Commerce/Models/Components/SyncDateRangeUtc.cs
+  - Codat/Sync/Commerce/Models/Components/SyncFlowUrl.cs
+  - Codat/Sync/Commerce/Models/Components/SyncFrequency.cs
+  - Codat/Sync/Commerce/Models/Components/SyncRange.cs
+  - Codat/Sync/Commerce/Models/Components/SyncSchedule.cs
+  - Codat/Sync/Commerce/Models/Components/SyncStatus.cs
+  - Codat/Sync/Commerce/Models/Components/SyncSummary.cs
+  - Codat/Sync/Commerce/Models/Components/SyncToLatestArgs.cs
+  - Codat/Sync/Commerce/Models/Components/Tags.cs
+  - Codat/Sync/Commerce/Models/Components/TaxRateAmount.cs
+  - Codat/Sync/Commerce/Models/Components/TaxRateMapping.cs
+  - Codat/Sync/Commerce/Models/Components/UpdateConnection.cs
+  - Codat/Sync/Commerce/Models/Components/VisibleAccounts.cs
+  - Codat/Sync/Commerce/Models/Errors/ErrorMessage.cs
+  - Codat/Sync/Commerce/Models/Errors/SDKException.cs
+  - Codat/Sync/Commerce/Models/Requests/CreateCompanyResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/CreateConnectionRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/CreateConnectionRequestBody.cs
+  - Codat/Sync/Commerce/Models/Requests/CreateConnectionResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetConfigTextSyncFlowRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetConfigTextSyncFlowResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetConfigurationRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetConfigurationResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetIntegrationBrandingRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetIntegrationBrandingResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetLastSuccessfulSyncRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetLastSuccessfulSyncResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetLatestSyncRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetLatestSyncResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetSyncByIdRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetSyncByIdResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetSyncFlowUrlRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetSyncFlowUrlResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetSyncStatusRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetSyncStatusResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/GetVisibleAccountsRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/GetVisibleAccountsResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/ListCompaniesRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/ListCompaniesResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/ListConnectionsRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/ListConnectionsResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/ListIntegrationsRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/ListIntegrationsResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/ListSyncsRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/ListSyncsResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/RequestSyncForDateRangeRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/RequestSyncForDateRangeResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/RequestSyncRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/RequestSyncResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/SetConfigurationRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/SetConfigurationResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateConfigTextSyncFlowRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateConfigTextSyncFlowResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateConnectionAuthorizationRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateConnectionAuthorizationResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateConnectionRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateConnectionResponse.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateVisibleAccountsSyncFlowRequest.cs
+  - Codat/Sync/Commerce/Models/Requests/UpdateVisibleAccountsSyncFlowResponse.cs
+  - Codat/Sync/Commerce/Models/Webhooks/SyncConnectionDeletedResponse.cs
+  - Codat/Sync/Commerce/Sync.cs
+  - Codat/Sync/Commerce/SyncFlowSettings.cs
   - Codat/Sync/Commerce/Utils/AnyDeserializer.cs
   - Codat/Sync/Commerce/Utils/BigIntStrConverter.cs
   - Codat/Sync/Commerce/Utils/DecimalStrConverter.cs
@@ -39,240 +162,437 @@ generatedFiles:
   - Codat/Sync/Commerce/Utils/IsoDateTimeSerializer.cs
   - Codat/Sync/Commerce/Utils/RequestBodySerializer.cs
   - Codat/Sync/Commerce/Utils/ResponseBodyDeserializer.cs
+  - Codat/Sync/Commerce/Utils/Retries/BackoffStrategy.cs
+  - Codat/Sync/Commerce/Utils/Retries/Retries.cs
+  - Codat/Sync/Commerce/Utils/Retries/RetryConfig.cs
   - Codat/Sync/Commerce/Utils/SecurityMetadata.cs
   - Codat/Sync/Commerce/Utils/SpeakeasyHttpClient.cs
   - Codat/Sync/Commerce/Utils/SpeakeasyMetadata.cs
   - Codat/Sync/Commerce/Utils/URLBuilder.cs
   - Codat/Sync/Commerce/Utils/Utilities.cs
-  - Codat/Sync/Commerce/Codat.Sync.Commerce.csproj
-  - Codat/Sync/Commerce/Models/Errors/SDKException.cs
-  - Codat/Sync/Commerce/Models/Operations/GetConfigTextSyncFlowRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetConfigTextSyncFlowResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetVisibleAccountsRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetVisibleAccountsResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateConfigTextSyncFlowRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateConfigTextSyncFlowResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateVisibleAccountsSyncFlowRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateVisibleAccountsSyncFlowResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/CreateCompanyResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetConfigurationRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetConfigurationResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/ListCompaniesRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/ListCompaniesResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/SetConfigurationRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/SetConfigurationResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/CreateConnectionRequestBody.cs
-  - Codat/Sync/Commerce/Models/Operations/CreateConnectionRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/CreateConnectionResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetSyncFlowUrlRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetSyncFlowUrlResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/ListConnectionsRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/ListConnectionsResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionAuthorizationRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionAuthorizationResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/UpdateConnectionResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetSyncByIdRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetSyncByIdResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetLastSuccessfulSyncRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetLastSuccessfulSyncResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetLatestSyncRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetLatestSyncResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetSyncStatusRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetSyncStatusResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/ListSyncsRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/ListSyncsResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/RequestSyncRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/RequestSyncResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/RequestSyncForDateRangeRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/RequestSyncForDateRangeResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/GetIntegrationBrandingRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/GetIntegrationBrandingResponse.cs
-  - Codat/Sync/Commerce/Models/Operations/ListIntegrationsRequest.cs
-  - Codat/Sync/Commerce/Models/Operations/ListIntegrationsResponse.cs
-  - Codat/Sync/Commerce/Models/Shared/Localization.cs
-  - Codat/Sync/Commerce/Models/Shared/ErrorValidation.cs
-  - Codat/Sync/Commerce/Models/Shared/ErrorValidationItem.cs
-  - Codat/Sync/Commerce/Models/Shared/Locale.cs
-  - Codat/Sync/Commerce/Models/Shared/VisibleAccounts.cs
-  - Codat/Sync/Commerce/Models/Shared/GroupReference.cs
-  - Codat/Sync/Commerce/Models/Shared/Company.cs
-  - Codat/Sync/Commerce/Models/Shared/Connection.cs
-  - Codat/Sync/Commerce/Models/Shared/DataConnectionStatus.cs
-  - Codat/Sync/Commerce/Models/Shared/SourceType.cs
-  - Codat/Sync/Commerce/Models/Shared/DataConnectionError.cs
-  - Codat/Sync/Commerce/Models/Shared/CreateCompany.cs
-  - Codat/Sync/Commerce/Models/Shared/Items.cs
-  - Codat/Sync/Commerce/Models/Shared/Configuration.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncSchedule.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncFrequency.cs
-  - Codat/Sync/Commerce/Models/Shared/CommerceConfiguration.cs
-  - Codat/Sync/Commerce/Models/Shared/SalesConfiguration.cs
-  - Codat/Sync/Commerce/Models/Shared/TaxRateAmount.cs
-  - Codat/Sync/Commerce/Models/Shared/ConfigurationOption.cs
-  - Codat/Sync/Commerce/Models/Shared/SalesCustomer.cs
-  - Codat/Sync/Commerce/Models/Shared/NewTaxRates.cs
-  - Codat/Sync/Commerce/Models/Shared/TaxRateMapping.cs
-  - Codat/Sync/Commerce/Models/Shared/InvoiceStatus.cs
-  - Codat/Sync/Commerce/Models/Shared/Grouping.cs
-  - Codat/Sync/Commerce/Models/Shared/GroupingPeriod.cs
-  - Codat/Sync/Commerce/Models/Shared/GroupingLevels.cs
-  - Codat/Sync/Commerce/Models/Shared/InvoiceLineLevelSelection.cs
-  - Codat/Sync/Commerce/Models/Shared/InvoiceLevelSelection.cs
-  - Codat/Sync/Commerce/Models/Shared/AccountConfiguration.cs
-  - Codat/Sync/Commerce/Models/Shared/AccountConfigurationOption.cs
-  - Codat/Sync/Commerce/Models/Shared/PaymentsConfiguration.cs
-  - Codat/Sync/Commerce/Models/Shared/NewPaymentsConfiguration.cs
-  - Codat/Sync/Commerce/Models/Shared/OutputFormat.cs
-  - Codat/Sync/Commerce/Models/Shared/ConfigurationMapSettings.cs
-  - Codat/Sync/Commerce/Models/Shared/FeesConfiguration.cs
-  - Codat/Sync/Commerce/Models/Shared/FeesSupplier.cs
-  - Codat/Sync/Commerce/Models/Shared/Companies.cs
-  - Codat/Sync/Commerce/Models/Shared/Links.cs
-  - Codat/Sync/Commerce/Models/Shared/HalRef.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncFlowUrl.cs
-  - Codat/Sync/Commerce/Models/Shared/Connections.cs
-  - Codat/Sync/Commerce/Models/Shared/UpdateConnection.cs
-  - Codat/Sync/Commerce/Models/Shared/CompanySyncStatus.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncStatus.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncDateRangeUtc.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncSummary.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncToLatestArgs.cs
-  - Codat/Sync/Commerce/Models/Shared/DateRange.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncRange.cs
-  - Codat/Sync/Commerce/Models/Shared/Branding.cs
-  - Codat/Sync/Commerce/Models/Shared/BrandingLogo.cs
-  - Codat/Sync/Commerce/Models/Shared/BrandingImage.cs
-  - Codat/Sync/Commerce/Models/Shared/ImageReference.cs
-  - Codat/Sync/Commerce/Models/Shared/BrandingButton.cs
-  - Codat/Sync/Commerce/Models/Shared/Integrations.cs
-  - Codat/Sync/Commerce/Models/Shared/Integration.cs
-  - Codat/Sync/Commerce/Models/Shared/DataTypes.cs
-  - Codat/Sync/Commerce/Models/Shared/DataTypeFeature.cs
-  - Codat/Sync/Commerce/Models/Shared/SupportedFeature.cs
-  - Codat/Sync/Commerce/Models/Shared/FeatureType.cs
-  - Codat/Sync/Commerce/Models/Shared/FeatureState.cs
-  - Codat/Sync/Commerce/Models/Shared/Security.cs
-  - Codat/Sync/Commerce/Models/Shared/SyncConnectionDeletedWebhook.cs
-  - Codat/Sync/Commerce/Models/Errors/ErrorMessage.cs
-  - Codat/Sync/Commerce/Models/Webhooks/SyncConnectionDeletedResponse.cs
-  - docs/Models/Operations/GetConfigTextSyncFlowRequest.md
-  - docs/Models/Operations/GetConfigTextSyncFlowResponse.md
-  - docs/Models/Operations/GetVisibleAccountsRequest.md
-  - docs/Models/Operations/GetVisibleAccountsResponse.md
-  - docs/Models/Operations/UpdateConfigTextSyncFlowRequest.md
-  - docs/Models/Operations/UpdateConfigTextSyncFlowResponse.md
-  - docs/Models/Operations/UpdateVisibleAccountsSyncFlowRequest.md
-  - docs/Models/Operations/UpdateVisibleAccountsSyncFlowResponse.md
-  - docs/Models/Operations/CreateCompanyResponse.md
-  - docs/Models/Operations/GetConfigurationRequest.md
-  - docs/Models/Operations/GetConfigurationResponse.md
-  - docs/Models/Operations/ListCompaniesRequest.md
-  - docs/Models/Operations/ListCompaniesResponse.md
-  - docs/Models/Operations/SetConfigurationRequest.md
-  - docs/Models/Operations/SetConfigurationResponse.md
-  - docs/Models/Operations/CreateConnectionRequestBody.md
-  - docs/Models/Operations/CreateConnectionRequest.md
-  - docs/Models/Operations/CreateConnectionResponse.md
-  - docs/Models/Operations/GetSyncFlowUrlRequest.md
-  - docs/Models/Operations/GetSyncFlowUrlResponse.md
-  - docs/Models/Operations/ListConnectionsRequest.md
-  - docs/Models/Operations/ListConnectionsResponse.md
-  - docs/Models/Operations/UpdateConnectionAuthorizationRequest.md
-  - docs/Models/Operations/UpdateConnectionAuthorizationResponse.md
-  - docs/Models/Operations/UpdateConnectionRequest.md
-  - docs/Models/Operations/UpdateConnectionResponse.md
-  - docs/Models/Operations/GetSyncByIdRequest.md
-  - docs/Models/Operations/GetSyncByIdResponse.md
-  - docs/Models/Operations/GetLastSuccessfulSyncRequest.md
-  - docs/Models/Operations/GetLastSuccessfulSyncResponse.md
-  - docs/Models/Operations/GetLatestSyncRequest.md
-  - docs/Models/Operations/GetLatestSyncResponse.md
-  - docs/Models/Operations/GetSyncStatusRequest.md
-  - docs/Models/Operations/GetSyncStatusResponse.md
-  - docs/Models/Operations/ListSyncsRequest.md
-  - docs/Models/Operations/ListSyncsResponse.md
-  - docs/Models/Operations/RequestSyncRequest.md
-  - docs/Models/Operations/RequestSyncResponse.md
-  - docs/Models/Operations/RequestSyncForDateRangeRequest.md
-  - docs/Models/Operations/RequestSyncForDateRangeResponse.md
-  - docs/Models/Operations/GetIntegrationBrandingRequest.md
-  - docs/Models/Operations/GetIntegrationBrandingResponse.md
-  - docs/Models/Operations/ListIntegrationsRequest.md
-  - docs/Models/Operations/ListIntegrationsResponse.md
-  - docs/Models/Shared/Localization.md
-  - docs/Models/Shared/ErrorValidation.md
-  - docs/Models/Shared/ErrorValidationItem.md
-  - docs/Models/Shared/Locale.md
-  - docs/Models/Shared/VisibleAccounts.md
-  - docs/Models/Shared/GroupReference.md
-  - docs/Models/Shared/Company.md
-  - docs/Models/Shared/Connection.md
-  - docs/Models/Shared/DataConnectionStatus.md
-  - docs/Models/Shared/SourceType.md
-  - docs/Models/Shared/DataConnectionError.md
-  - docs/Models/Shared/CreateCompany.md
-  - docs/Models/Shared/Items.md
-  - docs/Models/Shared/Configuration.md
-  - docs/Models/Shared/SyncSchedule.md
-  - docs/Models/Shared/SyncFrequency.md
-  - docs/Models/Shared/CommerceConfiguration.md
-  - docs/Models/Shared/SalesConfiguration.md
-  - docs/Models/Shared/TaxRateAmount.md
-  - docs/Models/Shared/ConfigurationOption.md
-  - docs/Models/Shared/SalesCustomer.md
-  - docs/Models/Shared/NewTaxRates.md
-  - docs/Models/Shared/TaxRateMapping.md
-  - docs/Models/Shared/InvoiceStatus.md
-  - docs/Models/Shared/Grouping.md
-  - docs/Models/Shared/GroupingPeriod.md
-  - docs/Models/Shared/GroupingLevels.md
-  - docs/Models/Shared/InvoiceLineLevelSelection.md
-  - docs/Models/Shared/InvoiceLevelSelection.md
-  - docs/Models/Shared/AccountConfiguration.md
-  - docs/Models/Shared/AccountConfigurationOption.md
-  - docs/Models/Shared/PaymentsConfiguration.md
-  - docs/Models/Shared/NewPaymentsConfiguration.md
-  - docs/Models/Shared/OutputFormat.md
-  - docs/Models/Shared/ConfigurationMapSettings.md
-  - docs/Models/Shared/FeesConfiguration.md
-  - docs/Models/Shared/FeesSupplier.md
-  - docs/Models/Shared/Companies.md
-  - docs/Models/Shared/Links.md
-  - docs/Models/Shared/HalRef.md
-  - docs/Models/Shared/SyncFlowUrl.md
-  - docs/Models/Shared/Connections.md
-  - docs/Models/Shared/UpdateConnection.md
-  - docs/Models/Shared/CompanySyncStatus.md
-  - docs/Models/Shared/SyncStatus.md
-  - docs/Models/Shared/SyncDateRangeUtc.md
-  - docs/Models/Shared/SyncSummary.md
-  - docs/Models/Shared/SyncToLatestArgs.md
-  - docs/Models/Shared/DateRange.md
-  - docs/Models/Shared/SyncRange.md
-  - docs/Models/Shared/Branding.md
-  - docs/Models/Shared/BrandingLogo.md
-  - docs/Models/Shared/BrandingImage.md
-  - docs/Models/Shared/ImageReference.md
-  - docs/Models/Shared/BrandingButton.md
-  - docs/Models/Shared/Integrations.md
-  - docs/Models/Shared/Integration.md
-  - docs/Models/Shared/DataTypes.md
-  - docs/Models/Shared/DataTypeFeature.md
-  - docs/Models/Shared/SupportedFeature.md
-  - docs/Models/Shared/FeatureType.md
-  - docs/Models/Shared/FeatureState.md
-  - docs/Models/Shared/Security.md
-  - docs/Models/Shared/SyncConnectionDeletedWebhook.md
-  - docs/Models/Errors/ErrorMessage.md
-  - docs/Models/Webhooks/SyncConnectionDeletedResponse.md
-  - docs/sdks/codatsynccommerce/README.md
-  - docs/sdks/syncflowsettings/README.md
-  - docs/sdks/advancedcontrols/README.md
-  - docs/sdks/connections/README.md
-  - docs/sdks/sync/README.md
-  - docs/sdks/integrations/README.md
+  - NUGET.md
   - USAGE.md
-  - .gitattributes
-  - Codat/Sync/Commerce/Hooks/SDKHooks.cs
-  - Codat/Sync/Commerce/Hooks/HookTypes.cs
+  - docs/Models/Components/AccountConfiguration.md
+  - docs/Models/Components/AccountConfigurationOption.md
+  - docs/Models/Components/Branding.md
+  - docs/Models/Components/BrandingButton.md
+  - docs/Models/Components/BrandingImage.md
+  - docs/Models/Components/BrandingLogo.md
+  - docs/Models/Components/CommerceConfiguration.md
+  - docs/Models/Components/Companies.md
+  - docs/Models/Components/Company.md
+  - docs/Models/Components/CompanySyncStatus.md
+  - docs/Models/Components/Configuration.md
+  - docs/Models/Components/ConfigurationMapSettings.md
+  - docs/Models/Components/ConfigurationOption.md
+  - docs/Models/Components/Connection.md
+  - docs/Models/Components/Connections.md
+  - docs/Models/Components/CreateCompany.md
+  - docs/Models/Components/DataConnectionError.md
+  - docs/Models/Components/DataConnectionStatus.md
+  - docs/Models/Components/DataTypeFeature.md
+  - docs/Models/Components/DataTypes.md
+  - docs/Models/Components/DateRange.md
+  - docs/Models/Components/ErrorStatus.md
+  - docs/Models/Components/ErrorValidation.md
+  - docs/Models/Components/ErrorValidationItem.md
+  - docs/Models/Components/FeatureState.md
+  - docs/Models/Components/FeatureType.md
+  - docs/Models/Components/FeesConfiguration.md
+  - docs/Models/Components/FeesSupplier.md
+  - docs/Models/Components/GroupReference.md
+  - docs/Models/Components/Grouping.md
+  - docs/Models/Components/GroupingLevels.md
+  - docs/Models/Components/GroupingPeriod.md
+  - docs/Models/Components/HalRef.md
+  - docs/Models/Components/ImageReference.md
+  - docs/Models/Components/Integration.md
+  - docs/Models/Components/Integrations.md
+  - docs/Models/Components/InvoiceLevelSelection.md
+  - docs/Models/Components/InvoiceLineLevelSelection.md
+  - docs/Models/Components/InvoiceStatus.md
+  - docs/Models/Components/Links.md
+  - docs/Models/Components/Locale.md
+  - docs/Models/Components/Localization.md
+  - docs/Models/Components/NewPaymentsConfiguration.md
+  - docs/Models/Components/NewTaxRates.md
+  - docs/Models/Components/OutputFormat.md
+  - docs/Models/Components/PaymentsConfiguration.md
+  - docs/Models/Components/SalesConfiguration.md
+  - docs/Models/Components/SalesCustomer.md
+  - docs/Models/Components/Security.md
+  - docs/Models/Components/SourceType.md
+  - docs/Models/Components/SupportedFeature.md
+  - docs/Models/Components/SyncConnectionDeletedWebhook.md
+  - docs/Models/Components/SyncDateRangeUtc.md
+  - docs/Models/Components/SyncFlowUrl.md
+  - docs/Models/Components/SyncFrequency.md
+  - docs/Models/Components/SyncRange.md
+  - docs/Models/Components/SyncSchedule.md
+  - docs/Models/Components/SyncStatus.md
+  - docs/Models/Components/SyncSummary.md
+  - docs/Models/Components/SyncToLatestArgs.md
+  - docs/Models/Components/Tags.md
+  - docs/Models/Components/TaxRateAmount.md
+  - docs/Models/Components/TaxRateMapping.md
+  - docs/Models/Components/UpdateConnection.md
+  - docs/Models/Components/VisibleAccounts.md
+  - docs/Models/Errors/ErrorMessage.md
+  - docs/Models/Requests/CreateCompanyResponse.md
+  - docs/Models/Requests/CreateConnectionRequest.md
+  - docs/Models/Requests/CreateConnectionRequestBody.md
+  - docs/Models/Requests/CreateConnectionResponse.md
+  - docs/Models/Requests/GetConfigTextSyncFlowRequest.md
+  - docs/Models/Requests/GetConfigTextSyncFlowResponse.md
+  - docs/Models/Requests/GetConfigurationRequest.md
+  - docs/Models/Requests/GetConfigurationResponse.md
+  - docs/Models/Requests/GetIntegrationBrandingRequest.md
+  - docs/Models/Requests/GetIntegrationBrandingResponse.md
+  - docs/Models/Requests/GetLastSuccessfulSyncRequest.md
+  - docs/Models/Requests/GetLastSuccessfulSyncResponse.md
+  - docs/Models/Requests/GetLatestSyncRequest.md
+  - docs/Models/Requests/GetLatestSyncResponse.md
+  - docs/Models/Requests/GetSyncByIdRequest.md
+  - docs/Models/Requests/GetSyncByIdResponse.md
+  - docs/Models/Requests/GetSyncFlowUrlRequest.md
+  - docs/Models/Requests/GetSyncFlowUrlResponse.md
+  - docs/Models/Requests/GetSyncStatusRequest.md
+  - docs/Models/Requests/GetSyncStatusResponse.md
+  - docs/Models/Requests/GetVisibleAccountsRequest.md
+  - docs/Models/Requests/GetVisibleAccountsResponse.md
+  - docs/Models/Requests/ListCompaniesRequest.md
+  - docs/Models/Requests/ListCompaniesResponse.md
+  - docs/Models/Requests/ListConnectionsRequest.md
+  - docs/Models/Requests/ListConnectionsResponse.md
+  - docs/Models/Requests/ListIntegrationsRequest.md
+  - docs/Models/Requests/ListIntegrationsResponse.md
+  - docs/Models/Requests/ListSyncsRequest.md
+  - docs/Models/Requests/ListSyncsResponse.md
+  - docs/Models/Requests/RequestSyncForDateRangeRequest.md
+  - docs/Models/Requests/RequestSyncForDateRangeResponse.md
+  - docs/Models/Requests/RequestSyncRequest.md
+  - docs/Models/Requests/RequestSyncResponse.md
+  - docs/Models/Requests/SetConfigurationRequest.md
+  - docs/Models/Requests/SetConfigurationResponse.md
+  - docs/Models/Requests/UpdateConfigTextSyncFlowRequest.md
+  - docs/Models/Requests/UpdateConfigTextSyncFlowResponse.md
+  - docs/Models/Requests/UpdateConnectionAuthorizationRequest.md
+  - docs/Models/Requests/UpdateConnectionAuthorizationResponse.md
+  - docs/Models/Requests/UpdateConnectionRequest.md
+  - docs/Models/Requests/UpdateConnectionResponse.md
+  - docs/Models/Requests/UpdateVisibleAccountsSyncFlowRequest.md
+  - docs/Models/Requests/UpdateVisibleAccountsSyncFlowResponse.md
+  - docs/Models/Webhooks/SyncConnectionDeletedResponse.md
+  - docs/sdks/advancedcontrols/README.md
+  - docs/sdks/codatsynccommerce/README.md
+  - docs/sdks/connections/README.md
+  - docs/sdks/integrations/README.md
+  - docs/sdks/sync/README.md
+  - docs/sdks/syncflowsettings/README.md
+  - global.json
+examples:
+  get-sync-flow-url:
+    Malformed query:
+      parameters:
+        path:
+          commerceKey: "<value>"
+          accountingKey: "<value>"
+        query: {}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-connections:
+    "":
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    Connections:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-connection:
+    Connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-connection:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-connection-authorization:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-companies:
+    "":
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    Malformed query:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-company:
+    "":
+      requestBody:
+        application/json: {"name": "string", "description": "Requested early access to the new financing scheme.", "groups": []}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
+        "400": {}
+    Malformed query:
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-configuration:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  set-configuration:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-integrations:
+    "":
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"key": "gbol", "logoUrl": "http://example.com", "name": "Xero", "enabled": true, "sourceId": "accounting", "sourceType": "Other", "integrationId": "497a18ca-284e-40c0-985d-f72be35d468e", "isOfflineConnector": true, "isBeta": true, "dataProvidedBy": "string", "datatypeFeatures": [{"dataType": "invoices", "supportedFeatures": [{"featureType": "Get", "featureState": "Deprecated"}]}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    Malformed query:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-integration-branding:
+    Unauthorized:
+      parameters:
+        path:
+          platformKey: "gbol"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-config-text-sync-flow:
+    "":
+      parameters:
+        query:
+          locale: "en-us"
+    Unauthorized:
+      parameters:
+        query:
+          locale: "en-us"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-config-text-sync-flow:
+    "":
+      parameters:
+        query:
+          locale: "en-us"
+      responses:
+        "200":
+          application/json: {}
+        "400": {}
+    Malformed query:
+      parameters:
+        query:
+          locale: "en-us"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-visible-accounts:
+    Unauthorized:
+      parameters:
+        path:
+          clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91"
+          platformKey: "gbol"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-visible-accounts-sync-flow:
+    Malformed query:
+      parameters:
+        path:
+          platformKey: "gbol"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  request-sync:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"syncTo": "2022-10-23T00:00:00Z"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  request-sync-for-date-range:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"dateRange": {"start": "2022-10-23T00:00:00Z", "finish": "2022-10-23T00:00:00Z"}}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-sync-status:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-last-successful-sync:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-latest-sync:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-sync-by-id:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-syncs:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}

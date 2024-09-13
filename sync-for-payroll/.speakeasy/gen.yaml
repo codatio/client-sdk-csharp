@@ -1,34 +1,38 @@
 configVersion: 2.0.0
 generation:
   sdkClassName: Codat.Sync.Payroll
+  maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+  useClassNamesForArrayFields: true
   fixes:
-    nameResolutionDec2023: false
-    parameterOrderingFeb2024: false
-    requestResponseComponentNamesFeb2024: false
+    nameResolutionDec2023: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
-  telemetryEnabled: true
 csharp:
   version: 3.1.0
   additionalDependencies: []
   author: Codat
   clientServerStatusCodesAsErrors: true
   description: Push payroll to accounting platforms.
-  disableNamespacePascalCasingApr2024: false
-  dotnetVersion: net6.0
-  flattenGlobalSecurity: false
+  disableNamespacePascalCasingApr2024: true
+  dotnetVersion: net8.0
+  enableSourceLink: false
+  flattenGlobalSecurity: true
   imports:
     option: openapi
     paths:
       callbacks: Models/Callbacks
       errors: Models/Errors
-      operations: Models/Operations
-      shared: Models/Shared
+      operations: Models/Requests
+      shared: Models/Components
       webhooks: Models/Webhooks
+  includeDebugSymbols: false
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: Codat.Sync.Payroll
+  packageTags: ""
   responseFormat: envelope

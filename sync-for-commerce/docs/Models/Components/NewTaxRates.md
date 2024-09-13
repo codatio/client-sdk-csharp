@@ -1,0 +1,12 @@
+# NewTaxRates
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `AccountingTaxRateOptions`                                                  | List<[ConfigurationOption](../../Models/Components/ConfigurationOption.md)> | :heavy_minus_sign:                                                          | Array of accounting tax rate options.                                       |
+| `CommerceTaxRateOptions`                                                    | List<[ConfigurationOption](../../Models/Components/ConfigurationOption.md)> | :heavy_minus_sign:                                                          | Array of tax component options.                                             |
+| `TaxRateMappings`                                                           | List<[TaxRateMapping](../../Models/Components/TaxRateMapping.md)>           | :heavy_minus_sign:                                                          | Array of tax component to rate mappings.                                    |
+| `SelectedDefaultZeroTaxRateId`                                              | *string*                                                                    | :heavy_minus_sign:                                                          | Default tax rate selected for sync.                                         |
+| `DefaultZeroTaxRateOptions`                                                 | List<[ConfigurationOption](../../Models/Components/ConfigurationOption.md)> | :heavy_minus_sign:                                                          | Default zero tax rate selected for sync.                                    |

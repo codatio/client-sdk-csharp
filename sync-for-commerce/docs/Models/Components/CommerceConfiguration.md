@@ -1,0 +1,13 @@
+# CommerceConfiguration
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `CountryCode`                                                                   | *string*                                                                        | :heavy_minus_sign:                                                              | The country code outlining where the company is based.                          |
+| `MapSettings`                                                                   | [ConfigurationMapSettings](../../Models/Components/ConfigurationMapSettings.md) | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `Sales`                                                                         | [SalesConfiguration](../../Models/Components/SalesConfiguration.md)             | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `Payments`                                                                      | [PaymentsConfiguration](../../Models/Components/PaymentsConfiguration.md)       | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `NewPayments`                                                                   | [NewPaymentsConfiguration](../../Models/Components/NewPaymentsConfiguration.md) | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `Fees`                                                                          | [FeesConfiguration](../../Models/Components/FeesConfiguration.md)               | :heavy_minus_sign:                                                              | N/A                                                                             |

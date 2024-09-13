@@ -19,6 +19,8 @@ sources:
     sync-for-commerce-source:
         inputs:
             - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+        registry:
+            location: registry.speakeasyapi.dev/codat/codat/sync-for-commerce-source
     sync-for-expenses-source:
         inputs:
             - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml

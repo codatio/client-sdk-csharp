@@ -4,13 +4,59 @@
 ﻿Embedded accounting integrations for POS and eCommerce platforms.
 <!-- End Codat Library Description -->
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Sync for Commerce: The API for Sync for Commerce. 
+
+Sync for Commerce automatically replicates and reconciles sales data from a merchant’s source PoS, Payments, and eCommerce systems into their accounting software. This eliminates manual processing by merchants and transforms their ability to run and grow their business.
+  
+[Explore product](https://docs.codat.io/commerce/overview) | [See our OpenAPI spec](https://github.com/codatio/oas)
+
+Not seeing the endpoints you're expecting? We've [reorganized our products](https://docs.codat.io/updates/230901-new-products), and you may be using a [different version of Sync for Commerce](https://docs.codat.io/sync-for-commerce-v1-api#/).
+
+---
+
+<!-- Start Codat Tags Table -->
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Connections | Create new and manage existing data connections for a company. |
+| Sync | Initiate data syncs and monitor their status. |
+| Sync flow settings | Control text and visibility settings for the Sync Flow. |
+| Integrations | Get a list of integrations supported by Sync for Commerce and their logos. |
+| Advanced controls | View and manage mapping configured for a company's commerce sync. |
+<!-- End Codat Tags Table -->
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-### Nuget
+### NuGet
 
+To add the [NuGet](https://www.nuget.org/) package to a .NET project:
 ```bash
 dotnet add package Codat.Sync.Commerce
+```
+
+### Locally
+
+To add a reference to a local instance of the SDK in a .NET project:
+```bash
+dotnet add reference Codat/Sync/Commerce/Codat.Sync.Commerce.csproj
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -22,18 +68,17 @@ dotnet add package Codat.Sync.Commerce
 
 ```csharp
 using Codat.Sync.Commerce;
-using Codat.Sync.Commerce.Models.Shared;
-using Codat.Sync.Commerce.Models.Operations;
+using Codat.Sync.Commerce.Models.Requests;
+using Codat.Sync.Commerce.Models.Components;
 
-var sdk = new CodatSyncCommerce(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncCommerce(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
+GetSyncFlowUrlRequest req = new GetSyncFlowUrlRequest() {
+    CommerceKey = "<value>",
+    AccountingKey = "<value>",
 };
 
-var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
+var res = await sdk.Connections.GetSyncFlowUrlAsync(req);
 
 // handle response
 ```
@@ -42,42 +87,48 @@ var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
-
-* [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
-* [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
-* [UpdateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
-* [UpdateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
+<details open>
+<summary>Available methods</summary>
 
 ### [AdvancedControls](docs/sdks/advancedcontrols/README.md)
 
+* [ListCompanies](docs/sdks/advancedcontrols/README.md#listcompanies) - List companies
 * [CreateCompany](docs/sdks/advancedcontrols/README.md#createcompany) - Create company
 * [GetConfiguration](docs/sdks/advancedcontrols/README.md#getconfiguration) - Get company configuration
-* [ListCompanies](docs/sdks/advancedcontrols/README.md#listcompanies) - List companies
 * [SetConfiguration](docs/sdks/advancedcontrols/README.md#setconfiguration) - Set configuration
+
 
 ### [Connections](docs/sdks/connections/README.md)
 
-* [Create](docs/sdks/connections/README.md#create) - Create connection
 * [GetSyncFlowUrl](docs/sdks/connections/README.md#getsyncflowurl) - Start new sync flow
 * [List](docs/sdks/connections/README.md#list) - List connections
-* [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+* [Create](docs/sdks/connections/README.md#create) - Create connection
 * [UpdateConnection](docs/sdks/connections/README.md#updateconnection) - Update connection
-
-### [Sync](docs/sdks/sync/README.md)
-
-* [Get](docs/sdks/sync/README.md#get) - Get sync status
-* [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
-* [GetLatestSync](docs/sdks/sync/README.md#getlatestsync) - Latest sync status
-* [GetStatus](docs/sdks/sync/README.md#getstatus) - Get sync status
-* [List](docs/sdks/sync/README.md#list) - List sync statuses
-* [Request](docs/sdks/sync/README.md#request) - Initiate new sync
-* [RequestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
+* [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
 ### [Integrations](docs/sdks/integrations/README.md)
 
-* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
 * [List](docs/sdks/integrations/README.md#list) - List integrations
+* [GetBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
+
+### [Sync](docs/sdks/sync/README.md)
+
+* [Request](docs/sdks/sync/README.md#request) - Initiate new sync
+* [RequestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
+* [GetStatus](docs/sdks/sync/README.md#getstatus) - Get sync status
+* [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
+* [GetLatestSync](docs/sdks/sync/README.md#getlatestsync) - Latest sync status
+* [Get](docs/sdks/sync/README.md#get) - Get sync status
+* [List](docs/sdks/sync/README.md#list) - List sync statuses
+
+### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
+
+* [GetConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
+* [UpdateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
+* [GetVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
+* [UpdateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Server Selection [server] -->
@@ -110,25 +161,88 @@ This SDK supports the following security scheme globally:
 | ------------ | ------------ | ------------ |
 | `AuthHeader` | apiKey       | API key      |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Sync.Commerce;
-using Codat.Sync.Commerce.Models.Shared;
-using Codat.Sync.Commerce.Models.Operations;
+using Codat.Sync.Commerce.Models.Requests;
+using Codat.Sync.Commerce.Models.Components;
 
-var sdk = new CodatSyncCommerce(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatSyncCommerce(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
+GetSyncFlowUrlRequest req = new GetSyncFlowUrlRequest() {
+    CommerceKey = "<value>",
+    AccountingKey = "<value>",
 };
 
-var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
+var res = await sdk.Connections.GetSyncFlowUrlAsync(req);
 
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
+```csharp
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Requests;
+using Codat.Sync.Commerce.Models.Components;
+
+var sdk = new CodatSyncCommerce(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetSyncFlowUrlRequest req = new GetSyncFlowUrlRequest() {
+    CommerceKey = "<value>",
+    AccountingKey = "<value>",
+};
+
+var res = await sdk.Connections.GetSyncFlowUrlAsync(
+    retryConfig: new RetryConfig(
+        strategy: RetryConfig.RetryStrategy.BACKOFF,
+        backoff: new BackoffStrategy(
+            initialIntervalMs: 1L,
+            maxIntervalMs: 50L,
+            maxElapsedTimeMs: 100L,
+            exponent: 1.1
+        ),
+        retryConnectionErrors: false
+    ),req);
+
+// handle response
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
+```csharp
+using Codat.Sync.Commerce;
+using Codat.Sync.Commerce.Models.Requests;
+using Codat.Sync.Commerce.Models.Components;
+
+var sdk = new CodatSyncCommerce(
+    retryConfig: new RetryConfig(
+        strategy: RetryConfig.RetryStrategy.BACKOFF,
+        backoff: new BackoffStrategy(
+            initialIntervalMs: 1L,
+            maxIntervalMs: 50L,
+            maxElapsedTimeMs: 100L,
+            exponent: 1.1
+        ),
+        retryConnectionErrors: false
+    ),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+GetSyncFlowUrlRequest req = new GetSyncFlowUrlRequest() {
+    CommerceKey = "<value>",
+    AccountingKey = "<value>",
+};
+
+var res = await sdk.Connections.GetSyncFlowUrlAsync(req);
+
+// handle response
+```
+<!-- End Retries [retries] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -137,29 +251,29 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object                                   | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,429,500,503                        | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
 | Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
 
 ### Example
 
 ```csharp
 using Codat.Sync.Commerce;
-using Codat.Sync.Commerce.Models.Shared;
+using Codat.Sync.Commerce.Models.Requests;
+using Codat.Sync.Commerce.Models.Components;
 using System;
 using Codat.Sync.Commerce.Models.Errors;
-using Codat.Sync.Commerce.Models.Operations;
 
-var sdk = new CodatSyncCommerce(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-GetConfigTextSyncFlowRequest req = new GetConfigTextSyncFlowRequest() {
-    Locale = Codat.Sync.Commerce.Models.Shared.Locale.EnUs,
-};
+var sdk = new CodatSyncCommerce(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 try
 {
-    var res = await sdk.SyncFlowSettings.GetConfigTextSyncFlowAsync(req);
+    GetSyncFlowUrlRequest req = new GetSyncFlowUrlRequest() {
+        CommerceKey = "<value>",
+        AccountingKey = "<value>",
+    };
+
+    var res = await sdk.Connections.GetSyncFlowUrlAsync(req);
+
     // handle response
 }
 catch (Exception ex)
@@ -173,7 +287,6 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 

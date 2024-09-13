@@ -1,126 +1,107 @@
 # Transfers
-(*LoanWriteback.Transfers*)
+(*Transactions.Transfers*)
+
+## Overview
 
 ### Available Operations
 
-* [Create](#create) - Create transfer
-* [GetCreateModel](#getcreatemodel) - Get create transfer model
+* [List](#list) - List transfers
+* [Get](#get) - Get transfer
 
-## Create
+## List
 
-The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/lending-api#/schemas/Transfer) for a given company's connection.
+The *List transfers* endpoint returns a list of [transfers](https://docs.codat.io/lending-api#/schemas/Transfer) for a given company's connection.
 
 [Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/lending-api#/operations/get-create-transfers-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating an account.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-using System.Collections.Generic;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreateTransferRequest req = new CreateTransferRequest() {
-    AccountingTransfer = new AccountingTransfer() {
-        Date = "2022-10-23T00:00:00Z",
-        DepositedRecordRefs = new List<RecordRef>() {
-            new RecordRef() {
-                DataType = "invoice",
-            },
-        },
-        From = new TransferAccount() {
-            Currency = "USD",
-        },
-        ModifiedDate = "2022-10-23T00:00:00Z",
-        SourceModifiedDate = "2022-10-23T00:00:00Z",
-        To = new TransferAccount() {
-            Currency = "GBP",
-        },
-    },
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.LoanWriteback.Transfers.CreateAsync(req);
+var res = await sdk.Transactions.Transfers.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [CreateTransferRequest](../../Models/Operations/CreateTransferRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
-
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [ListAccountingTransfersRequest](../../Models/Requests/ListAccountingTransfersRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[CreateTransferResponse](../../Models/Operations/CreateTransferResponse.md)**
+**[ListAccountingTransfersResponse](../../Models/Requests/ListAccountingTransfersResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## GetCreateModel
 
-The *Get create transfer model* endpoint returns the expected data for the request payload when creating a [transfer](https://docs.codat.io/lending-api#/schemas/Transfer) for a given company and integration.
+## Get
+
+The *Get transfer* endpoint returns a single transfer for a given transferId.
 
 [Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
-**Integration-specific behaviour**
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support getting a specific transfer.
 
-See the *response examples* for integration-specific indicative models.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating a transfer.
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "<value>",
 };
 
-var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+var res = await sdk.Transactions.Transfers.GetAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [GetCreateTransfersModelRequest](../../Models/Operations/GetCreateTransfersModelRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
-
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetAccountingTransferRequest](../../Models/Requests/GetAccountingTransferRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[GetCreateTransfersModelResponse](../../Models/Operations/GetCreateTransfersModelResponse.md)**
+**[GetAccountingTransferResponse](../../Models/Requests/GetAccountingTransferResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

@@ -7,57 +7,10 @@ Debt and other liabilities.
 
 ### Available Operations
 
-* [GenerateLoanSummary](#generateloansummary) - Generate loan summaries report
 * [GenerateLoanTransactions](#generateloantransactions) - Generate loan transactions report
-* [GetLoanSummary](#getloansummary) - Get loan summaries
 * [ListLoanTransactions](#listloantransactions) - List loan transactions
-
-## GenerateLoanSummary
-
-The _Generate loan summaries_ endpoint requests the generation of the Loan Summaries report.
-
-Learn more about Codat's liabilities feature [here](https://docs.codat.io/lending/features/liabilities-overview).
-
-Make sure you have [synced a company](https://docs.codat.io/lending-api#/operations/refresh-company-data) recently before calling the endpoint.
-
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-GenerateLoanSummaryRequest req = new GenerateLoanSummaryRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Operations.SourceType.Accounting,
-};
-
-var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [GenerateLoanSummaryRequest](../../Models/Operations/GenerateLoanSummaryRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
-
-
-### Response
-
-**[GenerateLoanSummaryResponse](../../Models/Operations/GenerateLoanSummaryResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+* [GenerateLoanSummary](#generateloansummary) - Generate loan summaries report
+* [GetLoanSummary](#getloansummary) - Get loan summaries
 
 ## GenerateLoanTransactions
 
@@ -72,16 +25,14 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateLoanTransactionsRequest req = new GenerateLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Operations.QueryParamSourceType.Accounting,
+    SourceType = Codat.Lending.Models.Requests.SourceType.Accounting,
 };
 
 var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
@@ -91,14 +42,14 @@ var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `request`                                                                                     | [GenerateLoanTransactionsRequest](../../Models/Operations/GenerateLoanTransactionsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
-
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [GenerateLoanTransactionsRequest](../../Models/Requests/GenerateLoanTransactionsRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[GenerateLoanTransactionsResponse](../../Models/Operations/GenerateLoanTransactionsResponse.md)**
+**[GenerateLoanTransactionsResponse](../../Models/Requests/GenerateLoanTransactionsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
@@ -106,52 +57,6 @@ var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
 | Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## GetLoanSummary
-
-The *Get loan summaries* endpoint returns a summary by integration type of all loans identified from a company's accounting, banking, and commerce integrations.
-
-The endpoint returns a list of a company's [loan summaries](https://docs.codat.io/lending-api#/schemas/LoanSummary) for each valid data connection.
-
-Make sure you have [synced a company](https://docs.codat.io/lending-api#/operations/refresh-company-data) recently before calling the endpoint.
-
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Operations.GetLoanSummaryQueryParamSourceType.Banking,
-};
-
-var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [GetLoanSummaryRequest](../../Models/Operations/GetLoanSummaryRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
-
-
-### Response
-
-**[GetLoanSummaryResponse](../../Models/Operations/GetLoanSummaryResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListLoanTransactions
 
@@ -166,16 +71,14 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListLoanTransactionsRequest req = new ListLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Operations.ListLoanTransactionsQueryParamSourceType.Commerce,
+    SourceType = Codat.Lending.Models.Requests.QueryParamSourceType.Commerce,
 };
 
 var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
@@ -185,17 +88,109 @@ var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [ListLoanTransactionsRequest](../../Models/Operations/ListLoanTransactionsRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
-
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [ListLoanTransactionsRequest](../../Models/Requests/ListLoanTransactionsRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 ### Response
 
-**[ListLoanTransactionsResponse](../../Models/Operations/ListLoanTransactionsResponse.md)**
+**[ListLoanTransactionsResponse](../../Models/Requests/ListLoanTransactionsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## GenerateLoanSummary
+
+The _Generate loan summaries_ endpoint requests the generation of the Loan Summaries report.
+
+Learn more about Codat's liabilities feature [here](https://docs.codat.io/lending/features/liabilities-overview).
+
+Make sure you have [synced a company](https://docs.codat.io/lending-api#/operations/refresh-company-data) recently before calling the endpoint.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GenerateLoanSummaryRequest req = new GenerateLoanSummaryRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    SourceType = Codat.Lending.Models.Requests.GenerateLoanSummaryQueryParamSourceType.Accounting,
+};
+
+var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [GenerateLoanSummaryRequest](../../Models/Requests/GenerateLoanSummaryRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+### Response
+
+**[GenerateLoanSummaryResponse](../../Models/Requests/GenerateLoanSummaryResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## GetLoanSummary
+
+The *Get loan summaries* endpoint returns a summary by integration type of all loans identified from a company's accounting, banking, and commerce integrations.
+
+The endpoint returns a list of a company's [loan summaries](https://docs.codat.io/lending-api#/schemas/LoanSummary) for each valid data connection.
+
+Make sure you have [synced a company](https://docs.codat.io/lending-api#/operations/refresh-company-data) recently before calling the endpoint.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    SourceType = Codat.Lending.Models.Requests.GetLoanSummaryQueryParamSourceType.Banking,
+};
+
+var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `request`                                                               | [GetLoanSummaryRequest](../../Models/Requests/GetLoanSummaryRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+
+### Response
+
+**[GetLoanSummaryResponse](../../Models/Requests/GetLoanSummaryResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

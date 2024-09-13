@@ -7,9 +7,49 @@ Endpoints to manage uploaded files.
 
 ### Available Operations
 
-* [Download](#download) - Download all files for a company
 * [ListUploaded](#listuploaded) - List all files uploaded by a company
+* [Download](#download) - Download all files for a company
 * [Upload](#upload) - Upload files for a company
+
+## ListUploaded
+
+﻿The *List files* endpoint returns a list of all files uploaded to Codat by the SMB. 
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListFilesRequest req = new ListFilesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.FileUpload.ListUploadedAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `request`                                                     | [ListFilesRequest](../../Models/Requests/ListFilesRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
+
+### Response
+
+**[ListFilesResponse](../../Models/Requests/ListFilesResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## Download
 
@@ -19,12 +59,10 @@ The *Download files* endpoint downloads all files that have  been uploaded by to
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 DownloadFilesRequest req = new DownloadFilesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -38,14 +76,14 @@ var res = await sdk.FileUpload.DownloadAsync(req);
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [DownloadFilesRequest](../../Models/Operations/DownloadFilesRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
-
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `request`                                                             | [DownloadFilesRequest](../../Models/Requests/DownloadFilesRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 ### Response
 
-**[DownloadFilesResponse](../../Models/Operations/DownloadFilesResponse.md)**
+**[DownloadFilesResponse](../../Models/Requests/DownloadFilesResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
@@ -53,46 +91,6 @@ var res = await sdk.FileUpload.DownloadAsync(req);
 | Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## ListUploaded
-
-﻿The *List files* endpoint returns a list of all files uploaded to Codat by the SMB. 
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-ListFilesRequest req = new ListFilesRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-var res = await sdk.FileUpload.ListUploadedAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
-| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `request`                                                       | [ListFilesRequest](../../Models/Operations/ListFilesRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
-
-
-### Response
-
-**[ListFilesResponse](../../Models/Operations/ListFilesResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## Upload
 
@@ -108,12 +106,10 @@ Uploaded files must meet the following requirements:
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 UploadFilesRequest req = new UploadFilesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -127,14 +123,14 @@ var res = await sdk.FileUpload.UploadAsync(req);
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [UploadFilesRequest](../../Models/Operations/UploadFilesRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `request`                                                         | [UploadFilesRequest](../../Models/Requests/UploadFilesRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 ### Response
 
-**[UploadFilesResponse](../../Models/Operations/UploadFilesResponse.md)**
+**[UploadFilesResponse](../../Models/Requests/UploadFilesResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |

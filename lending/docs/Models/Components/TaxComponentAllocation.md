@@ -1,0 +1,9 @@
+# TaxComponentAllocation
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `TaxComponentRef`                                                                                | [TaxComponentRef](../../Models/Components/TaxComponentRef.md)                                    | :heavy_minus_sign:                                                                               | Taxes rates reference object depending on the rates being available on source commerce software. |
+| `Rate`                                                                                           | *decimal*                                                                                        | :heavy_minus_sign:                                                                               | Tax amount on order line sale as available from source commerce software.                        |

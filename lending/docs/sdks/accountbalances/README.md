@@ -1,6 +1,8 @@
 # AccountBalances
 (*Banking.AccountBalances*)
 
+## Overview
+
 ### Available Operations
 
 * [List](#list) - List account balances
@@ -18,19 +20,18 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListBankingAccountBalancesRequest req = new ListBankingAccountBalancesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
 var res = await sdk.Banking.AccountBalances.ListAsync(req);
@@ -40,14 +41,14 @@ var res = await sdk.Banking.AccountBalances.ListAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `request`                                                                                         | [ListBankingAccountBalancesRequest](../../Models/Operations/ListBankingAccountBalancesRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
-
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [ListBankingAccountBalancesRequest](../../Models/Requests/ListBankingAccountBalancesRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
 
 ### Response
 
-**[ListBankingAccountBalancesResponse](../../Models/Operations/ListBankingAccountBalancesResponse.md)**
+**[ListBankingAccountBalancesResponse](../../Models/Requests/ListBankingAccountBalancesResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |

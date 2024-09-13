@@ -1,10 +1,56 @@
 # PullOperations
 (*ManageData.PullOperations*)
 
+## Overview
+
 ### Available Operations
 
-* [Get](#get) - Get pull operation
 * [List](#list) - List pull operations
+* [Get](#get) - Get pull operation
+
+## List
+
+Gets the pull operation history (datasets) for a given company.
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListPullOperationsRequest req = new ListPullOperationsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.ManageData.PullOperations.ListAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [ListPullOperationsRequest](../../Models/Requests/ListPullOperationsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+### Response
+
+**[ListPullOperationsResponse](../../Models/Requests/ListPullOperationsResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## Get
 
@@ -14,12 +60,10 @@ Retrieve information about a single dataset or pull operation.
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -33,61 +77,17 @@ var res = await sdk.ManageData.PullOperations.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPullOperationRequest](../../Models/Operations/GetPullOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
-
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [GetPullOperationRequest](../../Models/Requests/GetPullOperationRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
 ### Response
 
-**[GetPullOperationResponse](../../Models/Operations/GetPullOperationResponse.md)**
+**[GetPullOperationResponse](../../Models/Requests/GetPullOperationResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
-## List
-
-Gets the pull operation history (datasets) for a given company.
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-ListPullOperationsRequest req = new ListPullOperationsRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-};
-
-var res = await sdk.ManageData.PullOperations.ListAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `request`                                                                         | [ListPullOperationsRequest](../../Models/Operations/ListPullOperationsRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
-
-
-### Response
-
-**[ListPullOperationsResponse](../../Models/Operations/ListPullOperationsResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

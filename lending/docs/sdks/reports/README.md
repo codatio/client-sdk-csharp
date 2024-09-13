@@ -1,181 +1,145 @@
 # Reports
-(*AccountsReceivable.Reports*)
+(*Sales.Reports*)
+
+## Overview
 
 ### Available Operations
 
-* [GetAgedCreditors](#getagedcreditors) - Aged creditors report
-* [GetAgedDebtors](#getageddebtors) - Aged debtors report
-* [IsAgedCreditorsAvailable](#isagedcreditorsavailable) - Aged creditors report available
-* [IsAgedDebtorsAvailable](#isageddebtorsavailable) - Aged debtors report available
+* [GetOrders](#getorders) - Get orders report
+* [GetRefunds](#getrefunds) - Get refunds report
 
-## GetAgedCreditors
+## GetOrders
 
-Returns aged creditors report for company that shows the total balance owed by a business to its suppliers over time.
+The *Get orders report* endpoint returns the number of orders, total value, and average order value for a specific company's commerce connection over one or more periods of time.
+
+This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
+
+Learn more about the formulas used to calculate the order metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
+
+Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+
+#### Response structure
+
+The Orders report's dimensions and measures are:
+
+| Index         | Dimensions     |
+|---------------|----------------|
+|   `index` = 0 | Period         |
+|   `index` = 1 | Order metrics  |
+
+| Index         | Measures   |
+|---------------|------------|
+| `index` = 0   | Count      |
+| `index` = 1   | Value      |
+
+The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-using NodaTime;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetAccountingAgedCreditorsReportRequest req = new GetAccountingAgedCreditorsReportRequest() {
+GetCommerceOrdersReportRequest req = new GetCommerceOrdersReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    NumberOfPeriods = 12,
-    PeriodLengthDays = 30,
-    ReportDate = LocalDate.FromDateTime(System.DateTime.Parse("2022-12-31")),
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    ReportDate = "29-09-2020",
+    PeriodLength = 491586,
+    NumberOfPeriods = 776309,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Week,
 };
 
-var res = await sdk.AccountsReceivable.Reports.GetAgedCreditorsAsync(req);
+var res = await sdk.Sales.Reports.GetOrdersAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                     | [GetAccountingAgedCreditorsReportRequest](../../Models/Operations/GetAccountingAgedCreditorsReportRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
-
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [GetCommerceOrdersReportRequest](../../Models/Requests/GetCommerceOrdersReportRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[GetAccountingAgedCreditorsReportResponse](../../Models/Operations/GetAccountingAgedCreditorsReportResponse.md)**
+**[GetCommerceOrdersReportResponse](../../Models/Requests/GetCommerceOrdersReportResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## GetAgedDebtors
 
-Returns aged debtors report for company that shows the total outstanding balance due from customers to the business over time.
+## GetRefunds
+
+The *Get refunds report* endpoint returns the number and total value of refunds and the refund rate for a specific company's commerce connection over one or more periods of time.
+
+This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
+
+Learn more about the formulas used to calculate the refunds metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
+
+Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+
+#### Response structure
+
+The Refunds report's dimensions and measures are:
+
+| Index          | Dimensions     |
+|----------------|----------------|
+| `index` = 0    | Period         |
+| `index` = 1    | Refund metrics |
+
+| Index          | Measures    |
+|----------------|------------|
+| `index` = 0    | Count      |
+| `index` = 1    | Value      |
+| `index` = 2    | Percentage |
+
+The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-using NodaTime;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetAccountingAgedDebtorsReportRequest req = new GetAccountingAgedDebtorsReportRequest() {
+GetCommerceRefundsReportRequest req = new GetCommerceRefundsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    NumberOfPeriods = 12,
-    PeriodLengthDays = 30,
-    ReportDate = LocalDate.FromDateTime(System.DateTime.Parse("2022-12-31")),
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    ReportDate = "29-09-2020",
+    PeriodLength = 277786,
+    NumberOfPeriods = 876670,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
 };
 
-var res = await sdk.AccountsReceivable.Reports.GetAgedDebtorsAsync(req);
+var res = await sdk.Sales.Reports.GetRefundsAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [GetAccountingAgedDebtorsReportRequest](../../Models/Operations/GetAccountingAgedDebtorsReportRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
-
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `request`                                                                                   | [GetCommerceRefundsReportRequest](../../Models/Requests/GetCommerceRefundsReportRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 ### Response
 
-**[GetAccountingAgedDebtorsReportResponse](../../Models/Operations/GetAccountingAgedDebtorsReportResponse.md)**
+**[GetCommerceRefundsReportResponse](../../Models/Requests/GetCommerceRefundsReportResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
-## IsAgedCreditorsAvailable
-
-Indicates whether the aged creditor report is available for the company.
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-IsAgedCreditorsReportAvailableRequest req = new IsAgedCreditorsReportAvailableRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-var res = await sdk.AccountsReceivable.Reports.IsAgedCreditorsAvailableAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [IsAgedCreditorsReportAvailableRequest](../../Models/Operations/IsAgedCreditorsReportAvailableRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
-
-
-### Response
-
-**[IsAgedCreditorsReportAvailableResponse](../../Models/Operations/IsAgedCreditorsReportAvailableResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
-## IsAgedDebtorsAvailable
-
-Indicates whether the aged debtors report is available for the company.
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-IsAgedDebtorsReportAvailableRequest req = new IsAgedDebtorsReportAvailableRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-var res = await sdk.AccountsReceivable.Reports.IsAgedDebtorsAvailableAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [IsAgedDebtorsReportAvailableRequest](../../Models/Operations/IsAgedDebtorsReportAvailableRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
-
-
-### Response
-
-**[IsAgedDebtorsReportAvailableResponse](../../Models/Operations/IsAgedDebtorsReportAvailableResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

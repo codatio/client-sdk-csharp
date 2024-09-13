@@ -7,55 +7,9 @@ Download reports in Excel format.
 
 ### Available Operations
 
-* [Download](#download) - Download Excel report
 * [Generate](#generate) - Generate Excel report
 * [GetStatus](#getstatus) - Get Excel report status
-
-## Download
-
-﻿The *Download Excel report* endpoint downloads the latest successfully generated Excel report of a specified report type for a given company. 
-
-The downloadable Excel file is returned in the response. You can save it to your local machine.
-
-You can [learn more](https://docs.codat.io/lending/excel/overview) about valid Excel report types.
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = Codat.Lending.Models.Shared.ExcelReportTypes.EnhancedFinancials,
-};
-
-var res = await sdk.ExcelReports.DownloadAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [DownloadExcelReportRequest](../../Models/Operations/DownloadExcelReportRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
-
-
-### Response
-
-**[DownloadExcelReportResponse](../../Models/Operations/DownloadExcelReportResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+* [Download](#download) - Download Excel report
 
 ## Generate
 
@@ -81,16 +35,14 @@ In response, the endpoint returns the [status](https://docs.codat.io/lending-api
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateExcelReportRequest req = new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = Codat.Lending.Models.Shared.ExcelReportTypes.EnhancedInvoices,
+    ReportType = Codat.Lending.Models.Components.ExcelReportTypes.EnhancedInvoices,
 };
 
 var res = await sdk.ExcelReports.GenerateAsync(req);
@@ -100,20 +52,21 @@ var res = await sdk.ExcelReports.GenerateAsync(req);
 
 ### Parameters
 
-| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [GenerateExcelReportRequest](../../Models/Operations/GenerateExcelReportRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
-
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [GenerateExcelReportRequest](../../Models/Requests/GenerateExcelReportRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
 
 ### Response
 
-**[GenerateExcelReportResponse](../../Models/Operations/GenerateExcelReportResponse.md)**
+**[GenerateExcelReportResponse](../../Models/Requests/GenerateExcelReportResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## GetStatus
 
@@ -127,16 +80,14 @@ When the report generation completes successfully, the `inProgress` property wil
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetExcelReportGenerationStatusRequest req = new GetExcelReportGenerationStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = Codat.Lending.Models.Shared.ExcelReportTypes.EnhancedCashFlow,
+    ReportType = Codat.Lending.Models.Components.ExcelReportTypes.EnhancedCashFlow,
 };
 
 var res = await sdk.ExcelReports.GetStatusAsync(req);
@@ -146,14 +97,59 @@ var res = await sdk.ExcelReports.GetStatusAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [GetExcelReportGenerationStatusRequest](../../Models/Operations/GetExcelReportGenerationStatusRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
-
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [GetExcelReportGenerationStatusRequest](../../Models/Requests/GetExcelReportGenerationStatusRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[GetExcelReportGenerationStatusResponse](../../Models/Operations/GetExcelReportGenerationStatusResponse.md)**
+**[GetExcelReportGenerationStatusResponse](../../Models/Requests/GetExcelReportGenerationStatusResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## Download
+
+﻿The *Download Excel report* endpoint downloads the latest successfully generated Excel report of a specified report type for a given company. 
+
+The downloadable Excel file is returned in the response. You can save it to your local machine.
+
+You can [learn more](https://docs.codat.io/lending/excel/overview) about valid Excel report types.
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ReportType = Codat.Lending.Models.Components.ExcelReportTypes.EnhancedFinancials,
+};
+
+var res = await sdk.ExcelReports.DownloadAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `request`                                                                         | [DownloadExcelReportRequest](../../Models/Requests/DownloadExcelReportRequest.md) | :heavy_check_mark:                                                                | The request object to use for the request.                                        |
+
+### Response
+
+**[DownloadExcelReportResponse](../../Models/Requests/DownloadExcelReportResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |

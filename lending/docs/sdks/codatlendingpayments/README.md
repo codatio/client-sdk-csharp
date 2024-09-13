@@ -1,126 +1,107 @@
 # CodatLendingPayments
-(*LoanWriteback.Payments*)
+(*Sales.Payments*)
+
+## Overview
 
 ### Available Operations
 
-* [Create](#create) - Create payment
-* [GetCreateModel](#getcreatemodel) - Get create payment model
+* [List](#list) - List payments
+* [Get](#get) - Get payment
 
-## Create
+## List
 
-The *Create payment* endpoint creates a new [payment](https://docs.codat.io/lending-api#/schemas/Payment) for a given company's connection.
+The *List payments* endpoint returns a list of [payments](https://docs.codat.io/lending-api#/schemas/Payment) for a given company's connection.
 
-[Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
+[Payments](https://docs.codat.io/lending-api#/schemas/Payment) contain details of all payments made by customers to the company.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating an account.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-using System.Collections.Generic;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-CreatePaymentRequest req = new CreatePaymentRequest() {
-    AccountingPayment = new AccountingPayment() {
-        Currency = "USD",
-        Date = "2022-10-23T00:00:00Z",
-        Lines = new List<PaymentLine>() {
-            new PaymentLine() {
-                AllocatedOnDate = "2022-10-23T00:00:00Z",
-                Amount = 8592.13M,
-            },
-        },
-        ModifiedDate = "2022-10-23T00:00:00Z",
-        PaymentMethodRef = new PaymentMethodRef() {
-            Id = "EILBDVJVNUAGVKRQ",
-            Name = "AliPay",
-        },
-        SourceModifiedDate = "2022-10-23T00:00:00Z",
-    },
+ListCommercePaymentsRequest req = new ListCommercePaymentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.LoanWriteback.Payments.CreateAsync(req);
+var res = await sdk.Sales.Payments.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [CreatePaymentRequest](../../Models/Operations/CreatePaymentRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
-
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [ListCommercePaymentsRequest](../../Models/Requests/ListCommercePaymentsRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 ### Response
 
-**[CreatePaymentResponse](../../Models/Operations/CreatePaymentResponse.md)**
+**[ListCommercePaymentsResponse](../../Models/Requests/ListCommercePaymentsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## GetCreateModel
 
-The *Get create payment model* endpoint returns the expected data for the request payload when creating a [payment](https://docs.codat.io/lending-api#/schemas/Payment) for a given company and integration.
+## Get
 
-[Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
+The *Get payment* endpoint returns a single payment for a given paymentId.
 
-**Integration-specific behaviour**
+[Payments](https://docs.codat.io/lending-api#/schemas/Payment) contain details of all payments made by customers to the company.
 
-See the *response examples* for integration-specific indicative models.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-payments) for integrations that support getting a specific payment.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating a payment.
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-GetCreatePaymentModelRequest req = new GetCreatePaymentModelRequest() {
+GetCommercePaymentRequest req = new GetCommercePaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentId = "<value>",
 };
 
-var res = await sdk.LoanWriteback.Payments.GetCreateModelAsync(req);
+var res = await sdk.Sales.Payments.GetAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetCreatePaymentModelRequest](../../Models/Operations/GetCreatePaymentModelRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
-
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [GetCommercePaymentRequest](../../Models/Requests/GetCommercePaymentRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
 
 ### Response
 
-**[GetCreatePaymentModelResponse](../../Models/Operations/GetCreatePaymentModelResponse.md)**
+**[GetCommercePaymentResponse](../../Models/Requests/GetCommercePaymentResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

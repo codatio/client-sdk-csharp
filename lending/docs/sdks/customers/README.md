@@ -1,62 +1,64 @@
 # Customers
 (*AccountsReceivable.Customers*)
 
+## Overview
+
 ### Available Operations
 
-* [DownloadAttachment](#downloadattachment) - Download customer attachment
-* [Get](#get) - Get customer
-* [GetAttachment](#getattachment) - Get customer attachment
 * [List](#list) - List customers
+* [Get](#get) - Get customer
 * [ListAttachments](#listattachments) - List customer attachments
+* [GetAttachment](#getattachment) - Get customer attachment
+* [DownloadAttachment](#downloadattachment) - Download customer attachment
 
-## DownloadAttachment
+## List
 
-The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
+The *List customers* endpoint returns a list of [customers](https://docs.codat.io/lending-api#/schemas/Customer) for a given company's connection.
 
 [Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-DownloadAccountingCustomerAttachmentRequest req = new DownloadAccountingCustomerAttachmentRequest() {
-    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "<value>",
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
-var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(req);
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                             | [DownloadAccountingCustomerAttachmentRequest](../../Models/Operations/DownloadAccountingCustomerAttachmentRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
-
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [ListAccountingCustomersRequest](../../Models/Requests/ListAccountingCustomersRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[DownloadAccountingCustomerAttachmentResponse](../../Models/Operations/DownloadAccountingCustomerAttachmentResponse.md)**
+**[ListAccountingCustomersResponse](../../Models/Requests/ListAccountingCustomersResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
 
 ## Get
 
@@ -73,12 +75,10 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -92,14 +92,14 @@ var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetAccountingCustomerRequest](../../Models/Operations/GetAccountingCustomerRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
-
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetAccountingCustomerRequest](../../Models/Requests/GetAccountingCustomerRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[GetAccountingCustomerResponse](../../Models/Operations/GetAccountingCustomerResponse.md)**
+**[GetAccountingCustomerResponse](../../Models/Requests/GetAccountingCustomerResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
@@ -107,103 +107,6 @@ var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
 | Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
-## GetAttachment
-
-The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
-
-[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
-
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-GetAccountingCustomerAttachmentRequest req = new GetAccountingCustomerAttachmentRequest() {
-    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "<value>",
-};
-
-var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                   | [GetAccountingCustomerAttachmentRequest](../../Models/Operations/GetAccountingCustomerAttachmentRequest.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
-
-
-### Response
-
-**[GetAccountingCustomerAttachmentResponse](../../Models/Operations/GetAccountingCustomerAttachmentResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
-## List
-
-The *List customers* endpoint returns a list of [customers](https://docs.codat.io/lending-api#/schemas/Customer) for a given company's connection.
-
-[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-    
-
-### Example Usage
-
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
-
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
-
-ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
-    Page = 1,
-    PageSize = 100,
-};
-
-var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [ListAccountingCustomersRequest](../../Models/Operations/ListAccountingCustomersRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
-
-
-### Response
-
-**[ListAccountingCustomersResponse](../../Models/Operations/ListAccountingCustomersResponse.md)**
-### Errors
-
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
 
 ## ListAttachments
 
@@ -218,12 +121,10 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Shared;
-using Codat.Lending.Models.Operations;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(security: new Security() {
-        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-    });
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListAccountingCustomerAttachmentsRequest req = new ListAccountingCustomerAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -238,17 +139,113 @@ var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                       | [ListAccountingCustomerAttachmentsRequest](../../Models/Operations/ListAccountingCustomerAttachmentsRequest.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
-
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                     | [ListAccountingCustomerAttachmentsRequest](../../Models/Requests/ListAccountingCustomerAttachmentsRequest.md) | :heavy_check_mark:                                                                                            | The request object to use for the request.                                                                    |
 
 ### Response
 
-**[ListAccountingCustomerAttachmentsResponse](../../Models/Operations/ListAccountingCustomerAttachmentsResponse.md)**
+**[ListAccountingCustomerAttachmentsResponse](../../Models/Requests/ListAccountingCustomerAttachmentsResponse.md)**
+
 ### Errors
 
 | Error Object                             | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## GetAttachment
+
+The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
+
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerAttachmentRequest req = new GetAccountingCustomerAttachmentRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "<value>",
+    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [GetAccountingCustomerAttachmentRequest](../../Models/Requests/GetAccountingCustomerAttachmentRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[GetAccountingCustomerAttachmentResponse](../../Models/Requests/GetAccountingCustomerAttachmentResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+
+
+## DownloadAttachment
+
+The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
+
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
+
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+DownloadAccountingCustomerAttachmentRequest req = new DownloadAccountingCustomerAttachmentRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "<value>",
+    AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                           | [DownloadAccountingCustomerAttachmentRequest](../../Models/Requests/DownloadAccountingCustomerAttachmentRequest.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+
+### Response
+
+**[DownloadAccountingCustomerAttachmentResponse](../../Models/Requests/DownloadAccountingCustomerAttachmentResponse.md)**
+
+### Errors
+
+| Error Object                             | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |

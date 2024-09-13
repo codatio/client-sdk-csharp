@@ -1,0 +1,11 @@
+# LoanSummaryRecordRef
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `Id`                                                                                | *string*                                                                            | :heavy_minus_sign:                                                                  | The id of the object being referred to.                                             |
+| `DataConnectionId`                                                                  | *string*                                                                            | :heavy_minus_sign:                                                                  | The dataConnectionId the object being referred to is associated with.               |
+| `IntegrationType`                                                                   | [LoanSummaryIntegrationType](../../Models/Components/LoanSummaryIntegrationType.md) | :heavy_minus_sign:                                                                  | The integration type begin referred to.                                             |
+| `RecordRefType`                                                                     | [LoanSummaryRecordRefType](../../Models/Components/LoanSummaryRecordRefType.md)     | :heavy_minus_sign:                                                                  | The datatype being referred to.                                                     |

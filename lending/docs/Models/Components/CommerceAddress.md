@@ -1,0 +1,14 @@
+# CommerceAddress
+
+
+## Fields
+
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `Type`                                                                | [CommerceAddressType](../../Models/Components/CommerceAddressType.md) | :heavy_minus_sign:                                                    | The type of the address                                               |
+| `Line1`                                                               | *string*                                                              | :heavy_minus_sign:                                                    | The first line of the address                                         |
+| `Line2`                                                               | *string*                                                              | :heavy_minus_sign:                                                    | The second line of the address                                        |
+| `City`                                                                | *string*                                                              | :heavy_minus_sign:                                                    | The third line of the address, or city                                |
+| `Region`                                                              | *string*                                                              | :heavy_minus_sign:                                                    | The fourth line of the address, or region                             |
+| `Country`                                                             | *string*                                                              | :heavy_minus_sign:                                                    | The country for the address                                           |
+| `PostalCode`                                                          | *string*                                                              | :heavy_minus_sign:                                                    | The postal (or zip) code for the address                              |

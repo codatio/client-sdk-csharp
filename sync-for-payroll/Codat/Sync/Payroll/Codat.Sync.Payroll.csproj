@@ -1,22 +1,56 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Sync.Payroll</PackageId>
-    <Version>3.1.0</Version>
+    <Version>4.0.0</Version>
+    <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
-    <TargetFramework>net6.0</TargetFramework>
+    <Copyright>Copyright (c) Codat 2024</Copyright>
+    <RepositoryUrl>https://github.com/codatio/client-sdk-csharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Sync for Payroll: The API for Sync for Payroll. 
+
+Sync for Payroll is an API and a set of supporting tools built to help integrate your customers' payroll data from their HR and payroll platforms into their accounting software and to support its reconciliation.
+
+[Explore product](https://docs.codat.io/payroll/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+
+---
+
+<!-- Start Codat Tags Table -->
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Accounts | Get, create, and update Accounts. |
+| Journal entries | Get, create, and update Journal entries. |
+| Journals | Get, create, and update Journals. |
+| Tracking categories | Get, create, and update Tracking Categories for additional categorization of payroll components. |
+| Company info | View company profile from the source platform. |
+| Manage data | Control how data is retrieved from an integration. |
+<!-- End Codat Tags Table --></Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <Nullable>enable</Nullable>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
-    <RepositoryUrl>https://github.com/codatio/client-sdk-csharp</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../README.md" Pack="true" PackagePath="/"/>
-    <None Include="../docs/*" Pack="true" PackagePath="/docs"/>
+    <None Include="..\..\..\NUGET.md" Pack="true" PackagePath="README.md"/>
+    <None Include="..\..\..\docs\**\*" Pack="true" PackagePath="\docs"  CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
 
+  <ItemGroup>
     <PackageReference Include="newtonsoft.json" Version="13.0.3" />
     <PackageReference Include="nodatime" Version="3.1.9" />
   </ItemGroup>
+
 </Project>

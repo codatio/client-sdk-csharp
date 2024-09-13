@@ -37,7 +37,7 @@ sources:
             - main
     sync-for-payables-version-1-source:
         sourceNamespace: sync-for-payables-version-1-source
-        sourceRevisionDigest: sha256:ab5650b5c0dfbe48558138381e9a3ca6930965548c7bc14a3f5e21e90fa746b1
+        sourceRevisionDigest: sha256:8a265bac8fe5d0a020e2e098459e0d2336d69f6acb919efab1e20e2b0ba4dc79
         sourceBlobDigest: sha256:e1fb1fe0af40cf137b8b320fd75e913c83e54e0a2bb2e80a5af69e0bce409e71
         tags:
             - latest
@@ -71,7 +71,7 @@ targets:
     sync-for-payables-version-1-library:
         source: sync-for-payables-version-1-source
         sourceNamespace: sync-for-payables-version-1-source
-        sourceRevisionDigest: sha256:ab5650b5c0dfbe48558138381e9a3ca6930965548c7bc14a3f5e21e90fa746b1
+        sourceRevisionDigest: sha256:8a265bac8fe5d0a020e2e098459e0d2336d69f6acb919efab1e20e2b0ba4dc79
         sourceBlobDigest: sha256:e1fb1fe0af40cf137b8b320fd75e913c83e54e0a2bb2e80a5af69e0bce409e71
 workflow:
     workflowVersion: 1.0.0

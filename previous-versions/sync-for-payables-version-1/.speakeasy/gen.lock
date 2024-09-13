@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.0
   speakeasyVersion: 1.396.6
   generationVersion: 2.415.6
-  releaseVersion: 4.0.0
-  configChecksum: ec8afcb2dfe21e13448ae785a37b82a0
+  releaseVersion: 4.0.1
+  configChecksum: ba25ff102e2b47813a891a92ba4334a5
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: previous-versions/sync-for-payables-version-1
   published: true

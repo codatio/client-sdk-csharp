@@ -9,7 +9,7 @@ sources:
             - main
     lending-source:
         sourceNamespace: lending-source
-        sourceRevisionDigest: sha256:430975ebcb3efb3647bd8b8cf76e07f0219c0f0866403526b038486843c34455
+        sourceRevisionDigest: sha256:1abb9712d8df1fe1937d3a50bf5e307354782665b78fc118ea1d124fe54fbf8e
         sourceBlobDigest: sha256:11ae523963780dcf6d5f3e5d617b7d4f809c94c11f59f95202727916e51510f4
         tags:
             - latest
@@ -51,7 +51,7 @@ targets:
     lending-library:
         source: lending-source
         sourceNamespace: lending-source
-        sourceRevisionDigest: sha256:430975ebcb3efb3647bd8b8cf76e07f0219c0f0866403526b038486843c34455
+        sourceRevisionDigest: sha256:1abb9712d8df1fe1937d3a50bf5e307354782665b78fc118ea1d124fe54fbf8e
         sourceBlobDigest: sha256:11ae523963780dcf6d5f3e5d617b7d4f809c94c11f59f95202727916e51510f4
     platform-library:
         source: platform-source

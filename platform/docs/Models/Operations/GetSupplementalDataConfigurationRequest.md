@@ -1,9 +1,0 @@
-# GetSupplementalDataConfigurationRequest
-
-
-## Fields
-
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `DataType`                                                         | [PathParamDataType](../../Models/Operations/PathParamDataType.md)  | :heavy_check_mark:                                                 | Supported supplemental data data type.                             | invoices                                                           |
-| `PlatformKey`                                                      | *string*                                                           | :heavy_check_mark:                                                 | A unique 4-letter key to represent a platform in each integration. | gbol                                                               |

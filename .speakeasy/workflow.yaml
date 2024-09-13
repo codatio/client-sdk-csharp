@@ -12,6 +12,8 @@ sources:
     platform-source:
         inputs:
             - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+        registry:
+            location: registry.speakeasyapi.dev/codat/codat/platform-source
     sync-for-commerce-source:
         inputs:
             - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml

@@ -9,8 +9,8 @@ Configure and pull additional data types that are not included in Codat's standa
 
 * [Configure](#configure) - Configure custom data type
 * [GetConfiguration](#getconfiguration) - Get custom data configuration
-* [List](#list) - List custom data type records
 * [Refresh](#refresh) - Refresh custom data type
+* [List](#list) - List custom data type records
 
 ## Configure
 
@@ -30,20 +30,17 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 using System.Collections.Generic;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
+    PlatformKey = "gbol",
+    CustomDataIdentifier = "DynamicsPurchaseOrders",
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
         DataSource = "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
-        KeyBy = new List<string>() {
-            "$[*].id",
-        },
         RequiredData = new Dictionary<string, string>() {
             { "currencyCode", "$[*].currencyCode" },
             { "id", "$[*].id" },
@@ -53,12 +50,13 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
             { "totalTaxAmount", "$[*].totalTaxAmount" },
             { "vendorName", "$[*].number" },
         },
+        KeyBy = new List<string>() {
+            "$[*].id",
+        },
         SourceModifiedDate = new List<string>() {
             "$[*].lastModifiedDateTime",
         },
     },
-    CustomDataIdentifier = "DynamicsPurchaseOrders",
-    PlatformKey = "gbol",
 };
 
 var res = await sdk.CustomDataType.ConfigureAsync(req);
@@ -68,13 +66,13 @@ var res = await sdk.CustomDataType.ConfigureAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [ConfigureCustomDataTypeRequest](../../Models/Operations/ConfigureCustomDataTypeRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [ConfigureCustomDataTypeRequest](../../Models/Requests/ConfigureCustomDataTypeRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[ConfigureCustomDataTypeResponse](../../Models/Operations/ConfigureCustomDataTypeResponse.md)**
+**[ConfigureCustomDataTypeResponse](../../Models/Requests/ConfigureCustomDataTypeResponse.md)**
 
 ### Errors
 
@@ -94,16 +92,14 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCustomDataTypeConfigurationRequest req = new GetCustomDataTypeConfigurationRequest() {
-    CustomDataIdentifier = "DynamicsPurchaseOrders",
     PlatformKey = "gbol",
+    CustomDataIdentifier = "DynamicsPurchaseOrders",
 };
 
 var res = await sdk.CustomDataType.GetConfigurationAsync(req);
@@ -113,19 +109,61 @@ var res = await sdk.CustomDataType.GetConfigurationAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [GetCustomDataTypeConfigurationRequest](../../Models/Operations/GetCustomDataTypeConfigurationRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [GetCustomDataTypeConfigurationRequest](../../Models/Requests/GetCustomDataTypeConfigurationRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
 
 ### Response
 
-**[GetCustomDataTypeConfigurationResponse](../../Models/Operations/GetCustomDataTypeConfigurationResponse.md)**
+**[GetCustomDataTypeConfigurationResponse](../../Models/Requests/GetCustomDataTypeConfigurationResponse.md)**
 
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
+
+## Refresh
+
+The *Refresh custom data type* endpoint refreshes the specified custom data type for a given company. This is an asynchronous operation that will sync updated data from the linked integration into Codat for you to view.
+
+### Example Usage
+
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+RefreshCustomDataTypeRequest req = new RefreshCustomDataTypeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomDataIdentifier = "DynamicsPurchaseOrders",
+};
+
+var res = await sdk.CustomDataType.RefreshAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [RefreshCustomDataTypeRequest](../../Models/Requests/RefreshCustomDataTypeRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+### Response
+
+**[RefreshCustomDataTypeResponse](../../Models/Requests/RefreshCustomDataTypeResponse.md)**
+
+### Errors
+
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,451,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
 
 
@@ -139,12 +177,10 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCustomDataTypeRecordsRequest req = new ListCustomDataTypeRecordsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -161,61 +197,17 @@ var res = await sdk.CustomDataType.ListAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [ListCustomDataTypeRecordsRequest](../../Models/Operations/ListCustomDataTypeRecordsRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [ListCustomDataTypeRecordsRequest](../../Models/Requests/ListCustomDataTypeRecordsRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 ### Response
 
-**[ListCustomDataTypeRecordsResponse](../../Models/Operations/ListCustomDataTypeRecordsResponse.md)**
+**[ListCustomDataTypeRecordsResponse](../../Models/Requests/ListCustomDataTypeRecordsResponse.md)**
 
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,451,500,503       | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
-
-## Refresh
-
-The *Refresh custom data type* endpoint refreshes the specified custom data type for a given company. This is an asynchronous operation that will sync updated data from the linked integration into Codat for you to view.
-
-### Example Usage
-
-```csharp
-using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
-
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
-
-RefreshCustomDataTypeRequest req = new RefreshCustomDataTypeRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomDataIdentifier = "DynamicsPurchaseOrders",
-};
-
-var res = await sdk.CustomDataType.RefreshAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [RefreshCustomDataTypeRequest](../../Models/Operations/RefreshCustomDataTypeRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
-
-### Response
-
-**[RefreshCustomDataTypeResponse](../../Models/Operations/RefreshCustomDataTypeResponse.md)**
-
-### Errors
-
-| Error Object                              | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,451,500,503           | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

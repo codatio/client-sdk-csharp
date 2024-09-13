@@ -8,8 +8,8 @@ Initiate and monitor Create, Update, and Delete operations.
 ### Available Operations
 
 * [GetModelOptions](#getmodeloptions) - Get push options
-* [GetOperation](#getoperation) - Get push operation
 * [ListOperations](#listoperations) - List push operations
+* [GetOperation](#getoperation) - Get push operation
 
 ## GetModelOptions
 
@@ -28,17 +28,15 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCreateUpdateModelOptionsByDataTypeRequest req = new GetCreateUpdateModelOptionsByDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DataType = Codat.Platform.Models.Shared.SchemaDataType.Invoices,
+    DataType = Codat.Platform.Models.Components.DataType.Invoices,
 };
 
 var res = await sdk.PushData.GetModelOptionsAsync(req);
@@ -48,56 +46,13 @@ var res = await sdk.PushData.GetModelOptionsAsync(req);
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                               | [GetCreateUpdateModelOptionsByDataTypeRequest](../../Models/Operations/GetCreateUpdateModelOptionsByDataTypeRequest.md) | :heavy_check_mark:                                                                                                      | The request object to use for the request.                                                                              |
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                             | [GetCreateUpdateModelOptionsByDataTypeRequest](../../Models/Requests/GetCreateUpdateModelOptionsByDataTypeRequest.md) | :heavy_check_mark:                                                                                                    | The request object to use for the request.                                                                            |
 
 ### Response
 
-**[GetCreateUpdateModelOptionsByDataTypeResponse](../../Models/Operations/GetCreateUpdateModelOptionsByDataTypeResponse.md)**
-
-### Errors
-
-| Error Object                              | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
-
-## GetOperation
-
-Retrieve push operation.
-
-### Example Usage
-
-```csharp
-using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
-
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
-
-GetPushOperationRequest req = new GetPushOperationRequest() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "59acd79e-29d3-4138-91d3-91d4641bf7ed",
-};
-
-var res = await sdk.PushData.GetOperationAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [GetPushOperationRequest](../../Models/Operations/GetPushOperationRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
-
-### Response
-
-**[GetPushOperationResponse](../../Models/Operations/GetPushOperationResponse.md)**
+**[GetCreateUpdateModelOptionsByDataTypeResponse](../../Models/Requests/GetCreateUpdateModelOptionsByDataTypeResponse.md)**
 
 ### Errors
 
@@ -115,19 +70,17 @@ List push operation records.
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Operations;
-using Codat.Platform.Models.Shared;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
 
-var sdk = new CodatPlatform(security: new Security() {
-    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
-});
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCompanyPushHistoryRequest req = new GetCompanyPushHistoryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    OrderBy = "-modifiedDate",
     Page = 1,
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
 };
 
 var res = await sdk.PushData.ListOperationsAsync(req);
@@ -137,17 +90,58 @@ var res = await sdk.PushData.ListOperationsAsync(req);
 
 ### Parameters
 
-| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
-| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| `request`                                                                               | [GetCompanyPushHistoryRequest](../../Models/Operations/GetCompanyPushHistoryRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetCompanyPushHistoryRequest](../../Models/Requests/GetCompanyPushHistoryRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
 ### Response
 
-**[GetCompanyPushHistoryResponse](../../Models/Operations/GetCompanyPushHistoryResponse.md)**
+**[GetCompanyPushHistoryResponse](../../Models/Requests/GetCompanyPushHistoryResponse.md)**
 
 ### Errors
 
 | Error Object                              | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+
+
+## GetOperation
+
+Retrieve push operation.
+
+### Example Usage
+
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetPushOperationRequest req = new GetPushOperationRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PushOperationKey = "59acd79e-29d3-4138-91d3-91d4641bf7ed",
+};
+
+var res = await sdk.PushData.GetOperationAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `request`                                                                   | [GetPushOperationRequest](../../Models/Requests/GetPushOperationRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
+
+### Response
+
+**[GetPushOperationResponse](../../Models/Requests/GetPushOperationResponse.md)**
+
+### Errors
+
+| Error Object                              | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |

@@ -138,20 +138,20 @@ CreateCustomerRequest req = new CreateCustomerRequest() {
     Customer = new Customer() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        DefaultCurrency = "GBP",
+        DefaultCurrency = "EUR",
         Contacts = new List<Contact>() {
             new Contact() {
                 Phone = new List<Phone>() {
                     new Phone() {
-                        Number = "01224 658 999",
+                        Number = "+44 25691 154789",
                         Type = Codat.Sync.Expenses.Models.Components.PhoneNumberType.Primary,
                     },
                 },
-                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Archived,
+                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Unknown,
                 ModifiedDate = "2022-10-23T00:00:00Z",
             },
         },
-        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Archived,
+        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Active,
     },
 };
 
@@ -208,20 +208,20 @@ UpdateCustomerRequest req = new UpdateCustomerRequest() {
     Customer = new Customer() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        DefaultCurrency = "EUR",
+        DefaultCurrency = "USD",
         Contacts = new List<Contact>() {
             new Contact() {
                 Phone = new List<Phone>() {
                     new Phone() {
                         Number = "+44 25691 154789",
-                        Type = Codat.Sync.Expenses.Models.Components.PhoneNumberType.Fax,
+                        Type = Codat.Sync.Expenses.Models.Components.PhoneNumberType.Unknown,
                     },
                 },
-                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Archived,
+                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Active,
                 ModifiedDate = "2022-10-23T00:00:00Z",
             },
         },
-        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Archived,
+        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Unknown,
     },
 };
 

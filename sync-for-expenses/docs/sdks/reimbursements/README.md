@@ -37,7 +37,42 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 CreateReimbursableExpenseTransactionRequest req = new CreateReimbursableExpenseTransactionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     RequestBody = new List<ReimbursableExpenseTransaction>() {
-
+        new ReimbursableExpenseTransaction() {
+            Id = "4d7c6929-7770-412b-91bb-44d3bc71d111",
+            ContactRef = new ReimbursementContactRef() {
+                Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+            IssueDate = "2022-10-23T00:00:00Z",
+            DueDate = "2022-10-23T00:00:00Z",
+            Currency = "GBP",
+            Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+            Lines = new List<ReimbursableExpenseTransactionLine>() {
+                new ReimbursableExpenseTransactionLine() {
+                    Description = "2-night hotel stay",
+                    NetAmount = 100M,
+                    TaxAmount = 20M,
+                    TaxRateRef = new RecordRef() {
+                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                    },
+                    AccountRef = new RecordRef() {
+                        Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                    },
+                    ItemRef = new ItemRef() {
+                        Id = "80000002-1675158984",
+                    },
+                    TrackingRefs = new List<TrackingRef>() {
+                        new TrackingRef() {
+                            Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                            DataType = Codat.Sync.Expenses.Models.Components.TrackingRefDataType.TrackingCategories,
+                        },
+                    },
+                    InvoiceTo = new InvoiceTo() {
+                        Id = "80000002-1674552702",
+                        Type = Codat.Sync.Expenses.Models.Components.InvoiceToType.Customer,
+                    },
+                },
+            },
+        },
     },
 };
 
@@ -100,7 +135,30 @@ Models.Requests.UpdateReimbursableExpenseTransactionRequest req = new Models.Req
         Currency = "GBP",
         Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
         Lines = new List<ReimbursableExpenseTransactionLine>() {
-
+            new ReimbursableExpenseTransactionLine() {
+                Description = "2-night hotel stay",
+                NetAmount = 100M,
+                TaxAmount = 20M,
+                TaxRateRef = new RecordRef() {
+                    Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                },
+                AccountRef = new RecordRef() {
+                    Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                },
+                ItemRef = new ItemRef() {
+                    Id = "80000002-1675158984",
+                },
+                TrackingRefs = new List<TrackingRef>() {
+                    new TrackingRef() {
+                        Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                        DataType = Codat.Sync.Expenses.Models.Components.TrackingRefDataType.TrackingCategories,
+                    },
+                },
+                InvoiceTo = new InvoiceTo() {
+                    Id = "80000002-1674552702",
+                    Type = Codat.Sync.Expenses.Models.Components.InvoiceToType.Customer,
+                },
+            },
         },
     },
 };

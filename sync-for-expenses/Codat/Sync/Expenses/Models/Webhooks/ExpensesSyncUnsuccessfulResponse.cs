@@ -13,7 +13,7 @@ namespace Codat.Sync.Expenses.Models.Webhooks
     using System.Net.Http;
     using System;
     
-    public class SyncCompleteResponse
+    public class ExpensesSyncUnsuccessfulResponse
     {
 
         /// <summary>

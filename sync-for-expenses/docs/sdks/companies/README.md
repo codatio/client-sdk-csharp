@@ -73,18 +73,12 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```csharp
 using Codat.Sync.Expenses;
 using Codat.Sync.Expenses.Models.Components;
-using System.Collections.Generic;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 CompanyRequestBody req = new CompanyRequestBody() {
     Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<GroupReference>() {
-        new GroupReference() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
 };
 
 var res = await sdk.Companies.CreateAsync(req);
@@ -113,7 +107,6 @@ var res = await sdk.Companies.CreateAsync(req);
 ## Update
 
 ﻿Use the *Update company* endpoint to update both the name and description of the company. 
-If you use [groups](https://docs.codat.io/sync-for-expenses-api#/schemas/Group) to manage a set of companies, use the [Add company](https://docs.codat.io/sync-for-expenses-api#/operations/add-company-to-group) or [Remove company](https://docs.codat.io/sync-for-expenses-api#/operations/remove-company-from-group) endpoints to add or remove a company from a group.
 
 A [company](https://docs.codat.io/sync-for-expenses-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/sync-for-expenses-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -124,7 +117,6 @@ Each company can have multiple [connections](https://docs.codat.io/sync-for-expe
 using Codat.Sync.Expenses;
 using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
-using System.Collections.Generic;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -133,11 +125,6 @@ UpdateCompanyRequest req = new UpdateCompanyRequest() {
     CompanyRequestBody = new CompanyRequestBody() {
         Name = "Bank of Dave",
         Description = "Requested early access to the new financing scheme.",
-        Groups = new List<GroupReference>() {
-            new GroupReference() {
-                Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        },
     },
 };
 

@@ -199,7 +199,7 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
+    DatasetId = "71a4c0fb-8e15-45bd-958d-330b4e6e9f07",
 };
 
 var res = await sdk.ManageData.GetPullOperationAsync(req);

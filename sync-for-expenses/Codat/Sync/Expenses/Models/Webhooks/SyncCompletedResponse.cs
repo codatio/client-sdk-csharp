@@ -7,24 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Sync.Expenses.Models.Components
+namespace Codat.Sync.Expenses.Models.Webhooks
 {
     using Codat.Sync.Expenses.Utils;
-    using Newtonsoft.Json;
+    using System.Net.Http;
+    using System;
     
-    public class CompanyRequestBody
+    public class SyncCompletedResponse
     {
 
         /// <summary>
-        /// Name of company being connected.
+        /// HTTP response content type for this operation
         /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Additional information about the company. This can be used to store foreign IDs, references, etc.
+        /// HTTP response status code for this operation
         /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
+        public int StatusCode { get; set; } = default!;
+
+        /// <summary>
+        /// Raw HTTP response; suitable for custom response parsing
+        /// </summary>
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

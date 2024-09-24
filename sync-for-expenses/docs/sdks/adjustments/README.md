@@ -35,9 +35,9 @@ CreateAdjustmentTransactionRequest req = new CreateAdjustmentTransactionRequest(
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     RequestBody = new List<AdjustmentTransactionRequest>() {
         new AdjustmentTransactionRequest() {
-            Id = "77ad642c-1fc6-4fe0-b241-bcdd89dc7fa5",
+            Id = "7a621cf0-21cd-49cf-8540-3315211a509a",
             Date = "2022-10-23T00:00:00Z",
-            Currency = "European Monetary Unit (E.M.U.-6)",
+            Currency = "Netherlands Antillian Guilder",
             Lines = new List<AdjustmentTransactionLine>() {
                 new AdjustmentTransactionLine() {
                     Amount = 50M,

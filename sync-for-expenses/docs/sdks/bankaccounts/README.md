@@ -38,7 +38,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     BankAccount = new BankAccount() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Currency = "GBP",
+        Currency = "EUR",
         Status = Codat.Sync.Expenses.Models.Components.BankAccountStatus.Active,
     },
 };

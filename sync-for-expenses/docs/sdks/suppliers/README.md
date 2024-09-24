@@ -83,7 +83,7 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetSupplierRequest req = new GetSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    SupplierId = "7110701885",
 };
 
 var res = await sdk.Suppliers.GetAsync(req);
@@ -224,7 +224,7 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 UpdateSupplierRequest req = new UpdateSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    SupplierId = "7110701885",
     Supplier = new Supplier() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",

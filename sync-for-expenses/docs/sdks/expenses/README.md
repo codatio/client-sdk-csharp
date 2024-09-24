@@ -40,7 +40,51 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 CreateExpenseTransactionRequest req = new CreateExpenseTransactionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     RequestBody = new List<ExpenseTransaction>() {
-
+        new ExpenseTransaction() {
+            Id = "a44135b0-6882-489a-83fe-a0c57a4afb19",
+            Type = Codat.Sync.Expenses.Models.Components.Type.Payment,
+            IssueDate = "2024-05-21T00:00:00+00:00",
+            Currency = "GBP",
+            CurrencyRate = 1M,
+            ContactRef = new ExpenseContactRef() {
+                Id = "430",
+                Type = Codat.Sync.Expenses.Models.Components.ExpenseContactRefType.Supplier,
+            },
+            BankAccountRef = new BankAccountReference() {
+                Id = "97",
+            },
+            MerchantName = "Amazon UK",
+            Lines = new List<ExpenseTransactionLine>() {
+                new ExpenseTransactionLine() {
+                    NetAmount = 100M,
+                    TaxAmount = 20M,
+                    TaxRateRef = new RecordRef() {
+                        Id = "23_Bills",
+                    },
+                    AccountRef = new RecordRef() {
+                        Id = "35",
+                    },
+                    ItemRef = new ItemRef() {
+                        Id = "80000002-1675158984",
+                    },
+                    TrackingRefs = new List<TrackingRef>() {
+                        new TrackingRef() {
+                            Id = "DEPARTMENT_3",
+                            DataType = Codat.Sync.Expenses.Models.Components.TrackingRefDataType.TrackingCategories,
+                        },
+                        new TrackingRef() {
+                            Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                            DataType = Codat.Sync.Expenses.Models.Components.TrackingRefDataType.TrackingCategories,
+                        },
+                    },
+                    InvoiceTo = new InvoiceTo() {
+                        Id = "504",
+                        Type = Codat.Sync.Expenses.Models.Components.InvoiceToType.Customer,
+                    },
+                },
+            },
+            Notes = "amazon purchase",
+        },
     },
 };
 
@@ -108,7 +152,29 @@ UpdateExpenseTransactionRequest req = new UpdateExpenseTransactionRequest() {
         },
         MerchantName = "Amazon UK",
         Lines = new List<ExpenseTransactionLine>() {
-
+            new ExpenseTransactionLine() {
+                NetAmount = 100M,
+                TaxAmount = 20M,
+                TaxRateRef = new RecordRef() {
+                    Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                },
+                AccountRef = new RecordRef() {
+                    Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                },
+                ItemRef = new ItemRef() {
+                    Id = "80000002-1675158984",
+                },
+                TrackingRefs = new List<TrackingRef>() {
+                    new TrackingRef() {
+                        Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                        DataType = Codat.Sync.Expenses.Models.Components.TrackingRefDataType.TrackingCategories,
+                    },
+                },
+                InvoiceTo = new InvoiceTo() {
+                    Id = "80000002-1674552702",
+                    Type = Codat.Sync.Expenses.Models.Components.InvoiceToType.Customer,
+                },
+            },
         },
         Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
     },

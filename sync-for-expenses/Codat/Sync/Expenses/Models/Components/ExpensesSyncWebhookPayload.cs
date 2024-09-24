@@ -9,22 +9,20 @@
 #nullable enable
 namespace Codat.Sync.Expenses.Models.Components
 {
+    using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     
-    public class CompanyRequestBody
+    public class ExpensesSyncWebhookPayload
     {
 
-        /// <summary>
-        /// Name of company being connected.
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        [JsonProperty("referenceCompany")]
+        public CompanyReference? ReferenceCompany { get; set; }
 
         /// <summary>
-        /// Additional information about the company. This can be used to store foreign IDs, references, etc.
+        /// Unique identifier of the sync.
         /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
+        [JsonProperty("syncId")]
+        public string? SyncId { get; set; }
     }
 }

@@ -10,21 +10,11 @@
 namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
-    using Newtonsoft.Json;
     
-    public class CompanyRequestBody
+    /// <summary>
+    /// A collection of user-defined key-value pairs that store custom metadata against the company.
+    /// </summary>
+    public class CompanyTags
     {
-
-        /// <summary>
-        /// Name of company being connected.
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; } = default!;
-
-        /// <summary>
-        /// Additional information about the company. This can be used to store foreign IDs, references, etc.
-        /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
     }
 }

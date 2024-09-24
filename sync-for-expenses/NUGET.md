@@ -56,7 +56,9 @@ var res = await sdk.Companies.ListAsync(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-    ),req);
+    ),
+    req
+);
 
 // handle response
 ```
@@ -132,11 +134,13 @@ catch (Exception ex)
 {
     if (ex is ErrorMessage)
     {
-        // handle exception
+        // Handle exception data
+        throw;
     }
-    else if (ex is Codat.Sync.Expenses.Models.Errors.SDKException)
+    else if (ex is Models.Errors.SDKException)
     {
-        // handle exception
+        // Handle default exception
+        throw;
     }
 }
 ```

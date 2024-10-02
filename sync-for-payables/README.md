@@ -88,25 +88,17 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Companies](docs/sdks/companies/README.md)
+<details open>
+<summary>Available methods</summary>
 
-* [List](docs/sdks/companies/README.md#list) - List companies
-* [Create](docs/sdks/companies/README.md#create) - Create company
-* [Update](docs/sdks/companies/README.md#update) - Update company
-* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
-* [Get](docs/sdks/companies/README.md#get) - Get company
+### [BankAccounts](docs/sdks/bankaccounts/README.md)
 
-### [Connections](docs/sdks/connections/README.md)
+* [Create](docs/sdks/bankaccounts/README.md#create) - Create bank account
 
-* [List](docs/sdks/connections/README.md#list) - List connections
-* [Create](docs/sdks/connections/README.md#create) - Create connection
-* [Get](docs/sdks/connections/README.md#get) - Get connection
-* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
-* [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+### [BillPayments](docs/sdks/billpayments/README.md)
 
-### [CompanyInformation](docs/sdks/companyinformation/README.md)
-
-* [Get](docs/sdks/companyinformation/README.md#get) - Get company information
+* [GetPaymentOptions](docs/sdks/billpayments/README.md#getpaymentoptions) - Get payment mapping options
+* [Create](docs/sdks/billpayments/README.md#create) - Create bill payment
 
 ### [Bills](docs/sdks/bills/README.md)
 
@@ -117,19 +109,33 @@ var res = await sdk.Companies.ListAsync(req);
 * [ListAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
 * [DownloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
 
-### [BillPayments](docs/sdks/billpayments/README.md)
 
-* [GetPaymentOptions](docs/sdks/billpayments/README.md#getpaymentoptions) - Get payment mapping options
-* [Create](docs/sdks/billpayments/README.md#create) - Create bill payment
+### [Companies](docs/sdks/companies/README.md)
+
+* [List](docs/sdks/companies/README.md#list) - List companies
+* [Create](docs/sdks/companies/README.md#create) - Create company
+* [Update](docs/sdks/companies/README.md#update) - Update company
+* [Delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [Get](docs/sdks/companies/README.md#get) - Get company
+
+### [CompanyInformation](docs/sdks/companyinformation/README.md)
+
+* [Get](docs/sdks/companyinformation/README.md#get) - Get company information
+
+### [Connections](docs/sdks/connections/README.md)
+
+* [List](docs/sdks/connections/README.md#list) - List connections
+* [Create](docs/sdks/connections/README.md#create) - Create connection
+* [Get](docs/sdks/connections/README.md#get) - Get connection
+* [Delete](docs/sdks/connections/README.md#delete) - Delete connection
+* [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
 ### [Suppliers](docs/sdks/suppliers/README.md)
 
 * [List](docs/sdks/suppliers/README.md#list) - List suppliers
 * [Create](docs/sdks/suppliers/README.md#create) - Create supplier
 
-### [BankAccounts](docs/sdks/bankaccounts/README.md)
-
-* [Create](docs/sdks/bankaccounts/README.md#create) - Create bank account
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Retries [retries] -->
@@ -162,7 +168,9 @@ var res = await sdk.Companies.ListAsync(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-    ),req);
+    ),
+    req
+);
 
 // handle response
 ```
@@ -203,12 +211,23 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+By default, an API error will raise a `Codat.Sync.Payables.Models.Errors.SDKException` exception, which has the following properties:
+
+| Property      | Type                  | Description           |
+|---------------|-----------------------|-----------------------|
+| `Message`     | *string*              | The error message     |
+| `StatusCode`  | *int*                 | The HTTP status code  |
+| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
+| `Body`        | *string*              | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `ListAsync` method throws the following exceptions:
+
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Payables.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Payables.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ### Example
 
@@ -238,11 +257,13 @@ catch (Exception ex)
 {
     if (ex is ErrorMessage)
     {
-        // handle exception
+        // Handle exception data
+        throw;
     }
     else if (ex is Codat.Sync.Payables.Models.Errors.SDKException)
     {
-        // handle exception
+        // Handle default exception
+        throw;
     }
 }
 ```

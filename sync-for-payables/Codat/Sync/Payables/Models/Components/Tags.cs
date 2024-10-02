@@ -10,15 +10,11 @@
 namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
-    using Newtonsoft.Json;
     
-    public class GroupReference
+    /// <summary>
+    /// A collection of user-defined key-value pairs that store custom metadata against the company.
+    /// </summary>
+    public class Tags
     {
-
-        /// <summary>
-        /// Unique identifier for the group.
-        /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
     }
 }

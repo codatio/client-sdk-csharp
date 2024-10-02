@@ -13,7 +13,6 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    using System;
     
     /// <summary>
     /// In Codat, a company represents a business sharing access to their data. Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources such as one connection to <a href="https://docs.codat.io/integrations/accounting/xero/accounting-xero">Xero</a> for accounting data, two connections to <a href="https://docs.codat.io/integrations/banking/plaid/banking-plaid">Plaid</a> for two bank accounts and a connection to <a href="https://docs.codat.io/integrations/commerce/zettle/commerce-zettle">Zettle</a> for POS data.<br/>
@@ -45,13 +44,6 @@ namespace Codat.Sync.Payables.Models.Components
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
-
-        /// <summary>
-        /// `platformKeys` name used when creating the company.
-        /// </summary>
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [JsonProperty("platform")]
-        public string? Platform { get; set; }
 
         /// <summary>
         /// The `redirect` <a href="https://docs.codat.io/auth-flow/authorize-hosted-link">Link URL</a> enabling the customer to start their auth flow journey for the company.
@@ -117,15 +109,21 @@ namespace Codat.Sync.Payables.Models.Components
         /// Name of user that created the company in Codat.
         /// </summary>
         [JsonProperty("createdByUserName")]
-        public string? CreatedByUserName { get; set; }
+        public string? CreatedByUserName { get; set; } = null;
+
+        /// <summary>
+        /// An array of products that are currently enabled for the company.
+        /// </summary>
+        [JsonProperty("products")]
+        public List<string>? Products { get; set; }
+
+        /// <summary>
+        /// A collection of user-defined key-value pairs that store custom metadata against the company.
+        /// </summary>
+        [JsonProperty("tags")]
+        public CompanyTags? Tags { get; set; }
 
         [JsonProperty("dataConnections")]
         public List<Connection>? DataConnections { get; set; }
-
-        /// <summary>
-        /// An array of groups the company has been assigned to.
-        /// </summary>
-        [JsonProperty("groups")]
-        public List<GroupReference>? Groups { get; set; }
     }
 }

@@ -124,6 +124,6 @@ namespace Codat.Sync.Payables.Models.Components
         public decimal? AmountDue { get; set; } = null;
 
         [JsonProperty("sourceModifiedDate")]
-        public One? SourceModifiedDate { get; set; } = null;
+        public string? SourceModifiedDate { get; set; }
     }
 }

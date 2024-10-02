@@ -1,4 +1,4 @@
-speakeasyVersion: 1.402.1
+speakeasyVersion: 1.405.8
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -32,6 +32,13 @@ sources:
         sourceNamespace: sync-for-expenses-source
         sourceRevisionDigest: sha256:29b3738ed98f81087388bc423a26d18d807ebff3e1fe826a8c3d38ec257526ad
         sourceBlobDigest: sha256:8ff5db8d481a4d93a95e36d83aee7ea08d38383a681da291f47206e4153bb757
+        tags:
+            - latest
+            - main
+    sync-for-payables-source:
+        sourceNamespace: sync-for-payables-source
+        sourceRevisionDigest: sha256:5bbca92291f77d408d1172141904f939ff18db2c6db88c6f2e88717981ab30e4
+        sourceBlobDigest: sha256:b2999b2b9b935bfc647fe90125f27429ceca251baba134fe2e1b28ee05204eb6
         tags:
             - latest
             - main
@@ -75,6 +82,11 @@ targets:
         sourceNamespace: sync-for-expenses-source
         sourceRevisionDigest: sha256:29b3738ed98f81087388bc423a26d18d807ebff3e1fe826a8c3d38ec257526ad
         sourceBlobDigest: sha256:8ff5db8d481a4d93a95e36d83aee7ea08d38383a681da291f47206e4153bb757
+    sync-for-payables-library:
+        source: sync-for-payables-source
+        sourceNamespace: sync-for-payables-source
+        sourceRevisionDigest: sha256:5bbca92291f77d408d1172141904f939ff18db2c6db88c6f2e88717981ab30e4
+        sourceBlobDigest: sha256:b2999b2b9b935bfc647fe90125f27429ceca251baba134fe2e1b28ee05204eb6
     sync-for-payables-version-1-library:
         source: sync-for-payables-version-1-source
         sourceNamespace: sync-for-payables-version-1-source
@@ -117,6 +129,8 @@ workflow:
         sync-for-payables-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-source
         sync-for-payables-version-1-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables-v1.yaml

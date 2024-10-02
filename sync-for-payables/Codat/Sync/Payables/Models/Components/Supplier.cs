@@ -81,6 +81,6 @@ namespace Codat.Sync.Payables.Models.Components
         public string? DefaultCurrency { get; set; } = null;
 
         [JsonProperty("sourceModifiedDate")]
-        public One? SourceModifiedDate { get; set; } = null;
+        public string? SourceModifiedDate { get; set; }
     }
 }

@@ -135,12 +135,9 @@ namespace Codat.Sync.Payables.Models.Components
         public string Created { get; set; } = default!;
 
         [JsonProperty("dataConnectionErrors")]
-        public List<DataConnectionError>? DataConnectionErrors { get; set; }
+        public List<DataConnectionError>? DataConnectionErrors { get; set; } = null;
 
         [JsonProperty("connectionInfo")]
-        public Dictionary<string, string>? ConnectionInfo { get; set; }
-
-        [JsonProperty("additionalProperties")]
-        public object? AdditionalProperties { get; set; }
+        public Dictionary<string, string>? ConnectionInfo { get; set; } = null;
     }
 }

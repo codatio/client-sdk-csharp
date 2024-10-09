@@ -47,10 +47,10 @@ namespace Codat.Sync.Payables
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.429.0";
+        private const string _sdkVersion = "5.0.1";
+        private const string _sdkGenVersion = "2.436.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.429.0 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.436.3 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;
@@ -154,7 +154,7 @@ namespace Codat.Sync.Payables
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if(responseStatusCode == 201)
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {

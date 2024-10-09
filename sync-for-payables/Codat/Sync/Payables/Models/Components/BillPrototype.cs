@@ -101,17 +101,5 @@ namespace Codat.Sync.Payables.Models.Components
         /// </summary>
         [JsonProperty("status")]
         public BillStatus Status { get; set; } = default!;
-
-        /// <summary>
-        /// Amount of the bill, including tax.
-        /// </summary>
-        [JsonProperty("totalAmount")]
-        public decimal? TotalAmount { get; set; }
-
-        /// <summary>
-        /// Amount outstanding on the bill.
-        /// </summary>
-        [JsonProperty("amountDue")]
-        public decimal? AmountDue { get; set; } = null;
     }
 }

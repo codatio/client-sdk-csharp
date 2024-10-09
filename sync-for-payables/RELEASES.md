@@ -119,3 +119,13 @@ Based on:
 - [csharp v5.0.0] sync-for-payables
 ### Releases
 - [NuGet v5.0.0] https://www.nuget.org/packages/Codat.Sync.Payables/5.0.0 - sync-for-payables
+
+## 2024-10-09 08:38:10
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.413.0 (2.436.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v5.0.1] sync-for-payables
+### Releases
+- [NuGet v5.0.1] https://www.nuget.org/packages/Codat.Sync.Payables/5.0.1 - sync-for-payables

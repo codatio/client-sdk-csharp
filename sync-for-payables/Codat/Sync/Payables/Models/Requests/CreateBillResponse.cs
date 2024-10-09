@@ -33,7 +33,7 @@ namespace Codat.Sync.Payables.Models.Requests
         public HttpResponseMessage RawResponse { get; set; } = default!;
 
         /// <summary>
-        /// Success
+        /// Created
         /// </summary>
         public Bill? Bill { get; set; }
     }

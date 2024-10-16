@@ -9,10 +9,9 @@
 #nullable enable
 namespace Codat.Platform.Models.Requests
 {
-    using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     
-    public class AddCompanyToGroupRequest
+    public class AddProductRequest
     {
 
         /// <summary>
@@ -21,7 +20,10 @@ namespace Codat.Platform.Models.Requests
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
         public string CompanyId { get; set; } = default!;
 
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CompanyGroupAssignment? CompanyGroupAssignment { get; set; }
+        /// <summary>
+        /// Human-readable product identifier for a product.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=productIdentifier")]
+        public string ProductIdentifier { get; set; } = default!;
     }
 }

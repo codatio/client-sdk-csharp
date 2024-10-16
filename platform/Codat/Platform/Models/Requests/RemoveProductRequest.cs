@@ -7,27 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Platform.Models.Components
+namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
-    using Newtonsoft.Json;
     
-    /// <summary>
-    /// A container you can use to organize companies together according to a shared characteristic of your choice.
-    /// </summary>
-    public class Group
+    public class RemoveProductRequest
     {
 
         /// <summary>
-        /// Unique identifier for the group.
+        /// Unique identifier for a company.
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
+        public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// Descriptive name of the group.
+        /// Human-readable product identifier for a product.
         /// </summary>
-        [JsonProperty("name")]
-        public string? Name { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=productIdentifier")]
+        public string ProductIdentifier { get; set; } = default!;
     }
 }

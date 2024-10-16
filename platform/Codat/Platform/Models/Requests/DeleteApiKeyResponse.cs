@@ -9,7 +9,7 @@
 #nullable enable
 namespace Codat.Platform.Models.Requests
 {
-    using Codat.Platform.Models.Errors;
+    using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using System.Net.Http;
     using System;
@@ -35,6 +35,6 @@ namespace Codat.Platform.Models.Requests
         /// <summary>
         /// Too many requests were made in a given amount of time. Wait a short period and then try again.
         /// </summary>
-        public ErrorMessage? ErrorMessage { get; set; }
+        public Models.Components.ErrorMessage? ErrorMessage { get; set; }
     }
 }

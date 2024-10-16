@@ -1,4 +1,4 @@
-speakeasyVersion: 1.413.0
+speakeasyVersion: 1.418.4
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -16,8 +16,8 @@ sources:
             - main
     platform-source:
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:63cd9348c74d8931dbcbeaefdb72a6d1d62e739c2863ffd9eaee728cc1f61f98
-        sourceBlobDigest: sha256:e1e3f4c3ed16022322bc656bb0e4ef28c04fff8c92c271cc859c6e2b32af5613
+        sourceRevisionDigest: sha256:2e7fac159cc727c6b0516a9e565cd409a8c5d561c60b2c895418eb4316309ce7
+        sourceBlobDigest: sha256:e259ef6a23f78308cb5ab736c7a6d80b5aea7fc3a6143279474cf171382c240b
         tags:
             - latest
             - main
@@ -70,8 +70,8 @@ targets:
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:63cd9348c74d8931dbcbeaefdb72a6d1d62e739c2863ffd9eaee728cc1f61f98
-        sourceBlobDigest: sha256:e1e3f4c3ed16022322bc656bb0e4ef28c04fff8c92c271cc859c6e2b32af5613
+        sourceRevisionDigest: sha256:2e7fac159cc727c6b0516a9e565cd409a8c5d561c60b2c895418eb4316309ce7
+        sourceBlobDigest: sha256:e259ef6a23f78308cb5ab736c7a6d80b5aea7fc3a6143279474cf171382c240b
     sync-for-commerce-library:
         source: sync-for-commerce-source
         sourceNamespace: sync-for-commerce-source

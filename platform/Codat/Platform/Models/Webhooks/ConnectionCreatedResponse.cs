@@ -7,14 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Platform.Models.Requests
+namespace Codat.Platform.Models.Webhooks
 {
-    using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using System.Net.Http;
     using System;
     
-    public class ListGroupsResponse
+    public class ConnectionCreatedResponse
     {
 
         /// <summary>
@@ -31,10 +30,5 @@ namespace Codat.Platform.Models.Requests
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        public Models.Components.Groups? Groups { get; set; }
     }
 }

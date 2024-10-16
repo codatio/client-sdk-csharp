@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 803b84ac-e26a-4a5c-9224-dbc3d0c7712a
 management:
-  docChecksum: ef83be90b9eb0e15a21f5dbf01fbe486
+  docChecksum: fa7e74c9f2e33354d13a0f72d08ff68a
   docVersion: 3.0.0
-  speakeasyVersion: 1.396.6
-  generationVersion: 2.415.6
-  releaseVersion: 4.0.0
-  configChecksum: 1b554f36d94924f2f82b9e2f66efb269
+  speakeasyVersion: 1.418.4
+  generationVersion: 2.438.3
+  releaseVersion: 4.1.0
+  configChecksum: ef9b92ce4b19182f40d2e5ff9717a23e
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: platform
   published: true
@@ -14,7 +14,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.9.19
+    core: 3.10.3
     deprecations: 2.81.2
     examples: 2.81.3
     globalSecurity: 2.83.6
@@ -41,7 +41,6 @@ generatedFiles:
   - Codat/Platform/Connections.cs
   - Codat/Platform/CorsSettings.cs
   - Codat/Platform/CustomDataType.cs
-  - Codat/Platform/Groups.cs
   - Codat/Platform/Hooks/HookTypes.cs
   - Codat/Platform/Hooks/SDKHooks.cs
   - Codat/Platform/Integrations.cs
@@ -61,15 +60,18 @@ generatedFiles:
   - Codat/Platform/Models/Components/Company.cs
   - Codat/Platform/Models/Components/CompanyDetails.cs
   - Codat/Platform/Models/Components/CompanyDetailsTags.cs
-  - Codat/Platform/Models/Components/CompanyGroupAssignment.cs
   - Codat/Platform/Models/Components/CompanyReference.cs
+  - Codat/Platform/Models/Components/CompanyReferenceLinks.cs
   - Codat/Platform/Models/Components/CompanyRequestBody.cs
+  - Codat/Platform/Models/Components/CompanyTags.cs
   - Codat/Platform/Models/Components/CompanyWebhook.cs
   - Codat/Platform/Models/Components/Connection.cs
   - Codat/Platform/Models/Components/ConnectionManagementAccessToken.cs
   - Codat/Platform/Models/Components/ConnectionManagementAllowedOrigins.cs
   - Codat/Platform/Models/Components/ConnectionStatusChangedWebhook.cs
   - Codat/Platform/Models/Components/ConnectionStatusChangedWebhookData.cs
+  - Codat/Platform/Models/Components/ConnectionWebhook.cs
+  - Codat/Platform/Models/Components/ConnectionWebhookPayload.cs
   - Codat/Platform/Models/Components/Connections.cs
   - Codat/Platform/Models/Components/Content.cs
   - Codat/Platform/Models/Components/CreateApiKey.cs
@@ -80,6 +82,7 @@ generatedFiles:
   - Codat/Platform/Models/Components/DataConnectionError.cs
   - Codat/Platform/Models/Components/DataConnectionStatus.cs
   - Codat/Platform/Models/Components/DataStatus.cs
+  - Codat/Platform/Models/Components/DataStatusDataTypes.cs
   - Codat/Platform/Models/Components/DataStatuses.cs
   - Codat/Platform/Models/Components/DataSyncCompletedWebhook.cs
   - Codat/Platform/Models/Components/DataSyncCompletedWebhookData.cs
@@ -94,15 +97,12 @@ generatedFiles:
   - Codat/Platform/Models/Components/DatasetStatus.cs
   - Codat/Platform/Models/Components/DatasetStatusChangedErrorWebhook.cs
   - Codat/Platform/Models/Components/DatasetStatusChangedErrorWebhookData.cs
+  - Codat/Platform/Models/Components/ErrorMessage.cs
   - Codat/Platform/Models/Components/ErrorStatus.cs
   - Codat/Platform/Models/Components/ErrorValidation.cs
   - Codat/Platform/Models/Components/ErrorValidationItem.cs
   - Codat/Platform/Models/Components/FeatureState.cs
   - Codat/Platform/Models/Components/FeatureType.cs
-  - Codat/Platform/Models/Components/Group.cs
-  - Codat/Platform/Models/Components/GroupPrototype.cs
-  - Codat/Platform/Models/Components/GroupRef.cs
-  - Codat/Platform/Models/Components/Groups.cs
   - Codat/Platform/Models/Components/HalRef.cs
   - Codat/Platform/Models/Components/ImageReference.cs
   - Codat/Platform/Models/Components/Integration.cs
@@ -130,6 +130,8 @@ generatedFiles:
   - Codat/Platform/Models/Components/PushOptionProperty.cs
   - Codat/Platform/Models/Components/PushOptionType.cs
   - Codat/Platform/Models/Components/PushValidationInfo.cs
+  - Codat/Platform/Models/Components/ReadCompletedWebhook.cs
+  - Codat/Platform/Models/Components/ReadCompletedWebhookPayload.cs
   - Codat/Platform/Models/Components/Security.cs
   - Codat/Platform/Models/Components/SourceType.cs
   - Codat/Platform/Models/Components/Status.cs
@@ -152,8 +154,8 @@ generatedFiles:
   - Codat/Platform/Models/Components/WriteType.cs
   - Codat/Platform/Models/Errors/ErrorMessage.cs
   - Codat/Platform/Models/Errors/SDKException.cs
-  - Codat/Platform/Models/Requests/AddCompanyToGroupRequest.cs
-  - Codat/Platform/Models/Requests/AddCompanyToGroupResponse.cs
+  - Codat/Platform/Models/Requests/AddProductRequest.cs
+  - Codat/Platform/Models/Requests/AddProductResponse.cs
   - Codat/Platform/Models/Requests/ConfigureCustomDataTypeRequest.cs
   - Codat/Platform/Models/Requests/ConfigureCustomDataTypeResponse.cs
   - Codat/Platform/Models/Requests/ConfigureSupplementalDataRequest.cs
@@ -163,7 +165,6 @@ generatedFiles:
   - Codat/Platform/Models/Requests/CreateConnectionRequest.cs
   - Codat/Platform/Models/Requests/CreateConnectionRequestBody.cs
   - Codat/Platform/Models/Requests/CreateConnectionResponse.cs
-  - Codat/Platform/Models/Requests/CreateGroupResponse.cs
   - Codat/Platform/Models/Requests/CreateRuleResponse.cs
   - Codat/Platform/Models/Requests/CreateWebhookConsumerResponse.cs
   - Codat/Platform/Models/Requests/DataType.cs
@@ -211,7 +212,6 @@ generatedFiles:
   - Codat/Platform/Models/Requests/ListConnectionsResponse.cs
   - Codat/Platform/Models/Requests/ListCustomDataTypeRecordsRequest.cs
   - Codat/Platform/Models/Requests/ListCustomDataTypeRecordsResponse.cs
-  - Codat/Platform/Models/Requests/ListGroupsResponse.cs
   - Codat/Platform/Models/Requests/ListIntegrationsRequest.cs
   - Codat/Platform/Models/Requests/ListIntegrationsResponse.cs
   - Codat/Platform/Models/Requests/ListPullOperationsRequest.cs
@@ -226,8 +226,8 @@ generatedFiles:
   - Codat/Platform/Models/Requests/RefreshCustomDataTypeResponse.cs
   - Codat/Platform/Models/Requests/RefreshDataTypeRequest.cs
   - Codat/Platform/Models/Requests/RefreshDataTypeResponse.cs
-  - Codat/Platform/Models/Requests/RemoveCompanyFromGroupRequest.cs
-  - Codat/Platform/Models/Requests/RemoveCompanyFromGroupResponse.cs
+  - Codat/Platform/Models/Requests/RemoveProductRequest.cs
+  - Codat/Platform/Models/Requests/RemoveProductResponse.cs
   - Codat/Platform/Models/Requests/SetConnectionManagementCorsSettingsResponse.cs
   - Codat/Platform/Models/Requests/UnlinkConnectionRequest.cs
   - Codat/Platform/Models/Requests/UnlinkConnectionResponse.cs
@@ -245,6 +245,11 @@ generatedFiles:
   - Codat/Platform/Models/Webhooks/CompanyCreatedResponse.cs
   - Codat/Platform/Models/Webhooks/CompanyDataConnectionStatusChangedResponse.cs
   - Codat/Platform/Models/Webhooks/CompanyDeletedResponse.cs
+  - Codat/Platform/Models/Webhooks/ConnectionConnectedResponse.cs
+  - Codat/Platform/Models/Webhooks/ConnectionCreatedResponse.cs
+  - Codat/Platform/Models/Webhooks/ConnectionDeletedResponse.cs
+  - Codat/Platform/Models/Webhooks/ConnectionDisconnectedResponse.cs
+  - Codat/Platform/Models/Webhooks/ConnectionReconnectedResponse.cs
   - Codat/Platform/Models/Webhooks/DataSyncCompletedResponse.cs
   - Codat/Platform/Models/Webhooks/DataTypeWriteSuccessfulResponse.cs
   - Codat/Platform/Models/Webhooks/DataTypeWriteUnsuccessfulResponse.cs
@@ -253,6 +258,8 @@ generatedFiles:
   - Codat/Platform/Models/Webhooks/NewCompanySynchronizedResponse.cs
   - Codat/Platform/Models/Webhooks/PushOperationHasTimedOutResponse.cs
   - Codat/Platform/Models/Webhooks/PushOperationStatusHasChangedResponse.cs
+  - Codat/Platform/Models/Webhooks/ReadCompletedInitialResponse.cs
+  - Codat/Platform/Models/Webhooks/ReadCompletedResponse.cs
   - Codat/Platform/PushData.cs
   - Codat/Platform/RefreshData.cs
   - Codat/Platform/Settings.cs
@@ -293,15 +300,18 @@ generatedFiles:
   - docs/Models/Components/Company.md
   - docs/Models/Components/CompanyDetails.md
   - docs/Models/Components/CompanyDetailsTags.md
-  - docs/Models/Components/CompanyGroupAssignment.md
   - docs/Models/Components/CompanyReference.md
+  - docs/Models/Components/CompanyReferenceLinks.md
   - docs/Models/Components/CompanyRequestBody.md
+  - docs/Models/Components/CompanyTags.md
   - docs/Models/Components/CompanyWebhook.md
   - docs/Models/Components/Connection.md
   - docs/Models/Components/ConnectionManagementAccessToken.md
   - docs/Models/Components/ConnectionManagementAllowedOrigins.md
   - docs/Models/Components/ConnectionStatusChangedWebhook.md
   - docs/Models/Components/ConnectionStatusChangedWebhookData.md
+  - docs/Models/Components/ConnectionWebhook.md
+  - docs/Models/Components/ConnectionWebhookPayload.md
   - docs/Models/Components/Connections.md
   - docs/Models/Components/Content.md
   - docs/Models/Components/CreateApiKey.md
@@ -312,6 +322,7 @@ generatedFiles:
   - docs/Models/Components/DataConnectionError.md
   - docs/Models/Components/DataConnectionStatus.md
   - docs/Models/Components/DataStatus.md
+  - docs/Models/Components/DataStatusDataTypes.md
   - docs/Models/Components/DataStatuses.md
   - docs/Models/Components/DataSyncCompletedWebhook.md
   - docs/Models/Components/DataSyncCompletedWebhookData.md
@@ -326,15 +337,12 @@ generatedFiles:
   - docs/Models/Components/DatasetStatus.md
   - docs/Models/Components/DatasetStatusChangedErrorWebhook.md
   - docs/Models/Components/DatasetStatusChangedErrorWebhookData.md
+  - docs/Models/Components/ErrorMessage.md
   - docs/Models/Components/ErrorStatus.md
   - docs/Models/Components/ErrorValidation.md
   - docs/Models/Components/ErrorValidationItem.md
   - docs/Models/Components/FeatureState.md
   - docs/Models/Components/FeatureType.md
-  - docs/Models/Components/Group.md
-  - docs/Models/Components/GroupPrototype.md
-  - docs/Models/Components/GroupRef.md
-  - docs/Models/Components/Groups.md
   - docs/Models/Components/HalRef.md
   - docs/Models/Components/ImageReference.md
   - docs/Models/Components/Integration.md
@@ -362,6 +370,8 @@ generatedFiles:
   - docs/Models/Components/PushOptionProperty.md
   - docs/Models/Components/PushOptionType.md
   - docs/Models/Components/PushValidationInfo.md
+  - docs/Models/Components/ReadCompletedWebhook.md
+  - docs/Models/Components/ReadCompletedWebhookPayload.md
   - docs/Models/Components/Security.md
   - docs/Models/Components/SourceType.md
   - docs/Models/Components/Status.md
@@ -383,8 +393,8 @@ generatedFiles:
   - docs/Models/Components/WriteStatus.md
   - docs/Models/Components/WriteType.md
   - docs/Models/Errors/ErrorMessage.md
-  - docs/Models/Requests/AddCompanyToGroupRequest.md
-  - docs/Models/Requests/AddCompanyToGroupResponse.md
+  - docs/Models/Requests/AddProductRequest.md
+  - docs/Models/Requests/AddProductResponse.md
   - docs/Models/Requests/ConfigureCustomDataTypeRequest.md
   - docs/Models/Requests/ConfigureCustomDataTypeResponse.md
   - docs/Models/Requests/ConfigureSupplementalDataRequest.md
@@ -394,7 +404,6 @@ generatedFiles:
   - docs/Models/Requests/CreateConnectionRequest.md
   - docs/Models/Requests/CreateConnectionRequestBody.md
   - docs/Models/Requests/CreateConnectionResponse.md
-  - docs/Models/Requests/CreateGroupResponse.md
   - docs/Models/Requests/CreateRuleResponse.md
   - docs/Models/Requests/CreateWebhookConsumerResponse.md
   - docs/Models/Requests/DataType.md
@@ -442,7 +451,6 @@ generatedFiles:
   - docs/Models/Requests/ListConnectionsResponse.md
   - docs/Models/Requests/ListCustomDataTypeRecordsRequest.md
   - docs/Models/Requests/ListCustomDataTypeRecordsResponse.md
-  - docs/Models/Requests/ListGroupsResponse.md
   - docs/Models/Requests/ListIntegrationsRequest.md
   - docs/Models/Requests/ListIntegrationsResponse.md
   - docs/Models/Requests/ListPullOperationsRequest.md
@@ -457,8 +465,8 @@ generatedFiles:
   - docs/Models/Requests/RefreshCustomDataTypeResponse.md
   - docs/Models/Requests/RefreshDataTypeRequest.md
   - docs/Models/Requests/RefreshDataTypeResponse.md
-  - docs/Models/Requests/RemoveCompanyFromGroupRequest.md
-  - docs/Models/Requests/RemoveCompanyFromGroupResponse.md
+  - docs/Models/Requests/RemoveProductRequest.md
+  - docs/Models/Requests/RemoveProductResponse.md
   - docs/Models/Requests/SetConnectionManagementCorsSettingsResponse.md
   - docs/Models/Requests/UnlinkConnectionRequest.md
   - docs/Models/Requests/UnlinkConnectionResponse.md
@@ -476,6 +484,11 @@ generatedFiles:
   - docs/Models/Webhooks/CompanyCreatedResponse.md
   - docs/Models/Webhooks/CompanyDataConnectionStatusChangedResponse.md
   - docs/Models/Webhooks/CompanyDeletedResponse.md
+  - docs/Models/Webhooks/ConnectionConnectedResponse.md
+  - docs/Models/Webhooks/ConnectionCreatedResponse.md
+  - docs/Models/Webhooks/ConnectionDeletedResponse.md
+  - docs/Models/Webhooks/ConnectionDisconnectedResponse.md
+  - docs/Models/Webhooks/ConnectionReconnectedResponse.md
   - docs/Models/Webhooks/DataSyncCompletedResponse.md
   - docs/Models/Webhooks/DataTypeWriteSuccessfulResponse.md
   - docs/Models/Webhooks/DataTypeWriteUnsuccessfulResponse.md
@@ -484,13 +497,14 @@ generatedFiles:
   - docs/Models/Webhooks/NewCompanySynchronizedResponse.md
   - docs/Models/Webhooks/PushOperationHasTimedOutResponse.md
   - docs/Models/Webhooks/PushOperationStatusHasChangedResponse.md
+  - docs/Models/Webhooks/ReadCompletedInitialResponse.md
+  - docs/Models/Webhooks/ReadCompletedResponse.md
   - docs/sdks/codatplatform/README.md
   - docs/sdks/companies/README.md
   - docs/sdks/connectionmanagement/README.md
   - docs/sdks/connections/README.md
   - docs/sdks/corssettings/README.md
   - docs/sdks/customdatatype/README.md
-  - docs/sdks/groups/README.md
   - docs/sdks/integrations/README.md
   - docs/sdks/pushdata/README.md
   - docs/sdks/refreshdata/README.md
@@ -589,14 +603,14 @@ examples:
   create-company:
     With no description:
       requestBody:
-        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
           application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
         "400": {}
     With a description:
       requestBody:
-        application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development", "groups": []}
+        application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development"}
       responses:
         "200":
           application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
@@ -610,12 +624,18 @@ examples:
         "400": {}
     Malformed query:
       requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
           application/json: {"created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [], "id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "lastSync": "2022-10-27T10:22:43.6464237Z", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "platformName": "Basiq", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "status": "Linked"}], "description": "Requested early access to the new financing scheme.", "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}], "id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "lastSync": "2022-01-01T12:00:00.000Z", "name": "string", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739"}
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    With a tag:
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
   delete-company:
     Unauthorized:
       parameters:
@@ -671,7 +691,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
         "400": {}
     List of Companies:
       parameters:
@@ -682,7 +702,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}]}, {"id": "096db70b-78de-4ff0-aa98-299cb5fe17a0", "name": "Godata", "description": "A new digital agency with a passion for creating amazing digital experiences", "redirect": "https://link.codat.io/company/096db70b-78de-4ff0-aa98-299cb5fe17a0", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "a70bc148-dc21-46b2-a257-d9c58ac15cbb", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/096db70b-78de-4ff0-aa98-299cb5fe17a0/connections/a70bc148-dc21-46b2-a257-d9c58ac15cbb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 2, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}, {"id": "096db70b-78de-4ff0-aa98-299cb5fe17a0", "name": "Godata", "description": "A new digital agency with a passion for creating amazing digital experiences", "redirect": "https://link.codat.io/company/096db70b-78de-4ff0-aa98-299cb5fe17a0", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "a70bc148-dc21-46b2-a257-d9c58ac15cbb", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/096db70b-78de-4ff0-aa98-299cb5fe17a0/connections/a70bc148-dc21-46b2-a257-d9c58ac15cbb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 2, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
         "400": {}
     Malformed query:
       parameters:
@@ -714,17 +734,17 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       requestBody:
-        application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}
         "401": {}
     Update description:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       requestBody:
-        application/json: {"name": "Same name", "description": "Additional documents required", "groups": []}
+        application/json: {"name": "Same name", "description": "Additional documents required"}
       responses:
         "200":
           application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
@@ -734,7 +754,7 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
           application/json: {"created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [], "id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "lastSync": "2022-10-27T10:22:43.6464237Z", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "platformName": "Basiq", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "status": "Linked"}], "description": "Requested early access to the new financing scheme.", "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}], "id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "lastSync": "2022-01-01T12:00:00.000Z", "name": "string", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739"}
@@ -862,7 +882,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
         "400": {}
     Malformed query:
       parameters:
@@ -1573,7 +1593,7 @@ examples:
     Webhook consumers:
       responses:
         "200":
-          application/json: {"results": [{"id": "12571faf-0898-47e7-afdd-0fe9eb0a9bf5", "url": "https://example.com/webhoook-consumers/sync-complete", "disabled": false, "eventTypes": ["DataSyncCompleted"], "companyId": "8a210b68-6988-11ed-a1eb-0242ac120002"}, {"id": "ca3cac86-7925-4759-abc2-96405780fdfa", "url": "https://example.com/webhoook-consumers/dataset-changed", "disabled": true, "eventTypes": ["DatasetDataChanged"], "companyId": "8a210b68-6988-11ed-a1eb-0242ac120002"}]}
+          application/json: {"results": [{"id": "12571faf-0898-47e7-afdd-0fe9eb0a9bf5", "url": "https://example.com/webhoook-consumers/sync-complete", "disabled": false, "eventTypes": ["DataSyncCompleted"]}, {"id": "ca3cac86-7925-4759-abc2-96405780fdfa", "url": "https://example.com/webhoook-consumers/dataset-changed", "disabled": true, "eventTypes": ["DatasetDataChanged"]}]}
         "400": {}
     Malformed query:
       responses:
@@ -1581,3 +1601,21 @@ examples:
           application/json: {"results": []}
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  add-product:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          productIdentifier: "lending"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  remove-product:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          productIdentifier: "expenses"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}

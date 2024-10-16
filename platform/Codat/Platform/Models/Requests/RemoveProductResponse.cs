@@ -9,12 +9,11 @@
 #nullable enable
 namespace Codat.Platform.Models.Requests
 {
-    using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using System.Net.Http;
     using System;
     
-    public class AddCompanyToGroupResponse
+    public class RemoveProductResponse
     {
 
         /// <summary>
@@ -31,10 +30,5 @@ namespace Codat.Platform.Models.Requests
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        public Company? Company { get; set; }
     }
 }

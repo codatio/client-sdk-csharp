@@ -10,20 +10,25 @@
 namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
+    using System.Net.Http;
+    using System;
     
-    public class RemoveCompanyFromGroupRequest
+    public class AddProductResponse
     {
 
         /// <summary>
-        /// Unique identifier for a company.
+        /// HTTP response content type for this operation
         /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
-        public string CompanyId { get; set; } = default!;
+        public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for the group.
+        /// HTTP response status code for this operation
         /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=groupId")]
-        public string GroupId { get; set; } = default!;
+        public int StatusCode { get; set; } = default!;
+
+        /// <summary>
+        /// Raw HTTP response; suitable for custom response parsing
+        /// </summary>
+        public HttpResponseMessage RawResponse { get; set; } = default!;
     }
 }

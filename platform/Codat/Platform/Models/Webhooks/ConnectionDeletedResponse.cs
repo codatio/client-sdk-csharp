@@ -7,13 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Platform.Models.Requests
+namespace Codat.Platform.Models.Webhooks
 {
     using Codat.Platform.Utils;
     using System.Net.Http;
     using System;
     
-    public class RemoveCompanyFromGroupResponse
+    public class ConnectionDeletedResponse
     {
 
         /// <summary>

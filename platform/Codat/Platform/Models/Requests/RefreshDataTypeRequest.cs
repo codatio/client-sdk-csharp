@@ -22,7 +22,7 @@ namespace Codat.Platform.Models.Requests
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// The key of a Codat data type
+        /// The key of a Codat data type.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
         public Models.Components.DataType DataType { get; set; } = default!;

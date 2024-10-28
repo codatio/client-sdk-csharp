@@ -7,16 +7,18 @@ Create and manage webhooks that listen to Codat's events.
 
 ### Available Operations
 
-* [~~List~~](#list) - List webhooks :warning: **Deprecated**
-* [~~Create~~](#create) - Create webhook :warning: **Deprecated**
-* [~~Get~~](#get) - Get webhook :warning: **Deprecated**
+* [~~List~~](#list) - List webhooks (legacy) :warning: **Deprecated**
+* [~~Create~~](#create) - Create webhook (legacy) :warning: **Deprecated**
+* [~~Get~~](#get) - Get webhook (legacy) :warning: **Deprecated**
 * [ListConsumers](#listconsumers) - List webhook consumers
 * [CreateConsumer](#createconsumer) - Create webhook consumer
 * [DeleteConsumer](#deleteconsumer) - Delete webhook consumer
 
 ## ~~List~~
 
-List webhooks that you are subscribed to.
+Use the *List webhooks (legacy)* endpoint to retrieve all existing rule-based webhooks for your client.
+
+**Note:** This endpoint has been deprecated. Please use the [*List webhook consumers*](https://docs.codat.io/platform-api#/operations/list-webhook-consumers) endpoint for listing webhooks moving forward.
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -53,15 +55,16 @@ var res = await sdk.Webhooks.ListAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ~~Create~~
 
-Create a new webhook configuration
+Use the *Create webhooks (legacy)* endpoint to create a rule-based webhook for your client.
+
+**Note:** This endpoint has been deprecated. Please use the [*Create webhook consumer*](https://docs.codat.io/platform-api#/operations/create-webhook-consumer) endpoint to create a webhook moving forward.
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -102,15 +105,16 @@ var res = await sdk.Webhooks.CreateAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,429,500,503                   | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429, 500, 503              | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ~~Get~~
 
-Get a single webhook
+Use the *Get webhook (legacy)* endpoint to retrieve a specific webhook for your client.
+
+**Note:** This endpoint has been deprecated. Please use the [*List webhook consumers*](https://docs.codat.io/platform-api#/operations/list-webhook-consumers) endpoint for listing webhooks moving forward.
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
@@ -144,11 +148,10 @@ var res = await sdk.Webhooks.GetAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ListConsumers
 
@@ -175,11 +178,10 @@ var res = await sdk.Webhooks.ListConsumersAsync();
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## CreateConsumer
 
@@ -199,9 +201,7 @@ using System.Collections.Generic;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-WebhookConsumerPrototype req = new WebhookConsumerPrototype() {
-    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
+WebhookConsumerPrototype req = new WebhookConsumerPrototype() {};
 
 var res = await sdk.Webhooks.CreateConsumerAsync(req);
 
@@ -220,11 +220,10 @@ var res = await sdk.Webhooks.CreateConsumerAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## DeleteConsumer
 
@@ -262,7 +261,7 @@ var res = await sdk.Webhooks.DeleteConsumerAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

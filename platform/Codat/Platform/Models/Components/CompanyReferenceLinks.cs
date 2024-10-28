@@ -12,10 +12,16 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     
-    public class CompanyGroupAssignment
+    /// <summary>
+    /// A collection of links for the company.
+    /// </summary>
+    public class CompanyReferenceLinks
     {
 
-        [JsonProperty("groupId")]
-        public string? GroupId { get; set; }
+        /// <summary>
+        /// Link to the company page in the portal.
+        /// </summary>
+        [JsonProperty("portal")]
+        public string? Portal { get; set; }
     }
 }

@@ -10,18 +10,11 @@
 namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
-    using Newtonsoft.Json;
     
     /// <summary>
-    /// The group template used to create a group.
+    /// A collection of user-defined key-value pairs that store custom metadata against the company.
     /// </summary>
-    public class GroupPrototype
+    public class CompanyTags
     {
-
-        /// <summary>
-        /// Descriptive name of the group.
-        /// </summary>
-        [JsonProperty("name")]
-        public string? Name { get; set; }
     }
 }

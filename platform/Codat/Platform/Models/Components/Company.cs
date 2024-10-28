@@ -112,10 +112,16 @@ namespace Codat.Platform.Models.Components
         public string? CreatedByUserName { get; set; } = null;
 
         /// <summary>
+        /// An array of products that are currently enabled for the company.
+        /// </summary>
+        [JsonProperty("products")]
+        public List<string>? Products { get; set; }
+
+        /// <summary>
         /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
         [JsonProperty("tags")]
-        public Tags? Tags { get; set; }
+        public CompanyTags? Tags { get; set; }
 
         [JsonProperty("dataConnections")]
         public List<Connection>? DataConnections { get; set; }

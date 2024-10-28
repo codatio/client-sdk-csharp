@@ -12,7 +12,6 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     
     public class CompanyRequestBody
     {
@@ -30,9 +29,9 @@ namespace Codat.Platform.Models.Components
         public string? Description { get; set; }
 
         /// <summary>
-        /// Reference to the groups that the company is assigned to.
+        /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
-        [JsonProperty("groups")]
-        public List<GroupRef>? Groups { get; set; }
+        [JsonProperty("tags")]
+        public Tags? Tags { get; set; }
     }
 }

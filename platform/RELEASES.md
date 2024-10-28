@@ -187,3 +187,13 @@ Based on:
 - [csharp v4.0.0] platform
 ### Releases
 - [NuGet v4.0.0] https://www.nuget.org/packages/Codat.Platform/4.0.0 - platform
+
+## 2024-10-28 20:17:10
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.422.2 (2.442.11) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v4.1.0] platform
+### Releases
+- [NuGet v4.1.0] https://www.nuget.org/packages/Codat.Platform/4.1.0 - platform

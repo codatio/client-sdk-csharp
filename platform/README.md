@@ -24,7 +24,6 @@ These end points cover creating and managing your companies, data connections, a
 | Companies | Create and manage your SMB users' companies. |
 | Connections | Create new and manage existing data connections for a company. |
 | Connection management | Configure connection management UI and retrieve access tokens for authentication. |
-| Groups | Define and manage sets of companies based on a chosen characteristic. |
 | Webhooks | Create and manage webhooks that listen to Codat's events. |
 | Integrations | Get a list of integrations supported by Codat and their logos. |
 | Refresh data | Initiate data refreshes, view pull status and history. |
@@ -105,6 +104,8 @@ var res = await sdk.Companies.ListAsync(req);
 * [Get](docs/sdks/companies/README.md#get) - Get company
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [Update](docs/sdks/companies/README.md#update) - Update company
+* [AddProduct](docs/sdks/companies/README.md#addproduct) - Add product
+* [RemoveProduct](docs/sdks/companies/README.md#removeproduct) - Remove product
 
 ### [ConnectionManagement](docs/sdks/connectionmanagement/README.md)
 
@@ -130,13 +131,6 @@ var res = await sdk.Companies.ListAsync(req);
 * [GetConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
 * [Refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
 * [List](docs/sdks/customdatatype/README.md#list) - List custom data type records
-
-### [Groups](docs/sdks/groups/README.md)
-
-* [AddCompany](docs/sdks/groups/README.md#addcompany) - Add company
-* [RemoveCompany](docs/sdks/groups/README.md#removecompany) - Remove company
-* [List](docs/sdks/groups/README.md#list) - List groups
-* [Create](docs/sdks/groups/README.md#create) - Create group
 
 ### [Integrations](docs/sdks/integrations/README.md)
 
@@ -175,9 +169,9 @@ var res = await sdk.Companies.ListAsync(req);
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
-* [~~List~~](docs/sdks/webhooks/README.md#list) - List webhooks :warning: **Deprecated**
-* [~~Create~~](docs/sdks/webhooks/README.md#create) - Create webhook :warning: **Deprecated**
-* [~~Get~~](docs/sdks/webhooks/README.md#get) - Get webhook :warning: **Deprecated**
+* [~~List~~](docs/sdks/webhooks/README.md#list) - List webhooks (legacy) :warning: **Deprecated**
+* [~~Create~~](docs/sdks/webhooks/README.md#create) - Create webhook (legacy) :warning: **Deprecated**
+* [~~Get~~](docs/sdks/webhooks/README.md#get) - Get webhook (legacy) :warning: **Deprecated**
 * [ListConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 * [CreateConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
 * [DeleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
@@ -239,12 +233,23 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-| Error Object                              | Status Code                               | Content Type                              |
+By default, an API error will raise a `Codat.Platform.Models.Errors.SDKException` exception, which has the following properties:
+
+| Property      | Type                  | Description           |
+|---------------|-----------------------|-----------------------|
+| `Message`     | *string*              | The error message     |
+| `StatusCode`  | *int*                 | The HTTP status code  |
+| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
+| `Body`        | *string*              | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `ListAsync` method throws the following exceptions:
+
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ### Example
 
@@ -272,13 +277,15 @@ try
 }
 catch (Exception ex)
 {
-    if (ex is ErrorMessage)
+    if (ex is Models.Errors.ErrorMessage)
     {
-        // handle exception
+        // Handle exception data
+        throw;
     }
     else if (ex is Codat.Platform.Models.Errors.SDKException)
     {
-        // handle exception
+        // Handle default exception
+        throw;
     }
 }
 ```
@@ -314,7 +321,9 @@ var res = await sdk.Companies.ListAsync(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-    ),req);
+    ),
+    req
+);
 
 // handle response
 ```

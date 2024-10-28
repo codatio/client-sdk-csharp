@@ -39,7 +39,6 @@ namespace Codat.Platform
     /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Connection management | Configure connection management UI and retrieve access tokens for authentication. |<br/>
-    /// | Groups | Define and manage sets of companies based on a chosen characteristic. |<br/>
     /// | Webhooks | Create and manage webhooks that listen to Codat&apos;s events. |<br/>
     /// | Integrations | Get a list of integrations supported by Codat and their logos. |<br/>
     /// | Refresh data | Initiate data refreshes, view pull status and history. |<br/>
@@ -72,11 +71,6 @@ namespace Codat.Platform
         /// Initiate data refreshes, view pull status and history.
         /// </summary>
         public IRefreshData RefreshData { get; }
-
-        /// <summary>
-        /// Define and manage sets of companies based on a chosen characteristic.
-        /// </summary>
-        public IGroups Groups { get; }
 
         /// <summary>
         /// Create and manage webhooks that listen to Codat&apos;s events.
@@ -163,7 +157,6 @@ namespace Codat.Platform
     /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Connection management | Configure connection management UI and retrieve access tokens for authentication. |<br/>
-    /// | Groups | Define and manage sets of companies based on a chosen characteristic. |<br/>
     /// | Webhooks | Create and manage webhooks that listen to Codat&apos;s events. |<br/>
     /// | Integrations | Get a list of integrations supported by Codat and their logos. |<br/>
     /// | Refresh data | Initiate data refreshes, view pull status and history. |<br/>
@@ -179,10 +172,10 @@ namespace Codat.Platform
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.0.0";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "4.1.0";
+        private const string _sdkGenVersion = "2.442.11";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 4.1.0 2.442.11 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;
@@ -191,7 +184,6 @@ namespace Codat.Platform
         public IConnections Connections { get; private set; }
         public IConnectionManagement ConnectionManagement { get; private set; }
         public IRefreshData RefreshData { get; private set; }
-        public IGroups Groups { get; private set; }
         public IWebhooks Webhooks { get; private set; }
         public IIntegrations Integrations { get; private set; }
         public ISettings Settings { get; private set; }
@@ -254,9 +246,6 @@ namespace Codat.Platform
 
 
             RefreshData = new RefreshData(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Groups = new Groups(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             Webhooks = new Webhooks(_client, _securitySource, _serverUrl, SDKConfiguration);

@@ -12,6 +12,7 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     public class CompanyDetails
     {
@@ -99,6 +100,12 @@ namespace Codat.Platform.Models.Components
         /// </summary>
         [JsonProperty("createdByUserName")]
         public string? CreatedByUserName { get; set; } = null;
+
+        /// <summary>
+        /// An array of products that are currently enabled for the company.
+        /// </summary>
+        [JsonProperty("products")]
+        public List<string>? Products { get; set; }
 
         /// <summary>
         /// A collection of user-defined key-value pairs that store custom metadata against the company.

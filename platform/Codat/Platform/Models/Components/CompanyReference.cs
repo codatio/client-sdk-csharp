@@ -9,6 +9,7 @@
 #nullable enable
 namespace Codat.Platform.Models.Components
 {
+    using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     
@@ -32,5 +33,17 @@ namespace Codat.Platform.Models.Components
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// A collection of links for the company.
+        /// </summary>
+        [JsonProperty("links")]
+        public CompanyReferenceLinks? Links { get; set; }
+
+        /// <summary>
+        /// A collection of user-defined key-value pairs that store custom metadata against the company.
+        /// </summary>
+        [JsonProperty("tags")]
+        public Tags? Tags { get; set; }
     }
 }

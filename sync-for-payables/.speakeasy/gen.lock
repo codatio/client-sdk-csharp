@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
-  docChecksum: b80d4e792275af82c14cca5a1b800293
+  docChecksum: d5efcee6ccc0c2f3ed0b42bab1291f7f
   docVersion: 3.0.0
-  speakeasyVersion: 1.413.0
-  generationVersion: 2.436.3
-  releaseVersion: 5.0.1
-  configChecksum: 7bfce4e1b665adadb33800009a0d9ca0
+  speakeasyVersion: 1.423.1
+  generationVersion: 2.442.11
+  releaseVersion: 6.0.0
+  configChecksum: fcf64ecfa034815f271be53eeae7c060
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true
@@ -604,7 +604,7 @@ examples:
           statusQuery: "status=Archived"
       responses:
         "200":
-          application/json: {"accounts": [], "taxRate": []}
+          application/json: {"accounts": [], "taxRates": []}
         "400": {}
     Mapping options:
       parameters:
@@ -616,7 +616,7 @@ examples:
           statusQuery: "status=Archived"
       responses:
         "200":
-          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "879-i", "name": "Accounts payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "taxRate": [], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "879-i", "name": "Accounts payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "taxRates": [{"id": "d2939064-dd3a-4c0f-9865-a238c2193515", "name": "VAT @ 20%", "code": "VAT20", "effectiveTaxRate": 20, "totalTaxRate": 20, "status": "Active"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
         "400": {}
     Malformed query:
       parameters:

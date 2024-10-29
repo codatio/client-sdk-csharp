@@ -30,6 +30,16 @@ namespace Codat.Sync.Payables
     /// <a href="https://docs.codat.io/payables/bill-pay-kit">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
     /// <br/>
     /// ---<br/>
+    /// ## Supported Integrations<br/>
+    /// <br/>
+    /// | Integration                   | Supported |<br/>
+    /// |-------------------------------|-----------|<br/>
+    /// | FreeAgent                     | Yes       |<br/>
+    /// | QuickBooks Online             | Yes       |<br/>
+    /// | Oracle NetSuite               | Yes       |<br/>
+    /// | Xero                          | Yes       |<br/>
+    /// <br/>
+    /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
     /// ## Endpoints<br/>
     /// <br/>
@@ -129,6 +139,16 @@ namespace Codat.Sync.Payables
     /// <a href="https://docs.codat.io/payables/bill-pay-kit">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
     /// <br/>
     /// ---<br/>
+    /// ## Supported Integrations<br/>
+    /// <br/>
+    /// | Integration                   | Supported |<br/>
+    /// |-------------------------------|-----------|<br/>
+    /// | FreeAgent                     | Yes       |<br/>
+    /// | QuickBooks Online             | Yes       |<br/>
+    /// | Oracle NetSuite               | Yes       |<br/>
+    /// | Xero                          | Yes       |<br/>
+    /// <br/>
+    /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
     /// ## Endpoints<br/>
     /// <br/>
@@ -149,10 +169,10 @@ namespace Codat.Sync.Payables
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.1";
-        private const string _sdkGenVersion = "2.436.3";
+        private const string _sdkVersion = "6.0.0";
+        private const string _sdkGenVersion = "2.442.11";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.436.3 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.442.11 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;

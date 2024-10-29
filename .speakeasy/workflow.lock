@@ -1,4 +1,4 @@
-speakeasyVersion: 1.413.0
+speakeasyVersion: 1.423.1
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -37,8 +37,8 @@ sources:
             - main
     sync-for-payables-source:
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:9d7f5671b38ac1184a4c6a3923ce4896f56e1c0453b888504fb1215d5b550f99
-        sourceBlobDigest: sha256:b746372e39c00371a302d5bc53ca0c9d4226673127517fd8c2de01d4d5453ae0
+        sourceRevisionDigest: sha256:8979607aabd0fe3b5b094069b6b44ca234c296e7b49fb77eec52899e1ef106a4
+        sourceBlobDigest: sha256:968ca148e406724b7255875b92c5e435b44a242cd4b5a2a3ded3639cb469951d
         tags:
             - latest
             - main
@@ -85,8 +85,8 @@ targets:
     sync-for-payables-library:
         source: sync-for-payables-source
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:9d7f5671b38ac1184a4c6a3923ce4896f56e1c0453b888504fb1215d5b550f99
-        sourceBlobDigest: sha256:b746372e39c00371a302d5bc53ca0c9d4226673127517fd8c2de01d4d5453ae0
+        sourceRevisionDigest: sha256:8979607aabd0fe3b5b094069b6b44ca234c296e7b49fb77eec52899e1ef106a4
+        sourceBlobDigest: sha256:968ca148e406724b7255875b92c5e435b44a242cd4b5a2a3ded3639cb469951d
     sync-for-payables-version-1-library:
         source: sync-for-payables-version-1-source
         sourceNamespace: sync-for-payables-version-1-source
@@ -149,6 +149,10 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/bank-feeds-source-code-samples
+                blocking: false
         lending-library:
             target: csharp
             source: lending-source
@@ -156,6 +160,10 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/lending-source-code-samples
+                blocking: false
         platform-library:
             target: csharp
             source: platform-source
@@ -163,6 +171,10 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/platform-source-code-samples
+                blocking: false
         sync-for-commerce-library:
             target: csharp
             source: sync-for-commerce-source
@@ -170,6 +182,10 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-commerce-source-code-samples
+                blocking: false
         sync-for-expenses-library:
             target: csharp
             source: sync-for-expenses-source
@@ -177,6 +193,10 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source-code-samples
+                blocking: false
         sync-for-payables-library:
             target: csharp
             source: sync-for-payables-source
@@ -184,6 +204,10 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-source-code-samples
+                blocking: false
         sync-for-payables-version-1-library:
             target: csharp
             source: sync-for-payables-version-1-source
@@ -191,6 +215,10 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-version-1-source-code-samples
+                blocking: false
         sync-for-payroll-library:
             target: csharp
             source: sync-for-payroll-source
@@ -198,3 +226,7 @@ workflow:
             publish:
                 nuget:
                     apiKey: $nuget_api_key
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payroll-source-code-samples
+                blocking: false

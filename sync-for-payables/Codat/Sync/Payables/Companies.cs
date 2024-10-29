@@ -100,10 +100,10 @@ namespace Codat.Sync.Payables
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.1";
-        private const string _sdkGenVersion = "2.436.3";
+        private const string _sdkVersion = "5.0.2";
+        private const string _sdkGenVersion = "2.442.11";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.1 2.436.3 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.2 2.442.11 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;

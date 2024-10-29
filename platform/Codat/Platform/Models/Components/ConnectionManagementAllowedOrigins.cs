@@ -13,6 +13,9 @@ namespace Codat.Platform.Models.Components
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
+    /// <summary>
+    /// Success
+    /// </summary>
     public class ConnectionManagementAllowedOrigins
     {
 

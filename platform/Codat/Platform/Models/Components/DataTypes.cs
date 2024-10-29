@@ -9,134 +9,35 @@
 #nullable enable
 namespace Codat.Platform.Models.Components
 {
+    using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    using System;
     
-    /// <summary>
-    /// Available data types
-    /// </summary>
-    public enum DataTypes
+    public class DataTypes
     {
-        [JsonProperty("accountTransactions")]
-        AccountTransactions,
-        [JsonProperty("balanceSheet")]
-        BalanceSheet,
-        [JsonProperty("bankAccounts")]
-        BankAccounts,
-        [JsonProperty("bankTransactions")]
-        BankTransactions,
-        [JsonProperty("billCreditNotes")]
-        BillCreditNotes,
-        [JsonProperty("billPayments")]
-        BillPayments,
-        [JsonProperty("bills")]
-        Bills,
-        [JsonProperty("cashFlowStatement")]
-        CashFlowStatement,
-        [JsonProperty("chartOfAccounts")]
-        ChartOfAccounts,
-        [JsonProperty("company")]
-        Company,
-        [JsonProperty("creditNotes")]
-        CreditNotes,
-        [JsonProperty("customers")]
-        Customers,
-        [JsonProperty("directCosts")]
-        DirectCosts,
-        [JsonProperty("directIncomes")]
-        DirectIncomes,
-        [JsonProperty("invoices")]
-        Invoices,
-        [JsonProperty("itemReceipts")]
-        ItemReceipts,
-        [JsonProperty("items")]
-        Items,
-        [JsonProperty("journalEntries")]
-        JournalEntries,
-        [JsonProperty("journals")]
-        Journals,
-        [JsonProperty("paymentMethods")]
-        PaymentMethods,
-        [JsonProperty("payments")]
-        Payments,
-        [JsonProperty("profitAndLoss")]
-        ProfitAndLoss,
-        [JsonProperty("purchaseOrders")]
-        PurchaseOrders,
-        [JsonProperty("salesOrders")]
-        SalesOrders,
-        [JsonProperty("suppliers")]
-        Suppliers,
-        [JsonProperty("taxRates")]
-        TaxRates,
-        [JsonProperty("trackingCategories")]
-        TrackingCategories,
-        [JsonProperty("transfers")]
-        Transfers,
-        [JsonProperty("banking-accountBalances")]
-        BankingAccountBalances,
-        [JsonProperty("banking-accounts")]
-        BankingAccounts,
-        [JsonProperty("banking-transactionCategories")]
-        BankingTransactionCategories,
-        [JsonProperty("banking-transactions")]
-        BankingTransactions,
-        [JsonProperty("commerce-companyInfo")]
-        CommerceCompanyInfo,
-        [JsonProperty("commerce-customers")]
-        CommerceCustomers,
-        [JsonProperty("commerce-disputes")]
-        CommerceDisputes,
-        [JsonProperty("commerce-locations")]
-        CommerceLocations,
-        [JsonProperty("commerce-orders")]
-        CommerceOrders,
-        [JsonProperty("commerce-paymentMethods")]
-        CommercePaymentMethods,
-        [JsonProperty("commerce-payments")]
-        CommercePayments,
-        [JsonProperty("commerce-productCategories")]
-        CommerceProductCategories,
-        [JsonProperty("commerce-products")]
-        CommerceProducts,
-        [JsonProperty("commerce-taxComponents")]
-        CommerceTaxComponents,
-        [JsonProperty("commerce-transactions")]
-        CommerceTransactions,
+
+        /// <summary>
+        /// Unique identifier for a company&apos;s data connection.
+        /// </summary>
+        [JsonProperty("connectionId")]
+        public string? ConnectionId { get; set; }
+
+        /// <summary>
+        /// Available data types
+        /// </summary>
+        [JsonProperty("dataType")]
+        public PropertieDataType? DataType { get; set; }
+
+        /// <summary>
+        /// `True` if records have been created, updated or deleted in Codat&apos;s cache.
+        /// </summary>
+        [JsonProperty("recordsModified")]
+        public bool? RecordsModified { get; set; }
+
+        /// <summary>
+        /// The current status of the dataset.
+        /// </summary>
+        [JsonProperty("status")]
+        public Status? Status { get; set; }
     }
-
-    public static class DataTypesExtension
-    {
-        public static string Value(this DataTypes value)
-        {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
-        }
-
-        public static DataTypes ToEnum(this string value)
-        {
-            foreach(var field in typeof(DataTypes).GetFields())
-            {
-                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
-                if (attributes.Length == 0)
-                {
-                    continue;
-                }
-
-                var attribute = attributes[0] as JsonPropertyAttribute;
-                if (attribute != null && attribute.PropertyName == value)
-                {
-                    var enumVal = field.GetValue(null);
-
-                    if (enumVal is DataTypes)
-                    {
-                        return (DataTypes)enumVal;
-                    }
-                }
-            }
-
-            throw new Exception($"Unknown value {value} for enum DataTypes");
-        }
-    }
-
 }

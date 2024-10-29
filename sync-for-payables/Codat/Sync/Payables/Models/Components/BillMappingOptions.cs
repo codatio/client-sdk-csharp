@@ -23,8 +23,8 @@ namespace Codat.Sync.Payables.Models.Components
         [JsonProperty("accounts")]
         public List<AccountMappingOption>? Accounts { get; set; }
 
-        [JsonProperty("taxRate")]
-        public List<TaxRateMappingOption>? TaxRate { get; set; }
+        [JsonProperty("taxRates")]
+        public List<TaxRateMappingOption>? TaxRates { get; set; }
 
         [JsonProperty("pagination")]
         public Pagination? Pagination { get; set; }

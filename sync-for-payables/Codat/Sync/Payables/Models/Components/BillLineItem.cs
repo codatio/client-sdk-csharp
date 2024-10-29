@@ -56,6 +56,6 @@ namespace Codat.Sync.Payables.Models.Components
         /// Reference to the tax rate to which the line item is linked.
         /// </summary>
         [JsonProperty("taxRateRef")]
-        public BillTaxRateRef TaxRateRef { get; set; } = default!;
+        public BillTaxRateRef? TaxRateRef { get; set; }
     }
 }

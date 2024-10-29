@@ -35,11 +35,10 @@ var res = await sdk.ConnectionManagement.CorsSettings.GetAsync();
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Set
 
@@ -81,7 +80,7 @@ var res = await sdk.ConnectionManagement.CorsSettings.SetAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

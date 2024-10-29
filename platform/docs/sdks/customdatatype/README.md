@@ -76,11 +76,10 @@ var res = await sdk.CustomDataType.ConfigureAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## GetConfiguration
 
@@ -119,11 +118,10 @@ var res = await sdk.CustomDataType.GetConfigurationAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Refresh
 
@@ -161,11 +159,10 @@ var res = await sdk.CustomDataType.RefreshAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,451,500,503           | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 451, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## List
 
@@ -207,7 +204,7 @@ var res = await sdk.CustomDataType.ListAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,451,500,503       | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage   | 400, 401, 402, 403, 404, 429, 451, 500, 503 | application/json                            |
+| Codat.Platform.Models.Errors.SDKException   | 4XX, 5XX                                    | \*/\*                                       |

@@ -51,11 +51,10 @@ var res = await sdk.RefreshData.AllAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ByDataType
 
@@ -94,11 +93,10 @@ var res = await sdk.RefreshData.ByDataTypeAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Get
 
@@ -134,11 +132,10 @@ var res = await sdk.RefreshData.GetAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ListPullOperations
 
@@ -178,11 +175,10 @@ var res = await sdk.RefreshData.ListPullOperationsAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503           | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
-
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## GetPullOperation
 
@@ -199,7 +195,7 @@ var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "7911a54a-c808-4f4b-b87e-b195f52b4da5",
+    DatasetId = "71a4c0fb-8e15-45bd-958d-330b4e6e9f07",
 };
 
 var res = await sdk.RefreshData.GetPullOperationAsync(req);
@@ -219,7 +215,7 @@ var res = await sdk.RefreshData.GetPullOperationAsync(req);
 
 ### Errors
 
-| Error Object                              | Status Code                               | Content Type                              |
+| Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503               | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4xx-5xx                                   | */*                                       |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

@@ -72,6 +72,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```csharp
 using Codat.Sync.Payables;
 using Codat.Sync.Payables.Models.Components;
+using System.Collections.Generic;
 
 var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -115,6 +116,7 @@ Each company can have multiple [connections](https://docs.codat.io/sync-for-paya
 using Codat.Sync.Payables;
 using Codat.Sync.Payables.Models.Requests;
 using Codat.Sync.Payables.Models.Components;
+using System.Collections.Generic;
 
 var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 

@@ -37,7 +37,7 @@ namespace Codat.Sync.Payables.Models.Components
         /// </remarks>
         /// </summary>
         [JsonProperty("accountType")]
-        public AccountType AccountType { get; set; } = default!;
+        public BankAccountType AccountType { get; set; } = default!;
 
         /// <summary>
         /// Account number for the bank account.<br/>

@@ -9,9 +9,9 @@
 #nullable enable
 namespace Codat.Sync.Payables.Models.Components
 {
-    using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     public class CompanyRequestBody
     {
@@ -32,6 +32,6 @@ namespace Codat.Sync.Payables.Models.Components
         /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
         [JsonProperty("tags")]
-        public Tags? Tags { get; set; }
+        public Dictionary<string, string>? Tags { get; set; }
     }
 }

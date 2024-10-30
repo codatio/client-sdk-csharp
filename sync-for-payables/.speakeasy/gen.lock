@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
-  docChecksum: d5efcee6ccc0c2f3ed0b42bab1291f7f
+  docChecksum: bf52e3dbe78d1a4c650c2fb77aebad64
   docVersion: 3.0.0
-  speakeasyVersion: 1.423.1
+  speakeasyVersion: 1.423.2
   generationVersion: 2.442.11
-  releaseVersion: 6.0.0
-  configChecksum: fcf64ecfa034815f271be53eeae7c060
+  releaseVersion: 7.0.0
+  configChecksum: 9f9a4766698348cb82682199163ebe2c
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true
@@ -77,7 +77,6 @@ generatedFiles:
   - Codat/Sync/Payables/Models/Components/Company.cs
   - Codat/Sync/Payables/Models/Components/CompanyInformation.cs
   - Codat/Sync/Payables/Models/Components/CompanyRequestBody.cs
-  - Codat/Sync/Payables/Models/Components/CompanyTags.cs
   - Codat/Sync/Payables/Models/Components/Connection.cs
   - Codat/Sync/Payables/Models/Components/Connections.cs
   - Codat/Sync/Payables/Models/Components/DataConnectionError.cs
@@ -96,7 +95,6 @@ generatedFiles:
   - Codat/Sync/Payables/Models/Components/SupplierRef.cs
   - Codat/Sync/Payables/Models/Components/SupplierStatus.cs
   - Codat/Sync/Payables/Models/Components/Suppliers.cs
-  - Codat/Sync/Payables/Models/Components/Tags.cs
   - Codat/Sync/Payables/Models/Components/TaxRateMappingOption.cs
   - Codat/Sync/Payables/Models/Components/TaxRateStatus.cs
   - Codat/Sync/Payables/Models/Errors/ErrorMessage.cs
@@ -204,7 +202,6 @@ generatedFiles:
   - docs/Models/Components/Company.md
   - docs/Models/Components/CompanyInformation.md
   - docs/Models/Components/CompanyRequestBody.md
-  - docs/Models/Components/CompanyTags.md
   - docs/Models/Components/Connection.md
   - docs/Models/Components/Connections.md
   - docs/Models/Components/DataConnectionError.md
@@ -223,7 +220,6 @@ generatedFiles:
   - docs/Models/Components/SupplierRef.md
   - docs/Models/Components/SupplierStatus.md
   - docs/Models/Components/Suppliers.md
-  - docs/Models/Components/Tags.md
   - docs/Models/Components/TaxRateMappingOption.md
   - docs/Models/Components/TaxRateStatus.md
   - docs/Models/Errors/ErrorMessage.md
@@ -379,7 +375,7 @@ examples:
         application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "tags": {"region": "us"}, "dataConnections": []}
   update-company:
     Update name:
       parameters:
@@ -389,7 +385,7 @@ examples:
         application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}
         "401": {}
     Update description:
       parameters:
@@ -399,7 +395,7 @@ examples:
         application/json: {"name": "Same name", "description": "Additional documents required"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
         "401": {}
     Unauthorized:
       parameters:

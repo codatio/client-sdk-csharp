@@ -29,7 +29,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     BankAccountPrototype = new BankAccountPrototype() {
         Name = "<value>",
-        AccountType = Codat.Sync.Payables.Models.Components.AccountType.Credit,
+        AccountType = Codat.Sync.Payables.Models.Components.BankAccountType.Credit,
         AccountNumber = "<value>",
         Currency = "USD",
     },

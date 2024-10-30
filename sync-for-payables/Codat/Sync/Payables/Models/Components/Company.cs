@@ -121,7 +121,7 @@ namespace Codat.Sync.Payables.Models.Components
         /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
         [JsonProperty("tags")]
-        public CompanyTags? Tags { get; set; }
+        public Dictionary<string, string>? Tags { get; set; }
 
         [JsonProperty("dataConnections")]
         public List<Connection>? DataConnections { get; set; }

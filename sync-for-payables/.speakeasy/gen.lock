@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
-  docChecksum: bf52e3dbe78d1a4c650c2fb77aebad64
+  docChecksum: 16c2aba5060738f14671556b6526c400
   docVersion: 3.0.0
-  speakeasyVersion: 1.423.2
+  speakeasyVersion: 1.423.3
   generationVersion: 2.442.11
-  releaseVersion: 7.0.0
-  configChecksum: 9f9a4766698348cb82682199163ebe2c
+  releaseVersion: 8.0.0
+  configChecksum: 657d611f8074bdd3d37cc7b07fce5f79
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true
@@ -45,7 +45,6 @@ generatedFiles:
   - Codat/Sync/Payables/Hooks/SDKHooks.cs
   - Codat/Sync/Payables/Models/Components/AccountMappingOption.cs
   - Codat/Sync/Payables/Models/Components/AccountStatus.cs
-  - Codat/Sync/Payables/Models/Components/AccountType.cs
   - Codat/Sync/Payables/Models/Components/Address.cs
   - Codat/Sync/Payables/Models/Components/AddressType.cs
   - Codat/Sync/Payables/Models/Components/Attachment.cs
@@ -170,7 +169,6 @@ generatedFiles:
   - USAGE.md
   - docs/Models/Components/AccountMappingOption.md
   - docs/Models/Components/AccountStatus.md
-  - docs/Models/Components/AccountType.md
   - docs/Models/Components/Address.md
   - docs/Models/Components/AddressType.md
   - docs/Models/Components/Attachment.md

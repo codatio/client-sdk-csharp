@@ -109,10 +109,10 @@ namespace Codat.Sync.Payables
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "8.0.0";
-        private const string _sdkGenVersion = "2.442.11";
+        private const string _sdkVersion = "8.1.0";
+        private const string _sdkGenVersion = "2.445.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 8.0.0 2.442.11 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 8.1.0 2.445.1 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;
@@ -580,13 +580,21 @@ namespace Codat.Sync.Payables
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
             if(responseStatusCode == 201)
-            {                
-                return new UploadBillAttachmentResponse()
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    StatusCode = responseStatusCode,
-                    ContentType = contentType,
-                    RawResponse = httpResponse
-                };
+                    var obj = ResponseBodyDeserializer.Deserialize<Attachment>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new UploadBillAttachmentResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
+                    response.Attachment = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -609,7 +617,7 @@ namespace Codat.Sync.Payables
         public async Task<ListBillAttachmentsResponse> ListAttachmentsAsync(ListBillAttachmentsRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bills/{billId}/attachments", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments", request);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
@@ -694,14 +702,14 @@ namespace Codat.Sync.Payables
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Attachment>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var obj = ResponseBodyDeserializer.Deserialize<List<Attachment>>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     var response = new ListBillAttachmentsResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.Attachment = obj;
+                    response.Attachments = obj;
                     return response;
                 }
 

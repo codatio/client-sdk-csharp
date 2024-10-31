@@ -11,6 +11,7 @@ namespace Codat.Sync.Payables.Models.Requests
 {
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -35,6 +36,6 @@ namespace Codat.Sync.Payables.Models.Requests
         /// <summary>
         /// Success
         /// </summary>
-        public Attachment? Attachment { get; set; } = null;
+        public List<Attachment>? Attachments { get; set; }
     }
 }

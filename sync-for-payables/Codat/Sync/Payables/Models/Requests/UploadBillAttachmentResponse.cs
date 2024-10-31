@@ -9,6 +9,7 @@
 #nullable enable
 namespace Codat.Sync.Payables.Models.Requests
 {
+    using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using System.Net.Http;
     using System;
@@ -30,5 +31,10 @@ namespace Codat.Sync.Payables.Models.Requests
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
+
+        /// <summary>
+        /// Created
+        /// </summary>
+        public Attachment? Attachment { get; set; } = null;
     }
 }

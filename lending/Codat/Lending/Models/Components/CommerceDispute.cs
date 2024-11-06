@@ -22,9 +22,7 @@ namespace Codat.Lending.Models.Components
     /// - The product they received was different to the commerce store&apos;s description.  <br/>
     /// - They&apos;ve been the victim of online fraud.  <br/>
     /// <br/>
-    /// You can use data from the Disputes endpoints to calculate key metrics, such as the number of chargebacks.<br/>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-disputes">data coverage</a> for this data type.
+    /// You can use data from the Disputes endpoints to calculate key metrics, such as the number of chargebacks.
     /// </remarks>
     /// </summary>
     public class CommerceDispute

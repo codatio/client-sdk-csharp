@@ -318,6 +318,11 @@ var res = await sdk.Companies.ListAsync(req);
 * [GetCreateModel](docs/sdks/codatlendingloanwritebackpayments/README.md#getcreatemodel) - Get create payment model
 * [Create](docs/sdks/codatlendingloanwritebackpayments/README.md#create) - Create payment
 
+#### [LoanWriteback.SourceAccounts](docs/sdks/sourceaccounts/README.md)
+
+* [Create](docs/sdks/sourceaccounts/README.md#create) - Create source account
+* [CreateMapping](docs/sdks/sourceaccounts/README.md#createmapping) - Create bank feed account mapping
+
 #### [LoanWriteback.Suppliers](docs/sdks/codatlendingsuppliers/README.md)
 
 * [GetCreateUpdateModel](docs/sdks/codatlendingsuppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
@@ -341,6 +346,11 @@ var res = await sdk.Companies.ListAsync(req);
 
 * [AllDataTypes](docs/sdks/refresh/README.md#alldatatypes) - Refresh all data
 * [DataType](docs/sdks/refresh/README.md#datatype) - Refresh data type
+
+### [ManageReports](docs/sdks/managereports/README.md)
+
+* [GenerateReport](docs/sdks/managereports/README.md#generatereport) - Generate report
+* [ListReports](docs/sdks/managereports/README.md#listreports) - List reports
 
 ### [Sales](docs/sdks/sales/README.md)
 
@@ -516,7 +526,9 @@ var res = await sdk.Companies.ListAsync(
             exponent: 1.1
         ),
         retryConnectionErrors: false
-    ),req);
+    ),
+    req
+);
 
 // handle response
 ```
@@ -557,12 +569,23 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-| Error Object                             | Status Code                              | Content Type                             |
+By default, an API error will raise a `Codat.Lending.Models.Errors.SDKException` exception, which has the following properties:
+
+| Property      | Type                  | Description           |
+|---------------|-----------------------|-----------------------|
+| `Message`     | *string*              | The error message     |
+| `StatusCode`  | *int*                 | The HTTP status code  |
+| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
+| `Body`        | *string*              | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `ListAsync` method throws the following exceptions:
+
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ### Example
 
@@ -592,11 +615,13 @@ catch (Exception ex)
 {
     if (ex is ErrorMessage)
     {
-        // handle exception
+        // Handle exception data
+        throw;
     }
     else if (ex is Codat.Lending.Models.Errors.SDKException)
     {
-        // handle exception
+        // Handle default exception
+        throw;
     }
 }
 ```

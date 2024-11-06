@@ -15,12 +15,7 @@ namespace Codat.Lending.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// When a customer places an order with the connected commerce store their details are added to the Customers dataset. You can use the data from the Customers endpoints to calculate key metrics, such as customer churn.<br/>
-    /// 
-    /// <remarks>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-customers">data coverage</a> for this data type.
-    /// </remarks>
+    /// When a customer places an order with the connected commerce store their details are added to the Customers dataset. You can use the data from the Customers endpoints to calculate key metrics, such as customer churn.
     /// </summary>
     public class CommerceCustomer
     {

@@ -18,8 +18,6 @@ namespace Codat.Lending.Models.Components
     /// A Product is an item in the company&apos;s inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.<br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-products">data coverage</a> for this data type.<br/>
     /// 
     /// </remarks>
     /// </summary>

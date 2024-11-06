@@ -15,11 +15,9 @@ namespace Codat.Lending.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// &gt; View the coverage for cash flow statement in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=cashFlowStatement&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// &gt; **Operating activities only**  <br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// &gt; **Operating activities only**  <br/>
     /// &gt; <br/>
     /// &gt; Currently, the cash flow statement shows cash that flows into and out of the company from operating activities *only*. Operating activities generate cash from the sale of goods or services.<br/>
     /// <br/>

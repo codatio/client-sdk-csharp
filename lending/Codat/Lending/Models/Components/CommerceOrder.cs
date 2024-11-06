@@ -18,8 +18,6 @@ namespace Codat.Lending.Models.Components
     /// Orders contain the transaction details for all products sold by the company, and include details of any payments, service charges, or refunds related to each order. You can use data from the Orders endpoints to calculate key metrics, such as gross sales values and monthly recurring revenue (MRR).<br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-orders">data coverage</a> for this data type.<br/>
     /// 
     /// </remarks>
     /// </summary>

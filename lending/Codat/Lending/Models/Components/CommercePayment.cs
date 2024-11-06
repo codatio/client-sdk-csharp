@@ -20,9 +20,7 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// Refunds are recorded as separate, negative payments. Note that a refund can only occur in relation to a payment that has been completed (i.e. has a status of `Paid`). When a customer cancels an order _before_ a payment has been completed, the payment shows as `Cancelled`.<br/>
     /// <br/>
-    /// You can use data from the Payments endpoints to calculate key metrics, such as gross sales and monthly recurring revenue (MRR).<br/>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-payments">data coverage</a> for this data type.
+    /// You can use data from the Payments endpoints to calculate key metrics, such as gross sales and monthly recurring revenue (MRR).
     /// </remarks>
     /// </summary>
     public class CommercePayment

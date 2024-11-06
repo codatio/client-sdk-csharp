@@ -18,8 +18,6 @@ The *Get create transfer model* endpoint returns the expected data for the reque
 
 See the *response examples* for integration-specific indicative models.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating a transfer.
-
 
 ### Example Usage
 
@@ -52,11 +50,10 @@ var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
 
@@ -67,9 +64,6 @@ The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/le
 **Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/lending-api#/operations/get-create-transfers-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating an account.
-
 
 ### Example Usage
 
@@ -90,15 +84,15 @@ CreateTransferRequest req = new CreateTransferRequest() {
         Date = "2022-10-23T00:00:00Z",
         From = new TransferAccount() {
             AccountRef = new AccountRef() {},
-            Currency = "EUR",
+            Currency = "GBP",
         },
         To = new TransferAccount() {
             AccountRef = new AccountRef() {},
-            Currency = "EUR",
+            Currency = "GBP",
         },
         DepositedRecordRefs = new List<RecordRef>() {
             new RecordRef() {
-                DataType = "invoice",
+                DataType = "transfer",
             },
         },
     },
@@ -121,7 +115,7 @@ var res = await sdk.LoanWriteback.Transfers.CreateAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

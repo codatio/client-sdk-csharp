@@ -22,8 +22,6 @@ namespace Codat.Lending.Models.Components
     /// &gt;<br/>
     /// &gt;  In Codat, payments represent accounts receivable only. For accounts payable, see <a href="https://docs.codat.io/lending-api#/schemas/BillPayment">bill payments</a>. These include <a href="https://docs.codat.io/lending-api#/schemas/Bill">bills</a> and credit notes against bills.<br/>
     /// <br/>
-    /// &gt; View the coverage for payments in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=payments&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// Payments include all accounts receivable transaction data. This includes <a href="https://docs.codat.io/lending-api#/schemas/Invoice">invoices</a> and <a href="https://docs.codat.io/lending-api#/schemas/CreditNote">credit notes</a>.<br/>

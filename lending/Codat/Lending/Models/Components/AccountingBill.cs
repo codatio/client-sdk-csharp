@@ -23,8 +23,6 @@ namespace Codat.Lending.Models.Components
     /// &gt;<br/>
     /// &gt; See <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> for the accounts receivable equivalent of bills.<br/>
     /// <br/>
-    /// View the coverage for bills in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// In Codat, a bill contains details of:<br/>

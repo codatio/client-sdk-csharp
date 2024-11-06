@@ -15,11 +15,9 @@ namespace Codat.Lending.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// &gt; View the coverage for credit notes in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=creditNotes&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// ## Overview<br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// ## Overview<br/>
     /// <br/>
     /// Think of a credit note as a voucher issued to a customer. It is a reduction that can be applied against one or multiple invoices. A credit note can either reduce the amount owed or cancel out an invoice entirely.<br/>
     /// <br/>

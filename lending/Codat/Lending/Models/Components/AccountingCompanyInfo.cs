@@ -15,11 +15,9 @@ namespace Codat.Lending.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// &gt; View the coverage for company profile in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=cashFlowStatement&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// Company info provides standard details about a linked company such as their address, phone number, and company registration.<br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// Company info provides standard details about a linked company such as their address, phone number, and company registration.<br/>
     /// <br/>
     /// &gt; **Company information or companies?**<br/>
     /// &gt; <br/>

@@ -23,8 +23,6 @@ namespace Codat.Lending.Models.Components
     /// &gt;<br/>
     /// &gt; See <a href="https://docs.codat.io/lending-api#/schemas/Bill">Bills</a> for the accounts payable equivalent of bills.<br/>
     /// <br/>
-    /// View the coverage for invoices in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=invoices&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// An invoice is an itemized record of goods sold or services provided to a <a href="https://docs.codat.io/lending-api#/schemas/Customer">customer</a>.<br/>

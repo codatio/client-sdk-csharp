@@ -19,8 +19,6 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// &gt; View the coverage for profit and loss in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=profitAndLoss&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// The purpose of a profit and loss report is to present the financial performance of a company over a specified time period.<br/>

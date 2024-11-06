@@ -15,11 +15,9 @@ namespace Codat.Lending.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// &gt; View the coverage for balance sheet in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=balanceSheet&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// ## Overview<br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// ## Overview<br/>
     /// <br/>
     /// The balance sheet is a snapshot of a company&apos;s accounts at a single point in time that provides a statement of the assets, liabilities and equity of an organization. It gives interested parties an idea of the company&apos;s financial position, in addition to displaying what the company owns and owes.<br/>
     /// <br/>

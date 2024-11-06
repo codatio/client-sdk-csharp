@@ -40,12 +40,12 @@ namespace Codat.Lending
         /// <br/>
         /// | reportType                                                                           | Description                                                                                                                                   |<br/>
         /// |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
-        /// | <a href="https://docs.codat.io/lending/excel/audit-report">audit</a>                            | Identifies inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   || <a href="https://docs.codat.io/lending/excel/audit-report">audit</a>                            | Identify inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   |<br/>
-        /// | <a href="https://docs.codat.io/lending/excel/enhanced-invoices-report">enhancedCashFlow</a>     | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company&apos;s cash flow.  |<br/>
-        /// | <a href="https://docs.codat.io/lending/excel/enhanced-financials-report">enhancedFinancials</a> | Supports decision-making using fully categorized financial statements to allow lenders to automate their underwriting processes.                |<br/>
-        /// | <a href="https://docs.codat.io/lending/excel/enhanced-invoices-report">enhancedInvoices</a>     | Helps verify that payments have been made against historic invoices. Great for invoice finance lenders.                                       |<br/>
+        /// | `audit`                          | Identifies inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   || <a href="https://docs.codat.io/lending/excel/audit-report">audit</a>                            | Identify inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   |<br/>
+        /// | `enhancedCashFlow`    | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company&apos;s cash flow.  |<br/>
+        /// | `enhancedFinancials` | Supports decision-making using fully categorized financial statements to allow lenders to automate their underwriting processes.                |<br/>
+        /// | `enhancedInvoices`     | Helps verify that payments have been made against historic invoices. Great for invoice finance lenders.                                       |<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending/excel/overview">Learn more</a> about valid Excel report types.<br/>
+        /// <a href="https://docs.codat.io/lending/features/excel-download-overview#feature-components">Learn more</a> about valid Excel report types.<br/>
         /// <br/>
         /// <br/>
         /// 
@@ -74,7 +74,7 @@ namespace Codat.Lending
         /// <br/>
         /// The downloadable Excel file is returned in the response. You can save it to your local machine.<br/>
         /// <br/>
-        /// You can <a href="https://docs.codat.io/lending/excel/overview">learn more</a> about valid Excel report types.
+        /// You can <a href="https://docs.codat.io/lending/features/excel-download-overview#feature-components">learn more</a> about valid Excel report types.
         /// </remarks>
         /// </summary>
         Task<DownloadExcelReportResponse> DownloadAsync(DownloadExcelReportRequest request, RetryConfig? retryConfig = null);
@@ -87,10 +87,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.1";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "6.1.0";
+        private const string _sdkGenVersion = "2.451.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.1 2.415.6 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.451.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Lending.Models.Components.Security>? _securitySource;
@@ -201,10 +201,8 @@ namespace Codat.Lending
                     response.ExcelStatus = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -213,19 +211,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(GetExcelReportGenerationStatusRequest request, RetryConfig? retryConfig = null)
@@ -326,10 +320,8 @@ namespace Codat.Lending
                     response.ExcelStatus = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -338,19 +330,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<DownloadExcelReportResponse> DownloadAsync(DownloadExcelReportRequest request, RetryConfig? retryConfig = null)
@@ -450,10 +438,8 @@ namespace Codat.Lending
                     response.Body = await httpResponse.Content.ReadAsByteArrayAsync();
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -462,19 +448,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
     }
 }

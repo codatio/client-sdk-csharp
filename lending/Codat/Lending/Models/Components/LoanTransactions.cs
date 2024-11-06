@@ -25,11 +25,5 @@ namespace Codat.Lending.Models.Components
         /// </summary>
         [JsonProperty("reportItems")]
         public List<ReportItems>? ReportItems { get; set; }
-
-        /// <summary>
-        /// If there are no errors, an empty array is returned.
-        /// </summary>
-        [JsonProperty("errors")]
-        public List<object>? Errors { get; set; }
     }
 }

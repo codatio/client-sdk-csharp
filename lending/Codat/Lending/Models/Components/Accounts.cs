@@ -20,7 +20,7 @@ namespace Codat.Lending.Models.Components
         /// A source reference containing the `sourceType` object &quot;Banking&quot;.
         /// </summary>
         [JsonProperty("sourceRef")]
-        public SourceRef? SourceRef { get; set; }
+        public ReportSourceReference? SourceRef { get; set; }
 
         /// <summary>
         /// Name of the banking data source, e.g. &quot;Plaid&quot;.

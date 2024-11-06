@@ -18,6 +18,7 @@ namespace Codat.Lending
     {
         public IBankAccounts BankAccounts { get; }
         public ICodatLendingLoanWritebackAccounts Accounts { get; }
+        public ISourceAccounts SourceAccounts { get; }
         public ICodatLendingSuppliers Suppliers { get; }
         public ICodatLendingTransfers Transfers { get; }
         public IBankTransactions BankTransactions { get; }
@@ -30,15 +31,16 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.1";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "6.1.0";
+        private const string _sdkGenVersion = "2.451.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.1 2.415.6 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.451.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Lending.Models.Components.Security>? _securitySource;
         public IBankAccounts BankAccounts { get; private set; }
         public ICodatLendingLoanWritebackAccounts Accounts { get; private set; }
+        public ISourceAccounts SourceAccounts { get; private set; }
         public ICodatLendingSuppliers Suppliers { get; private set; }
         public ICodatLendingTransfers Transfers { get; private set; }
         public IBankTransactions BankTransactions { get; private set; }
@@ -54,6 +56,7 @@ namespace Codat.Lending
             SDKConfiguration = config;
             BankAccounts = new BankAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
             Accounts = new CodatLendingLoanWritebackAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
+            SourceAccounts = new SourceAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
             Suppliers = new CodatLendingSuppliers(_client, _securitySource, _serverUrl, SDKConfiguration);
             Transfers = new CodatLendingTransfers(_client, _securitySource, _serverUrl, SDKConfiguration);
             BankTransactions = new BankTransactions(_client, _securitySource, _serverUrl, SDKConfiguration);

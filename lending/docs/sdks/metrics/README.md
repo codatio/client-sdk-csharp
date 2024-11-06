@@ -15,9 +15,7 @@ The *Get revenue report* endpoint returns the revenue and revenue growth for a s
 
 This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
 
-Learn more about the formulas used to calculate the revenue metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
-
-Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+[Learn more](https://docs.codat.io/lending/features/sales-overview#metrics) about the formulas used to calculate the revenue metrics.
 
 #### Response structure
 
@@ -50,8 +48,8 @@ GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
     PeriodLength = 307462,
-    NumberOfPeriods = 944219,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Day,
+    NumberOfPeriods = 120092,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
 };
 
 var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
@@ -71,11 +69,10 @@ var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetCustomerRetention
 
@@ -91,7 +88,7 @@ This detail helps you assess a merchant's health and advise them on performance 
 - __Retention rate__: the ratio of existing customers within the specified period compared to the total customers at the end of the previous period represented as a percentage.
 - __Repeat rate__: the ratio of existing customers to total customers over the specified period represented as a percentage.
 
-Learn more about the formulas used to calculate customer retention metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
+[Learn more](https://docs.codat.io/lending/features/sales-overview#metrics) about the formulas used to calculate customer retention metrics.
 
 #### Response structure
 
@@ -123,8 +120,8 @@ GetCommerceCustomerRetentionMetricsRequest req = new GetCommerceCustomerRetentio
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
     PeriodLength = 497588,
-    NumberOfPeriods = 613110,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Week,
+    NumberOfPeriods = 431272,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Day,
 };
 
 var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
@@ -144,11 +141,10 @@ var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetLifetimeValue
 
@@ -156,9 +152,7 @@ The *Get lifetime value metrics* endpoint returns the average revenue that a spe
 
 This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.
 
-Learn more about the formulas used to calculate the lifetime value metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
-
-Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more detail on commerce reports in Lending.
+[Learn more](https://docs.codat.io/lending/features/sales-overview#metrics) about the formulas used to calculate the lifetime value metrics.
 
 #### Response structure
 
@@ -190,8 +184,8 @@ GetCommerceLifetimeValueMetricsRequest req = new GetCommerceLifetimeValueMetrics
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
     PeriodLength = 900865,
-    NumberOfPeriods = 614777,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Month,
+    NumberOfPeriods = 500610,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
 };
 
 var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
@@ -211,7 +205,7 @@ var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

@@ -10,11 +10,18 @@
 namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
+    using Newtonsoft.Json;
     
     /// <summary>
-    /// A collection of user-defined key-value pairs that store custom metadata against the company.
+    /// A source reference containing the `sourceType` object &quot;Banking&quot;.
     /// </summary>
-    public class Tags
+    public class ReportSourceReference
     {
+
+        /// <summary>
+        /// The data source type.
+        /// </summary>
+        [JsonProperty("sourceType")]
+        public string? SourceType { get; set; }
     }
 }

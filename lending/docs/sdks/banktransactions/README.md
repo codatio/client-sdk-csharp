@@ -18,9 +18,6 @@ The *Get create bank account transactions model* endpoint returns the expected d
 
 See the *response examples* for integration-specific indicative models.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating an bank transaction.
-
-
 ### Example Usage
 
 ```csharp
@@ -33,7 +30,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 GetCreateBankTransactionsModelRequest req = new GetCreateBankTransactionsModelRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "<value>",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.LoanWriteback.BankTransactions.GetCreateModelAsync(req);
@@ -53,11 +50,10 @@ var res = await sdk.LoanWriteback.BankTransactions.GetCreateModelAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
 
@@ -68,8 +64,6 @@ The *Create bank account transactions* endpoint creates new [bank account transa
 **Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating a bank account transactions.
 
 
 ### Example Usage
@@ -85,9 +79,9 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "<value>",
+    AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     AccountingCreateBankTransactions = new AccountingCreateBankTransactions() {
-        AccountId = "7110701885",
+        AccountId = "EILBDVJVNUAGVKRQ",
         Transactions = new List<CreateBankAccountTransaction>() {
             new CreateBankAccountTransaction() {
                 Date = "2022-10-23T00:00:00Z",
@@ -113,7 +107,7 @@ var res = await sdk.LoanWriteback.BankTransactions.CreateAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

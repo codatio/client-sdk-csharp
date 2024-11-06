@@ -18,9 +18,7 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// A Location also holds information on geographic locations where orders were placed, as referenced in the Orders data type.<br/>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-locations">data coverage</a> for this data type.
+    /// A Location also holds information on geographic locations where orders were placed, as referenced in the Orders data type.
     /// </remarks>
     /// </summary>
     public class CommerceLocation

@@ -18,8 +18,6 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// &gt; View the coverage for journals in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journals&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate <a href="https://docs.codat.io/lending-api#/schemas/JournalEntry">journal entry</a>. These entries are used to create the general ledger, which is then used to create the financial statements of a business.<br/>

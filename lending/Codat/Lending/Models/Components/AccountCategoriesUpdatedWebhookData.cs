@@ -16,9 +16,15 @@ namespace Codat.Lending.Models.Components
     {
 
         /// <summary>
-        /// The date on which the company&apos;s account categories were last modified in Codat.
+        /// In Codat&apos;s data model, dates are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date fields are formatted as strings; for example:<br/>
+        /// 
+        /// <remarks>
+        /// ```<br/>
+        /// 2020-10-08<br/>
+        /// ```
+        /// </remarks>
         /// </summary>
         [JsonProperty("modifiedDate")]
-        public string? ModifiedDate { get; set; }
+        public string? ModifiedDate { get; set; } = null;
     }
 }

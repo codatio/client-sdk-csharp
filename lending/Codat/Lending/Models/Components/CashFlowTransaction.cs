@@ -14,7 +14,7 @@ namespace Codat.Lending.Models.Components
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    public class EnhancedCashFlowTransaction
+    public class CashFlowTransaction
     {
 
         /// <summary>

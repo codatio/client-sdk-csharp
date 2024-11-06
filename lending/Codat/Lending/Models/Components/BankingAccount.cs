@@ -18,8 +18,6 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&amp;dataType=banking-accounts">data coverage</a>.<br/>
-    /// <br/>
     /// Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
     /// </remarks>
     /// </summary>

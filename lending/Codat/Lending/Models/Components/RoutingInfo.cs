@@ -9,16 +9,26 @@
 #nullable enable
 namespace Codat.Lending.Models.Components
 {
+    using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     
-    public class GroupReference
+    /// <summary>
+    /// Routing information for the bank. This does not include account number.
+    /// </summary>
+    public class RoutingInfo
     {
 
         /// <summary>
-        /// Unique identifier for the group.
+        /// The numeric identifier of the routing number
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+        [JsonProperty("bankCode")]
+        public string? BankCode { get; set; } = null;
+
+        /// <summary>
+        /// The type of routing number.
+        /// </summary>
+        [JsonProperty("type")]
+        public RoutingInfoType? Type { get; set; } = Codat.Lending.Models.Components.RoutingInfoType.Bankcode;
     }
 }

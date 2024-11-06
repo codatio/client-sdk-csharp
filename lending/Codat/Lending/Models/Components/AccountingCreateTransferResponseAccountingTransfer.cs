@@ -16,12 +16,7 @@ namespace Codat.Lending.Models.Components
     using System;
     
     /// <summary>
-    /// &gt; View the coverage for transfers in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=transfers&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// 
-    /// <remarks>
-    /// <br/>
     /// A transfer records the movement of money between two bank accounts, or between a bank account and a nominal account. It is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.
-    /// </remarks>
     /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
     public class AccountingCreateTransferResponseAccountingTransfer
     {
@@ -85,6 +80,12 @@ namespace Codat.Lending.Models.Components
         /// </summary>
         [JsonProperty("to")]
         public TransferAccount? To { get; set; }
+
+        /// <summary>
+        /// The status of the transfer in the account
+        /// </summary>
+        [JsonProperty("status")]
+        public AccountingCreateTransferResponseStatus? Status { get; set; } = null;
 
         /// <summary>
         /// Reference to the tracking categories this transfer is being tracked against.

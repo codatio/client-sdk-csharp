@@ -19,8 +19,6 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// &gt; View the coverage for journal entries in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=journalEntries&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// A journal entry report shows the entries made in a company&apos;s general ledger, or <a href="https://docs.codat.io/lending-api#/schemas/Account">accounts</a>, when transactions are approved. The journal line items for each journal entry should balance.<br/>

@@ -19,8 +19,6 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// &gt; View the coverage for direct incomes in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directIncomes&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// Direct incomes are incomes received directly from the business&apos; operations. For example, cash sales of items to a customer, referral commissions, and service fee refunds are considered direct incomes.<br/>

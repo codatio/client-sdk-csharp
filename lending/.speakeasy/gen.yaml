@@ -11,8 +11,9 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 csharp:
-  version: 6.0.1
+  version: 6.1.0
   additionalDependencies: []
   author: Codat
   clientServerStatusCodesAsErrors: true
@@ -21,6 +22,7 @@ csharp:
   dotnetVersion: net8.0
   enableSourceLink: false
   flattenGlobalSecurity: true
+  flatteningOrder: ""
   imports:
     option: openapi
     paths:
@@ -32,7 +34,9 @@ csharp:
   includeDebugSymbols: false
   inputModelSuffix: input
   maxMethodParams: 0
+  methodArguments: infer-optional-args
   outputModelSuffix: output
   packageName: Codat.Lending
   packageTags: ""
   responseFormat: envelope
+  sourceDirectory: ""

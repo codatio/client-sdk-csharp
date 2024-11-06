@@ -14,9 +14,7 @@ The *Get orders report* endpoint returns the number of orders, total value, and 
 
 This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
 
-Learn more about the formulas used to calculate the order metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
-
-Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+[Learn more](https://docs.codat.io/lending/features/sales-overview#metrics) about the formulas used to calculate the order metrics.
 
 #### Response structure
 
@@ -49,8 +47,8 @@ GetCommerceOrdersReportRequest req = new GetCommerceOrdersReportRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
     PeriodLength = 491586,
-    NumberOfPeriods = 776309,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Week,
+    NumberOfPeriods = 393849,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
 };
 
 var res = await sdk.Sales.Reports.GetOrdersAsync(req);
@@ -70,11 +68,10 @@ var res = await sdk.Sales.Reports.GetOrdersAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetRefunds
 
@@ -82,9 +79,7 @@ The *Get refunds report* endpoint returns the number and total value of refunds 
 
 This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
 
-Learn more about the formulas used to calculate the refunds metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
-
-Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+[Learn more](https://docs.codat.io/lending/features/sales-overview#metrics) about the formulas used to calculate the refunds metrics.
 
 #### Response structure
 
@@ -118,8 +113,8 @@ GetCommerceRefundsReportRequest req = new GetCommerceRefundsReportRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
     PeriodLength = 277786,
-    NumberOfPeriods = 876670,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
+    NumberOfPeriods = 810912,
+    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Month,
 };
 
 var res = await sdk.Sales.Reports.GetRefundsAsync(req);
@@ -139,7 +134,7 @@ var res = await sdk.Sales.Reports.GetRefundsAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

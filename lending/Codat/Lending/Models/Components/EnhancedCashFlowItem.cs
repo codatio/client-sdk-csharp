@@ -21,6 +21,6 @@ namespace Codat.Lending.Models.Components
         /// An array of transaction data.
         /// </summary>
         [JsonProperty("transactions")]
-        public List<EnhancedCashFlowTransaction>? Transactions { get; set; }
+        public List<CashFlowTransaction>? Transactions { get; set; }
     }
 }

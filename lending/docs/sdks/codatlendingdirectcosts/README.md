@@ -18,8 +18,6 @@ The *Get create direct cost model* endpoint returns the expected data for the re
 
 See the *response examples* for integration-specific indicative models.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating a direct cost.
-
 
 ### Example Usage
 
@@ -52,11 +50,10 @@ var res = await sdk.LoanWriteback.DirectCosts.GetCreateModelAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
 
@@ -67,9 +64,6 @@ The *Create direct cost* endpoint creates a new [direct cost](https://docs.codat
 **Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create direct cost model](https://docs.codat.io/lending-api#/operations/get-create-directCosts-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating an account.
-
 
 ### Example Usage
 
@@ -86,11 +80,11 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     DirectCostPrototype = new DirectCostPrototype() {
         IssueDate = "2022-10-23T00:00:00Z",
-        Currency = "EUR",
+        Currency = "USD",
         LineItems = new List<DirectCostLineItem>() {
             new DirectCostLineItem() {
                 UnitAmount = 4174.58M,
-                Quantity = 2884.08M,
+                Quantity = 1343.65M,
                 AccountRef = new AccountRef() {},
                 Tracking = new Tracking() {
                     RecordRefs = new List<TrackingRecordRef>() {
@@ -99,7 +93,7 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
                         },
                     },
                     InvoiceTo = new RecordRef() {
-                        DataType = "transfer",
+                        DataType = "journalEntry",
                     },
                 },
             },
@@ -112,14 +106,14 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
                     PaidOnDate = "2022-10-23T00:00:00Z",
                 },
                 Allocation = new Allocation() {
-                    Currency = "EUR",
+                    Currency = "GBP",
                     AllocatedOnDate = "2022-10-23T00:00:00Z",
                 },
             },
         },
-        SubTotal = 1697.27M,
-        TaxAmount = 3015.1M,
-        TotalAmount = 899.64M,
+        SubTotal = 899.64M,
+        TaxAmount = 7926.20M,
+        TotalAmount = 8165.87M,
     },
 };
 
@@ -140,7 +134,7 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

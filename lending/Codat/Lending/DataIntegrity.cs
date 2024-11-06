@@ -52,7 +52,7 @@ namespace Codat.Lending
         /// <br/>
         /// For example, if you wanted to see summary match results only for transactions after 1 December 2020, you could include a query parameter of `query=date&gt;2020-12-01`.<br/>
         /// <br/>
-        /// The endpoint response includes only the summary results, not transactions. To view match data for transactions, use the <a href="https://docs.codat.io/lending-api#/operations/list-data-type-data-integrity-details">List data integrity details</a> endpoint.
+        /// The endpoint response includes only the summary results, not transactions. To view match data for transactions, use the <a href="https://docs.codat.io/lending-api#/operations/get-data-integrity-summaries">List data integrity details</a> endpoint.
         /// </remarks>
         /// </summary>
         Task<GetDataIntegritySummariesResponse> SummariesAsync(GetDataIntegritySummariesRequest request, RetryConfig? retryConfig = null);
@@ -63,7 +63,7 @@ namespace Codat.Lending
         /// <remarks>
         /// The *List data integrity details* endpoint returns the match result record by record for a given data type, filtered based on a query string in the same way as summary results.<br/>
         /// <br/>
-        /// The <a href="https://docs.codat.io/lending-api#/schemas/DataIntegrityDetails">details</a> are paginated and support ordering, following the same conventions as our other data endpoints.
+        /// The <a href="https://docs.codat.io/lending-api#/schemas/DataIntegrityDetail">details</a> are paginated and support ordering, following the same conventions as our other data endpoints.
         /// </remarks>
         /// </summary>
         Task<ListDataIntegrityDetailsResponse> DetailsAsync(ListDataIntegrityDetailsRequest request, RetryConfig? retryConfig = null);
@@ -76,10 +76,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.1";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.451.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.1 2.415.6 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.451.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Lending.Models.Components.Security>? _securitySource;
@@ -190,10 +190,8 @@ namespace Codat.Lending
                     response.DataIntegrityStatuses = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -202,19 +200,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<GetDataIntegritySummariesResponse> SummariesAsync(GetDataIntegritySummariesRequest request, RetryConfig? retryConfig = null)
@@ -315,10 +309,8 @@ namespace Codat.Lending
                     response.DataIntegritySummaries = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -327,19 +319,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<ListDataIntegrityDetailsResponse> DetailsAsync(ListDataIntegrityDetailsRequest request, RetryConfig? retryConfig = null)
@@ -440,10 +428,8 @@ namespace Codat.Lending
                     response.DataIntegrityDetails = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -452,19 +438,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
     }
 }

@@ -53,11 +53,10 @@ var res = await sdk.DataIntegrity.StatusAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Summaries
 
@@ -65,7 +64,7 @@ The *Get data integrity summary* endpoint returns a [summary](https://docs.codat
 
 For example, if you wanted to see summary match results only for transactions after 1 December 2020, you could include a query parameter of `query=date>2020-12-01`.
 
-The endpoint response includes only the summary results, not transactions. To view match data for transactions, use the [List data integrity details](https://docs.codat.io/lending-api#/operations/list-data-type-data-integrity-details) endpoint.
+The endpoint response includes only the summary results, not transactions. To view match data for transactions, use the [List data integrity details](https://docs.codat.io/lending-api#/operations/get-data-integrity-summaries) endpoint.
 
 ### Example Usage
 
@@ -99,17 +98,16 @@ var res = await sdk.DataIntegrity.SummariesAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Details
 
 The *List data integrity details* endpoint returns the match result record by record for a given data type, filtered based on a query string in the same way as summary results.
 
-The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetails) are paginated and support ordering, following the same conventions as our other data endpoints.
+The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetail) are paginated and support ordering, following the same conventions as our other data endpoints.
 
 ### Example Usage
 
@@ -146,7 +144,7 @@ var res = await sdk.DataIntegrity.DetailsAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

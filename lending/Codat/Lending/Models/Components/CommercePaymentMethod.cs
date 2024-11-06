@@ -14,12 +14,7 @@ namespace Codat.Lending.Models.Components
     using Newtonsoft.Json;
     
     /// <summary>
-    /// A Payment Method represents the payment method(s) used to make payments.<br/>
-    /// 
-    /// <remarks>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-paymentMethods">data coverage</a> for this data type.
-    /// </remarks>
+    /// A Payment Method represents the payment method(s) used to make payments.
     /// </summary>
     public class CommercePaymentMethod
     {

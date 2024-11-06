@@ -19,8 +19,6 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// a linked company, such as their address, phone number, and company registration.<br/>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=companyInfo">data coverage</a> for this data type.<br/>
     /// 
     /// </remarks>
     /// </summary>

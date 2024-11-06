@@ -33,9 +33,7 @@ namespace Codat.Lending
         /// <br/>
         /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
         /// <br/>
-        /// Learn more about the formulas used to calculate the revenue metrics <a href="https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available">here</a>.<br/>
-        /// <br/>
-        /// Refer to the <a href="https://docs.codat.io/lending/commerce-metrics/reporting-structure">commerce reporting structure</a> page for more details on commerce reports in Lending.<br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the revenue metrics.<br/>
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
@@ -73,7 +71,7 @@ namespace Codat.Lending
         /// - __Retention rate__: the ratio of existing customers within the specified period compared to the total customers at the end of the previous period represented as a percentage.<br/>
         /// - __Repeat rate__: the ratio of existing customers to total customers over the specified period represented as a percentage.<br/>
         /// <br/>
-        /// Learn more about the formulas used to calculate customer retention metrics <a href="https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available">here</a>.<br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate customer retention metrics.<br/>
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
@@ -102,9 +100,7 @@ namespace Codat.Lending
         /// <br/>
         /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.<br/>
         /// <br/>
-        /// Learn more about the formulas used to calculate the lifetime value metrics <a href="https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available">here</a>.<br/>
-        /// <br/>
-        /// Refer to the <a href="https://docs.codat.io/lending/commerce-metrics/reporting-structure">commerce reporting structure</a> page for more detail on commerce reports in Lending.<br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the lifetime value metrics.<br/>
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
@@ -130,10 +126,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.1";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.451.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.1 2.415.6 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.451.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Lending.Models.Components.Security>? _securitySource;
@@ -244,10 +240,8 @@ namespace Codat.Lending
                     response.CommerceReport = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -256,19 +250,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<GetCommerceCustomerRetentionMetricsResponse> GetCustomerRetentionAsync(GetCommerceCustomerRetentionMetricsRequest request, RetryConfig? retryConfig = null)
@@ -369,10 +359,8 @@ namespace Codat.Lending
                     response.CommerceReport = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -381,19 +369,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<GetCommerceLifetimeValueMetricsResponse> GetLifetimeValueAsync(GetCommerceLifetimeValueMetricsRequest request, RetryConfig? retryConfig = null)
@@ -494,10 +478,8 @@ namespace Codat.Lending
                     response.CommerceReport = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -506,19 +488,15 @@ namespace Codat.Lending
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
     }
 }

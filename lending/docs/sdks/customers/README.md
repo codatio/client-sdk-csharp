@@ -54,19 +54,16 @@ var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503      | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage    | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
+| Codat.Lending.Models.Errors.SDKException    | 4XX, 5XX                                    | \*/\*                                       |
 
 ## Get
 
 The *Get customer* endpoint returns a single customer for a given customerId.
 
 [Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
@@ -82,7 +79,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "<value>",
+    CustomerId = "7110701885",
 };
 
 var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
@@ -102,20 +99,16 @@ var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## ListAttachments
 
 The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.
 
 [Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support listing customer attachments.
-
 
 ### Example Usage
 
@@ -129,7 +122,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 ListAccountingCustomerAttachmentsRequest req = new ListAccountingCustomerAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "<value>",
+    CustomerId = "EILBDVJVNUAGVKRQ",
 };
 
 var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(req);
@@ -149,19 +142,16 @@ var res = await sdk.AccountsReceivable.Customers.ListAttachmentsAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetAttachment
 
 The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
 
 [Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
 
 
 ### Example Usage
@@ -176,7 +166,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 GetAccountingCustomerAttachmentRequest req = new GetAccountingCustomerAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "<value>",
+    CustomerId = "EILBDVJVNUAGVKRQ",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -197,20 +187,16 @@ var res = await sdk.AccountsReceivable.Customers.GetAttachmentAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## DownloadAttachment
 
 The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
 
 [Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
-
 
 ### Example Usage
 
@@ -224,7 +210,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 DownloadAccountingCustomerAttachmentRequest req = new DownloadAccountingCustomerAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "<value>",
+    CustomerId = "EILBDVJVNUAGVKRQ",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -245,7 +231,7 @@ var res = await sdk.AccountsReceivable.Customers.DownloadAttachmentAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

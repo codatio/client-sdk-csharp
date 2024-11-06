@@ -107,6 +107,11 @@ namespace Codat.Lending
         /// Retrieve banking data from linked bank accounts.
         /// </summary>
         public IBankStatements BankStatements { get; }
+
+        /// <summary>
+        /// Endpoints to manage generation of reports
+        /// </summary>
+        public IManageReports ManageReports { get; }
     }
 
     public class SDKConfig
@@ -181,10 +186,10 @@ namespace Codat.Lending
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.1";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.451.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.1 2.415.6 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.451.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;
@@ -206,6 +211,7 @@ namespace Codat.Lending
         public IFileUpload FileUpload { get; private set; }
         public ILoanWriteback LoanWriteback { get; private set; }
         public IBankStatements BankStatements { get; private set; }
+        public IManageReports ManageReports { get; private set; }
 
         public CodatLending(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
         {
@@ -301,6 +307,9 @@ namespace Codat.Lending
 
 
             BankStatements = new BankStatements(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            ManageReports = new ManageReports(_client, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

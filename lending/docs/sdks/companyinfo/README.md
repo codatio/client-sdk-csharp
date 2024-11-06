@@ -44,11 +44,10 @@ var res = await sdk.CompanyInfo.GetAccountingProfileAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetCommerceProfile
 
@@ -89,7 +88,7 @@ var res = await sdk.CompanyInfo.GetCommerceProfileAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

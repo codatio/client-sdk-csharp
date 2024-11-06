@@ -9,7 +9,6 @@
 #nullable enable
 namespace Codat.Lending.Models.Components
 {
-    using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -30,9 +29,9 @@ namespace Codat.Lending.Models.Components
         public string? Description { get; set; }
 
         /// <summary>
-        /// Reference to the groups that the company is assigned to.
+        /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
-        [JsonProperty("groups")]
-        public List<GroupReference>? Groups { get; set; }
+        [JsonProperty("tags")]
+        public Dictionary<string, string>? Tags { get; set; }
     }
 }

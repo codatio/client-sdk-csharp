@@ -18,9 +18,6 @@ The *Get create payment model* endpoint returns the expected data for the reques
 
 See the *response examples* for integration-specific indicative models.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating a payment.
-
-
 ### Example Usage
 
 ```csharp
@@ -52,11 +49,10 @@ var res = await sdk.LoanWriteback.Payments.GetCreateModelAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503              | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
-
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
 
@@ -67,9 +63,6 @@ The *Create payment* endpoint creates a new [payment](https://docs.codat.io/lend
 **Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating an account.
-
 
 ### Example Usage
 
@@ -92,11 +85,11 @@ CreatePaymentRequest req = new CreatePaymentRequest() {
             Id = "EILBDVJVNUAGVKRQ",
             Name = "AliPay",
         },
-        Currency = "GBP",
+        Currency = "USD",
         Date = "2022-10-23T00:00:00Z",
         Lines = new List<PaymentLine>() {
             new PaymentLine() {
-                Amount = 690.25M,
+                Amount = 690.26M,
                 AllocatedOnDate = "2022-10-23T00:00:00Z",
             },
         },
@@ -120,7 +113,7 @@ var res = await sdk.LoanWriteback.Payments.CreateAsync(req);
 
 ### Errors
 
-| Error Object                             | Status Code                              | Content Type                             |
+| Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503          | application/json                         |
-| Codat.Lending.Models.Errors.SDKException | 4xx-5xx                                  | */*                                      |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

@@ -21,8 +21,6 @@ namespace Codat.Lending.Models.Components
     /// &gt; <br/>
     /// &gt; In Codat, bill credit notes represent accounts payable only. For accounts receivable, see <a href="https://docs.codat.io/lending-api#/schemas/CreditNote">Credit notes</a>.<br/>
     /// <br/>
-    /// View the coverage for bill credit notes in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=billCreditNotes&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// A bill credit note is issued by a supplier for the purpose of recording credit. For example, if a supplier was unable to fulfil an order that was placed by a business, or delivered damaged goods, they would issue a bill credit note. A bill credit note reduces the amount a business owes to the supplier. It can be refunded to the business or used to pay off future bills.<br/>

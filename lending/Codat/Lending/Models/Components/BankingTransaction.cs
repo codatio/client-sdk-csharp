@@ -18,9 +18,7 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.<br/>
-    /// <br/>
-    /// View the coverage for banking transactions in the <a href="https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&amp;dataType=banking-transactions">Data Coverage Explorer</a>.
+    /// Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
     /// </remarks>
     /// </summary>
     public class BankingTransaction

@@ -15,12 +15,7 @@ namespace Codat.Lending.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// Product categories are used to classify a group of products together, either by type (e.g. &quot;Furniture&quot;), or sometimes by tax profile.<br/>
-    /// 
-    /// <remarks>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-productCategories">data coverage</a> for this data type.
-    /// </remarks>
+    /// Product categories are used to classify a group of products together, either by type (e.g. &quot;Furniture&quot;), or sometimes by tax profile.
     /// </summary>
     public class CommerceProductCategory
     {

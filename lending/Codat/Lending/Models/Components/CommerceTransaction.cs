@@ -23,9 +23,7 @@ namespace Codat.Lending.Models.Components
     /// - Average transaction volume  <br/>
     /// - Average transaction value  <br/>
     /// - Returns  <br/>
-    /// - Payouts<br/>
-    /// <br/>
-    /// Explore our <a href="https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&amp;dataType=commerce-transactions">data coverage</a> for this data type.
+    /// - Payouts
     /// </remarks>
     /// </summary>
     public class CommerceTransaction

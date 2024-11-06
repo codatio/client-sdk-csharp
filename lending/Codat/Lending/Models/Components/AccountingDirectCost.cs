@@ -19,8 +19,6 @@ namespace Codat.Lending.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// &gt; View the coverage for direct costs in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=directCosts&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// Direct costs are the expenses associated with a business&apos; operations. For example, purchases of raw materials and service fees are considered direct costs.<br/>

@@ -21,8 +21,6 @@ Create new bank account transactions for a company's connections, and see previo
 
 Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bankTransactions-model).
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating a bank account transactions.
-
 
 ### Example Usage
 
@@ -41,7 +39,7 @@ CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     CreateBankTransactions = new CreateBankTransactions() {
-        AccountId = "Checking 0202",
+        AccountId = "EILBDVJVNUAGVKRQ",
         Transactions = new List<BankTransactions>() {
             new BankTransactions() {
                 Id = "716422529",
@@ -74,15 +72,18 @@ var res = await sdk.Transactions.CreateAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## GetCreateOperation
 
-Retrieve push operation.
+The **Get create operation** endpoint returns a specific [write operation](/using-the-api/push) identified by the `pushOperationKey` that was performed on the company.
+
+Write operations are actions that send requests to Codat, enabling the creation, updating, deletion of records, or uploading attachments in the connected accounting software.
+
+For bank feeds, your push operations will only relate to the `bankTransactions` data type.
 
 ### Example Usage
 
@@ -97,7 +98,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 
 GetCreateOperationRequest req = new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "1fb73c31-a851-46c2-ab8a-5ce6e25b57b8",
+    PushOperationKey = "1b33a562-bac6-42b7-8818-d55dba8df363",
 };
 
 var res = await sdk.Transactions.GetCreateOperationAsync(req);
@@ -117,15 +118,18 @@ var res = await sdk.Transactions.GetCreateOperationAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## ListCreateOperations
 
-List create operations.
+The **List create operations** endpoint returns a list of [write operations](/using-the-api/push) performed on the company.
+
+Write operations are actions that send requests to Codat, enabling the creation, updating, deletion of records, or uploading attachments in the connected accounting software. 
+
+For bank feeds, use this endpoint to view write operations related to the `bankTransactions` data type.
 
 ### Example Usage
 
@@ -163,7 +167,7 @@ var res = await sdk.Transactions.ListCreateOperationsAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

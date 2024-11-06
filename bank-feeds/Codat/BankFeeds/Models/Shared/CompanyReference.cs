@@ -9,24 +9,37 @@
 #nullable enable
 namespace Codat.BankFeeds.Models.Shared
 {
+    using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     
-    public class CompanyRequestBody
+    public class CompanyReference
     {
 
         /// <summary>
-        /// Name of company being connected.
+        /// Unique identifier for your SMB in Codat.
+        /// </summary>
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// The name of the company
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
 
         /// <summary>
         /// Additional information about the company. This can be used to store foreign IDs, references, etc.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// A collection of links for the company.
+        /// </summary>
+        [JsonProperty("links")]
+        public CompanyReferenceLinks? Links { get; set; }
 
         /// <summary>
         /// A collection of user-defined key-value pairs that store custom metadata against the company.

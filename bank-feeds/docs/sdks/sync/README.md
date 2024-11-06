@@ -45,7 +45,7 @@ var res = await sdk.Sync.GetLastSuccessfulSyncAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

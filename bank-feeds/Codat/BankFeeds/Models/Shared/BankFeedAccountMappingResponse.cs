@@ -12,9 +12,6 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     
-    /// <summary>
-    /// The result from POSTing a Bank Account mapping.
-    /// </summary>
     public class BankFeedAccountMappingResponse
     {
 
@@ -33,13 +30,13 @@ namespace Codat.BankFeeds.Models.Shared
         /// <summary>
         /// Status of the POST request.
         /// </summary>
-        [JsonProperty("Status")]
+        [JsonProperty("status")]
         public string? Status { get; set; } = null;
 
         /// <summary>
         /// Error returned during the post request
         /// </summary>
-        [JsonProperty("Error")]
+        [JsonProperty("error")]
         public string? Error { get; set; } = null;
     }
 }

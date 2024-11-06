@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.BankFeeds</PackageId>
-    <Version>5.0.0</Version>
+    <Version>6.0.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
     <Copyright>Copyright (c) Codat 2024</Copyright>

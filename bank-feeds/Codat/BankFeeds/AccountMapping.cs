@@ -29,14 +29,16 @@ namespace Codat.BankFeeds
     {
 
         /// <summary>
-        /// List bank feed account mappings
+        /// List bank feed accounts
         /// 
         /// <remarks>
-        /// The *List bank account mappings* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
+        /// The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).<br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
         /// <br/>
-        /// This endpoint is only needed if building an account management UI.
+        /// &gt; **For custom builds only**<br/>
+        /// &gt; <br/>
+        /// &gt; Only use this endpoint if you are building your own account management UI.
         /// </remarks>
         /// </summary>
         Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest request, RetryConfig? retryConfig = null);
@@ -47,11 +49,13 @@ namespace Codat.BankFeeds
         /// <remarks>
         /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).<br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
         /// <br/>
-        /// To find valid target account options, first call list bank feed account mappings.<br/>
+        /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
         /// <br/>
-        /// This endpoint is only needed if building an account management UI.
+        /// &gt; **For custom builds only**<br/>
+        /// &gt;<br/>
+        /// &gt; Only use this endpoint if you are building your own account management UI.
         /// </remarks>
         /// </summary>
         Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null);
@@ -64,10 +68,10 @@ namespace Codat.BankFeeds
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "6.0.0";
+        private const string _sdkGenVersion = "2.451.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.415.6 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.451.0 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;
@@ -168,20 +172,18 @@ namespace Codat.BankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<BankFeedMapping>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var obj = ResponseBodyDeserializer.Deserialize<List<BankFeedMapping>>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     var response = new GetBankAccountMappingResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.BankFeedMapping = obj;
+                    response.BankFeedMappings = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -190,19 +192,15 @@ namespace Codat.BankFeeds
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null)
@@ -309,10 +307,8 @@ namespace Codat.BankFeeds
                     response.BankFeedAccountMappingResponse = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -321,19 +317,15 @@ namespace Codat.BankFeeds
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
     }
 }

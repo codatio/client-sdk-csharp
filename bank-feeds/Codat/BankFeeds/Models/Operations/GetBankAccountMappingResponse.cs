@@ -11,6 +11,7 @@ namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System;
     
@@ -35,6 +36,6 @@ namespace Codat.BankFeeds.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public BankFeedMapping? BankFeedMapping { get; set; }
+        public List<BankFeedMapping>? BankFeedMappings { get; set; }
     }
 }

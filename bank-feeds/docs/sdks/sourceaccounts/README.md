@@ -98,17 +98,16 @@ var res = await sdk.SourceAccounts.CreateAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## List
 
 ﻿The _List source accounts_ endpoint returns a list of [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
 
-[source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
+[Source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
 
 > ### Versioning
 > If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
@@ -146,11 +145,10 @@ var res = await sdk.SourceAccounts.ListAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Update
 
@@ -175,15 +173,15 @@ var sdk = new CodatBankFeeds(security: new Security() {
 UpdateSourceAccountRequest req = new UpdateSourceAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    AccountId = "EILBDVJVNUAGVKRQ",
     SourceAccount = new SourceAccount() {
-        Id = "acc-002",
-        AccountName = "account-081",
+        Id = "acc-003",
+        AccountName = "account-095",
         AccountType = "Credit",
-        AccountNumber = "12345670",
+        AccountNumber = "12345671",
         SortCode = "123456",
-        Currency = "GBP",
-        Balance = 99.99M,
+        Currency = "USD",
+        Balance = 0M,
         ModifiedDate = "2023-01-09T14:14:14.1057478Z",
         Status = Codat.BankFeeds.Models.Shared.SourceAccountStatus.Pending,
         FeedStartDate = "2022-10-23T00:00:00Z",
@@ -207,11 +205,10 @@ var res = await sdk.SourceAccounts.UpdateAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Delete
 
@@ -234,7 +231,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 DeleteSourceAccountRequest req = new DeleteSourceAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "EILBDVJVNUAGVKRQ",
+    AccountId = "7110701885",
 };
 
 var res = await sdk.SourceAccounts.DeleteAsync(req);
@@ -254,18 +251,20 @@ var res = await sdk.SourceAccounts.DeleteAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## GenerateCredentials
 
-﻿The _Generate Bank Account Credentials_ endpoint can be used to generate credentials for QuickBooks Online to use for authentication of the Bank Feed in their portal, each time this is used a new set of credentials will be generated.
+﻿The _Generate bank account credentials_ endpoint can be used to generate credentials for QuickBooks Online to authenticate the Bank Feed in the QBO portal. Each time this endpoint is called, a new set of credentials will be generated.
 
 The old credentials will still be valid until the revoke credentials endpoint is used, which will revoke all credentials associated to the data connection.
 
+> **For QuickBooks Online only**
+>
+> Only call this endpoint when onboarding SMBs that use  QuickBooks Online.
 
 ### Example Usage
 
@@ -281,7 +280,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 GenerateCredentialsRequest req = new GenerateCredentialsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    RequestBody = System.Text.Encoding.UTF8.GetBytes("0xeDCfFBde9E"),
+    RequestBody = System.Text.Encoding.UTF8.GetBytes("0xeCFd9fD7b9"),
 };
 
 var res = await sdk.SourceAccounts.GenerateCredentialsAsync(req);
@@ -301,11 +300,10 @@ var res = await sdk.SourceAccounts.GenerateCredentialsAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## DeleteCredentials
 
@@ -346,7 +344,7 @@ var res = await sdk.SourceAccounts.DeleteCredentialsAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

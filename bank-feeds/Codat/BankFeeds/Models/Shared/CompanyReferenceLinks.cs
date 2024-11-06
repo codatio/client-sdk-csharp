@@ -10,11 +10,18 @@
 namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
+    using Newtonsoft.Json;
     
     /// <summary>
-    /// A collection of user-defined key-value pairs that store custom metadata against the company.
+    /// A collection of links for the company.
     /// </summary>
-    public class Tags
+    public class CompanyReferenceLinks
     {
+
+        /// <summary>
+        /// Link to the company page in the portal.
+        /// </summary>
+        [JsonProperty("portal")]
+        public string? Portal { get; set; }
     }
 }

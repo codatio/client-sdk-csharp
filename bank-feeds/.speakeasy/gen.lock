@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: 013890de98917d65fc592f4de8d32cf4
+  docChecksum: c57bceaa5f2d5b6d55426976a49ec69d
   docVersion: 3.0.0
-  speakeasyVersion: 1.396.6
-  generationVersion: 2.415.6
-  releaseVersion: 5.0.0
-  configChecksum: 464bac98d10a98fbfa18df6f875bd1e1
+  speakeasyVersion: 1.431.0
+  generationVersion: 2.451.0
+  releaseVersion: 6.0.0
+  configChecksum: 1fadd340ea85d5ca742037ace5043daf
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
@@ -14,7 +14,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.9.19
+    core: 3.10.4
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
@@ -22,12 +22,13 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
+    methodArguments: 0.1.0
     nameOverrides: 2.81.2
     nullables: 0.1.0
     responseFormat: 0.0.4
     retries: 0.0.1
     sdkHooks: 0.1.0
-    unions: 0.2.1
+    unions: 0.2.2
     webhooks: 1.0.0
 generatedFiles:
   - .gitattributes
@@ -133,6 +134,8 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/Companies.cs
   - Codat/BankFeeds/Models/Shared/Company.cs
   - Codat/BankFeeds/Models/Shared/CompanyInformation.cs
+  - Codat/BankFeeds/Models/Shared/CompanyReference.cs
+  - Codat/BankFeeds/Models/Shared/CompanyReferenceLinks.cs
   - Codat/BankFeeds/Models/Shared/CompanyRequestBody.cs
   - Codat/BankFeeds/Models/Shared/CompanySyncStatus.cs
   - Codat/BankFeeds/Models/Shared/Configuration.cs
@@ -150,7 +153,6 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/ErrorStatus.cs
   - Codat/BankFeeds/Models/Shared/ErrorValidation.cs
   - Codat/BankFeeds/Models/Shared/ErrorValidationItem.cs
-  - Codat/BankFeeds/Models/Shared/GroupReference.cs
   - Codat/BankFeeds/Models/Shared/HalRef.cs
   - Codat/BankFeeds/Models/Shared/Links.cs
   - Codat/BankFeeds/Models/Shared/Metadata.cs
@@ -179,7 +181,6 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/SyncAsBankFeeds.cs
   - Codat/BankFeeds/Models/Shared/SyncAsExpenses.cs
   - Codat/BankFeeds/Models/Shared/SyncConfiguration.cs
-  - Codat/BankFeeds/Models/Shared/Tags.cs
   - Codat/BankFeeds/Models/Shared/TargetAccountOption.cs
   - Codat/BankFeeds/Models/Shared/Type.cs
   - Codat/BankFeeds/Models/Shared/Validation.cs
@@ -301,6 +302,8 @@ generatedFiles:
   - docs/Models/Shared/Companies.md
   - docs/Models/Shared/Company.md
   - docs/Models/Shared/CompanyInformation.md
+  - docs/Models/Shared/CompanyReference.md
+  - docs/Models/Shared/CompanyReferenceLinks.md
   - docs/Models/Shared/CompanyRequestBody.md
   - docs/Models/Shared/CompanySyncStatus.md
   - docs/Models/Shared/Configuration.md
@@ -318,7 +321,6 @@ generatedFiles:
   - docs/Models/Shared/ErrorStatus.md
   - docs/Models/Shared/ErrorValidation.md
   - docs/Models/Shared/ErrorValidationItem.md
-  - docs/Models/Shared/GroupReference.md
   - docs/Models/Shared/HalRef.md
   - docs/Models/Shared/Links.md
   - docs/Models/Shared/Metadata.md
@@ -347,7 +349,6 @@ generatedFiles:
   - docs/Models/Shared/SyncAsBankFeeds.md
   - docs/Models/Shared/SyncAsExpenses.md
   - docs/Models/Shared/SyncConfiguration.md
-  - docs/Models/Shared/Tags.md
   - docs/Models/Shared/TargetAccountOption.md
   - docs/Models/Shared/Type.md
   - docs/Models/Shared/Validation.md
@@ -373,14 +374,14 @@ examples:
   create-company:
     With no description:
       requestBody:
-        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
           application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
         "400": {}
     With a description:
       requestBody:
-        application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development", "groups": []}
+        application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development"}
       responses:
         "200":
           application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
@@ -394,10 +395,16 @@ examples:
         "400": {}
     Malformed query:
       requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    With a tag:
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "tags": {"region": "us"}, "dataConnections": []}
   list-companies:
     "":
       parameters:
@@ -419,7 +426,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
     List of Companies:
       parameters:
         query:
@@ -429,7 +436,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}]}, {"id": "096db70b-78de-4ff0-aa98-299cb5fe17a0", "name": "Godata", "description": "A new digital agency with a passion for creating amazing digital experiences", "redirect": "https://link.codat.io/company/096db70b-78de-4ff0-aa98-299cb5fe17a0", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "a70bc148-dc21-46b2-a257-d9c58ac15cbb", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/096db70b-78de-4ff0-aa98-299cb5fe17a0/connections/a70bc148-dc21-46b2-a257-d9c58ac15cbb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 2, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}, {"id": "096db70b-78de-4ff0-aa98-299cb5fe17a0", "name": "Godata", "description": "A new digital agency with a passion for creating amazing digital experiences", "redirect": "https://link.codat.io/company/096db70b-78de-4ff0-aa98-299cb5fe17a0", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "a70bc148-dc21-46b2-a257-d9c58ac15cbb", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/096db70b-78de-4ff0-aa98-299cb5fe17a0/connections/a70bc148-dc21-46b2-a257-d9c58ac15cbb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 2, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
     Malformed query:
       parameters:
         query:
@@ -486,27 +493,27 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       requestBody:
-        application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}
         "401": {}
     Update description:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       requestBody:
-        application/json: {"name": "Same name", "description": "Additional documents required", "groups": []}
+        application/json: {"name": "Same name", "description": "Additional documents required"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
         "401": {}
     Unauthorized:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
@@ -535,7 +542,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
     Malformed query:
       parameters:
         path:
@@ -1012,6 +1019,14 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: [{"sourceAccountId": "account-001", "sourceAccountName": "account-001", "sourceAccountNumber": "12345670", "sourceBalance": "99.99", "sourceCurrency": "GBP", "status": "pending", "targetAccountOptions": [{"id": "d21e25d6-98c5-4bfb-b469-105833bea3c8", "name": "Money Bank account", "sortCode": "123456", "accountNumber": "789"}, {"id": "d06ff4b2-e4f2-4681-9841-014bd008cdab", "name": "Bank of Dave account", "sortCode": "998866", "accountNumber": "99887766"}, {"id": "c8f252fc-84f3-4a8b-ace8-ae99f41a81ae", "name": "LuxLend account", "sortCode": "123456", "accountNumber": "123456789"}], "feedStartDate": "2022-10-23T00:00:00Z"}]
   create-bank-account-mapping:
     Malformed query:
       parameters:
@@ -1023,6 +1038,17 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"sourceAccountId": "acc-002", "targetAccountId": "account-081"}
+      responses:
+        "200":
+          application/json: {"sourceAccountId": "acc-002", "targetAccountId": "account-081", "status": "Failed", "error": "A feed connection already exists to this account"}
+        "400": {}
   get-company-information:
     Malformed query:
       parameters:
@@ -1064,7 +1090,7 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          accountId: "EILBDVJVNUAGVKRQ"
+          accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
         query: {}
       requestBody:
         application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": 100, "balance": -999.99, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": -100, "balance": -999.99, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": -60, "balance": -999.99, "transactionType": "Debit"}]}
@@ -1077,7 +1103,7 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
+          accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
         query: {}
       requestBody:
         application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "counterparty": "Bank of Example", "reference": "Ref-12345", "reconciled": false, "amount": 100, "balance": 100, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "counterparty": "Amazon", "reference": "Ref-12346", "reconciled": false, "amount": -100, "balance": 0, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "counterparty": "Office Mart", "reference": "Ref-12347", "reconciled": false, "amount": -60, "balance": -60, "transactionType": "Debit"}]}
@@ -1090,7 +1116,7 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
+          accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
         query: {}
       requestBody:
         application/json: {"accountId": "7110701885", "transactions": []}

@@ -11,6 +11,7 @@ namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     /// <summary>
     /// Information about the company from the underlying accounting software.
@@ -31,15 +32,21 @@ namespace Codat.BankFeeds.Models.Shared
         public string? BaseCurrency { get; set; }
 
         /// <summary>
-        /// Accounting software subscription type such as Trial, Demo, Standard
+        /// Accounting software subscription type such as Trial, Demo, Standard.
         /// </summary>
         [JsonProperty("planType")]
         public string? PlanType { get; set; } = null;
 
         /// <summary>
-        /// Boolean showing if the organisation has multicurrency enabled
+        /// Boolean showing if the organisation has multicurrency enabled.
         /// </summary>
         [JsonProperty("multicurrencyEnabled")]
-        public bool? MulticurrencyEnabled { get; set; } = null;
+        public bool? MulticurrencyEnabled { get; set; }
+
+        /// <summary>
+        /// Array of enabled currencies for the linked company.
+        /// </summary>
+        [JsonProperty("currencies")]
+        public List<string>? Currencies { get; set; } = null;
     }
 }

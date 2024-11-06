@@ -53,17 +53,16 @@ var res = await sdk.Connections.ListAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503            | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Create
 
 ﻿Creates a connection for the company by providing a valid `platformKey`. 
 
-Use the [List Integrations](https://docs.codat.io/bank-feeds-api#/operations/list-integrations) endpoint to access valid platform keys. 
+Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
 ### Example Usage
 
@@ -100,11 +99,10 @@ var res = await sdk.Connections.CreateAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Get
 
@@ -143,11 +141,10 @@ var res = await sdk.Connections.GetAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Delete
 
@@ -187,11 +184,10 @@ var res = await sdk.Connections.DeleteAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
-
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Unlink
 
@@ -230,7 +226,7 @@ var res = await sdk.Connections.UnlinkAsync(req);
 
 ### Errors
 
-| Error Object                               | Status Code                                | Content Type                               |
+| Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4xx-5xx                                    | */*                                        |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

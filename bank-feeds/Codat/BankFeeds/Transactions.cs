@@ -39,8 +39,6 @@ namespace Codat.BankFeeds
         /// **Integration-specific behaviour**<br/>
         /// <br/>
         /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/bank-feeds-api#/operations/get-create-bankTransactions-model">Get create bank transaction model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankTransactions">coverage explorer</a> for integrations that support creating a bank account transactions.<br/>
         /// 
         /// </remarks>
         /// </summary>
@@ -50,7 +48,11 @@ namespace Codat.BankFeeds
         /// Get create operation
         /// 
         /// <remarks>
-        /// Retrieve push operation.
+        /// The **Get create operation** endpoint returns a specific <a href="/using-the-api/push">write operation</a> identified by the `pushOperationKey` that was performed on the company.<br/>
+        /// <br/>
+        /// Write operations are actions that send requests to Codat, enabling the creation, updating, deletion of records, or uploading attachments in the connected accounting software.<br/>
+        /// <br/>
+        /// For bank feeds, your push operations will only relate to the `bankTransactions` data type.
         /// </remarks>
         /// </summary>
         Task<GetCreateOperationResponse> GetCreateOperationAsync(GetCreateOperationRequest request, RetryConfig? retryConfig = null);
@@ -59,7 +61,11 @@ namespace Codat.BankFeeds
         /// List create operations
         /// 
         /// <remarks>
-        /// List create operations.
+        /// The **List create operations** endpoint returns a list of <a href="/using-the-api/push">write operations</a> performed on the company.<br/>
+        /// <br/>
+        /// Write operations are actions that send requests to Codat, enabling the creation, updating, deletion of records, or uploading attachments in the connected accounting software. <br/>
+        /// <br/>
+        /// For bank feeds, use this endpoint to view write operations related to the `bankTransactions` data type.
         /// </remarks>
         /// </summary>
         Task<ListCreateOperationsResponse> ListCreateOperationsAsync(ListCreateOperationsRequest request, RetryConfig? retryConfig = null);
@@ -72,10 +78,10 @@ namespace Codat.BankFeeds
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "6.0.0";
+        private const string _sdkGenVersion = "2.451.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.415.6 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.451.0 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;
@@ -192,10 +198,8 @@ namespace Codat.BankFeeds
                     response.CreateBankTransactionsResponseValue = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -204,19 +208,15 @@ namespace Codat.BankFeeds
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<GetCreateOperationResponse> GetCreateOperationAsync(GetCreateOperationRequest request, RetryConfig? retryConfig = null)
@@ -317,10 +317,8 @@ namespace Codat.BankFeeds
                     response.PushOperation = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -329,19 +327,15 @@ namespace Codat.BankFeeds
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
         public async Task<ListCreateOperationsResponse> ListCreateOperationsAsync(ListCreateOperationsRequest request, RetryConfig? retryConfig = null)
@@ -442,10 +436,8 @@ namespace Codat.BankFeeds
                     response.PushOperations = obj;
                     return response;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
             {
@@ -454,19 +446,15 @@ namespace Codat.BankFeeds
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
                     throw obj!;
                 }
-                else
-                {
-                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else
-            {
-                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
     }
 }

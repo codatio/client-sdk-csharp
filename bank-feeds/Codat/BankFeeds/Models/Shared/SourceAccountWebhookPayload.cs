@@ -16,6 +16,9 @@ namespace Codat.BankFeeds.Models.Shared
     public class SourceAccountWebhookPayload
     {
 
+        [JsonProperty("referenceCompany")]
+        public CompanyReference? ReferenceCompany { get; set; }
+
         /// <summary>
         /// Unique identifier for your SMB in Codat.
         /// </summary>

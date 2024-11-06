@@ -1,7 +1,5 @@
 # BankFeedAccountMappingResponse
 
-The result from POSTing a Bank Account mapping.
-
 
 ## Fields
 

@@ -11,11 +11,6 @@ var sdk = new CodatBankFeeds(security: new Security() {
 CompanyRequestBody req = new CompanyRequestBody() {
     Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<GroupReference>() {
-        new GroupReference() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
 };
 
 var res = await sdk.Companies.CreateAsync(req);

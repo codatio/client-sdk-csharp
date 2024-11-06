@@ -15,7 +15,7 @@ namespace Codat.BankFeeds.Models.Errors
     using System;
     
     /// <summary>
-    /// Your `query` parameter was not correctly formed
+    /// The request made is not valid.
     /// </summary>
     public class ErrorMessage : Exception
     {

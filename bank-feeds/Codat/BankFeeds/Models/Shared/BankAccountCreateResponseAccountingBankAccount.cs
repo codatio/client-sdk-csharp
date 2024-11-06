@@ -21,9 +21,7 @@ namespace Codat.BankFeeds.Models.Shared
     /// &gt; <br/>
     /// &gt; This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. <br/>
     /// &gt; <br/>
-    /// &gt; To view bank account data through the Banking API, please refer to the new datatype <a href="https://docs.codat.io/bank-feeds-api#/schemas/Account">here</a><br/>
-    /// <br/>
-    /// &gt; View the coverage for bank accounts in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// &gt; To view bank account data through the Banking API, please refer to the new <a href="https://docs.codat.io/bank-feeds-api#/schemas/Account">Banking: Account</a> data type.<br/>
     /// <br/>
     /// ## Overview<br/>
     /// <br/>

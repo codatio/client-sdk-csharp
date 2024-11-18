@@ -97,7 +97,7 @@ namespace Codat.Lending.Models.Components
         /// List of selected transactions to associate with the transfer. Use this field to include transactions which are posted to the _undeposited funds_ (or other holding) account within the transfer.
         /// </summary>
         [JsonProperty("depositedRecordRefs")]
-        public List<RecordRef>? DepositedRecordRefs { get; set; } = null;
+        public List<AccountingRecordRef>? DepositedRecordRefs { get; set; } = null;
 
         [JsonProperty("metadata")]
         public Metadata? Metadata { get; set; }

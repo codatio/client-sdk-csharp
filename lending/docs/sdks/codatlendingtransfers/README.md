@@ -83,16 +83,20 @@ CreateTransferRequest req = new CreateTransferRequest() {
         SourceModifiedDate = "2022-10-23T00:00:00Z",
         Date = "2022-10-23T00:00:00Z",
         From = new TransferAccount() {
-            AccountRef = new AccountRef() {},
+            AccountRef = new AccountingRecordRef() {
+                DataType = "journalEntry",
+            },
             Currency = "GBP",
         },
         To = new TransferAccount() {
-            AccountRef = new AccountRef() {},
-            Currency = "GBP",
-        },
-        DepositedRecordRefs = new List<RecordRef>() {
-            new RecordRef() {
+            AccountRef = new AccountingRecordRef() {
                 DataType = "transfer",
+            },
+            Currency = "EUR",
+        },
+        DepositedRecordRefs = new List<AccountingRecordRef>() {
+            new AccountingRecordRef() {
+                DataType = "journalEntry",
             },
         },
     },

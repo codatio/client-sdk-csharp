@@ -29,6 +29,6 @@ namespace Codat.Lending.Models.Components
         /// </remarks>
         /// </summary>
         [JsonProperty("invoiceTo")]
-        public RecordRef? InvoiceTo { get; set; }
+        public AccountingRecordRef? InvoiceTo { get; set; }
     }
 }

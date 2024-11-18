@@ -13,10 +13,11 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 csharp:
-  version: 7.0.0
+  version: 8.0.0
   additionalDependencies: []
   author: Codat
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKException
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0

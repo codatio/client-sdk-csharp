@@ -20,7 +20,7 @@ namespace Codat.Lending.Models.Components
     /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model. 
     /// </remarks>
     /// </summary>
-    public class RecordReference
+    public class AccountingRecordRef
     {
 
         /// <summary>

@@ -230,7 +230,7 @@ namespace Codat.Lending.Models.Components
         /// An array of records the credit note was created from.
         /// </summary>
         [JsonProperty("createdFromRefs")]
-        public List<RecordRef>? CreatedFromRefs { get; set; } = null;
+        public List<AccountingRecordRef>? CreatedFromRefs { get; set; } = null;
 
         /// <summary>
         /// Any additional information about the bill credit note.

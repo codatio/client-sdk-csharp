@@ -20,10 +20,15 @@ namespace Codat.Lending.Models.Components
     {
 
         /// <summary>
-        /// Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
+        /// Links the current record to the underlying record or data type that created it. <br/>
+        /// 
+        /// <remarks>
+        /// <br/>
+        /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model. 
+        /// </remarks>
         /// </summary>
         [JsonProperty("accountRef")]
-        public AccountRef? AccountRef { get; set; }
+        public AccountingRecordRef? AccountRef { get; set; }
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>

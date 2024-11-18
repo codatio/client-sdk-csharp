@@ -92,7 +92,7 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
                             DataType = Codat.Lending.Models.Components.TrackingRecordRefDataType.TrackingCategories,
                         },
                     },
-                    InvoiceTo = new RecordRef() {
+                    InvoiceTo = new AccountingRecordRef() {
                         DataType = "journalEntry",
                     },
                 },

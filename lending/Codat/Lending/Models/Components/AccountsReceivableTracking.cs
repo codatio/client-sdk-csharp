@@ -50,6 +50,6 @@ namespace Codat.Lending.Models.Components
         /// </remarks>
         /// </summary>
         [JsonProperty("recordRef")]
-        public RecordReference? RecordRef { get; set; }
+        public AccountingRecordRef? RecordRef { get; set; }
     }
 }

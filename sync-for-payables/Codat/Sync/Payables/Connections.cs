@@ -43,7 +43,7 @@ namespace Codat.Sync.Payables
         /// <remarks>
         /// Creates a connection for the company by providing a valid `platformKey`. <br/>
         /// <br/>
-        /// Use the <a href="https://docs.codat.io/sync-for-payables-api#/operations/list-integrations">List Integrations</a> endpoint to access valid platform keys. 
+        /// Use the <a href="https://docs.codat.io/platform-api#/operations/list-integrations">List Integrations</a> endpoint to access valid platform keys. 
         /// </remarks>
         /// </summary>
         Task<CreateConnectionResponse> CreateAsync(CreateConnectionRequest request, RetryConfig? retryConfig = null);
@@ -84,10 +84,10 @@ namespace Codat.Sync.Payables
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.0";
-        private const string _sdkGenVersion = "2.445.1";
+        private const string _sdkVersion = "10.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.0 2.445.1 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 10.0.0 2.463.0 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;

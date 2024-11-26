@@ -3,42 +3,42 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Sync.Payables</PackageId>
-    <Version>9.0.0</Version>
+    <Version>10.0.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
     <Copyright>Copyright (c) Codat 2024</Copyright>
     <RepositoryUrl>https://github.com/codatio/client-sdk-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Description>Bill pay kit: The API reference for the Bill Pay kit. 
-
-The bill pay kit is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.
-
-[Explore product](https://docs.codat.io/payables/bill-pay-kit) | [See OpenAPI spec](https://github.com/codatio/oas)
-
----
-## Supported Integrations
-
-| Integration                   | Supported |
-|-------------------------------|-----------|
-| FreeAgent                     | Yes       |
-| QuickBooks Online             | Yes       |
-| Oracle NetSuite               | Yes       |
-| Xero                          | Yes       |
-
----
-<!-- Start Codat Tags Table -->
-## Endpoints
-
-| Endpoints | Description |
-| :- |:- |
-| Companies | Create and manage your SMB users' companies. |
-| Connections | Create new and manage existing data connections for a company. |
-| Company information | View company profile from the source platform. |
-| Bills | Get, create, and update Bills. |
-| Bill payments | Get, create, and update Bill payments. |
-| Suppliers | Get, create, and update Suppliers. |
-| Bank accounts | Create a bank account for a given company's connection. |
-<!-- End Codat Tags Table --></Description>
+    <Description>Bill pay kit: The API reference for the Bill Pay kit. <br/>
+<br/>
+The bill pay kit is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It&apos;s ideal for facilitating essential bill payment processes within your SMB&apos;s accounting software.<br/>
+<br/>
+<a href="https://docs.codat.io/payables/bill-pay-kit">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+<br/>
+---<br/>
+## Supported Integrations<br/>
+<br/>
+| Integration                   | Supported |<br/>
+|-------------------------------|-----------|<br/>
+| FreeAgent                     | Yes       |<br/>
+| QuickBooks Online             | Yes       |<br/>
+| Oracle NetSuite               | Yes       |<br/>
+| Xero                          | Yes       |<br/>
+<br/>
+---<br/>
+&lt;!-- Start Codat Tags Table --&gt;<br/>
+## Endpoints<br/>
+<br/>
+| Endpoints | Description |<br/>
+| :- |:- |<br/>
+| Companies | Create and manage your SMB users&apos; companies. |<br/>
+| Connections | Create new and manage existing data connections for a company. |<br/>
+| Company information | View company profile from the source platform. |<br/>
+| Bills | Get, create, and update Bills. |<br/>
+| Bill payments | Get, create, and update Bill payments. |<br/>
+| Suppliers | Get, create, and update Suppliers. |<br/>
+| Bank accounts | Create a bank account for a given company&apos;s connection. |<br/>
+&lt;!-- End Codat Tags Table --&gt;</Description>
   </PropertyGroup>
 
   <PropertyGroup>

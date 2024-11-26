@@ -11,11 +11,13 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 csharp:
-  version: 9.0.0
+  version: 10.0.0
   additionalDependencies: []
   author: Codat
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKException
   description: Streamline your customers' accounts payable workflow.
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0

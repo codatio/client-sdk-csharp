@@ -49,11 +49,10 @@ var res = await sdk.AdvancedControls.ListCompaniesAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## CreateCompany
 
@@ -71,11 +70,6 @@ var sdk = new CodatSyncCommerce(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 CreateCompany req = new CreateCompany() {
     Name = "Bank of Dave",
     Description = "Requested early access to the new financing scheme.",
-    Groups = new List<GroupReference>() {
-        new GroupReference() {
-            Id = "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-    },
 };
 
 var res = await sdk.AdvancedControls.CreateCompanyAsync(req);
@@ -95,11 +89,10 @@ var res = await sdk.AdvancedControls.CreateCompanyAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
-| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503              | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## GetConfiguration
 
@@ -135,11 +128,10 @@ var res = await sdk.AdvancedControls.GetConfigurationAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## SetConfiguration
 
@@ -175,7 +167,7 @@ var res = await sdk.AdvancedControls.SetConfigurationAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503            | application/json                               |
-| Codat.Sync.Commerce.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Commerce.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 409, 429, 500, 503    | application/json                               |
+| Codat.Sync.Commerce.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

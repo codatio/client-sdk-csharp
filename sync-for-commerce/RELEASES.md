@@ -113,3 +113,13 @@ Based on:
 - [csharp v4.0.0] sync-for-commerce
 ### Releases
 - [NuGet v4.0.0] https://www.nuget.org/packages/Codat.Sync.Commerce/4.0.0 - sync-for-commerce
+
+## 2024-11-26 15:29:26
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.446.1 (2.462.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v4.1.0] sync-for-commerce
+### Releases
+- [NuGet v4.1.0] https://www.nuget.org/packages/Codat.Sync.Commerce/4.1.0 - sync-for-commerce

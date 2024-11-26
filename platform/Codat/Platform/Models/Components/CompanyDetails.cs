@@ -9,6 +9,7 @@
 #nullable enable
 namespace Codat.Platform.Models.Components
 {
+    using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -111,5 +112,14 @@ namespace Codat.Platform.Models.Components
         /// </summary>
         [JsonProperty("tags")]
         public Dictionary<string, string>? Tags { get; set; }
+
+        [JsonProperty("referenceParentCompany")]
+        public CompanyReference? ReferenceParentCompany { get; set; }
+
+        /// <summary>
+        /// A list of subsidiary companies owned or controlled by this entity. Empty if the company has no children.
+        /// </summary>
+        [JsonProperty("referenceSubsidiaryCompanies")]
+        public List<CompanyReference>? ReferenceSubsidiaryCompanies { get; set; }
     }
 }

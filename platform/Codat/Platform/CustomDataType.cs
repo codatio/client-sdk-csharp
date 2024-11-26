@@ -86,10 +86,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.442.11";
+        private const string _sdkVersion = "6.0.0";
+        private const string _sdkGenVersion = "2.462.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.442.11 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.462.1 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Platform.Models.Components.Security>? _securitySource;

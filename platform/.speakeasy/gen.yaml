@@ -11,16 +11,19 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 csharp:
-  version: 5.0.0
+  version: 6.0.0
   additionalDependencies: []
   author: Codat
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKException
   description: Manage the building blocks of Codat, including companies, connections, and more.
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0
   enableSourceLink: false
   flattenGlobalSecurity: true
+  flatteningOrder: ""
   imports:
     option: openapi
     paths:
@@ -32,6 +35,7 @@ csharp:
   includeDebugSymbols: false
   inputModelSuffix: input
   maxMethodParams: 0
+  methodArguments: infer-optional-args
   outputModelSuffix: output
   packageName: Codat.Platform
   packageTags: ""

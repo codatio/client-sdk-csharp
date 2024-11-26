@@ -14,10 +14,11 @@ Create and manage your SMB users' companies.
 * [Update](#update) - Update company
 * [AddProduct](#addproduct) - Add product
 * [RemoveProduct](#removeproduct) - Remove product
+* [GetAccessToken](#getaccesstoken) - Get company access token
 
 ## List
 
-﻿The *List companies* endpoint returns a list of [companies] associated to your instances.
+﻿The *List companies* endpoint returns a list of [companies](https://docs.codat.io/platform-api#/schemas/Company) associated to your instances.
 
 A [company](https://docs.codat.io/platform-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/platform-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -314,6 +315,46 @@ var res = await sdk.Companies.RemoveProductAsync(req);
 ### Response
 
 **[RemoveProductResponse](../../Models/Requests/RemoveProductResponse.md)**
+
+### Errors
+
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
+
+## GetAccessToken
+
+Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+
+
+### Example Usage
+
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCompanyAccessTokenRequest req = new GetCompanyAccessTokenRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Companies.GetAccessTokenAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetCompanyAccessTokenRequest](../../Models/Requests/GetCompanyAccessTokenRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+### Response
+
+**[GetCompanyAccessTokenResponse](../../Models/Requests/GetCompanyAccessTokenResponse.md)**
 
 ### Errors
 

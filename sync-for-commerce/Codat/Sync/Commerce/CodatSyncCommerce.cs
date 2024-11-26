@@ -141,10 +141,10 @@ namespace Codat.Sync.Commerce
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "4.0.0";
-        private const string _sdkGenVersion = "2.415.6";
+        private const string _sdkVersion = "5.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "1.1";
-        private const string _userAgent = "speakeasy-sdk/csharp 4.0.0 2.415.6 1.1 Codat.Sync.Commerce";
+        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.463.0 1.1 Codat.Sync.Commerce";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;

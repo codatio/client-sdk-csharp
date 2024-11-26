@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 797f11e4-ae23-429d-b24e-dd7bb1e87a41
 management:
-  docChecksum: 5b17c461a98ac32ecaa078bd4f1f644d
+  docChecksum: 4dd3691e8d9cbb167c6a1a7bffed41b8
   docVersion: "1.1"
-  speakeasyVersion: 1.396.6
-  generationVersion: 2.415.6
-  releaseVersion: 4.0.0
-  configChecksum: d0b16857d6ea8bca2a21557ced94ffa4
+  speakeasyVersion: 1.447.0
+  generationVersion: 2.463.0
+  releaseVersion: 5.0.0
+  configChecksum: 9690520c2b4a291471136cd8acbc3b8d
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-commerce
   published: true
@@ -14,7 +14,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.9.19
+    core: 3.10.6
     deprecations: 2.81.2
     examples: 2.81.3
     globalSecurity: 2.83.6
@@ -22,6 +22,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
+    methodArguments: 0.1.0
     nameOverrides: 2.81.2
     nullables: 0.1.0
     responseFormat: 0.0.4
@@ -48,11 +49,15 @@ generatedFiles:
   - Codat/Sync/Commerce/Models/Components/CommerceConfiguration.cs
   - Codat/Sync/Commerce/Models/Components/Companies.cs
   - Codat/Sync/Commerce/Models/Components/Company.cs
+  - Codat/Sync/Commerce/Models/Components/CompanyReference.cs
+  - Codat/Sync/Commerce/Models/Components/CompanyReferenceLinks.cs
   - Codat/Sync/Commerce/Models/Components/CompanySyncStatus.cs
   - Codat/Sync/Commerce/Models/Components/Configuration.cs
   - Codat/Sync/Commerce/Models/Components/ConfigurationMapSettings.cs
   - Codat/Sync/Commerce/Models/Components/ConfigurationOption.cs
   - Codat/Sync/Commerce/Models/Components/Connection.cs
+  - Codat/Sync/Commerce/Models/Components/ConnectionWebhook.cs
+  - Codat/Sync/Commerce/Models/Components/ConnectionWebhookPayload.cs
   - Codat/Sync/Commerce/Models/Components/Connections.cs
   - Codat/Sync/Commerce/Models/Components/CreateCompany.cs
   - Codat/Sync/Commerce/Models/Components/DataConnectionError.cs
@@ -67,7 +72,6 @@ generatedFiles:
   - Codat/Sync/Commerce/Models/Components/FeatureType.cs
   - Codat/Sync/Commerce/Models/Components/FeesConfiguration.cs
   - Codat/Sync/Commerce/Models/Components/FeesSupplier.cs
-  - Codat/Sync/Commerce/Models/Components/GroupReference.cs
   - Codat/Sync/Commerce/Models/Components/Grouping.cs
   - Codat/Sync/Commerce/Models/Components/GroupingLevels.cs
   - Codat/Sync/Commerce/Models/Components/GroupingPeriod.cs
@@ -99,7 +103,6 @@ generatedFiles:
   - Codat/Sync/Commerce/Models/Components/SyncStatus.cs
   - Codat/Sync/Commerce/Models/Components/SyncSummary.cs
   - Codat/Sync/Commerce/Models/Components/SyncToLatestArgs.cs
-  - Codat/Sync/Commerce/Models/Components/Tags.cs
   - Codat/Sync/Commerce/Models/Components/TaxRateAmount.cs
   - Codat/Sync/Commerce/Models/Components/TaxRateMapping.cs
   - Codat/Sync/Commerce/Models/Components/UpdateConnection.cs
@@ -150,6 +153,7 @@ generatedFiles:
   - Codat/Sync/Commerce/Models/Requests/UpdateConnectionResponse.cs
   - Codat/Sync/Commerce/Models/Requests/UpdateVisibleAccountsSyncFlowRequest.cs
   - Codat/Sync/Commerce/Models/Requests/UpdateVisibleAccountsSyncFlowResponse.cs
+  - Codat/Sync/Commerce/Models/Webhooks/ConnectionDeletedResponse.cs
   - Codat/Sync/Commerce/Models/Webhooks/SyncConnectionDeletedResponse.cs
   - Codat/Sync/Commerce/Sync.cs
   - Codat/Sync/Commerce/SyncFlowSettings.cs
@@ -181,11 +185,15 @@ generatedFiles:
   - docs/Models/Components/CommerceConfiguration.md
   - docs/Models/Components/Companies.md
   - docs/Models/Components/Company.md
+  - docs/Models/Components/CompanyReference.md
+  - docs/Models/Components/CompanyReferenceLinks.md
   - docs/Models/Components/CompanySyncStatus.md
   - docs/Models/Components/Configuration.md
   - docs/Models/Components/ConfigurationMapSettings.md
   - docs/Models/Components/ConfigurationOption.md
   - docs/Models/Components/Connection.md
+  - docs/Models/Components/ConnectionWebhook.md
+  - docs/Models/Components/ConnectionWebhookPayload.md
   - docs/Models/Components/Connections.md
   - docs/Models/Components/CreateCompany.md
   - docs/Models/Components/DataConnectionError.md
@@ -200,7 +208,6 @@ generatedFiles:
   - docs/Models/Components/FeatureType.md
   - docs/Models/Components/FeesConfiguration.md
   - docs/Models/Components/FeesSupplier.md
-  - docs/Models/Components/GroupReference.md
   - docs/Models/Components/Grouping.md
   - docs/Models/Components/GroupingLevels.md
   - docs/Models/Components/GroupingPeriod.md
@@ -232,7 +239,6 @@ generatedFiles:
   - docs/Models/Components/SyncStatus.md
   - docs/Models/Components/SyncSummary.md
   - docs/Models/Components/SyncToLatestArgs.md
-  - docs/Models/Components/Tags.md
   - docs/Models/Components/TaxRateAmount.md
   - docs/Models/Components/TaxRateMapping.md
   - docs/Models/Components/UpdateConnection.md
@@ -282,6 +288,7 @@ generatedFiles:
   - docs/Models/Requests/UpdateConnectionResponse.md
   - docs/Models/Requests/UpdateVisibleAccountsSyncFlowRequest.md
   - docs/Models/Requests/UpdateVisibleAccountsSyncFlowResponse.md
+  - docs/Models/Webhooks/ConnectionDeletedResponse.md
   - docs/Models/Webhooks/SyncConnectionDeletedResponse.md
   - docs/sdks/advancedcontrols/README.md
   - docs/sdks/codatsynccommerce/README.md
@@ -326,7 +333,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
     Malformed query:
       parameters:
         path:
@@ -423,14 +430,14 @@ examples:
   create-company:
     "":
       requestBody:
-        application/json: {"name": "string", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "string", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "400": {}
     Malformed query:
       requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme.", "groups": []}
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
@@ -596,3 +603,4 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+generatedTests: {}

@@ -167,23 +167,6 @@ UploadBankStatementDataRequest req = new UploadBankStatementDataRequest() {
     DatasetId = "1ab1f5e3-9dea-4ca2-a9ee-c0fc9b4b58f7",
     RequestBody = UploadBankStatementDataRequestBody.CreateBankingTransactions(
         new BankingTransactions() {
-            Results = new List<BankingTransaction>() {
-                new BankingTransaction() {
-                    ModifiedDate = "2022-05-23T16:32:50Z",
-                    SourceModifiedDate = "2021-06-28T10:48:12",
-                    Id = "0130b5bb-1419-40f6-8a27-7362d0381229",
-                    AccountId = "1703194f-7805-4da8-bac0-2ba5da4a4216",
-                    Description = "Payments for direct income ce149943-c157-43fc-aac7-42a716b655b6",
-                    Amount = 5062.39M,
-                    Currency = "GBP",
-                    PostedDate = "2021-07-06T00:00:00",
-                    AuthorizedDate = "2021-07-06T00:00:00",
-                    MerchantName = "New Look",
-                    TransactionCategoryRef = new TransactionCategoryRef() {
-                        Id = "health-and-fitness-sports",
-                    },
-                },
-            },
             PageNumber = 1,
             PageSize = 10,
             TotalResults = 1,

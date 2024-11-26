@@ -31,6 +31,26 @@ namespace Codat.Lending
         /// <remarks>
         /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat&apos;s domain. The company can then map the source account to an existing or new target account in their accounting software.<br/>
         /// <br/>
+        /// &gt; ### Versioning<br/>
+        /// &gt; If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+        /// </remarks>
+        /// </summary>
+        Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest request, RetryConfig? retryConfig = null);
+
+        /// <summary>
+        /// Create bank feed account mapping
+        /// 
+        /// <remarks>
+        /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
+        /// <br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
+        /// <br/>
+        /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
+        /// <br/>
+        /// &gt; **For custom builds only**<br/>
+        /// &gt;<br/>
+        /// &gt; Only use this endpoint if you are building your own account management UI.<br/>
+        /// <br/>
         /// #### Account mapping variability<br/>
         /// <br/>
         /// The method of mapping the source account to the target account varies depending on the accounting software your company uses.<br/>
@@ -50,27 +70,7 @@ namespace Codat.Lending
         /// | Oracle NetSuite       | ✅          | ✅               |                             |<br/>
         /// | Exact Online (NL)     | ✅          | ✅               |                             |<br/>
         /// | QuickBooks Online     |             |                  | ✅                          |<br/>
-        /// | Sage                  |             |                  | ✅                          |<br/>
-        /// <br/>
-        /// &gt; ### Versioning<br/>
-        /// &gt; If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
-        /// </remarks>
-        /// </summary>
-        Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest request, RetryConfig? retryConfig = null);
-
-        /// <summary>
-        /// Create bank feed account mapping
-        /// 
-        /// <remarks>
-        /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
-        /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
-        /// <br/>
-        /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
-        /// <br/>
-        /// &gt; **For custom builds only**<br/>
-        /// &gt;<br/>
-        /// &gt; Only use this endpoint if you are building your own account management UI.
+        /// | Sage                  |             |                  | ✅                          |
         /// </remarks>
         /// </summary>
         Task<CreateBankAccountMappingResponse> CreateMappingAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null);
@@ -80,10 +80,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "8.0.0";
-        private const string _sdkGenVersion = "2.460.1";
+        private const string _sdkVersion = "9.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 8.0.0 2.460.1 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 9.0.0 2.463.0 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Lending.Models.Components.Security>? _securitySource;

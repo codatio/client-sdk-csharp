@@ -112,10 +112,10 @@ By default, an API error will raise a `Codat.BankFeeds.Models.Errors.SDKExceptio
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CreateAsync` method throws the following exceptions:
 
-| Error Type                                 | Status Code                                | Content Type                               |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503          | application/json                           |
-| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
+| Error Type                                 | Status Code                       | Content Type     |
+| ------------------------------------------ | --------------------------------- | ---------------- |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503 | application/json |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*            |
 
 ### Example
 
@@ -160,20 +160,30 @@ catch (Exception ex)
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.codat.io` | None |
-
-
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatBankFeeds(
+    serverUrl: "https://api.codat.io",
+    security: new Security() {
+        AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+    }
+);
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
+    Description = "Requested early access to the new financing scheme.",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
+
+// handle response
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Authentication [security] -->
@@ -183,9 +193,9 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `AuthHeader` | apiKey       | API key      |
+| Name         | Type   | Scheme  |
+| ------------ | ------ | ------- |
+| `AuthHeader` | apiKey | API key |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp

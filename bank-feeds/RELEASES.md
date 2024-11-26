@@ -199,3 +199,13 @@ Based on:
 - [csharp v6.0.0] bank-feeds
 ### Releases
 - [NuGet v6.0.0] https://www.nuget.org/packages/Codat.BankFeeds/6.0.0 - bank-feeds
+
+## 2024-11-26 15:23:07
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.446.1 (2.462.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v6.0.1] bank-feeds
+### Releases
+- [NuGet v6.0.1] https://www.nuget.org/packages/Codat.BankFeeds/6.0.1 - bank-feeds

@@ -8,6 +8,7 @@ Create new bank account transactions for a company's connections, and see previo
 ### Available Operations
 
 * [Create](#create) - Create bank transactions
+* [GetCreateModel](#getcreatemodel) - Get create bank transactions model
 * [GetCreateOperation](#getcreateoperation) - Get create operation
 * [ListCreateOperations](#listcreateoperations) - List create operations
 
@@ -19,8 +20,8 @@ Create new bank account transactions for a company's connections, and see previo
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bankTransactions-model).
-
+The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
+Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
 
 ### Example Usage
 
@@ -75,6 +76,55 @@ var res = await sdk.Transactions.CreateAsync(req);
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
+
+## GetCreateModel
+
+The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating [bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company and integration.
+
+[Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
+
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+### Example Usage
+
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+GetCreateBankTransactionsModelRequest req = new GetCreateBankTransactionsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.GetCreateModelAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [GetCreateBankTransactionsModelRequest](../../Models/Operations/GetCreateBankTransactionsModelRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[GetCreateBankTransactionsModelResponse](../../Models/Operations/GetCreateBankTransactionsModelResponse.md)**
+
+### Errors
+
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## GetCreateOperation

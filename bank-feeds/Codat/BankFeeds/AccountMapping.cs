@@ -55,7 +55,28 @@ namespace Codat.BankFeeds
         /// <br/>
         /// &gt; **For custom builds only**<br/>
         /// &gt;<br/>
-        /// &gt; Only use this endpoint if you are building your own account management UI.
+        /// &gt; Only use this endpoint if you are building your own account management UI.<br/>
+        /// <br/>
+        /// #### Account mapping variability<br/>
+        /// <br/>
+        /// The method of mapping the source account to the target account varies depending on the accounting software your company uses.<br/>
+        /// <br/>
+        /// #### Mapping options:<br/>
+        /// <br/>
+        /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
+        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat&apos;s provided user interface for mapping.<br/>
+        /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
+        /// <br/>
+        /// ### Integration-specific behaviour<br/>
+        /// <br/>
+        /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |<br/>
+        /// | --------------------- | ----------- | ---------------- | --------------------------- |<br/>
+        /// | Xero                  | ✅          | ✅               |                             |<br/>
+        /// | FreeAgent             | ✅          | ✅               |                             |<br/>
+        /// | Oracle NetSuite       | ✅          | ✅               |                             |<br/>
+        /// | Exact Online (NL)     | ✅          | ✅               |                             |<br/>
+        /// | QuickBooks Online     |             |                  | ✅                          |<br/>
+        /// | Sage                  |             |                  | ✅                          |
         /// </remarks>
         /// </summary>
         Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null);
@@ -68,10 +89,10 @@ namespace Codat.BankFeeds
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.0";
-        private const string _sdkGenVersion = "2.451.0";
+        private const string _sdkVersion = "6.0.1";
+        private const string _sdkGenVersion = "2.462.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.451.0 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.0.1 2.462.1 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;

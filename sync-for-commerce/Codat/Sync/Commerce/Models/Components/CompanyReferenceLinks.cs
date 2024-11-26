@@ -12,13 +12,16 @@ namespace Codat.Sync.Commerce.Models.Components
     using Codat.Sync.Commerce.Utils;
     using Newtonsoft.Json;
     
-    public class GroupReference
+    /// <summary>
+    /// A collection of links for the company.
+    /// </summary>
+    public class CompanyReferenceLinks
     {
 
         /// <summary>
-        /// Unique identifier for the group.
+        /// Link to the company page in the portal.
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+        [JsonProperty("portal")]
+        public string? Portal { get; set; }
     }
 }

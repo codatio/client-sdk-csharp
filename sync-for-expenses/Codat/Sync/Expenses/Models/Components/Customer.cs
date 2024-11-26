@@ -15,11 +15,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// &gt; View the coverage for customers in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// ## Overview<br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// ## Overview<br/>
     /// <br/>
     /// A customer is a person or organisation that buys goods or services. From the Customers endpoints, you can retrieve a <a href="https://api.codat.io/swagger/index.html#/Customers/get_companies__companyId__data_customers">list of all the customers of a company</a>.<br/>
     /// <br/>
@@ -85,7 +83,7 @@ namespace Codat.Sync.Expenses.Models.Components
         /// An array of Addresses.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<AccountingAddress>? Addresses { get; set; } = null;
+        public List<Items>? Addresses { get; set; } = null;
 
         /// <summary>
         /// An array of Contacts.

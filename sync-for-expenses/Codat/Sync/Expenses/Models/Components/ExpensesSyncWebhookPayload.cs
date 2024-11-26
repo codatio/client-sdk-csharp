@@ -12,6 +12,7 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     public class ExpensesSyncWebhookPayload
     {
@@ -24,5 +25,8 @@ namespace Codat.Sync.Expenses.Models.Components
         /// </summary>
         [JsonProperty("syncId")]
         public string? SyncId { get; set; }
+
+        [JsonProperty("transactions")]
+        public List<DefinitionTransaction>? Transactions { get; set; }
     }
 }

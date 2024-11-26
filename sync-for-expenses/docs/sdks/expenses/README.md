@@ -64,16 +64,11 @@ CreateExpenseTransactionRequest req = new CreateExpenseTransactionRequest() {
                     AccountRef = new RecordRef() {
                         Id = "35",
                     },
-                    ItemRef = new ItemRef() {
-                        Id = "80000002-1675158984",
-                    },
                     TrackingRefs = new List<TrackingRef>() {
                         new TrackingRef() {
                             Id = "DEPARTMENT_3",
-                            DataType = Codat.Sync.Expenses.Models.Components.TrackingRefDataType.TrackingCategories,
                         },
                         new TrackingRef() {
-                            Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
                             DataType = Codat.Sync.Expenses.Models.Components.TrackingRefDataType.TrackingCategories,
                         },
                     },
@@ -105,11 +100,10 @@ var res = await sdk.Expenses.CreateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Update
 
@@ -197,7 +191,7 @@ var res = await sdk.Expenses.UpdateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,422,429,500,503            | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 422, 429, 500, 503    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

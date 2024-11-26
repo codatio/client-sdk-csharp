@@ -7,14 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Sync.Expenses.Models.Components
+namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Utils;
     
-    /// <summary>
-    /// A collection of user-defined key-value pairs that store custom metadata against the company.
-    /// </summary>
-    public class CompanyTags
+    public class GetCompanyInfoRequest
     {
+
+        /// <summary>
+        /// Unique identifier for a company.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
+        public string CompanyId { get; set; } = default!;
     }
 }

@@ -15,11 +15,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using System.Collections.Generic;
     
     /// <summary>
-    /// &gt; View the coverage for suppliers in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=suppliers&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
+    /// ## Overview<br/>
     /// 
     /// <remarks>
-    /// <br/>
-    /// ## Overview<br/>
     /// <br/>
     /// From the **Suppliers** endpoints, you can retrieve a list of <a href="https://docs.codat.io/sync-for-expenses-api#/operations/list-suppliers">all the suppliers for a company</a>. Suppliers&apos; data links to accounts payable <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Bill">bills</a>.
     /// </remarks>

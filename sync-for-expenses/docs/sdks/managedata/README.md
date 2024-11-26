@@ -51,11 +51,10 @@ var res = await sdk.ManageData.RefreshAllDataTypesAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Get
 
@@ -91,11 +90,10 @@ var res = await sdk.ManageData.GetAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## RefreshDataType
 
@@ -134,11 +132,10 @@ var res = await sdk.ManageData.RefreshDataTypeAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## ListPullOperations
 
@@ -178,11 +175,10 @@ var res = await sdk.ManageData.ListPullOperationsAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## GetPullOperation
 
@@ -219,7 +215,7 @@ var res = await sdk.ManageData.GetPullOperationAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

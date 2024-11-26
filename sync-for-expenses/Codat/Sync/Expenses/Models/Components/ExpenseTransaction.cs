@@ -109,6 +109,12 @@ namespace Codat.Sync.Expenses.Models.Components
         public BankAccountReference? BankAccountRef { get; set; }
 
         /// <summary>
+        /// User-friendly reference for the expense transaction.
+        /// </summary>
+        [JsonProperty("reference")]
+        public string? Reference { get; set; } = null;
+
+        /// <summary>
         /// Name of the merchant where the purchase took place
         /// </summary>
         [JsonProperty("merchantName")]

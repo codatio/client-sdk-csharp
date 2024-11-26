@@ -50,8 +50,6 @@ namespace Codat.Sync.Expenses
         /// <br/>
         /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support getting a specific customer.<br/>
-        /// <br/>
         /// Before using this endpoint, you must have <a href="https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
         /// 
         /// </remarks>
@@ -68,10 +66,7 @@ namespace Codat.Sync.Expenses
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support creating an account.<br/>
-        /// 
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.
         /// </remarks>
         /// </summary>
         Task<Models.Requests.CreateCustomerResponse> CreateAsync(CreateCustomerRequest request, RetryConfig? retryConfig = null);
@@ -86,10 +81,7 @@ namespace Codat.Sync.Expenses
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=customers">coverage explorer</a> for integrations that support creating an account.<br/>
-        /// 
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model">Get create/update customer model</a>.
         /// </remarks>
         /// </summary>
         Task<Models.Requests.UpdateCustomerResponse> UpdateAsync(UpdateCustomerRequest request, RetryConfig? retryConfig = null);
@@ -102,10 +94,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.422.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.422.6 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;

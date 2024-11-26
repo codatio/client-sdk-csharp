@@ -38,9 +38,7 @@ namespace Codat.Sync.Expenses
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-bankAccounts-model">Get create/update bank account model</a>.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts">coverage explorer</a> for integrations that support creating an account.
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-bankAccounts-model">Get create/update bank account model</a>.
         /// </remarks>
         /// </summary>
         Task<Models.Requests.CreateBankAccountResponse> CreateAsync(CreateBankAccountRequest request, RetryConfig? retryConfig = null);
@@ -56,8 +54,6 @@ namespace Codat.Sync.Expenses
         /// **Integration-specific behaviour**<br/>
         /// <br/>
         /// See the *response examples* for integration-specific indicative models.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bankAccounts">coverage explorer</a> for integrations that support creating and updating a bank account.<br/>
         /// 
         /// </remarks>
         /// </summary>
@@ -71,10 +67,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.422.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.422.6 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;

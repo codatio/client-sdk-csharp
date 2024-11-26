@@ -37,7 +37,7 @@ CreateAdjustmentTransactionRequest req = new CreateAdjustmentTransactionRequest(
         new AdjustmentTransactionRequest() {
             Id = "7a621cf0-21cd-49cf-8540-3315211a509a",
             Date = "2022-10-23T00:00:00Z",
-            Currency = "Netherlands Antillian Guilder",
+            Currency = "Moroccan Dirham",
             Lines = new List<AdjustmentTransactionLine>() {
                 new AdjustmentTransactionLine() {
                     Amount = 50M,
@@ -78,7 +78,7 @@ var res = await sdk.Adjustments.CreateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

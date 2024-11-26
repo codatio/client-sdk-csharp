@@ -53,10 +53,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.422.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.422.6 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;

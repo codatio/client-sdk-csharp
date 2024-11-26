@@ -48,11 +48,10 @@ var res = await sdk.PushOperations.ListAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Get
 
@@ -89,7 +88,7 @@ var res = await sdk.PushOperations.GetAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

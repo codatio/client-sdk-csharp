@@ -34,18 +34,20 @@ namespace Codat.Sync.Expenses
         /// <remarks>
         /// The *Upload attachment* endpoint uploads an attachment in the accounting software against the given transactionId. <br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. <br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. Attachments for `Adjustment` and `Transfer` transaction types are not supported for any integrations.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// <br/>
         /// Each accounting software supports different file formats and sizes.<br/>
         /// <br/>
-        /// | Integration | File Size | File Extension                                                                                                      |  <br/>
-        /// |-------------|-------------|--------------------------------------------------------------------------------------------------------------|<br/>
-        /// | Xero | 3MB  | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF, ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP |<br/>
-        /// | QuickBooks Online | 100MB | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML  |<br/>
-        /// | NetSuite | 100MB | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |<br/>
-        /// | Dynamics 365 Business Central | 350 MB | Dynamics do not explicitly outline which file types are supported but they do state &lt;a className=&quot;external&quot; href=&quot;https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; that &quot;You can attach any type of file, such as text, image, or video files&quot;. |
+        /// | Integration       | File size | File extension                                                                                                                                 |Supported transaction type<br/>
+        /// |-------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|<br/>
+        /// | **Xero**              | 3 MB      | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF,   ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX,   ZIP | All supported types |<br/>
+        /// | **QuickBooks Online** | 100 MB    | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF,   TXT, XLS, XLSX, XML                                                               |  `ReimbursableExpenses`, `ExpensePayment`, `ExpenseRefund` |<br/>
+        /// | **NetSuite**          | 100 MB    | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF,   DOC, DOCX, ZIP |`ExpensePayment`, `ExpenseRefund`                                                                     |<br/>
+        /// | **Dynamics 365 Business Central** | 350 MB | <a href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice">No explicit requirements outlined</a> for text, image, and video files. | All supported types<br/>
+        /// | **QuickBooks Desktop** | NA      | Does not support attachment upload | N/A                                                                                                                           |<br/>
+        /// | **FreeAgent** | 5MB      | PNG, X-PNG, JPEG, PJG, GIF, X-PDF   
         /// </remarks>
         /// </summary>
         Task<UploadExpenseAttachmentResponse> UploadAsync(UploadExpenseAttachmentRequest request, RetryConfig? retryConfig = null);
@@ -58,10 +60,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.422.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.422.6 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;

@@ -11,6 +11,7 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     public class CompanyRequestBody
     {
@@ -26,5 +27,11 @@ namespace Codat.Sync.Expenses.Models.Components
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// A collection of user-defined key-value pairs that store custom metadata against the company.
+        /// </summary>
+        [JsonProperty("tags")]
+        public Dictionary<string, string>? Tags { get; set; }
     }
 }

@@ -135,7 +135,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public string Created { get; set; } = default!;
 
         [JsonProperty("dataConnectionErrors")]
-        public List<DataConnectionError>? DataConnectionErrors { get; set; }
+        public List<DataConnectionError>? DataConnectionErrors { get; set; } = null;
 
         [JsonProperty("connectionInfo")]
         public Dictionary<string, string>? ConnectionInfo { get; set; } = null;

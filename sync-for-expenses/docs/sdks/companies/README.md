@@ -15,7 +15,7 @@ Create and manage your SMB users' companies.
 
 ## List
 
-﻿The *List companies* endpoint returns a list of [companies] associated to your instances.
+﻿The *List companies* endpoint returns a list of [companies](https://docs.codat.io/sync-for-expenses-api#/schemas/Company) associated to your instances.
 
 A [company](https://docs.codat.io/sync-for-expenses-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/sync-for-expenses-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -53,11 +53,10 @@ var res = await sdk.Companies.ListAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Create
 
@@ -73,6 +72,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```csharp
 using Codat.Sync.Expenses;
 using Codat.Sync.Expenses.Models.Components;
+using System.Collections.Generic;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -98,11 +98,10 @@ var res = await sdk.Companies.CreateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Update
 
@@ -117,6 +116,7 @@ Each company can have multiple [connections](https://docs.codat.io/sync-for-expe
 using Codat.Sync.Expenses;
 using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using System.Collections.Generic;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -145,11 +145,10 @@ var res = await sdk.Companies.UpdateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Delete
 
@@ -189,11 +188,10 @@ var res = await sdk.Companies.DeleteAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Get
 
@@ -233,7 +231,7 @@ var res = await sdk.Companies.GetAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

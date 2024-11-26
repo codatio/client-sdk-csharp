@@ -64,5 +64,11 @@ namespace Codat.Sync.Expenses.Models.Components
         /// </summary>
         [JsonProperty("validTransactionTypes")]
         public List<ValidTransactionTypes>? ValidTransactionTypes { get; set; }
+
+        /// <summary>
+        /// Supported endpoints for the account.
+        /// </summary>
+        [JsonProperty("validFor")]
+        public List<ValidFor>? ValidFor { get; set; }
     }
 }

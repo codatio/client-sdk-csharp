@@ -15,7 +15,7 @@ namespace Codat.Sync.Expenses.Models.Errors
     using System;
     
     /// <summary>
-    /// The request made is not valid.
+    /// Your `query` parameter was not correctly formed
     /// </summary>
     public class ErrorMessage : Exception
     {

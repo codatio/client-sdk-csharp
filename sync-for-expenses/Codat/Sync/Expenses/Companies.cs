@@ -32,7 +32,7 @@ namespace Codat.Sync.Expenses
         /// List companies
         /// 
         /// <remarks>
-        /// The *List companies* endpoint returns a list of [companies] associated to your instances.<br/>
+        /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Company">companies</a> associated to your instances.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
         /// Each company can have multiple <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -100,10 +100,10 @@ namespace Codat.Sync.Expenses
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.422.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.422.6 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;

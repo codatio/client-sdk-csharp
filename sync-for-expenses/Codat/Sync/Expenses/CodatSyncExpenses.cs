@@ -70,6 +70,11 @@ namespace Codat.Sync.Expenses
         public IConnections Connections { get; }
 
         /// <summary>
+        /// View the company information of your customers&apos; linked accounting software.
+        /// </summary>
+        public ICompanyInfo CompanyInfo { get; }
+
+        /// <summary>
         /// View and manage mapping configuration and defaults for expense transactions.
         /// </summary>
         public IConfiguration Configuration { get; }
@@ -221,16 +226,17 @@ namespace Codat.Sync.Expenses
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.422.6";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.1.0 2.422.6 prealpha Codat.Sync.Expenses";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
+        public ICompanyInfo CompanyInfo { get; private set; }
         public IConfiguration Configuration { get; private set; }
         public IMappingOptions MappingOptions { get; private set; }
         public ISync Sync { get; private set; }
@@ -296,6 +302,9 @@ namespace Codat.Sync.Expenses
 
 
             Connections = new Connections(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            CompanyInfo = new CompanyInfo(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
             Configuration = new Configuration(_client, _securitySource, _serverUrl, SDKConfiguration);

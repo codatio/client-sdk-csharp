@@ -33,7 +33,7 @@ namespace Codat.Sync.Expenses.Models.Components
         /// An array of Phone numbers.
         /// </summary>
         [JsonProperty("phone")]
-        public List<Phone>? Phone { get; set; } = null;
+        public List<PhoneNumberItems>? Phone { get; set; } = null;
 
         [JsonProperty("address")]
         public Items? Address { get; set; }

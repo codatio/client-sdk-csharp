@@ -129,6 +129,10 @@ var res = await sdk.Companies.ListAsync(req);
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [Get](docs/sdks/companies/README.md#get) - Get company
 
+### [CompanyInfo](docs/sdks/companyinfo/README.md)
+
+* [Get](docs/sdks/companyinfo/README.md#get) - Get company info
+
 ### [Configuration](docs/sdks/configuration/README.md)
 
 * [Get](docs/sdks/configuration/README.md#get) - Get company configuration
@@ -206,20 +210,30 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.codat.io` | None |
-
-
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using Codat.Sync.Expenses;
+using Codat.Sync.Expenses.Models.Requests;
+using Codat.Sync.Expenses.Models.Components;
+
+var sdk = new CodatSyncExpenses(
+    serverUrl: "https://api.codat.io",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Companies.ListAsync(req);
+
+// handle response
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Authentication [security] -->
@@ -229,9 +243,9 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `AuthHeader` | apiKey       | API key      |
+| Name         | Type   | Scheme  |
+| ------------ | ------ | ------- |
+| `AuthHeader` | apiKey | API key |
 
 To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
@@ -327,12 +341,23 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+By default, an API error will raise a `Codat.Sync.Expenses.Models.Errors.SDKException` exception, which has the following properties:
+
+| Property      | Type                  | Description           |
+|---------------|-----------------------|-----------------------|
+| `Message`     | *string*              | The error message     |
+| `StatusCode`  | *int*                 | The HTTP status code  |
+| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
+| `Body`        | *string*              | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `ListAsync` method throws the following exceptions:
+
+| Error Type                                     | Status Code                            | Content Type     |
+| ---------------------------------------------- | -------------------------------------- | ---------------- |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                               | \*/\*            |
 
 ### Example
 
@@ -365,7 +390,7 @@ catch (Exception ex)
         // Handle exception data
         throw;
     }
-    else if (ex is Models.Errors.SDKException)
+    else if (ex is Codat.Sync.Expenses.Models.Errors.SDKException)
     {
         // Handle default exception
         throw;

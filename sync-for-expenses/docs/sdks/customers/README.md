@@ -55,19 +55,16 @@ var res = await sdk.Customers.ListAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,409,429,500,503            | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 409, 429, 500, 503    | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Get
 
 The *Get customer* endpoint returns a single customer for a given customerId.
 
 [Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data).
 
@@ -83,7 +80,7 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCustomerRequest req = new GetCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CustomerId = "<value>",
+    CustomerId = "7110701885",
 };
 
 var res = await sdk.Customers.GetAsync(req);
@@ -103,11 +100,10 @@ var res = await sdk.Customers.GetAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,409,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Create
 
@@ -118,9 +114,6 @@ The *Create customer* endpoint creates a new [customer](https://docs.codat.io/sy
 **Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
-
 
 ### Example Usage
 
@@ -138,20 +131,20 @@ CreateCustomerRequest req = new CreateCustomerRequest() {
     Customer = new Customer() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        DefaultCurrency = "EUR",
+        DefaultCurrency = "USD",
         Contacts = new List<Contact>() {
             new Contact() {
-                Phone = new List<Phone>() {
-                    new Phone() {
+                Phone = new List<PhoneNumberItems>() {
+                    new PhoneNumberItems() {
                         Number = "+44 25691 154789",
                         Type = Codat.Sync.Expenses.Models.Components.PhoneNumberType.Primary,
                     },
                 },
-                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Unknown,
+                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Archived,
                 ModifiedDate = "2022-10-23T00:00:00Z",
             },
         },
-        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Active,
+        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Unknown,
     },
 };
 
@@ -172,11 +165,10 @@ var res = await sdk.Customers.CreateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Update
 
@@ -187,9 +179,6 @@ The *Update customer* endpoint updates an existing [customer](https://docs.codat
 **Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
-
 
 ### Example Usage
 
@@ -204,24 +193,24 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 UpdateCustomerRequest req = new UpdateCustomerRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    CustomerId = "<value>",
+    CustomerId = "EILBDVJVNUAGVKRQ",
     Customer = new Customer() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        DefaultCurrency = "USD",
+        DefaultCurrency = "EUR",
         Contacts = new List<Contact>() {
             new Contact() {
-                Phone = new List<Phone>() {
-                    new Phone() {
-                        Number = "+44 25691 154789",
-                        Type = Codat.Sync.Expenses.Models.Components.PhoneNumberType.Unknown,
+                Phone = new List<PhoneNumberItems>() {
+                    new PhoneNumberItems() {
+                        Number = "(877) 492-8687",
+                        Type = Codat.Sync.Expenses.Models.Components.PhoneNumberType.Mobile,
                     },
                 },
-                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Active,
+                Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Archived,
                 ModifiedDate = "2022-10-23T00:00:00Z",
             },
         },
-        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Unknown,
+        Status = Codat.Sync.Expenses.Models.Components.CustomerStatus.Archived,
     },
 };
 
@@ -242,7 +231,7 @@ var res = await sdk.Customers.UpdateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

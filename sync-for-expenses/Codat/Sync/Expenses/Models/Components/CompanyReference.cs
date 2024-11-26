@@ -12,6 +12,7 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     
     public class CompanyReference
     {
@@ -44,6 +45,6 @@ namespace Codat.Sync.Expenses.Models.Components
         /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
         [JsonProperty("tags")]
-        public Tags? Tags { get; set; }
+        public Dictionary<string, string>? Tags { get; set; }
     }
 }

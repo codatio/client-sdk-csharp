@@ -44,13 +44,13 @@ CreateTransferTransactionRequest req = new CreateTransferTransactionRequest() {
             AccountRef = new AccountReference() {
                 Id = "<id>",
             },
-            Amount = 4174.58M,
+            Amount = 6384.24M,
         },
         To = new To() {
             AccountRef = new TransferTransactionRequestAccountReference() {
                 Id = "<id>",
             },
-            Amount = 1343.65M,
+            Amount = 4174.58M,
         },
     },
 };
@@ -72,7 +72,7 @@ var res = await sdk.Transfers.CreateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

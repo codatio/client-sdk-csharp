@@ -20,8 +20,6 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-bankAccounts-model).
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating an account.
-
 ### Example Usage
 
 ```csharp
@@ -38,7 +36,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     BankAccount = new BankAccount() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Currency = "EUR",
+        Currency = "USD",
         Status = Codat.Sync.Expenses.Models.Components.BankAccountStatus.Active,
     },
 };
@@ -60,11 +58,10 @@ var res = await sdk.BankAccounts.CreateAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400,401,402,403,404,429,500,503                | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
-
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## GetCreateModel
 
@@ -75,8 +72,6 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 **Integration-specific behaviour**
 
 See the *response examples* for integration-specific indicative models.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating and updating a bank account.
 
 
 ### Example Usage
@@ -110,7 +105,7 @@ var res = await sdk.BankAccounts.GetCreateModelAsync(req);
 
 ### Errors
 
-| Error Object                                   | Status Code                                    | Content Type                                   |
+| Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401,402,403,404,429,500,503                    | application/json                               |
-| Codat.Sync.Expenses.Models.Errors.SDKException | 4xx-5xx                                        | */*                                            |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

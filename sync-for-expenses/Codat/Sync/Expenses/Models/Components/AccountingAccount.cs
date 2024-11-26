@@ -20,8 +20,6 @@ namespace Codat.Sync.Expenses.Models.Components
     /// 
     /// <remarks>
     /// <br/>
-    /// View the coverage for accounts in the &lt;a className=&quot;external&quot; href=&quot;https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=chartOfAccounts&quot; target=&quot;_blank&quot;&gt;Data coverage explorer&lt;/a&gt;.<br/>
-    /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve a list of all accounts for a specified company.<br/>

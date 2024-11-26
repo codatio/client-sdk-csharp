@@ -121,7 +121,16 @@ namespace Codat.Sync.Expenses.Models.Components
         /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
         [JsonProperty("tags")]
-        public CompanyTags? Tags { get; set; }
+        public Dictionary<string, string>? Tags { get; set; }
+
+        [JsonProperty("referenceParentCompany")]
+        public CompanyReference? ReferenceParentCompany { get; set; }
+
+        /// <summary>
+        /// A list of subsidiary companies owned or controlled by this entity. Empty if the company has no children.
+        /// </summary>
+        [JsonProperty("referenceSubsidiaryCompanies")]
+        public List<CompanyReference>? ReferenceSubsidiaryCompanies { get; set; }
 
         [JsonProperty("dataConnections")]
         public List<Connection>? DataConnections { get; set; }

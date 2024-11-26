@@ -14,7 +14,7 @@ namespace Codat.Platform.Models.Components
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Your `query` parameter was not correctly formed
+    /// Too many requests were made in a given amount of time. Wait a short period and then try again.
     /// </summary>
     public class ErrorMessage
     {

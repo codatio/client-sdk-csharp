@@ -34,7 +34,7 @@ namespace Codat.Platform
         /// <remarks>
         /// The *Configure* endpoint allows you to maintain or change configuration required to return supplemental data for each integration and data type combination.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/using-the-api/additional-data">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.<br/>
+        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.<br/>
         /// <br/>
         /// **Integration-specific behaviour**<br/>
         /// See the *examples* for integration-specific frequently requested properties.
@@ -48,7 +48,7 @@ namespace Codat.Platform
         /// <remarks>
         /// The *Get configuration* endpoint returns supplemental data configuration previously created for each integration and data type combination.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/using-the-api/additional-data">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.
+        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.
         /// </remarks>
         /// </summary>
         Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(GetSupplementalDataConfigurationRequest request, RetryConfig? retryConfig = null);
@@ -61,10 +61,10 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "5.0.0";
-        private const string _sdkGenVersion = "2.442.11";
+        private const string _sdkVersion = "6.0.0";
+        private const string _sdkGenVersion = "2.462.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 5.0.0 2.442.11 3.0.0 Codat.Platform";
+        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.462.1 3.0.0 Codat.Platform";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Platform.Models.Components.Security>? _securitySource;

@@ -3,35 +3,35 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Platform</PackageId>
-    <Version>5.0.0</Version>
+    <Version>6.0.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
     <Copyright>Copyright (c) Codat 2024</Copyright>
     <RepositoryUrl>https://github.com/codatio/client-sdk-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Description>An API for the common components of all of Codat's products.
-
-These end points cover creating and managing your companies, data connections, and integrations.
-
-[Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies) | [See our OpenAPI spec](https://github.com/codatio/oas) 
-
----
-<!-- Start Codat Tags Table -->
-## Endpoints
-
-| Endpoints | Description |
-| :- |:- |
-| Companies | Create and manage your SMB users' companies. |
-| Connections | Create new and manage existing data connections for a company. |
-| Connection management | Configure connection management UI and retrieve access tokens for authentication. |
-| Webhooks | Create and manage webhooks that listen to Codat's events. |
-| Integrations | Get a list of integrations supported by Codat and their logos. |
-| Refresh data | Initiate data refreshes, view pull status and history. |
-| Settings | Manage company profile configuration, sync settings, and API keys. |
-| Push data | Initiate and monitor Create, Update, and Delete operations. |
-| Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |
-| Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |
-<!-- End Codat Tags Table --></Description>
+    <Description>An API for the common components of all of Codat&apos;s products.<br/>
+<br/>
+These end points cover creating and managing your companies, data connections, and integrations.<br/>
+<br/>
+<a href="https://docs.codat.io/core-concepts/companies">Read about the building blocks of Codat...</a> | <a href="https://github.com/codatio/oas">See our OpenAPI spec</a> <br/>
+<br/>
+---<br/>
+&lt;!-- Start Codat Tags Table --&gt;<br/>
+## Endpoints<br/>
+<br/>
+| Endpoints | Description |<br/>
+| :- |:- |<br/>
+| Companies | Create and manage your SMB users&apos; companies. |<br/>
+| Connections | Create new and manage existing data connections for a company. |<br/>
+| Connection management | Configure connection management UI and retrieve access tokens for authentication. |<br/>
+| Webhooks | Create and manage webhooks that listen to Codat&apos;s events. |<br/>
+| Integrations | Get a list of integrations supported by Codat and their logos. |<br/>
+| Refresh data | Initiate data refreshes, view pull status and history. |<br/>
+| Settings | Manage company profile configuration, sync settings, and API keys. |<br/>
+| Push data | Initiate and monitor Create, Update, and Delete operations. |<br/>
+| Supplemental data | Configure and pull additional data you can include in Codat&apos;s standard data types. |<br/>
+| Custom data type | Configure and pull additional data types that are not included in Codat&apos;s standardized data model. |<br/>
+&lt;!-- End Codat Tags Table --&gt;</Description>
   </PropertyGroup>
 
   <PropertyGroup>

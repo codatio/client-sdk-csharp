@@ -106,6 +106,7 @@ var res = await sdk.Companies.ListAsync(req);
 * [Update](docs/sdks/companies/README.md#update) - Update company
 * [AddProduct](docs/sdks/companies/README.md#addproduct) - Add product
 * [RemoveProduct](docs/sdks/companies/README.md#removeproduct) - Remove product
+* [GetAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 
 ### [ConnectionManagement](docs/sdks/connectionmanagement/README.md)
 
@@ -182,20 +183,30 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.codat.io` | None |
-
-
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(
+    serverUrl: "https://api.codat.io",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Page = 1,
+    PageSize = 100,
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Companies.ListAsync(req);
+
+// handle response
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Authentication [security] -->
@@ -205,9 +216,9 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `AuthHeader` | apiKey       | API key      |
+| Name         | Type   | Scheme  |
+| ------------ | ------ | ------- |
+| `AuthHeader` | apiKey | API key |
 
 To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
@@ -246,10 +257,10 @@ By default, an API error will raise a `Codat.Platform.Models.Errors.SDKException
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `ListAsync` method throws the following exceptions:
 
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503    | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
+| Error Type                                | Status Code                            | Content Type     |
+| ----------------------------------------- | -------------------------------------- | ---------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                               | \*/\*            |
 
 ### Example
 

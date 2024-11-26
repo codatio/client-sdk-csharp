@@ -9,11 +9,11 @@ sources:
             - main
     lending-source:
         sourceNamespace: lending-source
-        sourceRevisionDigest: sha256:e56529006fc2797133e000f48a95b7c9f7578328bf32ef6f6f277379c5f3b6eb
+        sourceRevisionDigest: sha256:a48d41343b4b97f97dae9d9830b93f80ac2306d6e1439c8501f3883040c7c341
         sourceBlobDigest: sha256:b52d78f87b496418a9a1d7ee5f4b78f4ee3ed0a257fba5a6bd13e82a5ed3548f
         tags:
             - latest
-            - speakeasy-sdk-regen-1732640709
+            - speakeasy-sdk-regen-1732645932
             - 3.0.0
     platform-source:
         sourceNamespace: platform-source
@@ -70,10 +70,10 @@ targets:
     lending-library:
         source: lending-source
         sourceNamespace: lending-source
-        sourceRevisionDigest: sha256:e56529006fc2797133e000f48a95b7c9f7578328bf32ef6f6f277379c5f3b6eb
+        sourceRevisionDigest: sha256:a48d41343b4b97f97dae9d9830b93f80ac2306d6e1439c8501f3883040c7c341
         sourceBlobDigest: sha256:b52d78f87b496418a9a1d7ee5f4b78f4ee3ed0a257fba5a6bd13e82a5ed3548f
         codeSamplesNamespace: lending-source-code-samples
-        codeSamplesRevisionDigest: sha256:735337663e5192748fe05b8a35578d1a86a2b9cc380b1c4e00eb16fd6e1d5944
+        codeSamplesRevisionDigest: sha256:d302b3a398febb40c7e51497d5f40f06bc7dce57598a0aa6afe1c7c37d022e9f
     platform-library:
         source: platform-source
         sourceNamespace: platform-source

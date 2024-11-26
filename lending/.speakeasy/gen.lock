@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.0
   speakeasyVersion: 1.447.0
   generationVersion: 2.463.0
-  releaseVersion: 9.0.0
-  configChecksum: 173edac7ddd1b9ce656c9ae736a3296b
+  releaseVersion: 9.0.1
+  configChecksum: 876fa756c5be3922f75fec5cccfb63dc
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: lending
   published: true

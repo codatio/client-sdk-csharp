@@ -32,7 +32,7 @@ namespace Codat.Sync.Payables
         /// List companies
         /// 
         /// <remarks>
-        /// The *List companies* endpoint returns a list of [companies] associated to your instances.<br/>
+        /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">companies</a> associated to your instances.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
         /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -100,10 +100,10 @@ namespace Codat.Sync.Payables
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.0";
-        private const string _sdkGenVersion = "2.445.1";
+        private const string _sdkVersion = "10.0.0";
+        private const string _sdkGenVersion = "2.463.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.0 2.445.1 3.0.0 Codat.Sync.Payables";
+        private const string _userAgent = "speakeasy-sdk/csharp 10.0.0 2.463.0 3.0.0 Codat.Sync.Payables";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;

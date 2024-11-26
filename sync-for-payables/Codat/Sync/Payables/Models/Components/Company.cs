@@ -123,6 +123,15 @@ namespace Codat.Sync.Payables.Models.Components
         [JsonProperty("tags")]
         public Dictionary<string, string>? Tags { get; set; }
 
+        [JsonProperty("referenceParentCompany")]
+        public CompanyReference? ReferenceParentCompany { get; set; }
+
+        /// <summary>
+        /// A list of subsidiary companies owned or controlled by this entity. Empty if the company has no children.
+        /// </summary>
+        [JsonProperty("referenceSubsidiaryCompanies")]
+        public List<CompanyReference>? ReferenceSubsidiaryCompanies { get; set; }
+
         [JsonProperty("dataConnections")]
         public List<Connection>? DataConnections { get; set; }
     }

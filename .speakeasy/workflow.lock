@@ -41,11 +41,12 @@ sources:
             - prealpha
     sync-for-payables-source:
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:f1bb2a4dee08d524c8009ee2c6970011d967511542e4ebf384f0574e93c24a18
-        sourceBlobDigest: sha256:f472244dc98845d90f55da060a2cc4acee05c771a89a0ff55bc5db04108e5693
+        sourceRevisionDigest: sha256:9bf594a869e0b9e326b3437e9661b5a7f2f7da420d4fb7375a4a9938a168951c
+        sourceBlobDigest: sha256:57b656eed2c5a98f97da8f59e196bb8052ead3cc7c87673cdf5e19c6badbb570
         tags:
             - latest
-            - main
+            - speakeasy-sdk-regen-1732641065
+            - 3.0.0
     sync-for-payables-version-1-source:
         sourceNamespace: sync-for-payables-version-1-source
         sourceRevisionDigest: sha256:8a265bac8fe5d0a020e2e098459e0d2336d69f6acb919efab1e20e2b0ba4dc79
@@ -97,8 +98,10 @@ targets:
     sync-for-payables-library:
         source: sync-for-payables-source
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:f1bb2a4dee08d524c8009ee2c6970011d967511542e4ebf384f0574e93c24a18
-        sourceBlobDigest: sha256:f472244dc98845d90f55da060a2cc4acee05c771a89a0ff55bc5db04108e5693
+        sourceRevisionDigest: sha256:9bf594a869e0b9e326b3437e9661b5a7f2f7da420d4fb7375a4a9938a168951c
+        sourceBlobDigest: sha256:57b656eed2c5a98f97da8f59e196bb8052ead3cc7c87673cdf5e19c6badbb570
+        codeSamplesNamespace: sync-for-payables-source-code-samples
+        codeSamplesRevisionDigest: sha256:956525cb89c12c0ab52334de08ce92639ff61c9c97e9a34aa55aa2e9a4177fe6
     sync-for-payables-version-1-library:
         source: sync-for-payables-version-1-source
         sourceNamespace: sync-for-payables-version-1-source

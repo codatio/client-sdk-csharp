@@ -35,13 +35,19 @@ namespace Codat.BankFeeds.Models.Shared
         /// The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
         /// </summary>
         [JsonProperty("accountType")]
-        public AccountType AccountType { get; set; } = default!;
+        public SourceAccountV2AccountType AccountType { get; set; } = default!;
 
         /// <summary>
         /// The account number.
         /// </summary>
         [JsonProperty("accountNumber")]
         public string AccountNumber { get; set; } = default!;
+
+        /// <summary>
+        /// The sort code.
+        /// </summary>
+        [JsonProperty("sortCode")]
+        public string? SortCode { get; set; } = null;
 
         /// <summary>
         /// Routing information for the bank. This does not include account number.

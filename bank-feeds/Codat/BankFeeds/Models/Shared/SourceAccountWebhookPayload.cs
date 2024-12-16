@@ -31,10 +31,7 @@ namespace Codat.BankFeeds.Models.Shared
         [JsonProperty("connectionId")]
         public string? ConnectionId { get; set; }
 
-        /// <summary>
-        /// The target bank account in a supported accounting software for ingestion into a bank feed.
-        /// </summary>
         [JsonProperty("sourceAccount")]
-        public SourceAccount? SourceAccount { get; set; }
+        public SourceAccountWebhookPayloadSourceAccount? SourceAccount { get; set; }
     }
 }

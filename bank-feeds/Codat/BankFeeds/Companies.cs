@@ -49,7 +49,20 @@ namespace Codat.BankFeeds
         /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/bank-feeds-api#/schemas/Company">companies</a> associated to your instances.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/bank-feeds-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
-        /// Each company can have multiple <a href="https://docs.codat.io/bank-feeds-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// Each company can have multiple <a href="https://docs.codat.io/bank-feeds-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// <br/>
+        /// ## Filter by tags<br/>
+        /// <br/>
+        /// The *List companies* endpoint supports the filtering of companies using <a href="https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company">tags</a>. It supports the following operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>:<br/>
+        /// <br/>
+        /// - equals (`=`)<br/>
+        /// - not equals (`!=`)<br/>
+        /// - contains (`~`)<br/>
+        /// <br/>
+        /// For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: <br/>
+        /// - Foreign key: `uid = {yourCustomerId}`<br/>
+        /// - Region: `region != uk`<br/>
+        /// - Owning team and region: `region = uk &amp;&amp; owningTeam = invoice-finance`
         /// </remarks>
         /// </summary>
         Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null, RetryConfig? retryConfig = null);
@@ -91,6 +104,16 @@ namespace Codat.BankFeeds
         /// </remarks>
         /// </summary>
         Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest request, RetryConfig? retryConfig = null);
+
+        /// <summary>
+        /// Get company access token
+        /// 
+        /// <remarks>
+        /// Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat&apos;s embedded UI products.<br/>
+        /// 
+        /// </remarks>
+        /// </summary>
+        Task<GetCompanyAccessTokenResponse> GetAccessTokenAsync(GetCompanyAccessTokenRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -100,10 +123,10 @@ namespace Codat.BankFeeds
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.0";
-        private const string _sdkGenVersion = "2.451.0";
+        private const string _sdkVersion = "7.0.0";
+        private const string _sdkGenVersion = "2.479.3";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.451.0 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.479.3 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;
@@ -693,6 +716,125 @@ namespace Codat.BankFeeds
                         RawResponse = httpResponse
                     };
                     response.Company = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    throw obj!;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+        }
+
+        public async Task<GetCompanyAccessTokenResponse> GetAccessTokenAsync(GetCompanyAccessTokenRequest request, RetryConfig? retryConfig = null)
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/accessToken", request);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+
+            if (_securitySource != null)
+            {
+                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext("get-company-access-token", null, _securitySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 500L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string>
+            {
+                "408",
+                "429",
+                "5XX",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await _client.CloneAsync(httpRequest);
+                return await _client.SendAsync(_httpRequest);
+            };
+            var retries = new Codat.BankFeeds.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await retries.Run();
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<CompanyAccessToken>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new GetCompanyAccessTokenResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
+                    response.CompanyAccessToken = obj;
                     return response;
                 }
 

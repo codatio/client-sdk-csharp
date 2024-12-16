@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: c57bceaa5f2d5b6d55426976a49ec69d
+  docChecksum: 66b0b2a05ab126aac947c52e5cee36e3
   docVersion: 3.0.0
-  speakeasyVersion: 1.431.0
-  generationVersion: 2.451.0
-  releaseVersion: 6.0.0
-  configChecksum: 1fadd340ea85d5ca742037ace5043daf
+  speakeasyVersion: 1.455.5
+  generationVersion: 2.479.3
+  releaseVersion: 7.0.0
+  configChecksum: 61cfb1ce1352153c9fa6faa035d74fff
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
@@ -14,7 +14,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.10.4
+    core: 3.10.7
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
@@ -52,6 +52,11 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/CreateBankAccountResponse.cs
   - Codat/BankFeeds/Models/Operations/CreateBankTransactionsRequest.cs
   - Codat/BankFeeds/Models/Operations/CreateBankTransactionsResponse.cs
+  - Codat/BankFeeds/Models/Operations/CreateBatchSourceAccountRequest.cs
+  - Codat/BankFeeds/Models/Operations/CreateBatchSourceAccountRequestBody.cs
+  - Codat/BankFeeds/Models/Operations/CreateBatchSourceAccountResponse.cs
+  - Codat/BankFeeds/Models/Operations/CreateBatchSourceAccountResponseBody.cs
+  - Codat/BankFeeds/Models/Operations/CreateBatchSourceAccountSourceAccountsResponseBody.cs
   - Codat/BankFeeds/Models/Operations/CreateCompanyResponse.cs
   - Codat/BankFeeds/Models/Operations/CreateConnectionRequest.cs
   - Codat/BankFeeds/Models/Operations/CreateConnectionRequestBody.cs
@@ -72,6 +77,8 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/GenerateCredentialsResponse.cs
   - Codat/BankFeeds/Models/Operations/GetBankAccountMappingRequest.cs
   - Codat/BankFeeds/Models/Operations/GetBankAccountMappingResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetCompanyAccessTokenRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetCompanyAccessTokenResponse.cs
   - Codat/BankFeeds/Models/Operations/GetCompanyInformationRequest.cs
   - Codat/BankFeeds/Models/Operations/GetCompanyInformationResponse.cs
   - Codat/BankFeeds/Models/Operations/GetCompanyRequest.cs
@@ -82,6 +89,8 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/GetConnectionResponse.cs
   - Codat/BankFeeds/Models/Operations/GetCreateBankAccountsModelRequest.cs
   - Codat/BankFeeds/Models/Operations/GetCreateBankAccountsModelResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetCreateBankTransactionsModelRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetCreateBankTransactionsModelResponse.cs
   - Codat/BankFeeds/Models/Operations/GetCreateOperationRequest.cs
   - Codat/BankFeeds/Models/Operations/GetCreateOperationResponse.cs
   - Codat/BankFeeds/Models/Operations/GetLastSuccessfulRequest.cs
@@ -96,6 +105,9 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/ListCreateOperationsResponse.cs
   - Codat/BankFeeds/Models/Operations/ListSourceAccountsRequest.cs
   - Codat/BankFeeds/Models/Operations/ListSourceAccountsResponse.cs
+  - Codat/BankFeeds/Models/Operations/ListSourceAccountsResponseBody.cs
+  - Codat/BankFeeds/Models/Operations/One.cs
+  - Codat/BankFeeds/Models/Operations/ResponseBody1.cs
   - Codat/BankFeeds/Models/Operations/SetConfigurationRequest.cs
   - Codat/BankFeeds/Models/Operations/SetConfigurationResponse.cs
   - Codat/BankFeeds/Models/Operations/UnlinkConnectionRequest.cs
@@ -133,6 +145,7 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/ClientRateLimitWebhookPayload.cs
   - Codat/BankFeeds/Models/Shared/Companies.cs
   - Codat/BankFeeds/Models/Shared/Company.cs
+  - Codat/BankFeeds/Models/Shared/CompanyAccessToken.cs
   - Codat/BankFeeds/Models/Shared/CompanyInformation.cs
   - Codat/BankFeeds/Models/Shared/CompanyReference.cs
   - Codat/BankFeeds/Models/Shared/CompanyReferenceLinks.cs
@@ -168,13 +181,21 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/PushOptionProperty.cs
   - Codat/BankFeeds/Models/Shared/PushOptionType.cs
   - Codat/BankFeeds/Models/Shared/PushValidationInfo.cs
+  - Codat/BankFeeds/Models/Shared/Result.cs
   - Codat/BankFeeds/Models/Shared/RoutingInfo.cs
   - Codat/BankFeeds/Models/Shared/Security.cs
   - Codat/BankFeeds/Models/Shared/SourceAccount.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountBatchCreateResponse.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountBatchErrorResponse.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountPrototype.cs
   - Codat/BankFeeds/Models/Shared/SourceAccountStatus.cs
   - Codat/BankFeeds/Models/Shared/SourceAccountV2.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountV2AccountType.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountV2BatchCreateResponse.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountV2Prototype.cs
   - Codat/BankFeeds/Models/Shared/SourceAccountWebhook.cs
   - Codat/BankFeeds/Models/Shared/SourceAccountWebhookPayload.cs
+  - Codat/BankFeeds/Models/Shared/SourceAccountWebhookPayloadSourceAccount.cs
   - Codat/BankFeeds/Models/Shared/SourceType.cs
   - Codat/BankFeeds/Models/Shared/Status.cs
   - Codat/BankFeeds/Models/Shared/SupplementalData.cs
@@ -220,6 +241,11 @@ generatedFiles:
   - docs/Models/Operations/CreateBankAccountResponse.md
   - docs/Models/Operations/CreateBankTransactionsRequest.md
   - docs/Models/Operations/CreateBankTransactionsResponse.md
+  - docs/Models/Operations/CreateBatchSourceAccountRequest.md
+  - docs/Models/Operations/CreateBatchSourceAccountRequestBody.md
+  - docs/Models/Operations/CreateBatchSourceAccountResponse.md
+  - docs/Models/Operations/CreateBatchSourceAccountResponseBody.md
+  - docs/Models/Operations/CreateBatchSourceAccountSourceAccountsResponseBody.md
   - docs/Models/Operations/CreateCompanyResponse.md
   - docs/Models/Operations/CreateConnectionRequest.md
   - docs/Models/Operations/CreateConnectionRequestBody.md
@@ -240,6 +266,8 @@ generatedFiles:
   - docs/Models/Operations/GenerateCredentialsResponse.md
   - docs/Models/Operations/GetBankAccountMappingRequest.md
   - docs/Models/Operations/GetBankAccountMappingResponse.md
+  - docs/Models/Operations/GetCompanyAccessTokenRequest.md
+  - docs/Models/Operations/GetCompanyAccessTokenResponse.md
   - docs/Models/Operations/GetCompanyInformationRequest.md
   - docs/Models/Operations/GetCompanyInformationResponse.md
   - docs/Models/Operations/GetCompanyRequest.md
@@ -250,6 +278,8 @@ generatedFiles:
   - docs/Models/Operations/GetConnectionResponse.md
   - docs/Models/Operations/GetCreateBankAccountsModelRequest.md
   - docs/Models/Operations/GetCreateBankAccountsModelResponse.md
+  - docs/Models/Operations/GetCreateBankTransactionsModelRequest.md
+  - docs/Models/Operations/GetCreateBankTransactionsModelResponse.md
   - docs/Models/Operations/GetCreateOperationRequest.md
   - docs/Models/Operations/GetCreateOperationResponse.md
   - docs/Models/Operations/GetLastSuccessfulRequest.md
@@ -264,6 +294,9 @@ generatedFiles:
   - docs/Models/Operations/ListCreateOperationsResponse.md
   - docs/Models/Operations/ListSourceAccountsRequest.md
   - docs/Models/Operations/ListSourceAccountsResponse.md
+  - docs/Models/Operations/ListSourceAccountsResponseBody.md
+  - docs/Models/Operations/One.md
+  - docs/Models/Operations/ResponseBody1.md
   - docs/Models/Operations/SetConfigurationRequest.md
   - docs/Models/Operations/SetConfigurationResponse.md
   - docs/Models/Operations/UnlinkConnectionRequest.md
@@ -301,6 +334,7 @@ generatedFiles:
   - docs/Models/Shared/ClientRateLimitWebhookPayload.md
   - docs/Models/Shared/Companies.md
   - docs/Models/Shared/Company.md
+  - docs/Models/Shared/CompanyAccessToken.md
   - docs/Models/Shared/CompanyInformation.md
   - docs/Models/Shared/CompanyReference.md
   - docs/Models/Shared/CompanyReferenceLinks.md
@@ -336,13 +370,21 @@ generatedFiles:
   - docs/Models/Shared/PushOptionProperty.md
   - docs/Models/Shared/PushOptionType.md
   - docs/Models/Shared/PushValidationInfo.md
+  - docs/Models/Shared/Result.md
   - docs/Models/Shared/RoutingInfo.md
   - docs/Models/Shared/Security.md
   - docs/Models/Shared/SourceAccount.md
+  - docs/Models/Shared/SourceAccountBatchCreateResponse.md
+  - docs/Models/Shared/SourceAccountBatchErrorResponse.md
+  - docs/Models/Shared/SourceAccountPrototype.md
   - docs/Models/Shared/SourceAccountStatus.md
   - docs/Models/Shared/SourceAccountV2.md
+  - docs/Models/Shared/SourceAccountV2AccountType.md
+  - docs/Models/Shared/SourceAccountV2BatchCreateResponse.md
+  - docs/Models/Shared/SourceAccountV2Prototype.md
   - docs/Models/Shared/SourceAccountWebhook.md
   - docs/Models/Shared/SourceAccountWebhookPayload.md
+  - docs/Models/Shared/SourceAccountWebhookPayloadSourceAccount.md
   - docs/Models/Shared/SourceType.md
   - docs/Models/Shared/Status.md
   - docs/Models/Shared/SupplementalData.md
@@ -377,14 +419,14 @@ examples:
         application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
         "400": {}
     With a description:
       requestBody:
         application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development"}
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
         "400": {}
     With a group:
       requestBody:
@@ -404,7 +446,7 @@ examples:
         application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "tags": {"region": "us"}, "dataConnections": []}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "tags": {"region": "us"}, "referenceSubsidiaryCompanies": [], "dataConnections": []}
   list-companies:
     "":
       parameters:
@@ -413,6 +455,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
           application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
@@ -424,9 +467,10 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
-          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
     List of Companies:
       parameters:
         query:
@@ -434,9 +478,10 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
-          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}, {"id": "096db70b-78de-4ff0-aa98-299cb5fe17a0", "name": "Godata", "description": "A new digital agency with a passion for creating amazing digital experiences", "redirect": "https://link.codat.io/company/096db70b-78de-4ff0-aa98-299cb5fe17a0", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "dataConnections": [{"id": "a70bc148-dc21-46b2-a257-d9c58ac15cbb", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/096db70b-78de-4ff0-aa98-299cb5fe17a0/connections/a70bc148-dc21-46b2-a257-d9c58ac15cbb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 2, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}, {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "redirect": "https://link.codat.io/company/db94eddc-9212-4568-9b5c-3eab0e325913", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/connections/1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 3, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
     Malformed query:
       parameters:
         query:
@@ -444,6 +489,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
@@ -454,6 +500,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
@@ -464,7 +511,7 @@ examples:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "My First Company", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores holdings", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
     With groups:
       parameters:
         path:
@@ -479,6 +526,20 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Parent multi-entity company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}
+    Subsidiary multi-entity company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "description": "", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}
   delete-company:
     Unauthorized:
       parameters:
@@ -496,7 +557,7 @@ examples:
         application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401": {}
     Update description:
       parameters:
@@ -506,7 +567,7 @@ examples:
         application/json: {"name": "Same name", "description": "Additional documents required"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401": {}
     Unauthorized:
       parameters:
@@ -542,7 +603,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": [{"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}, {"erroredOnUtc": "2022-10-23T00:00:00Z", "resolvedOnUtc": "2022-10-23T00:00:00Z"}]}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
     Malformed query:
       parameters:
         path:
@@ -685,7 +746,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-03-27T14:21:10Z", "sourceModifiedDate": "2023-02-07T00:00:00", "id": "c9a41bc7-6e5b-ed11-8c34-0022481b8b5b", "accountName": "55", "accountType": "Unknown", "nominalCode": "10500", "sortCode": "", "accountNumber": "", "iBan": "", "currency": "GBP", "balance": -352.03, "overdraftLimit": 0, "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-03-27T14:21:10Z", "sourceModifiedDate": "2022-06-07T00:00:00", "id": "47020f80-60e6-ec11-82f8-0022481a77f0", "accountName": "555", "accountType": "Unknown", "nominalCode": "40300", "sortCode": "", "accountNumber": "", "iBan": "", "currency": "PLN", "balance": 661.79, "overdraftLimit": 0, "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 28, "_links": {"self": {"href": "/companies/d6849caf-c146-41be-8335-b73346e3bd84/connections/60acb117-5cf5-4745-b069-491551da4066/data/bankAccounts"}, "current": {"href": "/companies/d6849caf-c146-41be-8335-b73346e3bd84/connections/60acb117-5cf5-4745-b069-491551da4066/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/d6849caf-c146-41be-8335-b73346e3bd84/connections/60acb117-5cf5-4745-b069-491551da4066/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-03-27T14:21:10Z", "sourceModifiedDate": "2023-02-07T00:00:00", "id": "c9a41bc7-6e5b-ed11-8c34-0022481b8b5b", "accountName": "55", "accountType": "Unknown", "nominalCode": "10500", "sortCode": "", "accountNumber": "", "iBan": "", "currency": "GBP", "balance": -352.03, "overdraftLimit": 0, "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-03-27T14:21:10Z", "sourceModifiedDate": "2022-06-07T00:00:00", "id": "47020f80-60e6-ec11-82f8-0022481a77f0", "accountName": "555", "accountType": "Unknown", "nominalCode": "40300", "sortCode": "", "accountNumber": "", "iBan": "", "currency": "PLN", "balance": 661.79, "overdraftLimit": 0, "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 28, "_links": {"self": {"href": "/companies/d6849caf-c146-41be-8335-b73346e3bd84/connections/60acb117-5cf5-4745-b069-491551da4066/data/bankAccounts"}, "current": {"href": "/companies/d6849caf-c146-41be-8335-b73346e3bd84/connections/60acb117-5cf5-4745-b069-491551da4066/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/d6849caf-c146-41be-8335-b73346e3bd84/connections/60acb117-5cf5-4745-b069-491551da4066/data/bankAccounts?page=2&pageSize=2"}}}
     FreeAgent:
       parameters:
         path:
@@ -698,7 +759,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-04-25T14:19:12Z", "sourceModifiedDate": "2022-10-23T00:00:00Z", "id": "738783", "accountName": "\\w3fw", "accountType": "Debit", "sortCode": "236972", "accountNumber": "A06268209", "currency": "GBP", "balance": -10484.65, "availableBalance": -10484.65, "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-25T14:19:12Z", "sourceModifiedDate": "2022-10-23T00:00:00Z", "id": "738778", "accountName": "2e2bna45hy\\", "accountType": "Debit", "sortCode": "236972", "accountNumber": "D01825250", "currency": "GBP", "balance": -114.4, "availableBalance": -114.4, "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 82, "_links": {"self": {"href": "/companies/071ad738-68f3-4561-afd0-69bab9df0803/connections/4fd7c69f-ecc1-45f5-83f2-42ed3391e386/data/bankAccounts"}, "current": {"href": "/companies/071ad738-68f3-4561-afd0-69bab9df0803/connections/4fd7c69f-ecc1-45f5-83f2-42ed3391e386/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/071ad738-68f3-4561-afd0-69bab9df0803/connections/4fd7c69f-ecc1-45f5-83f2-42ed3391e386/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-04-25T14:19:12Z", "id": "738783", "accountName": "\\w3fw", "accountType": "Debit", "sortCode": "236972", "accountNumber": "A06268209", "currency": "GBP", "balance": -10484.65, "availableBalance": -10484.65, "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-25T14:19:12Z", "id": "738778", "accountName": "2e2bna45hy\\", "accountType": "Debit", "sortCode": "236972", "accountNumber": "D01825250", "currency": "GBP", "balance": -114.4, "availableBalance": -114.4, "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 82, "_links": {"self": {"href": "/companies/071ad738-68f3-4561-afd0-69bab9df0803/connections/4fd7c69f-ecc1-45f5-83f2-42ed3391e386/data/bankAccounts"}, "current": {"href": "/companies/071ad738-68f3-4561-afd0-69bab9df0803/connections/4fd7c69f-ecc1-45f5-83f2-42ed3391e386/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/071ad738-68f3-4561-afd0-69bab9df0803/connections/4fd7c69f-ecc1-45f5-83f2-42ed3391e386/data/bankAccounts?page=2&pageSize=2"}}}
     KashFlow:
       parameters:
         path:
@@ -711,7 +772,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2022-09-30T10:29:16Z", "sourceModifiedDate": "2022-10-23T00:00:00Z", "id": "765768", "accountName": "16th Account", "accountType": "Unknown", "nominalCode": "70700", "currency": "GBP", "balance": 326, "availableBalance": 326, "status": "Active"}, {"modifiedDate": "2022-09-30T10:29:16Z", "sourceModifiedDate": "2022-10-23T00:00:00Z", "id": "765766", "accountName": "1a1a", "accountType": "Unknown", "nominalCode": "70600", "currency": "GBP", "balance": 0, "availableBalance": 0, "status": "Active"}], "pageNumber": 1, "pageSize": 2, "totalResults": 56, "_links": {"self": {"href": "/companies/3a707a99-89da-4b16-a5d6-595333a16352/connections/ecab4f64-1a04-4c53-a343-bfd879f41f67/data/bankAccounts"}, "current": {"href": "/companies/3a707a99-89da-4b16-a5d6-595333a16352/connections/ecab4f64-1a04-4c53-a343-bfd879f41f67/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/3a707a99-89da-4b16-a5d6-595333a16352/connections/ecab4f64-1a04-4c53-a343-bfd879f41f67/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2022-09-30T10:29:16Z", "id": "765768", "accountName": "16th Account", "accountType": "Unknown", "nominalCode": "70700", "currency": "GBP", "balance": 326, "availableBalance": 326}, {"modifiedDate": "2022-09-30T10:29:16Z", "id": "765766", "accountName": "1a1a", "accountType": "Unknown", "nominalCode": "70600", "currency": "GBP", "balance": 0, "availableBalance": 0}], "pageNumber": 1, "pageSize": 2, "totalResults": 56, "_links": {"self": {"href": "/companies/3a707a99-89da-4b16-a5d6-595333a16352/connections/ecab4f64-1a04-4c53-a343-bfd879f41f67/data/bankAccounts"}, "current": {"href": "/companies/3a707a99-89da-4b16-a5d6-595333a16352/connections/ecab4f64-1a04-4c53-a343-bfd879f41f67/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/3a707a99-89da-4b16-a5d6-595333a16352/connections/ecab4f64-1a04-4c53-a343-bfd879f41f67/data/bankAccounts?page=2&pageSize=2"}}}
     Oracle NetSuite:
       parameters:
         path:
@@ -724,7 +785,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-05-02T13:24:36Z", "sourceModifiedDate": "2022-07-15T11:34:02", "id": "825", "accountName": "Codat Europe Bank", "accountType": "Debit", "nominalCode": "111111122222111", "currency": "GBP", "balance": 558.22, "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-05-02T13:24:36Z", "sourceModifiedDate": "2021-03-26T10:31:40", "id": "826", "accountName": "Codat Europe Bank USD", "accountType": "Debit", "nominalCode": "1133221133", "currency": "USD", "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 4, "_links": {"self": {"href": "/companies/d5074b08-6a34-4b06-a742-236edf5dc4f1/connections/79f8313e-210a-4dc8-b69f-ba7e5004dda7/data/bankAccounts"}, "current": {"href": "/companies/d5074b08-6a34-4b06-a742-236edf5dc4f1/connections/79f8313e-210a-4dc8-b69f-ba7e5004dda7/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/d5074b08-6a34-4b06-a742-236edf5dc4f1/connections/79f8313e-210a-4dc8-b69f-ba7e5004dda7/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-05-02T13:24:36Z", "sourceModifiedDate": "2022-07-15T11:34:02", "id": "825", "accountName": "Codat Europe Bank", "accountType": "Debit", "nominalCode": "111111122222111", "currency": "GBP", "balance": 558.22, "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-05-02T13:24:36Z", "sourceModifiedDate": "2021-03-26T10:31:40", "id": "826", "accountName": "Codat Europe Bank USD", "accountType": "Debit", "nominalCode": "1133221133", "currency": "USD", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 4, "_links": {"self": {"href": "/companies/d5074b08-6a34-4b06-a742-236edf5dc4f1/connections/79f8313e-210a-4dc8-b69f-ba7e5004dda7/data/bankAccounts"}, "current": {"href": "/companies/d5074b08-6a34-4b06-a742-236edf5dc4f1/connections/79f8313e-210a-4dc8-b69f-ba7e5004dda7/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/d5074b08-6a34-4b06-a742-236edf5dc4f1/connections/79f8313e-210a-4dc8-b69f-ba7e5004dda7/data/bankAccounts?page=2&pageSize=2"}}}
     QuickBooks Desktop:
       parameters:
         path:
@@ -737,7 +798,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-04-26T09:12:37Z", "sourceModifiedDate": "2023-12-16T05:06:45", "id": "20000-933270541", "accountName": "Checking", "accountType": "Unknown", "nominalCode": "10100", "currency": "GBP", "balance": 46954.1, "availableBalance": 46954.1, "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-26T09:12:37Z", "sourceModifiedDate": "2023-12-16T05:06:45", "id": "550001-1071509830", "accountName": "Petty Cash", "accountType": "Unknown", "nominalCode": "10400", "currency": "GBP", "balance": 500, "availableBalance": 500, "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 3, "_links": {"self": {"href": "/companies/fc72ba08-af13-4474-b28a-01dcfa6cfb51/connections/2c26b4da-97d4-4ba9-baad-1e18b49b96ac/data/bankAccounts"}, "current": {"href": "/companies/fc72ba08-af13-4474-b28a-01dcfa6cfb51/connections/2c26b4da-97d4-4ba9-baad-1e18b49b96ac/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/fc72ba08-af13-4474-b28a-01dcfa6cfb51/connections/2c26b4da-97d4-4ba9-baad-1e18b49b96ac/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-04-26T09:12:37Z", "sourceModifiedDate": "2023-12-16T05:06:45", "id": "20000-933270541", "accountName": "Checking", "accountType": "Unknown", "nominalCode": "10100", "currency": "GBP", "balance": 46954.1, "availableBalance": 46954.1, "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-26T09:12:37Z", "sourceModifiedDate": "2023-12-16T05:06:45", "id": "550001-1071509830", "accountName": "Petty Cash", "accountType": "Unknown", "nominalCode": "10400", "currency": "GBP", "balance": 500, "availableBalance": 500, "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 3, "_links": {"self": {"href": "/companies/fc72ba08-af13-4474-b28a-01dcfa6cfb51/connections/2c26b4da-97d4-4ba9-baad-1e18b49b96ac/data/bankAccounts"}, "current": {"href": "/companies/fc72ba08-af13-4474-b28a-01dcfa6cfb51/connections/2c26b4da-97d4-4ba9-baad-1e18b49b96ac/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/fc72ba08-af13-4474-b28a-01dcfa6cfb51/connections/2c26b4da-97d4-4ba9-baad-1e18b49b96ac/data/bankAccounts?page=2&pageSize=2"}}}
     QuickBooks Online Sandbox:
       parameters:
         path:
@@ -750,7 +811,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-04-26T09:35:57Z", "sourceModifiedDate": "2022-07-20T14:11:28Z", "id": "164", "accountName": "00", "accountType": "Debit", "nominalCode": "123567", "currency": "GBP", "balance": 0, "availableBalance": 0, "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-26T09:35:57Z", "sourceModifiedDate": "2022-07-20T14:11:28Z", "id": "163", "accountName": "11", "accountType": "Debit", "currency": "GBP", "balance": 0, "availableBalance": 0, "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 57, "_links": {"self": {"href": "/companies/5a7f3597-36e1-4216-86fe-289ad36088a6/connections/1f9f6013-f8a5-4278-8a47-3ab7fdb6c24c/data/bankAccounts"}, "current": {"href": "/companies/5a7f3597-36e1-4216-86fe-289ad36088a6/connections/1f9f6013-f8a5-4278-8a47-3ab7fdb6c24c/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/5a7f3597-36e1-4216-86fe-289ad36088a6/connections/1f9f6013-f8a5-4278-8a47-3ab7fdb6c24c/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-04-26T09:35:57Z", "sourceModifiedDate": "2022-07-20T14:11:28Z", "id": "164", "accountName": "00", "accountType": "Debit", "nominalCode": "123567", "currency": "GBP", "balance": 0, "availableBalance": 0, "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-26T09:35:57Z", "sourceModifiedDate": "2022-07-20T14:11:28Z", "id": "163", "accountName": "11", "accountType": "Debit", "currency": "GBP", "balance": 0, "availableBalance": 0, "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 57, "_links": {"self": {"href": "/companies/5a7f3597-36e1-4216-86fe-289ad36088a6/connections/1f9f6013-f8a5-4278-8a47-3ab7fdb6c24c/data/bankAccounts"}, "current": {"href": "/companies/5a7f3597-36e1-4216-86fe-289ad36088a6/connections/1f9f6013-f8a5-4278-8a47-3ab7fdb6c24c/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/5a7f3597-36e1-4216-86fe-289ad36088a6/connections/1f9f6013-f8a5-4278-8a47-3ab7fdb6c24c/data/bankAccounts?page=2&pageSize=2"}}}
     QuickBooks Online:
       parameters:
         path:
@@ -763,7 +824,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-01-18T11:02:37Z", "sourceModifiedDate": "2022-11-11T14:15:13Z", "id": "202", "accountName": "\\aa", "accountType": "Debit", "currency": "GBP", "balance": 123, "availableBalance": 123, "status": "Active"}, {"modifiedDate": "2023-01-18T11:02:37Z", "sourceModifiedDate": "2023-01-18T06:05:12Z", "id": "193", "accountName": "1 year ago", "accountType": "Debit", "currency": "GBP", "balance": 5300.02, "availableBalance": 5300.02, "status": "Active"}], "pageNumber": 1, "pageSize": 2, "totalResults": 140, "_links": {"self": {"href": "/companies/10818b5e-6e6a-4ed4-a1c5-3e3efe626e87/connections/9e28a776-f4be-425b-8a3d-ad49956de2c9/data/bankAccounts"}, "current": {"href": "/companies/10818b5e-6e6a-4ed4-a1c5-3e3efe626e87/connections/9e28a776-f4be-425b-8a3d-ad49956de2c9/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/10818b5e-6e6a-4ed4-a1c5-3e3efe626e87/connections/9e28a776-f4be-425b-8a3d-ad49956de2c9/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-01-18T11:02:37Z", "sourceModifiedDate": "2022-11-11T14:15:13Z", "id": "202", "accountName": "\\aa", "accountType": "Debit", "currency": "GBP", "balance": 123, "availableBalance": 123}, {"modifiedDate": "2023-01-18T11:02:37Z", "sourceModifiedDate": "2023-01-18T06:05:12Z", "id": "193", "accountName": "1 year ago", "accountType": "Debit", "currency": "GBP", "balance": 5300.02, "availableBalance": 5300.02}], "pageNumber": 1, "pageSize": 2, "totalResults": 140, "_links": {"self": {"href": "/companies/10818b5e-6e6a-4ed4-a1c5-3e3efe626e87/connections/9e28a776-f4be-425b-8a3d-ad49956de2c9/data/bankAccounts"}, "current": {"href": "/companies/10818b5e-6e6a-4ed4-a1c5-3e3efe626e87/connections/9e28a776-f4be-425b-8a3d-ad49956de2c9/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/10818b5e-6e6a-4ed4-a1c5-3e3efe626e87/connections/9e28a776-f4be-425b-8a3d-ad49956de2c9/data/bankAccounts?page=2&pageSize=2"}}}
     Sage 50 (UK):
       parameters:
         path:
@@ -776,7 +837,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-03-30T14:42:37Z", "sourceModifiedDate": "2022-11-25T09:25:48", "id": "1200", "accountName": "Bank Current Account", "accountType": "Unknown", "nominalCode": "1200", "sortCode": "23-34-34", "accountNumber": "003234234", "iBan": "", "currency": "GBP", "balance": -20091.04, "institution": "Lloyds Bank PLC", "availableBalance": -20091.04, "overdraftLimit": 120000, "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-03-30T14:42:37Z", "sourceModifiedDate": "2022-11-25T09:25:48", "id": "1210", "accountName": "Bank Deposit Account", "accountType": "Unknown", "nominalCode": "1210", "sortCode": "45-45-45", "accountNumber": "9/00474345", "iBan": "", "currency": "GBP", "balance": 3510, "institution": "Halifax Building Society", "availableBalance": 3510, "overdraftLimit": 0, "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 6, "_links": {"self": {"href": "/companies/cf5f2a47-2990-4221-bae6-0c19c86ac304/connections/8ee4910f-4fc1-47e6-89b1-5931fb33d8f7/data/bankAccounts"}, "current": {"href": "/companies/cf5f2a47-2990-4221-bae6-0c19c86ac304/connections/8ee4910f-4fc1-47e6-89b1-5931fb33d8f7/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/cf5f2a47-2990-4221-bae6-0c19c86ac304/connections/8ee4910f-4fc1-47e6-89b1-5931fb33d8f7/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-03-30T14:42:37Z", "sourceModifiedDate": "2022-11-25T09:25:48", "id": "1200", "accountName": "Bank Current Account", "accountType": "Unknown", "nominalCode": "1200", "sortCode": "23-34-34", "accountNumber": "003234234", "iBan": "", "currency": "GBP", "balance": -20091.04, "institution": "Lloyds Bank PLC", "availableBalance": -20091.04, "overdraftLimit": 120000, "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-03-30T14:42:37Z", "sourceModifiedDate": "2022-11-25T09:25:48", "id": "1210", "accountName": "Bank Deposit Account", "accountType": "Unknown", "nominalCode": "1210", "sortCode": "45-45-45", "accountNumber": "9/00474345", "iBan": "", "currency": "GBP", "balance": 3510, "institution": "Halifax Building Society", "availableBalance": 3510, "overdraftLimit": 0, "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 6, "_links": {"self": {"href": "/companies/cf5f2a47-2990-4221-bae6-0c19c86ac304/connections/8ee4910f-4fc1-47e6-89b1-5931fb33d8f7/data/bankAccounts"}, "current": {"href": "/companies/cf5f2a47-2990-4221-bae6-0c19c86ac304/connections/8ee4910f-4fc1-47e6-89b1-5931fb33d8f7/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/cf5f2a47-2990-4221-bae6-0c19c86ac304/connections/8ee4910f-4fc1-47e6-89b1-5931fb33d8f7/data/bankAccounts?page=2&pageSize=2"}}}
     Sage Business Cloud Accounting:
       parameters:
         path:
@@ -789,7 +850,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2022-10-24T14:52:53Z", "sourceModifiedDate": "2020-01-27T10:53:26Z", "id": "154d05abe9f24c4babe0f6a741dec1b9", "accountName": "Abdi Internet Bank", "accountType": "Unknown", "nominalCode": "1560", "sortCode": "010101", "accountNumber": "11111", "currency": "GBP", "balance": 49.61, "availableBalance": 49.61, "status": "Active"}, {"modifiedDate": "2022-10-24T14:52:53Z", "sourceModifiedDate": "2020-01-28T14:00:20Z", "id": "565ce07212bc492c8c2d04f43f9f67e3", "accountName": "Abdi Live Test", "accountType": "Unknown", "nominalCode": "147852", "sortCode": "123456", "accountNumber": "1234567", "currency": "GBP", "balance": -225830.75, "availableBalance": -225830.75, "status": "Active"}], "pageNumber": 1, "pageSize": 2, "totalResults": 45, "_links": {"self": {"href": "/companies/390083e2-351b-407c-a3be-55081c36c182/connections/37916fb7-b4b8-4a78-8872-1751e20ee0cd/data/bankAccounts"}, "current": {"href": "/companies/390083e2-351b-407c-a3be-55081c36c182/connections/37916fb7-b4b8-4a78-8872-1751e20ee0cd/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/390083e2-351b-407c-a3be-55081c36c182/connections/37916fb7-b4b8-4a78-8872-1751e20ee0cd/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2022-10-24T14:52:53Z", "sourceModifiedDate": "2020-01-27T10:53:26Z", "id": "154d05abe9f24c4babe0f6a741dec1b9", "accountName": "Abdi Internet Bank", "accountType": "Unknown", "nominalCode": "1560", "sortCode": "010101", "accountNumber": "11111", "currency": "GBP", "balance": 49.61, "availableBalance": 49.61}, {"modifiedDate": "2022-10-24T14:52:53Z", "sourceModifiedDate": "2020-01-28T14:00:20Z", "id": "565ce07212bc492c8c2d04f43f9f67e3", "accountName": "Abdi Live Test", "accountType": "Unknown", "nominalCode": "147852", "sortCode": "123456", "accountNumber": "1234567", "currency": "GBP", "balance": -225830.75, "availableBalance": -225830.75}], "pageNumber": 1, "pageSize": 2, "totalResults": 45, "_links": {"self": {"href": "/companies/390083e2-351b-407c-a3be-55081c36c182/connections/37916fb7-b4b8-4a78-8872-1751e20ee0cd/data/bankAccounts"}, "current": {"href": "/companies/390083e2-351b-407c-a3be-55081c36c182/connections/37916fb7-b4b8-4a78-8872-1751e20ee0cd/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/390083e2-351b-407c-a3be-55081c36c182/connections/37916fb7-b4b8-4a78-8872-1751e20ee0cd/data/bankAccounts?page=2&pageSize=2"}}}
     Sage Intacct:
       parameters:
         path:
@@ -802,7 +863,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-04-04T16:31:46Z", "sourceModifiedDate": "2023-03-27T14:11:48", "id": "CREDITCARD:55", "accountName": "CoT Credit Card", "accountType": "Credit", "nominalCode": "10021", "currency": "GBP", "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-04T16:31:46Z", "sourceModifiedDate": "2023-03-27T14:15:11", "id": "CREDITCARD:58", "accountName": "Cot Credit Card 2", "accountType": "Credit", "nominalCode": "11112", "currency": "GBP", "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 14, "_links": {"self": {"href": "/companies/df02b289-cb16-4964-ac4d-9fd60b04538e/connections/8f457d9c-1142-4241-a07e-71d1ee2e3052/data/bankAccounts"}, "current": {"href": "/companies/df02b289-cb16-4964-ac4d-9fd60b04538e/connections/8f457d9c-1142-4241-a07e-71d1ee2e3052/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/df02b289-cb16-4964-ac4d-9fd60b04538e/connections/8f457d9c-1142-4241-a07e-71d1ee2e3052/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-04-04T16:31:46Z", "sourceModifiedDate": "2023-03-27T14:11:48", "id": "CREDITCARD:55", "accountName": "CoT Credit Card", "accountType": "Credit", "nominalCode": "10021", "currency": "GBP", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-04-04T16:31:46Z", "sourceModifiedDate": "2023-03-27T14:15:11", "id": "CREDITCARD:58", "accountName": "Cot Credit Card 2", "accountType": "Credit", "nominalCode": "11112", "currency": "GBP", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 14, "_links": {"self": {"href": "/companies/df02b289-cb16-4964-ac4d-9fd60b04538e/connections/8f457d9c-1142-4241-a07e-71d1ee2e3052/data/bankAccounts"}, "current": {"href": "/companies/df02b289-cb16-4964-ac4d-9fd60b04538e/connections/8f457d9c-1142-4241-a07e-71d1ee2e3052/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/df02b289-cb16-4964-ac4d-9fd60b04538e/connections/8f457d9c-1142-4241-a07e-71d1ee2e3052/data/bankAccounts?page=2&pageSize=2"}}}
     Xero:
       parameters:
         path:
@@ -815,7 +876,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2023-03-15T20:36:09Z", "sourceModifiedDate": "2023-03-15T20:35:07", "id": "bd9e85e0-0478-433d-ae9f-0b3c4f04bfe4", "accountName": "Business Bank Account", "accountType": "Debit", "sortCode": "990404", "accountNumber": "987654321", "currency": "GBP", "balance": 6681.79, "status": "Active", "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-03-15T20:36:09Z", "sourceModifiedDate": "2023-03-15T20:36:06", "id": "a8d6fb1a-8c5d-4683-90ce-bf9d28fc62ba", "accountName": "Business Savings Account", "accountType": "Debit", "sortCode": "890303", "accountNumber": "876543210", "currency": "GBP", "balance": 0, "status": "Active", "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 2, "_links": {"self": {"href": "/companies/5ced9667-a310-443a-a711-958d36377141/connections/6a4bcf97-e46a-465c-abf6-c42cec8e48c0/data/bankAccounts"}, "current": {"href": "/companies/5ced9667-a310-443a-a711-958d36377141/connections/6a4bcf97-e46a-465c-abf6-c42cec8e48c0/data/bankAccounts?page=1&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2023-03-15T20:36:09Z", "sourceModifiedDate": "2023-03-15T20:35:07", "id": "bd9e85e0-0478-433d-ae9f-0b3c4f04bfe4", "accountName": "Business Bank Account", "accountType": "Debit", "sortCode": "990404", "accountNumber": "987654321", "currency": "GBP", "balance": 6681.79, "metadata": {"isDeleted": false}}, {"modifiedDate": "2023-03-15T20:36:09Z", "sourceModifiedDate": "2023-03-15T20:36:06", "id": "a8d6fb1a-8c5d-4683-90ce-bf9d28fc62ba", "accountName": "Business Savings Account", "accountType": "Debit", "sortCode": "890303", "accountNumber": "876543210", "currency": "GBP", "balance": 0, "metadata": {"isDeleted": false}}], "pageNumber": 1, "pageSize": 2, "totalResults": 2, "_links": {"self": {"href": "/companies/5ced9667-a310-443a-a711-958d36377141/connections/6a4bcf97-e46a-465c-abf6-c42cec8e48c0/data/bankAccounts"}, "current": {"href": "/companies/5ced9667-a310-443a-a711-958d36377141/connections/6a4bcf97-e46a-465c-abf6-c42cec8e48c0/data/bankAccounts?page=1&pageSize=2"}}}
     Zoho Books:
       parameters:
         path:
@@ -828,7 +889,7 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"modifiedDate": "2022-10-03T08:40:38Z", "sourceModifiedDate": "2022-10-23T00:00:00Z", "id": "104957000000060010", "accountName": "Abdi Test", "accountType": "Unknown", "sortCode": "112233", "accountNumber": "xxxx5678", "currency": "GBP", "balance": 69858.44, "institution": "Test Bank", "status": "Active"}, {"modifiedDate": "2022-10-03T08:40:38Z", "sourceModifiedDate": "2022-10-23T00:00:00Z", "id": "104957000000065002", "accountName": "Abdi Test 2", "accountType": "Unknown", "sortCode": "", "accountNumber": "", "currency": "AED", "balance": 98.03, "institution": "", "status": "Active"}], "pageNumber": 1, "pageSize": 2, "totalResults": 4, "_links": {"self": {"href": "/companies/d0b68840-db50-4bc3-b88c-96e225333fea/connections/a2324b8e-60e9-451d-8eb1-0fdc8e8224df/data/bankAccounts"}, "current": {"href": "/companies/d0b68840-db50-4bc3-b88c-96e225333fea/connections/a2324b8e-60e9-451d-8eb1-0fdc8e8224df/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/d0b68840-db50-4bc3-b88c-96e225333fea/connections/a2324b8e-60e9-451d-8eb1-0fdc8e8224df/data/bankAccounts?page=2&pageSize=2"}}}
+          application/json: {"results": [{"modifiedDate": "2022-10-03T08:40:38Z", "id": "104957000000060010", "accountName": "Abdi Test", "accountType": "Unknown", "sortCode": "112233", "accountNumber": "xxxx5678", "currency": "GBP", "balance": 69858.44, "institution": "Test Bank"}, {"modifiedDate": "2022-10-03T08:40:38Z", "id": "104957000000065002", "accountName": "Abdi Test 2", "accountType": "Unknown", "sortCode": "", "accountNumber": "", "currency": "AED", "balance": 98.03, "institution": ""}], "pageNumber": 1, "pageSize": 2, "totalResults": 4, "_links": {"self": {"href": "/companies/d0b68840-db50-4bc3-b88c-96e225333fea/connections/a2324b8e-60e9-451d-8eb1-0fdc8e8224df/data/bankAccounts"}, "current": {"href": "/companies/d0b68840-db50-4bc3-b88c-96e225333fea/connections/a2324b8e-60e9-451d-8eb1-0fdc8e8224df/data/bankAccounts?page=1&pageSize=2"}, "next": {"href": "/companies/d0b68840-db50-4bc3-b88c-96e225333fea/connections/a2324b8e-60e9-451d-8eb1-0fdc8e8224df/data/bankAccounts?page=2&pageSize=2"}}}
     Malformed query:
       parameters:
         path:
@@ -955,10 +1016,32 @@ examples:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       requestBody:
-        application/json: {"id": "acc-001", "accountName": "account-081", "accountType": "checking", "accountNumber": "12345670", "routingInfo": {"bankCode": "21001088", "type": "bankcode"}, "currency": "GBP", "balance": 99.99, "accountInfo": {"description": "account description 1", "nickname": "account 123", "accountOpenDate": "2023-05-06T00:00:00Z", "availableBalance": 10}, "modifiedDate": "2024-08-02T00:00:00.000Z", "status": "pending", "feedStartDate": "2024-05-01T00:00:00Z"}
+        application/json: {"currency": "GBP", "modifiedDate": "2022-10-23T00:00:00Z", "accountInfo": {"accountOpenDate": "2022-10-23"}}
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Version 2:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"currency": "USD", "modifiedDate": "2022-10-23T00:00:00Z", "accountInfo": {"accountOpenDate": "2022-10-23"}}
+      responses:
+        "200":
+          application/json: {"id": "acc-001", "accountName": "account-081", "accountType": "checking", "accountNumber": "12345670", "routingInfo": {"bankCode": "21001088", "type": "bankcode"}, "currency": "GBP", "balance": 99.99, "accountInfo": {"description": "account description 1", "nickname": "account 123", "accountOpenDate": "2023-05-06T00:00:00Z", "availableBalance": 10}, "modifiedDate": "2024-08-02T00:00:00.000Z", "status": "pending", "feedStartDate": "2024-05-01T00:00:00Z"}
+        "400": {}
+    Version 1:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"id": "acc-002", "accountName": "account-081", "accountType": "Credit", "accountNumber": "12345670", "sortCode": "123456", "currency": "GBP", "balance": 99.99, "modifiedDate": "2023-01-09T14:14:14.1057478Z"}
+      responses:
+        "200":
+          application/json: {"id": "acc-003", "accountName": "account-095", "accountType": "Credit", "accountNumber": "12345671", "sortCode": "123456", "currency": "USD", "balance": 0, "modifiedDate": "2023-01-09T14:14:14.1057478Z", "status": "pending"}
+        "400": {}
   list-source-accounts:
     Unauthorized:
       parameters:
@@ -1026,7 +1109,7 @@ examples:
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       responses:
         "200":
-          application/json: [{"sourceAccountId": "account-001", "sourceAccountName": "account-001", "sourceAccountNumber": "12345670", "sourceBalance": "99.99", "sourceCurrency": "GBP", "status": "pending", "targetAccountOptions": [{"id": "d21e25d6-98c5-4bfb-b469-105833bea3c8", "name": "Money Bank account", "sortCode": "123456", "accountNumber": "789"}, {"id": "d06ff4b2-e4f2-4681-9841-014bd008cdab", "name": "Bank of Dave account", "sortCode": "998866", "accountNumber": "99887766"}, {"id": "c8f252fc-84f3-4a8b-ace8-ae99f41a81ae", "name": "LuxLend account", "sortCode": "123456", "accountNumber": "123456789"}], "feedStartDate": "2022-10-23T00:00:00Z"}]
+          application/json: [{"sourceAccountId": "account-001", "sourceAccountName": "account-001", "sourceAccountNumber": "12345670", "sourceBalance": 99.99, "sourceCurrency": "GBP", "status": "pending", "targetAccountOptions": [{"id": "d21e25d6-98c5-4bfb-b469-105833bea3c8", "name": "Money Bank account", "sortCode": "123456", "accountNumber": "789"}, {"id": "d06ff4b2-e4f2-4681-9841-014bd008cdab", "name": "Bank of Dave account", "sortCode": "998866", "accountNumber": "99887766"}, {"id": "c8f252fc-84f3-4a8b-ace8-ae99f41a81ae", "name": "LuxLend account", "sortCode": "123456", "accountNumber": "123456789"}]}]
   create-bank-account-mapping:
     Malformed query:
       parameters:
@@ -1080,7 +1163,7 @@ examples:
           accountId: "7110701885"
         query: {}
       requestBody:
-        application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": 100, "balance": 100, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": -100, "balance": 0, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": -60, "balance": -60, "transactionType": "Debit"}]}
+        application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "amount": 100, "balance": 100, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "amount": -100, "balance": 0, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "amount": -60, "balance": -60, "transactionType": "Debit"}]}
       responses:
         "200":
           application/json: {"data": {"accountId": "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2", "transactions": []}, "changes": [], "dataType": "invoices", "companyId": "8a210b68-6988-11ed-a1eb-0242ac120002", "pushOperationKey": "e261915a-25d0-4d9e-a132-0e8504aa8ce6", "dataConnectionKey": "2e9d2c44-f675-40ba-8049-353bfcb5e171", "requestedOnUtc": "2022-10-23T00:00:00Z", "completedOnUtc": "2022-10-23T00:00:00Z", "status": "Failed", "statusCode": 775787}
@@ -1093,7 +1176,7 @@ examples:
           accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
         query: {}
       requestBody:
-        application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": 100, "balance": -999.99, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": -100, "balance": -999.99, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "counterparty": "ACME INC", "reference": "reference for transaction", "reconciled": false, "amount": -60, "balance": -999.99, "transactionType": "Debit"}]}
+        application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "amount": 100, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "amount": -100, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "amount": -60, "transactionType": "Debit"}]}
       responses:
         "200":
           application/json: {"data": {"accountId": "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2", "transactions": []}, "changes": [], "dataType": "invoices", "companyId": "8a210b68-6988-11ed-a1eb-0242ac120002", "pushOperationKey": "9cf24bde-bcfc-423e-bd6f-9415747251ef", "dataConnectionKey": "2e9d2c44-f675-40ba-8049-353bfcb5e171", "requestedOnUtc": "2022-10-23T00:00:00Z", "completedOnUtc": "2022-10-23T00:00:00Z", "status": "Pending", "statusCode": 363328}
@@ -1106,7 +1189,7 @@ examples:
           accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
         query: {}
       requestBody:
-        application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "counterparty": "Bank of Example", "reference": "Ref-12345", "reconciled": false, "amount": 100, "balance": 100, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "counterparty": "Amazon", "reference": "Ref-12346", "reconciled": false, "amount": -100, "balance": 0, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "counterparty": "Office Mart", "reference": "Ref-12347", "reconciled": false, "amount": -60, "balance": -60, "transactionType": "Debit"}]}
+        application/json: {"accountId": "49cd5a42-b311-4750-9361-52e2ed1d4653", "transactions": [{"id": "716422529", "date": "2023-08-22T10:21:00Z", "description": "Repayment of Credit Card", "counterparty": "Bank of Example", "reference": "Ref-12345", "amount": 100, "balance": 100, "transactionType": "Credit"}, {"id": "716422530", "date": "2023-08-22T10:22:00Z", "description": "Amazon Purchase", "counterparty": "Amazon", "reference": "Ref-12346", "amount": -100, "balance": 0, "transactionType": "Debit"}, {"id": "716422531", "date": "2023-08-22T10:23:00Z", "description": "Office Supplies", "counterparty": "Office Mart", "reference": "Ref-12347", "amount": -60, "balance": -60, "transactionType": "Debit"}]}
       responses:
         "200":
           application/json: {"data": {"accountId": "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2", "transactions": []}, "changes": [], "dataType": "invoices", "companyId": "8a210b68-6988-11ed-a1eb-0242ac120002", "pushOperationKey": "895835d6-b1b3-49d7-aa0d-efed8d063eda", "dataConnectionKey": "2e9d2c44-f675-40ba-8049-353bfcb5e171", "requestedOnUtc": "2022-10-23T00:00:00Z", "completedOnUtc": "2022-10-23T00:00:00Z", "status": "Failed", "statusCode": 121860}
@@ -1170,3 +1253,64 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  client.rateLimit.reached:
+    Reached:
+      requestBody:
+        application/json: {"id": "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b", "eventType": "client.rateLimit.reached", "generatedDate": "2024-09-01T00:00:00Z", "payload": {"dailyQuota": 12000, "quotaRemaining": 0, "expiryDate": "2024-09-01T12:14:14Z"}}
+  client.rateLimit.reset:
+    Reset:
+      requestBody:
+        application/json: {"id": "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b", "eventType": "client.rateLimit.reset", "generatedDate": "2024-09-01T00:00:00Z", "payload": {"dailyQuota": 12000, "quotaRemaining": 11993, "expiryDate": "2024-09-01T23:59:99Z"}}
+  Client rate limit reached:
+    speakeasy-default-client-rate-limit-reached:
+      requestBody:
+        application/json: {"ClientId": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "ClientName": "Bank of Dave", "RuleId": "70af3071-65d9-4ec3-b3cb-5283e8d55dac", "RuleType": "Rate Limit Reached", "AlertId": "a9367074-b5c3-42c4-9be4-be129f43577e", "Message": "The current daily rate limit quota of 1000 requests for bae71d36-ff47-420a-b4a6-f8c9ddf41140 has been reached.", "Data": {"DailyQuota": 1000, "ExpiresUtc": "2022-10-23T00:00:00Z"}}
+  Client rate limit reset:
+    speakeasy-default-client-rate-limit-reset:
+      requestBody:
+        application/json: {"ClientId": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "ClientName": "Bank of Dave", "RuleId": "70af3071-65d9-4ec3-b3cb-5283e8d55dac", "RuleType": "Rate Limit Reset", "AlertId": "a9367074-b5c3-42c4-9be4-be129f43577e", "Message": "The current daily rate limit quota for client 30e0f9d2-52c0-4c9f-a806-bcd98a3bcd7e has been reset to 1000 requests.", "Data": {"QuotaRemaining": 1000, "ResetReason": "The quota was reset because it is a new day.", "DailyQuota": 1000, "ExpiresUtc": "2022-10-23T00:00:00Z"}}
+  bankFeeds.sourceAccount.connected:
+    Connected:
+      requestBody:
+        application/json: {"id": "ba29118f-5406-4e59-b05c-ba307ca38d01", "eventType": "bankFeeds.sourceAccount.connected", "generatedDate": "2022-10-23T00:00:00Z", "payload": {"referenceCompany": {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "Toft stores", "description": "Requested early access to the new financing scheme.", "links": {"portal": "https://app.codat.io/companies/0498e921-9b53-4396-a412-4f2f5983b0a2/summary"}}, "connectionId": "2e9d2c44-f675-40ba-8049-353bfcb5e171", "sourceAccount": {"id": "acc-002", "accountName": "account-081", "accountNumber": "12345678", "sortCode": "040004", "currency": "GBP", "balance": 99.99, "modifiedDate": "2023-01-09T14:14:14.105Z", "status": "pending"}}}
+  bankFeeds.sourceAccount.disconnected:
+    Disconnected:
+      requestBody:
+        application/json: {"id": "ba29118f-5406-4e59-b05c-ba307ca38d01", "eventType": "bankFeeds.sourceAccount.disconnected", "generatedDate": "2022-10-23T00:00:00Z", "payload": {"referenceCompany": {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "Toft stores", "description": "Requested early access to the new financing scheme.", "links": {"portal": "https://app.codat.io/companies/0498e921-9b53-4396-a412-4f2f5983b0a2/summary"}}, "connectionId": "2e9d2c44-f675-40ba-8049-353bfcb5e171", "sourceAccount": {"id": "acc-002", "accountName": "account-081", "accountNumber": "12345678", "sortCode": "040004", "currency": "GBP", "balance": 99.99, "modifiedDate": "2023-01-09T14:14:14.105Z", "status": "pending"}}}
+  get-company-access-token:
+    Simple company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"expiresIn": 86400, "accessToken": "string", "tokenType": "Bearer"}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-batch-source-account:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: [{"id": "acc-002", "accountName": "account-081", "accountType": "Credit", "accountNumber": "12345670", "sortCode": "123456", "currency": "GBP", "balance": 99.99, "modifiedDate": "2023-01-09T14:14:14.1057478Z", "status": "pending"}, {"id": "acc-003", "accountName": "account-095", "accountType": "Credit", "accountNumber": "12345671", "sortCode": "123456", "currency": "USD", "balance": 0, "modifiedDate": "2023-01-09T14:14:14.1057478Z", "status": "pending"}]
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-create-bank-transactions-model:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+generatedTests: {}

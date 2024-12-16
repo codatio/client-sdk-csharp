@@ -20,7 +20,7 @@ namespace Codat.BankFeeds.Models.Shared
         /// Identifier for the bank account transaction, unique for the company in the accounting software.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        public string? Id { get; set; }
 
         /// <summary>
         /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
@@ -47,7 +47,7 @@ namespace Codat.BankFeeds.Models.Shared
         /// </remarks>
         /// </summary>
         [JsonProperty("date")]
-        public string Date { get; set; } = default!;
+        public string? Date { get; set; }
 
         /// <summary>
         /// Description of the bank transaction.
@@ -77,7 +77,7 @@ namespace Codat.BankFeeds.Models.Shared
         /// The amount transacted in the bank transaction.
         /// </summary>
         [JsonProperty("amount")]
-        public decimal Amount { get; set; } = default!;
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// The remaining balance in the account with ID `accountId`. This field is optional for QuickBooks Online but is required for Xero, Sage, NetSuite, Exact, and FreeAgent.

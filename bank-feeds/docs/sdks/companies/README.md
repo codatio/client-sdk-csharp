@@ -12,6 +12,7 @@ Create and manage your SMB users' companies.
 * [Get](#get) - Get company
 * [Delete](#delete) - Delete a company
 * [Update](#update) - Update company
+* [GetAccessToken](#getaccesstoken) - Get company access token
 
 ## Create
 
@@ -67,6 +68,19 @@ var res = await sdk.Companies.CreateAsync(req);
 A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/bank-feeds-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
+## Filter by tags
+
+The *List companies* endpoint supports the filtering of companies using [tags](https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company). It supports the following operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying):
+
+- equals (`=`)
+- not equals (`!=`)
+- contains (`~`)
+
+For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: 
+- Foreign key: `uid = {yourCustomerId}`
+- Region: `region != uk`
+- Owning team and region: `region = uk && owningTeam = invoice-finance`
+
 ### Example Usage
 
 ```csharp
@@ -83,6 +97,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -238,6 +253,48 @@ var res = await sdk.Companies.UpdateAsync(req);
 ### Response
 
 **[UpdateCompanyResponse](../../Models/Operations/UpdateCompanyResponse.md)**
+
+### Errors
+
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
+
+## GetAccessToken
+
+Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+
+
+### Example Usage
+
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+GetCompanyAccessTokenRequest req = new GetCompanyAccessTokenRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Companies.GetAccessTokenAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [GetCompanyAccessTokenRequest](../../Models/Operations/GetCompanyAccessTokenRequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+
+### Response
+
+**[GetCompanyAccessTokenResponse](../../Models/Operations/GetCompanyAccessTokenResponse.md)**
 
 ### Errors
 

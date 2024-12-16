@@ -3,14 +3,14 @@
 
 ## Supported Types
 
-### SourceAccountV2
+### SourceAccountV2Prototype
 
 ```csharp
-CreateSourceAccountRequestBody.CreateSourceAccountV2(/* values here */);
+CreateSourceAccountRequestBody.CreateSourceAccountV2Prototype(/* values here */);
 ```
 
-### SourceAccount
+### SourceAccountPrototype
 
 ```csharp
-CreateSourceAccountRequestBody.CreateSourceAccount(/* values here */);
+CreateSourceAccountRequestBody.CreateSourceAccountPrototype(/* values here */);
 ```

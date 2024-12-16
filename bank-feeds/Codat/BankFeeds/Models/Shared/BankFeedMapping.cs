@@ -42,7 +42,7 @@ namespace Codat.BankFeeds.Models.Shared
         /// Balance for the source account.
         /// </summary>
         [JsonProperty("sourceBalance")]
-        public string? SourceBalance { get; set; }
+        public decimal? SourceBalance { get; set; }
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>

@@ -19,8 +19,8 @@ The _Get categorized bank statement_ endpoint provides a fully categorized list 
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 

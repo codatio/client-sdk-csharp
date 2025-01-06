@@ -26,14 +26,14 @@ The response tells you:
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetDataIntegrityStatusRequest req = new GetDataIntegrityStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = Codat.Lending.Models.Components.DataIntegrityDataType.BankingAccounts,
+    DataType = DataIntegrityDataType.BankingAccounts,
 };
 
 var res = await sdk.DataIntegrity.StatusAsync(req);
@@ -70,14 +70,14 @@ The endpoint response includes only the summary results, not transactions. To vi
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetDataIntegritySummariesRequest req = new GetDataIntegritySummariesRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = Codat.Lending.Models.Components.DataIntegrityDataType.BankingAccounts,
+    DataType = DataIntegrityDataType.BankingAccounts,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
 };
 
@@ -113,14 +113,14 @@ The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetail) ar
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListDataIntegrityDetailsRequest req = new ListDataIntegrityDetailsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = Codat.Lending.Models.Components.DataIntegrityDataType.BankingAccounts,
+    DataType = DataIntegrityDataType.BankingAccounts,
     Page = 1,
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",

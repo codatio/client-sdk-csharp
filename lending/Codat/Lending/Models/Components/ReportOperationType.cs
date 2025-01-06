@@ -20,6 +20,8 @@ namespace Codat.Lending.Models.Components
     {
         [JsonProperty("categorizedBankStatement")]
         CategorizedBankStatement,
+        [JsonProperty("creditModel")]
+        CreditModel,
     }
 
     public static class ReportOperationTypeExtension

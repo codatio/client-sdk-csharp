@@ -13,14 +13,14 @@ namespace Codat.Lending
     using Codat.Lending.Models.Components;
     using Codat.Lending.Models.Errors;
     using Codat.Lending.Models.Requests;
-    using Codat.Lending.Utils.Retries;
     using Codat.Lending.Utils;
+    using Codat.Lending.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Create and manage your SMB users&apos; companies.
@@ -35,7 +35,20 @@ namespace Codat.Lending
         /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Company">companies</a> associated to your instances.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
-        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// <br/>
+        /// ## Filter by tags<br/>
+        /// <br/>
+        /// The *List companies* endpoint supports the filtering of companies using <a href="https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company">tags</a>. It supports the following operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>:<br/>
+        /// <br/>
+        /// - equals (`=`)<br/>
+        /// - not equals (`!=`)<br/>
+        /// - contains (`~`)<br/>
+        /// <br/>
+        /// For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: <br/>
+        /// - Foreign key: `uid = {yourCustomerId}`<br/>
+        /// - Region: `region != uk`<br/>
+        /// - Owning team and region: `region = uk &amp;&amp; owningTeam = invoice-finance`
         /// </remarks>
         /// </summary>
         Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null, RetryConfig? retryConfig = null);
@@ -100,10 +113,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.1";
-        private const string _sdkGenVersion = "2.463.0";
+        private const string _sdkVersion = "9.0.2";
+        private const string _sdkGenVersion = "2.486.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.1 2.463.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Lending.Models.Components.Security>? _securitySource;

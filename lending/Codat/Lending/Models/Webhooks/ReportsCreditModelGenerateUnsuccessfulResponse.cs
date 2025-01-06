@@ -10,10 +10,10 @@
 namespace Codat.Lending.Models.Webhooks
 {
     using Codat.Lending.Utils;
-    using System.Net.Http;
     using System;
+    using System.Net.Http;
     
-    public class ReportCategorizedBankStatementGenerateSuccessfulResponse
+    public class ReportsCreditModelGenerateUnsuccessfulResponse
     {
 
         /// <summary>

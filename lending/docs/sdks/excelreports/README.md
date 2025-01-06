@@ -35,14 +35,14 @@ In response, the endpoint returns the [status](https://docs.codat.io/lending-api
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateExcelReportRequest req = new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = Codat.Lending.Models.Components.ExcelReportTypes.EnhancedInvoices,
+    ReportType = ExcelReportTypes.EnhancedInvoices,
 };
 
 var res = await sdk.ExcelReports.GenerateAsync(req);
@@ -79,14 +79,14 @@ When the report generation completes successfully, the `inProgress` property wil
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetExcelReportGenerationStatusRequest req = new GetExcelReportGenerationStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = Codat.Lending.Models.Components.ExcelReportTypes.EnhancedCashFlow,
+    ReportType = ExcelReportTypes.EnhancedCashFlow,
 };
 
 var res = await sdk.ExcelReports.GetStatusAsync(req);
@@ -123,14 +123,14 @@ You can [learn more](https://docs.codat.io/lending/features/excel-download-overv
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = Codat.Lending.Models.Components.ExcelReportTypes.EnhancedFinancials,
+    ReportType = ExcelReportTypes.EnhancedFinancials,
 };
 
 var res = await sdk.ExcelReports.DownloadAsync(req);

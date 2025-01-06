@@ -11,9 +11,9 @@ namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
-    using System;
     
     public class ListFilesResponse
     {

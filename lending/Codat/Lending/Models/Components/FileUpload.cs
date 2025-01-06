@@ -18,7 +18,7 @@ namespace Codat.Lending.Models.Components
         /// <summary>
         /// The file to be uploaded as an attachment.
         /// </summary>
-        [SpeakeasyMetadata("multipartForm:file")]
+        [SpeakeasyMetadata("multipartForm:file,name=file")]
         public CodatFile File { get; set; } = default!;
     }
 }

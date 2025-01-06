@@ -3,10 +3,10 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Lending</PackageId>
-    <Version>9.0.1</Version>
+    <Version>9.0.2</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
-    <Copyright>Copyright (c) Codat 2024</Copyright>
+    <Copyright>Copyright (c) Codat 2025</Copyright>
     <RepositoryUrl>https://github.com/codatio/client-sdk-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>

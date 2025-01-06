@@ -13,14 +13,14 @@ namespace Codat.Lending
     using Codat.Lending.Models.Components;
     using Codat.Lending.Models.Errors;
     using Codat.Lending.Models.Requests;
-    using Codat.Lending.Utils.Retries;
     using Codat.Lending.Utils;
+    using Codat.Lending.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Create new and manage existing data connections for a company.
@@ -84,10 +84,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.1";
-        private const string _sdkGenVersion = "2.463.0";
+        private const string _sdkVersion = "9.0.2";
+        private const string _sdkGenVersion = "2.486.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.1 2.463.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.Lending.Models.Components.Security>? _securitySource;

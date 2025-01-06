@@ -24,8 +24,8 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -72,8 +72,8 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -115,8 +115,8 @@ The *List supplier attachments* endpoint returns a list of attachments available
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -159,8 +159,8 @@ The *Get supplier attachment* endpoint returns a specific attachment for a given
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -204,8 +204,8 @@ The *Download supplier attachment* endpoint downloads a specific attachment for 
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 

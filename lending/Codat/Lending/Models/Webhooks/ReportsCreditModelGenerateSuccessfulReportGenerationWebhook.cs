@@ -13,7 +13,7 @@ namespace Codat.Lending.Models.Webhooks
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     
-    public class ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook
+    public class ReportsCreditModelGenerateSuccessfulReportGenerationWebhook
     {
 
         /// <summary>

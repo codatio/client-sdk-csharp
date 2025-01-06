@@ -12,8 +12,8 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     using System;
+    using System.Collections.Generic;
     
     /// <summary>
     /// &gt; **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.<br/>

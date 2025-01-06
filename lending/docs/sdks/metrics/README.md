@@ -38,8 +38,8 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -49,7 +49,7 @@ GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
     ReportDate = "29-09-2020",
     PeriodLength = 307462,
     NumberOfPeriods = 120092,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
+    PeriodUnit = PeriodUnit.Year,
 };
 
 var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
@@ -110,8 +110,8 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -121,7 +121,7 @@ GetCommerceCustomerRetentionMetricsRequest req = new GetCommerceCustomerRetentio
     ReportDate = "29-09-2020",
     PeriodLength = 497588,
     NumberOfPeriods = 431272,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Day,
+    PeriodUnit = PeriodUnit.Day,
 };
 
 var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
@@ -174,8 +174,8 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -185,7 +185,7 @@ GetCommerceLifetimeValueMetricsRequest req = new GetCommerceLifetimeValueMetrics
     ReportDate = "29-09-2020",
     PeriodLength = 900865,
     NumberOfPeriods = 500610,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
+    PeriodUnit = PeriodUnit.Year,
 };
 
 var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);

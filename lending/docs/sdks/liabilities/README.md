@@ -25,14 +25,14 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateLoanTransactionsRequest req = new GenerateLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Requests.SourceType.Accounting,
+    SourceType = SourceType.Accounting,
 };
 
 var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
@@ -70,14 +70,14 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListLoanTransactionsRequest req = new ListLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Requests.QueryParamSourceType.Commerce,
+    SourceType = QueryParamSourceType.Commerce,
 };
 
 var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
@@ -115,14 +115,14 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateLoanSummaryRequest req = new GenerateLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Requests.GenerateLoanSummaryQueryParamSourceType.Accounting,
+    SourceType = GenerateLoanSummaryQueryParamSourceType.Accounting,
 };
 
 var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
@@ -160,14 +160,14 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Requests.GetLoanSummaryQueryParamSourceType.Banking,
+    SourceType = GetLoanSummaryQueryParamSourceType.Banking,
 };
 
 var res = await sdk.Liabilities.GetLoanSummaryAsync(req);

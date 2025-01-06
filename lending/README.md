@@ -38,14 +38,18 @@ The Lending API is built on top of the latest accounting, commerce, and banking 
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Lending](#lending)
+  * [Endpoints](#endpoints)
+  * [SDK Installation](#sdk-installation)
+  * [Example Usage](#example-usage)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Server Selection](#server-selection)
+  * [Authentication](#authentication)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
 
-* [SDK Installation](#sdk-installation)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Authentication](#authentication)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -74,19 +78,25 @@ dotnet add reference Codat/Lending/Codat.Lending.csproj
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
 
-var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+var sdk = new CodatLending();
 
-ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    OrderBy = "-modifiedDate",
+AccountCategoriesUpdatedWebhook req = new AccountCategoriesUpdatedWebhook() {
+    ClientId = "bae71d36-ff47-420a-b4a6-f8c9ddf41140",
+    ClientName = "Bank of Dave",
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    DataConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    RuleId = "70af3071-65d9-4ec3-b3cb-5283e8d55dac",
+    RuleType = "Account Categories Updated",
+    AlertId = "a9367074-b5c3-42c4-9be4-be129f43577e",
+    Message = "Account categories updated for company f1c35bdc-1546-41b9-baf4-3f31135af968.",
+    Data = new AccountCategoriesUpdatedWebhookData() {
+        ModifiedDate = "2019-08-24T14:15:22Z",
+    },
 };
 
-var res = await sdk.Companies.ListAsync(req);
+var res = await sdk.AccountCategoriesUpdatedAsync(req);
 
 // handle response
 ```
@@ -321,6 +331,7 @@ var res = await sdk.Companies.ListAsync(req);
 #### [LoanWriteback.SourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [Create](docs/sdks/sourceaccounts/README.md#create) - Create source account
+* [ListMappings](docs/sdks/sourceaccounts/README.md#listmappings) - List bank feed account mappings
 * [CreateMapping](docs/sdks/sourceaccounts/README.md#createmapping) - Create bank feed account mapping
 
 #### [LoanWriteback.Suppliers](docs/sdks/codatlendingsuppliers/README.md)
@@ -453,8 +464,8 @@ var res = await sdk.Companies.ListAsync(req);
 The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(
     serverUrl: "https://api.codat.io",
@@ -466,6 +477,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -488,8 +500,8 @@ This SDK supports the following security scheme globally:
 To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -498,6 +510,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -514,8 +527,8 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -524,6 +537,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(
@@ -537,7 +551,7 @@ var res = await sdk.Companies.ListAsync(
         ),
         retryConnectionErrors: false
     ),
-    req
+    request: req
 );
 
 // handle response
@@ -546,8 +560,8 @@ var res = await sdk.Companies.ListAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(
     retryConfig: new RetryConfig(
@@ -568,6 +582,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -601,10 +616,9 @@ When custom error responses are specified for an operation, the SDK may also thr
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
-using System;
 using Codat.Lending.Models.Errors;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -615,6 +629,7 @@ try
         PageSize = 100,
         Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
         OrderBy = "-modifiedDate",
+        Tags = "region=uk && team=invoice-finance",
     };
 
     var res = await sdk.Companies.ListAsync(req);

@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [Create](#create) - Create source account
+* [ListMappings](#listmappings) - List bank feed account mappings
 * [CreateMapping](#createmapping) - Create bank feed account mapping
 
 ## Create
@@ -19,35 +20,21 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountV2(
-        new SourceAccountV2() {
-            Id = "acc-002",
-            AccountName = "account-083",
-            AccountType = Codat.Lending.Models.Components.SourceAccountV2AccountType.Savings,
-            AccountNumber = "23456789",
-            RoutingInfo = new RoutingInfo() {
-                BankCode = "21001088",
-                Type = Codat.Lending.Models.Components.RoutingInfoType.Bankcode,
-            },
-            Currency = "GBP",
-            Balance = 400M,
+    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountV2Prototype(
+        new SourceAccountV2Prototype() {
+            Currency = "USD",
+            ModifiedDate = "2022-10-23T00:00:00Z",
             AccountInfo = new AccountInfo() {
-                Description = "account description 2",
-                Nickname = "account 1290",
-                AccountOpenDate = "2023-05-23T00:00:00Z",
-                AvailableBalance = 400M,
+                AccountOpenDate = "2022-10-23",
             },
-            ModifiedDate = "2024-08-02T00:00:00.000Z",
-            Status = Codat.Lending.Models.Components.SourceAccountV2Status.Pending,
-            FeedStartDate = "2024-05-01T00:00:00Z",
         }
     ),
 };
@@ -72,6 +59,52 @@ var res = await sdk.LoanWriteback.SourceAccounts.CreateAsync(req);
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
+
+## ListMappings
+
+﻿The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.
+
+A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).
+
+> **For custom builds only**
+> 
+> Only use this endpoint if you are building your own account management UI.
+
+### Example Usage
+
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetBankAccountMappingRequest req = new GetBankAccountMappingRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.SourceAccounts.ListMappingsAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [GetBankAccountMappingRequest](../../Models/Requests/GetBankAccountMappingRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+### Response
+
+**[GetBankAccountMappingResponse](../../Models/Requests/GetBankAccountMappingResponse.md)**
+
+### Errors
+
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## CreateMapping
@@ -111,8 +144,8 @@ The method of mapping the source account to the target account varies depending 
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 

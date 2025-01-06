@@ -11,12 +11,12 @@ namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
-    using Newtonsoft.Json.Linq;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System;
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    using System;
     
 
     public class CreateSourceAccountRequestBodyType
@@ -24,9 +24,9 @@ namespace Codat.Lending.Models.Requests
         private CreateSourceAccountRequestBodyType(string value) { Value = value; }
 
         public string Value { get; private set; }
-        public static CreateSourceAccountRequestBodyType SourceAccountV2 { get { return new CreateSourceAccountRequestBodyType("SourceAccountV2"); } }
+        public static CreateSourceAccountRequestBodyType SourceAccountV2Prototype { get { return new CreateSourceAccountRequestBodyType("sourceAccountV2Prototype"); } }
         
-        public static CreateSourceAccountRequestBodyType SourceAccount { get { return new CreateSourceAccountRequestBodyType("SourceAccount"); } }
+        public static CreateSourceAccountRequestBodyType SourceAccountPrototype { get { return new CreateSourceAccountRequestBodyType("sourceAccountPrototype"); } }
         
         public static CreateSourceAccountRequestBodyType Null { get { return new CreateSourceAccountRequestBodyType("null"); } }
 
@@ -34,8 +34,8 @@ namespace Codat.Lending.Models.Requests
         public static implicit operator String(CreateSourceAccountRequestBodyType v) { return v.Value; }
         public static CreateSourceAccountRequestBodyType FromString(string v) {
             switch(v) {
-                case "SourceAccountV2": return SourceAccountV2;
-                case "SourceAccount": return SourceAccount;
+                case "sourceAccountV2Prototype": return SourceAccountV2Prototype;
+                case "sourceAccountPrototype": return SourceAccountPrototype;
                 case "null": return Null;
                 default: throw new ArgumentException("Invalid value for CreateSourceAccountRequestBodyType");
             }
@@ -63,27 +63,27 @@ namespace Codat.Lending.Models.Requests
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public SourceAccountV2? SourceAccountV2 { get; set; }
+        public SourceAccountV2Prototype? SourceAccountV2Prototype { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public SourceAccount? SourceAccount { get; set; }
+        public SourceAccountPrototype? SourceAccountPrototype { get; set; }
 
         public CreateSourceAccountRequestBodyType Type { get; set; }
 
 
-        public static CreateSourceAccountRequestBody CreateSourceAccountV2(SourceAccountV2 sourceAccountV2) {
-            CreateSourceAccountRequestBodyType typ = CreateSourceAccountRequestBodyType.SourceAccountV2;
+        public static CreateSourceAccountRequestBody CreateSourceAccountV2Prototype(SourceAccountV2Prototype sourceAccountV2Prototype) {
+            CreateSourceAccountRequestBodyType typ = CreateSourceAccountRequestBodyType.SourceAccountV2Prototype;
 
             CreateSourceAccountRequestBody res = new CreateSourceAccountRequestBody(typ);
-            res.SourceAccountV2 = sourceAccountV2;
+            res.SourceAccountV2Prototype = sourceAccountV2Prototype;
             return res;
         }
 
-        public static CreateSourceAccountRequestBody CreateSourceAccount(SourceAccount sourceAccount) {
-            CreateSourceAccountRequestBodyType typ = CreateSourceAccountRequestBodyType.SourceAccount;
+        public static CreateSourceAccountRequestBody CreateSourceAccountPrototype(SourceAccountPrototype sourceAccountPrototype) {
+            CreateSourceAccountRequestBodyType typ = CreateSourceAccountRequestBodyType.SourceAccountPrototype;
 
             CreateSourceAccountRequestBody res = new CreateSourceAccountRequestBody(typ);
-            res.SourceAccount = sourceAccount;
+            res.SourceAccountPrototype = sourceAccountPrototype;
             return res;
         }
 
@@ -111,14 +111,14 @@ namespace Codat.Lending.Models.Requests
 
                 try
                 {
-                    return new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccount)
+                    return new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccountPrototype)
                     {
-                        SourceAccount = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SourceAccount>(json)
+                        SourceAccountPrototype = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SourceAccountPrototype>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(SourceAccount), new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccount), "SourceAccount"));
+                    fallbackCandidates.Add((typeof(SourceAccountPrototype), new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccountPrototype), "SourceAccountPrototype"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -131,14 +131,14 @@ namespace Codat.Lending.Models.Requests
 
                 try
                 {
-                    return new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccountV2)
+                    return new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccountV2Prototype)
                     {
-                        SourceAccountV2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SourceAccountV2>(json)
+                        SourceAccountV2Prototype = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SourceAccountV2Prototype>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(SourceAccountV2), new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccountV2), "SourceAccountV2"));
+                    fallbackCandidates.Add((typeof(SourceAccountV2Prototype), new CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType.SourceAccountV2Prototype), "SourceAccountV2Prototype"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -184,14 +184,14 @@ namespace Codat.Lending.Models.Requests
                     writer.WriteRawValue("null");
                     return;
                 }
-                if (res.SourceAccountV2 != null)
+                if (res.SourceAccountV2Prototype != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountV2));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountV2Prototype));
                     return;
                 }
-                if (res.SourceAccount != null)
+                if (res.SourceAccountPrototype != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccount));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountPrototype));
                     return;
                 }
 

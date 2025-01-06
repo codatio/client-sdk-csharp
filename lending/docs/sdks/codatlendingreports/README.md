@@ -18,8 +18,8 @@ Indicates whether the aged debtors report is available for the company.
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -57,9 +57,9 @@ Returns aged debtors report for company that shows the total outstanding balance
 
 ```csharp
 using Codat.Lending;
+using Codat.Lending.Models.Components;
 using Codat.Lending.Models.Requests;
 using NodaTime;
-using Codat.Lending.Models.Components;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -100,8 +100,8 @@ Indicates whether the aged creditor report is available for the company.
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -139,9 +139,9 @@ Returns aged creditors report for company that shows the total balance owed by a
 
 ```csharp
 using Codat.Lending;
+using Codat.Lending.Models.Components;
 using Codat.Lending.Models.Requests;
 using NodaTime;
-using Codat.Lending.Models.Components;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 

@@ -11,8 +11,8 @@ namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
-    using System.Net.Http;
     using System;
+    using System.Net.Http;
     
     public class GenerateReportResponse
     {
@@ -33,7 +33,7 @@ namespace Codat.Lending.Models.Requests
         public HttpResponseMessage RawResponse { get; set; } = default!;
 
         /// <summary>
-        /// Success
+        /// Accepted (pending)
         /// </summary>
         public ReportOperation? ReportOperation { get; set; }
     }

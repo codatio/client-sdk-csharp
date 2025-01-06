@@ -20,12 +20,25 @@ Create and manage your SMB users' companies.
 A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
+## Filter by tags
+
+The *List companies* endpoint supports the filtering of companies using [tags](https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company). It supports the following operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying):
+
+- equals (`=`)
+- not equals (`!=`)
+- contains (`~`)
+
+For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: 
+- Foreign key: `uid = {yourCustomerId}`
+- Region: `region != uk`
+- Owning team and region: `region = uk && owningTeam = invoice-finance`
+
 ### Example Usage
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -34,6 +47,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -72,7 +86,6 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
-using System.Collections.Generic;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -114,9 +127,8 @@ Each company can have multiple [connections](https://docs.codat.io/lending-api#/
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
-using System.Collections.Generic;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -162,8 +174,8 @@ Each company can have multiple [connections](https://docs.codat.io/lending-api#/
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -205,8 +217,8 @@ Each company can have multiple [connections](https://docs.codat.io/lending-api#/
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 35d91636-e73c-4697-a088-5369539eda61
 management:
-  docChecksum: 9d2203249a565b88959fb122711a1f33
+  docChecksum: 484b647e90517ce7b8b907899174efb0
   docVersion: 3.0.0
-  speakeasyVersion: 1.447.0
-  generationVersion: 2.463.0
-  releaseVersion: 9.0.1
-  configChecksum: 876fa756c5be3922f75fec5cccfb63dc
+  speakeasyVersion: 1.462.2
+  generationVersion: 2.486.1
+  releaseVersion: 9.0.2
+  configChecksum: a55c6f890b0faf0f48fe42d8cba9ffeb
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: lending
   published: true
@@ -14,7 +14,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.10.6
+    core: 3.10.10
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.3
@@ -190,6 +190,7 @@ generatedFiles:
   - Codat/Lending/Models/Components/BankAccountStatus.cs
   - Codat/Lending/Models/Components/BankFeedBankAccountMapping.cs
   - Codat/Lending/Models/Components/BankFeedBankAccountMappingResponse.cs
+  - Codat/Lending/Models/Components/BankFeedMapping.cs
   - Codat/Lending/Models/Components/BankStatementUploadConfiguration.cs
   - Codat/Lending/Models/Components/BankTransactionType.cs
   - Codat/Lending/Models/Components/BankingAccount.cs
@@ -358,6 +359,7 @@ generatedFiles:
   - Codat/Lending/Models/Components/ProductVariantStatus.cs
   - Codat/Lending/Models/Components/ProfitAndLossReport.cs
   - Codat/Lending/Models/Components/ProjectRef.cs
+  - Codat/Lending/Models/Components/PropertieAccountType.cs
   - Codat/Lending/Models/Components/PropertieDataType.cs
   - Codat/Lending/Models/Components/PropertieItemRef.cs
   - Codat/Lending/Models/Components/PullOperation.cs
@@ -393,14 +395,17 @@ generatedFiles:
   - Codat/Lending/Models/Components/RoutingInfo.cs
   - Codat/Lending/Models/Components/RoutingInfoType.cs
   - Codat/Lending/Models/Components/SalesOrderReference.cs
+  - Codat/Lending/Models/Components/Schema.cs
   - Codat/Lending/Models/Components/Security.cs
   - Codat/Lending/Models/Components/ServiceCharge.cs
   - Codat/Lending/Models/Components/ServiceChargeType.cs
   - Codat/Lending/Models/Components/Source.cs
   - Codat/Lending/Models/Components/SourceAccount.cs
+  - Codat/Lending/Models/Components/SourceAccountPrototype.cs
   - Codat/Lending/Models/Components/SourceAccountStatus.cs
   - Codat/Lending/Models/Components/SourceAccountV2.cs
   - Codat/Lending/Models/Components/SourceAccountV2AccountType.cs
+  - Codat/Lending/Models/Components/SourceAccountV2Prototype.cs
   - Codat/Lending/Models/Components/SourceAccountV2Status.cs
   - Codat/Lending/Models/Components/SourceRef.cs
   - Codat/Lending/Models/Components/SourceType.cs
@@ -410,6 +415,7 @@ generatedFiles:
   - Codat/Lending/Models/Components/SupplementalData.cs
   - Codat/Lending/Models/Components/SupplierRef.cs
   - Codat/Lending/Models/Components/SupplierStatus.cs
+  - Codat/Lending/Models/Components/TargetAccountOption.cs
   - Codat/Lending/Models/Components/TaxComponentAllocation.cs
   - Codat/Lending/Models/Components/TaxComponentRef.cs
   - Codat/Lending/Models/Components/TaxRateRef.cs
@@ -549,6 +555,8 @@ generatedFiles:
   - Codat/Lending/Models/Requests/GetAccountingSupplierResponse.cs
   - Codat/Lending/Models/Requests/GetAccountingTransferRequest.cs
   - Codat/Lending/Models/Requests/GetAccountingTransferResponse.cs
+  - Codat/Lending/Models/Requests/GetBankAccountMappingRequest.cs
+  - Codat/Lending/Models/Requests/GetBankAccountMappingResponse.cs
   - Codat/Lending/Models/Requests/GetBankStatementUploadConfigurationRequest.cs
   - Codat/Lending/Models/Requests/GetBankStatementUploadConfigurationResponse.cs
   - Codat/Lending/Models/Requests/GetBankingAccountRequest.cs
@@ -746,8 +754,10 @@ generatedFiles:
   - Codat/Lending/Models/Webhooks/ClientRateLimitReachedResponse1.cs
   - Codat/Lending/Models/Webhooks/ClientRateLimitResetResponse.cs
   - Codat/Lending/Models/Webhooks/ClientRateLimitResetResponse1.cs
-  - Codat/Lending/Models/Webhooks/ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook.cs
-  - Codat/Lending/Models/Webhooks/ReportCategorizedBankStatementGenerateSuccessfulResponse.cs
+  - Codat/Lending/Models/Webhooks/ReportsCategorizedBankStatementGenerateSuccessfulResponse.cs
+  - Codat/Lending/Models/Webhooks/ReportsCreditModelGenerateSuccessfulReportGenerationWebhook.cs
+  - Codat/Lending/Models/Webhooks/ReportsCreditModelGenerateSuccessfulResponse.cs
+  - Codat/Lending/Models/Webhooks/ReportsCreditModelGenerateUnsuccessfulResponse.cs
   - Codat/Lending/Orders.cs
   - Codat/Lending/PaymentMethods.cs
   - Codat/Lending/Payments.cs
@@ -881,6 +891,7 @@ generatedFiles:
   - docs/Models/Components/BankAccountStatus.md
   - docs/Models/Components/BankFeedBankAccountMapping.md
   - docs/Models/Components/BankFeedBankAccountMappingResponse.md
+  - docs/Models/Components/BankFeedMapping.md
   - docs/Models/Components/BankStatementUploadConfiguration.md
   - docs/Models/Components/BankTransactionType.md
   - docs/Models/Components/BankingAccount.md
@@ -1049,6 +1060,7 @@ generatedFiles:
   - docs/Models/Components/ProductVariantStatus.md
   - docs/Models/Components/ProfitAndLossReport.md
   - docs/Models/Components/ProjectRef.md
+  - docs/Models/Components/PropertieAccountType.md
   - docs/Models/Components/PropertieDataType.md
   - docs/Models/Components/PropertieItemRef.md
   - docs/Models/Components/PullOperation.md
@@ -1084,14 +1096,17 @@ generatedFiles:
   - docs/Models/Components/RoutingInfo.md
   - docs/Models/Components/RoutingInfoType.md
   - docs/Models/Components/SalesOrderReference.md
+  - docs/Models/Components/Schema.md
   - docs/Models/Components/Security.md
   - docs/Models/Components/ServiceCharge.md
   - docs/Models/Components/ServiceChargeType.md
   - docs/Models/Components/Source.md
   - docs/Models/Components/SourceAccount.md
+  - docs/Models/Components/SourceAccountPrototype.md
   - docs/Models/Components/SourceAccountStatus.md
   - docs/Models/Components/SourceAccountV2.md
   - docs/Models/Components/SourceAccountV2AccountType.md
+  - docs/Models/Components/SourceAccountV2Prototype.md
   - docs/Models/Components/SourceAccountV2Status.md
   - docs/Models/Components/SourceRef.md
   - docs/Models/Components/SourceType.md
@@ -1101,6 +1116,7 @@ generatedFiles:
   - docs/Models/Components/SupplementalData.md
   - docs/Models/Components/SupplierRef.md
   - docs/Models/Components/SupplierStatus.md
+  - docs/Models/Components/TargetAccountOption.md
   - docs/Models/Components/TaxComponentAllocation.md
   - docs/Models/Components/TaxComponentRef.md
   - docs/Models/Components/TaxRateRef.md
@@ -1239,6 +1255,8 @@ generatedFiles:
   - docs/Models/Requests/GetAccountingSupplierResponse.md
   - docs/Models/Requests/GetAccountingTransferRequest.md
   - docs/Models/Requests/GetAccountingTransferResponse.md
+  - docs/Models/Requests/GetBankAccountMappingRequest.md
+  - docs/Models/Requests/GetBankAccountMappingResponse.md
   - docs/Models/Requests/GetBankStatementUploadConfigurationRequest.md
   - docs/Models/Requests/GetBankStatementUploadConfigurationResponse.md
   - docs/Models/Requests/GetBankingAccountRequest.md
@@ -1436,8 +1454,10 @@ generatedFiles:
   - docs/Models/Webhooks/ClientRateLimitReachedResponse1.md
   - docs/Models/Webhooks/ClientRateLimitResetResponse.md
   - docs/Models/Webhooks/ClientRateLimitResetResponse1.md
-  - docs/Models/Webhooks/ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook.md
-  - docs/Models/Webhooks/ReportCategorizedBankStatementGenerateSuccessfulResponse.md
+  - docs/Models/Webhooks/ReportsCategorizedBankStatementGenerateSuccessfulResponse.md
+  - docs/Models/Webhooks/ReportsCreditModelGenerateSuccessfulReportGenerationWebhook.md
+  - docs/Models/Webhooks/ReportsCreditModelGenerateSuccessfulResponse.md
+  - docs/Models/Webhooks/ReportsCreditModelGenerateUnsuccessfulResponse.md
   - docs/sdks/accountbalances/README.md
   - docs/sdks/accountingbankdata/README.md
   - docs/sdks/accounts/README.md
@@ -1514,6 +1534,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
           application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "referenceParentCompany": {"id": "8a210b68-6988-11ed-a1eb-0242ac120002", "name": "Codat Ltd.", "description": "Requested early access to the new financing scheme."}, "referenceSubsidiaryCompanies": [{"id": "8a210b68-6988-11ed-a1eb-0242ac120002", "name": "Codat Ltd.", "description": "Requested early access to the new financing scheme."}, {"id": "8a210b68-6988-11ed-a1eb-0242ac120002", "name": "Codat Ltd.", "description": "Requested early access to the new financing scheme."}, {"id": "8a210b68-6988-11ed-a1eb-0242ac120002", "name": "Codat Ltd.", "description": "Requested early access to the new financing scheme."}], "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
@@ -1525,6 +1546,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
           application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
@@ -1535,6 +1557,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
           application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}, {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "redirect": "https://link.codat.io/company/db94eddc-9212-4568-9b5c-3eab0e325913", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/connections/1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 3, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
@@ -1545,6 +1568,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
@@ -1555,6 +1579,7 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
@@ -11954,10 +11979,32 @@ examples:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       requestBody:
-        application/json: {"id": "acc-002", "accountName": "account-083", "accountType": "savings", "accountNumber": "23456789", "routingInfo": {"bankCode": "21001088", "type": "bankcode"}, "currency": "GBP", "balance": 400, "accountInfo": {"description": "account description 2", "nickname": "account 1290", "accountOpenDate": "2023-05-23T00:00:00Z", "availableBalance": 400}, "modifiedDate": "2024-08-02T00:00:00.000Z", "status": "pending", "feedStartDate": "2024-05-01T00:00:00Z"}
+        application/json: {"currency": "GBP", "modifiedDate": "2022-10-23T00:00:00Z", "accountInfo": {"accountOpenDate": "2022-10-23"}}
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Version 2:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"currency": "USD", "modifiedDate": "2022-10-23T00:00:00Z", "accountInfo": {"accountOpenDate": "2022-10-23"}}
+      responses:
+        "200":
+          application/json: {"id": "acc-001", "accountName": "account-081", "accountType": "checking", "accountNumber": "12345670", "routingInfo": {"bankCode": "21001088", "type": "bankcode"}, "currency": "GBP", "balance": 99.99, "accountInfo": {"description": "account description 1", "nickname": "account 123", "accountOpenDate": "2023-05-06T00:00:00Z", "availableBalance": 10}, "modifiedDate": "2024-08-02T00:00:00.000Z", "status": "pending", "feedStartDate": "2024-05-01T00:00:00Z"}
+        "400": {}
+    Version 1:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"id": "acc-002", "accountName": "account-081", "accountType": "Credit", "accountNumber": "12345670", "sortCode": "123456", "currency": "GBP", "balance": 99.99, "modifiedDate": "2023-01-09T14:14:14.1057478Z"}
+      responses:
+        "200":
+          application/json: {"id": "acc-003", "accountName": "account-095", "accountType": "Credit", "accountNumber": "12345671", "sortCode": "123456", "currency": "USD", "balance": 0, "modifiedDate": "2023-01-09T14:14:14.1057478Z", "status": "pending"}
+        "400": {}
   create-bank-account-mapping:
     Example:
       parameters:
@@ -11988,6 +12035,8 @@ examples:
           reportType: "categorizedBankStatement"
       responses:
         "200":
+          application/json: {"id": "6e9bae88-72c9-45ae-abe8-41fbf2871458", "status": "InProgress", "type": "categorizedBankStatement", "requestedDate": "2024-09-27T04:43:41Z", "updatedDate": "2024-10-01T14:41:46Z"}
+        "202":
           application/json: {"id": "6e9bae88-72c9-45ae-abe8-41fbf2871458", "status": "InProgress", "type": "categorizedBankStatement", "requestedDate": "2024-09-27T04:43:41Z", "updatedDate": "2024-10-01T14:41:46Z"}
     Malformed query:
       parameters:
@@ -12022,4 +12071,53 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  Account categories updated:
+    speakeasy-default-account-categories-updated:
+      requestBody:
+        application/json: {"ClientId": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "ClientName": "Bank of Dave", "CompanyId": "8a210b68-6988-11ed-a1eb-0242ac120002", "DataConnectionId": "2e9d2c44-f675-40ba-8049-353bfcb5e171", "RuleId": "70af3071-65d9-4ec3-b3cb-5283e8d55dac", "RuleType": "Account Categories Updated", "AlertId": "a9367074-b5c3-42c4-9be4-be129f43577e", "Message": "Account categories updated for company f1c35bdc-1546-41b9-baf4-3f31135af968.", "Data": {"modifiedDate": "2022-10-23"}}
+  client.rateLimit.reached:
+    Reached:
+      requestBody:
+        application/json: {"id": "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b", "eventType": "client.rateLimit.reached", "generatedDate": "2024-09-01T00:00:00Z", "payload": {"dailyQuota": 12000, "quotaRemaining": 0, "expiryDate": "2024-09-01T12:14:14Z"}}
+  client.rateLimit.reset:
+    Reset:
+      requestBody:
+        application/json: {"id": "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b", "eventType": "client.rateLimit.reset", "generatedDate": "2024-09-01T00:00:00Z", "payload": {"dailyQuota": 12000, "quotaRemaining": 11993, "expiryDate": "2024-09-01T23:59:99Z"}}
+  Client rate limit reached:
+    speakeasy-default-client-rate-limit-reached:
+      requestBody:
+        application/json: {"ClientId": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "ClientName": "Bank of Dave", "RuleId": "70af3071-65d9-4ec3-b3cb-5283e8d55dac", "RuleType": "Rate Limit Reached", "AlertId": "a9367074-b5c3-42c4-9be4-be129f43577e", "Message": "The current daily rate limit quota of 1000 requests for bae71d36-ff47-420a-b4a6-f8c9ddf41140 has been reached.", "Data": {"DailyQuota": 1000, "ExpiresUtc": "2022-10-23T00:00:00Z"}}
+  Client rate limit reset:
+    speakeasy-default-client-rate-limit-reset:
+      requestBody:
+        application/json: {"ClientId": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "ClientName": "Bank of Dave", "RuleId": "70af3071-65d9-4ec3-b3cb-5283e8d55dac", "RuleType": "Rate Limit Reset", "AlertId": "a9367074-b5c3-42c4-9be4-be129f43577e", "Message": "The current daily rate limit quota for client 30e0f9d2-52c0-4c9f-a806-bcd98a3bcd7e has been reset to 1000 requests.", "Data": {"QuotaRemaining": 1000, "ResetReason": "The quota was reset because it is a new day.", "DailyQuota": 1000, "ExpiresUtc": "2022-10-23T00:00:00Z"}}
+  reports.categorizedBankStatement.generate.successful:
+    Successful:
+      requestBody:
+        application/json: {"id": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "eventType": "reports.categorizedBankStatement.generate.successful", "generatedDate": "2023-05-03T10:00:23Z", "payload": {"id": "bb42ce7e-720a-4ac5-b640-f24f53ff47c8", "referenceCompany": {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "Bank of Dave", "description": "internal_id_mxO7rLfo", "links": {"portal": "https://app.codat.io/companies/0498e921-9b53-4396-a412-4f2f5983b0a2/summary"}, "tags": {"customerRegion": "us", "uid": "335a086e-8563-4b03-94e3-39544225ecb6"}}}}
+  reports.creditModel.generate.successful:
+    Successful:
+      requestBody:
+        application/json: {"id": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "eventType": "reports.creditModel.generate.successful", "generatedDate": "2023-05-03T10:00:23Z", "payload": {"id": "bb42ce7e-720a-4ac5-b640-f24f53ff47c8", "referenceCompany": {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "Bank of Dave", "description": "Looking for a loan.", "links": {"portal": "https://app.codat.io/companies/0498e921-9b53-4396-a412-4f2f5983b0a2/summary"}, "tags": {"customerRegion": "us", "uid": "335a086e-8563-4b03-94e3-39544225ecb6"}}}}
+  reports.creditModel.generate.unsuccessful:
+    Unsuccessful:
+      requestBody:
+        application/json: {"id": "bae71d36-ff47-420a-b4a6-f8c9ddf41140", "eventType": "reports.creditModel.generate.unsuccessful", "generatedDate": "2023-05-03T10:00:23Z", "payload": {"id": "bb42ce7e-720a-4ac5-b640-f24f53ff47c8", "referenceCompany": {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "Bank of Dave", "description": "Looking for a loan.", "links": {"portal": "https://app.codat.io/companies/0498e921-9b53-4396-a412-4f2f5983b0a2/summary"}, "tags": {"customerRegion": "us", "uid": "335a086e-8563-4b03-94e3-39544225ecb6"}}}}
+  get-bank-account-mapping:
+    Example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: [{"sourceAccountId": "account-001", "sourceAccountName": "account-001", "sourceAccountNumber": "12345670", "sourceBalance": 99.99, "sourceCurrency": "GBP", "status": "pending", "targetAccountOptions": [{"id": "d21e25d6-98c5-4bfb-b469-105833bea3c8", "name": "Money Bank account", "sortCode": "123456", "accountNumber": "789"}, {"id": "d06ff4b2-e4f2-4681-9841-014bd008cdab", "name": "Bank of Dave account", "sortCode": "998866", "accountNumber": "99887766"}, {"id": "c8f252fc-84f3-4a8b-ace8-ae99f41a81ae", "name": "LuxLend account", "sortCode": "123456", "accountNumber": "123456789"}]}]
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
 generatedTests: {}

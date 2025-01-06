@@ -8,8 +8,46 @@
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+
+var sdk = new CodatLending();
+
+AccountCategoriesUpdatedWebhook req = new AccountCategoriesUpdatedWebhook() {
+    ClientId = "bae71d36-ff47-420a-b4a6-f8c9ddf41140",
+    ClientName = "Bank of Dave",
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    DataConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    RuleId = "70af3071-65d9-4ec3-b3cb-5283e8d55dac",
+    RuleType = "Account Categories Updated",
+    AlertId = "a9367074-b5c3-42c4-9be4-be129f43577e",
+    Message = "Account categories updated for company f1c35bdc-1546-41b9-baf4-3f31135af968.",
+    Data = new AccountCategoriesUpdatedWebhookData() {
+        ModifiedDate = "2019-08-24T14:15:22Z",
+    },
+};
+
+var res = await sdk.AccountCategoriesUpdatedAsync(req);
+
+// handle response
+```
+<!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type   | Scheme  |
+| ------------ | ------ | ------- |
+| `AuthHeader` | apiKey | API key |
+
+To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -18,13 +56,14 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage [usage] -->
+<!-- End Authentication [security] -->
 
 <!-- Start Retries [retries] -->
 ## Retries
@@ -34,8 +73,8 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -44,6 +83,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(
@@ -57,7 +97,7 @@ var res = await sdk.Companies.ListAsync(
         ),
         retryConnectionErrors: false
     ),
-    req
+    request: req
 );
 
 // handle response
@@ -66,8 +106,8 @@ var res = await sdk.Companies.ListAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(
     retryConfig: new RetryConfig(
@@ -88,6 +128,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -121,10 +162,9 @@ When custom error responses are specified for an operation, the SDK may also thr
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
-using System;
 using Codat.Lending.Models.Errors;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -135,6 +175,7 @@ try
         PageSize = 100,
         Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
         OrderBy = "-modifiedDate",
+        Tags = "region=uk && team=invoice-finance",
     };
 
     var res = await sdk.Companies.ListAsync(req);
@@ -165,8 +206,8 @@ catch (Exception ex)
 The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(
     serverUrl: "https://api.codat.io",
@@ -178,6 +219,7 @@ ListCompaniesRequest req = new ListCompaniesRequest() {
     PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -185,37 +227,5 @@ var res = await sdk.Companies.ListAsync(req);
 // handle response
 ```
 <!-- End Server Selection [server] -->
-
-<!-- Start Authentication [security] -->
-## Authentication
-
-### Per-Client Security Schemes
-
-This SDK supports the following security scheme globally:
-
-| Name         | Type   | Scheme  |
-| ------------ | ------ | ------- |
-| `AuthHeader` | apiKey | API key |
-
-To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Requests;
-using Codat.Lending.Models.Components;
-
-var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
-
-ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    OrderBy = "-modifiedDate",
-};
-
-var res = await sdk.Companies.ListAsync(req);
-
-// handle response
-```
-<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

@@ -37,8 +37,8 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -48,7 +48,7 @@ GetCommerceOrdersReportRequest req = new GetCommerceOrdersReportRequest() {
     ReportDate = "29-09-2020",
     PeriodLength = 491586,
     NumberOfPeriods = 393849,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Year,
+    PeriodUnit = PeriodUnit.Year,
 };
 
 var res = await sdk.Sales.Reports.GetOrdersAsync(req);
@@ -103,8 +103,8 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -114,7 +114,7 @@ GetCommerceRefundsReportRequest req = new GetCommerceRefundsReportRequest() {
     ReportDate = "29-09-2020",
     PeriodLength = 277786,
     NumberOfPeriods = 810912,
-    PeriodUnit = Codat.Lending.Models.Components.PeriodUnit.Month,
+    PeriodUnit = PeriodUnit.Month,
 };
 
 var res = await sdk.Sales.Reports.GetRefundsAsync(req);

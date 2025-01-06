@@ -23,8 +23,8 @@ See the *response examples* for integration-specific indicative models.
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -70,8 +70,8 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 using System.Collections.Generic;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
@@ -89,7 +89,7 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
         Phone = "07999 999999",
         Addresses = new List<AccountingAddress>() {
             new AccountingAddress() {
-                Type = Codat.Lending.Models.Components.AccountingAddressType.Billing,
+                Type = AccountingAddressType.Billing,
                 Line1 = "Unit 51",
                 Line2 = "Bakersfield Industrial Estate",
                 City = "Bakersfield",
@@ -99,7 +99,7 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
         },
         RegistrationNumber = "string",
         TaxNumber = "string",
-        Status = Codat.Lending.Models.Components.SupplierStatus.Unknown,
+        Status = SupplierStatus.Unknown,
         DefaultCurrency = "string",
         Metadata = new Metadata() {
             IsDeleted = true,

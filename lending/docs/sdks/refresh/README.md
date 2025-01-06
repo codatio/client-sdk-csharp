@@ -20,8 +20,8 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -61,14 +61,14 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = Codat.Lending.Models.Components.DataType.Invoices,
+    DataType = DataType.Invoices,
 };
 
 var res = await sdk.ManageData.Refresh.DataTypeAsync(req);

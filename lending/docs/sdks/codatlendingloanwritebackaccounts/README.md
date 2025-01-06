@@ -22,8 +22,8 @@ See the *response examples* for integration-specific indicative models.
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -68,9 +68,8 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
-using System.Collections.Generic;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -85,8 +84,8 @@ CreateAccountRequest req = new CreateAccountRequest() {
         FullyQualifiedName = "Cash On Hand",
         Currency = "USD",
         CurrentBalance = 0M,
-        Type = Codat.Lending.Models.Components.AccountType.Asset,
-        Status = Codat.Lending.Models.Components.AccountStatus.Active,
+        Type = AccountType.Asset,
+        Status = AccountStatus.Active,
     },
 };
 

@@ -24,14 +24,14 @@ This action triggers the system to refresh and pull the necessary data from the 
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateReportRequest req = new GenerateReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = Codat.Lending.Models.Components.ReportType.CategorizedBankStatement,
+    ReportType = ReportType.CategorizedBankStatement,
 };
 
 var res = await sdk.ManageReports.GenerateReportAsync(req);
@@ -68,8 +68,8 @@ Use the *List reports* endpoint to return details about all reports generated fo
 
 ```csharp
 using Codat.Lending;
-using Codat.Lending.Models.Requests;
 using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 

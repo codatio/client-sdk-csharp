@@ -12,13 +12,13 @@ namespace Codat.Lending
     using Codat.Lending.Hooks;
     using Codat.Lending.Models.Components;
     using Codat.Lending.Models.Errors;
-    using Codat.Lending.Utils.Retries;
     using Codat.Lending.Utils;
+    using Codat.Lending.Utils.Retries;
     using Newtonsoft.Json;
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using System;
 
     /// <summary>
     /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
@@ -186,10 +186,10 @@ namespace Codat.Lending
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.1";
-        private const string _sdkGenVersion = "2.463.0";
+        private const string _sdkVersion = "9.0.2";
+        private const string _sdkGenVersion = "2.486.1";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.1 2.463.0 3.0.0 Codat.Lending";
+        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;

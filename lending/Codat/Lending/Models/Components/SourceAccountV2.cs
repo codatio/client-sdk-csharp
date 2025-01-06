@@ -44,6 +44,12 @@ namespace Codat.Lending.Models.Components
         public string AccountNumber { get; set; } = default!;
 
         /// <summary>
+        /// The sort code.
+        /// </summary>
+        [JsonProperty("sortCode")]
+        public string? SortCode { get; set; } = null;
+
+        /// <summary>
         /// Routing information for the bank. This does not include account number.
         /// </summary>
         [JsonProperty("routingInfo")]

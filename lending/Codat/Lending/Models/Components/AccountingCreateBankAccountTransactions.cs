@@ -12,8 +12,8 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     using System;
+    using System.Collections.Generic;
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
     public class AccountingCreateBankAccountTransactions
     {

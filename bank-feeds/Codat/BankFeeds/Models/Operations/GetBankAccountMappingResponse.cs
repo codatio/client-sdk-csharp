@@ -11,9 +11,9 @@ namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
-    using System;
     
     public class GetBankAccountMappingResponse
     {

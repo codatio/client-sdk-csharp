@@ -11,8 +11,8 @@ namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
-    using System.Net.Http;
     using System;
+    using System.Net.Http;
     
     public class GetConnectionResponse
     {

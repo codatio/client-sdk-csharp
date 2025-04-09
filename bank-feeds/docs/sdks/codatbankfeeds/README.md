@@ -2,11 +2,11 @@
 
 ## Overview
 
-Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.
+Bank Feeds: Bank Feeds solution enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.
 
 A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting software.
 
-[Explore product](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+[Explore solution](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
 ---
 <!-- Start Codat Tags Table -->

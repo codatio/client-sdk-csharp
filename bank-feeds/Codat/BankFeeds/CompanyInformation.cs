@@ -13,14 +13,14 @@ namespace Codat.BankFeeds
     using Codat.BankFeeds.Models.Errors;
     using Codat.BankFeeds.Models.Operations;
     using Codat.BankFeeds.Models.Shared;
-    using Codat.BankFeeds.Utils.Retries;
     using Codat.BankFeeds.Utils;
+    using Codat.BankFeeds.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Get detailed information about a company from the underlying accounting software.
@@ -34,7 +34,15 @@ namespace Codat.BankFeeds
         /// <remarks>
         /// Use the *Get company information* endpoint to return information about the company available from the underlying accounting software.<br/>
         /// <br/>
-        /// 
+        /// ### Supported Integrations<br/>
+        /// | Integration           | Supported |<br/>
+        /// |-----------------------|-----------|<br/>
+        /// | Oracle NetSuite       | Yes       |<br/>
+        /// | Xero                  | Yes       |<br/>
+        /// | Exact                 | No        |<br/>
+        /// | FreeAgent             | No        |<br/>
+        /// | Sage                  | No        |<br/>
+        /// | QuickBooks Online     | No        |
         /// </remarks>
         /// </summary>
         Task<GetCompanyInformationResponse> GetAsync(GetCompanyInformationRequest request, RetryConfig? retryConfig = null);
@@ -47,10 +55,10 @@ namespace Codat.BankFeeds
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "7.0.0";
-        private const string _sdkGenVersion = "2.479.3";
+        private const string _sdkVersion = "7.1.0";
+        private const string _sdkGenVersion = "2.568.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.479.3 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.1.0 2.568.2 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;
@@ -76,7 +84,7 @@ namespace Codat.BankFeeds
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("get-company-information", null, _securitySource);
+            var hookCtx = new HookContext(baseUrl, "get-company-information", new List<string> {  }, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -164,7 +172,7 @@ namespace Codat.BankFeeds
 
                 throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
@@ -174,7 +182,21 @@ namespace Codat.BankFeeds
 
                 throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    throw obj!;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }

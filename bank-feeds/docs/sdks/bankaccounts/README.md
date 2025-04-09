@@ -34,8 +34,6 @@ var sdk = new CodatBankFeeds(security: new Security() {
 ListBankAccountsRequest req = new ListBankAccountsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -57,10 +55,11 @@ var res = await sdk.BankAccounts.ListAsync(req);
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Codat.BankFeeds.Models.Errors.ErrorMessage  | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| Codat.BankFeeds.Models.Errors.SDKException  | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 409, 429          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## GetCreateModel
 
@@ -108,7 +107,8 @@ var res = await sdk.BankAccounts.GetCreateModelAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Create
@@ -137,7 +137,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     BankAccountPrototype = new BankAccountPrototype() {
         Currency = "USD",
-        Status = Codat.BankFeeds.Models.Shared.BankAccountStatus.Active,
+        Status = BankAccountStatus.Active,
     },
 };
 
@@ -160,5 +160,6 @@ var res = await sdk.BankAccounts.CreateAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429               | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

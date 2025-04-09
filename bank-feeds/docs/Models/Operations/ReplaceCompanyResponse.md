@@ -1,4 +1,4 @@
-# GetCompanyResponse
+# ReplaceCompanyResponse
 
 
 ## Fields

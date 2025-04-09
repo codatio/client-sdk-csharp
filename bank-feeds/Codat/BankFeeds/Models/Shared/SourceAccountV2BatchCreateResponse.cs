@@ -14,7 +14,7 @@ namespace Codat.BankFeeds.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// The account ID and source account object of the successfully created source account.
+    /// Account ID and resulting object of the batch `Create source account` request.
     /// </summary>
     public class SourceAccountV2BatchCreateResponse
     {
@@ -26,9 +26,9 @@ namespace Codat.BankFeeds.Models.Shared
         public string? SourceAccountId { get; set; }
 
         /// <summary>
-        /// The target bank account in a supported accounting software for ingestion into a bank feed.
+        /// Status details and corresponding object of the `Create account` operation.
         /// </summary>
         [JsonProperty("result")]
-        public SourceAccountV2? Result { get; set; }
+        public SourceAccountV2BatchCreateResult? Result { get; set; }
     }
 }

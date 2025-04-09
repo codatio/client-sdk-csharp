@@ -11,6 +11,7 @@ Create and manage your SMB users' companies.
 * [List](#list) - List companies
 * [Get](#get) - Get company
 * [Delete](#delete) - Delete a company
+* [Replace](#replace) - Replace company
 * [Update](#update) - Update company
 * [GetAccessToken](#getaccesstoken) - Get company access token
 
@@ -28,7 +29,6 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
@@ -58,7 +58,8 @@ var res = await sdk.Companies.CreateAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## List
@@ -93,8 +94,6 @@ var sdk = new CodatBankFeeds(security: new Security() {
 });
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
     Tags = "region=uk && team=invoice-finance",
@@ -119,7 +118,8 @@ var res = await sdk.Companies.ListAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429               | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Get
@@ -164,7 +164,8 @@ var res = await sdk.Companies.GetAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Delete
@@ -209,12 +210,13 @@ var res = await sdk.Companies.DeleteAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
-## Update
+## Replace
 
-﻿Use the *Update company* endpoint to update both the name and description of the company. 
+﻿Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.
 
 A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/bank-feeds-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -225,7 +227,56 @@ Each company can have multiple [connections](https://docs.codat.io/bank-feeds-ap
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+ReplaceCompanyRequest req = new ReplaceCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CompanyRequestBody = new CompanyRequestBody() {
+        Name = "Bank of Dave",
+        Description = "Requested early access to the new financing scheme.",
+    },
+};
+
+var res = await sdk.Companies.ReplaceAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [ReplaceCompanyRequest](../../Models/Operations/ReplaceCompanyRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+
+### Response
+
+**[ReplaceCompanyResponse](../../Models/Operations/ReplaceCompanyResponse.md)**
+
+### Errors
+
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
+
+## Update
+
+﻿Use the *Update company* endpoint to update the name, description, or tags of the company.
+
+The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  
+
+A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
+
+### Example Usage
+
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
@@ -233,7 +284,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    CompanyRequestBody = new CompanyRequestBody() {
+    CompanyUpdateRequest = new CompanyUpdateRequest() {
         Name = "Bank of Dave",
         Description = "Requested early access to the new financing scheme.",
     },
@@ -258,13 +309,15 @@ var res = await sdk.Companies.UpdateAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## GetAccessToken
 
-Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+Use the _Get company access token_ endpoint to return an access token for the specified company ID. The token is valid for one day. 
 
+The token is required by Codat's embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to verify the identity of the user and improve the reliability of data provided by them.
 
 ### Example Usage
 
@@ -300,5 +353,6 @@ var res = await sdk.Companies.GetAccessTokenAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

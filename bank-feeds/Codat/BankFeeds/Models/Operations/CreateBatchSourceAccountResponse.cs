@@ -10,10 +10,10 @@
 namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Operations;
-    using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
-    using System.Net.Http;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
     
     public class CreateBatchSourceAccountResponse
     {
@@ -36,11 +36,11 @@ namespace Codat.BankFeeds.Models.Operations
         /// <summary>
         /// Success
         /// </summary>
-        public CreateBatchSourceAccountResponseBody? TwoHundredApplicationJsonOneOf { get; set; }
+        public List<ResponseBody>? TwoHundredAndOneApplicationJsonResponseBodies { get; set; }
 
         /// <summary>
         /// Multi-Status
         /// </summary>
-        public CreateBatchSourceAccountSourceAccountsResponseBody? TwoHundredAndSevenApplicationJsonOneOf { get; set; }
+        public List<CreateBatchSourceAccountResponseBody>? TwoHundredAndSevenApplicationJsonResponseBodies { get; set; }
     }
 }

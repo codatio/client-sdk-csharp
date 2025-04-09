@@ -48,7 +48,8 @@ var res = await sdk.Configuration.GetAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
 ## Set
@@ -61,7 +62,6 @@ var res = await sdk.Configuration.GetAsync(req);
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
@@ -93,5 +93,6 @@ var res = await sdk.Configuration.SetAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503          | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

@@ -13,7 +13,15 @@ Get detailed information about a company from the underlying accounting software
 
 Use the *Get company information* endpoint to return information about the company available from the underlying accounting software.
 
-
+### Supported Integrations
+| Integration           | Supported |
+|-----------------------|-----------|
+| Oracle NetSuite       | Yes       |
+| Xero                  | Yes       |
+| Exact                 | No        |
+| FreeAgent             | No        |
+| Sage                  | No        |
+| QuickBooks Online     | No        |
 
 ### Example Usage
 
@@ -50,5 +58,6 @@ var res = await sdk.CompanyInformation.GetAsync(req);
 
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503     | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429               | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

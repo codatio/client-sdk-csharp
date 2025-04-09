@@ -11,36 +11,33 @@ namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
-    using Newtonsoft.Json.Linq;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System;
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    using System;
     
 
-    public class ResponseBody1Type
+    public class ResponseBodyType
     {
-        private ResponseBody1Type(string value) { Value = value; }
+        private ResponseBodyType(string value) { Value = value; }
 
         public string Value { get; private set; }
-        public static ResponseBody1Type SourceAccountV2BatchCreateResponse { get { return new ResponseBody1Type("SourceAccountV2BatchCreateResponse"); } }
+        public static ResponseBodyType SourceAccountV2BatchCreateResponse { get { return new ResponseBodyType("SourceAccountV2BatchCreateResponse"); } }
         
-        public static ResponseBody1Type SourceAccountBatchCreateResponse { get { return new ResponseBody1Type("SourceAccountBatchCreateResponse"); } }
+        public static ResponseBodyType SourceAccountBatchCreateResponse { get { return new ResponseBodyType("SourceAccountBatchCreateResponse"); } }
         
-        public static ResponseBody1Type SourceAccountBatchErrorResponse { get { return new ResponseBody1Type("SourceAccountBatchErrorResponse"); } }
-        
-        public static ResponseBody1Type Null { get { return new ResponseBody1Type("null"); } }
+        public static ResponseBodyType Null { get { return new ResponseBodyType("null"); } }
 
         public override string ToString() { return Value; }
-        public static implicit operator String(ResponseBody1Type v) { return v.Value; }
-        public static ResponseBody1Type FromString(string v) {
+        public static implicit operator String(ResponseBodyType v) { return v.Value; }
+        public static ResponseBodyType FromString(string v) {
             switch(v) {
                 case "SourceAccountV2BatchCreateResponse": return SourceAccountV2BatchCreateResponse;
                 case "SourceAccountBatchCreateResponse": return SourceAccountBatchCreateResponse;
-                case "SourceAccountBatchErrorResponse": return SourceAccountBatchErrorResponse;
                 case "null": return Null;
-                default: throw new ArgumentException("Invalid value for ResponseBody1Type");
+                default: throw new ArgumentException("Invalid value for ResponseBodyType");
             }
         }
         public override bool Equals(object? obj)
@@ -49,7 +46,7 @@ namespace Codat.BankFeeds.Models.Operations
             {
                 return false;
             }
-            return Value.Equals(((ResponseBody1Type)obj).Value);
+            return Value.Equals(((ResponseBodyType)obj).Value);
         }
 
         public override int GetHashCode()
@@ -59,9 +56,9 @@ namespace Codat.BankFeeds.Models.Operations
     }
 
 
-    [JsonConverter(typeof(ResponseBody1.ResponseBody1Converter))]
-    public class ResponseBody1 {
-        public ResponseBody1(ResponseBody1Type type) {
+    [JsonConverter(typeof(ResponseBody.ResponseBodyConverter))]
+    public class ResponseBody {
+        public ResponseBody(ResponseBodyType type) {
             Type = type;
         }
 
@@ -71,45 +68,34 @@ namespace Codat.BankFeeds.Models.Operations
         [SpeakeasyMetadata("form:explode=true")]
         public SourceAccountBatchCreateResponse? SourceAccountBatchCreateResponse { get; set; }
 
-        [SpeakeasyMetadata("form:explode=true")]
-        public SourceAccountBatchErrorResponse? SourceAccountBatchErrorResponse { get; set; }
-
-        public ResponseBody1Type Type { get; set; }
+        public ResponseBodyType Type { get; set; }
 
 
-        public static ResponseBody1 CreateSourceAccountV2BatchCreateResponse(SourceAccountV2BatchCreateResponse sourceAccountV2BatchCreateResponse) {
-            ResponseBody1Type typ = ResponseBody1Type.SourceAccountV2BatchCreateResponse;
+        public static ResponseBody CreateSourceAccountV2BatchCreateResponse(SourceAccountV2BatchCreateResponse sourceAccountV2BatchCreateResponse) {
+            ResponseBodyType typ = ResponseBodyType.SourceAccountV2BatchCreateResponse;
 
-            ResponseBody1 res = new ResponseBody1(typ);
+            ResponseBody res = new ResponseBody(typ);
             res.SourceAccountV2BatchCreateResponse = sourceAccountV2BatchCreateResponse;
             return res;
         }
 
-        public static ResponseBody1 CreateSourceAccountBatchCreateResponse(SourceAccountBatchCreateResponse sourceAccountBatchCreateResponse) {
-            ResponseBody1Type typ = ResponseBody1Type.SourceAccountBatchCreateResponse;
+        public static ResponseBody CreateSourceAccountBatchCreateResponse(SourceAccountBatchCreateResponse sourceAccountBatchCreateResponse) {
+            ResponseBodyType typ = ResponseBodyType.SourceAccountBatchCreateResponse;
 
-            ResponseBody1 res = new ResponseBody1(typ);
+            ResponseBody res = new ResponseBody(typ);
             res.SourceAccountBatchCreateResponse = sourceAccountBatchCreateResponse;
             return res;
         }
 
-        public static ResponseBody1 CreateSourceAccountBatchErrorResponse(SourceAccountBatchErrorResponse sourceAccountBatchErrorResponse) {
-            ResponseBody1Type typ = ResponseBody1Type.SourceAccountBatchErrorResponse;
-
-            ResponseBody1 res = new ResponseBody1(typ);
-            res.SourceAccountBatchErrorResponse = sourceAccountBatchErrorResponse;
-            return res;
+        public static ResponseBody CreateNull() {
+            ResponseBodyType typ = ResponseBodyType.Null;
+            return new ResponseBody(typ);
         }
 
-        public static ResponseBody1 CreateNull() {
-            ResponseBody1Type typ = ResponseBody1Type.Null;
-            return new ResponseBody1(typ);
-        }
-
-        public class ResponseBody1Converter : JsonConverter
+        public class ResponseBodyConverter : JsonConverter
         {
 
-            public override bool CanConvert(System.Type objectType) => objectType == typeof(ResponseBody1);
+            public override bool CanConvert(System.Type objectType) => objectType == typeof(ResponseBody);
 
             public override bool CanRead => true;
 
@@ -125,14 +111,14 @@ namespace Codat.BankFeeds.Models.Operations
 
                 try
                 {
-                    return new ResponseBody1(ResponseBody1Type.SourceAccountV2BatchCreateResponse)
+                    return new ResponseBody(ResponseBodyType.SourceAccountV2BatchCreateResponse)
                     {
                         SourceAccountV2BatchCreateResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SourceAccountV2BatchCreateResponse>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(SourceAccountV2BatchCreateResponse), new ResponseBody1(ResponseBody1Type.SourceAccountV2BatchCreateResponse), "SourceAccountV2BatchCreateResponse"));
+                    fallbackCandidates.Add((typeof(SourceAccountV2BatchCreateResponse), new ResponseBody(ResponseBodyType.SourceAccountV2BatchCreateResponse), "SourceAccountV2BatchCreateResponse"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -145,34 +131,14 @@ namespace Codat.BankFeeds.Models.Operations
 
                 try
                 {
-                    return new ResponseBody1(ResponseBody1Type.SourceAccountBatchCreateResponse)
+                    return new ResponseBody(ResponseBodyType.SourceAccountBatchCreateResponse)
                     {
                         SourceAccountBatchCreateResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SourceAccountBatchCreateResponse>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(SourceAccountBatchCreateResponse), new ResponseBody1(ResponseBody1Type.SourceAccountBatchCreateResponse), "SourceAccountBatchCreateResponse"));
-                }
-                catch (ResponseBodyDeserializer.DeserializationException)
-                {
-                    // try next option
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-
-                try
-                {
-                    return new ResponseBody1(ResponseBody1Type.SourceAccountBatchErrorResponse)
-                    {
-                        SourceAccountBatchErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SourceAccountBatchErrorResponse>(json)
-                    };
-                }
-                catch (ResponseBodyDeserializer.MissingMemberException)
-                {
-                    fallbackCandidates.Add((typeof(SourceAccountBatchErrorResponse), new ResponseBody1(ResponseBody1Type.SourceAccountBatchErrorResponse), "SourceAccountBatchErrorResponse"));
+                    fallbackCandidates.Add((typeof(SourceAccountBatchCreateResponse), new ResponseBody(ResponseBodyType.SourceAccountBatchCreateResponse), "SourceAccountBatchCreateResponse"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -212,8 +178,8 @@ namespace Codat.BankFeeds.Models.Operations
                     writer.WriteRawValue("null");
                     return;
                 }
-                ResponseBody1 res = (ResponseBody1)value;
-                if (ResponseBody1Type.FromString(res.Type).Equals(ResponseBody1Type.Null))
+                ResponseBody res = (ResponseBody)value;
+                if (ResponseBodyType.FromString(res.Type).Equals(ResponseBodyType.Null))
                 {
                     writer.WriteRawValue("null");
                     return;
@@ -226,11 +192,6 @@ namespace Codat.BankFeeds.Models.Operations
                 if (res.SourceAccountBatchCreateResponse != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountBatchCreateResponse));
-                    return;
-                }
-                if (res.SourceAccountBatchErrorResponse != null)
-                {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountBatchErrorResponse));
                     return;
                 }
 

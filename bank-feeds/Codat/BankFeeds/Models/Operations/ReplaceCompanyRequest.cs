@@ -12,7 +12,7 @@ namespace Codat.BankFeeds.Models.Operations
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     
-    public class UpdateCompanyRequest
+    public class ReplaceCompanyRequest
     {
 
         /// <summary>
@@ -22,6 +22,6 @@ namespace Codat.BankFeeds.Models.Operations
         public string CompanyId { get; set; } = default!;
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CompanyUpdateRequest? CompanyUpdateRequest { get; set; }
+        public CompanyRequestBody? CompanyRequestBody { get; set; }
     }
 }

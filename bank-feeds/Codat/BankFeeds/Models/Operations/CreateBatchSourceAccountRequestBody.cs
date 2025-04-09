@@ -11,12 +11,12 @@ namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
-    using Newtonsoft.Json.Linq;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System;
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    using System;
     
 
     public class CreateBatchSourceAccountRequestBodyType
@@ -24,9 +24,9 @@ namespace Codat.BankFeeds.Models.Operations
         private CreateBatchSourceAccountRequestBodyType(string value) { Value = value; }
 
         public string Value { get; private set; }
-        public static CreateBatchSourceAccountRequestBodyType ArrayOfSourceAccountV2 { get { return new CreateBatchSourceAccountRequestBodyType("arrayOfSourceAccountV2"); } }
+        public static CreateBatchSourceAccountRequestBodyType ArrayOfSourceAccountV2Prototype { get { return new CreateBatchSourceAccountRequestBodyType("arrayOfSourceAccountV2Prototype"); } }
         
-        public static CreateBatchSourceAccountRequestBodyType ArrayOfSourceAccount { get { return new CreateBatchSourceAccountRequestBodyType("arrayOfSourceAccount"); } }
+        public static CreateBatchSourceAccountRequestBodyType ArrayOfSourceAccountPrototype { get { return new CreateBatchSourceAccountRequestBodyType("arrayOfSourceAccountPrototype"); } }
         
         public static CreateBatchSourceAccountRequestBodyType Null { get { return new CreateBatchSourceAccountRequestBodyType("null"); } }
 
@@ -34,8 +34,8 @@ namespace Codat.BankFeeds.Models.Operations
         public static implicit operator String(CreateBatchSourceAccountRequestBodyType v) { return v.Value; }
         public static CreateBatchSourceAccountRequestBodyType FromString(string v) {
             switch(v) {
-                case "arrayOfSourceAccountV2": return ArrayOfSourceAccountV2;
-                case "arrayOfSourceAccount": return ArrayOfSourceAccount;
+                case "arrayOfSourceAccountV2Prototype": return ArrayOfSourceAccountV2Prototype;
+                case "arrayOfSourceAccountPrototype": return ArrayOfSourceAccountPrototype;
                 case "null": return Null;
                 default: throw new ArgumentException("Invalid value for CreateBatchSourceAccountRequestBodyType");
             }
@@ -63,27 +63,27 @@ namespace Codat.BankFeeds.Models.Operations
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public List<SourceAccountV2>? ArrayOfSourceAccountV2 { get; set; }
+        public List<SourceAccountV2Prototype>? ArrayOfSourceAccountV2Prototype { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public List<SourceAccount>? ArrayOfSourceAccount { get; set; }
+        public List<SourceAccountPrototype>? ArrayOfSourceAccountPrototype { get; set; }
 
         public CreateBatchSourceAccountRequestBodyType Type { get; set; }
 
 
-        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccountV2(List<SourceAccountV2> arrayOfSourceAccountV2) {
-            CreateBatchSourceAccountRequestBodyType typ = CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountV2;
+        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccountV2Prototype(List<SourceAccountV2Prototype> arrayOfSourceAccountV2Prototype) {
+            CreateBatchSourceAccountRequestBodyType typ = CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountV2Prototype;
 
             CreateBatchSourceAccountRequestBody res = new CreateBatchSourceAccountRequestBody(typ);
-            res.ArrayOfSourceAccountV2 = arrayOfSourceAccountV2;
+            res.ArrayOfSourceAccountV2Prototype = arrayOfSourceAccountV2Prototype;
             return res;
         }
 
-        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccount(List<SourceAccount> arrayOfSourceAccount) {
-            CreateBatchSourceAccountRequestBodyType typ = CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccount;
+        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccountPrototype(List<SourceAccountPrototype> arrayOfSourceAccountPrototype) {
+            CreateBatchSourceAccountRequestBodyType typ = CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountPrototype;
 
             CreateBatchSourceAccountRequestBody res = new CreateBatchSourceAccountRequestBody(typ);
-            res.ArrayOfSourceAccount = arrayOfSourceAccount;
+            res.ArrayOfSourceAccountPrototype = arrayOfSourceAccountPrototype;
             return res;
         }
 
@@ -111,14 +111,14 @@ namespace Codat.BankFeeds.Models.Operations
 
                 try
                 {
-                    return new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountV2)
+                    return new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountV2Prototype)
                     {
-                        ArrayOfSourceAccountV2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<List<SourceAccountV2>>(json)
+                        ArrayOfSourceAccountV2Prototype = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<List<SourceAccountV2Prototype>>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(List<SourceAccountV2>), new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountV2), "ArrayOfSourceAccountV2"));
+                    fallbackCandidates.Add((typeof(List<SourceAccountV2Prototype>), new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountV2Prototype), "ArrayOfSourceAccountV2Prototype"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -131,14 +131,14 @@ namespace Codat.BankFeeds.Models.Operations
 
                 try
                 {
-                    return new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccount)
+                    return new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountPrototype)
                     {
-                        ArrayOfSourceAccount = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<List<SourceAccount>>(json)
+                        ArrayOfSourceAccountPrototype = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<List<SourceAccountPrototype>>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(List<SourceAccount>), new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccount), "ArrayOfSourceAccount"));
+                    fallbackCandidates.Add((typeof(List<SourceAccountPrototype>), new CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountPrototype), "ArrayOfSourceAccountPrototype"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -184,14 +184,14 @@ namespace Codat.BankFeeds.Models.Operations
                     writer.WriteRawValue("null");
                     return;
                 }
-                if (res.ArrayOfSourceAccountV2 != null)
+                if (res.ArrayOfSourceAccountV2Prototype != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccountV2));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccountV2Prototype));
                     return;
                 }
-                if (res.ArrayOfSourceAccount != null)
+                if (res.ArrayOfSourceAccountPrototype != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccount));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccountPrototype));
                     return;
                 }
 

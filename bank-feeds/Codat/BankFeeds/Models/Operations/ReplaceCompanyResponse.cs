@@ -7,13 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.BankFeeds.Models.Webhooks
+namespace Codat.BankFeeds.Models.Operations
 {
+    using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
-    using System.Net.Http;
     using System;
+    using System.Net.Http;
     
-    public class ClientRateLimitReachedResponse1
+    public class ReplaceCompanyResponse
     {
 
         /// <summary>
@@ -30,5 +31,10 @@ namespace Codat.BankFeeds.Models.Webhooks
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
+
+        /// <summary>
+        /// OK
+        /// </summary>
+        public Company? Company { get; set; }
     }
 }

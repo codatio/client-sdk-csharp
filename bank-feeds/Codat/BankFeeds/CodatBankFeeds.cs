@@ -12,22 +12,22 @@ namespace Codat.BankFeeds
     using Codat.BankFeeds.Hooks;
     using Codat.BankFeeds.Models.Errors;
     using Codat.BankFeeds.Models.Shared;
-    using Codat.BankFeeds.Utils.Retries;
     using Codat.BankFeeds.Utils;
+    using Codat.BankFeeds.Utils.Retries;
     using Newtonsoft.Json;
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using System;
 
     /// <summary>
-    /// Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.<br/>
+    /// Bank Feeds: Bank Feeds solution enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.<br/>
     /// 
     /// <remarks>
     /// <br/>
     /// A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting software.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/bank-feeds-api/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/bank-feeds-api/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
     /// <br/>
     /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
@@ -129,13 +129,13 @@ namespace Codat.BankFeeds
     }
 
     /// <summary>
-    /// Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.<br/>
+    /// Bank Feeds: Bank Feeds solution enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.<br/>
     /// 
     /// <remarks>
     /// <br/>
     /// A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting software.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/bank-feeds-api/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/bank-feeds-api/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
     /// <br/>
     /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
@@ -157,10 +157,10 @@ namespace Codat.BankFeeds
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "7.0.0";
-        private const string _sdkGenVersion = "2.479.3";
+        private const string _sdkVersion = "7.1.0";
+        private const string _sdkGenVersion = "2.568.2";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.479.3 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.1.0 2.568.2 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;

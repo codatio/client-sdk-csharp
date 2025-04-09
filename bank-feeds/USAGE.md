@@ -2,7 +2,6 @@
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",

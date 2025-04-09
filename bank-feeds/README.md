@@ -7,11 +7,11 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.
+Bank Feeds: Bank Feeds solution enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.
 
 A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting software.
 
-[Explore product](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+[Explore solution](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
 ---
 <!-- Start Codat Tags Table -->
@@ -113,6 +113,7 @@ var res = await sdk.ClientRateLimitReachedAsync(req);
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Get](docs/sdks/companies/README.md#get) - Get company
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [Replace](docs/sdks/companies/README.md#replace) - Replace company
 * [Update](docs/sdks/companies/README.md#update) - Update company
 * [GetAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 
@@ -162,11 +163,10 @@ var res = await sdk.ClientRateLimitReachedAsync(req);
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(
     serverUrl: "https://api.codat.io",
@@ -201,7 +201,6 @@ You can set the security parameters through the `security` optional parameter wh
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
@@ -234,19 +233,18 @@ By default, an API error will raise a `Codat.BankFeeds.Models.Errors.SDKExceptio
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CreateAsync` method throws the following exceptions:
 
-| Error Type                                 | Status Code                       | Content Type     |
-| ------------------------------------------ | --------------------------------- | ---------------- |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503 | application/json |
-| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                          | \*/\*            |
+| Error Type                                 | Status Code             | Content Type     |
+| ------------------------------------------ | ----------------------- | ---------------- |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429 | application/json |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                | application/json |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                | \*/\*            |
 
 ### Example
 
 ```csharp
 using Codat.BankFeeds;
-using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
-using System;
 using Codat.BankFeeds.Models.Errors;
+using Codat.BankFeeds.Models.Shared;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
@@ -270,6 +268,11 @@ catch (Exception ex)
         // Handle exception data
         throw;
     }
+    else if (ex is ErrorMessage)
+    {
+        // Handle exception data
+        throw;
+    }
     else if (ex is Codat.BankFeeds.Models.Errors.SDKException)
     {
         // Handle default exception
@@ -288,7 +291,6 @@ To change the default retry strategy for a single API call, simply pass a `Retry
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
@@ -310,7 +312,7 @@ var res = await sdk.Companies.CreateAsync(
         ),
         retryConnectionErrors: false
     ),
-    req
+    request: req
 );
 
 // handle response
@@ -320,7 +322,6 @@ If you'd like to override the default retry strategy for all operations that sup
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
-using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(
     retryConfig: new RetryConfig(

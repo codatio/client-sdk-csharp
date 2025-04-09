@@ -1,12 +1,22 @@
 # CreateBatchSourceAccountResponseBody
 
-Success
-
 
 ## Supported Types
 
-### ArrayOf1
+### SourceAccountV2BatchCreateResponse
 
 ```csharp
-CreateBatchSourceAccountResponseBody.CreateArrayOf1(/* values here */);
+CreateBatchSourceAccountResponseBody.CreateSourceAccountV2BatchCreateResponse(/* values here */);
+```
+
+### SourceAccountBatchCreateResponse
+
+```csharp
+CreateBatchSourceAccountResponseBody.CreateSourceAccountBatchCreateResponse(/* values here */);
+```
+
+### SourceAccountBatchErrorResponse
+
+```csharp
+CreateBatchSourceAccountResponseBody.CreateSourceAccountBatchErrorResponse(/* values here */);
 ```

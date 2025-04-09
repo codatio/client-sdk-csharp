@@ -14,21 +14,27 @@ namespace Codat.BankFeeds.Models.Shared
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Account ID and resulting object of the batch `Create source account` request.
+    /// Status details and corresponding object of the `Create account` operation.
     /// </summary>
-    public class SourceAccountBatchCreateResponse
+    public class SourceAccountV2BatchCreateResult
     {
 
         /// <summary>
-        /// Unique ID for the source account.
+        /// The HTTP status code for the creation of the source account
         /// </summary>
-        [JsonProperty("sourceAccountId")]
-        public string? SourceAccountId { get; set; }
+        [JsonProperty("statusCode")]
+        public long? StatusCode { get; set; }
 
         /// <summary>
-        /// Status details and corresponding object of the `Create account` operation.
+        /// A brief description of the error.
         /// </summary>
-        [JsonProperty("result")]
-        public SourceAccountBatchCreateResult? Result { get; set; }
+        [JsonProperty("error")]
+        public string? Error { get; set; } = null;
+
+        /// <summary>
+        /// The target bank account in a supported accounting software for ingestion into a bank feed.
+        /// </summary>
+        [JsonProperty("account")]
+        public SourceAccountV2? Account { get; set; }
     }
 }

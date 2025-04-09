@@ -3,14 +3,14 @@
 
 ## Supported Types
 
-### ArrayOfSourceAccountV2
+### ArrayOfSourceAccountV2Prototype
 
 ```csharp
-CreateBatchSourceAccountRequestBody.CreateArrayOfSourceAccountV2(/* values here */);
+CreateBatchSourceAccountRequestBody.CreateArrayOfSourceAccountV2Prototype(/* values here */);
 ```
 
-### ArrayOfSourceAccount
+### ArrayOfSourceAccountPrototype
 
 ```csharp
-CreateBatchSourceAccountRequestBody.CreateArrayOfSourceAccount(/* values here */);
+CreateBatchSourceAccountRequestBody.CreateArrayOfSourceAccountPrototype(/* values here */);
 ```

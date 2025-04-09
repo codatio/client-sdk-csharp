@@ -3,17 +3,17 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.BankFeeds</PackageId>
-    <Version>7.0.0</Version>
+    <Version>7.1.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
-    <Copyright>Copyright (c) Codat 2024</Copyright>
+    <Copyright>Copyright (c) Codat 2025</Copyright>
     <RepositoryUrl>https://github.com/codatio/client-sdk-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Description>Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.<br/>
+    <Description>Bank Feeds: Bank Feeds solution enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.<br/>
 <br/>
 A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting software.<br/>
 <br/>
-<a href="https://docs.codat.io/bank-feeds-api/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+<a href="https://docs.codat.io/bank-feeds-api/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
 <br/>
 ---<br/>
 &lt;!-- Start Codat Tags Table --&gt;<br/>

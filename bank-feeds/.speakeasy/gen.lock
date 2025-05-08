@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: c40656f24dcfb688edab454d853ad9ce
+  docChecksum: 2a761e21b7e4f947e99063f27edfea4d
   docVersion: 3.0.0
-  speakeasyVersion: 1.531.0
-  generationVersion: 2.568.2
-  releaseVersion: 7.1.0
-  configChecksum: 67889d808a267c8df469e0d88a0098f6
+  speakeasyVersion: 1.542.3
+  generationVersion: 2.597.9
+  releaseVersion: 7.1.1
+  configChecksum: 780b6c6427b400376173999b3098f663
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   published: true
@@ -14,7 +14,7 @@ features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.1
-    core: 3.10.15
+    core: 3.10.16
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.5
@@ -43,6 +43,7 @@ generatedFiles:
   - Codat/BankFeeds/Connections.cs
   - Codat/BankFeeds/Hooks/HookTypes.cs
   - Codat/BankFeeds/Hooks/SDKHooks.cs
+  - Codat/BankFeeds/ManagedBankFeeds.cs
   - Codat/BankFeeds/Models/Errors/ErrorMessage.cs
   - Codat/BankFeeds/Models/Errors/SDKException.cs
   - Codat/BankFeeds/Models/Operations/CreateBankAccountMappingRequest.cs
@@ -71,6 +72,8 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/DeleteConnectionResponse.cs
   - Codat/BankFeeds/Models/Operations/DeleteSourceAccountRequest.cs
   - Codat/BankFeeds/Models/Operations/DeleteSourceAccountResponse.cs
+  - Codat/BankFeeds/Models/Operations/FetchManagedBankFeedSyncByIdRequest.cs
+  - Codat/BankFeeds/Models/Operations/FetchManagedBankFeedSyncByIdResponse.cs
   - Codat/BankFeeds/Models/Operations/GenerateCredentialsRequest.cs
   - Codat/BankFeeds/Models/Operations/GenerateCredentialsResponse.cs
   - Codat/BankFeeds/Models/Operations/GetBankAccountMappingRequest.cs
@@ -93,6 +96,8 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/GetCreateOperationResponse.cs
   - Codat/BankFeeds/Models/Operations/GetLastSuccessfulRequest.cs
   - Codat/BankFeeds/Models/Operations/GetLastSuccessfulResponse.cs
+  - Codat/BankFeeds/Models/Operations/GetLatestManagedBankFeedSyncRequest.cs
+  - Codat/BankFeeds/Models/Operations/GetLatestManagedBankFeedSyncResponse.cs
   - Codat/BankFeeds/Models/Operations/ListBankAccountsRequest.cs
   - Codat/BankFeeds/Models/Operations/ListBankAccountsResponse.cs
   - Codat/BankFeeds/Models/Operations/ListCompaniesRequest.cs
@@ -107,6 +112,8 @@ generatedFiles:
   - Codat/BankFeeds/Models/Operations/ReplaceCompanyRequest.cs
   - Codat/BankFeeds/Models/Operations/ReplaceCompanyResponse.cs
   - Codat/BankFeeds/Models/Operations/ResponseBody.cs
+  - Codat/BankFeeds/Models/Operations/RunManagedBankFeedAdhocSyncRequest.cs
+  - Codat/BankFeeds/Models/Operations/RunManagedBankFeedAdhocSyncResponse.cs
   - Codat/BankFeeds/Models/Operations/SetConfigurationRequest.cs
   - Codat/BankFeeds/Models/Operations/SetConfigurationResponse.cs
   - Codat/BankFeeds/Models/Operations/UnlinkConnectionRequest.cs
@@ -195,11 +202,13 @@ generatedFiles:
   - Codat/BankFeeds/Models/Shared/SourceAccountWebhookPayload.cs
   - Codat/BankFeeds/Models/Shared/SourceAccountWebhookPayloadSourceAccount.cs
   - Codat/BankFeeds/Models/Shared/SourceType.cs
+  - Codat/BankFeeds/Models/Shared/StartScheduledSyncResult.cs
   - Codat/BankFeeds/Models/Shared/Status.cs
   - Codat/BankFeeds/Models/Shared/SupplementalData.cs
   - Codat/BankFeeds/Models/Shared/SyncAsBankFeeds.cs
   - Codat/BankFeeds/Models/Shared/SyncAsExpenses.cs
   - Codat/BankFeeds/Models/Shared/SyncConfiguration.cs
+  - Codat/BankFeeds/Models/Shared/SyncStatusResult.cs
   - Codat/BankFeeds/Models/Shared/TargetAccountOption.cs
   - Codat/BankFeeds/Models/Shared/Type.cs
   - Codat/BankFeeds/Models/Shared/Validation.cs
@@ -257,6 +266,8 @@ generatedFiles:
   - docs/Models/Operations/DeleteConnectionResponse.md
   - docs/Models/Operations/DeleteSourceAccountRequest.md
   - docs/Models/Operations/DeleteSourceAccountResponse.md
+  - docs/Models/Operations/FetchManagedBankFeedSyncByIdRequest.md
+  - docs/Models/Operations/FetchManagedBankFeedSyncByIdResponse.md
   - docs/Models/Operations/GenerateCredentialsRequest.md
   - docs/Models/Operations/GenerateCredentialsResponse.md
   - docs/Models/Operations/GetBankAccountMappingRequest.md
@@ -279,6 +290,8 @@ generatedFiles:
   - docs/Models/Operations/GetCreateOperationResponse.md
   - docs/Models/Operations/GetLastSuccessfulRequest.md
   - docs/Models/Operations/GetLastSuccessfulResponse.md
+  - docs/Models/Operations/GetLatestManagedBankFeedSyncRequest.md
+  - docs/Models/Operations/GetLatestManagedBankFeedSyncResponse.md
   - docs/Models/Operations/ListBankAccountsRequest.md
   - docs/Models/Operations/ListBankAccountsResponse.md
   - docs/Models/Operations/ListCompaniesRequest.md
@@ -293,6 +306,8 @@ generatedFiles:
   - docs/Models/Operations/ReplaceCompanyRequest.md
   - docs/Models/Operations/ReplaceCompanyResponse.md
   - docs/Models/Operations/ResponseBody.md
+  - docs/Models/Operations/RunManagedBankFeedAdhocSyncRequest.md
+  - docs/Models/Operations/RunManagedBankFeedAdhocSyncResponse.md
   - docs/Models/Operations/SetConfigurationRequest.md
   - docs/Models/Operations/SetConfigurationResponse.md
   - docs/Models/Operations/UnlinkConnectionRequest.md
@@ -381,11 +396,13 @@ generatedFiles:
   - docs/Models/Shared/SourceAccountWebhookPayload.md
   - docs/Models/Shared/SourceAccountWebhookPayloadSourceAccount.md
   - docs/Models/Shared/SourceType.md
+  - docs/Models/Shared/StartScheduledSyncResult.md
   - docs/Models/Shared/Status.md
   - docs/Models/Shared/SupplementalData.md
   - docs/Models/Shared/SyncAsBankFeeds.md
   - docs/Models/Shared/SyncAsExpenses.md
   - docs/Models/Shared/SyncConfiguration.md
+  - docs/Models/Shared/SyncStatusResult.md
   - docs/Models/Shared/TargetAccountOption.md
   - docs/Models/Shared/Type.md
   - docs/Models/Shared/Validation.md
@@ -401,6 +418,7 @@ generatedFiles:
   - docs/sdks/companyinformation/README.md
   - docs/sdks/configuration/README.md
   - docs/sdks/connections/README.md
+  - docs/sdks/managedbankfeeds/README.md
   - docs/sdks/sourceaccounts/README.md
   - docs/sdks/sync/README.md
   - docs/sdks/transactions/README.md
@@ -1284,7 +1302,7 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          accountId: "EILBDVJVNUAGVKRQ"
+          accountId: "7110701885"
         query:
           allowSyncOnPushComplete: true
       requestBody:
@@ -1299,7 +1317,7 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+          accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
         query:
           allowSyncOnPushComplete: true
       requestBody:
@@ -1329,7 +1347,7 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          accountId: "EILBDVJVNUAGVKRQ"
+          accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
         query:
           allowSyncOnPushComplete: true
       requestBody:
@@ -1405,5 +1423,42 @@ examples:
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
         "500":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  fetch-managed-bank-feed-sync-by-id:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          sourceAccountId: "<id>"
+          syncId: "00d2db9c-5a7e-484c-aa9d-2c5fea34f8c4"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-latest-managed-bank-feed-sync:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          sourceAccountId: "<id>"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  run-managed-bank-feed-adhoc-sync:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          sourceAccountId: "<id>"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
 examplesVersion: 1.0.1
 generatedTests: {}

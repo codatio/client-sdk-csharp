@@ -134,6 +134,12 @@ var res = await sdk.ClientRateLimitReachedAsync(req);
 * [Delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
+### [ManagedBankFeeds](docs/sdks/managedbankfeeds/README.md)
+
+* [FetchManagedBankFeedSyncById](docs/sdks/managedbankfeeds/README.md#fetchmanagedbankfeedsyncbyid) - Get sync
+* [Get](docs/sdks/managedbankfeeds/README.md#get) - Get latest sync
+* [RunManagedBankFeedAdhocSync](docs/sdks/managedbankfeeds/README.md#runmanagedbankfeedadhocsync) - Run ad-hoc sync
+
 ### [SourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [CreateBatch](docs/sdks/sourceaccounts/README.md#createbatch) - Create source accounts

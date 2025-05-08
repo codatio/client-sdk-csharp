@@ -23,69 +23,51 @@ namespace Codat.BankFeeds
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extra functionality for building an account management UI.
+    /// Manage bank feed syncs for source accounts.
     /// </summary>
-    public interface IAccountMapping
+    public interface IManagedBankFeeds
     {
 
         /// <summary>
-        /// List bank feed accounts
+        /// Get sync
         /// 
         /// <remarks>
-        /// The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
+        /// The _Get sync_ endpoint returns the <a href="https://docs.codat.io/bank-feeds-api#/schemas/SyncStatusResult">sync status</a> for a given &apos;syncId&apos;. <br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
-        /// <br/>
-        /// &gt; **For custom builds only**<br/>
-        /// &gt; <br/>
-        /// &gt; Only use this endpoint if you are building your own account management UI.
+        /// A sync is a single execution that fetches bank transactions from a connected bank account and records them in the company&apos;s accounting software.
         /// </remarks>
         /// </summary>
-        Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest request, RetryConfig? retryConfig = null);
+        Task<FetchManagedBankFeedSyncByIdResponse> FetchManagedBankFeedSyncByIdAsync(FetchManagedBankFeedSyncByIdRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Create bank feed account mapping
+        /// Get latest sync
         /// 
         /// <remarks>
-        /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
+        /// The _Get latest sync_ endpoint returns the status for a given source account&apos;s <a href="https://docs.codat.io/bank-feeds-api#/schemas/SyncStatusResult">most recent sync</a>. <br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
-        /// <br/>
-        /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
-        /// <br/>
-        /// &gt; **For custom builds only**<br/>
-        /// &gt;<br/>
-        /// &gt; Only use this endpoint if you are building your own account management UI.<br/>
-        /// <br/>
-        /// #### Account mapping variability<br/>
-        /// <br/>
-        /// The method of mapping the source account to the target account varies depending on the accounting software your company uses.<br/>
-        /// <br/>
-        /// #### Mapping options:<br/>
-        /// <br/>
-        /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
-        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat&apos;s provided user interface for mapping.<br/>
-        /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
-        /// <br/>
-        /// ### Integration-specific behaviour<br/>
-        /// <br/>
-        /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |<br/>
-        /// | --------------------- | ----------- | ---------------- | --------------------------- |<br/>
-        /// | Xero                  | ✅          | ✅               |                             |<br/>
-        /// | FreeAgent             | ✅          | ✅               |                             |<br/>
-        /// | Oracle NetSuite       | ✅          | ✅               |                             |<br/>
-        /// | Exact Online (NL)     | ✅          | ✅               |                             |<br/>
-        /// | QuickBooks Online     |             |                  | ✅                          |<br/>
-        /// | Sage                  |             |                  | ✅                          |
+        /// A sync is a single execution that fetches bank transactions from a connected bank account and records them in the company&apos;s accounting software.
         /// </remarks>
         /// </summary>
-        Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null);
+        Task<GetLatestManagedBankFeedSyncResponse> GetAsync(GetLatestManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null);
+
+        /// <summary>
+        /// Run ad-hoc sync
+        /// 
+        /// <remarks>
+        /// The _Run ad-hoc sync_ endpoint immediately runs a sync with a fetch period from the last successful sync to the execution time of the new sync.<br/>
+        /// <br/>
+        /// A sync is a single execution that fetches bank transactions from a connected bank account and records them in the company&apos;s accounting software.<br/>
+        /// <br/>
+        /// Use either the <a href="https://docs.codat.io/bank-feeds-api#/operations/get-latest-managed-bank-feed-sync">_Get latest sync_</a> endpoint or the <a href="https://docs.codat.io/bank-feeds-api#/operations/fetch-managed-bank-feed-sync-by-id">_Get sync_</a> endpoint to get the result of this sync.
+        /// </remarks>
+        /// </summary>
+        Task<RunManagedBankFeedAdhocSyncResponse> RunManagedBankFeedAdhocSyncAsync(RunManagedBankFeedAdhocSyncRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
-    /// Extra functionality for building an account management UI.
+    /// Manage bank feed syncs for source accounts.
     /// </summary>
-    public class AccountMapping: IAccountMapping
+    public class ManagedBankFeeds: IManagedBankFeeds
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
@@ -97,7 +79,7 @@ namespace Codat.BankFeeds
         private ISpeakeasyHttpClient _client;
         private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;
 
-        public AccountMapping(ISpeakeasyHttpClient client, Func<Codat.BankFeeds.Models.Shared.Security>? securitySource, string serverUrl, SDKConfig config)
+        public ManagedBankFeeds(ISpeakeasyHttpClient client, Func<Codat.BankFeeds.Models.Shared.Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _client = client;
             _securitySource = securitySource;
@@ -105,10 +87,10 @@ namespace Codat.BankFeeds
             SDKConfiguration = config;
         }
 
-        public async Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest request, RetryConfig? retryConfig = null)
+        public async Task<FetchManagedBankFeedSyncByIdResponse> FetchManagedBankFeedSyncByIdAsync(FetchManagedBankFeedSyncByIdRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs/{syncId}", request);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
@@ -118,7 +100,7 @@ namespace Codat.BankFeeds
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(baseUrl, "get-bank-account-mapping", new List<string> {  }, _securitySource);
+            var hookCtx = new HookContext(baseUrl, "fetch-managed-bank-feed-sync-by-id", new List<string> {  }, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -193,14 +175,14 @@ namespace Codat.BankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<List<BankFeedMapping>>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new GetBankAccountMappingResponse()
+                    var obj = ResponseBodyDeserializer.Deserialize<SyncStatusResult>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new FetchManagedBankFeedSyncByIdResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.BankFeedMappings = obj;
+                    response.SyncStatusResult = obj;
                     return response;
                 }
 
@@ -238,26 +220,20 @@ namespace Codat.BankFeeds
             throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
-        public async Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null)
+        public async Task<GetLatestManagedBankFeedSyncResponse> GetAsync(GetLatestManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs/latest", request);
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
-
-            var serializedBody = RequestBodySerializer.Serialize(request, "BankFeedAccountMapping", "json", false, true);
-            if (serializedBody != null)
-            {
-                httpRequest.Content = serializedBody;
-            }
 
             if (_securitySource != null)
             {
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(baseUrl, "create-bank-account-mapping", new List<string> {  }, _securitySource);
+            var hookCtx = new HookContext(baseUrl, "get-latest-managed-bank-feed-sync", new List<string> {  }, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -302,7 +278,7 @@ namespace Codat.BankFeeds
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -332,20 +308,162 @@ namespace Codat.BankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<BankFeedAccountMappingResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new CreateBankAccountMappingResponse()
+                    var obj = ResponseBodyDeserializer.Deserialize<SyncStatusResult>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new GetLatestManagedBankFeedSyncResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
                         RawResponse = httpResponse
                     };
-                    response.BankFeedAccountMappingResponse = obj;
+                    response.SyncStatusResult = obj;
                     return response;
                 }
 
                 throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
+            else if(responseStatusCode == 204)
+            {                
+                return new GetLatestManagedBankFeedSyncResponse()
+                {
+                    StatusCode = responseStatusCode,
+                    ContentType = contentType,
+                    RawResponse = httpResponse
+                };
+            }
+            else if(new List<int>{401, 402, 403, 404, 429}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    throw obj!;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    throw obj!;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+        }
+
+        public async Task<RunManagedBankFeedAdhocSyncResponse> RunManagedBankFeedAdhocSyncAsync(RunManagedBankFeedAdhocSyncRequest request, RetryConfig? retryConfig = null)
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs", request);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+
+            if (_securitySource != null)
+            {
+                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(baseUrl, "run-managed-bank-feed-adhoc-sync", new List<string> {  }, _securitySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 500L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string>
+            {
+                "408",
+                "429",
+                "5XX",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await _client.CloneAsync(httpRequest);
+                return await _client.SendAsync(_httpRequest);
+            };
+            var retries = new Codat.BankFeeds.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await retries.Run();
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 201)
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var obj = ResponseBodyDeserializer.Deserialize<StartScheduledSyncResult>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var response = new RunManagedBankFeedAdhocSyncResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
+                    response.StartScheduledSyncResult = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+            else if(new List<int>{400, 401, 402, 403, 404, 409, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {

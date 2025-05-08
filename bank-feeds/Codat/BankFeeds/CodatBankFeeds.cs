@@ -91,6 +91,11 @@ namespace Codat.BankFeeds
         /// Create new bank account transactions for a company&apos;s connections, and see previous operations.
         /// </summary>
         public ITransactions Transactions { get; }
+
+        /// <summary>
+        /// Manage bank feed syncs for source accounts.
+        /// </summary>
+        public IManagedBankFeeds ManagedBankFeeds { get; }
     }
 
     public class SDKConfig
@@ -157,10 +162,10 @@ namespace Codat.BankFeeds
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "7.1.0";
-        private const string _sdkGenVersion = "2.568.2";
+        private const string _sdkVersion = "7.2.0";
+        private const string _sdkGenVersion = "2.597.9";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.1.0 2.568.2 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.2.0 2.597.9 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _client;
@@ -174,6 +179,7 @@ namespace Codat.BankFeeds
         public IAccountMapping AccountMapping { get; private set; }
         public ICompanyInformation CompanyInformation { get; private set; }
         public ITransactions Transactions { get; private set; }
+        public IManagedBankFeeds ManagedBankFeeds { get; private set; }
 
         public CodatBankFeeds(Codat.BankFeeds.Models.Shared.Security? security = null, Func<Codat.BankFeeds.Models.Shared.Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
         {
@@ -245,6 +251,9 @@ namespace Codat.BankFeeds
 
 
             Transactions = new Transactions(_client, _securitySource, _serverUrl, SDKConfiguration);
+
+
+            ManagedBankFeeds = new ManagedBankFeeds(_client, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

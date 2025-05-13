@@ -22,6 +22,6 @@ namespace Codat.BankFeeds.Models.Shared
         /// The unique identifier for the created sync.
         /// </summary>
         [JsonProperty("syncId")]
-        public string? SyncId { get; set; }
+        public string SyncId { get; set; } = default!;
     }
 }

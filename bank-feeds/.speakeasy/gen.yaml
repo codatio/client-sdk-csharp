@@ -16,7 +16,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 csharp:
-  version: 7.2.0
+  version: 7.3.0
   additionalDependencies: []
   author: Codat
   clientServerStatusCodesAsErrors: true

@@ -1,4 +1,4 @@
-# FetchManagedBankFeedSyncByIdRequest
+# GetManagedBankFeedSyncRequest
 
 
 ## Fields

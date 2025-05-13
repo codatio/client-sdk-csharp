@@ -24,61 +24,61 @@ namespace Codat.BankFeeds.Models.Shared
         /// The unique identifier for the sync.
         /// </summary>
         [JsonProperty("syncId")]
-        public string? SyncId { get; set; }
+        public string SyncId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the client associated with the company that owns the source bank account.
         /// </summary>
         [JsonProperty("clientId")]
-        public string? ClientId { get; set; }
+        public string ClientId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the company that owns the source bank account.
         /// </summary>
         [JsonProperty("companyId")]
-        public string? CompanyId { get; set; }
+        public string CompanyId { get; set; } = default!;
 
         /// <summary>
         /// The name of the company that owns the source bank account.
         /// </summary>
         [JsonProperty("companyName")]
-        public string? CompanyName { get; set; }
+        public string CompanyName { get; set; } = default!;
 
         /// <summary>
         /// The ID of the target accounting data connection.
         /// </summary>
         [JsonProperty("dataConnectionId")]
-        public string? DataConnectionId { get; set; }
+        public string DataConnectionId { get; set; } = default!;
 
         /// <summary>
         /// The ID of the source bank account from which transactions are fetched.
         /// </summary>
         [JsonProperty("sourceAccountId")]
-        public string? SourceAccountId { get; set; }
+        public string SourceAccountId { get; set; } = default!;
 
         /// <summary>
         /// The start of the sync period.
         /// </summary>
         [JsonProperty("periodStartUtc")]
-        public DateTime? PeriodStartUtc { get; set; }
+        public DateTime PeriodStartUtc { get; set; } = default!;
 
         /// <summary>
         /// The end of the sync period.
         /// </summary>
         [JsonProperty("periodEndUtc")]
-        public DateTime? PeriodEndUtc { get; set; }
+        public DateTime PeriodEndUtc { get; set; } = default!;
 
         /// <summary>
         /// The UTC timestamp when the sync started executing.
         /// </summary>
         [JsonProperty("executionStartUtc")]
-        public DateTime? ExecutionStartUtc { get; set; }
+        public DateTime ExecutionStartUtc { get; set; } = default!;
 
         /// <summary>
         /// The current status of the sync. Known values are `Started`, `Failed`, `SuccessDataPushed`, `SuccessNoDataPushed`, `PartialSuccessDataPushed`.
         /// </summary>
         [JsonProperty("status")]
-        public string? Status { get; set; }
+        public string Status { get; set; } = default!;
 
         /// <summary>
         /// The UTC timestamp when the sync execution ended, if completed (i.e. `status` is any value other than `Started`).

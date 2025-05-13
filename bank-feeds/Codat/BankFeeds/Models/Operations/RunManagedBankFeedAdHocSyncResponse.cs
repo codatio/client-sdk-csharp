@@ -14,7 +14,7 @@ namespace Codat.BankFeeds.Models.Operations
     using System;
     using System.Net.Http;
     
-    public class FetchManagedBankFeedSyncByIdResponse
+    public class RunManagedBankFeedAdHocSyncResponse
     {
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace Codat.BankFeeds.Models.Operations
         public HttpResponseMessage RawResponse { get; set; } = default!;
 
         /// <summary>
-        /// Success
+        /// Created
         /// </summary>
-        public SyncStatusResult? SyncStatusResult { get; set; }
+        public StartScheduledSyncResult? StartScheduledSyncResult { get; set; }
     }
 }

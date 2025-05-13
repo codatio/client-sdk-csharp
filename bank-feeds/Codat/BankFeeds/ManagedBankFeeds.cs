@@ -37,7 +37,7 @@ namespace Codat.BankFeeds
         /// A sync is a single execution that fetches bank transactions from a connected bank account and records them in the company&apos;s accounting software.
         /// </remarks>
         /// </summary>
-        Task<FetchManagedBankFeedSyncByIdResponse> FetchManagedBankFeedSyncByIdAsync(FetchManagedBankFeedSyncByIdRequest request, RetryConfig? retryConfig = null);
+        Task<GetManagedBankFeedSyncResponse> GetSyncAsync(GetManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
         /// Get latest sync
@@ -48,7 +48,7 @@ namespace Codat.BankFeeds
         /// A sync is a single execution that fetches bank transactions from a connected bank account and records them in the company&apos;s accounting software.
         /// </remarks>
         /// </summary>
-        Task<GetLatestManagedBankFeedSyncResponse> GetAsync(GetLatestManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null);
+        Task<GetLatestManagedBankFeedSyncResponse> GetLatestSyncAsync(GetLatestManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
         /// Run ad-hoc sync
@@ -61,7 +61,7 @@ namespace Codat.BankFeeds
         /// Use either the <a href="https://docs.codat.io/bank-feeds-api#/operations/get-latest-managed-bank-feed-sync">_Get latest sync_</a> endpoint or the <a href="https://docs.codat.io/bank-feeds-api#/operations/fetch-managed-bank-feed-sync-by-id">_Get sync_</a> endpoint to get the result of this sync.
         /// </remarks>
         /// </summary>
-        Task<RunManagedBankFeedAdhocSyncResponse> RunManagedBankFeedAdhocSyncAsync(RunManagedBankFeedAdhocSyncRequest request, RetryConfig? retryConfig = null);
+        Task<RunManagedBankFeedAdHocSyncResponse> RunAdHocSyncAsync(RunManagedBankFeedAdHocSyncRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -71,10 +71,10 @@ namespace Codat.BankFeeds
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "7.2.0";
-        private const string _sdkGenVersion = "2.597.9";
+        private const string _sdkVersion = "7.3.0";
+        private const string _sdkGenVersion = "2.599.0";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.2.0 2.597.9 3.0.0 Codat.BankFeeds";
+        private const string _userAgent = "speakeasy-sdk/csharp 7.3.0 2.599.0 3.0.0 Codat.BankFeeds";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;
@@ -87,7 +87,7 @@ namespace Codat.BankFeeds
             SDKConfiguration = config;
         }
 
-        public async Task<FetchManagedBankFeedSyncByIdResponse> FetchManagedBankFeedSyncByIdAsync(FetchManagedBankFeedSyncByIdRequest request, RetryConfig? retryConfig = null)
+        public async Task<GetManagedBankFeedSyncResponse> GetSyncAsync(GetManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs/{syncId}", request);
@@ -100,7 +100,7 @@ namespace Codat.BankFeeds
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(baseUrl, "fetch-managed-bank-feed-sync-by-id", new List<string> {  }, _securitySource);
+            var hookCtx = new HookContext(baseUrl, "get-managed-bank-feed-sync", new List<string> {  }, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -176,7 +176,7 @@ namespace Codat.BankFeeds
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var obj = ResponseBodyDeserializer.Deserialize<SyncStatusResult>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new FetchManagedBankFeedSyncByIdResponse()
+                    var response = new GetManagedBankFeedSyncResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
@@ -220,7 +220,7 @@ namespace Codat.BankFeeds
             throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
-        public async Task<GetLatestManagedBankFeedSyncResponse> GetAsync(GetLatestManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null)
+        public async Task<GetLatestManagedBankFeedSyncResponse> GetLatestSyncAsync(GetLatestManagedBankFeedSyncRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs/latest", request);
@@ -362,7 +362,7 @@ namespace Codat.BankFeeds
             throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
 
-        public async Task<RunManagedBankFeedAdhocSyncResponse> RunManagedBankFeedAdhocSyncAsync(RunManagedBankFeedAdhocSyncRequest request, RetryConfig? retryConfig = null)
+        public async Task<RunManagedBankFeedAdHocSyncResponse> RunAdHocSyncAsync(RunManagedBankFeedAdHocSyncRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs", request);
@@ -375,7 +375,7 @@ namespace Codat.BankFeeds
                 httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(baseUrl, "run-managed-bank-feed-adhoc-sync", new List<string> {  }, _securitySource);
+            var hookCtx = new HookContext(baseUrl, "run-managed-bank-feed-ad-hoc-sync", new List<string> {  }, _securitySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -451,7 +451,7 @@ namespace Codat.BankFeeds
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var obj = ResponseBodyDeserializer.Deserialize<StartScheduledSyncResult>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new RunManagedBankFeedAdhocSyncResponse()
+                    var response = new RunManagedBankFeedAdHocSyncResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,

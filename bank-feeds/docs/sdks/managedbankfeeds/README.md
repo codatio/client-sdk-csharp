@@ -7,11 +7,11 @@ Manage bank feed syncs for source accounts.
 
 ### Available Operations
 
-* [FetchManagedBankFeedSyncById](#fetchmanagedbankfeedsyncbyid) - Get sync
-* [Get](#get) - Get latest sync
-* [RunManagedBankFeedAdhocSync](#runmanagedbankfeedadhocsync) - Run ad-hoc sync
+* [GetSync](#getsync) - Get sync
+* [GetLatestSync](#getlatestsync) - Get latest sync
+* [RunAdHocSync](#runadhocsync) - Run ad-hoc sync
 
-## FetchManagedBankFeedSyncById
+## GetSync
 
 The _Get sync_ endpoint returns the [sync status](https://docs.codat.io/bank-feeds-api#/schemas/SyncStatusResult) for a given 'syncId'. 
 
@@ -28,27 +28,27 @@ var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
 });
 
-FetchManagedBankFeedSyncByIdRequest req = new FetchManagedBankFeedSyncByIdRequest() {
+GetManagedBankFeedSyncRequest req = new GetManagedBankFeedSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     SourceAccountId = "<id>",
-    SyncId = "00d2db9c-5a7e-484c-aa9d-2c5fea34f8c4",
+    SyncId = "0b30533d-3bf6-4e6c-a030-630f53fe04d6",
 };
 
-var res = await sdk.ManagedBankFeeds.FetchManagedBankFeedSyncByIdAsync(req);
+var res = await sdk.ManagedBankFeeds.GetSyncAsync(req);
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [FetchManagedBankFeedSyncByIdRequest](../../Models/Operations/FetchManagedBankFeedSyncByIdRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `request`                                                                                 | [GetManagedBankFeedSyncRequest](../../Models/Operations/GetManagedBankFeedSyncRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 ### Response
 
-**[FetchManagedBankFeedSyncByIdResponse](../../Models/Operations/FetchManagedBankFeedSyncByIdResponse.md)**
+**[GetManagedBankFeedSyncResponse](../../Models/Operations/GetManagedBankFeedSyncResponse.md)**
 
 ### Errors
 
@@ -58,7 +58,7 @@ var res = await sdk.ManagedBankFeeds.FetchManagedBankFeedSyncByIdAsync(req);
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
-## Get
+## GetLatestSync
 
 The _Get latest sync_ endpoint returns the status for a given source account's [most recent sync](https://docs.codat.io/bank-feeds-api#/schemas/SyncStatusResult). 
 
@@ -81,7 +81,7 @@ GetLatestManagedBankFeedSyncRequest req = new GetLatestManagedBankFeedSyncReques
     SourceAccountId = "<id>",
 };
 
-var res = await sdk.ManagedBankFeeds.GetAsync(req);
+var res = await sdk.ManagedBankFeeds.GetLatestSyncAsync(req);
 
 // handle response
 ```
@@ -104,7 +104,7 @@ var res = await sdk.ManagedBankFeeds.GetAsync(req);
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
 
-## RunManagedBankFeedAdhocSync
+## RunAdHocSync
 
 The _Run ad-hoc sync_ endpoint immediately runs a sync with a fetch period from the last successful sync to the execution time of the new sync.
 
@@ -123,13 +123,13 @@ var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
 });
 
-RunManagedBankFeedAdhocSyncRequest req = new RunManagedBankFeedAdhocSyncRequest() {
+RunManagedBankFeedAdHocSyncRequest req = new RunManagedBankFeedAdHocSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     SourceAccountId = "<id>",
 };
 
-var res = await sdk.ManagedBankFeeds.RunManagedBankFeedAdhocSyncAsync(req);
+var res = await sdk.ManagedBankFeeds.RunAdHocSyncAsync(req);
 
 // handle response
 ```
@@ -138,11 +138,11 @@ var res = await sdk.ManagedBankFeeds.RunManagedBankFeedAdhocSyncAsync(req);
 
 | Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [RunManagedBankFeedAdhocSyncRequest](../../Models/Operations/RunManagedBankFeedAdhocSyncRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| `request`                                                                                           | [RunManagedBankFeedAdHocSyncRequest](../../Models/Operations/RunManagedBankFeedAdHocSyncRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 ### Response
 
-**[RunManagedBankFeedAdhocSyncResponse](../../Models/Operations/RunManagedBankFeedAdhocSyncResponse.md)**
+**[RunManagedBankFeedAdHocSyncResponse](../../Models/Operations/RunManagedBankFeedAdHocSyncResponse.md)**
 
 ### Errors
 

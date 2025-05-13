@@ -11,7 +11,7 @@ namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Utils;
     
-    public class FetchManagedBankFeedSyncByIdRequest
+    public class GetManagedBankFeedSyncRequest
     {
 
         /// <summary>

@@ -1,4 +1,4 @@
-# RunManagedBankFeedAdhocSyncRequest
+# RunManagedBankFeedAdHocSyncRequest
 
 
 ## Fields

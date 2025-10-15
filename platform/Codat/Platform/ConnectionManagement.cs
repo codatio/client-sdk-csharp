@@ -13,32 +13,29 @@ namespace Codat.Platform
     using Codat.Platform.Models.Components;
     using Codat.Platform.Models.Errors;
     using Codat.Platform.Models.Requests;
-    using Codat.Platform.Utils.Retries;
     using Codat.Platform.Utils;
+    using Codat.Platform.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Configure UI and retrieve access tokens for authentication used by **Connections SDK**.
     /// </summary>
     public interface IConnectionManagement
     {
-        public ICorsSettings CorsSettings { get; }
 
         /// <summary>
-        /// Get access token
+        /// Get access token (old)
         /// 
         /// <remarks>
-        /// Use the *Get access token* endpoint to retrieve a new access token for use with the <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a>. The token is only valid for one hour and applies to a single company.<br/>
-        /// <br/>
-        /// The embeddable <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> lets your customers control access to their data by allowing them to manage their existing connections.
+        /// The new <a href="https://docs.codat.io/platform-api#/operations/get-company-access-token">Get company access token</a> endpoint replaces this endpoint and includes additional functionality.
         /// </remarks>
         /// </summary>
-        Task<GetConnectionManagementAccessTokenResponse> GetAccessTokenAsync(GetConnectionManagementAccessTokenRequest request, RetryConfig? retryConfig = null);
+        Task<GetConnectionManagementAccessTokenResponse> GetAsync(GetConnectionManagementAccessTokenRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -48,38 +45,30 @@ namespace Codat.Platform
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.0";
-        private const string _sdkGenVersion = "2.462.1";
+        private const string _sdkVersion = "6.1.0";
+        private const string _sdkGenVersion = "2.723.11";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.462.1 3.0.0 Codat.Platform";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Platform.Models.Components.Security>? _securitySource;
-        public ICorsSettings CorsSettings { get; private set; }
 
-        public ConnectionManagement(ISpeakeasyHttpClient client, Func<Codat.Platform.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public ConnectionManagement(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
-            CorsSettings = new CorsSettings(_client, _securitySource, _serverUrl, SDKConfiguration);
         }
 
-        public async Task<GetConnectionManagementAccessTokenResponse> GetAccessTokenAsync(GetConnectionManagementAccessTokenRequest request, RetryConfig? retryConfig = null)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible. Use GetAccessToken instead")]
+        public async Task<GetConnectionManagementAccessTokenResponse> GetAsync(GetConnectionManagementAccessTokenRequest request, RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connectionManagement/accessToken", request);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("get-connection-management-access-token", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "get-connection-management-access-token", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -113,8 +102,8 @@ namespace Codat.Platform
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Platform.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -154,7 +143,17 @@ namespace Codat.Platform
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ConnectionManagementAccessToken>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ConnectionManagementAccessToken obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<ConnectionManagementAccessToken>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ConnectionManagementAccessToken.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new GetConnectionManagementAccessTokenResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -165,24 +164,58 @@ namespace Codat.Platform
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Errors.ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Models.Errors.ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new Models.Errors.ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Models.Errors.ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new Models.Errors.ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
     }
 }

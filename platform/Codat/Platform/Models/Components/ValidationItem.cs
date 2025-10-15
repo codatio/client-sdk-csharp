@@ -16,21 +16,27 @@ namespace Codat.Platform.Models.Components
     {
 
         /// <summary>
-        /// Unique identifier for a validation item.
+        /// The unique identifier of the rule that wasn&apos;t met.
+        /// </summary>
+        [JsonProperty("ruleId")]
+        public string? RuleId { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the item that was validated.
         /// </summary>
         [JsonProperty("itemId")]
-        public string? ItemId { get; set; } = null;
+        public string? ItemId { get; set; }
 
         /// <summary>
-        /// A message outlining validation item&apos;s issue.
+        /// The message that describes the validation warning or error.
         /// </summary>
         [JsonProperty("message")]
-        public string? Message { get; set; } = null;
+        public string? Message { get; set; }
 
         /// <summary>
-        /// Name of validator.
+        /// The name of the validator that was used to validate the item.
         /// </summary>
         [JsonProperty("validatorName")]
-        public string? ValidatorName { get; set; } = null;
+        public string? ValidatorName { get; set; }
     }
 }

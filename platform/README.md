@@ -36,14 +36,18 @@ These end points cover creating and managing your companies, data connections, a
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Platform](#platform)
+  * [Endpoints](#endpoints)
+  * [SDK Installation](#sdk-installation)
+  * [Example Usage](#example-usage)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Server Selection](#server-selection)
+  * [Authentication](#authentication)
+  * [Error Handling](#error-handling)
+  * [Retries](#retries)
 
-* [SDK Installation](#sdk-installation)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Authentication](#authentication)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -72,16 +76,15 @@ dotnet add reference Codat/Platform/Codat.Platform.csproj
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -96,26 +99,22 @@ var res = await sdk.Companies.ListAsync(req);
 <details open>
 <summary>Available methods</summary>
 
-
 ### [Companies](docs/sdks/companies/README.md)
 
 * [List](docs/sdks/companies/README.md#list) - List companies
 * [Create](docs/sdks/companies/README.md#create) - Create company
 * [Get](docs/sdks/companies/README.md#get) - Get company
 * [Delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [Replace](docs/sdks/companies/README.md#replace) - Replace company
 * [Update](docs/sdks/companies/README.md#update) - Update company
 * [AddProduct](docs/sdks/companies/README.md#addproduct) - Add product
 * [RemoveProduct](docs/sdks/companies/README.md#removeproduct) - Remove product
+* [RefreshProductData](docs/sdks/companies/README.md#refreshproductdata) - Refresh product data
 * [GetAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 
-### [ConnectionManagement](docs/sdks/connectionmanagement/README.md)
+### [~~ConnectionManagement~~](docs/sdks/connectionmanagement/README.md)
 
-* [GetAccessToken](docs/sdks/connectionmanagement/README.md#getaccesstoken) - Get access token
-
-#### [ConnectionManagement.CorsSettings](docs/sdks/corssettings/README.md)
-
-* [Get](docs/sdks/corssettings/README.md#get) - Get CORS settings
-* [Set](docs/sdks/corssettings/README.md#set) - Set CORS settings
+* [~~Get~~](docs/sdks/connectionmanagement/README.md#get) - Get access token (old) :warning: **Deprecated** Use [GetAccessToken](docs/sdks/companies/README.md#getaccesstoken) instead.
 
 ### [Connections](docs/sdks/connections/README.md)
 
@@ -125,6 +124,11 @@ var res = await sdk.Companies.ListAsync(req);
 * [Delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [Unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [UpdateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+
+### [~~Cors~~](docs/sdks/cors/README.md)
+
+* [~~Get~~](docs/sdks/cors/README.md#get) - Get CORS settings (old) :warning: **Deprecated** Use [Get](docs/sdks/settings/README.md#get) instead.
+* [~~Set~~](docs/sdks/cors/README.md#set) - Set CORS settings (old) :warning: **Deprecated** Use [Set](docs/sdks/settings/README.md#set) instead.
 
 ### [CustomDataType](docs/sdks/customdatatype/README.md)
 
@@ -145,6 +149,10 @@ var res = await sdk.Companies.ListAsync(req);
 * [ListOperations](docs/sdks/pushdata/README.md#listoperations) - List push operations
 * [GetOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
 
+### [ReadData](docs/sdks/readdata/README.md)
+
+* [GetValidationResults](docs/sdks/readdata/README.md#getvalidationresults) - Get validation results
+
 ### [RefreshData](docs/sdks/refreshdata/README.md)
 
 * [All](docs/sdks/refreshdata/README.md#all) - Refresh all data
@@ -155,6 +163,8 @@ var res = await sdk.Companies.ListAsync(req);
 
 ### [Settings](docs/sdks/settings/README.md)
 
+* [Get](docs/sdks/settings/README.md#get) - Get CORS settings
+* [Set](docs/sdks/settings/README.md#set) - Set CORS settings
 * [GetProfile](docs/sdks/settings/README.md#getprofile) - Get profile
 * [UpdateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
 * [GetSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
@@ -170,9 +180,6 @@ var res = await sdk.Companies.ListAsync(req);
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
-* [~~List~~](docs/sdks/webhooks/README.md#list) - List webhooks (legacy) :warning: **Deprecated**
-* [~~Create~~](docs/sdks/webhooks/README.md#create) - Create webhook (legacy) :warning: **Deprecated**
-* [~~Get~~](docs/sdks/webhooks/README.md#get) - Get webhook (legacy) :warning: **Deprecated**
 * [ListConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 * [CreateConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
 * [DeleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
@@ -185,11 +192,11 @@ var res = await sdk.Companies.ListAsync(req);
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(
     serverUrl: "https://api.codat.io",
@@ -197,10 +204,9 @@ var sdk = new CodatPlatform(
 );
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -223,16 +229,15 @@ This SDK supports the following security scheme globally:
 To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -244,62 +249,87 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
-
-By default, an API error will raise a `Codat.Platform.Models.Errors.SDKException` exception, which has the following properties:
+[`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs) is the base exception class for all HTTP error responses. It has the following properties:
 
 | Property      | Type                  | Description           |
 |---------------|-----------------------|-----------------------|
-| `Message`     | *string*              | The error message     |
-| `StatusCode`  | *int*                 | The HTTP status code  |
-| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
-| `Body`        | *string*              | The response content  |
+| `Message`     | *string*              | Error message         |
+| `StatusCode`  | *int*                 | HTTP status code      |
+| `Headers`     | *HttpResponseHeaders* | HTTP headers          |
+| `ContentType` | *string?*             | HTTP content type     |
+| `RawResponse` | *HttpResponseMessage* | HTTP response object  |
+| `Body`        | *string*              | HTTP response body    |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `ListAsync` method throws the following exceptions:
-
-| Error Type                                | Status Code                            | Content Type     |
-| ----------------------------------------- | -------------------------------------- | ---------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
-| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                               | \*/\*            |
+Some exceptions in this SDK include an additional `Payload` field, which will contain deserialized custom error data when present. Possible exceptions are listed in the [Error Classes](#error-classes) section.
 
 ### Example
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
-using System;
 using Codat.Platform.Models.Errors;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 try
 {
     ListCompaniesRequest req = new ListCompaniesRequest() {
-        Page = 1,
-        PageSize = 100,
         Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
         OrderBy = "-modifiedDate",
+        Tags = "region=uk && team=invoice-finance",
     };
 
     var res = await sdk.Companies.ListAsync(req);
 
     // handle response
 }
-catch (Exception ex)
+catch (CodatPlatformException ex)  // all SDK exceptions inherit from CodatPlatformException
 {
-    if (ex is Models.Errors.ErrorMessage)
+    // ex.ToString() provides a detailed error message
+    System.Console.WriteLine(ex);
+
+    // Base exception fields
+    HttpResponseMessage rawResponse = ex.RawResponse;
+    HttpResponseHeaders headers = ex.Headers;
+    int statusCode = ex.StatusCode;
+    string? contentType = ex.ContentType;
+    var responseBody = ex.Body;
+
+    if (ex is Models.Errors.ErrorMessage) // different exceptions may be thrown depending on the method
     {
-        // Handle exception data
-        throw;
+        // Check error data fields
+        Models.Errors.ErrorMessagePayload payload = ex.Payload;
+        long StatusCode = payload.StatusCode;
+        string Service = payload.Service;
+        // ...
     }
-    else if (ex is Codat.Platform.Models.Errors.SDKException)
+
+    // An underlying cause may be provided
+    if (ex.InnerException != null)
     {
-        // Handle default exception
-        throw;
+        Exception cause = ex.InnerException;
     }
 }
+catch (System.Net.Http.HttpRequestException ex)
+{
+    // Check ex.InnerException for Network connectivity errors
+}
 ```
+
+### Error Classes
+
+**Primary exceptions:**
+* [`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs): The base class for HTTP error responses.
+  * [`ErrorMessage`](./Codat/Platform/Models/Errors/ErrorMessage.cs): Your `query` parameter was not correctly formed.
+
+<details><summary>Less common exceptions (2)</summary>
+
+* [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
+
+* Inheriting from [`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs):
+  * [`ResponseValidationError`](./Codat/Platform/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Retries [retries] -->
@@ -310,16 +340,15 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(
@@ -333,7 +362,7 @@ var res = await sdk.Companies.ListAsync(
         ),
         retryConnectionErrors: false
     ),
-    req
+    request: req
 );
 
 // handle response
@@ -342,8 +371,8 @@ var res = await sdk.Companies.ListAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(
     retryConfig: new RetryConfig(
@@ -360,10 +389,9 @@ var sdk = new CodatPlatform(
 );
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);

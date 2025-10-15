@@ -18,6 +18,6 @@ namespace Codat.Platform.Models.Components
     {
 
         [JsonProperty("results")]
-        public List<ApiKeyDetails>? Results { get; set; }
+        public List<ApiKeyDetails?>? Results { get; set; }
     }
 }

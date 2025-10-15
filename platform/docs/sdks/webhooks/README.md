@@ -7,151 +7,9 @@ Create and manage webhooks that listen to Codat's events.
 
 ### Available Operations
 
-* [~~List~~](#list) - List webhooks (legacy) :warning: **Deprecated**
-* [~~Create~~](#create) - Create webhook (legacy) :warning: **Deprecated**
-* [~~Get~~](#get) - Get webhook (legacy) :warning: **Deprecated**
 * [ListConsumers](#listconsumers) - List webhook consumers
 * [CreateConsumer](#createconsumer) - Create webhook consumer
 * [DeleteConsumer](#deleteconsumer) - Delete webhook consumer
-
-## ~~List~~
-
-Use the *List webhooks (legacy)* endpoint to retrieve all existing rule-based webhooks for your client.
-
-**Note:** This endpoint has been deprecated. Please use the [*List webhook consumers*](https://docs.codat.io/platform-api#/operations/list-webhook-consumers) endpoint for listing webhooks moving forward.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```csharp
-using Codat.Platform;
-using Codat.Platform.Models.Requests;
-using Codat.Platform.Models.Components;
-
-var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
-
-ListRulesRequest req = new ListRulesRequest() {
-    Page = 1,
-    PageSize = 100,
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    OrderBy = "-modifiedDate",
-};
-
-var res = await sdk.Webhooks.ListAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `request`                                                     | [ListRulesRequest](../../Models/Requests/ListRulesRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
-
-### Response
-
-**[ListRulesResponse](../../Models/Requests/ListRulesResponse.md)**
-
-### Errors
-
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503    | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
-
-## ~~Create~~
-
-Use the *Create webhooks (legacy)* endpoint to create a rule-based webhook for your client.
-
-**Note:** This endpoint has been deprecated. Please use the [*Create webhook consumer*](https://docs.codat.io/platform-api#/operations/create-webhook-consumer) endpoint to create a webhook moving forward.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```csharp
-using Codat.Platform;
-using Codat.Platform.Models.Components;
-using System.Collections.Generic;
-
-var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
-
-CreateRule req = new CreateRule() {
-    Type = "DataConnectionStatusChanged",
-    CompanyId = "39b73b17-cc2e-429e-915d-71654e9dcd1e",
-    Notifiers = new WebhookNotifier() {
-        Emails = new List<string>() {
-            "info@client.com",
-        },
-        Webhook = "https://webhook.client.com",
-    },
-};
-
-var res = await sdk.Webhooks.CreateAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                           | Type                                                | Required                                            | Description                                         |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `request`                                           | [CreateRule](../../Models/Components/CreateRule.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
-
-### Response
-
-**[CreateRuleResponse](../../Models/Requests/CreateRuleResponse.md)**
-
-### Errors
-
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429, 500, 503              | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
-
-## ~~Get~~
-
-Use the *Get webhook (legacy)* endpoint to retrieve a specific webhook for your client.
-
-**Note:** This endpoint has been deprecated. Please use the [*List webhook consumers*](https://docs.codat.io/platform-api#/operations/list-webhook-consumers) endpoint for listing webhooks moving forward.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```csharp
-using Codat.Platform;
-using Codat.Platform.Models.Requests;
-using Codat.Platform.Models.Components;
-
-var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
-
-GetWebhookRequest req = new GetWebhookRequest() {
-    RuleId = "7318949f-c008-4936-a8ff-10d7ab563fa6",
-};
-
-var res = await sdk.Webhooks.GetAsync(req);
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
-| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `request`                                                       | [GetWebhookRequest](../../Models/Requests/GetWebhookRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
-
-### Response
-
-**[GetWebhookResponse](../../Models/Requests/GetWebhookResponse.md)**
-
-### Errors
-
-| Error Type                                | Status Code                               | Content Type                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
-| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ListConsumers
 
@@ -161,6 +19,7 @@ var res = await sdk.Webhooks.GetAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-webhook-consumers" method="get" path="/webhooks" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -180,7 +39,8 @@ var res = await sdk.Webhooks.ListConsumersAsync();
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## CreateConsumer
@@ -194,6 +54,7 @@ var res = await sdk.Webhooks.ListConsumersAsync();
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-webhook-consumer" method="post" path="/webhooks" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -201,7 +62,13 @@ using System.Collections.Generic;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
-WebhookConsumerPrototype req = new WebhookConsumerPrototype() {};
+WebhookConsumerPrototype req = new WebhookConsumerPrototype() {
+    Url = "https://example.com/webhoook-consumer",
+    EventTypes = new List<string>() {
+        "DataSyncCompleted",
+        "Dataset data changed",
+    },
+};
 
 var res = await sdk.Webhooks.CreateConsumerAsync(req);
 
@@ -222,7 +89,8 @@ var res = await sdk.Webhooks.CreateConsumerAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## DeleteConsumer
@@ -233,10 +101,11 @@ var res = await sdk.Webhooks.CreateConsumerAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="delete-webhook-consumer" method="delete" path="/webhooks/{webhookId}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -263,5 +132,6 @@ var res = await sdk.Webhooks.DeleteConsumerAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

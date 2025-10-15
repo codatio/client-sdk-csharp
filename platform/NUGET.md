@@ -8,16 +8,15 @@
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -34,16 +33,15 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(
@@ -57,7 +55,7 @@ var res = await sdk.Companies.ListAsync(
         ),
         retryConnectionErrors: false
     ),
-    req
+    request: req
 );
 
 // handle response
@@ -66,8 +64,8 @@ var res = await sdk.Companies.ListAsync(
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(
     retryConfig: new RetryConfig(
@@ -84,10 +82,9 @@ var sdk = new CodatPlatform(
 );
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -99,62 +96,87 @@ var res = await sdk.Companies.ListAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
-
-By default, an API error will raise a `Codat.Platform.Models.Errors.SDKException` exception, which has the following properties:
+[`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs) is the base exception class for all HTTP error responses. It has the following properties:
 
 | Property      | Type                  | Description           |
 |---------------|-----------------------|-----------------------|
-| `Message`     | *string*              | The error message     |
-| `StatusCode`  | *int*                 | The HTTP status code  |
-| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
-| `Body`        | *string*              | The response content  |
+| `Message`     | *string*              | Error message         |
+| `StatusCode`  | *int*                 | HTTP status code      |
+| `Headers`     | *HttpResponseHeaders* | HTTP headers          |
+| `ContentType` | *string?*             | HTTP content type     |
+| `RawResponse` | *HttpResponseMessage* | HTTP response object  |
+| `Body`        | *string*              | HTTP response body    |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `ListAsync` method throws the following exceptions:
-
-| Error Type                                | Status Code                            | Content Type     |
-| ----------------------------------------- | -------------------------------------- | ---------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
-| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                               | \*/\*            |
+Some exceptions in this SDK include an additional `Payload` field, which will contain deserialized custom error data when present. Possible exceptions are listed in the [Error Classes](#error-classes) section.
 
 ### Example
 
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
-using System;
 using Codat.Platform.Models.Errors;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 try
 {
     ListCompaniesRequest req = new ListCompaniesRequest() {
-        Page = 1,
-        PageSize = 100,
         Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
         OrderBy = "-modifiedDate",
+        Tags = "region=uk && team=invoice-finance",
     };
 
     var res = await sdk.Companies.ListAsync(req);
 
     // handle response
 }
-catch (Exception ex)
+catch (CodatPlatformException ex)  // all SDK exceptions inherit from CodatPlatformException
 {
-    if (ex is Models.Errors.ErrorMessage)
+    // ex.ToString() provides a detailed error message
+    System.Console.WriteLine(ex);
+
+    // Base exception fields
+    HttpResponseMessage rawResponse = ex.RawResponse;
+    HttpResponseHeaders headers = ex.Headers;
+    int statusCode = ex.StatusCode;
+    string? contentType = ex.ContentType;
+    var responseBody = ex.Body;
+
+    if (ex is Models.Errors.ErrorMessage) // different exceptions may be thrown depending on the method
     {
-        // Handle exception data
-        throw;
+        // Check error data fields
+        Models.Errors.ErrorMessagePayload payload = ex.Payload;
+        long StatusCode = payload.StatusCode;
+        string Service = payload.Service;
+        // ...
     }
-    else if (ex is Codat.Platform.Models.Errors.SDKException)
+
+    // An underlying cause may be provided
+    if (ex.InnerException != null)
     {
-        // Handle default exception
-        throw;
+        Exception cause = ex.InnerException;
     }
 }
+catch (System.Net.Http.HttpRequestException ex)
+{
+    // Check ex.InnerException for Network connectivity errors
+}
 ```
+
+### Error Classes
+
+**Primary exceptions:**
+* [`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs): The base class for HTTP error responses.
+  * [`ErrorMessage`](./Codat/Platform/Models/Errors/ErrorMessage.cs): Your `query` parameter was not correctly formed.
+
+<details><summary>Less common exceptions (2)</summary>
+
+* [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
+
+* Inheriting from [`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs):
+  * [`ResponseValidationError`](./Codat/Platform/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -162,11 +184,11 @@ catch (Exception ex)
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(
     serverUrl: "https://api.codat.io",
@@ -174,10 +196,9 @@ var sdk = new CodatPlatform(
 );
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);
@@ -200,16 +221,15 @@ This SDK supports the following security scheme globally:
 To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);

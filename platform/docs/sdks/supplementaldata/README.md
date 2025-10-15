@@ -21,30 +21,18 @@ See the *examples* for integration-specific frequently requested properties.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
-using System.Collections.Generic;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
     PlatformKey = "gbol",
     DataType = Codat.Platform.Models.Requests.DataType.Invoices,
-    SupplementalDataConfiguration = new SupplementalDataConfiguration() {
-        SupplementalDataConfig = new Dictionary<string, SupplementalDataSourceConfiguration>() {
-            { "orders-supplemental-data", new SupplementalDataSourceConfiguration() {
-                DataSource = "/orders",
-                PullData = new Dictionary<string, string>() {
-                    { "orderNumber", "order_num" },
-                },
-                PushData = new Dictionary<string, string>() {
-                    { "orderNumber", "order_num" },
-                },
-            } },
-        },
-    },
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {},
 };
 
 var res = await sdk.SupplementalData.ConfigureAsync(req);
@@ -66,7 +54,8 @@ var res = await sdk.SupplementalData.ConfigureAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## GetConfiguration
@@ -77,16 +66,17 @@ The *Get configuration* endpoint returns supplemental data configuration previou
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-supplemental-data-configuration" method="get" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetSupplementalDataConfigurationRequest req = new GetSupplementalDataConfigurationRequest() {
     PlatformKey = "gbol",
-    DataType = Codat.Platform.Models.Requests.PathParamDataType.Invoices,
+    DataType = PathParamDataType.Invoices,
 };
 
 var res = await sdk.SupplementalData.GetConfigurationAsync(req);
@@ -108,5 +98,6 @@ var res = await sdk.SupplementalData.GetConfigurationAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

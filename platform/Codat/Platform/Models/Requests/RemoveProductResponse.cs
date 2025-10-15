@@ -10,8 +10,8 @@
 namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
-    using System.Net.Http;
     using System;
+    using System.Net.Http;
     
     public class RemoveProductResponse
     {

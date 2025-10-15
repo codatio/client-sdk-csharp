@@ -26,6 +26,6 @@ namespace Codat.Platform.Models.Components
         /// Available data types
         /// </summary>
         [JsonProperty("dataType")]
-        public PropertieDataType? DataType { get; set; }
+        public Models.Components.DataType? DataType { get; set; }
     }
 }

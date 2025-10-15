@@ -48,6 +48,6 @@ namespace Codat.Platform.Models.Components
         public string? ModifiedFromDate { get; set; }
 
         [JsonProperty("dataTypes")]
-        public List<DataTypes>? DataTypes { get; set; }
+        public List<DataTypeReadSummary>? DataTypes { get; set; }
     }
 }

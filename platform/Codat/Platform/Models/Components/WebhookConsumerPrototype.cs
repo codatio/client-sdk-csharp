@@ -12,7 +12,6 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    using System;
     
     public class WebhookConsumerPrototype
     {
@@ -39,13 +38,6 @@ namespace Codat.Platform.Models.Components
         /// Company tags provide an additional way to filter messages, independent of event types. Company tags are case-sensitive, and only messages from companies with matching tags will be sent to this endpoint. Use the format `tagKey:tagValue`.
         /// </summary>
         [JsonProperty("companyTags")]
-        public List<string>? CompanyTags { get; set; }
-
-        /// <summary>
-        /// Unique identifier of the company to indicate company-specific events. The associated webhook consumer will receive events only for the specified ID.
-        /// </summary>
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [JsonProperty("companyId")]
-        public string? CompanyId { get; set; } = null;
+        public List<string>? CompanyTags { get; set; } = null;
     }
 }

@@ -3,10 +3,10 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Platform</PackageId>
-    <Version>6.0.0</Version>
+    <Version>6.1.0</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
-    <Copyright>Copyright (c) Codat 2024</Copyright>
+    <Copyright>Copyright (c) Codat 2025</Copyright>
     <RepositoryUrl>https://github.com/codatio/client-sdk-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>An API for the common components of all of Codat&apos;s products.<br/>

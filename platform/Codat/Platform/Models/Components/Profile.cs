@@ -11,8 +11,8 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     using System;
+    using System.Collections.Generic;
     
     /// <summary>
     /// Describes your Codat client instance
@@ -56,12 +56,6 @@ namespace Codat.Platform.Models.Components
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("apiKey")]
         public string? ApiKey { get; set; }
-
-        /// <summary>
-        /// Alert or webhooks authorization header.
-        /// </summary>
-        [JsonProperty("alertAuthHeader")]
-        public string? AlertAuthHeader { get; set; }
 
         /// <summary>
         /// `True` if the company name has been confirmed.

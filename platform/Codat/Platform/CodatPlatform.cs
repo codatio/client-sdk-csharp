@@ -12,13 +12,13 @@ namespace Codat.Platform
     using Codat.Platform.Hooks;
     using Codat.Platform.Models.Components;
     using Codat.Platform.Models.Errors;
-    using Codat.Platform.Utils.Retries;
     using Codat.Platform.Utils;
+    using Codat.Platform.Utils.Retries;
     using Newtonsoft.Json;
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using System;
 
     /// <summary>
     /// Platform API: Platform API
@@ -66,6 +66,12 @@ namespace Codat.Platform
         /// Configure UI and retrieve access tokens for authentication used by **Connections SDK**.
         /// </summary>
         public IConnectionManagement ConnectionManagement { get; }
+        public ICors Cors { get; }
+
+        /// <summary>
+        /// Manage company profile configuration, sync settings, and API keys.
+        /// </summary>
+        public ISettings Settings { get; }
 
         /// <summary>
         /// Initiate data refreshes, view pull status and history.
@@ -83,9 +89,9 @@ namespace Codat.Platform
         public IIntegrations Integrations { get; }
 
         /// <summary>
-        /// Manage company profile configuration, sync settings, and API keys.
+        /// View validation outcomes for completed read data operations.
         /// </summary>
-        public ISettings Settings { get; }
+        public IReadData ReadData { get; }
 
         /// <summary>
         /// Initiate and monitor Create, Update, and Delete operations.
@@ -103,40 +109,6 @@ namespace Codat.Platform
         public ICustomDataType CustomDataType { get; }
     }
 
-    public class SDKConfig
-    {
-        /// <summary>
-        /// List of server URLs available to the SDK.
-        /// </summary>
-        public static readonly string[] ServerList = {
-            "https://api.codat.io",
-        };
-
-        public string ServerUrl = "";
-        public int ServerIndex = 0;
-        public SDKHooks Hooks = new SDKHooks();
-        public RetryConfig? RetryConfig = null;
-
-        public string GetTemplatedServerUrl()
-        {
-            if (!String.IsNullOrEmpty(this.ServerUrl))
-            {
-                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.ServerUrl, "/"), new Dictionary<string, string>());
-            }
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.ServerIndex], new Dictionary<string, string>());
-        }
-
-        public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
-        {
-            string preHooksUrl = GetTemplatedServerUrl();
-            var (postHooksUrl, postHooksClient) = this.Hooks.SDKInit(preHooksUrl, client);
-            if (preHooksUrl != postHooksUrl)
-            {
-                this.ServerUrl = postHooksUrl;
-            }
-            return postHooksClient;
-        }
-    }
 
     /// <summary>
     /// Platform API: Platform API
@@ -172,24 +144,51 @@ namespace Codat.Platform
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "6.0.0";
-        private const string _sdkGenVersion = "2.462.1";
+        private const string _sdkVersion = "6.1.0";
+        private const string _sdkGenVersion = "2.723.11";
         private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 6.0.0 2.462.1 3.0.0 Codat.Platform";
-        private string _serverUrl = "";
-        private int _serverIndex = 0;
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Platform.Models.Components.Security>? _securitySource;
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
         public IConnectionManagement ConnectionManagement { get; private set; }
+        public ICors Cors { get; private set; }
+        public ISettings Settings { get; private set; }
         public IRefreshData RefreshData { get; private set; }
         public IWebhooks Webhooks { get; private set; }
         public IIntegrations Integrations { get; private set; }
-        public ISettings Settings { get; private set; }
+        public IReadData ReadData { get; private set; }
         public IPushData PushData { get; private set; }
         public ISupplementalData SupplementalData { get; private set; }
         public ICustomDataType CustomDataType { get; private set; }
+
+        public CodatPlatform(SDKConfig config)
+        {
+            SDKConfiguration = config;
+            InitHooks();
+
+            Companies = new Companies(SDKConfiguration);
+
+            Connections = new Connections(SDKConfiguration);
+
+            ConnectionManagement = new ConnectionManagement(SDKConfiguration);
+
+            Cors = new Cors(SDKConfiguration);
+
+            Settings = new Settings(SDKConfiguration);
+
+            RefreshData = new RefreshData(SDKConfiguration);
+
+            Webhooks = new Webhooks(SDKConfiguration);
+
+            Integrations = new Integrations(SDKConfiguration);
+
+            ReadData = new ReadData(SDKConfiguration);
+
+            PushData = new PushData(SDKConfiguration);
+
+            SupplementalData = new SupplementalData(SDKConfiguration);
+
+            CustomDataType = new CustomDataType(SDKConfiguration);
+        }
 
         public CodatPlatform(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
         {
@@ -199,7 +198,6 @@ namespace Codat.Platform
                 {
                     throw new Exception($"Invalid server index {serverIndex.Value}");
                 }
-                _serverIndex = serverIndex.Value;
             }
 
             if (serverUrl != null)
@@ -208,10 +206,8 @@ namespace Codat.Platform
                 {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
-                _serverUrl = serverUrl;
             }
-
-            _client = client ?? new SpeakeasyHttpClient();
+            Func<Codat.Platform.Models.Components.Security>? _securitySource = null;
 
             if(authHeaderSource != null)
             {
@@ -226,44 +222,114 @@ namespace Codat.Platform
                 throw new Exception("authHeader and authHeaderSource cannot both be null");
             }
 
-            SDKConfiguration = new SDKConfig()
+            SDKConfiguration = new SDKConfig(client)
             {
-                ServerIndex = _serverIndex,
-                ServerUrl = _serverUrl,
+                ServerIndex = serverIndex == null ? 0 : serverIndex.Value,
+                ServerUrl = serverUrl == null ? "" : serverUrl,
+                SecuritySource = _securitySource,
                 RetryConfig = retryConfig
             };
 
-            _client = SDKConfiguration.InitHooks(_client);
+            InitHooks();
 
+            Companies = new Companies(SDKConfiguration);
 
-            Companies = new Companies(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Connections = new Connections(SDKConfiguration);
 
+            ConnectionManagement = new ConnectionManagement(SDKConfiguration);
 
-            Connections = new Connections(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Cors = new Cors(SDKConfiguration);
 
+            Settings = new Settings(SDKConfiguration);
 
-            ConnectionManagement = new ConnectionManagement(_client, _securitySource, _serverUrl, SDKConfiguration);
+            RefreshData = new RefreshData(SDKConfiguration);
 
+            Webhooks = new Webhooks(SDKConfiguration);
 
-            RefreshData = new RefreshData(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Integrations = new Integrations(SDKConfiguration);
 
+            ReadData = new ReadData(SDKConfiguration);
 
-            Webhooks = new Webhooks(_client, _securitySource, _serverUrl, SDKConfiguration);
+            PushData = new PushData(SDKConfiguration);
 
+            SupplementalData = new SupplementalData(SDKConfiguration);
 
-            Integrations = new Integrations(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Settings = new Settings(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            PushData = new PushData(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            SupplementalData = new SupplementalData(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            CustomDataType = new CustomDataType(_client, _securitySource, _serverUrl, SDKConfiguration);
+            CustomDataType = new CustomDataType(SDKConfiguration);
         }
+
+        private void InitHooks()
+        {
+            string preHooksUrl = SDKConfiguration.GetTemplatedServerUrl();
+            var (postHooksUrl, postHooksClient) = SDKConfiguration.Hooks.SDKInit(preHooksUrl, SDKConfiguration.Client);
+            var config = SDKConfiguration;
+            if (preHooksUrl != postHooksUrl)
+            {
+                config.ServerUrl = postHooksUrl;
+            }
+            config.Client = postHooksClient;
+            SDKConfiguration = config;
+        }
+
+        public class SDKBuilder
+        {
+            private SDKConfig _sdkConfig = new SDKConfig(client: new SpeakeasyHttpClient());
+
+            public SDKBuilder() { }
+
+            public SDKBuilder WithServerIndex(int serverIndex)
+            {
+                if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex}");
+                }
+                _sdkConfig.ServerIndex = serverIndex;
+                return this;
+            }
+
+            public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
+            {
+                if (serverVariables != null)
+                {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, serverVariables);
+                }
+                _sdkConfig.ServerUrl = serverUrl;
+                return this;
+            }
+
+            public SDKBuilder WithAuthHeaderSource(Func<string> authHeaderSource)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Platform.Models.Components.Security() { AuthHeader = authHeaderSource() };
+                return this;
+            }
+
+            public SDKBuilder WithAuthHeader(string authHeader)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Platform.Models.Components.Security() { AuthHeader = authHeader };
+                return this;
+            }
+
+            public SDKBuilder WithClient(ISpeakeasyHttpClient client)
+            {
+                _sdkConfig.Client = client;
+                return this;
+            }
+
+            public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
+            {
+                _sdkConfig.RetryConfig = retryConfig;
+                return this;
+            }
+
+            public CodatPlatform Build()
+            {
+              if (_sdkConfig.SecuritySource == null) {
+                  throw new Exception("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
+              }
+              return new CodatPlatform(_sdkConfig);
+            }
+
+        }
+
+        public static SDKBuilder Builder() => new SDKBuilder();
     }
 }

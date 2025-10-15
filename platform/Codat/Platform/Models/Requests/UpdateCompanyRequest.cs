@@ -22,6 +22,6 @@ namespace Codat.Platform.Models.Requests
         public string CompanyId { get; set; } = default!;
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CompanyRequestBody? CompanyRequestBody { get; set; }
+        public CompanyUpdateRequest? CompanyUpdateRequest { get; set; }
     }
 }

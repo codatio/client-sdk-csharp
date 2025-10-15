@@ -7,6 +7,8 @@ Manage company profile configuration, sync settings, and API keys.
 
 ### Available Operations
 
+* [Get](#get) - Get CORS settings
+* [Set](#set) - Set CORS settings
 * [GetProfile](#getprofile) - Get profile
 * [UpdateProfile](#updateprofile) - Update profile
 * [GetSyncSettings](#getsyncsettings) - Get sync settings
@@ -15,12 +17,90 @@ Manage company profile configuration, sync settings, and API keys.
 * [CreateApiKey](#createapikey) - Create API key
 * [DeleteApiKey](#deleteapikey) - Delete API key
 
+## Get
+
+﻿The *Get CORS settings* endpoint returns the allowed origins (i.e. your domains) you want to allow cross-origin resource sharing ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) with Codat. 
+
+Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="get-cors-settings" method="get" path="/corsSettings" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+var res = await sdk.Settings.GetAsync();
+
+// handle response
+```
+
+### Response
+
+**[GetCorsSettingsResponse](../../Models/Requests/GetCorsSettingsResponse.md)**
+
+### Errors
+
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
+
+## Set
+
+﻿The *Set CORS settings* endpoint allows you to register allowed origins (i.e. your domains) for use in cross-origin resource sharing ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)).
+ 
+Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="set-cors-settings" method="post" path="/corsSettings" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConnectionManagementAllowedOrigins req = new ConnectionManagementAllowedOrigins() {
+    AllowedOrigins = new List<string>() {
+        "https://www.bank-of-dave.com",
+    },
+};
+
+var res = await sdk.Settings.SetAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [ConnectionManagementAllowedOrigins](../../Models/Components/ConnectionManagementAllowedOrigins.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[SetCorsSettingsResponse](../../Models/Requests/SetCorsSettingsResponse.md)**
+
+### Errors
+
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
+
 ## GetProfile
 
 Fetch your Codat profile.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-profile" method="get" path="/profile" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -40,7 +120,8 @@ var res = await sdk.Settings.GetProfileAsync();
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429, 500, 503              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429                        | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## UpdateProfile
@@ -49,6 +130,7 @@ Update your Codat profile
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="update-profile" method="put" path="/profile" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -87,7 +169,8 @@ var res = await sdk.Settings.UpdateProfileAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429, 500, 503              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429                        | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## GetSyncSettings
@@ -96,6 +179,7 @@ Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-profile-syncSettings" method="get" path="/profile/syncSettings" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -115,7 +199,8 @@ var res = await sdk.Settings.GetSyncSettingsAsync();
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429, 500, 503              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429                        | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## UpdateSyncSettings
@@ -124,19 +209,20 @@ Update sync settings for all data types.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="update-profile-syncSettings" method="post" path="/profile/syncSettings" -->
 ```csharp
 using Codat.Platform;
+using Codat.Platform.Models.Components;
 using Codat.Platform.Models.Requests;
 using System.Collections.Generic;
-using Codat.Platform.Models.Components;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 UpdateProfileSyncSettingsRequestBody req = new UpdateProfileSyncSettingsRequestBody() {
-    ClientId = "c4907f05-7024-4fc0-bf55-4785be5c9671",
+    ClientId = "9807ce3e-cfa5-4370-b4f2-09c282b1598b",
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
-            DataType = Codat.Platform.Models.Components.PropertieDataType.Invoices,
+            DataType = Codat.Platform.Models.Components.DataType.Invoices,
             FetchOnFirstLink = true,
             SyncSchedule = 24,
             SyncOrder = 0,
@@ -167,7 +253,8 @@ var res = await sdk.Settings.UpdateSyncSettingsAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429, 500, 503              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429                        | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ListApiKeys
@@ -180,6 +267,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-api-keys" method="get" path="/apiKeys" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -199,7 +287,8 @@ var res = await sdk.Settings.ListApiKeysAsync();
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429, 500, 503              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 429                        | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## CreateApiKey
@@ -218,6 +307,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-api-key" method="post" path="/apiKeys" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -247,7 +337,8 @@ var res = await sdk.Settings.CreateApiKeyAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 409, 429, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 409, 429              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## DeleteApiKey
@@ -265,10 +356,11 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="delete-api-key" method="delete" path="/apiKeys/{apiKeyId}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -295,5 +387,6 @@ var res = await sdk.Settings.DeleteApiKeyAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

@@ -37,5 +37,11 @@ namespace Codat.Platform.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=orderBy")]
         public string? OrderBy { get; set; }
+
+        /// <summary>
+        /// Filter companies by tags using the &quot;equals&quot; (=), &quot;not equals&quot; (!=), and &quot;contains&quot; (~) operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=tags")]
+        public string? Tags { get; set; }
     }
 }

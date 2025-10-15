@@ -12,8 +12,8 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     using System;
+    using System.Collections.Generic;
     
     public class PushOperation
     {
@@ -28,7 +28,7 @@ namespace Codat.Platform.Models.Components
         /// Available data types
         /// </summary>
         [JsonProperty("dataType")]
-        public PropertieDataType? DataType { get; set; }
+        public Models.Components.DataType? DataType { get; set; }
 
         /// <summary>
         /// Unique identifier for your SMB in Codat.

@@ -5,7 +5,7 @@ A human-readable object describing validation decisions Codat has made when push
 
 ## Fields
 
-| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `Errors`                                                          | List<[ValidationItem](../../Models/Components/ValidationItem.md)> | :heavy_minus_sign:                                                | N/A                                                               |
-| `Warnings`                                                        | List<[ValidationItem](../../Models/Components/ValidationItem.md)> | :heavy_minus_sign:                                                | N/A                                                               |
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `Errors`                                                            | List<[ValidationItem1](../../Models/Components/ValidationItem1.md)> | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `Warnings`                                                          | List<[ValidationItem1](../../Models/Components/ValidationItem1.md)> | :heavy_minus_sign:                                                  | N/A                                                                 |

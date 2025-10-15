@@ -20,17 +20,16 @@ Create new and manage existing data connections for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-connections" method="get" path="/companies/{companyId}/connections" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListConnectionsRequest req = new ListConnectionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -54,7 +53,8 @@ var res = await sdk.Connections.ListAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Create
@@ -65,10 +65,11 @@ Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-connection" method="post" path="/companies/{companyId}/connections" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -98,7 +99,8 @@ var res = await sdk.Connections.CreateAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Get
@@ -107,10 +109,11 @@ var res = await sdk.Connections.CreateAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -138,7 +141,8 @@ var res = await sdk.Connections.GetAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Delete
@@ -148,10 +152,11 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="delete-connection" method="delete" path="/companies/{companyId}/connections/{connectionId}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -179,7 +184,8 @@ var res = await sdk.Connections.DeleteAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Unlink
@@ -188,16 +194,20 @@ var res = await sdk.Connections.DeleteAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    UpdateConnectionStatus = new UpdateConnectionStatus() {
+        Status = DataConnectionStatus.Unlinked,
+    },
 };
 
 var res = await sdk.Connections.UnlinkAsync(req);
@@ -219,7 +229,8 @@ var res = await sdk.Connections.UnlinkAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## UpdateAuthorization
@@ -228,11 +239,11 @@ Update data connection's authorization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="update-connection-authorization" method="put" path="/companies/{companyId}/connections/{connectionId}/authorization" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
-using System.Collections.Generic;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -260,5 +271,6 @@ var res = await sdk.Connections.UpdateAuthorizationAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

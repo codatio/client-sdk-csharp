@@ -23,10 +23,11 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="refresh-company-data" method="post" path="/companies/{companyId}/data/all" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -53,7 +54,8 @@ var res = await sdk.RefreshData.AllAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ByDataType
@@ -64,10 +66,11 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="refresh-data-type" method="post" path="/companies/{companyId}/data/queue/{dataType}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -95,7 +98,8 @@ var res = await sdk.RefreshData.ByDataTypeAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Get
@@ -104,10 +108,11 @@ Get the state of each data type for a company
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-company-data-status" method="get" path="/companies/{companyId}/dataStatus" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -134,7 +139,8 @@ var res = await sdk.RefreshData.GetAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## ListPullOperations
@@ -143,17 +149,16 @@ Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListPullOperationsRequest req = new ListPullOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -177,7 +182,8 @@ var res = await sdk.RefreshData.ListPullOperationsAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## GetPullOperation
@@ -186,16 +192,17 @@ Retrieve information about a single dataset or pull operation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-pull-operation" method="get" path="/companies/{companyId}/data/history/{datasetId}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "71a4c0fb-8e15-45bd-958d-330b4e6e9f07",
+    DatasetId = "fa5f3e86-bd80-49b8-853c-5fbba4b201f5",
 };
 
 var res = await sdk.RefreshData.GetPullOperationAsync(req);
@@ -217,5 +224,6 @@ var res = await sdk.RefreshData.GetPullOperationAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

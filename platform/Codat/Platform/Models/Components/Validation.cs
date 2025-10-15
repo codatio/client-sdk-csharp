@@ -21,9 +21,9 @@ namespace Codat.Platform.Models.Components
     {
 
         [JsonProperty("errors")]
-        public List<ValidationItem>? Errors { get; set; } = null;
+        public List<ValidationItem1>? Errors { get; set; } = null;
 
         [JsonProperty("warnings")]
-        public List<ValidationItem>? Warnings { get; set; } = null;
+        public List<ValidationItem1>? Warnings { get; set; } = null;
     }
 }

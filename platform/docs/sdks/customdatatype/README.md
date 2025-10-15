@@ -28,10 +28,11 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 using System.Collections.Generic;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
@@ -40,15 +41,14 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     PlatformKey = "gbol",
     CustomDataIdentifier = "DynamicsPurchaseOrders",
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
-        DataSource = "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
+        DataSource = "api/purchaseOrders",
         RequiredData = new Dictionary<string, string>() {
-            { "currencyCode", "$[*].currencyCode" },
-            { "id", "$[*].id" },
             { "number", "$[*].number" },
-            { "orderDate", "$[*].orderDate" },
-            { "totalAmountExcludingTax", "$[*].totalAmountExcludingTax" },
-            { "totalTaxAmount", "$[*].totalTaxAmount" },
-            { "vendorName", "$[*].number" },
+            { "date", "$[*].orderDate" },
+            { "totalexvat", "$[*].totalAmountExcludingTax" },
+            { "totaltax", "$[*].totalTaxAmount" },
+            { "vendor", "$[*].number" },
+            { "currency", "$[*].currencyCode" },
         },
         KeyBy = new List<string>() {
             "$[*].id",
@@ -78,7 +78,8 @@ var res = await sdk.CustomDataType.ConfigureAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## GetConfiguration
@@ -89,10 +90,11 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-custom-data-type-configuration" method="get" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -120,7 +122,8 @@ var res = await sdk.CustomDataType.GetConfigurationAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                   | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## Refresh
@@ -129,10 +132,11 @@ The *Refresh custom data type* endpoint refreshes the specified custom data type
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="refresh-custom-data-type" method="post" path="/companies/{companyId}/connections/{connectionId}/data/queue/custom/{customDataIdentifier}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -161,7 +165,8 @@ var res = await sdk.CustomDataType.RefreshAsync(req);
 
 | Error Type                                | Status Code                               | Content Type                              |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 451, 500, 503    | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 451              | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
 | Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |
 
 ## List
@@ -172,10 +177,11 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-custom-data-type-records" method="get" path="/companies/{companyId}/connections/{connectionId}/data/custom/{customDataIdentifier}" -->
 ```csharp
 using Codat.Platform;
-using Codat.Platform.Models.Requests;
 using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -183,8 +189,6 @@ ListCustomDataTypeRecordsRequest req = new ListCustomDataTypeRecordsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     CustomDataIdentifier = "DynamicsPurchaseOrders",
-    Page = 1,
-    PageSize = 100,
 };
 
 var res = await sdk.CustomDataType.ListAsync(req);
@@ -204,7 +208,8 @@ var res = await sdk.CustomDataType.ListAsync(req);
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Codat.Platform.Models.Errors.ErrorMessage   | 400, 401, 402, 403, 404, 429, 451, 500, 503 | application/json                            |
-| Codat.Platform.Models.Errors.SDKException   | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                                | Status Code                               | Content Type                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| Codat.Platform.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 451         | application/json                          |
+| Codat.Platform.Models.Errors.ErrorMessage | 500, 503                                  | application/json                          |
+| Codat.Platform.Models.Errors.SDKException | 4XX, 5XX                                  | \*/\*                                     |

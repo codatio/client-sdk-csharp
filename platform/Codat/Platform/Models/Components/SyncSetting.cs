@@ -23,7 +23,7 @@ namespace Codat.Platform.Models.Components
         /// Available data types
         /// </summary>
         [JsonProperty("dataType")]
-        public PropertieDataType DataType { get; set; } = default!;
+        public Models.Components.DataType DataType { get; set; } = default!;
 
         /// <summary>
         /// Whether this data type should be queued after a company has authorized a connection.

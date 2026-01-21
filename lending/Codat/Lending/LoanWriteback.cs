@@ -30,14 +30,11 @@ namespace Codat.Lending
     public class LoanWriteback: ILoanWriteback
     {
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.2";
-        private const string _sdkGenVersion = "2.486.1";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Lending.Models.Components.Security>? _securitySource;
+
+        private const string _language = Constants.Language;
+        private const string _sdkVersion = Constants.SdkVersion;
+        private const string _sdkGenVersion = Constants.SdkGenVersion;
+        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
         public IBankAccounts BankAccounts { get; private set; }
         public ICodatLendingLoanWritebackAccounts Accounts { get; private set; }
         public ISourceAccounts SourceAccounts { get; private set; }
@@ -48,21 +45,18 @@ namespace Codat.Lending
         public ICodatLendingLoanWritebackPayments Payments { get; private set; }
         public ICreateOperations CreateOperations { get; private set; }
 
-        public LoanWriteback(ISpeakeasyHttpClient client, Func<Codat.Lending.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public LoanWriteback(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
-            BankAccounts = new BankAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Accounts = new CodatLendingLoanWritebackAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
-            SourceAccounts = new SourceAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Suppliers = new CodatLendingSuppliers(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Transfers = new CodatLendingTransfers(_client, _securitySource, _serverUrl, SDKConfiguration);
-            BankTransactions = new BankTransactions(_client, _securitySource, _serverUrl, SDKConfiguration);
-            DirectCosts = new CodatLendingDirectCosts(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Payments = new CodatLendingLoanWritebackPayments(_client, _securitySource, _serverUrl, SDKConfiguration);
-            CreateOperations = new CreateOperations(_client, _securitySource, _serverUrl, SDKConfiguration);
+            BankAccounts = new BankAccounts(SDKConfiguration);
+            Accounts = new CodatLendingLoanWritebackAccounts(SDKConfiguration);
+            SourceAccounts = new SourceAccounts(SDKConfiguration);
+            Suppliers = new CodatLendingSuppliers(SDKConfiguration);
+            Transfers = new CodatLendingTransfers(SDKConfiguration);
+            BankTransactions = new BankTransactions(SDKConfiguration);
+            DirectCosts = new CodatLendingDirectCosts(SDKConfiguration);
+            Payments = new CodatLendingLoanWritebackPayments(SDKConfiguration);
+            CreateOperations = new CreateOperations(SDKConfiguration);
         }
     }
 }

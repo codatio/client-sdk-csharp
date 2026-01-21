@@ -7,13 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Lending.Models.Webhooks
+namespace Codat.Lending.Models.Requests
 {
+    using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using System;
     using System.Net.Http;
     
-    public class ClientRateLimitReachedResponse1
+    public class ReplaceCompanyResponse
     {
 
         /// <summary>
@@ -30,5 +31,10 @@ namespace Codat.Lending.Models.Webhooks
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
+
+        /// <summary>
+        /// OK
+        /// </summary>
+        public Company? Company { get; set; }
     }
 }

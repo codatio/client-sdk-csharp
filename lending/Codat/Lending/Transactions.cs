@@ -26,31 +26,25 @@ namespace Codat.Lending
     public class Transactions: ITransactions
     {
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.2";
-        private const string _sdkGenVersion = "2.486.1";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Lending.Models.Components.Security>? _securitySource;
+
+        private const string _language = Constants.Language;
+        private const string _sdkVersion = Constants.SdkVersion;
+        private const string _sdkGenVersion = Constants.SdkGenVersion;
+        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
         public IAccountTransactions AccountTransactions { get; private set; }
         public IDirectCosts DirectCosts { get; private set; }
         public IJournalEntries JournalEntries { get; private set; }
         public IJournals Journals { get; private set; }
         public ITransfers Transfers { get; private set; }
 
-        public Transactions(ISpeakeasyHttpClient client, Func<Codat.Lending.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public Transactions(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
-            AccountTransactions = new AccountTransactions(_client, _securitySource, _serverUrl, SDKConfiguration);
-            DirectCosts = new DirectCosts(_client, _securitySource, _serverUrl, SDKConfiguration);
-            JournalEntries = new JournalEntries(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Journals = new Journals(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Transfers = new Transfers(_client, _securitySource, _serverUrl, SDKConfiguration);
+            AccountTransactions = new AccountTransactions(SDKConfiguration);
+            DirectCosts = new DirectCosts(SDKConfiguration);
+            JournalEntries = new JournalEntries(SDKConfiguration);
+            Journals = new Journals(SDKConfiguration);
+            Transfers = new Transfers(SDKConfiguration);
         }
     }
 }

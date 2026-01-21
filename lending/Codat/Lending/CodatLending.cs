@@ -21,13 +21,13 @@ namespace Codat.Lending
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
+    /// Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
     /// 
     /// <remarks>
     /// <br/>
-    /// The Lending API is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.<br/>
+    /// The Lending solution is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/lending/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/lending/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
     /// <br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
     /// ## Endpoints<br/>
@@ -109,54 +109,20 @@ namespace Codat.Lending
         public IBankStatements BankStatements { get; }
 
         /// <summary>
-        /// Endpoints to manage generation of reports
+        /// Generate and review generated reports for a company.
         /// </summary>
         public IManageReports ManageReports { get; }
     }
 
-    public class SDKConfig
-    {
-        /// <summary>
-        /// List of server URLs available to the SDK.
-        /// </summary>
-        public static readonly string[] ServerList = {
-            "https://api.codat.io",
-        };
-
-        public string ServerUrl = "";
-        public int ServerIndex = 0;
-        public SDKHooks Hooks = new SDKHooks();
-        public RetryConfig? RetryConfig = null;
-
-        public string GetTemplatedServerUrl()
-        {
-            if (!String.IsNullOrEmpty(this.ServerUrl))
-            {
-                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.ServerUrl, "/"), new Dictionary<string, string>());
-            }
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.ServerIndex], new Dictionary<string, string>());
-        }
-
-        public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
-        {
-            string preHooksUrl = GetTemplatedServerUrl();
-            var (postHooksUrl, postHooksClient) = this.Hooks.SDKInit(preHooksUrl, client);
-            if (preHooksUrl != postHooksUrl)
-            {
-                this.ServerUrl = postHooksUrl;
-            }
-            return postHooksClient;
-        }
-    }
 
     /// <summary>
-    /// Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
+    /// Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
     /// 
     /// <remarks>
     /// <br/>
-    /// The Lending API is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.<br/>
+    /// The Lending solution is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/lending/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/lending/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
     /// <br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
     /// ## Endpoints<br/>
@@ -185,15 +151,10 @@ namespace Codat.Lending
     {
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.2";
-        private const string _sdkGenVersion = "2.486.1";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
-        private string _serverUrl = "";
-        private int _serverIndex = 0;
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Lending.Models.Components.Security>? _securitySource;
+        private const string _language = Constants.Language;
+        private const string _sdkVersion = Constants.SdkVersion;
+        private const string _sdkGenVersion = Constants.SdkGenVersion;
+        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
         public ICompanies Companies { get; private set; }
         public IConnections Connections { get; private set; }
         public IManageData ManageData { get; private set; }
@@ -213,6 +174,59 @@ namespace Codat.Lending
         public IBankStatements BankStatements { get; private set; }
         public IManageReports ManageReports { get; private set; }
 
+        public CodatLending(SDKConfig config)
+        {
+            SDKConfiguration = config;
+            InitHooks();
+
+            Companies = new Companies(SDKConfiguration);
+
+            Connections = new Connections(SDKConfiguration);
+
+            ManageData = new ManageData(SDKConfiguration);
+
+            DataIntegrity = new DataIntegrity(SDKConfiguration);
+
+            FinancialStatements = new FinancialStatements(SDKConfiguration);
+
+            Banking = new Banking(SDKConfiguration);
+
+            AccountsReceivable = new AccountsReceivable(SDKConfiguration);
+
+            Liabilities = new Liabilities(SDKConfiguration);
+
+            Sales = new Sales(SDKConfiguration);
+
+            ExcelReports = new ExcelReports(SDKConfiguration);
+
+            Transactions = new Transactions(SDKConfiguration);
+
+            AccountsPayable = new AccountsPayable(SDKConfiguration);
+
+            CompanyInfo = new CompanyInfo(SDKConfiguration);
+
+            AccountingBankData = new AccountingBankData(SDKConfiguration);
+
+            FileUpload = new FileUpload(SDKConfiguration);
+
+            LoanWriteback = new LoanWriteback(SDKConfiguration);
+
+            BankStatements = new BankStatements(SDKConfiguration);
+
+            ManageReports = new ManageReports(SDKConfiguration);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the SDK with optional configuration parameters.
+        /// </summary>
+        /// <param name="authHeader">The security configuration to use for API requests. If provided, this will be used as a static security configuration.</param>
+        /// <param name="authHeaderSource">A function that returns the security configuration dynamically. This takes precedence over the static security parameter if both are provided.</param>
+        /// <param name="serverIndex">The index of the server to use from the predefined server list. Must be between 0 and the length of the server list. Defaults to 0 if not specified.</param>
+        /// <param name="serverUrl">A custom server URL to use instead of the predefined server list. If provided with urlParams, the URL will be templated with the provided parameters.</param>
+        /// <param name="urlParams">A dictionary of parameters to use for templating the serverUrl. Only used when serverUrl is provided.</param>
+        /// <param name="client">A custom HTTP client implementation to use for making API requests. If not provided, the default SpeakeasyHttpClient will be used.</param>
+        /// <param name="retryConfig">Configuration for retry behavior when API requests fail. Defines retry strategies, backoff policies, and maximum retry attempts.</param>
+        /// <exception cref="Exception">Thrown when the serverIndex is out of range (less than 0 or greater than or equal to the server list length).</exception>
         public CodatLending(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
         {
             if (serverIndex != null)
@@ -221,7 +235,6 @@ namespace Codat.Lending
                 {
                     throw new Exception($"Invalid server index {serverIndex.Value}");
                 }
-                _serverIndex = serverIndex.Value;
             }
 
             if (serverUrl != null)
@@ -230,10 +243,8 @@ namespace Codat.Lending
                 {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
-                _serverUrl = serverUrl;
             }
-
-            _client = client ?? new SpeakeasyHttpClient();
+            Func<Codat.Lending.Models.Components.Security>? _securitySource = null;
 
             if(authHeaderSource != null)
             {
@@ -248,68 +259,126 @@ namespace Codat.Lending
                 throw new Exception("authHeader and authHeaderSource cannot both be null");
             }
 
-            SDKConfiguration = new SDKConfig()
+            SDKConfiguration = new SDKConfig(client)
             {
-                ServerIndex = _serverIndex,
-                ServerUrl = _serverUrl,
+                ServerIndex = serverIndex == null ? 0 : serverIndex.Value,
+                ServerUrl = serverUrl == null ? "" : serverUrl,
+                SecuritySource = _securitySource,
                 RetryConfig = retryConfig
             };
 
-            _client = SDKConfiguration.InitHooks(_client);
+            InitHooks();
 
+            Companies = new Companies(SDKConfiguration);
 
-            Companies = new Companies(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Connections = new Connections(SDKConfiguration);
 
+            ManageData = new ManageData(SDKConfiguration);
 
-            Connections = new Connections(_client, _securitySource, _serverUrl, SDKConfiguration);
+            DataIntegrity = new DataIntegrity(SDKConfiguration);
 
+            FinancialStatements = new FinancialStatements(SDKConfiguration);
 
-            ManageData = new ManageData(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Banking = new Banking(SDKConfiguration);
 
+            AccountsReceivable = new AccountsReceivable(SDKConfiguration);
 
-            DataIntegrity = new DataIntegrity(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Liabilities = new Liabilities(SDKConfiguration);
 
+            Sales = new Sales(SDKConfiguration);
 
-            FinancialStatements = new FinancialStatements(_client, _securitySource, _serverUrl, SDKConfiguration);
+            ExcelReports = new ExcelReports(SDKConfiguration);
 
+            Transactions = new Transactions(SDKConfiguration);
 
-            Banking = new Banking(_client, _securitySource, _serverUrl, SDKConfiguration);
+            AccountsPayable = new AccountsPayable(SDKConfiguration);
 
+            CompanyInfo = new CompanyInfo(SDKConfiguration);
 
-            AccountsReceivable = new AccountsReceivable(_client, _securitySource, _serverUrl, SDKConfiguration);
+            AccountingBankData = new AccountingBankData(SDKConfiguration);
 
+            FileUpload = new FileUpload(SDKConfiguration);
 
-            Liabilities = new Liabilities(_client, _securitySource, _serverUrl, SDKConfiguration);
+            LoanWriteback = new LoanWriteback(SDKConfiguration);
 
+            BankStatements = new BankStatements(SDKConfiguration);
 
-            Sales = new Sales(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            ExcelReports = new ExcelReports(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Transactions = new Transactions(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            AccountsPayable = new AccountsPayable(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            CompanyInfo = new CompanyInfo(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            AccountingBankData = new AccountingBankData(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            FileUpload = new FileUpload(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            LoanWriteback = new LoanWriteback(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            BankStatements = new BankStatements(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            ManageReports = new ManageReports(_client, _securitySource, _serverUrl, SDKConfiguration);
+            ManageReports = new ManageReports(SDKConfiguration);
         }
+
+        private void InitHooks()
+        {
+            string preHooksUrl = SDKConfiguration.GetTemplatedServerUrl();
+            var (postHooksUrl, postHooksClient) = SDKConfiguration.Hooks.SDKInit(preHooksUrl, SDKConfiguration.Client);
+            var config = SDKConfiguration;
+            if (preHooksUrl != postHooksUrl)
+            {
+                config.ServerUrl = postHooksUrl;
+            }
+            config.Client = postHooksClient;
+            SDKConfiguration = config;
+        }
+
+        public class SDKBuilder
+        {
+            private SDKConfig _sdkConfig = new SDKConfig(client: new SpeakeasyHttpClient());
+
+            public SDKBuilder() { }
+
+            public SDKBuilder WithServerIndex(int serverIndex)
+            {
+                if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex}");
+                }
+                _sdkConfig.ServerIndex = serverIndex;
+                return this;
+            }
+
+            public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
+            {
+                if (serverVariables != null)
+                {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, serverVariables);
+                }
+                _sdkConfig.ServerUrl = serverUrl;
+                return this;
+            }
+
+            public SDKBuilder WithAuthHeaderSource(Func<string> authHeaderSource)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Lending.Models.Components.Security() { AuthHeader = authHeaderSource() };
+                return this;
+            }
+
+            public SDKBuilder WithAuthHeader(string authHeader)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Lending.Models.Components.Security() { AuthHeader = authHeader };
+                return this;
+            }
+
+            public SDKBuilder WithClient(ISpeakeasyHttpClient client)
+            {
+                _sdkConfig.Client = client;
+                return this;
+            }
+
+            public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
+            {
+                _sdkConfig.RetryConfig = retryConfig;
+                return this;
+            }
+
+            public CodatLending Build()
+            {
+              if (_sdkConfig.SecuritySource == null) {
+                  throw new Exception("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
+              }
+              return new CodatLending(_sdkConfig);
+            }
+
+        }
+
+        public static SDKBuilder Builder() => new SDKBuilder();
     }
 }

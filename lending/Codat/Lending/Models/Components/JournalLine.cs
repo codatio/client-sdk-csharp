@@ -29,10 +29,22 @@ namespace Codat.Lending.Models.Components
         public decimal NetAmount { get; set; } = default!;
 
         /// <summary>
+        /// The amount in the original transaction currency.
+        /// </summary>
+        [JsonProperty("transactionAmount")]
+        public decimal? TransactionAmount { get; set; }
+
+        /// <summary>
         /// Currency for the journal line item.
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; } = null;
+
+        /// <summary>
+        /// Currency of the original transaction.
+        /// </summary>
+        [JsonProperty("transactionCurrency")]
+        public string? TransactionCurrency { get; set; } = null;
 
         /// <summary>
         /// Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.

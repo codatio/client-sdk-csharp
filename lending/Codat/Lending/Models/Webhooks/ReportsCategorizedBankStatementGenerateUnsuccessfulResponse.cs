@@ -13,7 +13,7 @@ namespace Codat.Lending.Models.Webhooks
     using System;
     using System.Net.Http;
     
-    public class ClientRateLimitResetResponse1
+    public class ReportsCategorizedBankStatementGenerateUnsuccessfulResponse
     {
 
         /// <summary>

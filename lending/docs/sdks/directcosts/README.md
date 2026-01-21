@@ -1,5 +1,4 @@
-# DirectCosts
-(*Transactions.DirectCosts*)
+# Transactions.DirectCosts
 
 ## Overview
 
@@ -15,13 +14,14 @@
 
 The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-costs" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -32,8 +32,6 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 ListAccountingDirectCostsRequest req = new ListAccountingDirectCostsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -55,22 +53,24 @@ var res = await sdk.Transactions.DirectCosts.ListAsync(req);
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage    | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| Codat.Lending.Models.Errors.SDKException    | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 409, 429        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Get
 
 The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-cost" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -81,7 +81,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 GetAccountingDirectCostRequest req = new GetAccountingDirectCostRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "7110701885",
+    DirectCostId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.Transactions.DirectCosts.GetAsync(req);
@@ -103,17 +103,19 @@ var res = await sdk.Transactions.DirectCosts.GetAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetAttachment
 
 The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-cost-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}/attachments/{attachmentId}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -124,7 +126,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 GetAccountingDirectCostAttachmentRequest req = new GetAccountingDirectCostAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "EILBDVJVNUAGVKRQ",
+    DirectCostId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -147,18 +149,20 @@ var res = await sdk.Transactions.DirectCosts.GetAttachmentAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## DownloadAttachment
 
 The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="download-accounting-direct-cost-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}/attachments/{attachmentId}/download" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -169,7 +173,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 DownloadAccountingDirectCostAttachmentRequest req = new DownloadAccountingDirectCostAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "EILBDVJVNUAGVKRQ",
+    DirectCostId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -192,18 +196,20 @@ var res = await sdk.Transactions.DirectCosts.DownloadAttachmentAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## ListAttachments
 
 The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-cost-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}/attachments" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -214,7 +220,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 ListAccountingDirectCostAttachmentsRequest req = new ListAccountingDirectCostAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DirectCostId = "EILBDVJVNUAGVKRQ",
+    DirectCostId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.Transactions.DirectCosts.ListAttachmentsAsync(req);
@@ -236,5 +242,6 @@ var res = await sdk.Transactions.DirectCosts.ListAttachmentsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

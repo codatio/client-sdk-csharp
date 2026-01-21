@@ -25,29 +25,23 @@ namespace Codat.Lending
     public class FinancialStatements: IFinancialStatements
     {
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.2";
-        private const string _sdkGenVersion = "2.486.1";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Lending.Models.Components.Security>? _securitySource;
+
+        private const string _language = Constants.Language;
+        private const string _sdkVersion = Constants.SdkVersion;
+        private const string _sdkGenVersion = Constants.SdkGenVersion;
+        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
         public IProfitAndLoss ProfitAndLoss { get; private set; }
         public IBalanceSheet BalanceSheet { get; private set; }
         public IAccounts Accounts { get; private set; }
         public ICashFlow CashFlow { get; private set; }
 
-        public FinancialStatements(ISpeakeasyHttpClient client, Func<Codat.Lending.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public FinancialStatements(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
-            ProfitAndLoss = new ProfitAndLoss(_client, _securitySource, _serverUrl, SDKConfiguration);
-            BalanceSheet = new BalanceSheet(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Accounts = new Accounts(_client, _securitySource, _serverUrl, SDKConfiguration);
-            CashFlow = new CashFlow(_client, _securitySource, _serverUrl, SDKConfiguration);
+            ProfitAndLoss = new ProfitAndLoss(SDKConfiguration);
+            BalanceSheet = new BalanceSheet(SDKConfiguration);
+            Accounts = new Accounts(SDKConfiguration);
+            CashFlow = new CashFlow(SDKConfiguration);
         }
     }
 }

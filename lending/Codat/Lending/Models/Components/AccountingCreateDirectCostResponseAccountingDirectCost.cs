@@ -22,17 +22,16 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// Direct costs are the expenses associated with a business&apos; operations. For example, purchases of raw materials and service fees are considered direct costs.<br/>
+    /// Direct costs are money that leave the business without impacting Accounts Payable, and refunds associated with such transactions.<br/>
     /// <br/>
     /// Direct costs include:<br/>
     ///   * Purchasing an item and paying it off at the point of the purchase<br/>
     ///   * Receiving cash from a refunded item if the refund is made by the supplier<br/>
-    ///   * Withdrawing money from a bank account <br/>
-    ///   * Writing a cheque<br/>
     /// <br/>
     /// Direct costs is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.
     /// </remarks>
-    /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
+    /// </summary>
+    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class AccountingCreateDirectCostResponseAccountingDirectCost
     {
 

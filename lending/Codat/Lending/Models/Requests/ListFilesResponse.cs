@@ -36,6 +36,6 @@ namespace Codat.Lending.Models.Requests
         /// <summary>
         /// Success
         /// </summary>
-        public List<File>? Files { get; set; }
+        public List<Models.Components.File>? Files { get; set; }
     }
 }

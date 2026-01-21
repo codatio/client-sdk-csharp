@@ -1,5 +1,4 @@
-# BankTransactions
-(*LoanWriteback.BankTransactions*)
+# LoanWriteback.BankTransactions
 
 ## Overview
 
@@ -14,12 +13,13 @@ The *Get create bank account transactions model* endpoint returns the expected d
 
 [Bank account transactions](https://docs.codat.io/lending-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-bank-transactions-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts/{accountId}/bankTransactions" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -52,7 +52,8 @@ var res = await sdk.LoanWriteback.BankTransactions.GetCreateModelAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
@@ -61,13 +62,14 @@ The *Create bank account transactions* endpoint creates new [bank account transa
 
 [Bank account transactions](https://docs.codat.io/lending-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model).
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -79,9 +81,9 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     AccountingCreateBankTransactions = new AccountingCreateBankTransactions() {
-        AccountId = "EILBDVJVNUAGVKRQ",
+        AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
         Transactions = new List<CreateBankAccountTransaction>() {
             new CreateBankAccountTransaction() {
                 Date = "2022-10-23T00:00:00Z",
@@ -109,5 +111,6 @@ var res = await sdk.LoanWriteback.BankTransactions.CreateAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

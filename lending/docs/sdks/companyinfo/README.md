@@ -1,5 +1,4 @@
 # CompanyInfo
-(*CompanyInfo*)
 
 ## Overview
 
@@ -16,6 +15,7 @@ Gets the latest basic info for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-profile" method="get" path="/companies/{companyId}/data/info" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -46,7 +46,8 @@ var res = await sdk.CompanyInfo.GetAccountingProfileAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetCommerceProfile
@@ -59,6 +60,7 @@ social media or website information."
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-commerce-profile" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-info" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -90,5 +92,6 @@ var res = await sdk.CompanyInfo.GetCommerceProfileAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

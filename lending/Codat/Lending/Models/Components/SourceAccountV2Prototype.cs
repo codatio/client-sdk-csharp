@@ -20,25 +20,25 @@ namespace Codat.Lending.Models.Components
         /// Unique ID for the bank account.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The bank account name.
         /// </summary>
         [JsonProperty("accountName")]
-        public string? AccountName { get; set; }
+        public string AccountName { get; set; } = default!;
 
         /// <summary>
         /// The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
         /// </summary>
         [JsonProperty("accountType")]
-        public PropertieAccountType? AccountType { get; set; }
+        public PropertieAccountType AccountType { get; set; } = default!;
 
         /// <summary>
         /// The account number.
         /// </summary>
         [JsonProperty("accountNumber")]
-        public string? AccountNumber { get; set; }
+        public string AccountNumber { get; set; } = default!;
 
         /// <summary>
         /// Routing information for the bank. This does not include account number.
@@ -65,13 +65,13 @@ namespace Codat.Lending.Models.Components
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
-        public string? Currency { get; set; }
+        public string Currency { get; set; } = default!;
 
         /// <summary>
         /// The latest balance for the bank account.
         /// </summary>
         [JsonProperty("balance")]
-        public decimal? Balance { get; set; }
+        public decimal Balance { get; set; } = default!;
 
         /// <summary>
         /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>

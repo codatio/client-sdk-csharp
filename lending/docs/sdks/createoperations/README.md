@@ -1,5 +1,4 @@
-# CreateOperations
-(*LoanWriteback.CreateOperations*)
+# LoanWriteback.CreateOperations
 
 ## Overview
 
@@ -14,6 +13,7 @@ Retrieve create operation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-operation" method="get" path="/companies/{companyId}/push/{pushOperationKey}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -23,7 +23,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCreateOperationRequest req = new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "b888f774-3e7c-4135-a18c-6b985523c4bc",
+    PushOperationKey = "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
 };
 
 var res = await sdk.LoanWriteback.CreateOperations.GetAsync(req);
@@ -45,7 +45,8 @@ var res = await sdk.LoanWriteback.CreateOperations.GetAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## List
@@ -54,6 +55,7 @@ List create operations.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-create-operations" method="get" path="/companies/{companyId}/push" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -63,8 +65,6 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCreateOperationsRequest req = new ListCreateOperationsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -88,5 +88,6 @@ var res = await sdk.LoanWriteback.CreateOperations.ListAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

@@ -119,7 +119,7 @@ namespace Codat.Lending.Models.Components
         public List<OrderLineItem>? OrderLineItems { get; set; }
 
         [JsonProperty("payments")]
-        public List<PaymentRef>? Payments { get; set; }
+        public List<PaymentRef?>? Payments { get; set; }
 
         [JsonProperty("serviceCharges")]
         public List<ServiceCharge>? ServiceCharges { get; set; }

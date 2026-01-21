@@ -18,7 +18,7 @@ namespace Codat.Lending.Models.Components
     {
 
         [JsonProperty("results")]
-        public List<AccountingAccount>? Results { get; set; }
+        public List<AccountingAccount?>? Results { get; set; }
 
         /// <summary>
         /// Current page number.

@@ -1,5 +1,4 @@
 # ExcelReports
-(*ExcelReports*)
 
 ## Overview
 
@@ -33,6 +32,7 @@ In response, the endpoint returns the [status](https://docs.codat.io/lending-api
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="generate-excel-report" method="post" path="/data/companies/{companyId}/assess/excel" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -42,7 +42,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateExcelReportRequest req = new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedInvoices,
+    ReportType = ExcelReportTypes.EnhancedFinancials,
 };
 
 var res = await sdk.ExcelReports.GenerateAsync(req);
@@ -64,7 +64,8 @@ var res = await sdk.ExcelReports.GenerateAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetStatus
@@ -77,6 +78,7 @@ When the report generation completes successfully, the `inProgress` property wil
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-excel-report-generation-status" method="get" path="/data/companies/{companyId}/assess/excel" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -108,7 +110,8 @@ var res = await sdk.ExcelReports.GetStatusAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Download
@@ -121,6 +124,7 @@ You can [learn more](https://docs.codat.io/lending/features/excel-download-overv
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="download-excel-report" method="get" path="/data/companies/{companyId}/assess/excel/download" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -130,7 +134,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedFinancials,
+    ReportType = ExcelReportTypes.EnhancedCashFlow,
 };
 
 var res = await sdk.ExcelReports.DownloadAsync(req);
@@ -152,5 +156,6 @@ var res = await sdk.ExcelReports.DownloadAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

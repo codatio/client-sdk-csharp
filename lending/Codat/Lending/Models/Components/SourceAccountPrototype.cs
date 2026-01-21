@@ -19,7 +19,7 @@ namespace Codat.Lending.Models.Components
         /// Unique ID for the bank account.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The bank account name.

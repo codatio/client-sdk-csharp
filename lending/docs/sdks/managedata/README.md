@@ -1,5 +1,4 @@
 # ManageData
-(*ManageData*)
 
 ## Overview
 
@@ -13,6 +12,7 @@ Get the state of each data type for a company
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-data-status" method="get" path="/companies/{companyId}/dataStatus" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -43,5 +43,6 @@ var res = await sdk.ManageData.GetStatusAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

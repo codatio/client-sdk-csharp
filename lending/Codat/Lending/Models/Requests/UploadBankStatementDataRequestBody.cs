@@ -17,20 +17,18 @@ namespace Codat.Lending.Models.Requests
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    
 
     public class UploadBankStatementDataRequestBodyType
     {
         private UploadBankStatementDataRequestBodyType(string value) { Value = value; }
 
         public string Value { get; private set; }
+
         public static UploadBankStatementDataRequestBodyType BankingAccount { get { return new UploadBankStatementDataRequestBodyType("BankingAccount"); } }
-        
+
         public static UploadBankStatementDataRequestBodyType BankingTransactions { get { return new UploadBankStatementDataRequestBodyType("BankingTransactions"); } }
-        
+
         public static UploadBankStatementDataRequestBodyType Any { get { return new UploadBankStatementDataRequestBodyType("any"); } }
-        
-        public static UploadBankStatementDataRequestBodyType Null { get { return new UploadBankStatementDataRequestBodyType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(UploadBankStatementDataRequestBodyType v) { return v.Value; }
@@ -39,7 +37,6 @@ namespace Codat.Lending.Models.Requests
                 case "BankingAccount": return BankingAccount;
                 case "BankingTransactions": return BankingTransactions;
                 case "any": return Any;
-                case "null": return Null;
                 default: throw new ArgumentException("Invalid value for UploadBankStatementDataRequestBodyType");
             }
         }
@@ -60,8 +57,10 @@ namespace Codat.Lending.Models.Requests
 
 
     [JsonConverter(typeof(UploadBankStatementDataRequestBody.UploadBankStatementDataRequestBodyConverter))]
-    public class UploadBankStatementDataRequestBody {
-        public UploadBankStatementDataRequestBody(UploadBankStatementDataRequestBodyType type) {
+    public class UploadBankStatementDataRequestBody
+    {
+        public UploadBankStatementDataRequestBody(UploadBankStatementDataRequestBodyType type)
+        {
             Type = type;
         }
 
@@ -75,25 +74,24 @@ namespace Codat.Lending.Models.Requests
         public object? Any { get; set; }
 
         public UploadBankStatementDataRequestBodyType Type { get; set; }
-
-
-        public static UploadBankStatementDataRequestBody CreateBankingAccount(BankingAccount bankingAccount) {
+        public static UploadBankStatementDataRequestBody CreateBankingAccount(BankingAccount bankingAccount)
+        {
             UploadBankStatementDataRequestBodyType typ = UploadBankStatementDataRequestBodyType.BankingAccount;
 
             UploadBankStatementDataRequestBody res = new UploadBankStatementDataRequestBody(typ);
             res.BankingAccount = bankingAccount;
             return res;
         }
-
-        public static UploadBankStatementDataRequestBody CreateBankingTransactions(BankingTransactions bankingTransactions) {
+        public static UploadBankStatementDataRequestBody CreateBankingTransactions(BankingTransactions bankingTransactions)
+        {
             UploadBankStatementDataRequestBodyType typ = UploadBankStatementDataRequestBodyType.BankingTransactions;
 
             UploadBankStatementDataRequestBody res = new UploadBankStatementDataRequestBody(typ);
             res.BankingTransactions = bankingTransactions;
             return res;
         }
-
-        public static UploadBankStatementDataRequestBody CreateAny(object any) {
+        public static UploadBankStatementDataRequestBody CreateAny(object any)
+        {
             UploadBankStatementDataRequestBodyType typ = UploadBankStatementDataRequestBodyType.Any;
 
             UploadBankStatementDataRequestBody res = new UploadBankStatementDataRequestBody(typ);
@@ -101,26 +99,20 @@ namespace Codat.Lending.Models.Requests
             return res;
         }
 
-        public static UploadBankStatementDataRequestBody CreateNull() {
-            UploadBankStatementDataRequestBodyType typ = UploadBankStatementDataRequestBodyType.Null;
-            return new UploadBankStatementDataRequestBody(typ);
-        }
-
         public class UploadBankStatementDataRequestBodyConverter : JsonConverter
         {
-
             public override bool CanConvert(System.Type objectType) => objectType == typeof(UploadBankStatementDataRequestBody);
 
             public override bool CanRead => true;
 
             public override object? ReadJson(JsonReader reader, System.Type objectType, object? existingValue, JsonSerializer serializer)
             {
-                var json = JRaw.Create(reader).ToString();
-                if (json == "null")
+                if (reader.TokenType == JsonToken.Null)
                 {
-                    return null;
+                    throw new InvalidOperationException("Received unexpected null JSON value");
                 }
 
+                var json = JRaw.Create(reader).ToString();
                 var fallbackCandidates = new List<(System.Type, object, string)>();
 
                 try
@@ -208,32 +200,30 @@ namespace Codat.Lending.Models.Requests
 
             public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
             {
-                if (value == null) {
-                    writer.WriteRawValue("null");
-                    return;
-                }
-                UploadBankStatementDataRequestBody res = (UploadBankStatementDataRequestBody)value;
-                if (UploadBankStatementDataRequestBodyType.FromString(res.Type).Equals(UploadBankStatementDataRequestBodyType.Null))
+                if (value == null)
                 {
-                    writer.WriteRawValue("null");
-                    return;
+                    throw new InvalidOperationException("Unexpected null JSON value.");
                 }
+
+                UploadBankStatementDataRequestBody res = (UploadBankStatementDataRequestBody)value;
+
                 if (res.BankingAccount != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.BankingAccount));
                     return;
                 }
+
                 if (res.BankingTransactions != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.BankingTransactions));
                     return;
                 }
+
                 if (res.Any != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.Any));
                     return;
                 }
-
             }
 
         }

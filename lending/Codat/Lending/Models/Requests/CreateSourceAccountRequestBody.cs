@@ -17,18 +17,16 @@ namespace Codat.Lending.Models.Requests
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    
 
     public class CreateSourceAccountRequestBodyType
     {
         private CreateSourceAccountRequestBodyType(string value) { Value = value; }
 
         public string Value { get; private set; }
+
         public static CreateSourceAccountRequestBodyType SourceAccountV2Prototype { get { return new CreateSourceAccountRequestBodyType("sourceAccountV2Prototype"); } }
-        
+
         public static CreateSourceAccountRequestBodyType SourceAccountPrototype { get { return new CreateSourceAccountRequestBodyType("sourceAccountPrototype"); } }
-        
-        public static CreateSourceAccountRequestBodyType Null { get { return new CreateSourceAccountRequestBodyType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(CreateSourceAccountRequestBodyType v) { return v.Value; }
@@ -36,7 +34,6 @@ namespace Codat.Lending.Models.Requests
             switch(v) {
                 case "sourceAccountV2Prototype": return SourceAccountV2Prototype;
                 case "sourceAccountPrototype": return SourceAccountPrototype;
-                case "null": return Null;
                 default: throw new ArgumentException("Invalid value for CreateSourceAccountRequestBodyType");
             }
         }
@@ -57,8 +54,10 @@ namespace Codat.Lending.Models.Requests
 
 
     [JsonConverter(typeof(CreateSourceAccountRequestBody.CreateSourceAccountRequestBodyConverter))]
-    public class CreateSourceAccountRequestBody {
-        public CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType type) {
+    public class CreateSourceAccountRequestBody
+    {
+        public CreateSourceAccountRequestBody(CreateSourceAccountRequestBodyType type)
+        {
             Type = type;
         }
 
@@ -69,17 +68,16 @@ namespace Codat.Lending.Models.Requests
         public SourceAccountPrototype? SourceAccountPrototype { get; set; }
 
         public CreateSourceAccountRequestBodyType Type { get; set; }
-
-
-        public static CreateSourceAccountRequestBody CreateSourceAccountV2Prototype(SourceAccountV2Prototype sourceAccountV2Prototype) {
+        public static CreateSourceAccountRequestBody CreateSourceAccountV2Prototype(SourceAccountV2Prototype sourceAccountV2Prototype)
+        {
             CreateSourceAccountRequestBodyType typ = CreateSourceAccountRequestBodyType.SourceAccountV2Prototype;
 
             CreateSourceAccountRequestBody res = new CreateSourceAccountRequestBody(typ);
             res.SourceAccountV2Prototype = sourceAccountV2Prototype;
             return res;
         }
-
-        public static CreateSourceAccountRequestBody CreateSourceAccountPrototype(SourceAccountPrototype sourceAccountPrototype) {
+        public static CreateSourceAccountRequestBody CreateSourceAccountPrototype(SourceAccountPrototype sourceAccountPrototype)
+        {
             CreateSourceAccountRequestBodyType typ = CreateSourceAccountRequestBodyType.SourceAccountPrototype;
 
             CreateSourceAccountRequestBody res = new CreateSourceAccountRequestBody(typ);
@@ -87,26 +85,20 @@ namespace Codat.Lending.Models.Requests
             return res;
         }
 
-        public static CreateSourceAccountRequestBody CreateNull() {
-            CreateSourceAccountRequestBodyType typ = CreateSourceAccountRequestBodyType.Null;
-            return new CreateSourceAccountRequestBody(typ);
-        }
-
         public class CreateSourceAccountRequestBodyConverter : JsonConverter
         {
-
             public override bool CanConvert(System.Type objectType) => objectType == typeof(CreateSourceAccountRequestBody);
 
             public override bool CanRead => true;
 
             public override object? ReadJson(JsonReader reader, System.Type objectType, object? existingValue, JsonSerializer serializer)
             {
-                var json = JRaw.Create(reader).ToString();
-                if (json == "null")
+                if (reader.TokenType == JsonToken.Null)
                 {
-                    return null;
+                    throw new InvalidOperationException("Received unexpected null JSON value");
                 }
 
+                var json = JRaw.Create(reader).ToString();
                 var fallbackCandidates = new List<(System.Type, object, string)>();
 
                 try
@@ -174,27 +166,24 @@ namespace Codat.Lending.Models.Requests
 
             public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
             {
-                if (value == null) {
-                    writer.WriteRawValue("null");
-                    return;
-                }
-                CreateSourceAccountRequestBody res = (CreateSourceAccountRequestBody)value;
-                if (CreateSourceAccountRequestBodyType.FromString(res.Type).Equals(CreateSourceAccountRequestBodyType.Null))
+                if (value == null)
                 {
-                    writer.WriteRawValue("null");
-                    return;
+                    throw new InvalidOperationException("Unexpected null JSON value.");
                 }
+
+                CreateSourceAccountRequestBody res = (CreateSourceAccountRequestBody)value;
+
                 if (res.SourceAccountV2Prototype != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountV2Prototype));
                     return;
                 }
+
                 if (res.SourceAccountPrototype != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountPrototype));
                     return;
                 }
-
             }
 
         }

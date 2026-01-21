@@ -27,14 +27,11 @@ namespace Codat.Lending
     public class AccountsReceivable: IAccountsReceivable
     {
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.2";
-        private const string _sdkGenVersion = "2.486.1";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Lending.Models.Components.Security>? _securitySource;
+
+        private const string _language = Constants.Language;
+        private const string _sdkVersion = Constants.SdkVersion;
+        private const string _sdkGenVersion = Constants.SdkGenVersion;
+        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
         public IInvoices Invoices { get; private set; }
         public ICreditNotes CreditNotes { get; private set; }
         public ICustomers Customers { get; private set; }
@@ -42,18 +39,15 @@ namespace Codat.Lending
         public IPayments Payments { get; private set; }
         public ICodatLendingReports Reports { get; private set; }
 
-        public AccountsReceivable(ISpeakeasyHttpClient client, Func<Codat.Lending.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public AccountsReceivable(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
-            Invoices = new Invoices(_client, _securitySource, _serverUrl, SDKConfiguration);
-            CreditNotes = new CreditNotes(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Customers = new Customers(_client, _securitySource, _serverUrl, SDKConfiguration);
-            DirectIncomes = new DirectIncomes(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Payments = new Payments(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Reports = new CodatLendingReports(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Invoices = new Invoices(SDKConfiguration);
+            CreditNotes = new CreditNotes(SDKConfiguration);
+            Customers = new Customers(SDKConfiguration);
+            DirectIncomes = new DirectIncomes(SDKConfiguration);
+            Payments = new Payments(SDKConfiguration);
+            Reports = new CodatLendingReports(SDKConfiguration);
         }
     }
 }

@@ -5,7 +5,7 @@ Weblink associated with the company.
 
 ## Fields
 
-| Field                                                     | Type                                                      | Required                                                  | Description                                               |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `Type`                                                    | [Models.Components.Type](../../Models/Components/Type.md) | :heavy_minus_sign:                                        | The type of the weblink.                                  |
-| `Url`                                                     | *string*                                                  | :heavy_minus_sign:                                        | The full URL for the weblink.                             |
+| Field                                                 | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `Type`                                                | [WebLinkType](../../Models/Components/WebLinkType.md) | :heavy_minus_sign:                                    | The type of the weblink.                              |
+| `Url`                                                 | *string*                                              | :heavy_minus_sign:                                    | The full URL for the weblink.                         |

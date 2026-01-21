@@ -1,5 +1,4 @@
-# CodatLendingLoanWritebackPayments
-(*LoanWriteback.Payments*)
+# LoanWriteback.Payments
 
 ## Overview
 
@@ -14,12 +13,13 @@ The *Get create payment model* endpoint returns the expected data for the reques
 
 [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -51,7 +51,8 @@ var res = await sdk.LoanWriteback.Payments.GetCreateModelAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
@@ -60,12 +61,13 @@ The *Create payment* endpoint creates a new [payment](https://docs.codat.io/lend
 
 [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -78,21 +80,38 @@ CreatePaymentRequest req = new CreatePaymentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     AccountingPayment = new AccountingPayment() {
-        ModifiedDate = "2022-10-23T00:00:00Z",
-        SourceModifiedDate = "2022-10-23T00:00:00Z",
-        AccountRef = new AccountRef() {},
-        PaymentMethodRef = new PaymentMethodRef() {
-            Id = "EILBDVJVNUAGVKRQ",
-            Name = "AliPay",
+        CustomerRef = new AccountingCustomerRef() {
+            Id = "80000002-1674552702",
+            CompanyName = "string",
         },
+        AccountRef = new AccountRef() {
+            Id = "8000002E-1675267199",
+            Name = "Undeposited Funds",
+        },
+        PaymentMethodRef = new PaymentMethodRef() {
+            Id = "string",
+            Name = "string",
+        },
+        TotalAmount = 28M,
         Currency = "USD",
-        Date = "2022-10-23T00:00:00Z",
+        CurrencyRate = 1M,
+        Date = "2023-02-10T11:47:04.792Z",
+        Note = "note 14/02 1147",
         Lines = new List<PaymentLine>() {
             new PaymentLine() {
-                Amount = 690.26M,
-                AllocatedOnDate = "2022-10-23T00:00:00Z",
+                Amount = 28M,
+                Links = new List<PaymentLineLink>() {
+                    new PaymentLineLink() {
+                        Type = PaymentLinkType.Invoice,
+                        Id = "181-1676374586",
+                        Amount = -28M,
+                        CurrencyRate = 1M,
+                    },
+                },
+                AllocatedOnDate = "2023-02-11T11:47:04.792Z",
             },
         },
+        Reference = "ref 14/02 1147",
     },
 };
 
@@ -115,5 +134,6 @@ var res = await sdk.LoanWriteback.Payments.CreateAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

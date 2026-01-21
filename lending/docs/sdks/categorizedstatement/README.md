@@ -1,5 +1,4 @@
-# CategorizedStatement
-(*Banking.CategorizedStatement*)
+# Banking.CategorizedStatement
 
 ## Overview
 
@@ -17,6 +16,7 @@ The _Get categorized bank statement_ endpoint provides a fully categorized list 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-categorized-bank-statement" method="get" path="/companies/{companyId}/reports/enhancedCashFlow/transactions" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -26,8 +26,6 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetCategorizedBankStatementRequest req = new GetCategorizedBankStatementRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
 };
 
@@ -50,5 +48,6 @@ var res = await sdk.Banking.CategorizedStatement.GetAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

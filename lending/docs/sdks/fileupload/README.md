@@ -1,5 +1,4 @@
 # FileUpload
-(*FileUpload*)
 
 ## Overview
 
@@ -17,6 +16,7 @@ Endpoints to manage uploaded files.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-files" method="get" path="/companies/{companyId}/files" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -47,7 +47,8 @@ var res = await sdk.FileUpload.ListUploadedAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Download
@@ -56,6 +57,7 @@ The *Download files* endpoint downloads all files that have  been uploaded by to
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="download-files" method="get" path="/companies/{companyId}/files/download" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -87,7 +89,8 @@ var res = await sdk.FileUpload.DownloadAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Upload
@@ -102,6 +105,7 @@ Uploaded files must meet the following requirements:
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="upload-files" method="post" path="/companies/{companyId}/connections/{connectionId}/files" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -133,5 +137,6 @@ var res = await sdk.FileUpload.UploadAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

@@ -33,13 +33,13 @@ namespace Codat.Lending.Models.Components
         /// Price of each unit of goods or services.
         /// </summary>
         [JsonProperty("unitAmount")]
-        public decimal UnitAmount { get; set; } = default!;
+        public decimal? UnitAmount { get; set; }
 
         /// <summary>
         /// Number of units of goods or services received.
         /// </summary>
         [JsonProperty("quantity")]
-        public decimal Quantity { get; set; } = default!;
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// The measurement which defines a unit for this item (e.g. &apos;kilogram&apos;, &apos;litre&apos;).

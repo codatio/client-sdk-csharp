@@ -1,5 +1,4 @@
-# BankAccounts
-(*LoanWriteback.BankAccounts*)
+# LoanWriteback.BankAccounts
 
 ## Overview
 
@@ -14,13 +13,14 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 
 [Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -52,7 +52,8 @@ var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
@@ -61,12 +62,13 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 [Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/lending-api#/operations/get-create-update-bankAccounts-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -80,7 +82,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     AccountingBankAccount = new AccountingBankAccount() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Currency = "USD",
+        Currency = "GBP",
         Status = BankAccountStatus.Active,
     },
 };
@@ -104,5 +106,6 @@ var res = await sdk.LoanWriteback.BankAccounts.CreateAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

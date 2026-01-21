@@ -21,13 +21,12 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
-    /// Direct incomes are incomes received directly from the business&apos; operations. For example, cash sales of items to a customer, referral commissions, and service fee refunds are considered direct incomes.<br/>
+    /// Direct incomes are incomes received directly from the business&apos; operations. For example, cash sales of items to a customer, referral commissions, and service fee refunds are considered direct incomes made at the point of sale.<br/>
     /// <br/>
     /// Direct incomes include: <br/>
     /// <br/>
     /// - Selling an item directly to a contact, and receiving payment at the point of the sale.<br/>
-    /// - Refunding an item in cash to a contact.<br/>
-    /// - Depositing money into a bank account.<br/>
+    /// - Refunding an item sold at the point of sale in cash to a contact.<br/>
     /// <br/>
     /// Direct incomes is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.<br/>
     /// 

@@ -1,5 +1,4 @@
-# Refresh
-(*ManageData.Refresh*)
+# ManageData.Refresh
 
 ## Overview
 
@@ -18,6 +17,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="refresh-all-data-types" method="post" path="/companies/{companyId}/data/all" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -48,7 +48,8 @@ var res = await sdk.ManageData.Refresh.AllDataTypesAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## DataType
@@ -59,6 +60,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="refresh-data-type" method="post" path="/companies/{companyId}/data/queue/{dataType}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -90,5 +92,6 @@ var res = await sdk.ManageData.Refresh.DataTypeAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

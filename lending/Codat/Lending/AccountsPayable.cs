@@ -25,29 +25,23 @@ namespace Codat.Lending
     public class AccountsPayable: IAccountsPayable
     {
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.2";
-        private const string _sdkGenVersion = "2.486.1";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Lending.Models.Components.Security>? _securitySource;
+
+        private const string _language = Constants.Language;
+        private const string _sdkVersion = Constants.SdkVersion;
+        private const string _sdkGenVersion = Constants.SdkGenVersion;
+        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
         public IBillCreditNotes BillCreditNotes { get; private set; }
         public IBillPayments BillPayments { get; private set; }
         public IBills Bills { get; private set; }
         public ISuppliers Suppliers { get; private set; }
 
-        public AccountsPayable(ISpeakeasyHttpClient client, Func<Codat.Lending.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public AccountsPayable(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
-            BillCreditNotes = new BillCreditNotes(_client, _securitySource, _serverUrl, SDKConfiguration);
-            BillPayments = new BillPayments(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Bills = new Bills(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Suppliers = new Suppliers(_client, _securitySource, _serverUrl, SDKConfiguration);
+            BillCreditNotes = new BillCreditNotes(SDKConfiguration);
+            BillPayments = new BillPayments(SDKConfiguration);
+            Bills = new Bills(SDKConfiguration);
+            Suppliers = new Suppliers(SDKConfiguration);
         }
     }
 }

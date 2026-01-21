@@ -51,7 +51,7 @@ namespace Codat.Lending.Models.Components
         /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
-        public string Currency { get; set; } = default!;
+        public string? Currency { get; set; }
 
         /// <summary>
         /// An array of balance sheet reports.

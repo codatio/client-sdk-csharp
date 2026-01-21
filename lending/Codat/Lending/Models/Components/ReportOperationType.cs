@@ -14,7 +14,7 @@ namespace Codat.Lending.Models.Components
     using System;
     
     /// <summary>
-    /// The name of the report generated.
+    /// The name of the generated report.
     /// </summary>
     public enum ReportOperationType
     {
@@ -22,6 +22,8 @@ namespace Codat.Lending.Models.Components
         CategorizedBankStatement,
         [JsonProperty("creditModel")]
         CreditModel,
+        [JsonProperty("spendAnalysis")]
+        SpendAnalysis,
     }
 
     public static class ReportOperationTypeExtension

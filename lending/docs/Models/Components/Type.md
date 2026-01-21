@@ -1,12 +1,14 @@
 # Type
 
-The type of the weblink.
+The type of phone number
 
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `Website` | Website   |
-| `Social`  | Social    |
-| `Unknown` | Unknown   |
+| Name       | Value      |
+| ---------- | ---------- |
+| `Primary`  | Primary    |
+| `Landline` | Landline   |
+| `Mobile`   | Mobile     |
+| `Fax`      | Fax        |
+| `Unknown`  | Unknown    |

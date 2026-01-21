@@ -32,7 +32,8 @@ namespace Codat.Lending.Models.Components
     /// * The currency and balance of the account.<br/>
     /// * The sort code and account number.
     /// </remarks>
-    /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
+    /// </summary>
+    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class AccountingCreateBankAccountResponseAccountingBankAccount
     {
 

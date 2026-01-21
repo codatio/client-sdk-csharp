@@ -14,14 +14,18 @@ namespace Codat.Lending.Models.Components
     using System;
     
     /// <summary>
-    /// The type of the weblink.
+    /// The type of phone number
     /// </summary>
     public enum Type
     {
-        [JsonProperty("Website")]
-        Website,
-        [JsonProperty("Social")]
-        Social,
+        [JsonProperty("Primary")]
+        Primary,
+        [JsonProperty("Landline")]
+        Landline,
+        [JsonProperty("Mobile")]
+        Mobile,
+        [JsonProperty("Fax")]
+        Fax,
         [JsonProperty("Unknown")]
         Unknown,
     }

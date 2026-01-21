@@ -1,5 +1,4 @@
-# Metrics
-(*Sales.Metrics*)
+# Sales.Metrics
 
 ## Overview
 
@@ -36,6 +35,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-commerce-revenue-metrics" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/revenue" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -47,8 +47,8 @@ GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 307462,
-    NumberOfPeriods = 120092,
+    PeriodLength = 44877,
+    NumberOfPeriods = 459595,
     PeriodUnit = PeriodUnit.Year,
 };
 
@@ -71,7 +71,8 @@ var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetCustomerRetention
@@ -108,6 +109,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer-retention-metrics" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/customerRetention" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -119,8 +121,8 @@ GetCommerceCustomerRetentionMetricsRequest req = new GetCommerceCustomerRetentio
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 497588,
-    NumberOfPeriods = 431272,
+    PeriodLength = 555812,
+    NumberOfPeriods = 292320,
     PeriodUnit = PeriodUnit.Day,
 };
 
@@ -143,7 +145,8 @@ var res = await sdk.Sales.Metrics.GetCustomerRetentionAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetLifetimeValue
@@ -172,6 +175,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-commerce-lifetime-value-metrics" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/lifetimeValue" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -183,9 +187,9 @@ GetCommerceLifetimeValueMetricsRequest req = new GetCommerceLifetimeValueMetrics
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 900865,
-    NumberOfPeriods = 500610,
-    PeriodUnit = PeriodUnit.Year,
+    PeriodLength = 402759,
+    NumberOfPeriods = 976344,
+    PeriodUnit = PeriodUnit.Day,
 };
 
 var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
@@ -207,5 +211,6 @@ var res = await sdk.Sales.Metrics.GetLifetimeValueAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

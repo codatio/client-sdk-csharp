@@ -1,5 +1,4 @@
 # Liabilities
-(*Liabilities*)
 
 ## Overview
 
@@ -23,6 +22,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="generate-loan-transactions" method="post" path="/companies/{companyId}/reports/liabilities/loans/transactions" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -32,7 +32,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateLoanTransactionsRequest req = new GenerateLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = SourceType.Accounting,
+    SourceType = Codat.Lending.Models.Requests.SourceType.Commerce,
 };
 
 var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
@@ -54,7 +54,8 @@ var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## ListLoanTransactions
@@ -68,6 +69,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-loan-transactions" method="get" path="/companies/{companyId}/reports/liabilities/loans/transactions" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -99,7 +101,8 @@ var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GenerateLoanSummary
@@ -113,6 +116,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="generate-loan-summary" method="post" path="/companies/{companyId}/reports/liabilities/loans" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -144,7 +148,8 @@ var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetLoanSummary
@@ -158,6 +163,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-loan-summary" method="get" path="/companies/{companyId}/reports/liabilities/loans" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -167,7 +173,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = GetLoanSummaryQueryParamSourceType.Banking,
+    SourceType = GetLoanSummaryQueryParamSourceType.Accounting,
 };
 
 var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
@@ -189,5 +195,6 @@ var res = await sdk.Liabilities.GetLoanSummaryAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

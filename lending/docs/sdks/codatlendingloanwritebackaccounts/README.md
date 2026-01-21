@@ -1,5 +1,4 @@
-# CodatLendingLoanWritebackAccounts
-(*LoanWriteback.Accounts*)
+# LoanWriteback.Accounts
 
 ## Overview
 
@@ -14,12 +13,13 @@ The *Get create account model* endpoint returns the expected data for the reques
 
 [Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-chartOfAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/chartOfAccounts" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -51,7 +51,8 @@ var res = await sdk.LoanWriteback.Accounts.GetCreateModelAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
@@ -60,12 +61,13 @@ The *Create account* endpoint creates a new [account](https://docs.codat.io/lend
 
 [Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/lending-api#/operations/get-create-chartOfAccounts-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/accounts" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -82,7 +84,7 @@ CreateAccountRequest req = new CreateAccountRequest() {
         Description = "Invoices the business has issued but has not yet collected payment on.",
         FullyQualifiedCategory = "Asset.Current",
         FullyQualifiedName = "Cash On Hand",
-        Currency = "USD",
+        Currency = "GBP",
         CurrentBalance = 0M,
         Type = AccountType.Asset,
         Status = AccountStatus.Active,
@@ -108,5 +110,6 @@ var res = await sdk.LoanWriteback.Accounts.CreateAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

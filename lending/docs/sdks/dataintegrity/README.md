@@ -1,5 +1,4 @@
 # DataIntegrity
-(*DataIntegrity*)
 
 ## Overview
 
@@ -24,6 +23,7 @@ The response tells you:
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-data-integrity-status" method="get" path="/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/status" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -55,7 +55,8 @@ var res = await sdk.DataIntegrity.StatusAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Summaries
@@ -68,6 +69,7 @@ The endpoint response includes only the summary results, not transactions. To vi
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-data-integrity-summaries" method="get" path="/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/summaries" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -100,7 +102,8 @@ var res = await sdk.DataIntegrity.SummariesAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Details
@@ -111,6 +114,7 @@ The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetail) ar
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-data-integrity-details" method="get" path="/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/details" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -121,8 +125,6 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 ListDataIntegrityDetailsRequest req = new ListDataIntegrityDetailsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     DataType = DataIntegrityDataType.BankingAccounts,
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -146,5 +148,6 @@ var res = await sdk.DataIntegrity.DetailsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

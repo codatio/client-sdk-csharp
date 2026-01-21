@@ -1,5 +1,4 @@
-# Suppliers
-(*AccountsPayable.Suppliers*)
+# AccountsPayable.Suppliers
 
 ## Overview
 
@@ -22,6 +21,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-accounting-suppliers" method="get" path="/companies/{companyId}/data/suppliers" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -31,8 +31,6 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListAccountingSuppliersRequest req = new ListAccountingSuppliersRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -54,10 +52,11 @@ var res = await sdk.AccountsPayable.Suppliers.ListAsync(req);
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage    | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| Codat.Lending.Models.Errors.SDKException    | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 409, 429        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Get
 
@@ -70,6 +69,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-supplier" method="get" path="/companies/{companyId}/data/suppliers/{supplierId}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -79,7 +79,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingSupplierRequest req = new GetAccountingSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SupplierId = "7110701885",
+    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.AccountsPayable.Suppliers.GetAsync(req);
@@ -101,7 +101,8 @@ var res = await sdk.AccountsPayable.Suppliers.GetAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## ListAttachments
@@ -113,6 +114,7 @@ The *List supplier attachments* endpoint returns a list of attachments available
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-accounting-supplier-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -123,7 +125,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 ListAccountingSupplierAttachmentsRequest req = new ListAccountingSupplierAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "EILBDVJVNUAGVKRQ",
+    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.AccountsPayable.Suppliers.ListAttachmentsAsync(req);
@@ -145,7 +147,8 @@ var res = await sdk.AccountsPayable.Suppliers.ListAttachmentsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetAttachment
@@ -157,6 +160,7 @@ The *Get supplier attachment* endpoint returns a specific attachment for a given
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-supplier-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments/{attachmentId}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -167,7 +171,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 GetAccountingSupplierAttachmentRequest req = new GetAccountingSupplierAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "EILBDVJVNUAGVKRQ",
+    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -190,7 +194,8 @@ var res = await sdk.AccountsPayable.Suppliers.GetAttachmentAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## DownloadAttachment
@@ -202,6 +207,7 @@ The *Download supplier attachment* endpoint downloads a specific attachment for 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="download-accounting-supplier-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments/{attachmentId}/download" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -212,7 +218,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 DownloadAccountingSupplierAttachmentRequest req = new DownloadAccountingSupplierAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    SupplierId = "EILBDVJVNUAGVKRQ",
+    SupplierId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -235,5 +241,6 @@ var res = await sdk.AccountsPayable.Suppliers.DownloadAttachmentAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

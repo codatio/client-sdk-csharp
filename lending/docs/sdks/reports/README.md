@@ -1,5 +1,4 @@
-# Reports
-(*Sales.Reports*)
+# Sales.Reports
 
 ## Overview
 
@@ -35,6 +34,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-commerce-orders-report" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/orders" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -46,9 +46,9 @@ GetCommerceOrdersReportRequest req = new GetCommerceOrdersReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 491586,
-    NumberOfPeriods = 393849,
-    PeriodUnit = PeriodUnit.Year,
+    PeriodLength = 176756,
+    NumberOfPeriods = 64425,
+    PeriodUnit = PeriodUnit.Day,
 };
 
 var res = await sdk.Sales.Reports.GetOrdersAsync(req);
@@ -70,7 +70,8 @@ var res = await sdk.Sales.Reports.GetOrdersAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetRefunds
@@ -101,6 +102,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-commerce-refunds-report" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/refunds" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -112,9 +114,9 @@ GetCommerceRefundsReportRequest req = new GetCommerceRefundsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 277786,
-    NumberOfPeriods = 810912,
-    PeriodUnit = PeriodUnit.Month,
+    PeriodLength = 931992,
+    NumberOfPeriods = 555513,
+    PeriodUnit = PeriodUnit.Year,
 };
 
 var res = await sdk.Sales.Reports.GetRefundsAsync(req);
@@ -136,5 +138,6 @@ var res = await sdk.Sales.Reports.GetRefundsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

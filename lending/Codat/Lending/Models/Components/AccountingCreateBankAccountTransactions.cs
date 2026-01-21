@@ -14,7 +14,8 @@ namespace Codat.Lending.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
+    
+    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class AccountingCreateBankAccountTransactions
     {
 

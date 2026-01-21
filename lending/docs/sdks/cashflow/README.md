@@ -1,5 +1,4 @@
-# CashFlow
-(*FinancialStatements.CashFlow*)
+# FinancialStatements.CashFlow
 
 ## Overview
 
@@ -13,6 +12,7 @@ Gets the latest cash flow statement for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -46,5 +46,6 @@ var res = await sdk.FinancialStatements.CashFlow.GetAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

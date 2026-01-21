@@ -1,5 +1,4 @@
-# CodatLendingDirectCosts
-(*LoanWriteback.DirectCosts*)
+# LoanWriteback.DirectCosts
 
 ## Overview
 
@@ -12,15 +11,16 @@
 
 The *Get create direct cost model* endpoint returns the expected data for the request payload when creating a [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company and integration.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-directCosts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/directCosts" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -52,21 +52,23 @@ var res = await sdk.LoanWriteback.DirectCosts.GetCreateModelAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
 
 The *Create direct cost* endpoint creates a new [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are the expenses associated with a business' operations. For example, purchases of raw materials that are paid off at the point of the purchase and service fees are considered direct costs.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create direct cost model](https://docs.codat.io/lending-api#/operations/get-create-directCosts-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-direct-cost" method="post" path="/companies/{companyId}/connections/{connectionId}/push/directCosts" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -79,21 +81,36 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     DirectCostPrototype = new DirectCostPrototype() {
-        IssueDate = "2022-10-23T00:00:00Z",
+        Reference = "test ref",
+        Note = "directCost 21/03 09.20",
+        ContactRef = new ContactRef() {
+            Id = "80000001-1671793885",
+            DataType = ContactRefDataType.Suppliers,
+        },
+        IssueDate = "2023-03-21T10:19:52.223Z",
         Currency = "USD",
         LineItems = new List<DirectCostLineItem>() {
             new DirectCostLineItem() {
-                UnitAmount = 4174.58M,
-                Quantity = 1343.65M,
-                AccountRef = new AccountRef() {},
-                Tracking = new Tracking() {
-                    RecordRefs = new List<TrackingRecordRef>() {
-                        new TrackingRecordRef() {
-                            DataType = TrackingRecordRefDataType.TrackingCategories,
-                        },
-                    },
-                    InvoiceTo = new AccountingRecordRef() {
-                        DataType = "journalEntry",
+                Description = "test description line 1",
+                UnitAmount = 7M,
+                Quantity = 1M,
+                DiscountAmount = 0M,
+                DiscountPercentage = 0M,
+                SubTotal = 99M,
+                TaxAmount = 360M,
+                TotalAmount = 70M,
+                AccountRef = new AccountRef() {
+                    Id = "8000000D-1671793811",
+                    Name = "Purchases - Hardware for Resale",
+                },
+                ItemRef = new PropertieItemRef() {
+                    Id = "80000001-1674566705",
+                    Name = "item test",
+                },
+                TrackingCategoryRefs = new List<TrackingCategoryRef>() {
+                    new TrackingCategoryRef() {
+                        Id = "80000001-1674553252",
+                        Name = "Class 1",
                     },
                 },
             },
@@ -101,19 +118,25 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
         PaymentAllocations = new List<AccountingPaymentAllocation>() {
             new AccountingPaymentAllocation() {
                 Payment = new PaymentAllocationPayment() {
-                    AccountRef = new AccountRef() {},
-                    Currency = "EUR",
-                    PaidOnDate = "2022-10-23T00:00:00Z",
+                    Note = "payment allocations note",
+                    Reference = "payment allocations reference",
+                    AccountRef = new AccountRef() {
+                        Id = "80000028-1671794219",
+                        Name = "Bank Account 1",
+                    },
+                    PaidOnDate = "2023-01-28T10:19:52.223Z",
+                    TotalAmount = 54M,
                 },
                 Allocation = new Allocation() {
-                    Currency = "GBP",
-                    AllocatedOnDate = "2022-10-23T00:00:00Z",
+                    CurrencyRate = 0M,
+                    AllocatedOnDate = "2023-01-29T10:19:52.223Z",
+                    TotalAmount = 88M,
                 },
             },
         },
-        SubTotal = 899.64M,
-        TaxAmount = 7926.20M,
-        TotalAmount = 8165.87M,
+        SubTotal = 362M,
+        TaxAmount = 4M,
+        TotalAmount = 366M,
     },
 };
 
@@ -136,5 +159,6 @@ var res = await sdk.LoanWriteback.DirectCosts.CreateAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

@@ -138,6 +138,6 @@ namespace Codat.Lending.Models.Components
         public List<DataConnectionError>? DataConnectionErrors { get; set; } = null;
 
         [JsonProperty("connectionInfo")]
-        public Dictionary<string, string>? ConnectionInfo { get; set; } = null;
+        public Dictionary<string, object>? ConnectionInfo { get; set; } = null;
     }
 }

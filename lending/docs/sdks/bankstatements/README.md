@@ -1,5 +1,4 @@
 # BankStatements
-(*BankStatements*)
 
 ## Overview
 
@@ -23,6 +22,7 @@ When you use the [*Upload data*](https://docs.codat.io/lending-api#/operations/u
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-bank-statement-upload-configuration" method="get" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -54,7 +54,8 @@ var res = await sdk.BankStatements.GetUploadConfigurationAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## SetUploadConfiguration
@@ -67,6 +68,7 @@ Each data connection can only have one configuration for each company and extern
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="set-bank-statement-upload-configuration" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -77,6 +79,10 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 SetBankStatementUploadConfigurationRequest req = new SetBankStatementUploadConfigurationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BankStatementUploadConfiguration = new BankStatementUploadConfiguration() {
+        Source = Source.Codat,
+        AccountId = "abc123-ABC",
+    },
 };
 
 var res = await sdk.BankStatements.SetUploadConfigurationAsync(req);
@@ -98,7 +104,8 @@ var res = await sdk.BankStatements.SetUploadConfigurationAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## StartUploadSession
@@ -111,6 +118,7 @@ You can only have one active session per data type at a time. You can complete o
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="start-bank-statement-upload-session" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/startSession" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -142,7 +150,8 @@ var res = await sdk.BankStatements.StartUploadSessionAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## UploadBankStatementData
@@ -153,30 +162,51 @@ Make sure you created configuration for the account using the [*Set upload confi
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="upload-bank-statement-data" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/upload" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
 using Codat.Lending.Models.Requests;
+using System.Collections.Generic;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 UploadBankStatementDataRequest req = new UploadBankStatementDataRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DatasetId = "1ab1f5e3-9dea-4ca2-a9ee-c0fc9b4b58f7",
-    RequestBody = UploadBankStatementDataRequestBody.CreateBankingTransactions(
-        new BankingTransactions() {
-            PageNumber = 1,
-            PageSize = 10,
-            TotalResults = 1,
-            Links = new Links() {
-                Self = new HalRef() {
-                    Href = "/companies/{id}/data/{dataType}",
+    DatasetId = "f0095e43-88a7-4395-9f2c-1d5226e1c9e5",
+    RequestBody = UploadBankStatementDataRequestBody.CreateAny(
+        new Dictionary<string, object>() {
+            { "results", new List<object>() {
+                new Dictionary<string, object>() {
+                    { "institution", new Dictionary<string, object>() {
+                        { "name", "Lloyds Bank" },
+                        { "id", "lloyds-bank" },
+                    } },
+                    { "modifiedDate", "2022-05-23T16:32:50Z" },
+                    { "sourceModifiedDate", "2021-08-14T05:04:12" },
+                    { "informalName", "Codat" },
+                    { "balance", new Dictionary<string, object>() {
+                        { "limit", 5000 },
+                        { "available", -459987.97D },
+                        { "current", -459964.9D },
+                    } },
+                    { "currency", "GBP" },
+                    { "id", "1703194f-7805-4da8-bac0-2ba5da4a4216" },
+                    { "name", "Business Current Account" },
+                    { "holder", "Codat Ltd" },
+                    { "type", "Debit" },
+                    { "identifiers", new Dictionary<string, object>() {
+                        { "bic", "LOYDGB21006" },
+                        { "maskedAccountNumber", "LOYDGB21006" },
+                        { "type", "Depository" },
+                        { "subtype", "checking" },
+                        { "number", "46762629" },
+                        { "bankCode", 9911 },
+                        { "iban", "GB29 LOYD 4773 2346 7626 29" },
+                    } },
                 },
-                Current = new HalRef() {
-                    Href = "/companies/{id}/data/{dataType}?page=1&pageSize=10",
-                },
-            },
+            } },
         }
     ),
 };
@@ -200,7 +230,8 @@ var res = await sdk.BankStatements.UploadBankStatementDataAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## EndUploadSession
@@ -211,6 +242,7 @@ A session is a one-time process that enables you to upload bank statements to Co
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="end-bank-statement-upload-session" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/endSession" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -221,7 +253,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 EndBankStatementUploadSessionRequest req = new EndBankStatementUploadSessionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DatasetId = "d8baee81-bb77-4d34-bcc3-0ef7526e0bde",
+    DatasetId = "79c714cf-8643-4bc6-9b4e-8d1a971222b7",
 };
 
 var res = await sdk.BankStatements.EndUploadSessionAsync(req);
@@ -243,5 +275,6 @@ var res = await sdk.BankStatements.EndUploadSessionAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

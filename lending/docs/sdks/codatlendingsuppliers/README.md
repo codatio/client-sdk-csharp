@@ -1,5 +1,4 @@
-# CodatLendingSuppliers
-(*LoanWriteback.Suppliers*)
+# LoanWriteback.Suppliers
 
 ## Overview
 
@@ -14,13 +13,14 @@ The *Get create/update supplier model* endpoint returns the expected data for th
 
 [Suppliers](https://docs.codat.io/lending-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-update-suppliers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/suppliers" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -52,7 +52,8 @@ var res = await sdk.LoanWriteback.Suppliers.GetCreateUpdateModelAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Create
@@ -61,18 +62,18 @@ The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/le
 
 [Suppliers](https://docs.codat.io/lending-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/lending-api#/operations/get-create-update-suppliers-model).
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-supplier" method="post" path="/companies/{companyId}/connections/{connectionId}/push/suppliers" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
 using Codat.Lending.Models.Requests;
-using System.Collections.Generic;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -80,42 +81,10 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     AccountingSupplier = new AccountingSupplier() {
-        ModifiedDate = "2022-10-23T00:00:00Z",
-        SourceModifiedDate = "2022-10-23T00:00:00Z",
-        Id = "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F",
-        SupplierName = "Kelly's Industrial Supplies",
-        ContactName = "Kelly's Industrial Supplies",
-        EmailAddress = "sales@kellysupplies.com",
-        Phone = "07999 999999",
-        Addresses = new List<AccountingAddress>() {
-            new AccountingAddress() {
-                Type = AccountingAddressType.Billing,
-                Line1 = "Unit 51",
-                Line2 = "Bakersfield Industrial Estate",
-                City = "Bakersfield",
-                Region = "California",
-                Country = "USA",
-            },
-        },
-        RegistrationNumber = "string",
-        TaxNumber = "string",
-        Status = SupplierStatus.Unknown,
-        DefaultCurrency = "string",
-        Metadata = new Metadata() {
-            IsDeleted = true,
-        },
-        SupplementalData = new SupplementalData() {
-            Content = new Dictionary<string, Dictionary<string, object>>() {
-                { "property1", new Dictionary<string, object>() {
-                    { "property1", null },
-                    { "property2", null },
-                } },
-                { "property2", new Dictionary<string, object>() {
-                    { "property1", null },
-                    { "property2", null },
-                } },
-            },
-        },
+        Id = "73593",
+        SupplierName = "test 20230420 1004",
+        ContactName = "Joe Bloggs",
+        Status = SupplierStatus.Active,
     },
 };
 
@@ -138,5 +107,6 @@ var res = await sdk.LoanWriteback.Suppliers.CreateAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

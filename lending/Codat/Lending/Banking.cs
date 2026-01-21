@@ -26,31 +26,25 @@ namespace Codat.Lending
     public class Banking: IBanking
     {
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "9.0.2";
-        private const string _sdkGenVersion = "2.486.1";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 9.0.2 2.486.1 3.0.0 Codat.Lending";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Lending.Models.Components.Security>? _securitySource;
+
+        private const string _language = Constants.Language;
+        private const string _sdkVersion = Constants.SdkVersion;
+        private const string _sdkGenVersion = Constants.SdkGenVersion;
+        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
         public ICategorizedStatement CategorizedStatement { get; private set; }
         public IAccountBalances AccountBalances { get; private set; }
         public ICodatLendingBankingAccounts Accounts { get; private set; }
         public ICodatLendingTransactions Transactions { get; private set; }
         public ITransactionCategories TransactionCategories { get; private set; }
 
-        public Banking(ISpeakeasyHttpClient client, Func<Codat.Lending.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public Banking(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
-            CategorizedStatement = new CategorizedStatement(_client, _securitySource, _serverUrl, SDKConfiguration);
-            AccountBalances = new AccountBalances(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Accounts = new CodatLendingBankingAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
-            Transactions = new CodatLendingTransactions(_client, _securitySource, _serverUrl, SDKConfiguration);
-            TransactionCategories = new TransactionCategories(_client, _securitySource, _serverUrl, SDKConfiguration);
+            CategorizedStatement = new CategorizedStatement(SDKConfiguration);
+            AccountBalances = new AccountBalances(SDKConfiguration);
+            Accounts = new CodatLendingBankingAccounts(SDKConfiguration);
+            Transactions = new CodatLendingTransactions(SDKConfiguration);
+            TransactionCategories = new TransactionCategories(SDKConfiguration);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Codat.Lending.Models.Components
         /// The type of the weblink.
         /// </summary>
         [JsonProperty("type")]
-        public Models.Components.Type? Type { get; set; }
+        public WebLinkType? Type { get; set; }
 
         /// <summary>
         /// The full URL for the weblink.

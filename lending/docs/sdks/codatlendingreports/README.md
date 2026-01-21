@@ -1,5 +1,4 @@
-# CodatLendingReports
-(*AccountsReceivable.Reports*)
+# AccountsReceivable.Reports
 
 ## Overview
 
@@ -16,6 +15,7 @@ Indicates whether the aged debtors report is available for the company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="is-aged-debtors-report-available" method="get" path="/companies/{companyId}/reports/agedDebtor/available" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -46,7 +46,8 @@ var res = await sdk.AccountsReceivable.Reports.IsAgedDebtorsAvailableAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetAgedDebtors
@@ -55,6 +56,7 @@ Returns aged debtors report for company that shows the total outstanding balance
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -89,7 +91,8 @@ var res = await sdk.AccountsReceivable.Reports.GetAgedDebtorsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## IsAgedCreditorsAvailable
@@ -98,6 +101,7 @@ Indicates whether the aged creditor report is available for the company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="is-aged-creditors-report-available" method="get" path="/companies/{companyId}/reports/agedCreditor/available" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -128,7 +132,8 @@ var res = await sdk.AccountsReceivable.Reports.IsAgedCreditorsAvailableAsync(req
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetAgedCreditors
@@ -137,6 +142,7 @@ Returns aged creditors report for company that shows the total balance owed by a
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -171,5 +177,6 @@ var res = await sdk.AccountsReceivable.Reports.GetAgedCreditorsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

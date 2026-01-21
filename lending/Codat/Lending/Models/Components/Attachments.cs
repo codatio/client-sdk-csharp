@@ -18,6 +18,6 @@ namespace Codat.Lending.Models.Components
     {
 
         [JsonProperty("attachments")]
-        public List<AccountingAttachment>? AttachmentsValue { get; set; } = null;
+        public List<AccountingAttachment?>? AttachmentsValue { get; set; } = null;
     }
 }

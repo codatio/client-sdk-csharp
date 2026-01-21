@@ -60,7 +60,7 @@ namespace Codat.Lending.Models.Components
         public bool? IsGiftCard { get; set; }
 
         [JsonProperty("variants")]
-        public List<ProductVariant>? Variants { get; set; }
+        public List<ProductVariant?>? Variants { get; set; }
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>

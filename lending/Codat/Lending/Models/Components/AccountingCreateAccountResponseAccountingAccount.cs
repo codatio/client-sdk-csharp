@@ -45,7 +45,8 @@ namespace Codat.Lending.Models.Components
     /// &gt;<br/>
     /// &gt; This approach gives a true representation of the company&apos;s accounts whilst preventing distorting financials such as a company&apos;s profit and loss and balance sheet reports.
     /// </remarks>
-    /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
+    /// </summary>
+    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class AccountingCreateAccountResponseAccountingAccount
     {
 

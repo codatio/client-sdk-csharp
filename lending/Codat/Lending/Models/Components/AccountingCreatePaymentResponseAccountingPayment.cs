@@ -695,7 +695,8 @@ namespace Codat.Lending.Models.Components
     ///   }<br/>
     ///   ```
     /// </remarks>
-    /// </summary>[Obsolete("This will be removed in a future release, please migrate away from it as soon as possible.")]
+    /// </summary>
+    [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class AccountingCreatePaymentResponseAccountingPayment
     {
 

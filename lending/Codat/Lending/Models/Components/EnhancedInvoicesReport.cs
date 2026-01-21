@@ -21,12 +21,12 @@ namespace Codat.Lending.Models.Components
     {
 
         /// <summary>
-        /// Report additional information, which is specific to Lending API reports.
+        /// Report additional information, which is specific to Lending reports.
         /// </summary>
         [JsonProperty("reportInfo")]
         public ReportInfo? ReportInfo { get; set; }
 
         [JsonProperty("reportItems")]
-        public List<EnhancedInvoiceReportItem>? ReportItems { get; set; }
+        public List<EnhancedInvoiceReportItem?>? ReportItems { get; set; }
     }
 }

@@ -26,6 +26,6 @@ namespace Codat.Lending.Models.Components
         /// The type of phone number
         /// </summary>
         [JsonProperty("type")]
-        public PhoneNumberType Type { get; set; } = default!;
+        public Models.Components.Type Type { get; set; } = default!;
     }
 }

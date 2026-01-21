@@ -50,7 +50,7 @@ namespace Codat.Lending.Models.Components
         /// </remarks>
         /// </summary>
         [JsonProperty("lastSuccessfulSync")]
-        public string LastSuccessfulSync { get; set; } = default!;
+        public string? LastSuccessfulSync { get; set; }
 
         /// <summary>
         /// The current status of the dataset.

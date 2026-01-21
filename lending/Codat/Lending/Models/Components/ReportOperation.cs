@@ -14,7 +14,7 @@ namespace Codat.Lending.Models.Components
     using Newtonsoft.Json;
     
     /// <summary>
-    /// Information about a report generation.
+    /// Information about report generation.
     /// </summary>
     public class ReportOperation
     {
@@ -32,7 +32,7 @@ namespace Codat.Lending.Models.Components
         public ReportOperationStatus? Status { get; set; }
 
         /// <summary>
-        /// The name of the report generated.
+        /// The name of the generated report.
         /// </summary>
         [JsonProperty("type")]
         public ReportOperationType? Type { get; set; }

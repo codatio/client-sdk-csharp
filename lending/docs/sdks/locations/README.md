@@ -1,5 +1,4 @@
-# Locations
-(*Sales.Locations*)
+# Sales.Locations
 
 ## Overview
 
@@ -19,6 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -50,7 +50,8 @@ var res = await sdk.Sales.Locations.ListAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Get
@@ -64,6 +65,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -74,7 +76,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 GetCommerceLocationRequest req = new GetCommerceLocationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    LocationId = "7110701885",
+    LocationId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.Sales.Locations.GetAsync(req);
@@ -96,5 +98,6 @@ var res = await sdk.Sales.Locations.GetAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

@@ -1,5 +1,4 @@
-# Bills
-(*AccountsPayable.Bills*)
+# AccountsPayable.Bills
 
 ## Overview
 
@@ -26,6 +25,7 @@ To access the `paymentAllocations` property, ensure that the `billPayments` data
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -35,8 +35,6 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
 };
@@ -58,10 +56,11 @@ var res = await sdk.AccountsPayable.Bills.ListAsync(req);
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage    | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| Codat.Lending.Models.Errors.SDKException    | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Codat.Lending.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 409, 429        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
+| Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## Get
 
@@ -78,6 +77,7 @@ To access the `paymentAllocations` property, ensure that the `billPayments` data
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -87,7 +87,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetAccountingBillRequest req = new GetAccountingBillRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    BillId = "7110701885",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.AccountsPayable.Bills.GetAsync(req);
@@ -109,7 +109,8 @@ var res = await sdk.AccountsPayable.Bills.GetAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## ListAttachments
@@ -121,6 +122,7 @@ The *List bill attachments* endpoint returns a list of attachments available to 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bill-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -131,7 +133,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 ListAccountingBillAttachmentsRequest req = new ListAccountingBillAttachmentsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    BillId = "EILBDVJVNUAGVKRQ",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(req);
@@ -153,7 +155,8 @@ var res = await sdk.AccountsPayable.Bills.ListAttachmentsAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429, 500, 503   | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 409, 429             | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## GetAttachment
@@ -164,6 +167,7 @@ The *Get bill attachment* endpoint returns a specific attachment for a given `bi
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -174,7 +178,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 GetAccountingBillAttachmentRequest req = new GetAccountingBillAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    BillId = "EILBDVJVNUAGVKRQ",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -197,7 +201,8 @@ var res = await sdk.AccountsPayable.Bills.GetAttachmentAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |
 
 ## DownloadAttachment
@@ -208,6 +213,7 @@ The *Download bill attachment* endpoint downloads a specific attachment for a gi
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="download-accounting-bill-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}/download" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -218,7 +224,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 DownloadAccountingBillAttachmentRequest req = new DownloadAccountingBillAttachmentRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    BillId = "EILBDVJVNUAGVKRQ",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     AttachmentId = "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
@@ -241,5 +247,6 @@ var res = await sdk.AccountsPayable.Bills.DownloadAttachmentAsync(req);
 
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503        | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                  | application/json                         |
+| Codat.Lending.Models.Errors.ErrorMessage | 500, 503                                 | application/json                         |
 | Codat.Lending.Models.Errors.SDKException | 4XX, 5XX                                 | \*/\*                                    |

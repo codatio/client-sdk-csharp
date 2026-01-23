@@ -13,27 +13,26 @@ namespace Codat.BankFeeds.Models.Operations
     using Codat.BankFeeds.Utils;
     using System;
     using System.Net.Http;
-    
+
     public class GetCreateBankTransactionsModelResponse
     {
-
         /// <summary>
-        /// HTTP response content type for this operation
+        /// HTTP response content type for this operation.
         /// </summary>
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// HTTP response status code for this operation
+        /// HTTP response status code for this operation.
         /// </summary>
         public int StatusCode { get; set; } = default!;
 
         /// <summary>
-        /// Raw HTTP response; suitable for custom response parsing
+        /// Raw HTTP response; suitable for custom response parsing.
         /// </summary>
         public HttpResponseMessage RawResponse { get; set; } = default!;
 
         /// <summary>
-        /// Success
+        /// Success.
         /// </summary>
         public PushOption? PushOption { get; set; }
     }

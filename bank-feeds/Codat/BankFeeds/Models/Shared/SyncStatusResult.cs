@@ -13,13 +13,12 @@ namespace Codat.BankFeeds.Models.Shared
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Represents the status of a managed bank feed sync.
     /// </summary>
     public class SyncStatusResult
     {
-
         /// <summary>
         /// The unique identifier for the sync.
         /// </summary>

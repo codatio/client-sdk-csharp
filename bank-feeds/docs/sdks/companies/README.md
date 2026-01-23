@@ -1,5 +1,4 @@
 # Companies
-(*Companies*)
 
 ## Overview
 
@@ -26,6 +25,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-company" method="post" path="/companies" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
@@ -35,8 +35,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 });
 
 CompanyRequestBody req = new CompanyRequestBody() {
-    Name = "Bank of Dave",
-    Description = "Requested early access to the new financing scheme.",
+    Name = "Technicalium",
 };
 
 var res = await sdk.Companies.CreateAsync(req);
@@ -84,6 +83,7 @@ For example, you can use the querying to filter companies tagged with a specific
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-companies" method="get" path="/companies" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -132,6 +132,7 @@ Each company can have multiple [connections](https://docs.codat.io/bank-feeds-ap
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-company" method="get" path="/companies/{companyId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -178,6 +179,7 @@ Each company can have multiple [connections](https://docs.codat.io/bank-feeds-ap
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="delete-company" method="delete" path="/companies/{companyId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -223,6 +225,7 @@ Each company can have multiple [connections](https://docs.codat.io/bank-feeds-ap
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="replace-company" method="put" path="/companies/{companyId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -235,8 +238,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 ReplaceCompanyRequest req = new ReplaceCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyRequestBody = new CompanyRequestBody() {
-        Name = "Bank of Dave",
-        Description = "Requested early access to the new financing scheme.",
+        Name = "New Name",
     },
 };
 
@@ -273,10 +275,12 @@ A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="update-company" method="patch" path="/companies/{companyId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
 using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
 
 var sdk = new CodatBankFeeds(security: new Security() {
     AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
@@ -285,8 +289,9 @@ var sdk = new CodatBankFeeds(security: new Security() {
 UpdateCompanyRequest req = new UpdateCompanyRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     CompanyUpdateRequest = new CompanyUpdateRequest() {
-        Name = "Bank of Dave",
-        Description = "Requested early access to the new financing scheme.",
+        Tags = new Dictionary<string, string>() {
+            { "refrence", "new reference" },
+        },
     },
 };
 
@@ -321,6 +326,7 @@ The token is required by Codat's embeddable UIs (such as [Connections SDK](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-company-access-token" method="get" path="/companies/{companyId}/accessToken" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;

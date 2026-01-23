@@ -27,29 +27,38 @@ namespace Codat.BankFeeds
     /// </summary>
     public interface IAccountMapping
     {
-
         /// <summary>
-        /// List bank feed accounts
-        /// 
+        /// List bank feed accounts.
+        /// </summary>
         /// <remarks>
         /// The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
         /// <br/>
         /// &gt; **For custom builds only**<br/>
         /// &gt; <br/>
         /// &gt; Only use this endpoint if you are building your own account management UI.
         /// </remarks>
-        /// </summary>
-        Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetBankAccountMappingResponse> GetAsync(
+            GetBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Create bank feed account mapping
-        /// 
+        /// Create bank feed account mapping.
+        /// </summary>
         /// <remarks>
         /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
         /// <br/>
         /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
         /// <br/>
@@ -64,10 +73,10 @@ namespace Codat.BankFeeds
         /// #### Mapping options:<br/>
         /// <br/>
         /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
-        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat&apos;s provided user interface for mapping.<br/>
+        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.<br/>
         /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
         /// <br/>
-        /// ### Integration-specific behaviour<br/>
+        /// ### Integration-specific behavior<br/>
         /// <br/>
         /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |<br/>
         /// | --------------------- | ----------- | ---------------- | --------------------------- |<br/>
@@ -78,8 +87,18 @@ namespace Codat.BankFeeds
         /// | QuickBooks Online     |             |                  | ✅                          |<br/>
         /// | Sage                  |             |                  | ✅                          |
         /// </remarks>
-        /// </summary>
-        Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CreateBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateBankAccountMappingResponse> CreateAsync(
+            CreateBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -87,38 +106,56 @@ namespace Codat.BankFeeds
     /// </summary>
     public class AccountMapping: IAccountMapping
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "7.3.0";
-        private const string _sdkGenVersion = "2.599.0";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.3.0 2.599.0 3.0.0 Codat.BankFeeds";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.BankFeeds.Models.Shared.Security>? _securitySource;
 
-        public AccountMapping(ISpeakeasyHttpClient client, Func<Codat.BankFeeds.Models.Shared.Security>? securitySource, string serverUrl, SDKConfig config)
+        public AccountMapping(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
 
-        public async Task<GetBankAccountMappingResponse> GetAsync(GetBankAccountMappingRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List bank feed accounts.
+        /// </summary>
+        /// <remarks>
+        /// The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
+        /// <br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
+        /// <br/>
+        /// &gt; **For custom builds only**<br/>
+        /// &gt; <br/>
+        /// &gt; Only use this endpoint if you are building your own account management UI.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetBankAccountMappingResponse> GetAsync(
+            GetBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(baseUrl, "get-bank-account-mapping", new List<string> {  }, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "get-bank-account-mapping", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -152,8 +189,8 @@ namespace Codat.BankFeeds
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.BankFeeds.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -163,7 +200,7 @@ namespace Codat.BankFeeds
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -193,7 +230,17 @@ namespace Codat.BankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<List<BankFeedMapping>>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    List<BankFeedMapping> obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<BankFeedMapping>>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into List<BankFeedMapping>.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new GetBankAccountMappingResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -204,47 +251,116 @@ namespace Codat.BankFeeds
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(new List<int>{401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateBankAccountMappingResponse> CreateAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create bank feed account mapping.
+        /// </summary>
+        /// <remarks>
+        /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
+        /// <br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
+        /// <br/>
+        /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
+        /// <br/>
+        /// &gt; **For custom builds only**<br/>
+        /// &gt;<br/>
+        /// &gt; Only use this endpoint if you are building your own account management UI.<br/>
+        /// <br/>
+        /// #### Account mapping variability<br/>
+        /// <br/>
+        /// The method of mapping the source account to the target account varies depending on the accounting software your company uses.<br/>
+        /// <br/>
+        /// #### Mapping options:<br/>
+        /// <br/>
+        /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
+        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.<br/>
+        /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
+        /// <br/>
+        /// ### Integration-specific behavior<br/>
+        /// <br/>
+        /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |<br/>
+        /// | --------------------- | ----------- | ---------------- | --------------------------- |<br/>
+        /// | Xero                  | ✅          | ✅               |                             |<br/>
+        /// | FreeAgent             | ✅          | ✅               |                             |<br/>
+        /// | Oracle NetSuite       | ✅          | ✅               |                             |<br/>
+        /// | Exact Online (NL)     | ✅          | ✅               |                             |<br/>
+        /// | QuickBooks Online     |             |                  | ✅                          |<br/>
+        /// | Sage                  |             |                  | ✅                          |
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateBankAccountMappingResponse> CreateAsync(
+            CreateBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
             var serializedBody = RequestBodySerializer.Serialize(request, "BankFeedAccountMapping", "json", false, true);
             if (serializedBody != null)
@@ -252,12 +368,12 @@ namespace Codat.BankFeeds
                 httpRequest.Content = serializedBody;
             }
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(baseUrl, "create-bank-account-mapping", new List<string> {  }, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "create-bank-account-mapping", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -291,8 +407,8 @@ namespace Codat.BankFeeds
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.BankFeeds.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -302,7 +418,7 @@ namespace Codat.BankFeeds
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -332,7 +448,17 @@ namespace Codat.BankFeeds
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<BankFeedAccountMappingResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    BankFeedAccountMappingResponse obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<BankFeedAccountMappingResponse>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into BankFeedAccountMappingResponse.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new CreateBankAccountMappingResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -343,38 +469,59 @@ namespace Codat.BankFeeds
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(responseStatusCode >= 400 && responseStatusCode < 500)
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
             else if(responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

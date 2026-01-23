@@ -1,5 +1,4 @@
 # CompanyInformation
-(*CompanyInformation*)
 
 ## Overview
 
@@ -25,6 +24,7 @@ Use the *Get company information* endpoint to return information about the compa
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-company-information" method="get" path="/companies/{companyId}/connections/{connectionId}/bankFeeds/info" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;

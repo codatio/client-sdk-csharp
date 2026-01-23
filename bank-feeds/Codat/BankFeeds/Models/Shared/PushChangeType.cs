@@ -12,7 +12,7 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Type of change being applied to record in third party platform.
     /// </summary>
@@ -62,5 +62,4 @@ namespace Codat.BankFeeds.Models.Shared
             throw new Exception($"Unknown value {value} for enum PushChangeType");
         }
     }
-
 }

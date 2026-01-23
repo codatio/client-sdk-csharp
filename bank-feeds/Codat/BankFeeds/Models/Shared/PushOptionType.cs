@@ -12,7 +12,7 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The option type.
     /// </summary>
@@ -68,5 +68,4 @@ namespace Codat.BankFeeds.Models.Shared
             throw new Exception($"Unknown value {value} for enum PushOptionType");
         }
     }
-
 }

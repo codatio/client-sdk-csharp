@@ -13,10 +13,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class PushValidationInfo
     {
-
         [JsonProperty("warnings")]
         public List<PushFieldValidation>? Warnings { get; set; } = null;
 

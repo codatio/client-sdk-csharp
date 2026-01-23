@@ -17,18 +17,16 @@ namespace Codat.BankFeeds.Models.Shared
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    
 
     public class SourceAccountWebhookPayloadSourceAccountType
     {
         private SourceAccountWebhookPayloadSourceAccountType(string value) { Value = value; }
 
         public string Value { get; private set; }
+
         public static SourceAccountWebhookPayloadSourceAccountType SourceAccountV2 { get { return new SourceAccountWebhookPayloadSourceAccountType("SourceAccountV2"); } }
-        
+
         public static SourceAccountWebhookPayloadSourceAccountType SourceAccount { get { return new SourceAccountWebhookPayloadSourceAccountType("SourceAccount"); } }
-        
-        public static SourceAccountWebhookPayloadSourceAccountType Null { get { return new SourceAccountWebhookPayloadSourceAccountType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(SourceAccountWebhookPayloadSourceAccountType v) { return v.Value; }
@@ -36,7 +34,6 @@ namespace Codat.BankFeeds.Models.Shared
             switch(v) {
                 case "SourceAccountV2": return SourceAccountV2;
                 case "SourceAccount": return SourceAccount;
-                case "null": return Null;
                 default: throw new ArgumentException("Invalid value for SourceAccountWebhookPayloadSourceAccountType");
             }
         }
@@ -55,10 +52,11 @@ namespace Codat.BankFeeds.Models.Shared
         }
     }
 
-
     [JsonConverter(typeof(SourceAccountWebhookPayloadSourceAccount.SourceAccountWebhookPayloadSourceAccountConverter))]
-    public class SourceAccountWebhookPayloadSourceAccount {
-        public SourceAccountWebhookPayloadSourceAccount(SourceAccountWebhookPayloadSourceAccountType type) {
+    public class SourceAccountWebhookPayloadSourceAccount
+    {
+        public SourceAccountWebhookPayloadSourceAccount(SourceAccountWebhookPayloadSourceAccountType type)
+        {
             Type = type;
         }
 
@@ -69,17 +67,16 @@ namespace Codat.BankFeeds.Models.Shared
         public SourceAccount? SourceAccount { get; set; }
 
         public SourceAccountWebhookPayloadSourceAccountType Type { get; set; }
-
-
-        public static SourceAccountWebhookPayloadSourceAccount CreateSourceAccountV2(SourceAccountV2 sourceAccountV2) {
+        public static SourceAccountWebhookPayloadSourceAccount CreateSourceAccountV2(SourceAccountV2 sourceAccountV2)
+        {
             SourceAccountWebhookPayloadSourceAccountType typ = SourceAccountWebhookPayloadSourceAccountType.SourceAccountV2;
 
             SourceAccountWebhookPayloadSourceAccount res = new SourceAccountWebhookPayloadSourceAccount(typ);
             res.SourceAccountV2 = sourceAccountV2;
             return res;
         }
-
-        public static SourceAccountWebhookPayloadSourceAccount CreateSourceAccount(SourceAccount sourceAccount) {
+        public static SourceAccountWebhookPayloadSourceAccount CreateSourceAccount(SourceAccount sourceAccount)
+        {
             SourceAccountWebhookPayloadSourceAccountType typ = SourceAccountWebhookPayloadSourceAccountType.SourceAccount;
 
             SourceAccountWebhookPayloadSourceAccount res = new SourceAccountWebhookPayloadSourceAccount(typ);
@@ -87,26 +84,20 @@ namespace Codat.BankFeeds.Models.Shared
             return res;
         }
 
-        public static SourceAccountWebhookPayloadSourceAccount CreateNull() {
-            SourceAccountWebhookPayloadSourceAccountType typ = SourceAccountWebhookPayloadSourceAccountType.Null;
-            return new SourceAccountWebhookPayloadSourceAccount(typ);
-        }
-
         public class SourceAccountWebhookPayloadSourceAccountConverter : JsonConverter
         {
-
             public override bool CanConvert(System.Type objectType) => objectType == typeof(SourceAccountWebhookPayloadSourceAccount);
 
             public override bool CanRead => true;
 
             public override object? ReadJson(JsonReader reader, System.Type objectType, object? existingValue, JsonSerializer serializer)
             {
-                var json = JRaw.Create(reader).ToString();
-                if (json == "null")
+                if (reader.TokenType == JsonToken.Null)
                 {
-                    return null;
+                    throw new InvalidOperationException("Received unexpected null JSON value");
                 }
 
+                var json = JRaw.Create(reader).ToString();
                 var fallbackCandidates = new List<(System.Type, object, string)>();
 
                 try
@@ -174,27 +165,24 @@ namespace Codat.BankFeeds.Models.Shared
 
             public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
             {
-                if (value == null) {
-                    writer.WriteRawValue("null");
-                    return;
-                }
-                SourceAccountWebhookPayloadSourceAccount res = (SourceAccountWebhookPayloadSourceAccount)value;
-                if (SourceAccountWebhookPayloadSourceAccountType.FromString(res.Type).Equals(SourceAccountWebhookPayloadSourceAccountType.Null))
+                if (value == null)
                 {
-                    writer.WriteRawValue("null");
-                    return;
+                    throw new InvalidOperationException("Unexpected null JSON value.");
                 }
+
+                SourceAccountWebhookPayloadSourceAccount res = (SourceAccountWebhookPayloadSourceAccount)value;
+
                 if (res.SourceAccountV2 != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccountV2));
                     return;
                 }
+
                 if (res.SourceAccount != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.SourceAccount));
                     return;
                 }
-
             }
 
         }

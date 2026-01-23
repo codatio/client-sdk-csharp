@@ -11,10 +11,9 @@ namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
-    
+
     public class CreateBankAccountRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

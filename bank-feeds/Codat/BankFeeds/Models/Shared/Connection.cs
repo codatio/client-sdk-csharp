@@ -13,11 +13,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// A connection represents a <a href="https://docs.codat.io/bank-feeds-api#/schemas/Company">company&apos;s</a> connection to a data source and allows you to synchronize data (pull and/or push) with that source.<br/>
-    /// 
-    /// <remarks>
+    /// A connection represents a <a href="https://docs.codat.io/bank-feeds-api#/schemas/Company">company's</a> connection to a data source and allows you to synchronize data (pull and/or push) with that source.<br/>
     /// <br/>
     /// A company can have multiple data connections depending on the type of data source it is connecting to. For example, a single company can link to:<br/>
     /// <br/>
@@ -27,13 +25,11 @@ namespace Codat.BankFeeds.Models.Shared
     /// Any combination of accounting, banking, and commerce data connections is allowed.<br/>
     /// <br/>
     /// Before you can use a data connection to pull or push data, the company must grant you access to their business data by <a href="https://docs.codat.io/auth-flow/overview">linking the connection</a>.
-    /// </remarks>
     /// </summary>
     public class Connection
     {
-
         /// <summary>
-        /// Unique identifier for a company&apos;s data connection.
+        /// Unique identifier for a company's data connection.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -45,7 +41,7 @@ namespace Codat.BankFeeds.Models.Shared
         public string IntegrationId { get; set; } = default!;
 
         /// <summary>
-        /// A unique four-character ID that identifies the platform of the company&apos;s data connection. This ensures continuity if the platform changes its name in the future.
+        /// A unique four-character ID that identifies the platform of the company's data connection. This ensures continuity if the platform changes its name in the future.
         /// </summary>
         [JsonProperty("integrationKey")]
         public string IntegrationKey { get; set; } = default!;
@@ -81,9 +77,7 @@ namespace Codat.BankFeeds.Models.Shared
         public DataConnectionStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -102,15 +96,12 @@ namespace Codat.BankFeeds.Models.Shared
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("lastSync")]
         public string? LastSync { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -129,7 +120,6 @@ namespace Codat.BankFeeds.Models.Shared
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("created")]
         public string Created { get; set; } = default!;
@@ -138,6 +128,6 @@ namespace Codat.BankFeeds.Models.Shared
         public List<DataConnectionError>? DataConnectionErrors { get; set; } = null;
 
         [JsonProperty("connectionInfo")]
-        public Dictionary<string, string>? ConnectionInfo { get; set; } = null;
+        public Dictionary<string, object>? ConnectionInfo { get; set; } = null;
     }
 }

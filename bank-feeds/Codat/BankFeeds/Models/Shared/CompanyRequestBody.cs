@@ -12,10 +12,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CompanyRequestBody
     {
-
         /// <summary>
         /// Name of company being connected.
         /// </summary>

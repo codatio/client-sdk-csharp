@@ -11,10 +11,9 @@ namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushFieldValidation
     {
-
         /// <summary>
         /// Field name that resulted in the validation issue.
         /// </summary>

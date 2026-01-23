@@ -1,5 +1,4 @@
 # BankAccounts
-(*BankAccounts*)
 
 ## Overview
 
@@ -22,6 +21,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -67,13 +67,14 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 
 [Bank accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -117,12 +118,13 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 [Bank accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/bank-feeds-api#/operations/get-create-update-bankAccounts-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -136,7 +138,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     BankAccountPrototype = new BankAccountPrototype() {
-        Currency = "USD",
+        Currency = "GBP",
         Status = BankAccountStatus.Active,
     },
 };

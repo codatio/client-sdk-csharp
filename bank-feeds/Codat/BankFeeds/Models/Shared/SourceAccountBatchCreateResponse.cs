@@ -12,13 +12,12 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Account ID and resulting object of the batch `Create source account` request.
     /// </summary>
     public class SourceAccountBatchCreateResponse
     {
-
         /// <summary>
         /// Unique ID for the source account.
         /// </summary>

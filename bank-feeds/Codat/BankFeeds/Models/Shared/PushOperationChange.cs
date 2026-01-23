@@ -12,10 +12,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushOperationChange
     {
-
         /// <summary>
         /// Type of change being applied to record in third party platform.
         /// </summary>

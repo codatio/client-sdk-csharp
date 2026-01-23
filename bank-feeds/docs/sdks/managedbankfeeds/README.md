@@ -1,5 +1,4 @@
 # ManagedBankFeeds
-(*ManagedBankFeeds*)
 
 ## Overview
 
@@ -19,6 +18,7 @@ A sync is a single execution that fetches bank transactions from a connected ban
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-managed-bank-feed-sync" method="get" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs/{syncId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -32,7 +32,7 @@ GetManagedBankFeedSyncRequest req = new GetManagedBankFeedSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     SourceAccountId = "<id>",
-    SyncId = "0b30533d-3bf6-4e6c-a030-630f53fe04d6",
+    SyncId = "823d304f-a204-4760-9b5d-b8a89bf29bed",
 };
 
 var res = await sdk.ManagedBankFeeds.GetSyncAsync(req);
@@ -66,6 +66,7 @@ A sync is a single execution that fetches bank transactions from a connected ban
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-latest-managed-bank-feed-sync" method="get" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs/latest" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -114,6 +115,7 @@ Use either the [_Get latest sync_](https://docs.codat.io/bank-feeds-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="run-managed-bank-feed-ad-hoc-sync" method="post" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/{sourceAccountId}/managedBankFeeds/syncs" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;

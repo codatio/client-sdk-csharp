@@ -17,18 +17,16 @@ namespace Codat.BankFeeds.Models.Operations
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    
 
     public class ListSourceAccountsResponseBodyType
     {
         private ListSourceAccountsResponseBodyType(string value) { Value = value; }
 
         public string Value { get; private set; }
+
         public static ListSourceAccountsResponseBodyType ArrayOfSourceAccountV2 { get { return new ListSourceAccountsResponseBodyType("arrayOfSourceAccountV2"); } }
-        
+
         public static ListSourceAccountsResponseBodyType ArrayOfSourceAccount { get { return new ListSourceAccountsResponseBodyType("arrayOfSourceAccount"); } }
-        
-        public static ListSourceAccountsResponseBodyType Null { get { return new ListSourceAccountsResponseBodyType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(ListSourceAccountsResponseBodyType v) { return v.Value; }
@@ -36,7 +34,6 @@ namespace Codat.BankFeeds.Models.Operations
             switch(v) {
                 case "arrayOfSourceAccountV2": return ArrayOfSourceAccountV2;
                 case "arrayOfSourceAccount": return ArrayOfSourceAccount;
-                case "null": return Null;
                 default: throw new ArgumentException("Invalid value for ListSourceAccountsResponseBodyType");
             }
         }
@@ -55,13 +52,14 @@ namespace Codat.BankFeeds.Models.Operations
         }
     }
 
-
     /// <summary>
-    /// Success
+    /// Success.
     /// </summary>
     [JsonConverter(typeof(ListSourceAccountsResponseBody.ListSourceAccountsResponseBodyConverter))]
-    public class ListSourceAccountsResponseBody {
-        public ListSourceAccountsResponseBody(ListSourceAccountsResponseBodyType type) {
+    public class ListSourceAccountsResponseBody
+    {
+        public ListSourceAccountsResponseBody(ListSourceAccountsResponseBodyType type)
+        {
             Type = type;
         }
 
@@ -72,17 +70,16 @@ namespace Codat.BankFeeds.Models.Operations
         public List<SourceAccount>? ArrayOfSourceAccount { get; set; }
 
         public ListSourceAccountsResponseBodyType Type { get; set; }
-
-
-        public static ListSourceAccountsResponseBody CreateArrayOfSourceAccountV2(List<SourceAccountV2> arrayOfSourceAccountV2) {
+        public static ListSourceAccountsResponseBody CreateArrayOfSourceAccountV2(List<SourceAccountV2> arrayOfSourceAccountV2)
+        {
             ListSourceAccountsResponseBodyType typ = ListSourceAccountsResponseBodyType.ArrayOfSourceAccountV2;
 
             ListSourceAccountsResponseBody res = new ListSourceAccountsResponseBody(typ);
             res.ArrayOfSourceAccountV2 = arrayOfSourceAccountV2;
             return res;
         }
-
-        public static ListSourceAccountsResponseBody CreateArrayOfSourceAccount(List<SourceAccount> arrayOfSourceAccount) {
+        public static ListSourceAccountsResponseBody CreateArrayOfSourceAccount(List<SourceAccount> arrayOfSourceAccount)
+        {
             ListSourceAccountsResponseBodyType typ = ListSourceAccountsResponseBodyType.ArrayOfSourceAccount;
 
             ListSourceAccountsResponseBody res = new ListSourceAccountsResponseBody(typ);
@@ -90,26 +87,20 @@ namespace Codat.BankFeeds.Models.Operations
             return res;
         }
 
-        public static ListSourceAccountsResponseBody CreateNull() {
-            ListSourceAccountsResponseBodyType typ = ListSourceAccountsResponseBodyType.Null;
-            return new ListSourceAccountsResponseBody(typ);
-        }
-
         public class ListSourceAccountsResponseBodyConverter : JsonConverter
         {
-
             public override bool CanConvert(System.Type objectType) => objectType == typeof(ListSourceAccountsResponseBody);
 
             public override bool CanRead => true;
 
             public override object? ReadJson(JsonReader reader, System.Type objectType, object? existingValue, JsonSerializer serializer)
             {
-                var json = JRaw.Create(reader).ToString();
-                if (json == "null")
+                if (reader.TokenType == JsonToken.Null)
                 {
-                    return null;
+                    throw new InvalidOperationException("Received unexpected null JSON value");
                 }
 
+                var json = JRaw.Create(reader).ToString();
                 var fallbackCandidates = new List<(System.Type, object, string)>();
 
                 try
@@ -177,27 +168,24 @@ namespace Codat.BankFeeds.Models.Operations
 
             public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
             {
-                if (value == null) {
-                    writer.WriteRawValue("null");
-                    return;
-                }
-                ListSourceAccountsResponseBody res = (ListSourceAccountsResponseBody)value;
-                if (ListSourceAccountsResponseBodyType.FromString(res.Type).Equals(ListSourceAccountsResponseBodyType.Null))
+                if (value == null)
                 {
-                    writer.WriteRawValue("null");
-                    return;
+                    throw new InvalidOperationException("Unexpected null JSON value.");
                 }
+
+                ListSourceAccountsResponseBody res = (ListSourceAccountsResponseBody)value;
+
                 if (res.ArrayOfSourceAccountV2 != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccountV2));
                     return;
                 }
+
                 if (res.ArrayOfSourceAccount != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccount));
                     return;
                 }
-
             }
 
         }

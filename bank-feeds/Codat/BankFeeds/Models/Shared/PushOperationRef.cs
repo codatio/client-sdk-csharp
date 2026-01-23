@@ -12,10 +12,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushOperationRef
     {
-
         /// <summary>
         /// Unique identifier for a push operation.
         /// </summary>
@@ -23,7 +22,7 @@ namespace Codat.BankFeeds.Models.Shared
         public string? Id { get; set; }
 
         /// <summary>
-        /// Available data types
+        /// Available data types.
         /// </summary>
         [JsonProperty("dataType")]
         public DataType? DataType { get; set; }

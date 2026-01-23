@@ -12,10 +12,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class Links
     {
-
         [JsonProperty("self")]
         public HalRef Self { get; set; } = default!;
 

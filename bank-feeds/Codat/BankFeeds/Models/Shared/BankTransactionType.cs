@@ -12,7 +12,7 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Type of transaction for the bank statement line.
     /// </summary>
@@ -88,5 +88,4 @@ namespace Codat.BankFeeds.Models.Shared
             throw new Exception($"Unknown value {value} for enum BankTransactionType");
         }
     }
-
 }

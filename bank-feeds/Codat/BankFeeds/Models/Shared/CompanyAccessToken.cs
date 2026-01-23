@@ -11,13 +11,12 @@ namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details of the access token provisioned for a company.
     /// </summary>
     public class CompanyAccessToken
     {
-
         /// <summary>
         /// The number of seconds until the access token expires.
         /// </summary>

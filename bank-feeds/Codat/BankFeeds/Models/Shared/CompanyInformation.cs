@@ -12,13 +12,12 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Information about the company from the underlying accounting software.
     /// </summary>
     public class CompanyInformation
     {
-
         /// <summary>
         /// Name of the linked company.
         /// </summary>

@@ -11,10 +11,9 @@ namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class BankAccountCreateResponseMetadata
     {
-
         /// <summary>
         /// Indicates whether the record has been deleted in the third-party system this record originated from.
         /// </summary>

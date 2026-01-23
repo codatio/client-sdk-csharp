@@ -13,10 +13,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class PushOptionProperty
     {
-
         /// <summary>
         /// The option type.
         /// </summary>
@@ -24,7 +23,7 @@ namespace Codat.BankFeeds.Models.Shared
         public PushOptionType Type { get; set; } = default!;
 
         /// <summary>
-        /// The property&apos;s display name.
+        /// The property's display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string DisplayName { get; set; } = default!;

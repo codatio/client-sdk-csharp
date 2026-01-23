@@ -12,15 +12,14 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Status details and corresponding object of the `Create account` operation.
     /// </summary>
     public class SourceAccountV2BatchCreateResult
     {
-
         /// <summary>
-        /// The HTTP status code for the creation of the source account
+        /// The HTTP status code for the creation of the source account.
         /// </summary>
         [JsonProperty("statusCode")]
         public long? StatusCode { get; set; }

@@ -12,10 +12,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class BankTransactions
     {
-
         /// <summary>
         /// Identifier for the bank account transaction, unique for the company in the accounting software.
         /// </summary>
@@ -23,28 +22,18 @@ namespace Codat.BankFeeds.Models.Shared
         public string? Id { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
-        /// 2020-10-08T22:40:50Z<br/>
-        /// 2021-01-01T00:00:00<br/>
+        /// 2023-08-22T10:21:00<br/>
+        /// 2023-08-22<br/>
         /// ```<br/>
         /// <br/>
+        /// When pushing bank transaction data to Codat, the date is treated as a local date. This means:<br/>
         /// <br/>
-        /// <br/>
-        /// When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:<br/>
-        /// <br/>
-        /// - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`<br/>
-        /// - Unqualified local time: `2021-11-15T01:00:00`<br/>
-        /// - UTC time offsets: `2021-11-15T01:00:00-05:00`<br/>
-        /// <br/>
-        /// &gt; Time zones<br/>
-        /// &gt; <br/>
-        /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
-        /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
+        /// - The date/time is used exactly as provided, without any timezone conversion.<br/>
+        /// - If a timezone offset is included (e.g., `2023-08-22T10:21:00-05:00`), the offset will be ignored and only the local date/time portion will be used.<br/>
+        /// - We recommend providing dates without a timezone suffix for clarity (e.g., `2023-08-22T10:21:00` rather than `2023-08-22T10:21:00Z`).
         /// </summary>
         [JsonProperty("date")]
         public string? Date { get; set; }

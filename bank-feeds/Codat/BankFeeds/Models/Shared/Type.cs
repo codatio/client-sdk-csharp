@@ -12,7 +12,7 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The type of routing number.
     /// </summary>
@@ -78,5 +78,4 @@ namespace Codat.BankFeeds.Models.Shared
             throw new Exception($"Unknown value {value} for enum Type");
         }
     }
-
 }

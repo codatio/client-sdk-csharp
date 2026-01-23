@@ -1,5 +1,4 @@
 # Transactions
-(*Transactions*)
 
 ## Overview
 
@@ -18,13 +17,14 @@ Create new bank account transactions for a company's connections, and see previo
 
 [Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
 Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -38,19 +38,42 @@ var sdk = new CodatBankFeeds(security: new Security() {
 CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     CreateBankTransactions = new CreateBankTransactions() {
-        AccountId = "EILBDVJVNUAGVKRQ",
+        AccountId = "49cd5a42-b311-4750-9361-52e2ed1d4653",
         Transactions = new List<BankTransactions>() {
             new BankTransactions() {
                 Id = "716422529",
-                Date = "2022-10-23T00:00:00Z",
-                Description = "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
-                Counterparty = "ACME INC",
-                Reference = "reference for transaction",
+                Date = "2023-08-22T10:21:00",
+                Description = "Repayment of Credit Card",
+                Counterparty = "Bank of Example",
+                Reference = "Ref-12345",
+                Reconciled = true,
+                Amount = 100M,
+                Balance = 100M,
+                TransactionType = BankTransactionType.Credit,
+            },
+            new BankTransactions() {
+                Id = "716422530",
+                Date = "2023-08-22T10:22:00",
+                Description = "Amazon Purchase",
+                Counterparty = "Amazon",
+                Reference = "Ref-12346",
                 Reconciled = false,
-                Amount = 999.99M,
-                Balance = -999.99M,
+                Amount = -100M,
+                Balance = 0M,
+                TransactionType = BankTransactionType.Debit,
+            },
+            new BankTransactions() {
+                Id = "716422531",
+                Date = "2023-08-22T10:23:00",
+                Description = "Office Supplies",
+                Counterparty = "Office Mart",
+                Reference = "Ref-12347",
+                Reconciled = false,
+                Amount = -60M,
+                Balance = -60M,
+                TransactionType = BankTransactionType.Debit,
             },
         },
     },
@@ -85,12 +108,13 @@ The *Get create bank account transactions model* endpoint returns the expected d
 
 [Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-bank-transactions-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts/{accountId}/bankTransactions" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -139,6 +163,7 @@ For bank feeds, your push operations will only relate to the `bankTransactions` 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-create-operation" method="get" path="/companies/{companyId}/push/{pushOperationKey}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -150,7 +175,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 
 GetCreateOperationRequest req = new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "1b33a562-bac6-42b7-8818-d55dba8df363",
+    PushOperationKey = "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
 };
 
 var res = await sdk.Transactions.GetCreateOperationAsync(req);
@@ -186,6 +211,7 @@ For bank feeds, use this endpoint to view write operations related to the `bankT
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-create-operations" method="get" path="/companies/{companyId}/push" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;

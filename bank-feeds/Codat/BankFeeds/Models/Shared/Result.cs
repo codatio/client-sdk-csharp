@@ -11,10 +11,9 @@ namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class Result
     {
-
         /// <summary>
         /// The error status code for the attempted creation of the source account.
         /// </summary>

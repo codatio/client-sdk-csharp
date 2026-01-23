@@ -10,10 +10,9 @@
 namespace Codat.BankFeeds.Models.Operations
 {
     using Codat.BankFeeds.Utils;
-    
+
     public class GenerateCredentialsRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

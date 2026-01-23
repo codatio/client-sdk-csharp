@@ -11,13 +11,12 @@ namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Represents the result of an ad-hoc sync request.
     /// </summary>
     public class StartScheduledSyncResult
     {
-
         /// <summary>
         /// The unique identifier for the created sync.
         /// </summary>

@@ -41,6 +41,7 @@ A bank feed is a connection between a source bank account in your application an
   * [Authentication](#authentication)
   * [Error Handling](#error-handling)
   * [Retries](#retries)
+  * [Custom HTTP Client](#custom-http-client)
 
 <!-- End Table of Contents [toc] -->
 
@@ -72,18 +73,15 @@ dotnet add reference Codat/BankFeeds/Codat.BankFeeds.csproj
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
 
-var sdk = new CodatBankFeeds();
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-ClientRateLimitWebhook req = new ClientRateLimitWebhook() {
-    Id = "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b",
-    EventType = "client.rateLimit.reset",
-    GeneratedDate = "2022-10-23T00:00:00Z",
-    Payload = new ClientRateLimitWebhookPayload() {
-        ExpiryDate = "2022-10-23T00:00:00Z",
-    },
+CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Technicalium",
 };
 
-var res = await sdk.ClientRateLimitReachedAsync(req);
+var res = await sdk.Companies.CreateAsync(req);
 
 // handle response
 ```
@@ -106,7 +104,6 @@ var res = await sdk.ClientRateLimitReachedAsync(req);
 * [GetCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
 * [Create](docs/sdks/bankaccounts/README.md#create) - Create bank account
 
-
 ### [Companies](docs/sdks/companies/README.md)
 
 * [Create](docs/sdks/companies/README.md#create) - Create company
@@ -120,11 +117,6 @@ var res = await sdk.ClientRateLimitReachedAsync(req);
 ### [CompanyInformation](docs/sdks/companyinformation/README.md)
 
 * [Get](docs/sdks/companyinformation/README.md#get) - Get company information
-
-### [Configuration](docs/sdks/configuration/README.md)
-
-* [Get](docs/sdks/configuration/README.md#get) - Get configuration
-* [Set](docs/sdks/configuration/README.md#set) - Set configuration
 
 ### [Connections](docs/sdks/connections/README.md)
 
@@ -149,10 +141,6 @@ var res = await sdk.ClientRateLimitReachedAsync(req);
 * [Delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
 * [GenerateCredentials](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
 * [DeleteCredentials](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
-
-### [Sync](docs/sdks/sync/README.md)
-
-* [GetLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Get last successful sync
 
 ### [Transactions](docs/sdks/transactions/README.md)
 
@@ -182,8 +170,7 @@ var sdk = new CodatBankFeeds(
 );
 
 CompanyRequestBody req = new CompanyRequestBody() {
-    Name = "Bank of Dave",
-    Description = "Requested early access to the new financing scheme.",
+    Name = "Technicalium",
 };
 
 var res = await sdk.Companies.CreateAsync(req);
@@ -213,8 +200,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 });
 
 CompanyRequestBody req = new CompanyRequestBody() {
-    Name = "Bank of Dave",
-    Description = "Requested early access to the new financing scheme.",
+    Name = "Technicalium",
 };
 
 var res = await sdk.Companies.CreateAsync(req);
@@ -226,24 +212,18 @@ var res = await sdk.Companies.CreateAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
-
-By default, an API error will raise a `Codat.BankFeeds.Models.Errors.SDKException` exception, which has the following properties:
+[`CodatBankFeedsException`](./Codat/BankFeeds/Models/Errors/CodatBankFeedsException.cs) is the base exception class for all HTTP error responses. It has the following properties:
 
 | Property      | Type                  | Description           |
 |---------------|-----------------------|-----------------------|
-| `Message`     | *string*              | The error message     |
-| `StatusCode`  | *int*                 | The HTTP status code  |
-| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
-| `Body`        | *string*              | The response content  |
+| `Message`     | *string*              | Error message         |
+| `StatusCode`  | *int*                 | HTTP status code      |
+| `Headers`     | *HttpResponseHeaders* | HTTP headers          |
+| `ContentType` | *string?*             | HTTP content type     |
+| `RawResponse` | *HttpResponseMessage* | HTTP response object  |
+| `Body`        | *string*              | HTTP response body    |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CreateAsync` method throws the following exceptions:
-
-| Error Type                                 | Status Code             | Content Type     |
-| ------------------------------------------ | ----------------------- | ---------------- |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 429 | application/json |
-| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                | application/json |
-| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                | \*/\*            |
+Some exceptions in this SDK include an additional `Payload` field, which will contain deserialized custom error data when present. Possible exceptions are listed in the [Error Classes](#error-classes) section.
 
 ### Example
 
@@ -259,33 +239,59 @@ var sdk = new CodatBankFeeds(security: new Security() {
 try
 {
     CompanyRequestBody req = new CompanyRequestBody() {
-        Name = "Bank of Dave",
-        Description = "Requested early access to the new financing scheme.",
+        Name = "Technicalium",
     };
 
     var res = await sdk.Companies.CreateAsync(req);
 
     // handle response
 }
-catch (Exception ex)
+catch (CodatBankFeedsException ex)  // all SDK exceptions inherit from CodatBankFeedsException
 {
-    if (ex is ErrorMessage)
+    // ex.ToString() provides a detailed error message
+    System.Console.WriteLine(ex);
+
+    // Base exception fields
+    HttpResponseMessage rawResponse = ex.RawResponse;
+    HttpResponseHeaders headers = ex.Headers;
+    int statusCode = ex.StatusCode;
+    string? contentType = ex.ContentType;
+    var responseBody = ex.Body;
+
+    if (ex is ErrorMessage) // different exceptions may be thrown depending on the method
     {
-        // Handle exception data
-        throw;
+        // Check error data fields
+        ErrorMessagePayload payload = ex.Payload;
+        long StatusCode = payload.StatusCode;
+        string Service = payload.Service;
+        // ...
     }
-    else if (ex is ErrorMessage)
+
+    // An underlying cause may be provided
+    if (ex.InnerException != null)
     {
-        // Handle exception data
-        throw;
-    }
-    else if (ex is Codat.BankFeeds.Models.Errors.SDKException)
-    {
-        // Handle default exception
-        throw;
+        Exception cause = ex.InnerException;
     }
 }
+catch (System.Net.Http.HttpRequestException ex)
+{
+    // Check ex.InnerException for Network connectivity errors
+}
 ```
+
+### Error Classes
+
+**Primary exceptions:**
+* [`CodatBankFeedsException`](./Codat/BankFeeds/Models/Errors/CodatBankFeedsException.cs): The base class for HTTP error responses.
+  * [`ErrorMessage`](./Codat/BankFeeds/Models/Errors/ErrorMessage.cs): The request made is not valid.
+
+<details><summary>Less common exceptions (2)</summary>
+
+* [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
+
+* Inheriting from [`CodatBankFeedsException`](./Codat/BankFeeds/Models/Errors/CodatBankFeedsException.cs):
+  * [`ResponseValidationError`](./Codat/BankFeeds/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Retries [retries] -->
@@ -303,8 +309,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 });
 
 CompanyRequestBody req = new CompanyRequestBody() {
-    Name = "Bank of Dave",
-    Description = "Requested early access to the new financing scheme.",
+    Name = "Technicalium",
 };
 
 var res = await sdk.Companies.CreateAsync(
@@ -346,8 +351,7 @@ var sdk = new CodatBankFeeds(
 );
 
 CompanyRequestBody req = new CompanyRequestBody() {
-    Name = "Bank of Dave",
-    Description = "Requested early access to the new financing scheme.",
+    Name = "Technicalium",
 };
 
 var res = await sdk.Companies.CreateAsync(req);
@@ -355,6 +359,152 @@ var res = await sdk.Companies.CreateAsync(req);
 // handle response
 ```
 <!-- End Retries [retries] -->
+
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
+
+The C# SDK makes API calls using an `ISpeakeasyHttpClient` that wraps the native
+[HttpClient](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient). This
+client provides the ability to attach hooks around the request lifecycle that can be used to modify the request or handle
+errors and response.
+
+The `ISpeakeasyHttpClient` interface allows you to either use the default `SpeakeasyHttpClient` that comes with the SDK,
+or provide your own custom implementation with customized configuration such as custom message handlers, timeouts,
+connection pooling, and other HTTP client settings.
+
+The following example shows how to create a custom HTTP client with request modification and error handling:
+
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Utils;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+
+// Create a custom HTTP client
+public class CustomHttpClient : ISpeakeasyHttpClient
+{
+    private readonly ISpeakeasyHttpClient _defaultClient;
+
+    public CustomHttpClient()
+    {
+        _defaultClient = new SpeakeasyHttpClient();
+    }
+
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    {
+        // Add custom header and timeout
+        request.Headers.Add("x-custom-header", "custom value");
+        request.Headers.Add("x-request-timeout", "30");
+        
+        try
+        {
+            var response = await _defaultClient.SendAsync(request, cancellationToken);
+            // Log successful response
+            Console.WriteLine($"Request successful: {response.StatusCode}");
+            return response;
+        }
+        catch (Exception error)
+        {
+            // Log error
+            Console.WriteLine($"Request failed: {error.Message}");
+            throw;
+        }
+    }
+
+    public void Dispose()
+    {
+        _httpClient?.Dispose();
+        _defaultClient?.Dispose();
+    }
+}
+
+// Use the custom HTTP client with the SDK
+var customHttpClient = new CustomHttpClient();
+var sdk = new CodatBankFeeds(client: customHttpClient);
+```
+
+<details>
+<summary>You can also provide a completely custom HTTP client with your own configuration:</summary>
+
+```csharp
+using Codat.BankFeeds.Utils;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+
+// Custom HTTP client with custom configuration
+public class AdvancedHttpClient : ISpeakeasyHttpClient
+{
+    private readonly HttpClient _httpClient;
+
+    public AdvancedHttpClient()
+    {
+        var handler = new HttpClientHandler()
+        {
+            MaxConnectionsPerServer = 10,
+            // ServerCertificateCustomValidationCallback = customCertValidation, // Custom SSL validation if needed
+        };
+
+        _httpClient = new HttpClient(handler)
+        {
+            Timeout = TimeSpan.FromSeconds(30)
+        };
+    }
+
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    {
+        return await _httpClient.SendAsync(request, cancellationToken ?? CancellationToken.None);
+    }
+
+    public void Dispose()
+    {
+        _httpClient?.Dispose();
+    }
+}
+
+var sdk = CodatBankFeeds.Builder()
+    .WithClient(new AdvancedHttpClient())
+    .Build();
+```
+</details>
+
+<details>
+<summary>For simple debugging, you can enable request/response logging by implementing a custom client:</summary>
+
+```csharp
+public class LoggingHttpClient : ISpeakeasyHttpClient
+{
+    private readonly ISpeakeasyHttpClient _innerClient;
+
+    public LoggingHttpClient(ISpeakeasyHttpClient innerClient = null)
+    {
+        _innerClient = innerClient ?? new SpeakeasyHttpClient();
+    }
+
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    {
+        // Log request
+        Console.WriteLine($"Sending {request.Method} request to {request.RequestUri}");
+        
+        var response = await _innerClient.SendAsync(request, cancellationToken);
+        
+        // Log response
+        Console.WriteLine($"Received {response.StatusCode} response");
+        
+        return response;
+    }
+
+    public void Dispose() => _innerClient?.Dispose();
+}
+
+var sdk = new CodatBankFeeds(client: new LoggingHttpClient());
+```
+</details>
+
+The SDK also provides built-in hook support through the `SDKConfiguration.Hooks` system, which automatically handles
+`BeforeRequestAsync`, `AfterSuccessAsync`, and `AfterErrorAsync` hooks for advanced request lifecycle management.
+<!-- End Custom HTTP Client [http-client] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

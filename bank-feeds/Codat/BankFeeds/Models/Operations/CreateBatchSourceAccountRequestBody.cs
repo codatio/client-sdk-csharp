@@ -17,18 +17,16 @@ namespace Codat.BankFeeds.Models.Operations
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    
 
     public class CreateBatchSourceAccountRequestBodyType
     {
         private CreateBatchSourceAccountRequestBodyType(string value) { Value = value; }
 
         public string Value { get; private set; }
+
         public static CreateBatchSourceAccountRequestBodyType ArrayOfSourceAccountV2Prototype { get { return new CreateBatchSourceAccountRequestBodyType("arrayOfSourceAccountV2Prototype"); } }
-        
+
         public static CreateBatchSourceAccountRequestBodyType ArrayOfSourceAccountPrototype { get { return new CreateBatchSourceAccountRequestBodyType("arrayOfSourceAccountPrototype"); } }
-        
-        public static CreateBatchSourceAccountRequestBodyType Null { get { return new CreateBatchSourceAccountRequestBodyType("null"); } }
 
         public override string ToString() { return Value; }
         public static implicit operator String(CreateBatchSourceAccountRequestBodyType v) { return v.Value; }
@@ -36,7 +34,6 @@ namespace Codat.BankFeeds.Models.Operations
             switch(v) {
                 case "arrayOfSourceAccountV2Prototype": return ArrayOfSourceAccountV2Prototype;
                 case "arrayOfSourceAccountPrototype": return ArrayOfSourceAccountPrototype;
-                case "null": return Null;
                 default: throw new ArgumentException("Invalid value for CreateBatchSourceAccountRequestBodyType");
             }
         }
@@ -55,10 +52,11 @@ namespace Codat.BankFeeds.Models.Operations
         }
     }
 
-
     [JsonConverter(typeof(CreateBatchSourceAccountRequestBody.CreateBatchSourceAccountRequestBodyConverter))]
-    public class CreateBatchSourceAccountRequestBody {
-        public CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType type) {
+    public class CreateBatchSourceAccountRequestBody
+    {
+        public CreateBatchSourceAccountRequestBody(CreateBatchSourceAccountRequestBodyType type)
+        {
             Type = type;
         }
 
@@ -69,17 +67,16 @@ namespace Codat.BankFeeds.Models.Operations
         public List<SourceAccountPrototype>? ArrayOfSourceAccountPrototype { get; set; }
 
         public CreateBatchSourceAccountRequestBodyType Type { get; set; }
-
-
-        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccountV2Prototype(List<SourceAccountV2Prototype> arrayOfSourceAccountV2Prototype) {
+        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccountV2Prototype(List<SourceAccountV2Prototype> arrayOfSourceAccountV2Prototype)
+        {
             CreateBatchSourceAccountRequestBodyType typ = CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountV2Prototype;
 
             CreateBatchSourceAccountRequestBody res = new CreateBatchSourceAccountRequestBody(typ);
             res.ArrayOfSourceAccountV2Prototype = arrayOfSourceAccountV2Prototype;
             return res;
         }
-
-        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccountPrototype(List<SourceAccountPrototype> arrayOfSourceAccountPrototype) {
+        public static CreateBatchSourceAccountRequestBody CreateArrayOfSourceAccountPrototype(List<SourceAccountPrototype> arrayOfSourceAccountPrototype)
+        {
             CreateBatchSourceAccountRequestBodyType typ = CreateBatchSourceAccountRequestBodyType.ArrayOfSourceAccountPrototype;
 
             CreateBatchSourceAccountRequestBody res = new CreateBatchSourceAccountRequestBody(typ);
@@ -87,26 +84,20 @@ namespace Codat.BankFeeds.Models.Operations
             return res;
         }
 
-        public static CreateBatchSourceAccountRequestBody CreateNull() {
-            CreateBatchSourceAccountRequestBodyType typ = CreateBatchSourceAccountRequestBodyType.Null;
-            return new CreateBatchSourceAccountRequestBody(typ);
-        }
-
         public class CreateBatchSourceAccountRequestBodyConverter : JsonConverter
         {
-
             public override bool CanConvert(System.Type objectType) => objectType == typeof(CreateBatchSourceAccountRequestBody);
 
             public override bool CanRead => true;
 
             public override object? ReadJson(JsonReader reader, System.Type objectType, object? existingValue, JsonSerializer serializer)
             {
-                var json = JRaw.Create(reader).ToString();
-                if (json == "null")
+                if (reader.TokenType == JsonToken.Null)
                 {
-                    return null;
+                    throw new InvalidOperationException("Received unexpected null JSON value");
                 }
 
+                var json = JRaw.Create(reader).ToString();
                 var fallbackCandidates = new List<(System.Type, object, string)>();
 
                 try
@@ -174,27 +165,24 @@ namespace Codat.BankFeeds.Models.Operations
 
             public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
             {
-                if (value == null) {
-                    writer.WriteRawValue("null");
-                    return;
-                }
-                CreateBatchSourceAccountRequestBody res = (CreateBatchSourceAccountRequestBody)value;
-                if (CreateBatchSourceAccountRequestBodyType.FromString(res.Type).Equals(CreateBatchSourceAccountRequestBodyType.Null))
+                if (value == null)
                 {
-                    writer.WriteRawValue("null");
-                    return;
+                    throw new InvalidOperationException("Unexpected null JSON value.");
                 }
+
+                CreateBatchSourceAccountRequestBody res = (CreateBatchSourceAccountRequestBody)value;
+
                 if (res.ArrayOfSourceAccountV2Prototype != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccountV2Prototype));
                     return;
                 }
+
                 if (res.ArrayOfSourceAccountPrototype != null)
                 {
                     writer.WriteRawValue(Utilities.SerializeJSON(res.ArrayOfSourceAccountPrototype));
                     return;
                 }
-
             }
 
         }

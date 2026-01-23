@@ -13,12 +13,11 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class BankAccounts
     {
-
         [JsonProperty("results")]
-        public List<AccountingBankAccount>? Results { get; set; }
+        public List<AccountingBankAccount?>? Results { get; set; }
 
         /// <summary>
         /// Current page number.

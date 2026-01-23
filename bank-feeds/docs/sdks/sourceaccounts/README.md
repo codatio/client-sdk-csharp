@@ -1,5 +1,4 @@
 # SourceAccounts
-(*SourceAccounts*)
 
 ## Overview
 
@@ -24,6 +23,7 @@ The _Batch create source accounts_ endpoint allows you to create multiple repres
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-batch-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/batch" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -41,7 +41,7 @@ CreateBatchSourceAccountRequest req = new CreateBatchSourceAccountRequest() {
         new List<SourceAccountPrototype>() {
             new SourceAccountPrototype() {
                 Id = "<id>",
-                Currency = "USD",
+                Currency = "GBP",
                 ModifiedDate = "2022-10-23T00:00:00Z",
             },
         }
@@ -80,6 +80,7 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -92,18 +93,11 @@ var sdk = new CodatBankFeeds(security: new Security() {
 CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountV2Prototype(
-        new SourceAccountV2Prototype() {
+    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountPrototype(
+        new SourceAccountPrototype() {
             Id = "<id>",
-            AccountName = "<value>",
-            AccountType = AccountType.CreditCard,
-            AccountNumber = "<value>",
-            Currency = "USD",
-            Balance = 1343.65M,
+            Currency = "GBP",
             ModifiedDate = "2022-10-23T00:00:00Z",
-            AccountInfo = new AccountInfo() {
-                AccountOpenDate = "2022-10-23",
-            },
         }
     ),
 };
@@ -142,6 +136,7 @@ var res = await sdk.SourceAccounts.CreateAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-source-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -192,6 +187,7 @@ var res = await sdk.SourceAccounts.ListAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="update-source-account" method="patch" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -204,15 +200,15 @@ var sdk = new CodatBankFeeds(security: new Security() {
 UpdateSourceAccountRequest req = new UpdateSourceAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "EILBDVJVNUAGVKRQ",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
     SourceAccount = new SourceAccount() {
-        Id = "acc-003",
-        AccountName = "account-095",
+        Id = "acc-002",
+        AccountName = "account-081",
         AccountType = "Credit",
-        AccountNumber = "12345671",
+        AccountNumber = "12345670",
         SortCode = "123456",
-        Currency = "USD",
-        Balance = 0M,
+        Currency = "GBP",
+        Balance = 99.99M,
         ModifiedDate = "2023-01-09T14:14:14.1057478Z",
         Status = SourceAccountStatus.Pending,
     },
@@ -250,6 +246,7 @@ Removing a source account will also remove any mapping between the source bank f
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="delete-source-account" method="delete" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -262,7 +259,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 DeleteSourceAccountRequest req = new DeleteSourceAccountRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    AccountId = "7110701885",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 
 var res = await sdk.SourceAccounts.DeleteAsync(req);
@@ -300,6 +297,7 @@ The old credentials will still be valid until the revoke credentials endpoint is
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="generate-credentials" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -313,7 +311,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 GenerateCredentialsRequest req = new GenerateCredentialsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    RequestBody = System.Text.Encoding.UTF8.GetBytes("0xeCFd9fD7b9"),
+    RequestBody = System.Text.Encoding.UTF8.GetBytes("0x6ad2e1635D"),
 };
 
 var res = await sdk.SourceAccounts.GenerateCredentialsAsync(req);
@@ -347,6 +345,7 @@ In cases where multiple credential sets have been generated, a single API call t
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="delete-bank-feed-credentials" method="delete" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;

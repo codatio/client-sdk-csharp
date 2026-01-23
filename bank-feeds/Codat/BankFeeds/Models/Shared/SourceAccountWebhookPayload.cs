@@ -12,10 +12,9 @@ namespace Codat.BankFeeds.Models.Shared
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class SourceAccountWebhookPayload
     {
-
         [JsonProperty("referenceCompany")]
         public CompanyReference? ReferenceCompany { get; set; }
 
@@ -26,12 +25,12 @@ namespace Codat.BankFeeds.Models.Shared
         public string? CompanyId { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&apos;s data connection.
+        /// Unique identifier for a company's data connection.
         /// </summary>
         [JsonProperty("connectionId")]
         public string? ConnectionId { get; set; }
 
-        [JsonProperty("sourceAccount")]
+        [JsonProperty("sourceAccount", NullValueHandling = NullValueHandling.Include)]
         public SourceAccountWebhookPayloadSourceAccount? SourceAccount { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 # Connections
-(*Connections*)
 
 ## Overview
 
@@ -19,6 +18,7 @@ Create new and manage existing data connections for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-connections" method="get" path="/companies/{companyId}/connections" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -65,6 +65,7 @@ Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="create-connection" method="post" path="/companies/{companyId}/connections" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -110,6 +111,7 @@ var res = await sdk.Connections.CreateAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -154,6 +156,7 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="delete-connection" method="delete" path="/companies/{companyId}/connections/{connectionId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -197,6 +200,7 @@ var res = await sdk.Connections.DeleteAsync(req);
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -209,6 +213,9 @@ var sdk = new CodatBankFeeds(security: new Security() {
 UnlinkConnectionRequest req = new UnlinkConnectionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    RequestBody = new UnlinkConnectionUpdateConnection() {
+        Status = DataConnectionStatus.Unlinked,
+    },
 };
 
 var res = await sdk.Connections.UnlinkAsync(req);

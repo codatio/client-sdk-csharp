@@ -13,13 +13,10 @@ namespace Codat.BankFeeds.Models.Errors
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
     using System;
-    
-    /// <summary>
-    /// The request made is not valid.
-    /// </summary>
-    public class ErrorMessage : Exception
-    {
+    using System.Net.Http;
 
+    public class ErrorMessagePayload
+    {
         /// <summary>
         /// The HTTP status code returned by the error.
         /// </summary>
@@ -27,7 +24,7 @@ namespace Codat.BankFeeds.Models.Errors
         public long? StatusCode { get; set; }
 
         /// <summary>
-        /// Codat&apos;s service the returned the error.
+        /// Codat's service the returned the error.
         /// </summary>
         [JsonProperty("service")]
         public string? Service { get; set; }
@@ -61,5 +58,52 @@ namespace Codat.BankFeeds.Models.Errors
         /// </summary>
         [JsonProperty("detailedErrorCode")]
         public long? DetailedErrorCode { get; set; }
+    }
+
+    /// <summary>
+    /// The request made is not valid.
+    /// </summary>
+    public class ErrorMessage : CodatBankFeedsException
+    {
+        /// <summary>
+        ///  The original data that was passed to this exception.
+        /// </summary>
+        public ErrorMessagePayload Payload { get; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorMessage.Payload.Service instead.")]
+        public string? Service { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorMessage.Payload.Error instead.")]
+        public string? Error { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorMessage.Payload.CorrelationId instead.")]
+        public string? CorrelationId { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorMessage.Payload.Validation instead.")]
+        public ErrorValidation? Validation { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorMessage.Payload.CanBeRetried instead.")]
+        public string? CanBeRetried { get; set; }
+
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorMessage.Payload.DetailedErrorCode instead.")]
+        public long? DetailedErrorCode { get; set; }
+
+        public ErrorMessage(
+            ErrorMessagePayload payload,
+            HttpResponseMessage rawResponse,
+            string body
+        ): base("API error occurred", rawResponse, body)
+        {
+           Payload = payload;
+
+           #pragma warning disable CS0618
+           Service = payload.Service;
+           Error = payload.Error;
+           CorrelationId = payload.CorrelationId;
+           Validation = payload.Validation;
+           CanBeRetried = payload.CanBeRetried;
+           DetailedErrorCode = payload.DetailedErrorCode;
+           #pragma warning restore CS0618
+        }
     }
 }

@@ -11,10 +11,9 @@ namespace Codat.BankFeeds.Models.Shared
 {
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class HalRef
     {
-
         /// <summary>
         /// Uri hypertext reference.
         /// </summary>

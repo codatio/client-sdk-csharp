@@ -12,10 +12,9 @@ namespace Codat.BankFeeds.Models.Operations
     using Codat.BankFeeds.Models.Shared;
     using Codat.BankFeeds.Utils;
     using Newtonsoft.Json;
-    
+
     public class UnlinkConnectionUpdateConnection
     {
-
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>

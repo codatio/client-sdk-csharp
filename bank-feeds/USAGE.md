@@ -8,8 +8,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 });
 
 CompanyRequestBody req = new CompanyRequestBody() {
-    Name = "Bank of Dave",
-    Description = "Requested early access to the new financing scheme.",
+    Name = "Technicalium",
 };
 
 var res = await sdk.Companies.CreateAsync(req);

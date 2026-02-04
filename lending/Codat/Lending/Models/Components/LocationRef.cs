@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference to the geographic location where the order was placed.
     /// </summary>
     public class LocationRef
     {
-
         /// <summary>
         /// The unique identitifer of the location being referenced.
         /// </summary>

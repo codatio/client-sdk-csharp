@@ -13,10 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CommerceTransactions
     {
-
         [JsonProperty("results")]
         public List<CommerceTransaction?>? Results { get; set; }
 

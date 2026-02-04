@@ -13,23 +13,18 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class OrderLineItem
     {
-
         /// <summary>
-        /// A unique, persistent identifier for this record
+        /// A unique, persistent identifier for this record.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
         /// Number of units of the product sold.<br/>
-        /// 
-        /// <remarks>
-        /// For refunds, quantity is negative.<br/>
-        /// 
-        /// </remarks>
+        /// For refunds, quantity is negative.
         /// </summary>
         [JsonProperty("quantity")]
         public decimal? Quantity { get; set; }

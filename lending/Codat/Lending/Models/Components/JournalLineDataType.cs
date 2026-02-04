@@ -12,9 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Allowed name of the &apos;dataType&apos;.
+    /// Allowed name of the 'dataType'.
     /// </summary>
     public enum JournalLineDataType
     {
@@ -56,5 +56,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum JournalLineDataType");
         }
     }
-
 }

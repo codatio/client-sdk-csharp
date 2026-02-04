@@ -10,10 +10,9 @@
 namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Utils;
-    
+
     public class ListCompaniesRequest
     {
-
         /// <summary>
         /// Page number. <a href="https://docs.codat.io/using-the-api/paging">Read more</a>.
         /// </summary>
@@ -39,7 +38,7 @@ namespace Codat.Lending.Models.Requests
         public string? OrderBy { get; set; }
 
         /// <summary>
-        /// Filter companies by tags using the &quot;equals&quot; (=), &quot;not equals&quot; (!=), and &quot;contains&quot; (~) operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>.
+        /// Filter companies by tags using the "equals" (=), "not equals" (!=), and "contains" (~) operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=tags")]
         public string? Tags { get; set; }

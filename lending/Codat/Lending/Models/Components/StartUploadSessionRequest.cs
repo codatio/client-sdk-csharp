@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class StartUploadSessionRequest
     {
-
         /// <summary>
         /// A key for a Codat data type.
         /// </summary>

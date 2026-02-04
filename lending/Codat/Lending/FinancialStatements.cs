@@ -17,22 +17,44 @@ namespace Codat.Lending
     public interface IFinancialStatements
     {
         public IProfitAndLoss ProfitAndLoss { get; }
+
         public IBalanceSheet BalanceSheet { get; }
+
         public IAccounts Accounts { get; }
+
         public ICashFlow CashFlow { get; }
     }
 
     public class FinancialStatements: IFinancialStatements
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// ProfitAndLoss SubSDK.
+        /// <see cref="IProfitAndLoss"/>
+        /// </summary>
         public IProfitAndLoss ProfitAndLoss { get; private set; }
+
+        /// <summary>
+        /// BalanceSheet SubSDK.
+        /// <see cref="IBalanceSheet"/>
+        /// </summary>
         public IBalanceSheet BalanceSheet { get; private set; }
+
+        /// <summary>
+        /// Accounts SubSDK.
+        /// <see cref="IAccounts"/>
+        /// </summary>
         public IAccounts Accounts { get; private set; }
+
+        /// <summary>
+        /// CashFlow SubSDK.
+        /// <see cref="ICashFlow"/>
+        /// </summary>
         public ICashFlow CashFlow { get; private set; }
 
         public FinancialStatements(SDKConfig config)

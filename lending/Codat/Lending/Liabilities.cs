@@ -27,62 +27,97 @@ namespace Codat.Lending
     /// </summary>
     public interface ILiabilities
     {
-
         /// <summary>
-        /// Generate loan transactions report
-        /// 
+        /// Generate loan transactions report.
+        /// </summary>
         /// <remarks>
         /// The _Generate loan transactions_ endpoint requests the generation of the Loan Transactions report.<br/>
         /// <br/>
-        /// Learn more about Codat&apos;s liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
+        /// Learn more about Codat's liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
         /// <br/>
-        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
-        /// 
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
         /// </remarks>
-        /// </summary>
-        Task<GenerateLoanTransactionsResponse> GenerateLoanTransactionsAsync(GenerateLoanTransactionsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GenerateLoanTransactionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateLoanTransactionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GenerateLoanTransactionsResponse> GenerateLoanTransactionsAsync(
+            GenerateLoanTransactionsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List loan transactions
-        /// 
+        /// List loan transactions.
+        /// </summary>
         /// <remarks>
-        /// The *List loan transactions* endpoint returns all <a href="https://docs.codat.io/lending-api#/schemas/LoanTransactions">loan transactions</a> identified from a company&apos;s accounting, banking, and commerce integrations.<br/>
+        /// The *List loan transactions* endpoint returns all <a href="https://docs.codat.io/lending-api#/schemas/LoanTransactions">loan transactions</a> identified from a company's accounting, banking, and commerce integrations.<br/>
         /// <br/>
         /// This detail gives analysts a better idea of the loan obligations a company may have.<br/>
         /// <br/>
-        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
-        /// 
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
         /// </remarks>
-        /// </summary>
-        Task<ListLoanTransactionsResponse> ListLoanTransactionsAsync(ListLoanTransactionsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListLoanTransactionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListLoanTransactionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListLoanTransactionsResponse> ListLoanTransactionsAsync(
+            ListLoanTransactionsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Generate loan summaries report
-        /// 
+        /// Generate loan summaries report.
+        /// </summary>
         /// <remarks>
         /// The _Generate loan summaries_ endpoint requests the generation of the Loan Summaries report.<br/>
         /// <br/>
-        /// Learn more about Codat&apos;s liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
+        /// Learn more about Codat's liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
         /// <br/>
-        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
-        /// 
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
         /// </remarks>
-        /// </summary>
-        Task<GenerateLoanSummaryResponse> GenerateLoanSummaryAsync(GenerateLoanSummaryRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GenerateLoanSummaryRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateLoanSummaryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GenerateLoanSummaryResponse> GenerateLoanSummaryAsync(
+            GenerateLoanSummaryRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get loan summaries
-        /// 
-        /// <remarks>
-        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified from a company&apos;s accounting, banking, and commerce integrations.<br/>
-        /// <br/>
-        /// The endpoint returns a list of a company&apos;s <a href="https://docs.codat.io/lending-api#/schemas/LoanSummary">loan summaries</a> for each valid data connection.<br/>
-        /// <br/>
-        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.<br/>
-        /// 
-        /// </remarks>
+        /// Get loan summaries.
         /// </summary>
-        Task<GetLoanSummaryResponse> GetLoanSummaryAsync(GetLoanSummaryRequest request, RetryConfig? retryConfig = null);
+        /// <remarks>
+        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified from a company's accounting, banking, and commerce integrations.<br/>
+        /// <br/>
+        /// The endpoint returns a list of a company's <a href="https://docs.codat.io/lending-api#/schemas/LoanSummary">loan summaries</a> for each valid data connection.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetLoanSummaryRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetLoanSummaryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetLoanSummaryResponse> GetLoanSummaryAsync(
+            GetLoanSummaryRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -90,19 +125,39 @@ namespace Codat.Lending
     /// </summary>
     public class Liabilities: ILiabilities
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Liabilities(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GenerateLoanTransactionsResponse> GenerateLoanTransactionsAsync(GenerateLoanTransactionsRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Generate loan transactions report.
+        /// </summary>
+        /// <remarks>
+        /// The _Generate loan transactions_ endpoint requests the generation of the Loan Transactions report.<br/>
+        /// <br/>
+        /// Learn more about Codat's liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
+        /// </remarks>
+        /// <param name="request">A <see cref="GenerateLoanTransactionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateLoanTransactionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GenerateLoanTransactionsResponse> GenerateLoanTransactionsAsync(
+            GenerateLoanTransactionsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -162,7 +217,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -249,7 +304,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListLoanTransactionsResponse> ListLoanTransactionsAsync(ListLoanTransactionsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List loan transactions.
+        /// </summary>
+        /// <remarks>
+        /// The *List loan transactions* endpoint returns all <a href="https://docs.codat.io/lending-api#/schemas/LoanTransactions">loan transactions</a> identified from a company's accounting, banking, and commerce integrations.<br/>
+        /// <br/>
+        /// This detail gives analysts a better idea of the loan obligations a company may have.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListLoanTransactionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListLoanTransactionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListLoanTransactionsResponse> ListLoanTransactionsAsync(
+            ListLoanTransactionsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -309,7 +386,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -414,7 +491,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GenerateLoanSummaryResponse> GenerateLoanSummaryAsync(GenerateLoanSummaryRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Generate loan summaries report.
+        /// </summary>
+        /// <remarks>
+        /// The _Generate loan summaries_ endpoint requests the generation of the Loan Summaries report.<br/>
+        /// <br/>
+        /// Learn more about Codat's liabilities feature <a href="https://docs.codat.io/lending/features/liabilities-overview">here</a>.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
+        /// </remarks>
+        /// <param name="request">A <see cref="GenerateLoanSummaryRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateLoanSummaryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GenerateLoanSummaryResponse> GenerateLoanSummaryAsync(
+            GenerateLoanSummaryRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -474,7 +573,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -561,7 +660,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetLoanSummaryResponse> GetLoanSummaryAsync(GetLoanSummaryRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get loan summaries.
+        /// </summary>
+        /// <remarks>
+        /// The *Get loan summaries* endpoint returns a summary by integration type of all loans identified from a company's accounting, banking, and commerce integrations.<br/>
+        /// <br/>
+        /// The endpoint returns a list of a company's <a href="https://docs.codat.io/lending-api#/schemas/LoanSummary">loan summaries</a> for each valid data connection.<br/>
+        /// <br/>
+        /// Make sure you have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">synced a company</a> recently before calling the endpoint.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetLoanSummaryRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetLoanSummaryResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetLoanSummaryResponse> GetLoanSummaryAsync(
+            GetLoanSummaryRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -621,7 +742,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -725,5 +846,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

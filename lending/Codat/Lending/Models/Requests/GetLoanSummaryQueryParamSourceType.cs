@@ -12,7 +12,7 @@ namespace Codat.Lending.Models.Requests
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Data source type.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Codat.Lending.Models.Requests
             throw new Exception($"Unknown value {value} for enum GetLoanSummaryQueryParamSourceType");
         }
     }
-
 }

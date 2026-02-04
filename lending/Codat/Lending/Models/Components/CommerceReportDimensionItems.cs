@@ -11,12 +11,11 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class CommerceReportDimensionItems
     {
-
         /// <summary>
-        /// The dimension&apos;s items index.
+        /// The dimension's items index.
         /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }

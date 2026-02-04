@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Product categories are used to classify a group of products together, either by type (e.g. &quot;Furniture&quot;), or sometimes by tax profile.
+    /// Product categories are used to classify a group of products together, either by type (e.g. "Furniture"), or sometimes by tax profile.
     /// </summary>
     public class CommerceProductCategory
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -27,13 +26,13 @@ namespace Codat.Lending.Models.Components
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// The unique identifier of the product category
+        /// The unique identifier of the product category.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the product category
+        /// The name of the product category.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

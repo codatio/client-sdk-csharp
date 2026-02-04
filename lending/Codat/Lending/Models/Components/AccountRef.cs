@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An account reference containing the account id and name.
     /// </summary>
     public class AccountRef
     {
-
         /// <summary>
         /// The id of the account.
         /// </summary>

@@ -24,59 +24,114 @@ namespace Codat.Lending
 
     public interface ICodatLendingReports
     {
-
         /// <summary>
-        /// Aged debtors report available
-        /// 
+        /// Aged debtors report available.
+        /// </summary>
         /// <remarks>
         /// Indicates whether the aged debtors report is available for the company.
         /// </remarks>
-        /// </summary>
-        Task<IsAgedDebtorsReportAvailableResponse> IsAgedDebtorsAvailableAsync(IsAgedDebtorsReportAvailableRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="IsAgedDebtorsReportAvailableRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="IsAgedDebtorsReportAvailableResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<IsAgedDebtorsReportAvailableResponse> IsAgedDebtorsAvailableAsync(
+            IsAgedDebtorsReportAvailableRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Aged debtors report
-        /// 
+        /// Aged debtors report.
+        /// </summary>
         /// <remarks>
         /// Returns aged debtors report for company that shows the total outstanding balance due from customers to the business over time.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingAgedDebtorsReportResponse> GetAgedDebtorsAsync(GetAccountingAgedDebtorsReportRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingAgedDebtorsReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingAgedDebtorsReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingAgedDebtorsReportResponse> GetAgedDebtorsAsync(
+            GetAccountingAgedDebtorsReportRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Aged creditors report available
-        /// 
+        /// Aged creditors report available.
+        /// </summary>
         /// <remarks>
         /// Indicates whether the aged creditor report is available for the company.
         /// </remarks>
-        /// </summary>
-        Task<IsAgedCreditorsReportAvailableResponse> IsAgedCreditorsAvailableAsync(IsAgedCreditorsReportAvailableRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="IsAgedCreditorsReportAvailableRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="IsAgedCreditorsReportAvailableResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<IsAgedCreditorsReportAvailableResponse> IsAgedCreditorsAvailableAsync(
+            IsAgedCreditorsReportAvailableRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Aged creditors report
-        /// 
+        /// Aged creditors report.
+        /// </summary>
         /// <remarks>
         /// Returns aged creditors report for company that shows the total balance owed by a business to its suppliers over time.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingAgedCreditorsReportResponse> GetAgedCreditorsAsync(GetAccountingAgedCreditorsReportRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingAgedCreditorsReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingAgedCreditorsReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingAgedCreditorsReportResponse> GetAgedCreditorsAsync(
+            GetAccountingAgedCreditorsReportRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class CodatLendingReports: ICodatLendingReports
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public CodatLendingReports(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<IsAgedDebtorsReportAvailableResponse> IsAgedDebtorsAvailableAsync(IsAgedDebtorsReportAvailableRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Aged debtors report available.
+        /// </summary>
+        /// <remarks>
+        /// Indicates whether the aged debtors report is available for the company.
+        /// </remarks>
+        /// <param name="request">A <see cref="IsAgedDebtorsReportAvailableRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="IsAgedDebtorsReportAvailableResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<IsAgedDebtorsReportAvailableResponse> IsAgedDebtorsAvailableAsync(
+            IsAgedDebtorsReportAvailableRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -136,7 +191,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -241,7 +296,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingAgedDebtorsReportResponse> GetAgedDebtorsAsync(GetAccountingAgedDebtorsReportRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Aged debtors report.
+        /// </summary>
+        /// <remarks>
+        /// Returns aged debtors report for company that shows the total outstanding balance due from customers to the business over time.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingAgedDebtorsReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingAgedDebtorsReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingAgedDebtorsReportResponse> GetAgedDebtorsAsync(
+            GetAccountingAgedDebtorsReportRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -301,7 +374,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -406,7 +479,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<IsAgedCreditorsReportAvailableResponse> IsAgedCreditorsAvailableAsync(IsAgedCreditorsReportAvailableRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Aged creditors report available.
+        /// </summary>
+        /// <remarks>
+        /// Indicates whether the aged creditor report is available for the company.
+        /// </remarks>
+        /// <param name="request">A <see cref="IsAgedCreditorsReportAvailableRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="IsAgedCreditorsReportAvailableResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<IsAgedCreditorsReportAvailableResponse> IsAgedCreditorsAvailableAsync(
+            IsAgedCreditorsReportAvailableRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -466,7 +557,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -571,7 +662,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingAgedCreditorsReportResponse> GetAgedCreditorsAsync(GetAccountingAgedCreditorsReportRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Aged creditors report.
+        /// </summary>
+        /// <remarks>
+        /// Returns aged creditors report for company that shows the total balance owed by a business to its suppliers over time.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingAgedCreditorsReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingAgedCreditorsReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingAgedCreditorsReportResponse> GetAgedCreditorsAsync(
+            GetAccountingAgedCreditorsReportRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -631,7 +740,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -735,5 +844,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

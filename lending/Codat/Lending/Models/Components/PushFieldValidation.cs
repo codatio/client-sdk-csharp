@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushFieldValidation
     {
-
         /// <summary>
         /// Field name that resulted in the validation issue.
         /// </summary>

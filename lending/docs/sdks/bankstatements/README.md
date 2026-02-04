@@ -179,23 +179,11 @@ UploadBankStatementDataRequest req = new UploadBankStatementDataRequest() {
         new Dictionary<string, object>() {
             { "results", new List<object>() {
                 new Dictionary<string, object>() {
-                    { "institution", new Dictionary<string, object>() {
-                        { "name", "Lloyds Bank" },
-                        { "id", "lloyds-bank" },
-                    } },
-                    { "modifiedDate", "2022-05-23T16:32:50Z" },
-                    { "sourceModifiedDate", "2021-08-14T05:04:12" },
-                    { "informalName", "Codat" },
                     { "balance", new Dictionary<string, object>() {
-                        { "limit", 5000 },
                         { "available", -459987.97D },
                         { "current", -459964.9D },
+                        { "limit", 5000 },
                     } },
-                    { "currency", "GBP" },
-                    { "id", "1703194f-7805-4da8-bac0-2ba5da4a4216" },
-                    { "name", "Business Current Account" },
-                    { "holder", "Codat Ltd" },
-                    { "type", "Debit" },
                     { "identifiers", new Dictionary<string, object>() {
                         { "bic", "LOYDGB21006" },
                         { "maskedAccountNumber", "LOYDGB21006" },
@@ -205,6 +193,18 @@ UploadBankStatementDataRequest req = new UploadBankStatementDataRequest() {
                         { "bankCode", 9911 },
                         { "iban", "GB29 LOYD 4773 2346 7626 29" },
                     } },
+                    { "institution", new Dictionary<string, object>() {
+                        { "id", "lloyds-bank" },
+                        { "name", "Lloyds Bank" },
+                    } },
+                    { "modifiedDate", "2022-05-23T16:32:50Z" },
+                    { "holder", "Codat Ltd" },
+                    { "currency", "GBP" },
+                    { "sourceModifiedDate", "2021-08-14T05:04:12" },
+                    { "id", "1703194f-7805-4da8-bac0-2ba5da4a4216" },
+                    { "name", "Business Current Account" },
+                    { "informalName", "Codat" },
+                    { "type", "Debit" },
                 },
             } },
         }

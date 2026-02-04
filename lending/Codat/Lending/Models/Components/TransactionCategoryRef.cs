@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object of bank transaction category reference data.
     /// </summary>
     public class TransactionCategoryRef
     {
-
         /// <summary>
         /// The unique category reference id for the bank transaction.
         /// </summary>

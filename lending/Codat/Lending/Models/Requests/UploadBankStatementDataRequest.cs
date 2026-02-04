@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Requests
     using Codat.Lending.Models.Components;
     using Codat.Lending.Models.Requests;
     using Codat.Lending.Utils;
-    
+
     public class UploadBankStatementDataRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

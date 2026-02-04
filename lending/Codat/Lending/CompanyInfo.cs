@@ -27,28 +27,47 @@ namespace Codat.Lending
     /// </summary>
     public interface ICompanyInfo
     {
-
         /// <summary>
-        /// Get company accounting profile
-        /// 
+        /// Get company accounting profile.
+        /// </summary>
         /// <remarks>
         /// Gets the latest basic info for a company.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingProfileRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingProfileResponse> GetAccountingProfileAsync(
+            GetAccountingProfileRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get company commerce profile
-        /// 
+        /// Get company commerce profile.
+        /// </summary>
         /// <remarks>
         /// Retrieve information about the company, as seen in the commerce<br/>
         /// platform.<br/>
         /// <br/>
         /// This may include information like addresses, tax registration details and<br/>
-        /// social media or website information.&quot;
+        /// social media or website information."
         /// </remarks>
-        /// </summary>
-        Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCommerceProfileRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCommerceProfileResponse> GetCommerceProfileAsync(
+            GetCommerceProfileRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -56,19 +75,35 @@ namespace Codat.Lending
     /// </summary>
     public class CompanyInfo: ICompanyInfo
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public CompanyInfo(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetAccountingProfileResponse> GetAccountingProfileAsync(GetAccountingProfileRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get company accounting profile.
+        /// </summary>
+        /// <remarks>
+        /// Gets the latest basic info for a company.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingProfileRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingProfileResponse> GetAccountingProfileAsync(
+            GetAccountingProfileRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -128,7 +163,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -233,7 +268,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCommerceProfileResponse> GetCommerceProfileAsync(GetCommerceProfileRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get company commerce profile.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve information about the company, as seen in the commerce<br/>
+        /// platform.<br/>
+        /// <br/>
+        /// This may include information like addresses, tax registration details and<br/>
+        /// social media or website information."
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCommerceProfileRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCommerceProfileResponse> GetCommerceProfileAsync(
+            GetCommerceProfileRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -293,7 +350,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -397,5 +454,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

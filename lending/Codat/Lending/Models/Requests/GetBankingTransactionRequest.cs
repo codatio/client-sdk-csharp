@@ -10,10 +10,9 @@
 namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Utils;
-    
+
     public class GetBankingTransactionRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Codat.Lending.Models.Requests
         public string ConnectionId { get; set; } = default!;
 
         /// <summary>
-        /// The unique identifier for a transaction
+        /// The unique identifier for a transaction.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")]
         public string TransactionId { get; set; } = default!;

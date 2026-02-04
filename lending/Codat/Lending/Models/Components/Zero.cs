@@ -12,26 +12,22 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Links the current record line to the underlying record line that created it. <br/>
-    /// 
-    /// <remarks>
     /// <br/>
-    /// For example, if a bill is generated from a purchase order, this property allows you to connect the bill line item to the purchase order line item in our data model. 
-    /// </remarks>
+    /// For example, if a bill is generated from a purchase order, this property allows you to connect the bill line item to the purchase order line item in our data model.
     /// </summary>
     public class Zero
     {
-
         /// <summary>
-        /// &apos;id&apos; of the underlying record.
+        /// 'id' of the underlying record.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Allowed name of the &apos;dataType&apos;.
+        /// Allowed name of the 'dataType'.
         /// </summary>
         [JsonProperty("dataType")]
         public ZeroDataType? DataType { get; set; }

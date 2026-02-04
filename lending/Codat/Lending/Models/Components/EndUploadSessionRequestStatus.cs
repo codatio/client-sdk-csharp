@@ -12,7 +12,7 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// An indicator to cancel the dataset processing or trigger ingestion and enrichment of data.
     /// </summary>
@@ -56,5 +56,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum EndUploadSessionRequestStatus");
         }
     }
-
 }

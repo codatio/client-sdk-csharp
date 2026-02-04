@@ -12,18 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Banking Transaction Categories data type provides a list of hierarchical categories associated with a transaction for greater contextual meaning to transaction activity.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
-    /// </remarks>
     /// </summary>
     public class BankingTransactionCategory
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 

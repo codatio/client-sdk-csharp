@@ -12,11 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Types of payment line links, either:  <br/>
-    /// 
-    /// <remarks>
     /// `Unknown`  <br/>
     /// `Unlinked` - Not used  <br/>
     /// `Invoice` - ID refers to the invoice  <br/>
@@ -26,8 +24,7 @@ namespace Codat.Lending.Models.Components
     /// `PaymentOnAccount` - ID refers to the customer  <br/>
     /// `Other` - ID refers to the customer  <br/>
     /// `Manual Journal`  <br/>
-    /// `Discount` - ID refers to the payment
-    /// </remarks>
+    /// `Discount` - ID refers to the payment.
     /// </summary>
     public enum PaymentLinkType
     {
@@ -85,5 +82,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum PaymentLinkType");
         }
     }
-
 }

@@ -13,17 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Represents a variation of a product available for sale, for example an item of clothing that may be available for sale in multiple sizes and colors.<br/>
-    /// 
-    /// <remarks>
-    /// 
-    /// </remarks>
+    /// Represents a variation of a product available for sale, for example an item of clothing that may be available for sale in multiple sizes and colors.
     /// </summary>
     public class ProductVariant
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -31,7 +26,7 @@ namespace Codat.Lending.Models.Components
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// A unique, persistent identifier for this record
+        /// A unique, persistent identifier for this record.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -97,9 +92,7 @@ namespace Codat.Lending.Models.Components
         public ProductVariantStatus? Status { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -118,7 +111,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("createdDate")]
         public string? CreatedDate { get; set; }

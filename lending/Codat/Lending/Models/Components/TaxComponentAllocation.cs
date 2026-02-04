@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class TaxComponentAllocation
     {
-
         /// <summary>
         /// Taxes rates reference object depending on the rates being available on source commerce software.
         /// </summary>

@@ -12,7 +12,7 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     public enum PeriodUnit
     {
         [JsonProperty("Day")]
@@ -57,5 +57,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum PeriodUnit");
         }
     }
-
 }

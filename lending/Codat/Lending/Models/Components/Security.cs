@@ -10,10 +10,9 @@
 namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
-    
+
     public class Security
     {
-
         [SpeakeasyMetadata("security:scheme=true,type=apiKey,subType=header,name=Authorization")]
         public string AuthHeader { get; set; } = default!;
     }

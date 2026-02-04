@@ -12,15 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Links to the customer or tracking category.
     /// </summary>
     public class TrackingRecordRef
     {
-
         /// <summary>
-        /// &apos;id&apos; of the underlying record or data type.
+        /// 'id' of the underlying record or data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

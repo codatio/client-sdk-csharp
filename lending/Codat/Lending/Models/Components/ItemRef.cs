@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class ItemRef
     {
-
         /// <summary>
         /// The id of the object, e.g. the Journal entry.
         /// </summary>

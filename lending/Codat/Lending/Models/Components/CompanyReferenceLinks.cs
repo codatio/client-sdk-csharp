@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A collection of links for the company.
     /// </summary>
     public class CompanyReferenceLinks
     {
-
         /// <summary>
         /// Link to the company page in the portal.
         /// </summary>

@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Payment Method to which the payment is linked in the accounting software.
     /// </summary>
     public class PaymentMethodRef
     {
-
         /// <summary>
         /// The unique identifier of the location being referenced.
         /// </summary>

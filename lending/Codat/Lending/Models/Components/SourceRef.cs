@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// A source reference containing the `sourceType` object &quot;Banking&quot;.
+    /// A source reference containing the `sourceType` object "Banking".
     /// </summary>
     public class SourceRef
     {
-
         /// <summary>
         /// The data source type.
         /// </summary>

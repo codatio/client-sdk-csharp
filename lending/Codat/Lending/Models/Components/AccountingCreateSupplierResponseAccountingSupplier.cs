@@ -14,19 +14,15 @@ namespace Codat.Lending.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// ## Overview<br/>
-    /// 
-    /// <remarks>
     /// <br/>
-    /// From the **Suppliers** endpoints, you can retrieve a list of <a href="https://docs.codat.io/lending-api#/operations/list-suppliers">all the suppliers for a company</a>. Suppliers&apos; data links to accounts payable <a href="https://docs.codat.io/lending-api#/schemas/Bill">bills</a>.
-    /// </remarks>
+    /// From the **Suppliers** endpoints, you can retrieve a list of <a href="https://docs.codat.io/lending-api#/operations/list-suppliers">all the suppliers for a company</a>. Suppliers' data links to accounts payable <a href="https://docs.codat.io/lending-api#/schemas/Bill">bills</a>.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class AccountingCreateSupplierResponseAccountingSupplier
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -76,7 +72,7 @@ namespace Codat.Lending.Models.Components
         public string? RegistrationNumber { get; set; } = null;
 
         /// <summary>
-        /// Supplier&apos;s company tax number.
+        /// Supplier's company tax number.
         /// </summary>
         [JsonProperty("taxNumber")]
         public string? TaxNumber { get; set; } = null;
@@ -88,7 +84,7 @@ namespace Codat.Lending.Models.Components
         public SupplierStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// Default currency the supplier&apos;s transactional data is recorded in.
+        /// Default currency the supplier's transactional data is recorded in.
         /// </summary>
         [JsonProperty("defaultCurrency")]
         public string? DefaultCurrency { get; set; } = null;
@@ -98,11 +94,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

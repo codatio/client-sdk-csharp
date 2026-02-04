@@ -12,18 +12,15 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Current state of the invoice:<br/>
-    /// 
-    /// <remarks>
     /// <br/>
-    /// - `Draft` - Invoice hasn&apos;t been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.<br/>
+    /// - `Draft` - Invoice hasn't been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.<br/>
     /// - `Submitted` - Invoice is no longer a draft. It has been processed and, or, sent to the customer. In this state, it will impact the ledger. It also has no payments made against it, meaning `amountDue` will usually equal `totalAmount` (unless tax is witheld).<br/>
     /// - `PartiallyPaid` - The balance paid against the invoice is positive, but less than the total invoice amount, meaning `0 &lt; amountDue &lt; totalAmount`.<br/>
     /// - `Paid` - Invoice is paid in full. This includes if the invoice has been credited or overpaid, meaning `amountDue == 0`.<br/>
-    /// - `Void` - An invoice can become Void when it&apos;s deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
-    /// </remarks>
+    /// - `Void` - An invoice can become Void when it's deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
     /// </summary>
     public enum InvoiceStatus
     {
@@ -73,5 +70,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum InvoiceStatus");
         }
     }
-
 }

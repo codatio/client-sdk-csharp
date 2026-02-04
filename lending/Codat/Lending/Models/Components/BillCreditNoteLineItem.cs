@@ -14,10 +14,9 @@ namespace Codat.Lending.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public class BillCreditNoteLineItem
     {
-
         /// <summary>
         /// Friendly name of each line item. For example, the goods or service for which credit has been received.
         /// </summary>
@@ -37,7 +36,7 @@ namespace Codat.Lending.Models.Components
         public decimal Quantity { get; set; } = default!;
 
         /// <summary>
-        /// The measurement which defines a unit for this item (e.g. &apos;kilogram&apos;, &apos;litre&apos;).
+        /// The measurement which defines a unit for this item (e.g. 'kilogram', 'litre').
         /// </summary>
         [JsonProperty("unitOfMeasurement")]
         public string? UnitOfMeasurement { get; set; } = null;
@@ -80,8 +79,6 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Found on:<br/>
         /// <br/>
@@ -90,8 +87,7 @@ namespace Codat.Lending.Models.Components
         /// - Credit Note line items<br/>
         /// - Direct incomes line items<br/>
         /// - Invoice line items<br/>
-        /// - Items
-        /// </remarks>
+        /// - Items.
         /// </summary>
         [JsonProperty("taxRateRef")]
         public TaxRateReference? TaxRateRef { get; set; }
@@ -104,11 +100,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Links the current record line to the underlying record line that created it. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// For example, if a bill is generated from a purchase order, this property allows you to connect the bill line item to the purchase order line item in our data model. 
-        /// </remarks>
+        /// For example, if a bill is generated from a purchase order, this property allows you to connect the bill line item to the purchase order line item in our data model.
         /// </summary>
         [JsonProperty("createdFromLineRef")]
         public Zero? CreatedFromLineRef { get; set; }

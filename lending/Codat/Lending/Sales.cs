@@ -17,36 +17,100 @@ namespace Codat.Lending
     public interface ISales
     {
         public IMetrics Metrics { get; }
+
         public IReports Reports { get; }
+
         public ICodatLendingCustomers Customers { get; }
+
         public IDisputes Disputes { get; }
+
         public ILocations Locations { get; }
+
         public IOrders Orders { get; }
+
         public IPaymentMethods PaymentMethods { get; }
+
         public ICodatLendingPayments Payments { get; }
+
         public IProductCategories ProductCategories { get; }
+
         public IProducts Products { get; }
+
         public ICodatLendingSalesTransactions Transactions { get; }
     }
 
     public class Sales: ISales
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// Metrics SubSDK.
+        /// <see cref="IMetrics"/>
+        /// </summary>
         public IMetrics Metrics { get; private set; }
+
+        /// <summary>
+        /// Reports SubSDK.
+        /// <see cref="IReports"/>
+        /// </summary>
         public IReports Reports { get; private set; }
+
+        /// <summary>
+        /// Customers SubSDK.
+        /// <see cref="ICodatLendingCustomers"/>
+        /// </summary>
         public ICodatLendingCustomers Customers { get; private set; }
+
+        /// <summary>
+        /// Disputes SubSDK.
+        /// <see cref="IDisputes"/>
+        /// </summary>
         public IDisputes Disputes { get; private set; }
+
+        /// <summary>
+        /// Locations SubSDK.
+        /// <see cref="ILocations"/>
+        /// </summary>
         public ILocations Locations { get; private set; }
+
+        /// <summary>
+        /// Orders SubSDK.
+        /// <see cref="IOrders"/>
+        /// </summary>
         public IOrders Orders { get; private set; }
+
+        /// <summary>
+        /// PaymentMethods SubSDK.
+        /// <see cref="IPaymentMethods"/>
+        /// </summary>
         public IPaymentMethods PaymentMethods { get; private set; }
+
+        /// <summary>
+        /// Payments SubSDK.
+        /// <see cref="ICodatLendingPayments"/>
+        /// </summary>
         public ICodatLendingPayments Payments { get; private set; }
+
+        /// <summary>
+        /// ProductCategories SubSDK.
+        /// <see cref="IProductCategories"/>
+        /// </summary>
         public IProductCategories ProductCategories { get; private set; }
+
+        /// <summary>
+        /// Products SubSDK.
+        /// <see cref="IProducts"/>
+        /// </summary>
         public IProducts Products { get; private set; }
+
+        /// <summary>
+        /// Transactions SubSDK.
+        /// <see cref="ICodatLendingSalesTransactions"/>
+        /// </summary>
         public ICodatLendingSalesTransactions Transactions { get; private set; }
 
         public Sales(SDKConfig config)

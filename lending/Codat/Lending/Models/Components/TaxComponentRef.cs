@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Taxes rates reference object depending on the rates being available on source commerce software.
     /// </summary>
     public class TaxComponentRef
     {
-
         /// <summary>
         /// The unique identitifer of the tax component being referenced.
         /// </summary>

@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class OrderDiscountAllocation
     {
-
         /// <summary>
         /// Name of the discount in the commerce or point of sale platform.
         /// </summary>

@@ -11,21 +11,20 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Links to the Account transactions data type.
     /// </summary>
     public class BankAccountRef
     {
-
         /// <summary>
-        /// Bank account &apos;id&apos; for the account transaction.
+        /// Bank account 'id' for the account transaction.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// bank account &apos;name&apos; for the account transaction.
+        /// bank account 'name' for the account transaction.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

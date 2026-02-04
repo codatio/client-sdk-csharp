@@ -11,17 +11,15 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Codat API supports pulling and pushing of file attachments for invoices, bills, direct costs, and direct incomes.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// &gt; **Retrieving attachments**<br/>
     /// &gt; <br/>
     /// &gt; If a company is authorized, you can query the Codat API to read, download, and upload attachments without requiring a fresh sync of data.<br/>
     /// <br/>
-    /// Unlike other data types, Codat doesn&apos;t support <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a> for attachments.<br/>
+    /// Unlike other data types, Codat doesn't support <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a> for attachments.<br/>
     /// <br/>
     /// Note that different integrations have different requirements to file size and extension of attachments.<br/>
     /// <br/>
@@ -30,13 +28,10 @@ namespace Codat.Lending.Models.Components
     /// | Xero              | 4 MB      | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF,   ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX,   ZIP |<br/>
     /// | QuickBooks Online | 100 MB    | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF,   TXT, XLS, XLSX, XML                                                               |<br/>
     /// | NetSuite          | 100 MB    | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF,   DOC, DOCX, ZIP                                                                      |<br/>
-    /// | Dynamics 365 Business Central          | 350 MB    | Dynamics do not explicitly outline which file types are supported but they do state &lt;a className=&quot;external&quot; href=&quot;https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; that &quot;You can attach any type of file, such as text, image, or video files&quot;.                                                                   |<br/>
-    /// 
-    /// </remarks>
+    /// | Dynamics 365 Business Central          | 350 MB    | Dynamics do not explicitly outline which file types are supported but they do state <a className="external" href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice" target="_blank">here</a> that "You can attach any type of file, such as text, image, or video files".                                                                   |
     /// </summary>
     public class AccountingAttachment
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -57,19 +52,14 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// File type of the attachment. This is represented by appending the file type to the <a href="https://tools.ietf.org/html/rfc6838">IETF standard file naming requirements</a>. For example, for a jpeg file the output is **image/jpeg**.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// Supported file types vary per platform. 
-        /// </remarks>
+        /// Supported file types vary per platform.
         /// </summary>
         [JsonProperty("contentType")]
         public string? ContentType { get; set; } = null;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -88,7 +78,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("dateCreated")]
         public string? DateCreated { get; set; }

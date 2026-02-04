@@ -24,37 +24,65 @@ namespace Codat.Lending
 
     public interface IAccountBalances
     {
-
         /// <summary>
-        /// List account balances
-        /// 
+        /// List account balances.
+        /// </summary>
         /// <remarks>
-        /// The *List account balances* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/AccountBalance">account balances</a> for a given company&apos;s connection.<br/>
+        /// The *List account balances* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/AccountBalance">account balances</a> for a given company's connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending-api#/schemas/AccountBalance">Account balances</a> are balances for a bank account, including end-of-day batch balance or running balances per transaction.<br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        ///     
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
         /// </remarks>
-        /// </summary>
-        Task<ListBankingAccountBalancesResponse> ListAsync(ListBankingAccountBalancesRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListBankingAccountBalancesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListBankingAccountBalancesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListBankingAccountBalancesResponse> ListAsync(
+            ListBankingAccountBalancesRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class AccountBalances: IAccountBalances
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public AccountBalances(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListBankingAccountBalancesResponse> ListAsync(ListBankingAccountBalancesRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List account balances.
+        /// </summary>
+        /// <remarks>
+        /// The *List account balances* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/AccountBalance">account balances</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/AccountBalance">Account balances</a> are balances for a bank account, including end-of-day batch balance or running balances per transaction.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListBankingAccountBalancesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListBankingAccountBalancesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListBankingAccountBalancesResponse> ListAsync(
+            ListBankingAccountBalancesRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -114,7 +142,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -218,5 +246,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

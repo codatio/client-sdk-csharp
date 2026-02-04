@@ -24,20 +24,19 @@ namespace Codat.Lending
 
     public interface IMetrics
     {
-
         /// <summary>
-        /// Get commerce revenue metrics
-        /// 
+        /// Get commerce revenue metrics.
+        /// </summary>
         /// <remarks>
         /// The *Get revenue report* endpoint returns the revenue and revenue growth for a specific company connection over one or more periods of time.<br/>
         /// <br/>
-        /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the revenue metrics.<br/>
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
-        /// The Revenue report&apos;s dimensions and measures are:<br/>
+        /// The Revenue report's dimensions and measures are:<br/>
         /// <br/>
         /// | Index         | Dimensions |<br/>
         /// |---------------|------------|<br/>
@@ -47,21 +46,30 @@ namespace Codat.Lending
         /// | Index         | Measures                                                                                                                 |<br/>
         /// |---------------|--------------------------------------------------------------------------------------------------------------------------|<br/>
         /// | `index` = 0   | Value                                                                                                                    |<br/>
-        /// | `index` = 1   | Percentage change, defined as the change between the current and previous periods&apos; values and expressed as a percentage. |<br/>
+        /// | `index` = 1   | Percentage change, defined as the change between the current and previous periods' values and expressed as a percentage. |<br/>
         /// <br/>
-        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.<br/>
-        /// 
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
         /// </remarks>
-        /// </summary>
-        Task<GetCommerceRevenueMetricsResponse> GetRevenueAsync(GetCommerceRevenueMetricsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCommerceRevenueMetricsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceRevenueMetricsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCommerceRevenueMetricsResponse> GetRevenueAsync(
+            GetCommerceRevenueMetricsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get customer retention metrics
-        /// 
+        /// Get customer retention metrics.
+        /// </summary>
         /// <remarks>
-        /// The *Get customer retention metrics* endpoint returns customer retention insights for a specific company&apos;s commerce connection over one or more periods of time.<br/>
+        /// The *Get customer retention metrics* endpoint returns customer retention insights for a specific company's commerce connection over one or more periods of time.<br/>
         /// <br/>
-        /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
         /// <br/>
         /// #### Customer retention metrics<br/>
         /// <br/>
@@ -75,7 +83,7 @@ namespace Codat.Lending
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
-        /// The Customer retention report&apos;s dimensions and measures are:<br/>
+        /// The Customer retention report's dimensions and measures are:<br/>
         /// <br/>
         /// | Index                       | Dimensions                 |<br/>
         /// |-----------------------------|----------------------------|<br/>
@@ -89,22 +97,32 @@ namespace Codat.Lending
         /// <br/>
         /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
         /// </remarks>
-        /// </summary>
-        Task<GetCommerceCustomerRetentionMetricsResponse> GetCustomerRetentionAsync(GetCommerceCustomerRetentionMetricsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCommerceCustomerRetentionMetricsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceCustomerRetentionMetricsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCommerceCustomerRetentionMetricsResponse> GetCustomerRetentionAsync(
+            GetCommerceCustomerRetentionMetricsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get lifetime value metrics
-        /// 
+        /// Get lifetime value metrics.
+        /// </summary>
         /// <remarks>
         /// The *Get lifetime value metrics* endpoint returns the average revenue that a specific company will generate throughout its lifespan over one or more periods of time.<br/>
         /// <br/>
-        /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.<br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the lifetime value metrics.<br/>
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
-        /// The Lifetime value report&apos;s dimensions and measures are:<br/>
+        /// The Lifetime value report's dimensions and measures are:<br/>
         /// <br/>
         /// | Index         | Dimensions             |<br/>
         /// |---------------|------------------------|<br/>
@@ -115,28 +133,73 @@ namespace Codat.Lending
         /// |-------------------|---------|<br/>
         /// |   `index` = 1     | Value   |<br/>
         /// <br/>
-        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.<br/>
-        /// 
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
         /// </remarks>
-        /// </summary>
-        Task<GetCommerceLifetimeValueMetricsResponse> GetLifetimeValueAsync(GetCommerceLifetimeValueMetricsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCommerceLifetimeValueMetricsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceLifetimeValueMetricsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCommerceLifetimeValueMetricsResponse> GetLifetimeValueAsync(
+            GetCommerceLifetimeValueMetricsRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class Metrics: IMetrics
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Metrics(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetCommerceRevenueMetricsResponse> GetRevenueAsync(GetCommerceRevenueMetricsRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get commerce revenue metrics.
+        /// </summary>
+        /// <remarks>
+        /// The *Get revenue report* endpoint returns the revenue and revenue growth for a specific company connection over one or more periods of time.<br/>
+        /// <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the revenue metrics.<br/>
+        /// <br/>
+        /// #### Response structure<br/>
+        /// <br/>
+        /// The Revenue report's dimensions and measures are:<br/>
+        /// <br/>
+        /// | Index         | Dimensions |<br/>
+        /// |---------------|------------|<br/>
+        /// |   `index` = 0 | Period     |<br/>
+        /// |   `index` = 1 | Revenue    |<br/>
+        /// <br/>
+        /// | Index         | Measures                                                                                                                 |<br/>
+        /// |---------------|--------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | `index` = 0   | Value                                                                                                                    |<br/>
+        /// | `index` = 1   | Percentage change, defined as the change between the current and previous periods' values and expressed as a percentage. |<br/>
+        /// <br/>
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCommerceRevenueMetricsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceRevenueMetricsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCommerceRevenueMetricsResponse> GetRevenueAsync(
+            GetCommerceRevenueMetricsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -196,7 +259,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -301,7 +364,53 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCommerceCustomerRetentionMetricsResponse> GetCustomerRetentionAsync(GetCommerceCustomerRetentionMetricsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get customer retention metrics.
+        /// </summary>
+        /// <remarks>
+        /// The *Get customer retention metrics* endpoint returns customer retention insights for a specific company's commerce connection over one or more periods of time.<br/>
+        /// <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// <br/>
+        /// #### Customer retention metrics<br/>
+        /// <br/>
+        /// - __Existing customers__: the number of unique customers that have placed an order(s) in the specified period and any previous period. <br/>
+        /// - __New customers__: the number of unique customers that have placed an order(s) in the specified period and none in any previous period.<br/>
+        /// - __Total customers__: the total number of existing and new customers within the specified period.<br/>
+        /// - __Retention rate__: the ratio of existing customers within the specified period compared to the total customers at the end of the previous period represented as a percentage.<br/>
+        /// - __Repeat rate__: the ratio of existing customers to total customers over the specified period represented as a percentage.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate customer retention metrics.<br/>
+        /// <br/>
+        /// #### Response structure<br/>
+        /// <br/>
+        /// The Customer retention report's dimensions and measures are:<br/>
+        /// <br/>
+        /// | Index                       | Dimensions                 |<br/>
+        /// |-----------------------------|----------------------------|<br/>
+        /// | `index` = 0                 | Period                     |<br/>
+        /// | `index` = 1                 | Customer retention metrics |<br/>
+        /// <br/>
+        /// | Index                | Measures    |<br/>
+        /// |----------------------|------------|<br/>
+        /// | `index` = 0          | Count      |<br/>
+        /// | `index` = 1          | Percentage |<br/>
+        /// <br/>
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCommerceCustomerRetentionMetricsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceCustomerRetentionMetricsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCommerceCustomerRetentionMetricsResponse> GetCustomerRetentionAsync(
+            GetCommerceCustomerRetentionMetricsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -361,7 +470,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -466,7 +575,44 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCommerceLifetimeValueMetricsResponse> GetLifetimeValueAsync(GetCommerceLifetimeValueMetricsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get lifetime value metrics.
+        /// </summary>
+        /// <remarks>
+        /// The *Get lifetime value metrics* endpoint returns the average revenue that a specific company will generate throughout its lifespan over one or more periods of time.<br/>
+        /// <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the lifetime value metrics.<br/>
+        /// <br/>
+        /// #### Response structure<br/>
+        /// <br/>
+        /// The Lifetime value report's dimensions and measures are:<br/>
+        /// <br/>
+        /// | Index         | Dimensions             |<br/>
+        /// |---------------|------------------------|<br/>
+        /// | `index` = 0   | Period                 |<br/>
+        /// | `index` = 1   | Lifetime value metrics |<br/>
+        /// <br/>
+        /// | Index             | Measures |<br/>
+        /// |-------------------|---------|<br/>
+        /// |   `index` = 1     | Value   |<br/>
+        /// <br/>
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCommerceLifetimeValueMetricsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceLifetimeValueMetricsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCommerceLifetimeValueMetricsResponse> GetLifetimeValueAsync(
+            GetCommerceLifetimeValueMetricsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -526,7 +672,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -630,5 +776,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

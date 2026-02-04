@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class ContactRef
     {
-
         /// <summary>
         /// Unique identifier for a customer or supplier.
         /// </summary>
@@ -23,7 +22,7 @@ namespace Codat.Lending.Models.Components
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Allowed name of the &apos;dataType&apos;.
+        /// Allowed name of the 'dataType'.
         /// </summary>
         [JsonProperty("dataType")]
         public ContactRefDataType? DataType { get; set; } = null;

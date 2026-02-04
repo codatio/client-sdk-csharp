@@ -11,18 +11,14 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class AccountCategoriesUpdatedWebhookData
     {
-
         /// <summary>
-        /// In Codat&apos;s data model, dates are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date fields are formatted as strings; for example:<br/>
         /// ```<br/>
         /// 2020-10-08<br/>
         /// ```
-        /// </remarks>
         /// </summary>
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; } = null;

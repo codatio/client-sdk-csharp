@@ -13,17 +13,15 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// &gt; **Language tip:** Profit and loss statement is also referred to as **income statement** under US GAAP (Generally Accepted Accounting Principles).<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
     /// The purpose of a profit and loss report is to present the financial performance of a company over a specified time period.<br/>
     /// <br/>
-    /// A profit and loss report shows a company&apos;s total income and expenses for a specified period of time and whether a profit or loss has been made.<br/>
+    /// A profit and loss report shows a company's total income and expenses for a specified period of time and whether a profit or loss has been made.<br/>
     /// <br/>
     /// &gt; **Profit and loss or balance sheet?**  <br/>
     /// &gt; Profit and loss reports summarise the total revenue, expenses, and profit or loss over a specified time period. A balance sheet report presents all assets, liability, and equity for a given date.<br/>
@@ -37,11 +35,9 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// **Want to pull this in a standardised structure?**  <br/>
     /// Our <a href="https://docs.codat.io/lending/features/financial-statements-overview">Enhanced Financials</a> endpoints provide the same report under standardized headings, allowing you to pull it in the same format for all of your business customers.
-    /// </remarks>
     /// </summary>
     public class AccountingProfitAndLossReport
     {
-
         /// <summary>
         /// An array of profit and loss reports.
         /// </summary>
@@ -61,9 +57,7 @@ namespace Codat.Lending.Models.Components
         public string? Currency { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -82,15 +76,12 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("mostRecentAvailableMonth")]
         public string? MostRecentAvailableMonth { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -109,7 +100,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("earliestAvailableMonth")]
         public string? EarliestAvailableMonth { get; set; }

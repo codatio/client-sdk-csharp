@@ -11,10 +11,9 @@ namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class Pagination
     {
-
         /// <summary>
         /// A continuation token indicating there are more results to be fetched. Supply this value in the `continuationToken` query parameter in the next request to fetch the next set of results. Once no more results are available, the continuation token will not be present in the response.
         /// </summary>

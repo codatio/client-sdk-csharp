@@ -11,10 +11,9 @@ namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class HalRef
     {
-
         /// <summary>
         /// Uri hypertext reference.
         /// </summary>

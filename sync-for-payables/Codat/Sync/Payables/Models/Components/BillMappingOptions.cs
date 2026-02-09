@@ -13,15 +13,14 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// The bill mapping options for a company&apos;s accounting software.
+    /// The bill mapping options for a company's accounting software.
     /// </summary>
     public class BillMappingOptions
     {
-
         [JsonProperty("accounts")]
-        public List<AccountMappingOption>? Accounts { get; set; }
+        public List<AccountMappingOption?>? Accounts { get; set; }
 
         [JsonProperty("taxRates")]
         public List<TaxRateMappingOption>? TaxRates { get; set; }

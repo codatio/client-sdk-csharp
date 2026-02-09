@@ -10,10 +10,9 @@
 namespace Codat.Sync.Payables.Models.Requests
 {
     using Codat.Sync.Payables.Utils;
-    
+
     public class ListSuppliersRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -33,7 +32,7 @@ namespace Codat.Sync.Payables.Models.Requests
         public string? ContinuationToken { get; set; }
 
         /// <summary>
-        /// Codat query string allows you to filter by `sourceModifiedDate` or if a supplier is `Active` or `Archived` in the accounting software. Learn more about Codat&apos;s query string <a href="https://docs.codat.io/using-the-api/querying">here</a>.
+        /// Codat query string allows you to filter by `sourceModifiedDate` or if a supplier is `Active` or `Archived` in the accounting software. Learn more about Codat's query string <a href="https://docs.codat.io/using-the-api/querying">here</a>.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=query")]
         public string? Query { get; set; }

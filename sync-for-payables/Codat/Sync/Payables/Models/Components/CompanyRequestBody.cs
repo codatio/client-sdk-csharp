@@ -12,10 +12,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CompanyRequestBody
     {
-
         /// <summary>
         /// Name of company being connected.
         /// </summary>

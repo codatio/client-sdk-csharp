@@ -4,26 +4,44 @@ generation:
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
+    nameResolutionFeb2025: false
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
+    securityFeb2025: false
+    sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits: {}
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
 csharp:
-  version: 10.0.0
+  version: 10.1.0
   additionalDependencies: []
   author: Codat
+  baseErrorName: CodatSyncPayablesException
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKException
   description: Streamline your customers' accounts payable workflow.
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0
+  enableCancellationToken: false
   enableSourceLink: false
   flattenGlobalSecurity: true
   flatteningOrder: ""
+  httpClientPrefix: Speakeasy
   imports:
     option: openapi
     paths:
@@ -33,11 +51,15 @@ csharp:
       shared: Models/Components
       webhooks: Models/Webhooks
   includeDebugSymbols: false
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 0
   methodArguments: infer-optional-args
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: Codat.Sync.Payables
   packageTags: ""
+  respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope
   sourceDirectory: ""
+  useNodatime: true

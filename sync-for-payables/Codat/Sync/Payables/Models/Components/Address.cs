@@ -12,12 +12,11 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class Address
     {
-
         /// <summary>
-        /// The type of the address
+        /// The type of the address.
         /// </summary>
         [JsonProperty("type")]
         public AddressType? Type { get; set; }
@@ -47,7 +46,7 @@ namespace Codat.Sync.Payables.Models.Components
         public string? Region { get; set; } = null;
 
         /// <summary>
-        /// Country of the customer&apos;s address. For NetSuite, use the 2-digit <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166</a> country code.
+        /// Country of the customer's address. For NetSuite, use the 2-digit <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166</a> country code.
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; } = null;

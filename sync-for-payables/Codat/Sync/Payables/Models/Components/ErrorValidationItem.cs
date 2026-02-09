@@ -11,10 +11,9 @@ namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class ErrorValidationItem
     {
-
         /// <summary>
         /// Unique identifier for a validation item.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Codat.Sync.Payables.Models.Components
         public string? ItemId { get; set; } = null;
 
         /// <summary>
-        /// A message outlining validation item&apos;s issue.
+        /// A message outlining validation item's issue.
         /// </summary>
         [JsonProperty("message")]
         public string? Message { get; set; } = null;

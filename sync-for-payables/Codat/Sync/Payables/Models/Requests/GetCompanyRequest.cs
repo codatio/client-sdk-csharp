@@ -10,10 +10,9 @@
 namespace Codat.Sync.Payables.Models.Requests
 {
     using Codat.Sync.Payables.Utils;
-    
+
     public class GetCompanyRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

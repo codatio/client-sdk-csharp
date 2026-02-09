@@ -11,10 +11,9 @@ namespace Codat.Sync.Payables.Models.Requests
 {
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
-    
+
     public class CreateBillPaymentRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

@@ -12,22 +12,19 @@ namespace Codat.Sync.Payables
     using Codat.Sync.Payables.Hooks;
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Models.Errors;
-    using Codat.Sync.Payables.Utils.Retries;
     using Codat.Sync.Payables.Utils;
+    using Codat.Sync.Payables.Utils.Retries;
     using Newtonsoft.Json;
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using System;
-
     /// <summary>
-    /// Bill pay kit: The API reference for the Bill Pay kit. <br/>
-    /// 
-    /// <remarks>
+    /// Bill pay (synchronous solution): The API reference for the synchronous Bill Pay solution. <br/>
     /// <br/>
-    /// The bill pay kit is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It&apos;s ideal for facilitating essential bill payment processes within your SMB&apos;s accounting software.<br/>
+    /// The synchronous Bill Pay solution is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/payables/bill-pay-kit">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/payables/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a>
     /// <br/>
     /// ---<br/>
     /// ## Supported Integrations<br/>
@@ -37,7 +34,9 @@ namespace Codat.Sync.Payables
     /// | FreeAgent                     | Yes       |<br/>
     /// | QuickBooks Online             | Yes       |<br/>
     /// | Oracle NetSuite               | Yes       |<br/>
+    /// | Sage Intacct                  | Yes       |<br/>
     /// | Xero                          | Yes       |<br/>
+    /// | Zoho Books                    | Yes       |<br/>
     /// <br/>
     /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
@@ -45,21 +44,19 @@ namespace Codat.Sync.Payables
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Company information | View company profile from the source platform. |<br/>
     /// | Bills | Get, create, and update Bills. |<br/>
     /// | Bill payments | Get, create, and update Bill payments. |<br/>
     /// | Suppliers | Get, create, and update Suppliers. |<br/>
-    /// | Bank accounts | Create a bank account for a given company&apos;s connection. |<br/>
+    /// | Bank accounts | Create a bank account for a given company's connection. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
-    /// </remarks>
     /// </summary>
     public interface ICodatSyncPayables
     {
-
         /// <summary>
-        /// Create and manage your SMB users&apos; companies.
+        /// Create and manage your SMB users' companies.
         /// </summary>
         public ICompanies Companies { get; }
 
@@ -89,54 +86,17 @@ namespace Codat.Sync.Payables
         public ISuppliers Suppliers { get; }
 
         /// <summary>
-        /// Create a bank account for a given company&apos;s connection.
+        /// Create a bank account for a given company's connection.
         /// </summary>
         public IBankAccounts BankAccounts { get; }
     }
 
-    public class SDKConfig
-    {
-        /// <summary>
-        /// List of server URLs available to the SDK.
-        /// </summary>
-        public static readonly string[] ServerList = {
-            "https://api.codat.io",
-        };
-
-        public string ServerUrl = "";
-        public int ServerIndex = 0;
-        public SDKHooks Hooks = new SDKHooks();
-        public RetryConfig? RetryConfig = null;
-
-        public string GetTemplatedServerUrl()
-        {
-            if (!String.IsNullOrEmpty(this.ServerUrl))
-            {
-                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.ServerUrl, "/"), new Dictionary<string, string>());
-            }
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.ServerIndex], new Dictionary<string, string>());
-        }
-
-        public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
-        {
-            string preHooksUrl = GetTemplatedServerUrl();
-            var (postHooksUrl, postHooksClient) = this.Hooks.SDKInit(preHooksUrl, client);
-            if (preHooksUrl != postHooksUrl)
-            {
-                this.ServerUrl = postHooksUrl;
-            }
-            return postHooksClient;
-        }
-    }
-
     /// <summary>
-    /// Bill pay kit: The API reference for the Bill Pay kit. <br/>
-    /// 
-    /// <remarks>
+    /// Bill pay (synchronous solution): The API reference for the synchronous Bill Pay solution. <br/>
     /// <br/>
-    /// The bill pay kit is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It&apos;s ideal for facilitating essential bill payment processes within your SMB&apos;s accounting software.<br/>
+    /// The synchronous Bill Pay solution is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/payables/bill-pay-kit">Explore product</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/payables/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a>
     /// <br/>
     /// ---<br/>
     /// ## Supported Integrations<br/>
@@ -146,7 +106,9 @@ namespace Codat.Sync.Payables
     /// | FreeAgent                     | Yes       |<br/>
     /// | QuickBooks Online             | Yes       |<br/>
     /// | Oracle NetSuite               | Yes       |<br/>
+    /// | Sage Intacct                  | Yes       |<br/>
     /// | Xero                          | Yes       |<br/>
+    /// | Zoho Books                    | Yes       |<br/>
     /// <br/>
     /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
@@ -154,46 +116,102 @@ namespace Codat.Sync.Payables
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Company information | View company profile from the source platform. |<br/>
     /// | Bills | Get, create, and update Bills. |<br/>
     /// | Bill payments | Get, create, and update Bill payments. |<br/>
     /// | Suppliers | Get, create, and update Suppliers. |<br/>
-    /// | Bank accounts | Create a bank account for a given company&apos;s connection. |<br/>
+    /// | Bank accounts | Create a bank account for a given company's connection. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
-    /// </remarks>
     /// </summary>
     public class CodatSyncPayables: ICodatSyncPayables
     {
+        /// <summary>
+        /// The main SDK Configuration.
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = "csharp";
-        private const string _sdkVersion = "10.0.0";
-        private const string _sdkGenVersion = "2.463.0";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 10.0.0 2.463.0 3.0.0 Codat.Sync.Payables";
-        private string _serverUrl = "";
-        private int _serverIndex = 0;
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;
+        /// <summary>
+        /// The Companies sub-SDK.
+        /// </summary>
         public ICompanies Companies { get; private set; }
+        /// <summary>
+        /// The Connections sub-SDK.
+        /// </summary>
         public IConnections Connections { get; private set; }
+        /// <summary>
+        /// The CompanyInformation sub-SDK.
+        /// </summary>
         public ICompanyInformation CompanyInformation { get; private set; }
+        /// <summary>
+        /// The Bills sub-SDK.
+        /// </summary>
         public IBills Bills { get; private set; }
+        /// <summary>
+        /// The BillPayments sub-SDK.
+        /// </summary>
         public IBillPayments BillPayments { get; private set; }
+        /// <summary>
+        /// The Suppliers sub-SDK.
+        /// </summary>
         public ISuppliers Suppliers { get; private set; }
+        /// <summary>
+        /// The BankAccounts sub-SDK.
+        /// </summary>
         public IBankAccounts BankAccounts { get; private set; }
 
-        public CodatSyncPayables(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Initializes a new instance of the SDK based on a <see cref="SDKConfig"/> configuration object.
+        /// </summary>
+        /// <param name="config">The SDK configuration object.</param>
+        public CodatSyncPayables(SDKConfig config)
+        {
+            SDKConfiguration = config;
+            InitHooks();
+
+            Companies = new Companies(SDKConfiguration);
+
+            Connections = new Connections(SDKConfiguration);
+
+            CompanyInformation = new CompanyInformation(SDKConfiguration);
+
+            Bills = new Bills(SDKConfiguration);
+
+            BillPayments = new BillPayments(SDKConfiguration);
+
+            Suppliers = new Suppliers(SDKConfiguration);
+
+            BankAccounts = new BankAccounts(SDKConfiguration);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the SDK with optional configuration parameters.
+        /// </summary>
+        /// <param name="authHeader">The security configuration to use for API requests. If provided, this will be used as a static security configuration.</param>
+        /// <param name="authHeaderSource">A function that returns the security configuration dynamically. This takes precedence over the static security parameter if both are provided.</param>
+        /// <param name="serverIndex">The index of the server to use from the predefined server list. Must be between 0 and the length of the server list. Defaults to 0 if not specified.</param>
+        /// <param name="serverUrl">A custom server URL to use instead of the predefined server list. If provided with urlParams, the URL will be templated with the provided parameters.</param>
+        /// <param name="urlParams">A dictionary of parameters to use for templating the serverUrl. Only used when serverUrl is provided.</param>
+        /// <param name="client">A custom HTTP client implementation to use for making API requests. If not provided, the default SpeakeasyHttpClient will be used.</param>
+        /// <param name="retryConfig">Configuration for retry behavior when API requests fail. Defines retry strategies, backoff policies, and maximum retry attempts.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid value provided for <paramref name="serverIndex"/>: must be between 0 (inclusive) and 1 (exclusive).</exception>
+        /// <exception cref="ArgumentException">None of <paramref name="authHeader"/> and <paramref name="authHeaderSource"/> were provided.</exception>
+        public CodatSyncPayables(
+            string? authHeader = null,
+            Func<string>? authHeaderSource = null,
+            int? serverIndex = null,
+            string? serverUrl = null,
+            Dictionary<string, string>? urlParams = null,
+            ISpeakeasyHttpClient? client = null,
+            RetryConfig? retryConfig = null
+        )
         {
             if (serverIndex != null)
             {
                 if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
-                _serverIndex = serverIndex.Value;
             }
 
             if (serverUrl != null)
@@ -202,10 +220,8 @@ namespace Codat.Sync.Payables
                 {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
-                _serverUrl = serverUrl;
             }
-
-            _client = client ?? new SpeakeasyHttpClient();
+            Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource = null;
 
             if(authHeaderSource != null)
             {
@@ -217,38 +233,131 @@ namespace Codat.Sync.Payables
             }
             else
             {
-                throw new Exception("authHeader and authHeaderSource cannot both be null");
+                throw new ArgumentException("authHeader and authHeaderSource cannot both be null");
             }
 
-            SDKConfiguration = new SDKConfig()
+            SDKConfiguration = new SDKConfig(client)
             {
-                ServerIndex = _serverIndex,
-                ServerUrl = _serverUrl,
+                ServerIndex = serverIndex == null ? 0 : serverIndex.Value,
+                ServerUrl = serverUrl == null ? "" : serverUrl,
+                SecuritySource = _securitySource,
                 RetryConfig = retryConfig
             };
 
-            _client = SDKConfiguration.InitHooks(_client);
+            InitHooks();
 
+            Companies = new Companies(SDKConfiguration);
 
-            Companies = new Companies(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Connections = new Connections(SDKConfiguration);
 
+            CompanyInformation = new CompanyInformation(SDKConfiguration);
 
-            Connections = new Connections(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Bills = new Bills(SDKConfiguration);
 
+            BillPayments = new BillPayments(SDKConfiguration);
 
-            CompanyInformation = new CompanyInformation(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Suppliers = new Suppliers(SDKConfiguration);
 
-
-            Bills = new Bills(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            BillPayments = new BillPayments(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Suppliers = new Suppliers(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            BankAccounts = new BankAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
+            BankAccounts = new BankAccounts(SDKConfiguration);
         }
+
+        private void InitHooks()
+        {
+            string preHooksUrl = SDKConfiguration.GetTemplatedServerUrl();
+            var (postHooksUrl, postHooksClient) = SDKConfiguration.Hooks.SDKInit(preHooksUrl, SDKConfiguration.Client);
+            var config = SDKConfiguration;
+            if (preHooksUrl != postHooksUrl)
+            {
+                config.ServerUrl = postHooksUrl;
+            }
+            config.Client = postHooksClient;
+            SDKConfiguration = config;
+        }
+
+        /// <summary>
+        /// Builder class for constructing an instance of the SDK.
+        /// </summary>
+        public class SDKBuilder
+        {
+            private SDKConfig _sdkConfig = new SDKConfig(client: new SpeakeasyHttpClient());
+
+            public SDKBuilder() { }
+
+            /// <summary>
+            /// Overrides the default server by index.
+            /// </summary>
+            public SDKBuilder WithServerIndex(int serverIndex)
+            {
+                if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
+                {
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
+                }
+                _sdkConfig.ServerIndex = serverIndex;
+                return this;
+            }
+
+            /// <summary>
+            /// Overrides the default server URL for the SDK.
+            /// </summary>
+            public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
+            {
+                if (serverVariables != null)
+                {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, serverVariables);
+                }
+                _sdkConfig.ServerUrl = serverUrl;
+                return this;
+            }
+
+            /// <summary>
+            /// Sets the authHeaderSource security parameter for the SDK.
+            /// </summary>
+            public SDKBuilder WithAuthHeaderSource(Func<string> authHeaderSource)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Sync.Payables.Models.Components.Security() { AuthHeader = authHeaderSource() };
+                return this;
+            }
+
+            /// <summary>
+            /// Sets the authHeader security parameter for the SDK.
+            /// </summary>
+            public SDKBuilder WithAuthHeader(string authHeader)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Sync.Payables.Models.Components.Security() { AuthHeader = authHeader };
+                return this;
+            }
+
+            /// <summary>
+            /// Sets a custom HTTP client to be used by the SDK.
+            /// </summary>
+            public SDKBuilder WithClient(ISpeakeasyHttpClient client)
+            {
+                _sdkConfig.Client = client;
+                return this;
+            }
+
+            /// <summary>
+            /// Sets the retry configuration for the SDK.
+            /// </summary>
+            public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
+            {
+                _sdkConfig.RetryConfig = retryConfig;
+                return this;
+            }
+
+            /// <summary>
+            /// Builds and returns the SDK instance.
+            /// </summary>
+            public CodatSyncPayables Build()
+            {
+              if (_sdkConfig.SecuritySource == null) {
+                  throw new ArgumentException("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
+              }
+              return new CodatSyncPayables(_sdkConfig);
+            }
+
+        }
+
+        public static SDKBuilder Builder() => new SDKBuilder();
     }
 }

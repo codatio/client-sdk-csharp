@@ -10,10 +10,9 @@
 namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
-    
+
     public class CodatFile
     {
-
         [SpeakeasyMetadata("multipartForm:name=fileName")]
         public string FileName { get; set; } = default!;
 

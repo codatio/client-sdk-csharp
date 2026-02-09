@@ -12,10 +12,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class TaxRateMappingOption
     {
-
         /// <summary>
         /// Identifier for the tax rate, unique for the company in the accounting software.
         /// </summary>
@@ -48,11 +47,8 @@ namespace Codat.Sync.Payables.Models.Components
 
         /// <summary>
         /// Status of the tax rate in the accounting software.  <br/>
-        /// 
-        /// <remarks>
         /// - `Active` - An active tax rate in use by a company.  <br/>
-        /// - `Archived` - A tax rate that has been archived or is inactive in the accounting software.  
-        /// </remarks>
+        /// - `Archived` - A tax rate that has been archived or is inactive in the accounting software.
         /// </summary>
         [JsonProperty("status")]
         public TaxRateStatus? Status { get; set; }

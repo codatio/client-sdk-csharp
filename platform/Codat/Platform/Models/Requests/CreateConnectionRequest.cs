@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Models.Requests;
     using Codat.Platform.Utils;
-    
+
     public class CreateConnectionRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

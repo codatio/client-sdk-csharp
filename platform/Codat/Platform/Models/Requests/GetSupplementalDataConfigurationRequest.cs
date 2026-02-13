@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Models.Requests;
     using Codat.Platform.Utils;
-    
+
     public class GetSupplementalDataConfigurationRequest
     {
-
         /// <summary>
         /// A unique 4-letter key to represent a platform in each integration.
         /// </summary>

@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class DataTypeWriteWebhookRecord
     {
-
         /// <summary>
         /// The unique identifier of the data type created, updated, deleted, or had an attachment uploaded in the accounting platform.
         /// </summary>

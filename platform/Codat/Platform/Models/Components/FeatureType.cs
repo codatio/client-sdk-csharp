@@ -12,7 +12,7 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The type of feature.
     /// </summary>
@@ -72,5 +72,4 @@ namespace Codat.Platform.Models.Components
             throw new Exception($"Unknown value {value} for enum FeatureType");
         }
     }
-
 }

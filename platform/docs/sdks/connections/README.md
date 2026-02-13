@@ -1,5 +1,4 @@
 # Connections
-(*Connections*)
 
 ## Overview
 
@@ -20,7 +19,7 @@ Create new and manage existing data connections for a company.
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="list-connections" method="get" path="/companies/{companyId}/connections" -->
+<!-- UsageSnippet language="csharp" operationID="list-connections" method="get" path="/companies/{companyId}/connections" example="Connections" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -63,9 +62,30 @@ var res = await sdk.Connections.ListAsync(req);
 
 Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
-### Example Usage
+### Example Usage: Connection
 
-<!-- UsageSnippet language="csharp" operationID="create-connection" method="post" path="/companies/{companyId}/connections" -->
+<!-- UsageSnippet language="csharp" operationID="create-connection" method="post" path="/companies/{companyId}/connections" example="Connection" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateConnectionRequest req = new CreateConnectionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    RequestBody = new CreateConnectionRequestBody() {
+        PlatformKey = "gbol",
+    },
+};
+
+var res = await sdk.Connections.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="csharp" operationID="create-connection" method="post" path="/companies/{companyId}/connections" example="Unauthorized" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -109,7 +129,7 @@ var res = await sdk.Connections.CreateAsync(req);
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" example="Connection" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -194,7 +214,7 @@ var res = await sdk.Connections.DeleteAsync(req);
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" -->
+<!-- UsageSnippet language="csharp" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" example="Example" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;

@@ -12,13 +12,12 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Client&apos;s configuration details for a specific custom data type and platform pair.
+    /// Client's configuration details for a specific custom data type and platform pair.
     /// </summary>
     public class CustomDataTypeConfiguration
     {
-
         /// <summary>
         /// Underlying endpoint of the source platform that will serve as a data source for the custom data type. This value is not validated by Codat.
         /// </summary>

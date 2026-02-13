@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
-    
+
     public class ReplaceCompanyRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

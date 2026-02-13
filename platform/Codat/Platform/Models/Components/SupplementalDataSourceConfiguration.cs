@@ -12,15 +12,14 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// The client&apos;s defined name for the object.
+    /// The client's defined name for the object.
     /// </summary>
     public class SupplementalDataSourceConfiguration
     {
-
         /// <summary>
-        /// The underlying endpoint of the source system which the configuration is targeting. 
+        /// The underlying endpoint of the source system which the configuration is targeting.
         /// </summary>
         [JsonProperty("dataSource")]
         public string? DataSource { get; set; }

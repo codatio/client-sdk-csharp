@@ -23,68 +23,104 @@ namespace Codat.Platform
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Create and manage webhooks that listen to Codat&apos;s events.
+    /// Create and manage webhooks that listen to Codat's events.
     /// </summary>
     public interface IWebhooks
     {
-
         /// <summary>
-        /// List webhook consumers
-        /// 
+        /// List webhook consumers.
+        /// </summary>
         /// <remarks>
         /// Use the *List webhook consumers* endpoint to return a list of all webhook consumers that currently exist for your client.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat&apos;s webhook service</a>.
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat's webhook service</a>.
         /// </remarks>
-        /// </summary>
-        Task<ListWebhookConsumersResponse> ListConsumersAsync(RetryConfig? retryConfig = null);
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListWebhookConsumersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListWebhookConsumersResponse> ListConsumersAsync(RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Create webhook consumer
-        /// 
+        /// Create webhook consumer.
+        /// </summary>
         /// <remarks>
         /// Use the *Create webhook consumer* endpoint to create a new webhook consumer that will listen to messages we send you.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat&apos;s webhook service</a>.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat's webhook service</a>.<br/>
         /// <br/>
         /// ### Tips and traps<br/>
         /// - The number of webhook consumers you can create is limited to 50. If you have reached the maximum number of consumers, use the <a href="https://docs.codat.io/platform-api#/operations/delete-webhook-consumer">*Delete webhook consumer*</a> endpoint to delete an unused consumer first.
         /// </remarks>
-        /// </summary>
-        Task<CreateWebhookConsumerResponse> CreateConsumerAsync(WebhookConsumerPrototype? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="WebhookConsumerPrototype"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateWebhookConsumerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateWebhookConsumerResponse> CreateConsumerAsync(
+            WebhookConsumerPrototype? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Delete webhook consumer
-        /// 
+        /// Delete webhook consumer.
+        /// </summary>
         /// <remarks>
         /// Use the *Delete webhook consumer* endpoint to delete an existing webhoook consumer, providing its valid `id` as a parameter.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat&apos;s webhook service</a>.
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat's webhook service</a>.
         /// </remarks>
-        /// </summary>
-        Task<DeleteWebhookConsumerResponse> DeleteConsumerAsync(DeleteWebhookConsumerRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DeleteWebhookConsumerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteWebhookConsumerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteWebhookConsumerResponse> DeleteConsumerAsync(
+            DeleteWebhookConsumerRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
-    /// Create and manage webhooks that listen to Codat&apos;s events.
+    /// Create and manage webhooks that listen to Codat's events.
     /// </summary>
     public class Webhooks: IWebhooks
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.723.11";
-        private const string _openapiDocVersion = "3.0.0";
 
         public Webhooks(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListWebhookConsumersResponse> ListConsumersAsync(RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List webhook consumers.
+        /// </summary>
+        /// <remarks>
+        /// Use the *List webhook consumers* endpoint to return a list of all webhook consumers that currently exist for your client.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat's webhook service</a>.
+        /// </remarks>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListWebhookConsumersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListWebhookConsumersResponse> ListConsumersAsync(RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/webhooks";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -140,7 +176,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -149,9 +185,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -245,10 +281,31 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateWebhookConsumerResponse> CreateConsumerAsync(WebhookConsumerPrototype? request = null, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create webhook consumer.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Create webhook consumer* endpoint to create a new webhook consumer that will listen to messages we send you.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat's webhook service</a>.<br/>
+        /// <br/>
+        /// ### Tips and traps<br/>
+        /// - The number of webhook consumers you can create is limited to 50. If you have reached the maximum number of consumers, use the <a href="https://docs.codat.io/platform-api#/operations/delete-webhook-consumer">*Delete webhook consumer*</a> endpoint to delete an unused consumer first.
+        /// </remarks>
+        /// <param name="request">A <see cref="WebhookConsumerPrototype"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateWebhookConsumerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateWebhookConsumerResponse> CreateConsumerAsync(
+            WebhookConsumerPrototype? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/webhooks";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -310,7 +367,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -319,9 +376,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -415,10 +472,32 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteWebhookConsumerResponse> DeleteConsumerAsync(DeleteWebhookConsumerRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Delete webhook consumer.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Delete webhook consumer* endpoint to delete an existing webhoook consumer, providing its valid `id` as a parameter.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/WebhookConsumer">Webhook consumer</a> is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat's webhook service</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteWebhookConsumerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteWebhookConsumerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteWebhookConsumerResponse> DeleteConsumerAsync(
+            DeleteWebhookConsumerRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/webhooks/{webhookId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/webhooks/{webhookId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -473,7 +552,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -482,9 +561,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -559,5 +638,6 @@ namespace Codat.Platform
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

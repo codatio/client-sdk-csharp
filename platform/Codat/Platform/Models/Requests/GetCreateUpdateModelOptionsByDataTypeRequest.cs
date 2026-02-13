@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
-    
+
     public class GetCreateUpdateModelOptionsByDataTypeRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -31,6 +30,6 @@ namespace Codat.Platform.Models.Requests
         /// The key of a Codat data type.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
-        public Models.Components.DataType DataType { get; set; } = default!;
+        public SchemaDataType DataType { get; set; } = default!;
     }
 }

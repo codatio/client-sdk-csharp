@@ -27,15 +27,25 @@ namespace Codat.Platform
     /// </summary>
     public interface IConnectionManagement
     {
-
         /// <summary>
-        /// Get access token (old)
-        /// 
+        /// Get access token (old).
+        /// </summary>
         /// <remarks>
         /// The new <a href="https://docs.codat.io/platform-api#/operations/get-company-access-token">Get company access token</a> endpoint replaces this endpoint and includes additional functionality.
         /// </remarks>
-        /// </summary>
-        Task<GetConnectionManagementAccessTokenResponse> GetAsync(GetConnectionManagementAccessTokenRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetConnectionManagementAccessTokenRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetConnectionManagementAccessTokenResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible. Use GetAccessToken instead")]
+        public  Task<GetConnectionManagementAccessTokenResponse> GetAsync(
+            GetConnectionManagementAccessTokenRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -43,22 +53,41 @@ namespace Codat.Platform
     /// </summary>
     public class ConnectionManagement: IConnectionManagement
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.723.11";
-        private const string _openapiDocVersion = "3.0.0";
 
         public ConnectionManagement(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
+        /// <summary>
+        /// Get access token (old).
+        /// </summary>
+        /// <remarks>
+        /// The new <a href="https://docs.codat.io/platform-api#/operations/get-company-access-token">Get company access token</a> endpoint replaces this endpoint and includes additional functionality.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetConnectionManagementAccessTokenRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetConnectionManagementAccessTokenResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible. Use GetAccessToken instead")]
-        public async Task<GetConnectionManagementAccessTokenResponse> GetAsync(GetConnectionManagementAccessTokenRequest request, RetryConfig? retryConfig = null)
+        public async  Task<GetConnectionManagementAccessTokenResponse> GetAsync(
+            GetConnectionManagementAccessTokenRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connectionManagement/accessToken", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connectionManagement/accessToken", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -113,7 +142,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -122,9 +151,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -217,5 +246,6 @@ namespace Codat.Platform
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

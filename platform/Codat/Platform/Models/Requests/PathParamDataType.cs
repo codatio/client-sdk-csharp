@@ -12,9 +12,9 @@ namespace Codat.Platform.Models.Requests
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Data types that support supplemental data
+    /// Data types that support supplemental data.
     /// </summary>
     public enum PathParamDataType
     {
@@ -94,5 +94,4 @@ namespace Codat.Platform.Models.Requests
             throw new Exception($"Unknown value {value} for enum PathParamDataType");
         }
     }
-
 }

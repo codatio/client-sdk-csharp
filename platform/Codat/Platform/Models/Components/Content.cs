@@ -10,7 +10,7 @@
 namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
-    
+
     public class Content
     {
     }

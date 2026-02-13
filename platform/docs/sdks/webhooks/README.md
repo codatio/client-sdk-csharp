@@ -1,5 +1,4 @@
 # Webhooks
-(*Webhooks*)
 
 ## Overview
 
@@ -19,7 +18,7 @@ Create and manage webhooks that listen to Codat's events.
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="list-webhook-consumers" method="get" path="/webhooks" -->
+<!-- UsageSnippet language="csharp" operationID="list-webhook-consumers" method="get" path="/webhooks" example="Webhook consumers" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -52,9 +51,9 @@ var res = await sdk.Webhooks.ListConsumersAsync();
 ### Tips and traps
 - The number of webhook consumers you can create is limited to 50. If you have reached the maximum number of consumers, use the [*Delete webhook consumer*](https://docs.codat.io/platform-api#/operations/delete-webhook-consumer) endpoint to delete an unused consumer first.
 
-### Example Usage
+### Example Usage: Subscribe consumer to one or more event types
 
-<!-- UsageSnippet language="csharp" operationID="create-webhook-consumer" method="post" path="/webhooks" -->
+<!-- UsageSnippet language="csharp" operationID="create-webhook-consumer" method="post" path="/webhooks" example="Subscribe consumer to one or more event types" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -67,6 +66,28 @@ WebhookConsumerPrototype req = new WebhookConsumerPrototype() {
     EventTypes = new List<string>() {
         "DataSyncCompleted",
         "Dataset data changed",
+    },
+};
+
+var res = await sdk.Webhooks.CreateConsumerAsync(req);
+
+// handle response
+```
+### Example Usage: Subscribe consumer with disabled endpoint
+
+<!-- UsageSnippet language="csharp" operationID="create-webhook-consumer" method="post" path="/webhooks" example="Subscribe consumer with disabled endpoint" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+WebhookConsumerPrototype req = new WebhookConsumerPrototype() {
+    Url = "https://example.com/webhoook-consumer",
+    Disabled = true,
+    EventTypes = new List<string>() {
+        "DataSyncCompleted",
     },
 };
 

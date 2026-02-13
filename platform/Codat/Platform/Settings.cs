@@ -27,104 +27,159 @@ namespace Codat.Platform
     /// </summary>
     public interface ISettings
     {
-
         /// <summary>
-        /// Get CORS settings
-        /// 
+        /// Get CORS settings.
+        /// </summary>
         /// <remarks>
         /// The *Get CORS settings* endpoint returns the allowed origins (i.e. your domains) you want to allow cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>) with Codat. <br/>
         /// <br/>
-        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat&apos;s API endpoints.
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
         /// </remarks>
-        /// </summary>
-        Task<GetCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null);
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Set CORS settings
-        /// 
+        /// Set CORS settings.
+        /// </summary>
         /// <remarks>
         /// The *Set CORS settings* endpoint allows you to register allowed origins (i.e. your domains) for use in cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).<br/>
         ///  <br/>
-        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat&apos;s API endpoints.
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
         /// </remarks>
-        /// </summary>
-        Task<SetCorsSettingsResponse> SetAsync(ConnectionManagementAllowedOrigins? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ConnectionManagementAllowedOrigins"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="SetCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<SetCorsSettingsResponse> SetAsync(
+            ConnectionManagementAllowedOrigins? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get profile
-        /// 
+        /// Get profile.
+        /// </summary>
         /// <remarks>
         /// Fetch your Codat profile.
         /// </remarks>
-        /// </summary>
-        Task<GetProfileResponse> GetProfileAsync(RetryConfig? retryConfig = null);
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetProfileResponse> GetProfileAsync(RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Update profile
-        /// 
+        /// Update profile.
+        /// </summary>
         /// <remarks>
-        /// Update your Codat profile
+        /// Update your Codat profile.
         /// </remarks>
-        /// </summary>
-        Task<UpdateProfileResponse> UpdateProfileAsync(Profile? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">All fields should be included when updating your profile.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateProfileResponse> UpdateProfileAsync(Profile? request = null, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Get sync settings
-        /// 
+        /// Get sync settings.
+        /// </summary>
         /// <remarks>
         /// Retrieve the <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a> for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
         /// </remarks>
-        /// </summary>
-        Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync(RetryConfig? retryConfig = null);
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetProfileSyncSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync(RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Update all sync settings
-        /// 
+        /// Update all sync settings.
+        /// </summary>
         /// <remarks>
         /// Update sync settings for all data types.
         /// </remarks>
-        /// </summary>
-        Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(UpdateProfileSyncSettingsRequestBody? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">
+        /// Include a `syncSetting` object for each data type.<br/>
+        /// `syncFromWindow`, `syncFromUTC` &amp; `monthsToSync` only need to be included if you wish to set a value for them.
+        /// </param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateProfileSyncSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(
+            UpdateProfileSyncSettingsRequestBody? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List API keys
-        /// 
+        /// List API keys.
+        /// </summary>
         /// <remarks>
         /// Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.<br/>
         /// <br/>
         /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.
         /// </remarks>
-        /// </summary>
-        Task<ListApiKeysResponse> ListApiKeysAsync(RetryConfig? retryConfig = null);
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListApiKeysResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListApiKeysResponse> ListApiKeysAsync(RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Create API key
-        /// 
+        /// Create API key.
+        /// </summary>
         /// <remarks>
         /// Use the *Create API keys* endpoint to generate a new API key for your client.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.<br/>
         /// <br/>
         /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
         /// <br/>
         /// ### Tips and pitfalls<br/>
         /// <br/>
-        /// * Your first API key is created for you. Access this key via <a href="https://app.codat.io/developers/api-keys">Codat&apos;s Portal</a>.<br/>
+        /// * Your first API key is created for you. Access this key via <a href="https://app.codat.io/developers/api-keys">Codat's Portal</a>.<br/>
         /// * If you require multiple API keys, perform multiple calls to the *Create API keys* endpoint. <br/>
         /// * The number of API keys is limited to 10. If you have reached the maximum amount of keys, use the *Delete API key* endpoint to delete an unused key first.
         /// </remarks>
-        /// </summary>
-        Task<CreateApiKeyResponse> CreateApiKeyAsync(CreateApiKey? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CreateApiKey"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateApiKeyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Bad Request. Thrown when the API returns a 400, 401, 402, 403, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateApiKeyResponse> CreateApiKeyAsync(
+            CreateApiKey? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Delete API key
-        /// 
+        /// Delete API key.
+        /// </summary>
         /// <remarks>
         /// Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word &quot;Basic&quot; and a space with your API key.<br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.<br/>
         /// <br/>
         /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
         /// <br/>
@@ -133,8 +188,18 @@ namespace Codat.Platform
         /// * It is possible to delete the last remaining API key. If this happens, a new key can be created via the <a href="https://app.codat.io/developers/api-keys">API key management page</a> of the Portal.<br/>
         /// * It is possible to delete the API key used to authenticate the *Delete API key* request.
         /// </remarks>
-        /// </summary>
-        Task<DeleteApiKeyResponse> DeleteApiKeyAsync(DeleteApiKeyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DeleteApiKeyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteApiKeyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">No Content. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteApiKeyResponse> DeleteApiKeyAsync(
+            DeleteApiKeyRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -142,21 +207,34 @@ namespace Codat.Platform
     /// </summary>
     public class Settings: ISettings
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.723.11";
-        private const string _openapiDocVersion = "3.0.0";
 
         public Settings(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get CORS settings.
+        /// </summary>
+        /// <remarks>
+        /// The *Get CORS settings* endpoint returns the allowed origins (i.e. your domains) you want to allow cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>) with Codat. <br/>
+        /// <br/>
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
+        /// </remarks>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/corsSettings";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -212,7 +290,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -221,9 +299,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -317,10 +395,28 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<SetCorsSettingsResponse> SetAsync(ConnectionManagementAllowedOrigins? request = null, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Set CORS settings.
+        /// </summary>
+        /// <remarks>
+        /// The *Set CORS settings* endpoint allows you to register allowed origins (i.e. your domains) for use in cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).<br/>
+        ///  <br/>
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
+        /// </remarks>
+        /// <param name="request">A <see cref="ConnectionManagementAllowedOrigins"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="SetCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<SetCorsSettingsResponse> SetAsync(
+            ConnectionManagementAllowedOrigins? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/corsSettings";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -382,7 +478,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -391,9 +487,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -487,10 +583,22 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetProfileResponse> GetProfileAsync(RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get profile.
+        /// </summary>
+        /// <remarks>
+        /// Fetch your Codat profile.
+        /// </remarks>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetProfileResponse> GetProfileAsync(RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/profile";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -546,7 +654,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -555,9 +663,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -651,10 +759,26 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateProfileResponse> UpdateProfileAsync(Profile? request = null, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Update profile.
+        /// </summary>
+        /// <remarks>
+        /// Update your Codat profile.
+        /// </remarks>
+        /// <param name="request">All fields should be included when updating your profile.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateProfileResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateProfileResponse> UpdateProfileAsync(
+            Profile? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/profile";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
@@ -716,7 +840,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -725,9 +849,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -821,10 +945,22 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync(RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get sync settings.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the <a href="https://docs.codat.io/knowledge-base/advanced-sync-settings">sync settings</a> for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
+        /// </remarks>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetProfileSyncSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetProfileSyncSettingsResponse> GetSyncSettingsAsync(RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/profile/syncSettings";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -880,7 +1016,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -889,9 +1025,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -985,10 +1121,29 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(UpdateProfileSyncSettingsRequestBody? request = null, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Update all sync settings.
+        /// </summary>
+        /// <remarks>
+        /// Update sync settings for all data types.
+        /// </remarks>
+        /// <param name="request">
+        /// Include a `syncSetting` object for each data type.<br/>
+        /// `syncFromWindow`, `syncFromUTC` &amp; `monthsToSync` only need to be included if you wish to set a value for them.
+        /// </param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateProfileSyncSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateProfileSyncSettingsResponse> UpdateSyncSettingsAsync(
+            UpdateProfileSyncSettingsRequestBody? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/profile/syncSettings";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -1050,7 +1205,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1059,9 +1214,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1137,10 +1292,26 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListApiKeysResponse> ListApiKeysAsync(RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List API keys.
+        /// </summary>
+        /// <remarks>
+        /// Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.
+        /// </remarks>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListApiKeysResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListApiKeysResponse> ListApiKeysAsync(RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/apiKeys";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -1196,7 +1367,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1205,9 +1376,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1301,10 +1472,36 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateApiKeyResponse> CreateApiKeyAsync(CreateApiKey? request = null, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create API key.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Create API keys* endpoint to generate a new API key for your client.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
+        /// <br/>
+        /// ### Tips and pitfalls<br/>
+        /// <br/>
+        /// * Your first API key is created for you. Access this key via <a href="https://app.codat.io/developers/api-keys">Codat's Portal</a>.<br/>
+        /// * If you require multiple API keys, perform multiple calls to the *Create API keys* endpoint. <br/>
+        /// * The number of API keys is limited to 10. If you have reached the maximum amount of keys, use the *Delete API key* endpoint to delete an unused key first.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateApiKey"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateApiKeyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Bad Request. Thrown when the API returns a 400, 401, 402, 403, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateApiKeyResponse> CreateApiKeyAsync(
+            CreateApiKey? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/apiKeys";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -1366,7 +1563,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1375,9 +1572,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1471,10 +1668,39 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteApiKeyResponse> DeleteApiKeyAsync(DeleteApiKeyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Delete API key.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/platform-api#/schemas/apiKeys">API keys</a> are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/using-the-api/authentication">read more</a> about authentication at Codat and managing API keys via the Portal UI or API.<br/>
+        /// <br/>
+        /// ### Tips and pitfalls<br/>
+        /// <br/>
+        /// * It is possible to delete the last remaining API key. If this happens, a new key can be created via the <a href="https://app.codat.io/developers/api-keys">API key management page</a> of the Portal.<br/>
+        /// * It is possible to delete the API key used to authenticate the *Delete API key* request.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteApiKeyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteApiKeyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">No Content. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteApiKeyResponse> DeleteApiKeyAsync(
+            DeleteApiKeyRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/apiKeys/{apiKeyId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/apiKeys/{apiKeyId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -1529,7 +1755,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1538,9 +1764,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -1633,5 +1859,6 @@ namespace Codat.Platform
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

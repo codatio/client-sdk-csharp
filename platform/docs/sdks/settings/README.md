@@ -1,5 +1,4 @@
 # Settings
-(*Settings*)
 
 ## Overview
 
@@ -25,7 +24,7 @@ Enabling CORS with Codat is required by our embeddable UIs (such as [Connections
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-cors-settings" method="get" path="/corsSettings" -->
+<!-- UsageSnippet language="csharp" operationID="get-cors-settings" method="get" path="/corsSettings" example="Allowed origins" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -55,9 +54,29 @@ var res = await sdk.Settings.GetAsync();
  
 Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
 
-### Example Usage
+### Example Usage: Allowed origins
 
-<!-- UsageSnippet language="csharp" operationID="set-cors-settings" method="post" path="/corsSettings" -->
+<!-- UsageSnippet language="csharp" operationID="set-cors-settings" method="post" path="/corsSettings" example="Allowed origins" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConnectionManagementAllowedOrigins req = new ConnectionManagementAllowedOrigins() {
+    AllowedOrigins = new List<string>() {
+        "https://www.bank-of-dave.com",
+    },
+};
+
+var res = await sdk.Settings.SetAsync(req);
+
+// handle response
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="csharp" operationID="set-cors-settings" method="post" path="/corsSettings" example="Unauthorized" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -130,7 +149,7 @@ Update your Codat profile
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="update-profile" method="put" path="/profile" -->
+<!-- UsageSnippet language="csharp" operationID="update-profile" method="put" path="/profile" example="Unauthorized" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -179,7 +198,7 @@ Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-profile-syncSettings" method="get" path="/profile/syncSettings" -->
+<!-- UsageSnippet language="csharp" operationID="get-profile-syncSettings" method="get" path="/profile/syncSettings" example="Example" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -209,7 +228,7 @@ Update sync settings for all data types.
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="update-profile-syncSettings" method="post" path="/profile/syncSettings" -->
+<!-- UsageSnippet language="csharp" operationID="update-profile-syncSettings" method="post" path="/profile/syncSettings" example="Unauthorized" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -267,7 +286,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="list-api-keys" method="get" path="/apiKeys" -->
+<!-- UsageSnippet language="csharp" operationID="list-api-keys" method="get" path="/apiKeys" example="Example" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -305,9 +324,60 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 * If you require multiple API keys, perform multiple calls to the *Create API keys* endpoint. 
 * The number of API keys is limited to 10. If you have reached the maximum amount of keys, use the *Delete API key* endpoint to delete an unused key first.
 
-### Example Usage
+### Example Usage: API key details
 
-<!-- UsageSnippet language="csharp" operationID="create-api-key" method="post" path="/apiKeys" -->
+<!-- UsageSnippet language="csharp" operationID="create-api-key" method="post" path="/apiKeys" example="API key details" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateApiKey req = new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
+
+// handle response
+```
+### Example Usage: API key details with name
+
+<!-- UsageSnippet language="csharp" operationID="create-api-key" method="post" path="/apiKeys" example="API key details with name" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateApiKey req = new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
+
+// handle response
+```
+### Example Usage: Create API key with name
+
+<!-- UsageSnippet language="csharp" operationID="create-api-key" method="post" path="/apiKeys" example="Create API key with name" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateApiKey req = new CreateApiKey() {
+    Name = "azure-invoice-finance-processor",
+};
+
+var res = await sdk.Settings.CreateApiKeyAsync(req);
+
+// handle response
+```
+### Example Usage: Max length for name reached
+
+<!-- UsageSnippet language="csharp" operationID="create-api-key" method="post" path="/apiKeys" example="Max length for name reached" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -356,7 +426,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="delete-api-key" method="delete" path="/apiKeys/{apiKeyId}" -->
+<!-- UsageSnippet language="csharp" operationID="delete-api-key" method="delete" path="/apiKeys/{apiKeyId}" example="Conflict" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;

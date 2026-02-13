@@ -19,12 +19,11 @@ namespace Codat.Platform
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-
     /// <summary>
-    /// Platform API: Platform API
-    /// 
+    /// Platform API: Platform API.
+    /// </summary>
     /// <remarks>
-    /// An API for the common components of all of Codat&apos;s products.<br/>
+    /// An API for the common components of all of Codat's products.<br/>
     /// <br/>
     /// These end points cover creating and managing your companies, data connections, and integrations.<br/>
     /// <br/>
@@ -36,24 +35,22 @@ namespace Codat.Platform
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Connection management | Configure connection management UI and retrieve access tokens for authentication. |<br/>
-    /// | Webhooks | Create and manage webhooks that listen to Codat&apos;s events. |<br/>
+    /// | Webhooks | Create and manage webhooks that listen to Codat's events. |<br/>
     /// | Integrations | Get a list of integrations supported by Codat and their logos. |<br/>
     /// | Refresh data | Initiate data refreshes, view pull status and history. |<br/>
     /// | Settings | Manage company profile configuration, sync settings, and API keys. |<br/>
     /// | Push data | Initiate and monitor Create, Update, and Delete operations. |<br/>
-    /// | Supplemental data | Configure and pull additional data you can include in Codat&apos;s standard data types. |<br/>
-    /// | Custom data type | Configure and pull additional data types that are not included in Codat&apos;s standardized data model. |<br/>
+    /// | Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |<br/>
+    /// | Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
     /// </remarks>
-    /// </summary>
     public interface ICodatPlatform
     {
-
         /// <summary>
-        /// Create and manage your SMB users&apos; companies.
+        /// Create and manage your SMB users' companies.
         /// </summary>
         public ICompanies Companies { get; }
 
@@ -66,6 +63,7 @@ namespace Codat.Platform
         /// Configure UI and retrieve access tokens for authentication used by **Connections SDK**.
         /// </summary>
         public IConnectionManagement ConnectionManagement { get; }
+
         public ICors Cors { get; }
 
         /// <summary>
@@ -79,7 +77,7 @@ namespace Codat.Platform
         public IRefreshData RefreshData { get; }
 
         /// <summary>
-        /// Create and manage webhooks that listen to Codat&apos;s events.
+        /// Create and manage webhooks that listen to Codat's events.
         /// </summary>
         public IWebhooks Webhooks { get; }
 
@@ -99,22 +97,21 @@ namespace Codat.Platform
         public IPushData PushData { get; }
 
         /// <summary>
-        /// Configure and pull additional data you can include in Codat&apos;s standard data types.
+        /// Configure and pull additional data you can include in Codat's standard data types.
         /// </summary>
         public ISupplementalData SupplementalData { get; }
 
         /// <summary>
-        /// Configure and pull additional data types that are not included in Codat&apos;s standardized data model.
+        /// Configure and pull additional data types that are not included in Codat's standardized data model.
         /// </summary>
         public ICustomDataType CustomDataType { get; }
     }
 
-
     /// <summary>
-    /// Platform API: Platform API
-    /// 
+    /// Platform API: Platform API.
+    /// </summary>
     /// <remarks>
-    /// An API for the common components of all of Codat&apos;s products.<br/>
+    /// An API for the common components of all of Codat's products.<br/>
     /// <br/>
     /// These end points cover creating and managing your companies, data connections, and integrations.<br/>
     /// <br/>
@@ -126,40 +123,77 @@ namespace Codat.Platform
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Connection management | Configure connection management UI and retrieve access tokens for authentication. |<br/>
-    /// | Webhooks | Create and manage webhooks that listen to Codat&apos;s events. |<br/>
+    /// | Webhooks | Create and manage webhooks that listen to Codat's events. |<br/>
     /// | Integrations | Get a list of integrations supported by Codat and their logos. |<br/>
     /// | Refresh data | Initiate data refreshes, view pull status and history. |<br/>
     /// | Settings | Manage company profile configuration, sync settings, and API keys. |<br/>
     /// | Push data | Initiate and monitor Create, Update, and Delete operations. |<br/>
-    /// | Supplemental data | Configure and pull additional data you can include in Codat&apos;s standard data types. |<br/>
-    /// | Custom data type | Configure and pull additional data types that are not included in Codat&apos;s standardized data model. |<br/>
+    /// | Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |<br/>
+    /// | Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
     /// </remarks>
-    /// </summary>
     public class CodatPlatform: ICodatPlatform
     {
+        /// <summary>
+        /// The main SDK Configuration.
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.723.11";
-        private const string _openapiDocVersion = "3.0.0";
+        /// <summary>
+        /// The Companies sub-SDK.
+        /// </summary>
         public ICompanies Companies { get; private set; }
+        /// <summary>
+        /// The Connections sub-SDK.
+        /// </summary>
         public IConnections Connections { get; private set; }
+        /// <summary>
+        /// The ConnectionManagement sub-SDK.
+        /// </summary>
         public IConnectionManagement ConnectionManagement { get; private set; }
+        /// <summary>
+        /// The Cors sub-SDK.
+        /// </summary>
         public ICors Cors { get; private set; }
+        /// <summary>
+        /// The Settings sub-SDK.
+        /// </summary>
         public ISettings Settings { get; private set; }
+        /// <summary>
+        /// The RefreshData sub-SDK.
+        /// </summary>
         public IRefreshData RefreshData { get; private set; }
+        /// <summary>
+        /// The Webhooks sub-SDK.
+        /// </summary>
         public IWebhooks Webhooks { get; private set; }
+        /// <summary>
+        /// The Integrations sub-SDK.
+        /// </summary>
         public IIntegrations Integrations { get; private set; }
+        /// <summary>
+        /// The ReadData sub-SDK.
+        /// </summary>
         public IReadData ReadData { get; private set; }
+        /// <summary>
+        /// The PushData sub-SDK.
+        /// </summary>
         public IPushData PushData { get; private set; }
+        /// <summary>
+        /// The SupplementalData sub-SDK.
+        /// </summary>
         public ISupplementalData SupplementalData { get; private set; }
+        /// <summary>
+        /// The CustomDataType sub-SDK.
+        /// </summary>
         public ICustomDataType CustomDataType { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the SDK based on a <see cref="SDKConfig"/> configuration object.
+        /// </summary>
+        /// <param name="config">The SDK configuration object.</param>
         public CodatPlatform(SDKConfig config)
         {
             SDKConfiguration = config;
@@ -190,13 +224,33 @@ namespace Codat.Platform
             CustomDataType = new CustomDataType(SDKConfiguration);
         }
 
-        public CodatPlatform(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Initializes a new instance of the SDK with optional configuration parameters.
+        /// </summary>
+        /// <param name="authHeader">The security configuration to use for API requests. If provided, this will be used as a static security configuration.</param>
+        /// <param name="authHeaderSource">A function that returns the security configuration dynamically. This takes precedence over the static security parameter if both are provided.</param>
+        /// <param name="serverIndex">The index of the server to use from the predefined server list. Must be between 0 and the length of the server list. Defaults to 0 if not specified.</param>
+        /// <param name="serverUrl">A custom server URL to use instead of the predefined server list. If provided with urlParams, the URL will be templated with the provided parameters.</param>
+        /// <param name="urlParams">A dictionary of parameters to use for templating the serverUrl. Only used when serverUrl is provided.</param>
+        /// <param name="client">A custom HTTP client implementation to use for making API requests. If not provided, the default SpeakeasyHttpClient will be used.</param>
+        /// <param name="retryConfig">Configuration for retry behavior when API requests fail. Defines retry strategies, backoff policies, and maximum retry attempts.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid value provided for <paramref name="serverIndex"/>: must be between 0 (inclusive) and 1 (exclusive).</exception>
+        /// <exception cref="ArgumentException">None of <paramref name="authHeader"/> and <paramref name="authHeaderSource"/> were provided.</exception>
+        public CodatPlatform(
+            string? authHeader = null,
+            Func<string>? authHeaderSource = null,
+            int? serverIndex = null,
+            string? serverUrl = null,
+            Dictionary<string, string>? urlParams = null,
+            ISpeakeasyHttpClient? client = null,
+            RetryConfig? retryConfig = null
+        )
         {
             if (serverIndex != null)
             {
                 if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
             }
 
@@ -219,7 +273,7 @@ namespace Codat.Platform
             }
             else
             {
-                throw new Exception("authHeader and authHeaderSource cannot both be null");
+                throw new ArgumentException("authHeader and authHeaderSource cannot both be null");
             }
 
             SDKConfiguration = new SDKConfig(client)
@@ -270,22 +324,31 @@ namespace Codat.Platform
             SDKConfiguration = config;
         }
 
+        /// <summary>
+        /// Builder class for constructing an instance of the SDK.
+        /// </summary>
         public class SDKBuilder
         {
             private SDKConfig _sdkConfig = new SDKConfig(client: new SpeakeasyHttpClient());
 
             public SDKBuilder() { }
 
+            /// <summary>
+            /// Overrides the default server by index.
+            /// </summary>
             public SDKBuilder WithServerIndex(int serverIndex)
             {
                 if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
                 _sdkConfig.ServerIndex = serverIndex;
                 return this;
             }
 
+            /// <summary>
+            /// Overrides the default server URL for the SDK.
+            /// </summary>
             public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
             {
                 if (serverVariables != null)
@@ -296,34 +359,49 @@ namespace Codat.Platform
                 return this;
             }
 
+            /// <summary>
+            /// Sets the authHeaderSource security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithAuthHeaderSource(Func<string> authHeaderSource)
             {
                 _sdkConfig.SecuritySource = () => new Codat.Platform.Models.Components.Security() { AuthHeader = authHeaderSource() };
                 return this;
             }
 
+            /// <summary>
+            /// Sets the authHeader security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithAuthHeader(string authHeader)
             {
                 _sdkConfig.SecuritySource = () => new Codat.Platform.Models.Components.Security() { AuthHeader = authHeader };
                 return this;
             }
 
+            /// <summary>
+            /// Sets a custom HTTP client to be used by the SDK.
+            /// </summary>
             public SDKBuilder WithClient(ISpeakeasyHttpClient client)
             {
                 _sdkConfig.Client = client;
                 return this;
             }
 
+            /// <summary>
+            /// Sets the retry configuration for the SDK.
+            /// </summary>
             public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
             {
                 _sdkConfig.RetryConfig = retryConfig;
                 return this;
             }
 
+            /// <summary>
+            /// Builds and returns the SDK instance.
+            /// </summary>
             public CodatPlatform Build()
             {
               if (_sdkConfig.SecuritySource == null) {
-                  throw new Exception("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
+                  throw new ArgumentException("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
               }
               return new CodatPlatform(_sdkConfig);
             }

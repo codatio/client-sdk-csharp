@@ -9,11 +9,11 @@
 #nullable enable
 namespace Codat.Platform.Models.Requests
 {
+    using Codat.Platform.Models.Requests;
     using Codat.Platform.Utils;
-    
+
     public class RefreshProductDataRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -25,5 +25,11 @@ namespace Codat.Platform.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=productIdentifier")]
         public string ProductIdentifier { get; set; } = default!;
+
+        /// <summary>
+        /// Optionally specify one or more data types to refresh for the given custom product. If omitted, the product's scheduled refresh is triggered as usual. When provided, each data type must be valid for the specified product.
+        /// </summary>
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public RefreshProductDataRequestBody? RequestBody { get; set; }
     }
 }

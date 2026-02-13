@@ -12,13 +12,12 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Success
+    /// Success.
     /// </summary>
     public class ConnectionManagementAllowedOrigins
     {
-
         /// <summary>
         /// An array of allowed origins (i.e. your domains) to permit cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).n resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).
         /// </summary>

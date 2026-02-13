@@ -13,16 +13,22 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: false
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
     hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 csharp:
-  version: 6.1.0
+  version: 6.2.0
   additionalDependencies: []
   author: Codat
   baseErrorName: CodatPlatformException
@@ -45,12 +51,15 @@ csharp:
       shared: Models/Components
       webhooks: Models/Webhooks
   includeDebugSymbols: false
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 0
   methodArguments: infer-optional-args
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: Codat.Platform
   packageTags: ""
+  respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope
   sourceDirectory: ""
   useNodatime: true

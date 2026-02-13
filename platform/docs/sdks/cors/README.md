@@ -1,5 +1,7 @@
-# Cors
-(*Cors*)
+# ~~Cors~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -20,7 +22,7 @@ Update your integrations to use the new path `/corsSettings` as the existing rou
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-connection-management-cors-settings" method="get" path="/connectionManagement/corsSettings" -->
+<!-- UsageSnippet language="csharp" operationID="get-connection-management-cors-settings" method="get" path="/connectionManagement/corsSettings" example="Allowed origins" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -54,9 +56,29 @@ Enabling CORS with Codat is required by our embeddable UIs (such as [Connections
 Update your integrations to use the new path `/corsSettings` as the existing route will be removed in a future release.
 . Use `Set` instead.
 
-### Example Usage
+### Example Usage: Allowed origins
 
-<!-- UsageSnippet language="csharp" operationID="set-connection-management-cors-settings" method="post" path="/connectionManagement/corsSettings" -->
+<!-- UsageSnippet language="csharp" operationID="set-connection-management-cors-settings" method="post" path="/connectionManagement/corsSettings" example="Allowed origins" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConnectionManagementAllowedOrigins req = new ConnectionManagementAllowedOrigins() {
+    AllowedOrigins = new List<string>() {
+        "https://www.bank-of-dave.com",
+    },
+};
+
+var res = await sdk.Cors.SetAsync(req);
+
+// handle response
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="csharp" operationID="set-connection-management-cors-settings" method="post" path="/connectionManagement/corsSettings" example="Unauthorized" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;

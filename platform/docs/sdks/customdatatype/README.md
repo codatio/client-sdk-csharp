@@ -1,5 +1,4 @@
 # CustomDataType
-(*CustomDataType*)
 
 ## Overview
 
@@ -26,9 +25,9 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 - Make your custom configuration as similar as possible to our standard data types so you can interact with them in exactly the same way.
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="csharp" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" -->
+<!-- UsageSnippet language="csharp" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Dynamics 365 Business Central" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -55,6 +54,145 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
         },
         SourceModifiedDate = new List<string>() {
             "$[*].lastModifiedDateTime",
+        },
+    },
+};
+
+var res = await sdk.CustomDataType.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="QuickBooks Online" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
+    PlatformKey = "gbol",
+    CustomDataIdentifier = "DynamicsPurchaseOrders",
+    CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
+        DataSource = "/query?query=select * from Account",
+        RequiredData = new Dictionary<string, string>() {
+            { "SubAcc", "$.SubAccount" },
+            { "id", "$.Id" },
+            { "Currentbal", "$.CurrentBalance" },
+        },
+        KeyBy = new List<string>() {
+            "$.Id",
+        },
+        SourceModifiedDate = new List<string>() {
+            "$.time",
+        },
+    },
+};
+
+var res = await sdk.CustomDataType.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="csharp" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Unauthorized" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
+    PlatformKey = "gbol",
+    CustomDataIdentifier = "DynamicsPurchaseOrders",
+    CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
+        DataSource = "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
+        RequiredData = new Dictionary<string, string>() {
+            { "vendorName", "$[*].number" },
+            { "currencyCode", "$[*].currencyCode" },
+            { "id", "$[*].id" },
+            { "number", "$[*].number" },
+            { "orderDate", "$[*].orderDate" },
+            { "totalAmountExcludingTax", "$[*].totalAmountExcludingTax" },
+            { "totalTaxAmount", "$[*].totalTaxAmount" },
+        },
+        KeyBy = new List<string>() {
+            "$[*].id",
+        },
+        SourceModifiedDate = new List<string>() {
+            "$[*].lastModifiedDateTime",
+        },
+    },
+};
+
+var res = await sdk.CustomDataType.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Xero Mapping Arrays
+
+<!-- UsageSnippet language="csharp" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Xero Mapping Arrays" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
+    PlatformKey = "gbol",
+    CustomDataIdentifier = "DynamicsPurchaseOrders",
+    CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
+        DataSource = "/api.xro/2.0/Invoices",
+        RequiredData = new Dictionary<string, string>() {
+            { "type", "$.Type" },
+            { "InvoiceID", "$.InvoiceID" },
+            { "lines", "$.LineItems[*]" },
+            { "invNumber", "$.InvoiceNumber" },
+        },
+        KeyBy = new List<string>() {
+            "$.InvoiceID",
+        },
+        SourceModifiedDate = new List<string>() {
+            "$.UpdatedDateUTC",
+        },
+    },
+};
+
+var res = await sdk.CustomDataType.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Xero Simple Record
+
+<!-- UsageSnippet language="csharp" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Xero Simple Record" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
+    PlatformKey = "gbol",
+    CustomDataIdentifier = "DynamicsPurchaseOrders",
+    CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
+        DataSource = "/api.xro/2.0/Accounts",
+        RequiredData = new Dictionary<string, string>() {
+            { "SysAcc", "$.SystemAccount" },
+            { "code", "$.Code" },
+            { "accountId", "$.AccountID" },
+            { "type", "$.Type" },
+        },
+        KeyBy = new List<string>() {
+            "$.AccountID",
         },
     },
 };

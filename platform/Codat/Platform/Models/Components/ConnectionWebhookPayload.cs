@@ -12,17 +12,14 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class ConnectionWebhookPayload
     {
-
         [JsonProperty("referenceCompany")]
         public CompanyReference? ReferenceCompany { get; set; }
 
         /// <summary>
-        /// A connection represents a <a href="https://docs.codat.io/platform-api#/schemas/Company">company&apos;s</a> connection to a data source and allows you to synchronize data (pull and/or push) with that source.<br/>
-        /// 
-        /// <remarks>
+        /// A connection represents a <a href="https://docs.codat.io/platform-api#/schemas/Company">company's</a> connection to a data source and allows you to synchronize data (pull and/or push) with that source.<br/>
         /// <br/>
         /// A company can have multiple data connections depending on the type of data source it is connecting to. For example, a single company can link to:<br/>
         /// <br/>
@@ -32,7 +29,6 @@ namespace Codat.Platform.Models.Components
         /// Any combination of accounting, banking, and commerce data connections is allowed.<br/>
         /// <br/>
         /// Before you can use a data connection to pull or push data, the company must grant you access to their business data by <a href="https://docs.codat.io/auth-flow/overview">linking the connection</a>.
-        /// </remarks>
         /// </summary>
         [JsonProperty("connection")]
         public Connection? Connection { get; set; }

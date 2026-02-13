@@ -10,10 +10,9 @@
 namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
-    
+
     public class DeleteConnectionRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

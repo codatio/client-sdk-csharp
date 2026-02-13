@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class HalRef
     {
-
         /// <summary>
         /// Uri hypertext reference.
         /// </summary>

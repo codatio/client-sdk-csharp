@@ -12,9 +12,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Available data types
+    /// Available data types.
     /// </summary>
     public enum DataType
     {
@@ -138,5 +138,4 @@ namespace Codat.Platform.Models.Components
             throw new Exception($"Unknown value {value} for enum DataType");
         }
     }
-
 }

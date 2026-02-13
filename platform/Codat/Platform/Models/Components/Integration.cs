@@ -13,13 +13,12 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// An integration that Codat supports
+    /// An integration that Codat supports.
     /// </summary>
     public class Integration
     {
-
         /// <summary>
         /// A unique 4-letter key to represent a platform in each integration. View <a href="https://docs.codat.io/integrations/accounting/overview#platform-keys">accounting</a>, <a href="https://docs.codat.io/integrations/banking/overview#platform-keys">banking</a>, and <a href="https://docs.codat.io/integrations/commerce/overview#platform-keys">commerce</a> platform keys.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Codat.Platform.Models.Components
         public string Key { get; set; } = default!;
 
         /// <summary>
-        /// Static url for integration&apos;s logo.
+        /// Static url for integration's logo.
         /// </summary>
         [JsonProperty("logoUrl")]
         public string LogoUrl { get; set; } = default!;

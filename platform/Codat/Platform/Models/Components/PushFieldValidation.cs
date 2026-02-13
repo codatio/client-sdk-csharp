@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushFieldValidation
     {
-
         /// <summary>
         /// Field name that resulted in the validation issue.
         /// </summary>

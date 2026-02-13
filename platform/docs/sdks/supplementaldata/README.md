@@ -1,5 +1,4 @@
 # SupplementalData
-(*SupplementalData*)
 
 ## Overview
 
@@ -16,12 +15,165 @@ The *Configure* endpoint allows you to maintain or change configuration required
 
 [Supplemental data](https://docs.codat.io/using-the-api/supplemental-data/overview) is additional data you can include in Codat's standard data types.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 See the *examples* for integration-specific frequently requested properties.
 
-### Example Usage
+### Example Usage: QBO - Customers
 
-<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" -->
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="QBO - Customers" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {},
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: QBO - Invoices
+
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="QBO - Invoices" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {},
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="Unauthorized" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {
+        SupplementalDataConfig = new Dictionary<string, SupplementalDataSourceConfiguration>() {
+            { "orders-supplemental-data", new SupplementalDataSourceConfiguration() {
+                DataSource = "/orders",
+                PullData = new Dictionary<string, string>() {
+                    { "orderNumber", "order_num" },
+                },
+                PushData = new Dictionary<string, string>() {
+                    { "orderNumber", "order_num" },
+                },
+            } },
+        },
+    },
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Xero - Accounts
+
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="Xero - Accounts" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {},
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Xero - Contacts
+
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="Xero - Contacts" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {},
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Xero - Invoices
+
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="Xero - Invoices" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {},
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Xero - Items
+
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="Xero - Items" -->
+```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+
+var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ConfigureSupplementalDataRequest req = new ConfigureSupplementalDataRequest() {
+    PlatformKey = "gbol",
+    DataType = Codat.Platform.Models.Requests.DataType.Invoices,
+    SupplementalDataConfiguration = new SupplementalDataConfiguration() {},
+};
+
+var res = await sdk.SupplementalData.ConfigureAsync(req);
+
+// handle response
+```
+### Example Usage: Xero - Tax rates
+
+<!-- UsageSnippet language="csharp" operationID="configure-supplemental-data" method="put" path="/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig" example="Xero - Tax rates" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;

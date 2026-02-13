@@ -10,10 +10,9 @@
 namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
-    
+
     public class GetPullOperationRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

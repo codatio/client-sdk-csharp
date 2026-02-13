@@ -12,13 +12,12 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Too many requests were made in a given amount of time. Wait a short period and then try again.
     /// </summary>
     public class ErrorMessage
     {
-
         /// <summary>
         /// The HTTP status code returned by the error.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Codat.Platform.Models.Components
         public long? StatusCode { get; set; }
 
         /// <summary>
-        /// Codat&apos;s service the returned the error.
+        /// Codat's service the returned the error.
         /// </summary>
         [JsonProperty("service")]
         public string? Service { get; set; }

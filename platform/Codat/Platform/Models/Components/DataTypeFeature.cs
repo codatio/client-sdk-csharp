@@ -13,15 +13,14 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Describes support for a given datatype and associated operations
+    /// Describes support for a given datatype and associated operations.
     /// </summary>
     public class DataTypeFeature
     {
-
         /// <summary>
-        /// Available data types
+        /// Available data types.
         /// </summary>
         [JsonProperty("dataType")]
         public Models.Components.DataType? DataType { get; set; }

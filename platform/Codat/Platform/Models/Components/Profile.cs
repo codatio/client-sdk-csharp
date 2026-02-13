@@ -13,13 +13,12 @@ namespace Codat.Platform.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// Describes your Codat client instance
+    /// Describes your Codat client instance.
     /// </summary>
     public class Profile
     {
-
         /// <summary>
         /// The name given to the instance.
         /// </summary>
@@ -27,19 +26,19 @@ namespace Codat.Platform.Models.Components
         public string Name { get; set; } = default!;
 
         /// <summary>
-        /// Static url to your organization&apos;s logo.
+        /// Static url to your organization's logo.
         /// </summary>
         [JsonProperty("logoUrl")]
         public string? LogoUrl { get; set; }
 
         /// <summary>
-        /// Static url to your organization&apos;s icon.
+        /// Static url to your organization's icon.
         /// </summary>
         [JsonProperty("iconUrl")]
         public string? IconUrl { get; set; }
 
         /// <summary>
-        /// The redirect URL pasted on to the SMB once Codat&apos;s <a href="https://docs.codat.io/auth-flow/authorize-hosted-link">Hosted Link</a> has been completed by the SMB.
+        /// The redirect URL pasted on to the SMB once Codat's <a href="https://docs.codat.io/auth-flow/authorize-hosted-link">Hosted Link</a> has been completed by the SMB.
         /// </summary>
         [JsonProperty("redirectUrl")]
         public string RedirectUrl { get; set; } = default!;

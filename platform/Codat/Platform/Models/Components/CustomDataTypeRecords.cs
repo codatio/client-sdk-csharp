@@ -13,13 +13,12 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Resulting records pulled from the source platform for a specific custom data type.
     /// </summary>
     public class CustomDataTypeRecords
     {
-
         [JsonProperty("results")]
         public List<CustomDataTypeRecord>? Results { get; set; }
 

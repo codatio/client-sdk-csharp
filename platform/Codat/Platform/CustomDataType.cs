@@ -23,18 +23,17 @@ namespace Codat.Platform
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Configure and pull additional data types that are not included in Codat&apos;s standardized data model.
+    /// Configure and pull additional data types that are not included in Codat's standardized data model.
     /// </summary>
     public interface ICustomDataType
     {
-
         /// <summary>
-        /// Configure custom data type
-        /// 
+        /// Configure custom data type.
+        /// </summary>
         /// <remarks>
         /// The *Configure custom data type* endpoint allows you to maintain or change the configuration required to return a custom data type for a specific integration. <br/>
         /// <br/>
-        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.<br/>
+        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat's standardized data model.<br/>
         /// <br/>
         /// ### Tips and traps<br/>
         /// <br/>
@@ -44,61 +43,130 @@ namespace Codat.Platform
         /// <br/>
         /// - Make your custom configuration as similar as possible to our standard data types so you can interact with them in exactly the same way.
         /// </remarks>
-        /// </summary>
-        Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ConfigureCustomDataTypeRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ConfigureCustomDataTypeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ConfigureCustomDataTypeResponse> ConfigureAsync(
+            ConfigureCustomDataTypeRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get custom data configuration
-        /// 
+        /// Get custom data configuration.
+        /// </summary>
         /// <remarks>
         /// The *Get custom data configuration* endpoint returns existing configuration details for the specified custom data type and integration pair you previously configured.<br/>
         /// <br/>
-        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.
+        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat's standardized data model.
         /// </remarks>
-        /// </summary>
-        Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCustomDataTypeConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCustomDataTypeConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(
+            GetCustomDataTypeConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Refresh custom data type
-        /// 
+        /// Refresh custom data type.
+        /// </summary>
         /// <remarks>
         /// The *Refresh custom data type* endpoint refreshes the specified custom data type for a given company. This is an asynchronous operation that will sync updated data from the linked integration into Codat for you to view.
         /// </remarks>
-        /// </summary>
-        Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="RefreshCustomDataTypeRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="RefreshCustomDataTypeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 451, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<RefreshCustomDataTypeResponse> RefreshAsync(
+            RefreshCustomDataTypeRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List custom data type records
-        /// 
+        /// List custom data type records.
+        /// </summary>
         /// <remarks>
         /// The *List custom data type records* endpoint returns a paginated list of records pulled for the specified custom data type you previously configured.<br/>
         /// <br/>
-        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat&apos;s standardized data model.s endpoint returns a paginated list of records whose schema is defined <a href="https://docs.codat.io/platform-api#/operations/configure-custom-data-type">Configure custom data type</a>
+        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat's standardized data model.s endpoint returns a paginated list of records whose schema is defined <a href="https://docs.codat.io/platform-api#/operations/configure-custom-data-type">Configure custom data type</a>
         /// </remarks>
-        /// </summary>
-        Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListCustomDataTypeRecordsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListCustomDataTypeRecordsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 451, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListCustomDataTypeRecordsResponse> ListAsync(
+            ListCustomDataTypeRecordsRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
-    /// Configure and pull additional data types that are not included in Codat&apos;s standardized data model.
+    /// Configure and pull additional data types that are not included in Codat's standardized data model.
     /// </summary>
     public class CustomDataType: ICustomDataType
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.723.11";
-        private const string _openapiDocVersion = "3.0.0";
 
         public CustomDataType(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ConfigureCustomDataTypeResponse> ConfigureAsync(ConfigureCustomDataTypeRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Configure custom data type.
+        /// </summary>
+        /// <remarks>
+        /// The *Configure custom data type* endpoint allows you to maintain or change the configuration required to return a custom data type for a specific integration. <br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat's standardized data model.<br/>
+        /// <br/>
+        /// ### Tips and traps<br/>
+        /// <br/>
+        /// - You can only configure a single custom data type for a single platform at a time. Use the endpoint multiple times if you need to configure it for multiple platforms. <br/>
+        /// <br/>
+        /// - You can only indicate a single data source for each customer data type. <br/>
+        /// <br/>
+        /// - Make your custom configuration as similar as possible to our standard data types so you can interact with them in exactly the same way.
+        /// </remarks>
+        /// <param name="request">A <see cref="ConfigureCustomDataTypeRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ConfigureCustomDataTypeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ConfigureCustomDataTypeResponse> ConfigureAsync(
+            ConfigureCustomDataTypeRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -159,7 +227,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -168,9 +236,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -264,10 +332,32 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(GetCustomDataTypeConfigurationRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get custom data configuration.
+        /// </summary>
+        /// <remarks>
+        /// The *Get custom data configuration* endpoint returns existing configuration details for the specified custom data type and integration pair you previously configured.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat's standardized data model.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCustomDataTypeConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCustomDataTypeConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCustomDataTypeConfigurationResponse> GetConfigurationAsync(
+            GetCustomDataTypeConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -322,7 +412,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -331,9 +421,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -427,10 +517,30 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<RefreshCustomDataTypeResponse> RefreshAsync(RefreshCustomDataTypeRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Refresh custom data type.
+        /// </summary>
+        /// <remarks>
+        /// The *Refresh custom data type* endpoint refreshes the specified custom data type for a given company. This is an asynchronous operation that will sync updated data from the linked integration into Codat for you to view.
+        /// </remarks>
+        /// <param name="request">A <see cref="RefreshCustomDataTypeRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="RefreshCustomDataTypeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 451, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<RefreshCustomDataTypeResponse> RefreshAsync(
+            RefreshCustomDataTypeRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/queue/custom/{customDataIdentifier}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/queue/custom/{customDataIdentifier}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -485,7 +595,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode == 451 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -494,9 +604,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -590,10 +700,32 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListCustomDataTypeRecordsResponse> ListAsync(ListCustomDataTypeRecordsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List custom data type records.
+        /// </summary>
+        /// <remarks>
+        /// The *List custom data type records* endpoint returns a paginated list of records pulled for the specified custom data type you previously configured.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/using-the-api/custom-data">custom data type</a> is an additional data type you can create that is not included in Codat's standardized data model.s endpoint returns a paginated list of records whose schema is defined <a href="https://docs.codat.io/platform-api#/operations/configure-custom-data-type">Configure custom data type</a>
+        /// </remarks>
+        /// <param name="request">A <see cref="ListCustomDataTypeRecordsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListCustomDataTypeRecordsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 451, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListCustomDataTypeRecordsResponse> ListAsync(
+            ListCustomDataTypeRecordsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/custom/{customDataIdentifier}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/data/custom/{customDataIdentifier}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -648,7 +780,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode == 451 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -657,9 +789,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -752,5 +884,6 @@ namespace Codat.Platform
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

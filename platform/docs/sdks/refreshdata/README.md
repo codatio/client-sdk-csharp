@@ -1,5 +1,4 @@
 # RefreshData
-(*RefreshData*)
 
 ## Overview
 
@@ -76,7 +75,7 @@ var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 RefreshDataTypeRequest req = new RefreshDataTypeRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DataType = Codat.Platform.Models.Components.DataType.Invoices,
+    DataType = SchemaDataType.Invoices,
 };
 
 var res = await sdk.RefreshData.ByDataTypeAsync(req);
@@ -108,7 +107,7 @@ Get the state of each data type for a company
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-company-data-status" method="get" path="/companies/{companyId}/dataStatus" -->
+<!-- UsageSnippet language="csharp" operationID="get-company-data-status" method="get" path="/companies/{companyId}/dataStatus" example="Example" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -149,7 +148,7 @@ Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" -->
+<!-- UsageSnippet language="csharp" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" example="Example" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;

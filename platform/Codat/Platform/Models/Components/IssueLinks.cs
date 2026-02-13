@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class IssueLinks
     {
-
         /// <summary>
         /// A link to the validation logs, providing details on any errors or warnings encountered.
         /// </summary>
@@ -22,13 +21,13 @@ namespace Codat.Platform.Models.Components
         public string? Logs { get; set; }
 
         /// <summary>
-        /// A link to the company&apos;s past data read history in the Codat portal.
+        /// A link to the company's past data read history in the Codat portal.
         /// </summary>
         [JsonProperty("portal")]
         public string? Portal { get; set; }
 
         /// <summary>
-        /// A link to Codat&apos;s documentation with additional information on how to troubleshoot this issue.
+        /// A link to Codat's documentation with additional information on how to troubleshoot this issue.
         /// </summary>
         [JsonProperty("readMore")]
         public string? ReadMore { get; set; }

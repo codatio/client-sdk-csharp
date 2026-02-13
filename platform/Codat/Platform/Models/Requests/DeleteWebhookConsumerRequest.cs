@@ -10,10 +10,9 @@
 namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
-    
+
     public class DeleteWebhookConsumerRequest
     {
-
         /// <summary>
         /// Unique identifier for the webhook consumer.
         /// </summary>

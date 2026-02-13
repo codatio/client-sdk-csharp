@@ -17,6 +17,9 @@ namespace Codat.Platform
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Main configuration for the SDK.
+    /// </summary>
     public struct SDKConfig
     {
         /// <summary>
@@ -42,7 +45,7 @@ namespace Codat.Platform
             Client = client ?? new SpeakeasyHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 6.1.0 2.723.11 3.0.0 Codat.Platform";
+            UserAgent = "speakeasy-sdk/csharp 6.2.0 2.822.1 3.0.0 Codat.Platform";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

@@ -10,10 +10,9 @@
 namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
-    
+
     public class ListIntegrationsRequest
     {
-
         /// <summary>
         /// Page number. <a href="https://docs.codat.io/using-the-api/paging">Read more</a>.
         /// </summary>

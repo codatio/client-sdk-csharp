@@ -13,17 +13,13 @@ namespace Codat.Platform.Models.Requests
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Include a `syncSetting` object for each data type.<br/>
-    /// 
-    /// <remarks>
     /// `syncFromWindow`, `syncFromUTC` &amp; `monthsToSync` only need to be included if you wish to set a value for them.
-    /// </remarks>
     /// </summary>
     public class UpdateProfileSyncSettingsRequestBody
     {
-
         /// <summary>
         /// Unique identifier for your client in Codat.
         /// </summary>

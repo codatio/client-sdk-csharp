@@ -1,5 +1,7 @@
-# ConnectionManagement
-(*ConnectionManagement*)
+# ~~ConnectionManagement~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -20,7 +22,7 @@ Update your integration to use the global token for improved efficiency and cons
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-connection-management-access-token" method="get" path="/companies/{companyId}/connectionManagement/accessToken" -->
+<!-- UsageSnippet language="csharp" operationID="get-connection-management-access-token" method="get" path="/companies/{companyId}/connectionManagement/accessToken" example="Access token" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;

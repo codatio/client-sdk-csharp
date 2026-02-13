@@ -12,10 +12,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushOperationRef
     {
-
         /// <summary>
         /// Unique identifier for a push operation.
         /// </summary>
@@ -23,7 +22,7 @@ namespace Codat.Platform.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Available data types
+        /// Available data types.
         /// </summary>
         [JsonProperty("dataType")]
         public Models.Components.DataType? DataType { get; set; }

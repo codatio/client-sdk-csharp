@@ -13,6 +13,9 @@ namespace Codat.Platform.Models.Errors
     using System;
     using System.Net.Http;
 
+    /// <summary>
+    /// Default API Exception.
+    /// </summary>
     public class SDKException : CodatPlatformException
     {
         /// <summary>

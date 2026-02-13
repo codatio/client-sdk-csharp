@@ -13,10 +13,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class Connections
     {
-
         [JsonProperty("results")]
         public List<Connection>? Results { get; set; }
 

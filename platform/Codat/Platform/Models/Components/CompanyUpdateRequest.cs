@@ -12,10 +12,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CompanyUpdateRequest
     {
-
         /// <summary>
         /// Name of company being connected.
         /// </summary>

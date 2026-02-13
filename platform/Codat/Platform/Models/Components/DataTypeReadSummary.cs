@@ -13,24 +13,23 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class DataTypeReadSummary
     {
-
         /// <summary>
-        /// Unique identifier for a company&apos;s data connection.
+        /// Unique identifier for a company's data connection.
         /// </summary>
         [JsonProperty("connectionId")]
         public string? ConnectionId { get; set; }
 
         /// <summary>
-        /// Available data types
+        /// Available data types.
         /// </summary>
         [JsonProperty("dataType")]
         public Models.Components.DataType? DataType { get; set; }
 
         /// <summary>
-        /// `True` if records have been created, updated or deleted in Codat&apos;s cache.
+        /// `True` if records have been created, updated or deleted in Codat's cache.
         /// </summary>
         [JsonProperty("recordsModified")]
         public bool? RecordsModified { get; set; }

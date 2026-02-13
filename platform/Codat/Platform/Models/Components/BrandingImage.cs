@@ -12,10 +12,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class BrandingImage
     {
-
         /// <summary>
         /// Image reference.
         /// </summary>

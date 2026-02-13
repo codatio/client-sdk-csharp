@@ -12,13 +12,12 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details of a problem encountered during a data read.
     /// </summary>
     public class Issue
     {
-
         /// <summary>
         /// The type of issue.
         /// </summary>

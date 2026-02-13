@@ -12,10 +12,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class UpdateConnectionStatus
     {
-
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>

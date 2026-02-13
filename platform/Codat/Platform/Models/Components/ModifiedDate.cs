@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class ModifiedDate
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDateValue { get; set; }
     }

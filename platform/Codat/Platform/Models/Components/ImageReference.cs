@@ -11,13 +11,12 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Image reference.
     /// </summary>
     public class ImageReference
     {
-
         /// <summary>
         /// Source URL for image.
         /// </summary>

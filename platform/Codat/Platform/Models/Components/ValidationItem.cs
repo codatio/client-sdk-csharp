@@ -11,12 +11,11 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class ValidationItem
     {
-
         /// <summary>
-        /// The unique identifier of the rule that wasn&apos;t met.
+        /// The unique identifier of the rule that wasn't met.
         /// </summary>
         [JsonProperty("ruleId")]
         public string? RuleId { get; set; }

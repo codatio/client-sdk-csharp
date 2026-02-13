@@ -24,7 +24,7 @@ namespace Codat.Platform.Models.Errors
         public long? StatusCode { get; set; }
 
         /// <summary>
-        /// Codat&apos;s service the returned the error.
+        /// Codat's service the returned the error.
         /// </summary>
         [JsonProperty("service")]
         public string? Service { get; set; }
@@ -61,7 +61,7 @@ namespace Codat.Platform.Models.Errors
     }
 
     /// <summary>
-    /// Your `query` parameter was not correctly formed
+    /// Your `query` parameter was not correctly formed.
     /// </summary>
     public class ErrorMessage : CodatPlatformException
     {
@@ -106,5 +106,4 @@ namespace Codat.Platform.Models.Errors
            #pragma warning restore CS0618
         }
     }
-
 }

@@ -13,10 +13,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class ValidationResult
     {
-
         [JsonProperty("errors")]
         public List<ValidationItem>? Errors { get; set; }
 

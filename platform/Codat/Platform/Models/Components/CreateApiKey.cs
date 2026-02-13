@@ -11,13 +11,12 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Details about the newly created API key.
     /// </summary>
     public class CreateApiKey
     {
-
         /// <summary>
         /// A meaningful name assigned to the API key.
         /// </summary>

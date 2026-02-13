@@ -24,48 +24,76 @@ namespace Codat.Platform
 
     public interface ICors
     {
-
         /// <summary>
-        /// Get CORS settings (old)
-        /// 
+        /// Get CORS settings (old).
+        /// </summary>
         /// <remarks>
         /// The *Get CORS settings* endpoint returns the allowed origins (i.e. your domains) you want to allow cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>) with Codat. <br/>
         /// <br/>
-        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat&apos;s API endpoints.
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
         /// </remarks>
-        /// </summary>
-        Task<GetConnectionManagementCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null);
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetConnectionManagementCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible. Use Get instead")]
+        public  Task<GetConnectionManagementCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Set CORS settings (old)
-        /// 
+        /// Set CORS settings (old).
+        /// </summary>
         /// <remarks>
         /// The *Set CORS settings* endpoint allows you to register allowed origins (i.e. your domains) for use in cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).<br/>
         ///  <br/>
-        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat&apos;s API endpoints. 
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
         /// </remarks>
-        /// </summary>
-        Task<SetConnectionManagementCorsSettingsResponse> SetAsync(ConnectionManagementAllowedOrigins? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ConnectionManagementAllowedOrigins"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="SetConnectionManagementCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible. Use Set instead")]
+        public  Task<SetConnectionManagementCorsSettingsResponse> SetAsync(
+            ConnectionManagementAllowedOrigins? request = null,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class Cors: ICors
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.723.11";
-        private const string _openapiDocVersion = "3.0.0";
 
         public Cors(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
+        /// <summary>
+        /// Get CORS settings (old).
+        /// </summary>
+        /// <remarks>
+        /// The *Get CORS settings* endpoint returns the allowed origins (i.e. your domains) you want to allow cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>) with Codat. <br/>
+        /// <br/>
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
+        /// </remarks>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetConnectionManagementCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible. Use Get instead")]
-        public async Task<GetConnectionManagementCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null)
+        public async  Task<GetConnectionManagementCorsSettingsResponse> GetAsync(RetryConfig? retryConfig = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/connectionManagement/corsSettings";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
@@ -121,7 +149,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -130,9 +158,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -226,11 +254,29 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
+
+        /// <summary>
+        /// Set CORS settings (old).
+        /// </summary>
+        /// <remarks>
+        /// The *Set CORS settings* endpoint allows you to register allowed origins (i.e. your domains) for use in cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>).<br/>
+        ///  <br/>
+        /// Enabling CORS with Codat is required by our embeddable UIs (such as <a href="https://docs.codat.io/auth-flow/optimize/connection-management">Connections SDK</a> and <a href="https://docs.codat.io/auth-flow/authorize-embedded-link">Link SDK</a>) to access Codat's API endpoints.
+        /// </remarks>
+        /// <param name="request">A <see cref="ConnectionManagementAllowedOrigins"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="SetConnectionManagementCorsSettingsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible. Use Set instead")]
-        public async Task<SetConnectionManagementCorsSettingsResponse> SetAsync(ConnectionManagementAllowedOrigins? request = null, RetryConfig? retryConfig = null)
+        public async  Task<SetConnectionManagementCorsSettingsResponse> SetAsync(
+            ConnectionManagementAllowedOrigins? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/connectionManagement/corsSettings";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -292,7 +338,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -301,9 +347,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -396,5 +442,6 @@ namespace Codat.Platform
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

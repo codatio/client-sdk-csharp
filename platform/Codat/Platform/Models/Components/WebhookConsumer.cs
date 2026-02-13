@@ -12,19 +12,14 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// A webhook consumer is an HTTP endpoint that developers can configure to subscribe to Codat&apos;s supported event types.<br/>
-    /// 
-    /// <remarks>
+    /// A webhook consumer is an HTTP endpoint that developers can configure to subscribe to Codat's supported event types.<br/>
     /// <br/>
-    /// See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat&apos;s webhook service</a>.<br/>
-    /// 
-    /// </remarks>
+    /// See our documentation for more details on <a href="https://docs.codat.io/using-the-api/webhooks/overview">Codat's webhook service</a>.
     /// </summary>
     public class WebhookConsumer
     {
-
         /// <summary>
         /// Unique identifier for the webhook consumer.
         /// </summary>

@@ -23,57 +23,100 @@ namespace Codat.Platform
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Configure and pull additional data you can include in Codat&apos;s standard data types.
+    /// Configure and pull additional data you can include in Codat's standard data types.
     /// </summary>
     public interface ISupplementalData
     {
-
         /// <summary>
-        /// Configure
-        /// 
+        /// Configure.
+        /// </summary>
         /// <remarks>
         /// The *Configure* endpoint allows you to maintain or change configuration required to return supplemental data for each integration and data type combination.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.<br/>
+        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat's standard data types.<br/>
         /// <br/>
-        /// **Integration-specific behaviour**<br/>
+        /// **Integration-specific behavior**<br/>
         /// See the *examples* for integration-specific frequently requested properties.
         /// </remarks>
-        /// </summary>
-        Task<ConfigureSupplementalDataResponse> ConfigureAsync(ConfigureSupplementalDataRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ConfigureSupplementalDataRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ConfigureSupplementalDataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ConfigureSupplementalDataResponse> ConfigureAsync(
+            ConfigureSupplementalDataRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get configuration
-        /// 
+        /// Get configuration.
+        /// </summary>
         /// <remarks>
         /// The *Get configuration* endpoint returns supplemental data configuration previously created for each integration and data type combination.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat&apos;s standard data types.
+        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat's standard data types.
         /// </remarks>
-        /// </summary>
-        Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(GetSupplementalDataConfigurationRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetSupplementalDataConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSupplementalDataConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(
+            GetSupplementalDataConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
-    /// Configure and pull additional data you can include in Codat&apos;s standard data types.
+    /// Configure and pull additional data you can include in Codat's standard data types.
     /// </summary>
     public class SupplementalData: ISupplementalData
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "6.1.0";
-        private const string _sdkGenVersion = "2.723.11";
-        private const string _openapiDocVersion = "3.0.0";
 
         public SupplementalData(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ConfigureSupplementalDataResponse> ConfigureAsync(ConfigureSupplementalDataRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Configure.
+        /// </summary>
+        /// <remarks>
+        /// The *Configure* endpoint allows you to maintain or change configuration required to return supplemental data for each integration and data type combination.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat's standard data types.<br/>
+        /// <br/>
+        /// **Integration-specific behavior**<br/>
+        /// See the *examples* for integration-specific frequently requested properties.
+        /// </remarks>
+        /// <param name="request">A <see cref="ConfigureSupplementalDataRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ConfigureSupplementalDataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ConfigureSupplementalDataResponse> ConfigureAsync(
+            ConfigureSupplementalDataRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig", request);
+            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -134,7 +177,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -143,9 +186,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -221,10 +264,32 @@ namespace Codat.Platform
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(GetSupplementalDataConfigurationRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get configuration.
+        /// </summary>
+        /// <remarks>
+        /// The *Get configuration* endpoint returns supplemental data configuration previously created for each integration and data type combination.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Supplemental data</a> is additional data you can include in Codat's standard data types.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetSupplementalDataConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetSupplementalDataConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetSupplementalDataConfigurationResponse> GetConfigurationAsync(
+            GetSupplementalDataConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig", request);
+            var urlString = URLBuilder.Build(baseUrl, "/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
@@ -279,7 +344,7 @@ namespace Codat.Platform
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -288,9 +353,9 @@ namespace Codat.Platform
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -383,5 +448,6 @@ namespace Codat.Platform
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

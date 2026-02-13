@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Requests
 {
     using Codat.Platform.Utils;
     using System.Collections.Generic;
-    
+
     public class UpdateConnectionAuthorizationRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

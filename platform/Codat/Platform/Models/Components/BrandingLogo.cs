@@ -12,13 +12,12 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Models.Components;
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Logo branding references.
     /// </summary>
     public class BrandingLogo
     {
-
         [JsonProperty("full")]
         public BrandingImage? Full { get; set; }
 

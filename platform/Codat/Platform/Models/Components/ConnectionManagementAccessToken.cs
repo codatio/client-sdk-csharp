@@ -11,10 +11,9 @@ namespace Codat.Platform.Models.Components
 {
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
-    
+
     public class ConnectionManagementAccessToken
     {
-
         /// <summary>
         /// Access token that allows SMBs to manage connections that have access to their data.
         /// </summary>

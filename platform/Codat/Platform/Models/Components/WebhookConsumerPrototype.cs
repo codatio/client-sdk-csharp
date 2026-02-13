@@ -12,10 +12,9 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class WebhookConsumerPrototype
     {
-
         /// <summary>
         /// The URL that will consume webhook events dispatched by Codat.
         /// </summary>

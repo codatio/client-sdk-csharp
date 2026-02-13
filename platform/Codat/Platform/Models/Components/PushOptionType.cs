@@ -12,7 +12,7 @@ namespace Codat.Platform.Models.Components
     using Codat.Platform.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The option type.
     /// </summary>
@@ -68,5 +68,4 @@ namespace Codat.Platform.Models.Components
             throw new Exception($"Unknown value {value} for enum PushOptionType");
         }
     }
-
 }

@@ -1,5 +1,4 @@
 # ReadData
-(*ReadData*)
 
 ## Overview
 
@@ -20,7 +19,7 @@ The validation result [schema](https://docs.codat.io/platform-api#/schemas/Valid
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-read-validation-results" method="get" path="/companies/{companyId}/sync/{datasetId}/validation" -->
+<!-- UsageSnippet language="csharp" operationID="get-read-validation-results" method="get" path="/companies/{companyId}/sync/{datasetId}/validation" example="Validation result" -->
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;

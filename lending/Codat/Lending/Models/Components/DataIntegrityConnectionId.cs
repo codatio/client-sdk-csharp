@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class DataIntegrityConnectionId
     {
-
         /// <summary>
         /// An array of strings. The connection IDs for the type specified in the url.
         /// </summary>

@@ -12,20 +12,17 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The type of the platform transaction:  <br/>
-    /// 
-    /// <remarks>
     /// - `Unknown`  <br/>
-    /// - `FailedPayout` — Failed transfer of funds from the seller&apos;s merchant account to their bank account.  <br/>
+    /// - `FailedPayout` — Failed transfer of funds from the seller's merchant account to their bank account.  <br/>
     /// - `Payment` — Credit and debit card payments.  <br/>
-    /// - `PaymentFee` — Payment provider&apos;s fee on each card payment.  <br/>
-    /// - `PaymentFeeRefund` — Payment provider&apos;s fee that has been refunded to the seller.  <br/>
-    /// - `Payout` — Transfer of funds from the seller&apos;s merchant account to their bank account.  <br/>
-    /// - `Refund` — Refunds to a customer&apos;s credit or debit card.  <br/>
-    /// - `Transfer` — Secure transfer of funds to the seller&apos;s bank account.  
-    /// </remarks>
+    /// - `PaymentFee` — Payment provider's fee on each card payment.  <br/>
+    /// - `PaymentFeeRefund` — Payment provider's fee that has been refunded to the seller.  <br/>
+    /// - `Payout` — Transfer of funds from the seller's merchant account to their bank account.  <br/>
+    /// - `Refund` — Refunds to a customer's credit or debit card.  <br/>
+    /// - `Transfer` — Secure transfer of funds to the seller's bank account.
     /// </summary>
     public enum TransactionType
     {
@@ -79,5 +76,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum TransactionType");
         }
     }
-
 }

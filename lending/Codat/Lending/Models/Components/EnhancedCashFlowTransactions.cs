@@ -13,20 +13,16 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// &gt; **Categorization engine**<br/>
-    /// 
-    /// <remarks>
     /// &gt;<br/>
     /// &gt; The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.<br/>
     /// <br/>
-    /// The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company&apos;s banking data sources.
-    /// </remarks>
+    /// The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
     /// </summary>
     public class EnhancedCashFlowTransactions
     {
-
         /// <summary>
         /// Report additional information, which is specific to Lending reports.
         /// </summary>

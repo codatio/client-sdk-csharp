@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class AgedOutstandingAmountDetail
     {
-
         /// <summary>
         /// Name of data type with outstanding amount for given period.
         /// </summary>

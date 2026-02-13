@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class JournalLine
     {
-
         /// <summary>
         /// Description of the journal line item.
         /// </summary>
@@ -53,7 +52,7 @@ namespace Codat.Lending.Models.Components
         public AccountRef? AccountRef { get; set; }
 
         /// <summary>
-        /// List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
+        /// List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.).
         /// </summary>
         [JsonProperty("tracking")]
         public JournalLineTracking? Tracking { get; set; }

@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CompanyRequestBody
     {
-
         /// <summary>
         /// Name of company being connected.
         /// </summary>

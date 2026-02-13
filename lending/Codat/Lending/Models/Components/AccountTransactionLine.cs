@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class AccountTransactionLine
     {
-
         /// <summary>
         /// Description of the account transaction.
         /// </summary>

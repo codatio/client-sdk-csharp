@@ -12,12 +12,11 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class AccountingAddress
     {
-
         /// <summary>
-        /// The type of the address
+        /// The type of the address.
         /// </summary>
         [JsonProperty("type")]
         public AccountingAddressType Type { get; set; } = default!;

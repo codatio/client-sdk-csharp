@@ -27,36 +27,55 @@ namespace Codat.Lending
     /// </summary>
     public interface IBankStatements
     {
-
         /// <summary>
-        /// Get upload configuration
-        /// 
+        /// Get upload configuration.
+        /// </summary>
         /// <remarks>
         /// Use the *Get upload configuration* endpoint to view the existing bank statement upload configuration for the specified data connection.<br/>
         /// <br/>
         /// With this configuration, you set the source of the data you plan to upload, the ID of the account in third-party banking platform, and a provider ID, if required. This lets us determine the expected format of the data and any source-specific requirements.<br/>
         /// <br/>
-        /// When you use the <a href="https://docs.codat.io/lending-api#/operations/upload-bank-statement-data">*Upload data*</a> endpoint next, you must upload the data for the account you configured. 
+        /// When you use the <a href="https://docs.codat.io/lending-api#/operations/upload-bank-statement-data">*Upload data*</a> endpoint next, you must upload the data for the account you configured.
         /// </remarks>
-        /// </summary>
-        Task<GetBankStatementUploadConfigurationResponse> GetUploadConfigurationAsync(GetBankStatementUploadConfigurationRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetBankStatementUploadConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBankStatementUploadConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetBankStatementUploadConfigurationResponse> GetUploadConfigurationAsync(
+            GetBankStatementUploadConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Set upload configuration
-        /// 
+        /// Set upload configuration.
+        /// </summary>
         /// <remarks>
         /// Use the *Set upload configuration* endpoint to create bank statement upload configuration for the specified data connection. <br/>
         /// <br/>
         /// With this configuration, you set the source of the data you plan to upload, the ID of the account in third-party banking platform, and a provider ID, if required. This lets us determine the expected format of the data and any source-specific requirements.<br/>
         /// <br/>
-        /// Each data connection can only have one configuration for each company and external account ID combination. You will receive a Bad Request response if you try to set it again. 
+        /// Each data connection can only have one configuration for each company and external account ID combination. You will receive a Bad Request response if you try to set it again.
         /// </remarks>
-        /// </summary>
-        Task<SetBankStatementUploadConfigurationResponse> SetUploadConfigurationAsync(SetBankStatementUploadConfigurationRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="SetBankStatementUploadConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="SetBankStatementUploadConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<SetBankStatementUploadConfigurationResponse> SetUploadConfigurationAsync(
+            SetBankStatementUploadConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Start upload session
-        /// 
+        /// Start upload session.
+        /// </summary>
         /// <remarks>
         /// Use the *Start upload session* endpoint to initiate a bank statement upload session for a given company.<br/>
         /// <br/>
@@ -64,30 +83,60 @@ namespace Codat.Lending
         /// <br/>
         /// You can only have one active session per data type at a time. You can complete or cancel a session using the <a href="https://docs.codat.io/lending-api#/operations/end-bank-statement-upload-session">*End upload session*</a> endpoint.
         /// </remarks>
-        /// </summary>
-        Task<StartBankStatementUploadSessionResponse> StartUploadSessionAsync(StartBankStatementUploadSessionRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="StartBankStatementUploadSessionRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="StartBankStatementUploadSessionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<StartBankStatementUploadSessionResponse> StartUploadSessionAsync(
+            StartBankStatementUploadSessionRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Upload data
-        /// 
+        /// Upload data.
+        /// </summary>
         /// <remarks>
         /// During an active session, use the **Upload data* endpoint to uploads a page of bank accounts or bank transactions data to the session.<br/>
         /// <br/>
-        /// Make sure you created configuration for the account using the <a href="https://docs.codat.io/lending-api#/operations/set-bank-statement-upload-configuration">*Set upload configuration*</a> endpoint before attempting an upload. 
+        /// Make sure you created configuration for the account using the <a href="https://docs.codat.io/lending-api#/operations/set-bank-statement-upload-configuration">*Set upload configuration*</a> endpoint before attempting an upload.
         /// </remarks>
-        /// </summary>
-        Task<UploadBankStatementDataResponse> UploadBankStatementDataAsync(UploadBankStatementDataRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="UploadBankStatementDataRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadBankStatementDataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UploadBankStatementDataResponse> UploadBankStatementDataAsync(
+            UploadBankStatementDataRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// End upload session
-        /// 
+        /// End upload session.
+        /// </summary>
         /// <remarks>
         /// Use the *End upload session* endpoint to finalize a bank statement upload session. Include a `status` in the request body to indicate if you want to cancel the processing of the dataset or trigger the ingestion and enrichment of the data.<br/>
         /// <br/>
         /// A session is a one-time process that enables you to upload bank statements to Codat. It will time out after 90 minutes if no data is uploaded.
         /// </remarks>
-        /// </summary>
-        Task<EndBankStatementUploadSessionResponse> EndUploadSessionAsync(EndBankStatementUploadSessionRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="EndBankStatementUploadSessionRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="EndBankStatementUploadSessionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<EndBankStatementUploadSessionResponse> EndUploadSessionAsync(
+            EndBankStatementUploadSessionRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -95,19 +144,39 @@ namespace Codat.Lending
     /// </summary>
     public class BankStatements: IBankStatements
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public BankStatements(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetBankStatementUploadConfigurationResponse> GetUploadConfigurationAsync(GetBankStatementUploadConfigurationRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get upload configuration.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Get upload configuration* endpoint to view the existing bank statement upload configuration for the specified data connection.<br/>
+        /// <br/>
+        /// With this configuration, you set the source of the data you plan to upload, the ID of the account in third-party banking platform, and a provider ID, if required. This lets us determine the expected format of the data and any source-specific requirements.<br/>
+        /// <br/>
+        /// When you use the <a href="https://docs.codat.io/lending-api#/operations/upload-bank-statement-data">*Upload data*</a> endpoint next, you must upload the data for the account you configured.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetBankStatementUploadConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBankStatementUploadConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetBankStatementUploadConfigurationResponse> GetUploadConfigurationAsync(
+            GetBankStatementUploadConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -167,7 +236,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -272,7 +341,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<SetBankStatementUploadConfigurationResponse> SetUploadConfigurationAsync(SetBankStatementUploadConfigurationRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Set upload configuration.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Set upload configuration* endpoint to create bank statement upload configuration for the specified data connection. <br/>
+        /// <br/>
+        /// With this configuration, you set the source of the data you plan to upload, the ID of the account in third-party banking platform, and a provider ID, if required. This lets us determine the expected format of the data and any source-specific requirements.<br/>
+        /// <br/>
+        /// Each data connection can only have one configuration for each company and external account ID combination. You will receive a Bad Request response if you try to set it again.
+        /// </remarks>
+        /// <param name="request">A <see cref="SetBankStatementUploadConfigurationRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="SetBankStatementUploadConfigurationResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<SetBankStatementUploadConfigurationResponse> SetUploadConfigurationAsync(
+            SetBankStatementUploadConfigurationRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -338,7 +429,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -443,7 +534,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<StartBankStatementUploadSessionResponse> StartUploadSessionAsync(StartBankStatementUploadSessionRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Start upload session.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Start upload session* endpoint to initiate a bank statement upload session for a given company.<br/>
+        /// <br/>
+        /// A session is a one-time process that enables you to upload bank statements to Codat. It will time out after 90 minutes if no data is uploaded. <br/>
+        /// <br/>
+        /// You can only have one active session per data type at a time. You can complete or cancel a session using the <a href="https://docs.codat.io/lending-api#/operations/end-bank-statement-upload-session">*End upload session*</a> endpoint.
+        /// </remarks>
+        /// <param name="request">A <see cref="StartBankStatementUploadSessionRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="StartBankStatementUploadSessionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<StartBankStatementUploadSessionResponse> StartUploadSessionAsync(
+            StartBankStatementUploadSessionRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -509,7 +622,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -614,7 +727,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UploadBankStatementDataResponse> UploadBankStatementDataAsync(UploadBankStatementDataRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Upload data.
+        /// </summary>
+        /// <remarks>
+        /// During an active session, use the **Upload data* endpoint to uploads a page of bank accounts or bank transactions data to the session.<br/>
+        /// <br/>
+        /// Make sure you created configuration for the account using the <a href="https://docs.codat.io/lending-api#/operations/set-bank-statement-upload-configuration">*Set upload configuration*</a> endpoint before attempting an upload.
+        /// </remarks>
+        /// <param name="request">A <see cref="UploadBankStatementDataRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadBankStatementDataResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UploadBankStatementDataResponse> UploadBankStatementDataAsync(
+            UploadBankStatementDataRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -680,7 +813,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -767,7 +900,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<EndBankStatementUploadSessionResponse> EndUploadSessionAsync(EndBankStatementUploadSessionRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// End upload session.
+        /// </summary>
+        /// <remarks>
+        /// Use the *End upload session* endpoint to finalize a bank statement upload session. Include a `status` in the request body to indicate if you want to cancel the processing of the dataset or trigger the ingestion and enrichment of the data.<br/>
+        /// <br/>
+        /// A session is a one-time process that enables you to upload bank statements to Codat. It will time out after 90 minutes if no data is uploaded.
+        /// </remarks>
+        /// <param name="request">A <see cref="EndBankStatementUploadSessionRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="EndBankStatementUploadSessionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<EndBankStatementUploadSessionResponse> EndUploadSessionAsync(
+            EndBankStatementUploadSessionRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -833,7 +986,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -919,5 +1072,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

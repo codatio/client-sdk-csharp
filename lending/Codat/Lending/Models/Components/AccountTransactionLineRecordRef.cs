@@ -12,15 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Links an account transaction line to the underlying record that created it.
     /// </summary>
     public class AccountTransactionLineRecordRef
     {
-
         /// <summary>
-        /// &apos;id&apos; of the underlying record or data type.
+        /// 'id' of the underlying record or data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

@@ -24,21 +24,30 @@ namespace Codat.Lending
 
     public interface IInvoices
     {
-
         /// <summary>
-        /// List reconciled invoices
-        /// 
-        /// <remarks>
-        /// Gets a list of invoices linked to the corresponding banking transaction
-        /// </remarks>
+        /// List reconciled invoices.
         /// </summary>
-        Task<ListReconciledInvoicesResponse> ListReconciledAsync(ListReconciledInvoicesRequest request, RetryConfig? retryConfig = null);
+        /// <remarks>
+        /// Gets a list of invoices linked to the corresponding banking transaction.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListReconciledInvoicesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListReconciledInvoicesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListReconciledInvoicesResponse> ListReconciledAsync(
+            ListReconciledInvoicesRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List invoices
-        /// 
+        /// List invoices.
+        /// </summary>
         /// <remarks>
-        /// The *List invoices* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Invoice">invoices</a> for a given company&apos;s connection.<br/>
+        /// The *List invoices* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Invoice">invoices</a> for a given company's connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
         /// <br/>
@@ -53,15 +62,24 @@ namespace Codat.Lending
         /// <br/>
         /// ### Tips and traps<br/>
         /// <br/>
-        /// To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat&apos;s cache.<br/>
-        /// 
+        /// To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
         /// </remarks>
-        /// </summary>
-        Task<ListAccountingInvoicesResponse> ListAsync(ListAccountingInvoicesRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListAccountingInvoicesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingInvoicesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingInvoicesResponse> ListAsync(
+            ListAccountingInvoicesRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get invoice
-        /// 
+        /// Get invoice.
+        /// </summary>
         /// <remarks>
         /// The *Get invoice* endpoint returns a single invoice for a given invoiceId.<br/>
         /// <br/>
@@ -71,72 +89,135 @@ namespace Codat.Lending
         /// <br/>
         /// ### Tips and traps<br/>
         /// <br/>
-        /// To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat&apos;s cache.<br/>
-        /// 
+        /// To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingInvoiceResponse> GetAsync(GetAccountingInvoiceRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingInvoiceRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingInvoiceResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingInvoiceResponse> GetAsync(
+            GetAccountingInvoiceRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get invoice as PDF
-        /// 
+        /// Get invoice as PDF.
+        /// </summary>
         /// <remarks>
         /// Download invoice as a pdf.
         /// </remarks>
-        /// </summary>
-        Task<DownloadAccountingInvoicePdfResponse> DownloadPdfAsync(DownloadAccountingInvoicePdfRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DownloadAccountingInvoicePdfRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingInvoicePdfResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DownloadAccountingInvoicePdfResponse> DownloadPdfAsync(
+            DownloadAccountingInvoicePdfRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List invoice attachments
-        /// 
+        /// List invoice attachments.
+        /// </summary>
         /// <remarks>
         /// The *List invoice attachments* endpoint returns a list of attachments available to download for given `invoiceId`.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.
         /// </remarks>
-        /// </summary>
-        Task<ListAccountingInvoiceAttachmentsResponse> ListAttachmentsAsync(ListAccountingInvoiceAttachmentsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListAccountingInvoiceAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingInvoiceAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingInvoiceAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingInvoiceAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get invoice attachment
-        /// 
+        /// Get invoice attachment.
+        /// </summary>
         /// <remarks>
         /// The *Get invoice attachment* endpoint returns a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
-        /// 
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingInvoiceAttachmentResponse> GetAttachmentAsync(GetAccountingInvoiceAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingInvoiceAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingInvoiceAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingInvoiceAttachmentResponse> GetAttachmentAsync(
+            GetAccountingInvoiceAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Download invoice attachment
-        /// 
+        /// Download invoice attachment.
+        /// </summary>
         /// <remarks>
         /// The *Download invoice attachment* endpoint downloads a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
-        /// 
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.
         /// </remarks>
-        /// </summary>
-        Task<DownloadAccountingInvoiceAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingInvoiceAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DownloadAccountingInvoiceAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingInvoiceAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DownloadAccountingInvoiceAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingInvoiceAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class Invoices: IInvoices
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Invoices(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListReconciledInvoicesResponse> ListReconciledAsync(ListReconciledInvoicesRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List reconciled invoices.
+        /// </summary>
+        /// <remarks>
+        /// Gets a list of invoices linked to the corresponding banking transaction.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListReconciledInvoicesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListReconciledInvoicesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListReconciledInvoicesResponse> ListReconciledAsync(
+            ListReconciledInvoicesRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -196,7 +277,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -301,7 +382,40 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAccountingInvoicesResponse> ListAsync(ListAccountingInvoicesRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List invoices.
+        /// </summary>
+        /// <remarks>
+        /// The *List invoices* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Invoice">invoices</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        ///     <br/>
+        /// ### Useful queries<br/>
+        /// <br/>
+        /// - Outstanding invoices - `query = amountDue &gt; 0`<br/>
+        /// - Invoices due after a certain date: `query = dueDate &gt; 2021-01-28`<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/using-the-api/querying">Read more about querying</a>.<br/>
+        /// <br/>
+        /// ### Tips and traps<br/>
+        /// <br/>
+        /// To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingInvoicesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingInvoicesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingInvoicesResponse> ListAsync(
+            ListAccountingInvoicesRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -361,7 +475,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -466,7 +580,33 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingInvoiceResponse> GetAsync(GetAccountingInvoiceRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get invoice.
+        /// </summary>
+        /// <remarks>
+        /// The *Get invoice* endpoint returns a single invoice for a given invoiceId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
+        /// <br/>
+        /// ### Tips and traps<br/>
+        /// <br/>
+        /// To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingInvoiceRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingInvoiceResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingInvoiceResponse> GetAsync(
+            GetAccountingInvoiceRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -526,7 +666,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -631,7 +771,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DownloadAccountingInvoicePdfResponse> DownloadPdfAsync(DownloadAccountingInvoicePdfRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get invoice as PDF.
+        /// </summary>
+        /// <remarks>
+        /// Download invoice as a pdf.
+        /// </remarks>
+        /// <param name="request">A <see cref="DownloadAccountingInvoicePdfRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingInvoicePdfResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DownloadAccountingInvoicePdfResponse> DownloadPdfAsync(
+            DownloadAccountingInvoicePdfRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -691,7 +849,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -785,7 +943,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAccountingInvoiceAttachmentsResponse> ListAttachmentsAsync(ListAccountingInvoiceAttachmentsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List invoice attachments.
+        /// </summary>
+        /// <remarks>
+        /// The *List invoice attachments* endpoint returns a list of attachments available to download for given `invoiceId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingInvoiceAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingInvoiceAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingInvoiceAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingInvoiceAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -845,7 +1023,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -950,7 +1128,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingInvoiceAttachmentResponse> GetAttachmentAsync(GetAccountingInvoiceAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get invoice attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Get invoice attachment* endpoint returns a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingInvoiceAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingInvoiceAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingInvoiceAttachmentResponse> GetAttachmentAsync(
+            GetAccountingInvoiceAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1010,7 +1208,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1115,7 +1313,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DownloadAccountingInvoiceAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingInvoiceAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Download invoice attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Download invoice attachment* endpoint downloads a specific attachment for a given `invoiceId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Invoice">Invoices</a> are itemized records of goods sold or services provided to a customer.
+        /// </remarks>
+        /// <param name="request">A <see cref="DownloadAccountingInvoiceAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingInvoiceAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DownloadAccountingInvoiceAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingInvoiceAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1175,7 +1393,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1268,5 +1486,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

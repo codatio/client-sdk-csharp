@@ -12,9 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Current status of the dispute
+    /// Current status of the dispute.
     /// </summary>
     public enum DisputeStatus
     {
@@ -74,5 +74,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum DisputeStatus");
         }
     }
-
 }

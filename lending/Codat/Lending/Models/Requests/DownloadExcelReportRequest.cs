@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
-    
+
     public class DownloadExcelReportRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

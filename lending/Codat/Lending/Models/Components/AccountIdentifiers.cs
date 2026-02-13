@@ -12,21 +12,20 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object containing bank account identification information.
     /// </summary>
     public class AccountIdentifiers
     {
-
         /// <summary>
-        /// Type of account
+        /// Type of account.
         /// </summary>
         [JsonProperty("type")]
         public AccountIdentifierType Type { get; set; } = default!;
 
         /// <summary>
-        /// Detailed account category
+        /// Detailed account category.
         /// </summary>
         [JsonProperty("subtype")]
         public string? Subtype { get; set; } = null;
@@ -39,14 +38,11 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The local (usually national) routing number for the account.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// This is known by different names in different countries:<br/>
         /// * BSB code (Australia)<br/>
         /// * routing number (Canada, USA)<br/>
-        /// * sort code (UK)
-        /// </remarks>
+        /// * sort code (UK).
         /// </summary>
         [JsonProperty("bankCode")]
         public string? BankCode { get; set; } = null;
@@ -64,7 +60,7 @@ namespace Codat.Lending.Models.Components
         public string? Bic { get; set; } = null;
 
         /// <summary>
-        /// A portion of the actual account `number` to help account identification where number is tokenised (Plaid only)
+        /// A portion of the actual account `number` to help account identification where number is tokenised (Plaid only).
         /// </summary>
         [JsonProperty("maskedAccountNumber")]
         public string? MaskedAccountNumber { get; set; } = null;

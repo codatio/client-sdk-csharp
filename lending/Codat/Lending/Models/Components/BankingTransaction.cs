@@ -12,18 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Banking Transactions data type provides an immutable source of up-to-date information on income and expenditure.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
-    /// </remarks>
     /// </summary>
     public class BankingTransaction
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -61,9 +57,7 @@ namespace Codat.Lending.Models.Components
         public string Currency { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -82,15 +76,12 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("postedDate")]
         public string? PostedDate { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -109,7 +100,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("authorizedDate")]
         public string? AuthorizedDate { get; set; }

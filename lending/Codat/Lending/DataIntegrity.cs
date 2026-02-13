@@ -27,10 +27,9 @@ namespace Codat.Lending
     /// </summary>
     public interface IDataIntegrity
     {
-
         /// <summary>
-        /// Get data integrity status
-        /// 
+        /// Get data integrity status.
+        /// </summary>
         /// <remarks>
         /// The *Get data integrity status* endpoint returns the <a href="https://docs.codat.io/lending-api#/schemas/DataIntegrityStatus">status</a> for the company’s match results between the data type provided in the URL and other data types that Data Integrity uses to support matching.<br/>
         /// This endpoint helps you understand whether match data is available and, if so, how to usefully query it.<br/>
@@ -41,12 +40,22 @@ namespace Codat.Lending
         /// - When the results were generated, and their status.<br/>
         /// - The connection IDs, amounts, and dates involved to support useful querying.
         /// </remarks>
-        /// </summary>
-        Task<GetDataIntegrityStatusResponse> StatusAsync(GetDataIntegrityStatusRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetDataIntegrityStatusRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetDataIntegrityStatusResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetDataIntegrityStatusResponse> StatusAsync(
+            GetDataIntegrityStatusRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get data integrity summaries
-        /// 
+        /// Get data integrity summaries.
+        /// </summary>
         /// <remarks>
         /// The *Get data integrity summary* endpoint returns a <a href="https://docs.codat.io/lending-api#/schemas/DataIntegritySummary">summary</a> of match results for a given data type filtered by a query string in the <a href="https://docs.codat.io/using-the-api/querying">Codat query language</a>. <br/>
         /// <br/>
@@ -54,19 +63,39 @@ namespace Codat.Lending
         /// <br/>
         /// The endpoint response includes only the summary results, not transactions. To view match data for transactions, use the <a href="https://docs.codat.io/lending-api#/operations/get-data-integrity-summaries">List data integrity details</a> endpoint.
         /// </remarks>
-        /// </summary>
-        Task<GetDataIntegritySummariesResponse> SummariesAsync(GetDataIntegritySummariesRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetDataIntegritySummariesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetDataIntegritySummariesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetDataIntegritySummariesResponse> SummariesAsync(
+            GetDataIntegritySummariesRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List data integrity details
-        /// 
+        /// List data integrity details.
+        /// </summary>
         /// <remarks>
         /// The *List data integrity details* endpoint returns the match result record by record for a given data type, filtered based on a query string in the same way as summary results.<br/>
         /// <br/>
         /// The <a href="https://docs.codat.io/lending-api#/schemas/DataIntegrityDetail">details</a> are paginated and support ordering, following the same conventions as our other data endpoints.
         /// </remarks>
-        /// </summary>
-        Task<ListDataIntegrityDetailsResponse> DetailsAsync(ListDataIntegrityDetailsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListDataIntegrityDetailsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListDataIntegrityDetailsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListDataIntegrityDetailsResponse> DetailsAsync(
+            ListDataIntegrityDetailsRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -74,19 +103,42 @@ namespace Codat.Lending
     /// </summary>
     public class DataIntegrity: IDataIntegrity
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public DataIntegrity(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetDataIntegrityStatusResponse> StatusAsync(GetDataIntegrityStatusRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get data integrity status.
+        /// </summary>
+        /// <remarks>
+        /// The *Get data integrity status* endpoint returns the <a href="https://docs.codat.io/lending-api#/schemas/DataIntegrityStatus">status</a> for the company’s match results between the data type provided in the URL and other data types that Data Integrity uses to support matching.<br/>
+        /// This endpoint helps you understand whether match data is available and, if so, how to usefully query it.<br/>
+        /// <br/>
+        /// The response tells you:<br/>
+        /// <br/>
+        /// - Whether match results are available.<br/>
+        /// - When the results were generated, and their status.<br/>
+        /// - The connection IDs, amounts, and dates involved to support useful querying.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetDataIntegrityStatusRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetDataIntegrityStatusResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetDataIntegrityStatusResponse> StatusAsync(
+            GetDataIntegrityStatusRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -146,7 +198,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -251,7 +303,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetDataIntegritySummariesResponse> SummariesAsync(GetDataIntegritySummariesRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get data integrity summaries.
+        /// </summary>
+        /// <remarks>
+        /// The *Get data integrity summary* endpoint returns a <a href="https://docs.codat.io/lending-api#/schemas/DataIntegritySummary">summary</a> of match results for a given data type filtered by a query string in the <a href="https://docs.codat.io/using-the-api/querying">Codat query language</a>. <br/>
+        /// <br/>
+        /// For example, if you wanted to see summary match results only for transactions after 1 December 2020, you could include a query parameter of `query=date&gt;2020-12-01`.<br/>
+        /// <br/>
+        /// The endpoint response includes only the summary results, not transactions. To view match data for transactions, use the <a href="https://docs.codat.io/lending-api#/operations/get-data-integrity-summaries">List data integrity details</a> endpoint.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetDataIntegritySummariesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetDataIntegritySummariesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetDataIntegritySummariesResponse> SummariesAsync(
+            GetDataIntegritySummariesRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -311,7 +385,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -416,7 +490,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListDataIntegrityDetailsResponse> DetailsAsync(ListDataIntegrityDetailsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List data integrity details.
+        /// </summary>
+        /// <remarks>
+        /// The *List data integrity details* endpoint returns the match result record by record for a given data type, filtered based on a query string in the same way as summary results.<br/>
+        /// <br/>
+        /// The <a href="https://docs.codat.io/lending-api#/schemas/DataIntegrityDetail">details</a> are paginated and support ordering, following the same conventions as our other data endpoints.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListDataIntegrityDetailsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListDataIntegrityDetailsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListDataIntegrityDetailsResponse> DetailsAsync(
+            ListDataIntegrityDetailsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -476,7 +570,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -580,5 +674,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

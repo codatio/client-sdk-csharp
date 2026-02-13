@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class DataIntegrityByAmount
     {
-
         /// <summary>
         /// The percentage of the absolute value of transactions of the type specified in the route which have a match.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Codat.Lending.Models.Components
         public decimal? MatchPercentage { get; set; }
 
         /// <summary>
-        /// The sum of the absolute value of transactions of the type specified in the route which don&apos;t have a match.
+        /// The sum of the absolute value of transactions of the type specified in the route which don't have a match.
         /// </summary>
         [JsonProperty("unmatched")]
         public decimal? Unmatched { get; set; }
@@ -41,15 +40,12 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }

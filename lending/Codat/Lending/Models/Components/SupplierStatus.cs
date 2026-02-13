@@ -12,7 +12,7 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Status of the supplier.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum SupplierStatus");
         }
     }
-
 }

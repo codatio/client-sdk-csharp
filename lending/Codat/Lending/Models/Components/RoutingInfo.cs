@@ -12,15 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Routing information for the bank. This does not include account number.
     /// </summary>
     public class RoutingInfo
     {
-
         /// <summary>
-        /// The numeric identifier of the routing number
+        /// The numeric identifier of the routing number.
         /// </summary>
         [JsonProperty("bankCode")]
         public string? BankCode { get; set; } = null;

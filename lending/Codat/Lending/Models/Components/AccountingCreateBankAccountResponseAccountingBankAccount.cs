@@ -13,11 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// &gt; **Accessing Bank Accounts through Banking API**<br/>
-    /// 
-    /// <remarks>
     /// &gt; <br/>
     /// &gt; This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. <br/>
     /// &gt; <br/>
@@ -31,12 +29,10 @@ namespace Codat.Lending.Models.Components
     /// * The name and ID of the account in the accounting software.<br/>
     /// * The currency and balance of the account.<br/>
     /// * The sort code and account number.
-    /// </remarks>
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class AccountingCreateBankAccountResponseAccountingBankAccount
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -57,11 +53,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The type of transactions and balances on the account.  <br/>
-        /// 
-        /// <remarks>
         /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>
         /// For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
-        /// </remarks>
         /// </summary>
         [JsonProperty("accountType")]
         public AccountingBankAccountType? AccountType { get; set; }
@@ -74,27 +67,21 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Sort code for the bank account.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Xero integrations<br/>
         /// The sort code is only displayed when the currency = GBP and the sort code and account number sum to 14 digits. For non-GBP accounts, this field is not populated.
-        /// </remarks>
         /// </summary>
         [JsonProperty("sortCode")]
         public string? SortCode { get; set; } = null;
 
         /// <summary>
         /// Account number for the bank account.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Xero integrations<br/>
         /// Only a UK account number shows for bank accounts with GBP currency and a combined total of sort code and account number that equals 14 digits, For non-GBP accounts, the full bank account number is populated.<br/>
         /// <br/>
         /// FreeAgent integrations<br/>
         /// For Credit accounts, only the last four digits are required. For other types, the field is optional.
-        /// </remarks>
         /// </summary>
         [JsonProperty("accountNumber")]
         public string? AccountNumber { get; set; } = null;
@@ -107,15 +94,12 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
@@ -140,11 +124,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Pre-arranged overdraft limit of the account.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// The value is always positive. For example, an overdraftLimit of `1000` means that the balance of the account can go down to `-1000`.
-        /// </remarks>
         /// </summary>
         [JsonProperty("overdraftLimit")]
         public decimal? OverdraftLimit { get; set; } = null;
@@ -160,11 +141,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

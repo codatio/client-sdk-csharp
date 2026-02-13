@@ -13,11 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// &gt; **Invoices or bills?**<br/>
-    /// 
-    /// <remarks>
     /// &gt;<br/>
     /// &gt; We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company has received an invoice, and owes money to someone else (accounts payable) we call this a Bill.<br/>
     /// &gt;<br/>
@@ -31,14 +29,12 @@ namespace Codat.Lending.Models.Components
     /// * Who the bill was received from — the *supplier*.<br/>
     /// * What the bill is for — the *line items*.<br/>
     /// <br/>
-    /// Some accounting software give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s *expenses*.<br/>
+    /// Some accounting software give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's *expenses*.<br/>
     /// <br/>
     /// You can find these types of transactions in our <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> data model.
-    /// </remarks>
     /// </summary>
     public class AccountingBill
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -74,27 +70,22 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
 
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Currency rates in Codat are implemented as the multiple of foreign currency units to each base currency unit.  <br/>
         /// <br/>
-        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company&apos;s base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
+        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company's base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
         /// <br/>
         /// Where the currency rate is provided by the underlying accounting software, it will be available from Codat with the same precision (up to a maximum of 9 decimal places). <br/>
         /// <br/>
@@ -122,7 +113,6 @@ namespace Codat.Lending.Models.Components
         /// | Integration       | Scenario                                        | System behavior                                                                                                                                                      |<br/>
         /// |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
         /// | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, specify a currencyRate in the request body.  |
-        /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
         public decimal? CurrencyRate { get; set; } = null;
@@ -183,11 +173,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

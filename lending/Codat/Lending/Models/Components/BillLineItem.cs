@@ -13,12 +13,11 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class BillLineItem
     {
-
         /// <summary>
-        /// The bill line&apos;s number.
+        /// The bill line's number.
         /// </summary>
         [JsonProperty("lineNumber")]
         public string? LineNumber { get; set; } = null;
@@ -42,18 +41,15 @@ namespace Codat.Lending.Models.Components
         public decimal? Quantity { get; set; }
 
         /// <summary>
-        /// The measurement which defines a unit for this item (e.g. &apos;kilogram&apos;, &apos;litre&apos;).
+        /// The measurement which defines a unit for this item (e.g. 'kilogram', 'litre').
         /// </summary>
         [JsonProperty("unitOfMeasurement")]
         public string? UnitOfMeasurement { get; set; } = null;
 
         /// <summary>
         /// Numerical value of any discounts applied.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Do not use to apply discounts in Oracle NetSuite—see Oracle NetSuite integration reference.
-        /// </remarks>
         /// </summary>
         [JsonProperty("discountAmount")]
         public decimal? DiscountAmount { get; set; } = null;
@@ -90,8 +86,6 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Found on:<br/>
         /// <br/>
@@ -100,8 +94,7 @@ namespace Codat.Lending.Models.Components
         /// - Credit Note line items<br/>
         /// - Direct incomes line items<br/>
         /// - Invoice line items<br/>
-        /// - Items
-        /// </remarks>
+        /// - Items.
         /// </summary>
         [JsonProperty("taxRateRef")]
         public TaxRateRef? TaxRateRef { get; set; }

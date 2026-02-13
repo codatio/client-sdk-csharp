@@ -13,10 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class DirectIncomeLineItem
     {
-
         /// <summary>
         /// A user-friendly name of the goods or services.
         /// </summary>
@@ -25,21 +24,15 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The price of each unit of goods or services.<br/>
-        /// 
-        /// <remarks>
         /// Note: If the platform does not provide this information, the unit amount will be mapped to the total amount.
-        /// </remarks>
         /// </summary>
         [JsonProperty("unitAmount")]
         public decimal UnitAmount { get; set; } = default!;
 
         /// <summary>
         /// The number of units of goods or services received.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Note: If the platform does not provide this information, the quantity will be mapped as 1.
-        /// </remarks>
         /// </summary>
         [JsonProperty("quantity")]
         public decimal Quantity { get; set; } = default!;
@@ -64,10 +57,7 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The amount of tax for the line.<br/>
-        /// 
-        /// <remarks>
         /// Note: If the platform does not provide this information, the quantity will be mapped as 0.00.
-        /// </remarks>
         /// </summary>
         [JsonProperty("taxAmount")]
         public decimal? TaxAmount { get; set; } = null;
@@ -86,8 +76,6 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Found on:<br/>
         /// <br/>
@@ -96,8 +84,7 @@ namespace Codat.Lending.Models.Components
         /// - Credit Note line items<br/>
         /// - Direct incomes line items<br/>
         /// - Invoice line items<br/>
-        /// - Items
-        /// </remarks>
+        /// - Items.
         /// </summary>
         [JsonProperty("taxRateRef")]
         public TaxRateRef? TaxRateRef { get; set; }

@@ -17,26 +17,60 @@ namespace Codat.Lending
     public interface IAccountsReceivable
     {
         public IInvoices Invoices { get; }
+
         public ICreditNotes CreditNotes { get; }
+
         public ICustomers Customers { get; }
+
         public IDirectIncomes DirectIncomes { get; }
+
         public IPayments Payments { get; }
+
         public ICodatLendingReports Reports { get; }
     }
 
     public class AccountsReceivable: IAccountsReceivable
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// Invoices SubSDK.
+        /// <see cref="IInvoices"/>
+        /// </summary>
         public IInvoices Invoices { get; private set; }
+
+        /// <summary>
+        /// CreditNotes SubSDK.
+        /// <see cref="ICreditNotes"/>
+        /// </summary>
         public ICreditNotes CreditNotes { get; private set; }
+
+        /// <summary>
+        /// Customers SubSDK.
+        /// <see cref="ICustomers"/>
+        /// </summary>
         public ICustomers Customers { get; private set; }
+
+        /// <summary>
+        /// DirectIncomes SubSDK.
+        /// <see cref="IDirectIncomes"/>
+        /// </summary>
         public IDirectIncomes DirectIncomes { get; private set; }
+
+        /// <summary>
+        /// Payments SubSDK.
+        /// <see cref="IPayments"/>
+        /// </summary>
         public IPayments Payments { get; private set; }
+
+        /// <summary>
+        /// Reports SubSDK.
+        /// <see cref="ICodatLendingReports"/>
+        /// </summary>
         public ICodatLendingReports Reports { get; private set; }
 
         public AccountsReceivable(SDKConfig config)

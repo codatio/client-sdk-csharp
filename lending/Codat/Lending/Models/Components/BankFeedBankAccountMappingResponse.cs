@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class BankFeedBankAccountMappingResponse
     {
-
         /// <summary>
         /// Unique ID for the source account.
         /// </summary>
@@ -34,7 +33,7 @@ namespace Codat.Lending.Models.Components
         public string? Status { get; set; } = null;
 
         /// <summary>
-        /// Error returned during the post request
+        /// Error returned during the post request.
         /// </summary>
         [JsonProperty("error")]
         public string? Error { get; set; } = null;

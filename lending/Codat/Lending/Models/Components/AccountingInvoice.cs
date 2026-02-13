@@ -13,11 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// &gt; **Invoices or bills?**<br/>
-    /// 
-    /// <remarks>
     /// &gt;<br/>
     /// &gt; We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company issued an invoice, and is owed money (accounts receivable) we call this an Invoice.<br/>
     /// &gt;<br/>
@@ -37,18 +35,16 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// &gt; **Invoice PDF downloads**  <br/>
     /// &gt;<br/>
-    /// &gt; You can &lt;a className=&quot;external&quot; href=&quot;https://docs.codat.io/lending-api#/operations/get-invoice-pdf&quot; target=&quot;_blank&quot;&gt;download a PDF version&lt;/a&gt; of an invoice for supported integrations.<br/>
+    /// &gt; You can <a className="external" href="https://docs.codat.io/lending-api#/operations/get-invoice-pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.<br/>
     /// &gt; <br/>
     /// &gt; The filename will be invoice-{number}.pdf.<br/>
     /// <br/>
     /// &gt; **Referencing an invoice in Sage 50 and ClearBooks**<br/>
     /// &gt;<br/>
     /// &gt; In Sage 50 and ClearBooks, you may prefer to use the **invoiceNumber** to identify an invoice rather than the invoice **id**. Each time a draft invoice is submitted or printed, the draft **id** becomes void and a submitted invoice with a new **id** exists in its place. In both platforms, the **invoiceNumber** should remain the same.
-    /// </remarks>
     /// </summary>
     public class AccountingInvoice
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -77,9 +73,7 @@ namespace Codat.Lending.Models.Components
         public List<SalesOrderReference>? SalesOrderRefs { get; set; } = null;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -98,15 +92,12 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("issueDate")]
         public string IssueDate { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -125,15 +116,12 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("dueDate")]
         public string? DueDate { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -152,34 +140,28 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("paidOnDate")]
         public string? PaidOnDate { get; set; }
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
 
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Currency rates in Codat are implemented as the multiple of foreign currency units to each base currency unit.  <br/>
         /// <br/>
-        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company&apos;s base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
+        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company's base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
         /// <br/>
         /// Where the currency rate is provided by the underlying accounting software, it will be available from Codat with the same precision (up to a maximum of 9 decimal places). <br/>
         /// <br/>
@@ -207,7 +189,6 @@ namespace Codat.Lending.Models.Components
         /// | Integration       | Scenario                                        | System behavior                                                                                                                                                      |<br/>
         /// |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
         /// | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, specify a currencyRate in the request body.  |
-        /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
         public decimal? CurrencyRate { get; set; } = null;
@@ -277,15 +258,12 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Current state of the invoice:<br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// - `Draft` - Invoice hasn&apos;t been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.<br/>
+        /// - `Draft` - Invoice hasn't been submitted to the supplier. It may be in a pending state or is scheduled for future submission, for example by email.<br/>
         /// - `Submitted` - Invoice is no longer a draft. It has been processed and, or, sent to the customer. In this state, it will impact the ledger. It also has no payments made against it, meaning `amountDue` will usually equal `totalAmount` (unless tax is witheld).<br/>
         /// - `PartiallyPaid` - The balance paid against the invoice is positive, but less than the total invoice amount, meaning `0 &lt; amountDue &lt; totalAmount`.<br/>
         /// - `Paid` - Invoice is paid in full. This includes if the invoice has been credited or overpaid, meaning `amountDue == 0`.<br/>
-        /// - `Void` - An invoice can become Void when it&apos;s deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
-        /// </remarks>
+        /// - `Void` - An invoice can become Void when it's deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
         /// </summary>
         [JsonProperty("status")]
         public InvoiceStatus Status { get; set; } = default!;
@@ -301,11 +279,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

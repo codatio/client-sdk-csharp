@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
-    
+
     public class FileUpload
     {
-
         /// <summary>
         /// The file to be uploaded as an attachment.
         /// </summary>

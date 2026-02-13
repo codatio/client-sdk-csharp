@@ -13,25 +13,20 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// A Product is an item in the company&apos;s inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.<br/>
-    /// 
-    /// <remarks>
-    /// 
-    /// </remarks>
+    /// A Product is an item in the company's inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.
     /// </summary>
     public class CommerceProduct
     {
-
         /// <summary>
-        /// A unique, persistent identifier for this record
+        /// A unique, persistent identifier for this record.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Name of the product in the commerce or POS system
+        /// Name of the product in the commerce or POS system.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
@@ -50,11 +45,7 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Whether the product represents a gift card or voucher that<br/>
-        /// 
-        /// <remarks>
-        /// can be redeemed in the commerce or POS platform.<br/>
-        /// 
-        /// </remarks>
+        /// can be redeemed in the commerce or POS platform.
         /// </summary>
         [JsonProperty("isGiftCard")]
         public bool? IsGiftCard { get; set; }
@@ -64,11 +55,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

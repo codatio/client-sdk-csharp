@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Utils;
     using NodaTime;
-    
+
     public class GetAccountingAgedCreditorsReportRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

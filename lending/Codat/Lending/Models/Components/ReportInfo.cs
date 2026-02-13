@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Report additional information, which is specific to Lending reports.
     /// </summary>
     public class ReportInfo
     {
-
         /// <summary>
         /// The number of the page queried.
         /// </summary>

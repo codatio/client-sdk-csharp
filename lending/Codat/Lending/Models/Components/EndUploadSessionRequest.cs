@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class EndUploadSessionRequest
     {
-
         /// <summary>
         /// An indicator to cancel the dataset processing or trigger ingestion and enrichment of data.
         /// </summary>

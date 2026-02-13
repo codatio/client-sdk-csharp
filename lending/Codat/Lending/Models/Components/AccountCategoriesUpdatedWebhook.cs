@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Webhook request body for the &quot;Account categories updated&quot; event.
+    /// Webhook request body for the "Account categories updated" event.
     /// </summary>
     public class AccountCategoriesUpdatedWebhook
     {
-
         /// <summary>
         /// Unique identifier for your client in Codat.
         /// </summary>
@@ -39,7 +38,7 @@ namespace Codat.Lending.Models.Components
         public string? CompanyId { get; set; }
 
         /// <summary>
-        /// Unique identifier for a company&apos;s data connection.
+        /// Unique identifier for a company's data connection.
         /// </summary>
         [JsonProperty("DataConnectionId")]
         public string? DataConnectionId { get; set; }

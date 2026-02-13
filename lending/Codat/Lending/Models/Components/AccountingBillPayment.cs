@@ -13,11 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// &gt; **Bill payments or payments?**  <br/>
-    /// 
-    /// <remarks>
     /// &gt; <br/>
     /// &gt; We distinguish between transactions where the company received money vs. paid money. If the transaction represents a company spending money (accounts payable) we call this a Bill payment.<br/>
     /// &gt;<br/>
@@ -30,7 +28,7 @@ namespace Codat.Lending.Models.Components
     /// A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes, but is not strictly limited to:<br/>
     /// <br/>
     /// - A payment made against a bill — for example, a credit card payment, cheque payment, or cash payment.<br/>
-    /// - An allocation of a supplier&apos;s credit note to a bill or perhaps a refund.<br/>
+    /// - An allocation of a supplier's credit note to a bill or perhaps a refund.<br/>
     /// - A bill payment made directly to an accounts payable account. This could be an overpayment or a prepayment, or a refund of a payment made directly to an accounts payable account.<br/>
     /// <br/>
     /// Depending on the bill payments which are allowed by the underlying accounting software, some of these types may be combined. Please see the example data section for samples of what these cases look like.<br/>
@@ -42,7 +40,7 @@ namespace Codat.Lending.Models.Components
     /// - Who the payment has been paid to, the _supplier_.<br/>
     /// - The types of bill payments, the _line items_.  <br/>
     /// <br/>
-    /// Some accounting software give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online&apos;s _expenses_. You can find these types of transactions in our <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> data model.<br/>
+    /// Some accounting software give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's _expenses_. You can find these types of transactions in our <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> data model.<br/>
     /// <br/>
     /// Bill payments is a child data type of <a href="https://docs.codat.io/lending-api#/schemas/AccountTransaction">account transactions</a>.<br/>
     /// <br/>
@@ -113,7 +111,7 @@ namespace Codat.Lending.Models.Components
     ///   - A **type** indicating the type of `link`, in this case a `CreditNote`.<br/>
     ///   - An **id** containing the ID of the credit note that was refunded.<br/>
     /// <br/>
-    /// The **totalAmount** field on the payment equals the line&apos;s **amount** field. These are both negative, as this is money leaving accounts payable.<br/>
+    /// The **totalAmount** field on the payment equals the line's **amount** field. These are both negative, as this is money leaving accounts payable.<br/>
     /// <br/>
     /// ### Refunding a payment<br/>
     /// <br/>
@@ -164,13 +162,10 @@ namespace Codat.Lending.Models.Components
     /// These two rates allow the calculation of currency loss or gain for any of the transactions affected by the payment lines. The second rate is used when a bill payment is applied to an item in a currency that does not match either:<br/>
     /// <br/>
     /// - The base currency for the accounts payable account. <br/>
-    /// - The currency of the item.<br/>
-    /// 
-    /// </remarks>
+    /// - The currency of the item.
     /// </summary>
     public class AccountingBillPayment
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -193,7 +188,7 @@ namespace Codat.Lending.Models.Components
         public AccountRef? AccountRef { get; set; }
 
         /// <summary>
-        /// Amount of the payment in the payment currency. This value never changes and represents the amount of money that is paid into the supplier&apos;s account.
+        /// Amount of the payment in the payment currency. This value never changes and represents the amount of money that is paid into the supplier's account.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
@@ -203,12 +198,10 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Currency rates in Codat are implemented as the multiple of foreign currency units to each base currency unit.  <br/>
         /// <br/>
-        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company&apos;s base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
+        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company's base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
         /// <br/>
         /// Where the currency rate is provided by the underlying accounting software, it will be available from Codat with the same precision (up to a maximum of 9 decimal places). <br/>
         /// <br/>
@@ -236,7 +229,6 @@ namespace Codat.Lending.Models.Components
         /// | Integration       | Scenario                                        | System behavior                                                                                                                                                      |<br/>
         /// |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
         /// | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, specify a currencyRate in the request body.  |
-        /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
         public decimal? CurrencyRate { get; set; } = null;
@@ -270,11 +262,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

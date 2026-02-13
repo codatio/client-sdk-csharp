@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// An object containing an ordered list of account category levels.
     /// </summary>
     public class AccountCategoryLevel
     {
-
         /// <summary>
         /// Account category name.
         /// </summary>

@@ -12,10 +12,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class BankAccountMappingOption
     {
-
         /// <summary>
         /// Identifier for the account, unique for the company in the accounting software.
         /// </summary>
@@ -30,12 +29,9 @@ namespace Codat.Sync.Payables.Models.Components
 
         /// <summary>
         /// Account number for the bank account.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Xero integrations<br/>
         /// Only a UK account number shows for bank accounts with GBP currency and a combined total of sort code and account number that equals 14 digits, For non-GBP accounts, the full bank account number is populated.
-        /// </remarks>
         /// </summary>
         [JsonProperty("accountNumber")]
         public string? AccountNumber { get; set; } = null;
@@ -48,18 +44,15 @@ namespace Codat.Sync.Payables.Models.Components
 
         /// <summary>
         /// Sort code for the bank account.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Xero integrations<br/>
         /// The sort code is only displayed when the currency = GBP and the sort code and account number sum to 14 digits. For non-GBP accounts, this field is not populated.
-        /// </remarks>
         /// </summary>
         [JsonProperty("sortCode")]
         public string? SortCode { get; set; } = null;
 
         /// <summary>
-        /// The bank account&apos;s base currency.
+        /// The bank account's base currency.
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; } = null;
@@ -72,11 +65,8 @@ namespace Codat.Sync.Payables.Models.Components
 
         /// <summary>
         /// The type of transactions and balances on the account.  <br/>
-        /// 
-        /// <remarks>
         /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>
         /// For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
-        /// </remarks>
         /// </summary>
         [JsonProperty("accountType")]
         public BankAccountType? AccountType { get; set; }

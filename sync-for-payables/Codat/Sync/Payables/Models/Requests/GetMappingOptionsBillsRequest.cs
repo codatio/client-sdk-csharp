@@ -10,10 +10,9 @@
 namespace Codat.Sync.Payables.Models.Requests
 {
     using Codat.Sync.Payables.Utils;
-    
+
     public class GetMappingOptionsBillsRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -33,7 +32,7 @@ namespace Codat.Sync.Payables.Models.Requests
         public string? ContinuationToken { get; set; }
 
         /// <summary>
-        /// Codat query string allows you to filter by `status` (`status=Active||status=Archived`). <a href="https://docs.codat.io/using-the-api/querying">Learn more</a> about Codat&apos;s query string.
+        /// Codat query string allows you to filter by `status` (`status=Active||status=Archived`). <a href="https://docs.codat.io/using-the-api/querying">Learn more</a> about Codat's query string.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=statusQuery")]
         public string? StatusQuery { get; set; }

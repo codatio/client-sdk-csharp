@@ -13,36 +13,57 @@ namespace Codat.Sync.Payables
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Models.Errors;
     using Codat.Sync.Payables.Models.Requests;
-    using Codat.Sync.Payables.Utils.Retries;
     using Codat.Sync.Payables.Utils;
+    using Codat.Sync.Payables.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
-    /// Create and manage your SMB users&apos; companies.
+    /// Create and manage your SMB users' companies.
     /// </summary>
     public interface ICompanies
     {
-
         /// <summary>
-        /// List companies
-        /// 
+        /// List companies.
+        /// </summary>
         /// <remarks>
         /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">companies</a> associated to your instances.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
-        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// <br/>
+        /// ## Filter by tags<br/>
+        /// <br/>
+        /// The *List companies* endpoint supports the filtering of companies using <a href="https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company">tags</a>. It supports the following operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>:<br/>
+        /// <br/>
+        /// - equals (`=`)<br/>
+        /// - not equals (`!=`)<br/>
+        /// - contains (`~`)<br/>
+        /// <br/>
+        /// For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: <br/>
+        /// - Foreign key: `uid = {yourCustomerId}`<br/>
+        /// - Region: `region != uk`<br/>
+        /// - Owning team and region: `region = uk &amp;&amp; owningTeam = invoice-finance`
         /// </remarks>
-        /// </summary>
-        Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListCompaniesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListCompaniesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListCompaniesResponse> ListAsync(
+            ListCompaniesRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Create company
-        /// 
+        /// Create company.
+        /// </summary>
         /// <remarks>
         /// Use the *Create company* endpoint to create a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> that represents your customer in Codat. <br/>
         /// <br/>
@@ -51,85 +72,158 @@ namespace Codat.Sync.Payables
         /// <br/>
         /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
         /// </remarks>
-        /// </summary>
-        Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CompanyRequestBody"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateCompanyResponse> CreateAsync(
+            CompanyRequestBody? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Update company
-        /// 
+        /// Replace company.
+        /// </summary>
         /// <remarks>
-        /// Use the *Update company* endpoint to update both the name and description of the company. <br/>
+        /// Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
         /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
-        /// </summary>
-        Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ReplaceCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ReplaceCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ReplaceCompanyResponse> ReplaceAsync(ReplaceCompanyRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Delete a company
-        /// 
+        /// Update company.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Update company* endpoint to update the name, description, or tags of the company.<br/>
+        /// <br/>
+        /// The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  <br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest request, RetryConfig? retryConfig = null);
+
+        /// <summary>
+        /// Delete a company.
+        /// </summary>
         /// <remarks>
         /// The *Delete company* endpoint permanently deletes a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a>, its <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> and any cached data. This operation is irreversible.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
-        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
-        /// 
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
-        /// </summary>
-        Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DeleteCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Get company
-        /// 
+        /// Get company.
+        /// </summary>
         /// <remarks>
         /// The *Get company* endpoint returns a single company for a given `companyId`.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
-        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
-        /// 
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
-        /// </summary>
-        Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
-    /// Create and manage your SMB users&apos; companies.
+    /// Create and manage your SMB users' companies.
     /// </summary>
     public class Companies: ICompanies
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "10.0.0";
-        private const string _sdkGenVersion = "2.463.0";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 10.0.0 2.463.0 3.0.0 Codat.Sync.Payables";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;
 
-        public Companies(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public Companies(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
 
-        public async Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List companies.
+        /// </summary>
+        /// <remarks>
+        /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">companies</a> associated to your instances.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// <br/>
+        /// ## Filter by tags<br/>
+        /// <br/>
+        /// The *List companies* endpoint supports the filtering of companies using <a href="https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company">tags</a>. It supports the following operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>:<br/>
+        /// <br/>
+        /// - equals (`=`)<br/>
+        /// - not equals (`!=`)<br/>
+        /// - contains (`~`)<br/>
+        /// <br/>
+        /// For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: <br/>
+        /// - Foreign key: `uid = {yourCustomerId}`<br/>
+        /// - Region: `region != uk`<br/>
+        /// - Owning team and region: `region = uk &amp;&amp; owningTeam = invoice-finance`
+        /// </remarks>
+        /// <param name="request">A <see cref="ListCompaniesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListCompaniesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListCompaniesResponse> ListAsync(
+            ListCompaniesRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("list-companies", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "list-companies", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -163,8 +257,8 @@ namespace Codat.Sync.Payables
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -174,7 +268,7 @@ namespace Codat.Sync.Payables
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -204,7 +298,17 @@ namespace Codat.Sync.Payables
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Models.Components.Companies>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Models.Components.Companies obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Models.Components.Companies>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Components.Companies.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new ListCompaniesResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -215,34 +319,89 @@ namespace Codat.Sync.Payables
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create company.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Create company* endpoint to create a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> that represents your customer in Codat. <br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// <br/>
+        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
+        /// </remarks>
+        /// <param name="request">A <see cref="CompanyRequestBody"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateCompanyResponse> CreateAsync(
+            CompanyRequestBody? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/companies";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
             if (serializedBody != null)
@@ -250,12 +409,12 @@ namespace Codat.Sync.Payables
                 httpRequest.Content = serializedBody;
             }
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("create-company", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "create-company", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -289,8 +448,8 @@ namespace Codat.Sync.Payables
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -300,7 +459,7 @@ namespace Codat.Sync.Payables
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -330,7 +489,17 @@ namespace Codat.Sync.Payables
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Company>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Company obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Company>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Company.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new CreateCompanyResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -341,33 +510,90 @@ namespace Codat.Sync.Payables
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 402, 403, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Include);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Replace company.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// </remarks>
+        /// <param name="request">A <see cref="ReplaceCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ReplaceCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ReplaceCompanyResponse> ReplaceAsync(
+            ReplaceCompanyRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
             var serializedBody = RequestBodySerializer.Serialize(request, "CompanyRequestBody", "json", false, true);
             if (serializedBody != null)
@@ -375,12 +601,12 @@ namespace Codat.Sync.Payables
                 httpRequest.Content = serializedBody;
             }
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("update-company", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "replace-company", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -414,8 +640,8 @@ namespace Codat.Sync.Payables
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -425,7 +651,7 @@ namespace Codat.Sync.Payables
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -455,8 +681,18 @@ namespace Codat.Sync.Payables
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Company>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new UpdateCompanyResponse()
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Company obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Company>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Company.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    var response = new ReplaceCompanyResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,
@@ -466,40 +702,104 @@ namespace Codat.Sync.Payables
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Update company.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Update company* endpoint to update the name, description, or tags of the company.<br/>
+        /// <br/>
+        /// The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  <br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateCompanyResponse> UpdateAsync(
+            UpdateCompanyRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}", request, null);
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Patch, urlString);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
-            if (_securitySource != null)
+            var serializedBody = RequestBodySerializer.Serialize(request, "CompanyUpdateRequest", "json", false, true);
+            if (serializedBody != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest.Content = serializedBody;
             }
 
-            var hookCtx = new HookContext("delete-company", null, _securitySource);
+            if (SDKConfiguration.SecuritySource != null)
+            {
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "update-company", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -533,8 +833,8 @@ namespace Codat.Sync.Payables
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -544,7 +844,193 @@ namespace Codat.Sync.Payables
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Company obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Company>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Company.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    var response = new UpdateCompanyResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
+                    response.Company = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(new List<int>{401, 402, 403, 404, 429}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+        }
+
+
+        /// <summary>
+        /// Delete a company.
+        /// </summary>
+        /// <remarks>
+        /// The *Delete company* endpoint permanently deletes a <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a>, its <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> and any cached data. This operation is irreversible.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteCompanyResponse> DeleteAsync(
+            DeleteCompanyRequest request,
+            RetryConfig? retryConfig = null
+        )
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}", request, null);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, urlString);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (SDKConfiguration.SecuritySource != null)
+            {
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "delete-company", null, SDKConfiguration.SecuritySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 500L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string>
+            {
+                "408",
+                "429",
+                "5XX",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await retries.Run();
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -571,7 +1057,7 @@ namespace Codat.Sync.Payables
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
             if(responseStatusCode == 204)
-            {                
+            {
                 return new DeleteCompanyResponse()
                 {
                     StatusCode = responseStatusCode,
@@ -579,38 +1065,92 @@ namespace Codat.Sync.Payables
                     RawResponse = httpResponse
                 };
             }
-            else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get company.
+        /// </summary>
+        /// <remarks>
+        /// The *Get company* endpoint returns a single company for a given `companyId`.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null)
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("get-company", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "get-company", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -644,8 +1184,8 @@ namespace Codat.Sync.Payables
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -655,7 +1195,7 @@ namespace Codat.Sync.Payables
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -685,7 +1225,17 @@ namespace Codat.Sync.Payables
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Company>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Company obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Company>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Company.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new GetCompanyResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -696,24 +1246,59 @@ namespace Codat.Sync.Payables
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

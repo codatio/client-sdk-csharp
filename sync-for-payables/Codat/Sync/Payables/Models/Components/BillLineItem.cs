@@ -12,10 +12,10 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+    using System.Collections.Generic;
+
     public class BillLineItem
     {
-
         /// <summary>
         /// Friendly name of the goods or services received.
         /// </summary>
@@ -26,13 +26,13 @@ namespace Codat.Sync.Payables.Models.Components
         /// Unit price of the goods or service.
         /// </summary>
         [JsonProperty("unitAmount")]
-        public decimal UnitAmount { get; set; } = default!;
+        public decimal? UnitAmount { get; set; }
 
         /// <summary>
         /// Number of units of goods or services received.
         /// </summary>
         [JsonProperty("quantity")]
-        public decimal Quantity { get; set; } = default!;
+        public decimal? Quantity { get; set; }
 
         /// <summary>
         /// Amount of tax applied to the line item.
@@ -44,7 +44,7 @@ namespace Codat.Sync.Payables.Models.Components
         /// Reference to the account to which the line item is linked.
         /// </summary>
         [JsonProperty("accountRef")]
-        public BillAccountRef AccountRef { get; set; } = default!;
+        public BillAccountRef? AccountRef { get; set; }
 
         /// <summary>
         /// Total amount of the line, including tax.
@@ -57,5 +57,8 @@ namespace Codat.Sync.Payables.Models.Components
         /// </summary>
         [JsonProperty("taxRateRef")]
         public BillTaxRateRef? TaxRateRef { get; set; }
+
+        [JsonProperty("trackingRefs")]
+        public List<TrackingRef>? TrackingRefs { get; set; } = null;
     }
 }

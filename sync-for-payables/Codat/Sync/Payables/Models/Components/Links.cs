@@ -12,10 +12,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class Links
     {
-
         [JsonProperty("self")]
         public HalRef Self { get; set; } = default!;
 

@@ -1,16 +1,15 @@
 <!-- Start SDK Example Usage [usage] -->
 ```csharp
 using Codat.Sync.Payables;
-using Codat.Sync.Payables.Models.Requests;
 using Codat.Sync.Payables.Models.Components;
+using Codat.Sync.Payables.Models.Requests;
 
 var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListCompaniesRequest req = new ListCompaniesRequest() {
-    Page = 1,
-    PageSize = 100,
     Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
 };
 
 var res = await sdk.Companies.ListAsync(req);

@@ -12,10 +12,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class AccountMappingOption
     {
-
         /// <summary>
         /// Identifier for the account, unique for the company.
         /// </summary>
@@ -23,7 +22,7 @@ namespace Codat.Sync.Payables.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn&apos;t a unique identifier in the Codat system.
+        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn't a unique identifier in the Codat system.
         /// </summary>
         [JsonProperty("nominalCode")]
         public string? NominalCode { get; set; } = null;
@@ -42,15 +41,12 @@ namespace Codat.Sync.Payables.Models.Components
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }

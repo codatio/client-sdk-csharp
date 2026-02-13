@@ -11,13 +11,12 @@ namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Gets the latest basic info for a company.
     /// </summary>
     public class CompanyInformation
     {
-
         /// <summary>
         /// Name of the linked company.
         /// </summary>

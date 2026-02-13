@@ -1,4 +1,4 @@
-# ClientRateLimitResetResponse1
+# UpdateBillResponse
 
 
 ## Fields
@@ -8,3 +8,4 @@
 | `ContentType`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | HTTP response content type for this operation                                                                        |
 | `StatusCode`                                                                                                         | *int*                                                                                                                | :heavy_check_mark:                                                                                                   | HTTP response status code for this operation                                                                         |
 | `RawResponse`                                                                                                        | [HttpResponseMessage](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpresponsemessage?view=net-5.0) | :heavy_check_mark:                                                                                                   | Raw HTTP response; suitable for custom response parsing                                                              |
+| `Bill`                                                                                                               | [Bill](../../Models/Components/Bill.md)                                                                              | :heavy_minus_sign:                                                                                                   | Success                                                                                                              |

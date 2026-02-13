@@ -13,10 +13,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class SupplierPrototype
     {
-
         /// <summary>
         /// Name of the supplier as recorded in the accounting system, typically the company name.
         /// </summary>
@@ -60,7 +59,7 @@ namespace Codat.Sync.Payables.Models.Components
         public decimal? Balance { get; set; } = null;
 
         /// <summary>
-        /// Default currency the supplier&apos;s transactional data is recorded in.
+        /// Default currency the supplier's transactional data is recorded in.
         /// </summary>
         [JsonProperty("defaultCurrency")]
         public string? DefaultCurrency { get; set; } = null;

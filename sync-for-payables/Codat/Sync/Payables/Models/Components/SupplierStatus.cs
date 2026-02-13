@@ -12,7 +12,7 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Status of the supplier.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Codat.Sync.Payables.Models.Components
             throw new Exception($"Unknown value {value} for enum SupplierStatus");
         }
     }
-
 }

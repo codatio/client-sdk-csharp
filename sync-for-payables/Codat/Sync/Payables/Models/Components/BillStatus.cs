@@ -12,7 +12,7 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Current state of the bill. If creating a bill the status must be `Open`.
     /// </summary>
@@ -64,5 +64,4 @@ namespace Codat.Sync.Payables.Models.Components
             throw new Exception($"Unknown value {value} for enum BillStatus");
         }
     }
-
 }

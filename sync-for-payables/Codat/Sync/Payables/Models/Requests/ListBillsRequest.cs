@@ -10,10 +10,9 @@
 namespace Codat.Sync.Payables.Models.Requests
 {
     using Codat.Sync.Payables.Utils;
-    
+
     public class ListBillsRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -33,7 +32,7 @@ namespace Codat.Sync.Payables.Models.Requests
         public string? ContinuationToken { get; set; }
 
         /// <summary>
-        /// Codat query string allows you to filter by `status` and `sourceModifiedDate`. Learn more about Codat&apos;s query string <a href="https://docs.codat.io/using-the-api/querying">here</a>. Platfrom specfic statuses: Xero supports  Open | PartiallyPaid | Paid | Void | Draft. Qbo supports Open | PartiallyPaid | Paid. FreeAgent supports Open | PartiallyPaid | Paid.
+        /// Codat query string allows you to filter by `status` and `sourceModifiedDate`. Learn more about Codat's query string <a href="https://docs.codat.io/using-the-api/querying">here</a>. Platfrom specfic statuses: Xero supports  Open | PartiallyPaid | Paid | Void | Draft. Qbo supports Open | PartiallyPaid | Paid. FreeAgent supports Open | PartiallyPaid | Paid.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=query")]
         public string? Query { get; set; }

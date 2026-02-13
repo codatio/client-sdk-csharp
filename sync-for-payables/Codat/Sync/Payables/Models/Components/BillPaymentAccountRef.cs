@@ -11,15 +11,14 @@ namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference to the bank account / credit card which you are using to pay the bill.
     /// </summary>
     public class BillPaymentAccountRef
     {
-
         /// <summary>
-        /// Unique ID of the bank account / credit card
+        /// Unique ID of the bank account / credit card.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

@@ -13,20 +13,16 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// In Codat, a company represents a business sharing access to their data. Each company can have multiple <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Connection">connections</a> to different data sources such as one connection to <a href="https://docs.codat.io/integrations/accounting/xero/accounting-xero">Xero</a> for accounting data, two connections to <a href="https://docs.codat.io/integrations/banking/plaid/banking-plaid">Plaid</a> for two bank accounts and a connection to <a href="https://docs.codat.io/integrations/commerce/zettle/commerce-zettle">Zettle</a> for POS data.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Typically each company is one of your customers.<br/>
     /// <br/>
     /// When you create a company, you can specify a `name` and we will automatically generate a unique `id` for the company. You can also add a `description` to store any additional information about the company.
-    /// </remarks>
     /// </summary>
     public class Company
     {
-
         /// <summary>
         /// Unique identifier for your SMB in Codat.
         /// </summary>
@@ -34,7 +30,7 @@ namespace Codat.Sync.Payables.Models.Components
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The name of the company
+        /// The name of the company.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
@@ -52,9 +48,7 @@ namespace Codat.Sync.Payables.Models.Components
         public string Redirect { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -73,15 +67,12 @@ namespace Codat.Sync.Payables.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("lastSync")]
         public string? LastSync { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -100,7 +91,6 @@ namespace Codat.Sync.Payables.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("created")]
         public string? Created { get; set; }

@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class ProductInventoryLocation
     {
-
         /// <summary>
         /// The quantity of stock remaining at location.
         /// </summary>

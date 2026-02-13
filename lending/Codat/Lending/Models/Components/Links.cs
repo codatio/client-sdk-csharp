@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class Links
     {
-
         [JsonProperty("self")]
         public HalRef Self { get; set; } = default!;
 

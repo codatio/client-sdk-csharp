@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference that links the line item to the specific version of product that has been ordered.
     /// </summary>
     public class ProductVariantRef
     {
-
         /// <summary>
         /// The unique identifier of the product variant being referenced.
         /// </summary>

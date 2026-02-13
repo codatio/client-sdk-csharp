@@ -12,9 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The status of the transfer in the account
+    /// The status of the transfer in the account.
     /// </summary>
     public enum AccountingCreateTransferResponseStatus
     {
@@ -60,5 +60,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum AccountingCreateTransferResponseStatus");
         }
     }
-
 }

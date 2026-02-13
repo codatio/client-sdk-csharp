@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class DataIntegrityByCount
     {
-
         /// <summary>
         /// The percentage of records of the type specified in the route which have a match.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Codat.Lending.Models.Components
         public decimal? MatchPercentage { get; set; }
 
         /// <summary>
-        /// The number of records of the type specified in the route which don&apos;t have a match.
+        /// The number of records of the type specified in the route which don't have a match.
         /// </summary>
         [JsonProperty("unmatched")]
         public decimal? Unmatched { get; set; }

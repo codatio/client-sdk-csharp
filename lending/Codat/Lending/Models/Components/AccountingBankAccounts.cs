@@ -13,10 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class AccountingBankAccounts
     {
-
         [JsonProperty("results")]
         public List<AccountingBankAccount?>? Results { get; set; }
 

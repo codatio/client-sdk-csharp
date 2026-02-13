@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The enhanced invoices report takes the key elements of the Invoices report verifying those marked as paid in the accounting software have actually been paid by matching with the bank statement.
     /// </summary>
     public class EnhancedInvoicesReport
     {
-
         /// <summary>
         /// Report additional information, which is specific to Lending reports.
         /// </summary>

@@ -10,10 +10,9 @@
 namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Utils;
-    
+
     public class ListAccountingDirectIncomeAttachmentsRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

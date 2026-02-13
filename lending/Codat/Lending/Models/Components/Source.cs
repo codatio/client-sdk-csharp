@@ -12,9 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The source of the banking data that determines its format
+    /// The source of the banking data that determines its format.
     /// </summary>
     public enum Source
     {
@@ -54,5 +54,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum Source");
         }
     }
-
 }

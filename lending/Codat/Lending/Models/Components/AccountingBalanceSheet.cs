@@ -13,13 +13,11 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// ## Overview<br/>
-    /// 
-    /// <remarks>
     /// <br/>
-    /// The balance sheet is a snapshot of a company&apos;s accounts at a single point in time that provides a statement of the assets, liabilities and equity of an organization. It gives interested parties an idea of the company&apos;s financial position, in addition to displaying what the company owns and owes.<br/>
+    /// The balance sheet is a snapshot of a company's accounts at a single point in time that provides a statement of the assets, liabilities and equity of an organization. It gives interested parties an idea of the company's financial position, in addition to displaying what the company owns and owes.<br/>
     /// <br/>
     /// &gt; **Balance sheet or profit and loss report?**<br/>
     /// &gt;<br/>
@@ -33,22 +31,17 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// **Want to pull this in a standardised structure?**<br/>
     /// Our <a href="https://docs.codat.io/lending/features/financial-statements-overview">Enhanced Financials</a> endpoints provide the same report under standardized headings, allowing you to pull it in the same format for all of your business customers.
-    /// </remarks>
     /// </summary>
     public class AccountingBalanceSheet
     {
-
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
@@ -60,9 +53,7 @@ namespace Codat.Lending.Models.Components
         public List<Models.Components.BalanceSheet> Reports { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -81,15 +72,12 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("mostRecentAvailableMonth")]
         public string? MostRecentAvailableMonth { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -108,7 +96,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("earliestAvailableMonth")]
         public string? EarliestAvailableMonth { get; set; }

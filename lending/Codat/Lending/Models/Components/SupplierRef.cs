@@ -11,21 +11,20 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference to the supplier the record relates to.
     /// </summary>
     public class SupplierRef
     {
-
         /// <summary>
-        /// The supplier&apos;s unique ID
+        /// The supplier's unique ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The supplier&apos;s name
+        /// The supplier's name.
         /// </summary>
         [JsonProperty("supplierName")]
         public string? SupplierName { get; set; } = null;

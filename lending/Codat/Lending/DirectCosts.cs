@@ -24,86 +24,151 @@ namespace Codat.Lending
 
     public interface IDirectCosts
     {
-
         /// <summary>
-        /// List direct costs
-        /// 
-        /// <remarks>
-        /// The *List direct costs* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">direct costs</a> for a given company&apos;s connection.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don&apos;t impact Accounts Payable.<br/>
-        /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        ///     
-        /// </remarks>
+        /// List direct costs.
         /// </summary>
-        Task<ListAccountingDirectCostsResponse> ListAsync(ListAccountingDirectCostsRequest request, RetryConfig? retryConfig = null);
+        /// <remarks>
+        /// The *List direct costs* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">direct costs</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingDirectCostsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectCostsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingDirectCostsResponse> ListAsync(
+            ListAccountingDirectCostsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get direct cost
-        /// 
+        /// Get direct cost.
+        /// </summary>
         /// <remarks>
         /// The *Get direct cost* endpoint returns a single direct cost for a given directCostId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don&apos;t impact Accounts Payable.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.<br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        /// 
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingDirectCostResponse> GetAsync(GetAccountingDirectCostRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingDirectCostRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectCostResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingDirectCostResponse> GetAsync(
+            GetAccountingDirectCostRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get direct cost attachment
-        /// 
+        /// Get direct cost attachment.
+        /// </summary>
         /// <remarks>
         /// The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don&apos;t impact Accounts Payable.
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingDirectCostAttachmentResponse> GetAttachmentAsync(GetAccountingDirectCostAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingDirectCostAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectCostAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingDirectCostAttachmentResponse> GetAttachmentAsync(
+            GetAccountingDirectCostAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Download direct cost attachment
-        /// 
+        /// Download direct cost attachment.
+        /// </summary>
         /// <remarks>
         /// The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don&apos;t impact Accounts Payable.<br/>
-        /// 
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.
         /// </remarks>
-        /// </summary>
-        Task<DownloadAccountingDirectCostAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectCostAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DownloadAccountingDirectCostAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingDirectCostAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DownloadAccountingDirectCostAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingDirectCostAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List direct cost attachments
-        /// 
+        /// List direct cost attachments.
+        /// </summary>
         /// <remarks>
         /// The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don&apos;t impact Accounts Payable.<br/>
-        /// 
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.
         /// </remarks>
-        /// </summary>
-        Task<ListAccountingDirectCostAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectCostAttachmentsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListAccountingDirectCostAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectCostAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingDirectCostAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingDirectCostAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class DirectCosts: IDirectCosts
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public DirectCosts(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListAccountingDirectCostsResponse> ListAsync(ListAccountingDirectCostsRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List direct costs.
+        /// </summary>
+        /// <remarks>
+        /// The *List direct costs* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">direct costs</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingDirectCostsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectCostsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingDirectCostsResponse> ListAsync(
+            ListAccountingDirectCostsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -163,7 +228,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -268,7 +333,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingDirectCostResponse> GetAsync(GetAccountingDirectCostRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get direct cost.
+        /// </summary>
+        /// <remarks>
+        /// The *Get direct cost* endpoint returns a single direct cost for a given directCostId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingDirectCostRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectCostResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingDirectCostResponse> GetAsync(
+            GetAccountingDirectCostRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -328,7 +415,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -433,7 +520,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingDirectCostAttachmentResponse> GetAttachmentAsync(GetAccountingDirectCostAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get direct cost attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingDirectCostAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectCostAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingDirectCostAttachmentResponse> GetAttachmentAsync(
+            GetAccountingDirectCostAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -493,7 +600,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -598,7 +705,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DownloadAccountingDirectCostAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectCostAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Download direct cost attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.
+        /// </remarks>
+        /// <param name="request">A <see cref="DownloadAccountingDirectCostAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingDirectCostAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DownloadAccountingDirectCostAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingDirectCostAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -658,7 +785,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -752,7 +879,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAccountingDirectCostAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectCostAttachmentsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List direct cost attachments.
+        /// </summary>
+        /// <remarks>
+        /// The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectCost">Direct costs</a> are business expenses that don't impact Accounts Payable.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingDirectCostAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectCostAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingDirectCostAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingDirectCostAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -812,7 +959,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -916,5 +1063,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

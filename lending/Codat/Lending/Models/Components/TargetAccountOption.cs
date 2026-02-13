@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class TargetAccountOption
     {
-
         /// <summary>
         /// Id of the target account.
         /// </summary>

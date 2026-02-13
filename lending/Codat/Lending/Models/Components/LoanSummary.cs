@@ -13,15 +13,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class LoanSummary
     {
-
         [JsonProperty("reportInfo")]
         public LoanSummaryReportInfo? ReportInfo { get; set; }
 
         /// <summary>
-        /// Returns a summary of all loan activity for that integration type
+        /// Returns a summary of all loan activity for that integration type.
         /// </summary>
         [JsonProperty("reportItems")]
         public List<LoanSummaryReportItem>? ReportItems { get; set; }

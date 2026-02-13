@@ -24,43 +24,80 @@ namespace Codat.Lending
 
     public interface IBalanceSheet
     {
-
         /// <summary>
-        /// Get categorized balance sheet statement
-        /// 
+        /// Get categorized balance sheet statement.
+        /// </summary>
         /// <remarks>
         /// The *Get categorized balance sheet statement* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.<br/>
         /// <br/>
         /// Codat suggests a category for each account automatically, but you can <a href="https://docs.codat.io/lending/features/financial-statements-overview#recategorizing-accounts">change it</a> to a more suitable one.
         /// </remarks>
-        /// </summary>
-        Task<GetCategorizedBalanceSheetStatementResponse> GetCategorizedAccountsAsync(GetCategorizedBalanceSheetStatementRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCategorizedBalanceSheetStatementRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCategorizedBalanceSheetStatementResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCategorizedBalanceSheetStatementResponse> GetCategorizedAccountsAsync(
+            GetCategorizedBalanceSheetStatementRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get balance sheet
-        /// 
+        /// Get balance sheet.
+        /// </summary>
         /// <remarks>
         /// Gets the latest balance sheet for a company.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingBalanceSheetResponse> GetAsync(GetAccountingBalanceSheetRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingBalanceSheetRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingBalanceSheetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingBalanceSheetResponse> GetAsync(
+            GetAccountingBalanceSheetRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class BalanceSheet: IBalanceSheet
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public BalanceSheet(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetCategorizedBalanceSheetStatementResponse> GetCategorizedAccountsAsync(GetCategorizedBalanceSheetStatementRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get categorized balance sheet statement.
+        /// </summary>
+        /// <remarks>
+        /// The *Get categorized balance sheet statement* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.<br/>
+        /// <br/>
+        /// Codat suggests a category for each account automatically, but you can <a href="https://docs.codat.io/lending/features/financial-statements-overview#recategorizing-accounts">change it</a> to a more suitable one.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCategorizedBalanceSheetStatementRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCategorizedBalanceSheetStatementResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCategorizedBalanceSheetStatementResponse> GetCategorizedAccountsAsync(
+            GetCategorizedBalanceSheetStatementRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -120,7 +157,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -225,7 +262,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingBalanceSheetResponse> GetAsync(GetAccountingBalanceSheetRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get balance sheet.
+        /// </summary>
+        /// <remarks>
+        /// Gets the latest balance sheet for a company.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingBalanceSheetRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingBalanceSheetResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingBalanceSheetResponse> GetAsync(
+            GetAccountingBalanceSheetRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -285,7 +340,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -389,5 +444,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

@@ -17,22 +17,44 @@ namespace Codat.Lending
     public interface IAccountsPayable
     {
         public IBillCreditNotes BillCreditNotes { get; }
+
         public IBillPayments BillPayments { get; }
+
         public IBills Bills { get; }
+
         public ISuppliers Suppliers { get; }
     }
 
     public class AccountsPayable: IAccountsPayable
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// BillCreditNotes SubSDK.
+        /// <see cref="IBillCreditNotes"/>
+        /// </summary>
         public IBillCreditNotes BillCreditNotes { get; private set; }
+
+        /// <summary>
+        /// BillPayments SubSDK.
+        /// <see cref="IBillPayments"/>
+        /// </summary>
         public IBillPayments BillPayments { get; private set; }
+
+        /// <summary>
+        /// Bills SubSDK.
+        /// <see cref="IBills"/>
+        /// </summary>
         public IBills Bills { get; private set; }
+
+        /// <summary>
+        /// Suppliers SubSDK.
+        /// <see cref="ISuppliers"/>
+        /// </summary>
         public ISuppliers Suppliers { get; private set; }
 
         public AccountsPayable(SDKConfig config)

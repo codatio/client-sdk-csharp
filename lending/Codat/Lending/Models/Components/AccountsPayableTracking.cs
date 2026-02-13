@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Categories, and a project and customer, against which the item is tracked.
     /// </summary>
     public class AccountsPayableTracking
     {
-
         [JsonProperty("categoryRefs")]
         public List<TrackingCategoryRef> CategoryRefs { get; set; } = default!;
 

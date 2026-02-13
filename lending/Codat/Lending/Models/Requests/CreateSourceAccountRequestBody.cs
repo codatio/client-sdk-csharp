@@ -52,7 +52,6 @@ namespace Codat.Lending.Models.Requests
         }
     }
 
-
     [JsonConverter(typeof(CreateSourceAccountRequestBody.CreateSourceAccountRequestBodyConverter))]
     public class CreateSourceAccountRequestBody
     {

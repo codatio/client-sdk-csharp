@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
+    /// List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.).
     /// </summary>
     public class JournalLineTracking
     {
-
         [JsonProperty("recordRefs")]
         public List<TrackingRecordRef>? RecordRefs { get; set; } = null;
     }

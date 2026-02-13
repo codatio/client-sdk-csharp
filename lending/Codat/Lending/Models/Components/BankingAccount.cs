@@ -12,18 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// This data type provides a list of all the SMB&apos;s bank accounts, with rich data like balances, account numbers, and institutions holding the accounts.<br/>
-    /// 
-    /// <remarks>
+    /// This data type provides a list of all the SMB's bank accounts, with rich data like balances, account numbers, and institutions holding the accounts.<br/>
     /// <br/>
     /// Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
-    /// </remarks>
     /// </summary>
     public class BankingAccount
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -56,11 +52,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The type of transactions and balances on the account.  <br/>
-        /// 
-        /// <remarks>
         /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>
         /// For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
-        /// </remarks>
         /// </summary>
         [JsonProperty("type")]
         public AccountingBankAccountType Type { get; set; } = default!;

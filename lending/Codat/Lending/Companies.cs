@@ -23,14 +23,13 @@ namespace Codat.Lending
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Create and manage your SMB users&apos; companies.
+    /// Create and manage your SMB users' companies.
     /// </summary>
     public interface ICompanies
     {
-
         /// <summary>
-        /// List companies
-        /// 
+        /// List companies.
+        /// </summary>
         /// <remarks>
         /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Company">companies</a> associated to your instances.<br/>
         /// <br/>
@@ -50,12 +49,21 @@ namespace Codat.Lending
         /// - Region: `region != uk`<br/>
         /// - Owning team and region: `region = uk &amp;&amp; owningTeam = invoice-finance`
         /// </remarks>
-        /// </summary>
-        Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListCompaniesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListCompaniesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListCompaniesResponse> ListAsync(
+            ListCompaniesRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Create company
-        /// 
+        /// Create company.
+        /// </summary>
         /// <remarks>
         /// Use the *Create company* endpoint to create a new <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> that represents your customer in Codat. <br/>
         /// <br/>
@@ -64,79 +72,145 @@ namespace Codat.Lending
         /// <br/>
         /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
         /// </remarks>
-        /// </summary>
-        Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CompanyRequestBody"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateCompanyResponse> CreateAsync(
+            CompanyRequestBody? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Replace company
-        /// 
+        /// Replace company.
+        /// </summary>
         /// <remarks>
-        /// Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven&apos;t been defined in the payload.<br/>
+        /// Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
         /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
-        /// </summary>
-        Task<ReplaceCompanyResponse> ReplaceAsync(ReplaceCompanyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ReplaceCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ReplaceCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ReplaceCompanyResponse> ReplaceAsync(ReplaceCompanyRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Update company
-        /// 
+        /// Update company.
+        /// </summary>
         /// <remarks>
         /// Use the *Update company* endpoint to update the name, description, or tags of the company.<br/>
         /// <br/>
-        /// The *Update company* endpoint doesn&apos;t have any required fields. If any of the fields provided are `null` or not provided, they won&apos;t be included in the update.  <br/>
+        /// The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  <br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.
         /// </remarks>
-        /// </summary>
-        Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="UpdateCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Delete a company
-        /// 
+        /// Delete a company.
+        /// </summary>
         /// <remarks>
         /// The *Delete company* endpoint permanently deletes a <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a>, its <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> and any cached data. This operation is irreversible.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
-        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
-        /// 
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
-        /// </summary>
-        Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DeleteCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Get company
-        /// 
+        /// Get company.
+        /// </summary>
         /// <remarks>
         /// The *Get company* endpoint returns a single company for a given `companyId`.<br/>
         /// <br/>
         /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
-        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
-        /// 
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
         /// </remarks>
-        /// </summary>
-        Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
-    /// Create and manage your SMB users&apos; companies.
+    /// Create and manage your SMB users' companies.
     /// </summary>
     public class Companies: ICompanies
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Companies(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListCompaniesResponse> ListAsync(ListCompaniesRequest? request = null, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List companies.
+        /// </summary>
+        /// <remarks>
+        /// The *List companies* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Company">companies</a> associated to your instances.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// <br/>
+        /// ## Filter by tags<br/>
+        /// <br/>
+        /// The *List companies* endpoint supports the filtering of companies using <a href="https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company">tags</a>. It supports the following operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>:<br/>
+        /// <br/>
+        /// - equals (`=`)<br/>
+        /// - not equals (`!=`)<br/>
+        /// - contains (`~`)<br/>
+        /// <br/>
+        /// For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: <br/>
+        /// - Foreign key: `uid = {yourCustomerId}`<br/>
+        /// - Region: `region != uk`<br/>
+        /// - Owning team and region: `region = uk &amp;&amp; owningTeam = invoice-finance`
+        /// </remarks>
+        /// <param name="request">A <see cref="ListCompaniesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListCompaniesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListCompaniesResponse> ListAsync(
+            ListCompaniesRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/companies", request, null);
@@ -194,7 +268,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -299,10 +373,31 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateCompanyResponse> CreateAsync(CompanyRequestBody? request = null, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create company.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Create company* endpoint to create a new <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> that represents your customer in Codat. <br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.<br/>
+        /// <br/>
+        /// If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
+        /// </remarks>
+        /// <param name="request">A <see cref="CompanyRequestBody"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateCompanyResponse> CreateAsync(
+            CompanyRequestBody? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-
             var urlString = baseUrl + "/companies";
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -364,7 +459,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -469,7 +564,28 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ReplaceCompanyResponse> ReplaceAsync(ReplaceCompanyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Replace company.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// </remarks>
+        /// <param name="request">A <see cref="ReplaceCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ReplaceCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ReplaceCompanyResponse> ReplaceAsync(
+            ReplaceCompanyRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -535,7 +651,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -640,7 +756,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UpdateCompanyResponse> UpdateAsync(UpdateCompanyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Update company.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Update company* endpoint to update the name, description, or tags of the company.<br/>
+        /// <br/>
+        /// The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  <br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateCompanyResponse> UpdateAsync(
+            UpdateCompanyRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -706,7 +844,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -811,7 +949,28 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DeleteCompanyResponse> DeleteAsync(DeleteCompanyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Delete a company.
+        /// </summary>
+        /// <remarks>
+        /// The *Delete company* endpoint permanently deletes a <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a>, its <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> and any cached data. This operation is irreversible.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// </remarks>
+        /// <param name="request">A <see cref="DeleteCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DeleteCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DeleteCompanyResponse> DeleteAsync(
+            DeleteCompanyRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -871,7 +1030,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -958,7 +1117,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get company.
+        /// </summary>
+        /// <remarks>
+        /// The *Get company* endpoint returns a single company for a given `companyId`.<br/>
+        /// <br/>
+        /// A <a href="https://docs.codat.io/lending-api#/schemas/Company">company</a> represents a business sharing access to their data.<br/>
+        /// Each company can have multiple <a href="https://docs.codat.io/lending-api#/schemas/Connection">connections</a> to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCompanyRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCompanyResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCompanyResponse> GetAsync(GetCompanyRequest request, RetryConfig? retryConfig = null)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1018,7 +1195,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -1122,5 +1299,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

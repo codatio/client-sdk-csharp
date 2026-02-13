@@ -12,13 +12,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Weblink associated with the company.
     /// </summary>
     public class WebLink
     {
-
         /// <summary>
         /// The type of the weblink.
         /// </summary>

@@ -12,14 +12,13 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// References a category against which the item is tracked.
     /// </summary>
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public class TrackingCategoryRef
     {
-
         /// <summary>
         /// Unique identifier to the tracking category.
         /// </summary>

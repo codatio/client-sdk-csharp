@@ -24,85 +24,151 @@ namespace Codat.Lending
 
     public interface ICustomers
     {
-
         /// <summary>
-        /// List customers
-        /// 
+        /// List customers.
+        /// </summary>
         /// <remarks>
-        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Customer">customers</a> for a given company&apos;s connection.<br/>
+        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Customer">customers</a> for a given company's connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        ///     
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
         /// </remarks>
-        /// </summary>
-        Task<ListAccountingCustomersResponse> ListAsync(ListAccountingCustomersRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListAccountingCustomersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingCustomersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingCustomersResponse> ListAsync(
+            ListAccountingCustomersRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get customer
-        /// 
+        /// Get customer.
+        /// </summary>
         /// <remarks>
         /// The *Get customer* endpoint returns a single customer for a given customerId.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        /// 
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingCustomerResponse> GetAsync(GetAccountingCustomerRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingCustomerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingCustomerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingCustomerResponse> GetAsync(
+            GetAccountingCustomerRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List customer attachments
-        /// 
+        /// List customer attachments.
+        /// </summary>
         /// <remarks>
         /// The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.
         /// </remarks>
-        /// </summary>
-        Task<ListAccountingCustomerAttachmentsResponse> ListAttachmentsAsync(ListAccountingCustomerAttachmentsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListAccountingCustomerAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingCustomerAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingCustomerAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingCustomerAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get customer attachment
-        /// 
+        /// Get customer attachment.
+        /// </summary>
         /// <remarks>
         /// The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
-        /// 
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingCustomerAttachmentResponse> GetAttachmentAsync(GetAccountingCustomerAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingCustomerAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingCustomerAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingCustomerAttachmentResponse> GetAttachmentAsync(
+            GetAccountingCustomerAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Download customer attachment
-        /// 
+        /// Download customer attachment.
+        /// </summary>
         /// <remarks>
         /// The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.
         /// </remarks>
-        /// </summary>
-        Task<DownloadAccountingCustomerAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingCustomerAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DownloadAccountingCustomerAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingCustomerAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DownloadAccountingCustomerAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingCustomerAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class Customers: ICustomers
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Customers(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListAccountingCustomersResponse> ListAsync(ListAccountingCustomersRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List customers.
+        /// </summary>
+        /// <remarks>
+        /// The *List customers* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/Customer">customers</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingCustomersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingCustomersResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingCustomersResponse> ListAsync(
+            ListAccountingCustomersRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -162,7 +228,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -267,7 +333,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingCustomerResponse> GetAsync(GetAccountingCustomerRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get customer.
+        /// </summary>
+        /// <remarks>
+        /// The *Get customer* endpoint returns a single customer for a given customerId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingCustomerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingCustomerResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingCustomerResponse> GetAsync(
+            GetAccountingCustomerRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -327,7 +415,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -432,7 +520,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAccountingCustomerAttachmentsResponse> ListAttachmentsAsync(ListAccountingCustomerAttachmentsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List customer attachments.
+        /// </summary>
+        /// <remarks>
+        /// The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingCustomerAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingCustomerAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingCustomerAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingCustomerAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -492,7 +600,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -597,7 +705,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingCustomerAttachmentResponse> GetAttachmentAsync(GetAccountingCustomerAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get customer attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingCustomerAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingCustomerAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingCustomerAttachmentResponse> GetAttachmentAsync(
+            GetAccountingCustomerAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -657,7 +785,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -762,7 +890,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DownloadAccountingCustomerAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingCustomerAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Download customer attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/Customer">Customers</a> are people or organizations that buy goods or services from the SMB.
+        /// </remarks>
+        /// <param name="request">A <see cref="DownloadAccountingCustomerAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingCustomerAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DownloadAccountingCustomerAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingCustomerAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -822,7 +970,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -915,5 +1063,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

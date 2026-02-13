@@ -11,13 +11,12 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference to the item the line is linked to.
     /// </summary>
     public class ItemReference
     {
-
         /// <summary>
         /// Unique identifier for the item in the accounting software.
         /// </summary>

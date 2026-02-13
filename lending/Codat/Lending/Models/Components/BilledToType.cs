@@ -12,7 +12,7 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Defines if the invoice or credit note is billed/rebilled to a project or customer.
     /// </summary>
@@ -60,5 +60,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum BilledToType");
         }
     }
-
 }

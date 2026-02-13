@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushOperationChange
     {
-
         /// <summary>
         /// Type of change being applied to record in third party platform.
         /// </summary>

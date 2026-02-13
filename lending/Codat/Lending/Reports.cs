@@ -24,20 +24,19 @@ namespace Codat.Lending
 
     public interface IReports
     {
-
         /// <summary>
-        /// Get orders report
-        /// 
+        /// Get orders report.
+        /// </summary>
         /// <remarks>
-        /// The *Get orders report* endpoint returns the number of orders, total value, and average order value for a specific company&apos;s commerce connection over one or more periods of time.<br/>
+        /// The *Get orders report* endpoint returns the number of orders, total value, and average order value for a specific company's commerce connection over one or more periods of time.<br/>
         /// <br/>
-        /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the order metrics.<br/>
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
-        /// The Orders report&apos;s dimensions and measures are:<br/>
+        /// The Orders report's dimensions and measures are:<br/>
         /// <br/>
         /// | Index         | Dimensions     |<br/>
         /// |---------------|----------------|<br/>
@@ -49,25 +48,34 @@ namespace Codat.Lending
         /// | `index` = 0   | Count      |<br/>
         /// | `index` = 1   | Value      |<br/>
         /// <br/>
-        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.<br/>
-        /// 
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
         /// </remarks>
-        /// </summary>
-        Task<GetCommerceOrdersReportResponse> GetOrdersAsync(GetCommerceOrdersReportRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCommerceOrdersReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceOrdersReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCommerceOrdersReportResponse> GetOrdersAsync(
+            GetCommerceOrdersReportRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get refunds report
-        /// 
+        /// Get refunds report.
+        /// </summary>
         /// <remarks>
-        /// The *Get refunds report* endpoint returns the number and total value of refunds and the refund rate for a specific company&apos;s commerce connection over one or more periods of time.<br/>
+        /// The *Get refunds report* endpoint returns the number and total value of refunds and the refund rate for a specific company's commerce connection over one or more periods of time.<br/>
         /// <br/>
-        /// This detail helps you assess a merchant&apos;s health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
         /// <br/>
         /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the refunds metrics.<br/>
         /// <br/>
         /// #### Response structure<br/>
         /// <br/>
-        /// The Refunds report&apos;s dimensions and measures are:<br/>
+        /// The Refunds report's dimensions and measures are:<br/>
         /// <br/>
         /// | Index          | Dimensions     |<br/>
         /// |----------------|----------------|<br/>
@@ -80,28 +88,73 @@ namespace Codat.Lending
         /// | `index` = 1    | Value      |<br/>
         /// | `index` = 2    | Percentage |<br/>
         /// <br/>
-        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.<br/>
-        /// 
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
         /// </remarks>
-        /// </summary>
-        Task<GetCommerceRefundsReportResponse> GetRefundsAsync(GetCommerceRefundsReportRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCommerceRefundsReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceRefundsReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCommerceRefundsReportResponse> GetRefundsAsync(
+            GetCommerceRefundsReportRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class Reports: IReports
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public Reports(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetCommerceOrdersReportResponse> GetOrdersAsync(GetCommerceOrdersReportRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get orders report.
+        /// </summary>
+        /// <remarks>
+        /// The *Get orders report* endpoint returns the number of orders, total value, and average order value for a specific company's commerce connection over one or more periods of time.<br/>
+        /// <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the order metrics.<br/>
+        /// <br/>
+        /// #### Response structure<br/>
+        /// <br/>
+        /// The Orders report's dimensions and measures are:<br/>
+        /// <br/>
+        /// | Index         | Dimensions     |<br/>
+        /// |---------------|----------------|<br/>
+        /// |   `index` = 0 | Period         |<br/>
+        /// |   `index` = 1 | Order metrics  |<br/>
+        /// <br/>
+        /// | Index         | Measures   |<br/>
+        /// |---------------|------------|<br/>
+        /// | `index` = 0   | Count      |<br/>
+        /// | `index` = 1   | Value      |<br/>
+        /// <br/>
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCommerceOrdersReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceOrdersReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCommerceOrdersReportResponse> GetOrdersAsync(
+            GetCommerceOrdersReportRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -161,7 +214,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -266,7 +319,46 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetCommerceRefundsReportResponse> GetRefundsAsync(GetCommerceRefundsReportRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get refunds report.
+        /// </summary>
+        /// <remarks>
+        /// The *Get refunds report* endpoint returns the number and total value of refunds and the refund rate for a specific company's commerce connection over one or more periods of time.<br/>
+        /// <br/>
+        /// This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending/features/sales-overview#metrics">Learn more</a> about the formulas used to calculate the refunds metrics.<br/>
+        /// <br/>
+        /// #### Response structure<br/>
+        /// <br/>
+        /// The Refunds report's dimensions and measures are:<br/>
+        /// <br/>
+        /// | Index          | Dimensions     |<br/>
+        /// |----------------|----------------|<br/>
+        /// | `index` = 0    | Period         |<br/>
+        /// | `index` = 1    | Refund metrics |<br/>
+        /// <br/>
+        /// | Index          | Measures    |<br/>
+        /// |----------------|------------|<br/>
+        /// | `index` = 0    | Count      |<br/>
+        /// | `index` = 1    | Value      |<br/>
+        /// | `index` = 2    | Percentage |<br/>
+        /// <br/>
+        /// The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCommerceRefundsReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCommerceRefundsReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCommerceRefundsReportResponse> GetRefundsAsync(
+            GetCommerceRefundsReportRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -326,7 +418,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -430,5 +522,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

@@ -24,54 +24,94 @@ namespace Codat.Lending
 
     public interface IBankTransactions
     {
-
         /// <summary>
-        /// Get create bank account transactions model
-        /// 
+        /// Get create bank account transactions model.
+        /// </summary>
         /// <remarks>
         /// The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company and integration.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB's bank account.<br/>
         /// <br/>
         /// **Integration-specific behavior**<br/>
         /// <br/>
         /// See the *response examples* for integration-specific indicative models.
         /// </remarks>
-        /// </summary>
-        Task<GetCreateBankTransactionsModelResponse> GetCreateModelAsync(GetCreateBankTransactionsModelRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetCreateBankTransactionsModelRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCreateBankTransactionsModelResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetCreateBankTransactionsModelResponse> GetCreateModelAsync(
+            GetCreateBankTransactionsModelRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Create bank account transactions
-        /// 
+        /// Create bank account transactions.
+        /// </summary>
         /// <remarks>
-        /// The *Create bank account transactions* endpoint creates new <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company&apos;s connection.<br/>
+        /// The *Create bank account transactions* endpoint creates new <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company's connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB&apos;s bank account.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB's bank account.<br/>
         /// <br/>
         /// **Integration-specific behavior**<br/>
         /// <br/>
-        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model">Get create bank transaction model</a>.<br/>
-        /// 
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model">Get create bank transaction model</a>.
         /// </remarks>
-        /// </summary>
-        Task<CreateBankTransactionsResponse> CreateAsync(CreateBankTransactionsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CreateBankTransactionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBankTransactionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateBankTransactionsResponse> CreateAsync(
+            CreateBankTransactionsRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class BankTransactions: IBankTransactions
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public BankTransactions(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GetCreateBankTransactionsModelResponse> GetCreateModelAsync(GetCreateBankTransactionsModelRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get create bank account transactions model.
+        /// </summary>
+        /// <remarks>
+        /// The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company and integration.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB's bank account.<br/>
+        /// <br/>
+        /// **Integration-specific behavior**<br/>
+        /// <br/>
+        /// See the *response examples* for integration-specific indicative models.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetCreateBankTransactionsModelRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetCreateBankTransactionsModelResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetCreateBankTransactionsModelResponse> GetCreateModelAsync(
+            GetCreateBankTransactionsModelRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -131,7 +171,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -236,7 +276,31 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateBankTransactionsResponse> CreateAsync(CreateBankTransactionsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create bank account transactions.
+        /// </summary>
+        /// <remarks>
+        /// The *Create bank account transactions* endpoint creates new <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">bank account transactions</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/BankTransactions">Bank account transactions</a> are records of money that has moved in and out of an SMB's bank account.<br/>
+        /// <br/>
+        /// **Integration-specific behavior**<br/>
+        /// <br/>
+        /// Required data may vary by integration. To see what data to post, first call <a href="https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model">Get create bank transaction model</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateBankTransactionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBankTransactionsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateBankTransactionsResponse> CreateAsync(
+            CreateBankTransactionsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -302,7 +366,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -406,5 +470,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

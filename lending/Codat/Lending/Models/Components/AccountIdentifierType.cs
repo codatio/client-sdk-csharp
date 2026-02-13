@@ -12,9 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Type of account
+    /// Type of account.
     /// </summary>
     public enum AccountIdentifierType
     {
@@ -66,5 +66,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum AccountIdentifierType");
         }
     }
-
 }

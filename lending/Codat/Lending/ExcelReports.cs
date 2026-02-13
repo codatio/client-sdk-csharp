@@ -27,10 +27,9 @@ namespace Codat.Lending
     /// </summary>
     public interface IExcelReports
     {
-
         /// <summary>
-        /// Generate Excel report
-        /// 
+        /// Generate Excel report.
+        /// </summary>
         /// <remarks>
         /// The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.<br/>
         /// <br/>
@@ -41,21 +40,28 @@ namespace Codat.Lending
         /// | reportType                                                                           | Description                                                                                                                                   |<br/>
         /// |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
         /// | `audit`                          | Identifies inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   || <a href="https://docs.codat.io/lending/excel/audit-report">audit</a>                            | Identify inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   |<br/>
-        /// | `enhancedCashFlow`    | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company&apos;s cash flow.  |<br/>
+        /// | `enhancedCashFlow`    | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company's cash flow.  |<br/>
         /// | `enhancedFinancials` | Supports decision-making using fully categorized financial statements to allow lenders to automate their underwriting processes.                |<br/>
         /// | `enhancedInvoices`     | Helps verify that payments have been made against historic invoices. Great for invoice finance lenders.                                       |<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending/features/excel-download-overview#feature-components">Learn more</a> about valid Excel report types.<br/>
-        /// <br/>
-        /// <br/>
-        /// 
+        /// <a href="https://docs.codat.io/lending/features/excel-download-overview#feature-components">Learn more</a> about valid Excel report types.
         /// </remarks>
-        /// </summary>
-        Task<GenerateExcelReportResponse> GenerateAsync(GenerateExcelReportRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GenerateExcelReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateExcelReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GenerateExcelReportResponse> GenerateAsync(
+            GenerateExcelReportRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get Excel report status
-        /// 
+        /// Get Excel report status.
+        /// </summary>
         /// <remarks>
         /// The *Get Excel report status* returns the status of the report mostly recently requested for Excel generation. It does not return the status of any historical report requests. <br/>
         /// <br/>
@@ -63,12 +69,22 @@ namespace Codat.Lending
         /// <br/>
         /// When the report generation completes successfully, the `inProgress` property will be marked as `false` and the `success` field will be marked as `true`.
         /// </remarks>
-        /// </summary>
-        Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(GetExcelReportGenerationStatusRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetExcelReportGenerationStatusRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExcelReportGenerationStatusResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(
+            GetExcelReportGenerationStatusRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Download Excel report
-        /// 
+        /// Download Excel report.
+        /// </summary>
         /// <remarks>
         /// The *Download Excel report* endpoint downloads the latest successfully generated Excel report of a specified report type for a given company. <br/>
         /// <br/>
@@ -76,8 +92,18 @@ namespace Codat.Lending
         /// <br/>
         /// You can <a href="https://docs.codat.io/lending/features/excel-download-overview#feature-components">learn more</a> about valid Excel report types.
         /// </remarks>
-        /// </summary>
-        Task<DownloadExcelReportResponse> DownloadAsync(DownloadExcelReportRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DownloadExcelReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadExcelReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DownloadExcelReportResponse> DownloadAsync(
+            DownloadExcelReportRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -85,19 +111,48 @@ namespace Codat.Lending
     /// </summary>
     public class ExcelReports: IExcelReports
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public ExcelReports(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GenerateExcelReportResponse> GenerateAsync(GenerateExcelReportRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Generate Excel report.
+        /// </summary>
+        /// <remarks>
+        /// The *Generate Excel report* endpoint requests the production of a downloadable Excel file for a report type specified in the `reportType` query parameter.<br/>
+        /// <br/>
+        /// In response, the endpoint returns the <a href="https://docs.codat.io/lending-api#/schemas/ExcelStatus">status</a> detailing the current state of the report generation request.<br/>
+        /// <br/>
+        /// ### Report types<br/>
+        /// <br/>
+        /// | reportType                                                                           | Description                                                                                                                                   |<br/>
+        /// |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | `audit`                          | Identifies inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   || <a href="https://docs.codat.io/lending/excel/audit-report">audit</a>                            | Identify inaccurate or out-of-date accounts, helping you to make decisions with confidence.                                                   |<br/>
+        /// | `enhancedCashFlow`    | Provides a fully categorized list of bank transactions for a company, allowing lenders to accurately forecast a company's cash flow.  |<br/>
+        /// | `enhancedFinancials` | Supports decision-making using fully categorized financial statements to allow lenders to automate their underwriting processes.                |<br/>
+        /// | `enhancedInvoices`     | Helps verify that payments have been made against historic invoices. Great for invoice finance lenders.                                       |<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending/features/excel-download-overview#feature-components">Learn more</a> about valid Excel report types.
+        /// </remarks>
+        /// <param name="request">A <see cref="GenerateExcelReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateExcelReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GenerateExcelReportResponse> GenerateAsync(
+            GenerateExcelReportRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -157,7 +212,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -262,7 +317,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(GetExcelReportGenerationStatusRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get Excel report status.
+        /// </summary>
+        /// <remarks>
+        /// The *Get Excel report status* returns the status of the report mostly recently requested for Excel generation. It does not return the status of any historical report requests. <br/>
+        /// <br/>
+        /// Poll this endpoint to check the progress of the report once you have requested its generation. This will not affect the generation of the report. <br/>
+        /// <br/>
+        /// When the report generation completes successfully, the `inProgress` property will be marked as `false` and the `success` field will be marked as `true`.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetExcelReportGenerationStatusRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetExcelReportGenerationStatusResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetExcelReportGenerationStatusResponse> GetStatusAsync(
+            GetExcelReportGenerationStatusRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -322,7 +399,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -427,7 +504,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DownloadExcelReportResponse> DownloadAsync(DownloadExcelReportRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Download Excel report.
+        /// </summary>
+        /// <remarks>
+        /// The *Download Excel report* endpoint downloads the latest successfully generated Excel report of a specified report type for a given company. <br/>
+        /// <br/>
+        /// The downloadable Excel file is returned in the response. You can save it to your local machine.<br/>
+        /// <br/>
+        /// You can <a href="https://docs.codat.io/lending/features/excel-download-overview#feature-components">learn more</a> about valid Excel report types.
+        /// </remarks>
+        /// <param name="request">A <see cref="DownloadExcelReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadExcelReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DownloadExcelReportResponse> DownloadAsync(
+            DownloadExcelReportRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -487,7 +586,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -580,5 +679,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

@@ -17,6 +17,9 @@ namespace Codat.Lending
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Main configuration for the SDK.
+    /// </summary>
     public struct SDKConfig
     {
         /// <summary>
@@ -42,7 +45,7 @@ namespace Codat.Lending
             Client = client ?? new SpeakeasyHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 10.0.0 2.797.1 3.0.0 Codat.Lending";
+            UserAgent = "speakeasy-sdk/csharp 10.0.1 2.803.3 3.0.0 Codat.Lending";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

@@ -19,22 +19,19 @@ namespace Codat.Lending
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-
     /// <summary>
-    /// Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
-    /// 
-    /// <remarks>
+    /// Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
     /// <br/>
     /// The Lending solution is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/lending/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/lending/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a>
     /// <br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
     /// ## Endpoints<br/>
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Bank statements | Retrieve banking data from linked bank accounts. |<br/>
     /// | Sales | Retrieve standardized sales data from a linked commerce software. |<br/>
@@ -50,13 +47,11 @@ namespace Codat.Lending
     /// | File upload | Endpoints to manage uploaded files. |<br/>
     /// | Loan writeback | Implement the <a href="https://docs.codat.io/lending/guides/loan-writeback/introduction">loan writeback</a> procedure in your lending process to maintain an accurate position of a loan during the entire lending cycle. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
-    /// </remarks>
     /// </summary>
     public interface ICodatLending
     {
-
         /// <summary>
-        /// Create and manage your SMB users&apos; companies.
+        /// Create and manage your SMB users' companies.
         /// </summary>
         public ICompanies Companies { get; }
 
@@ -64,27 +59,34 @@ namespace Codat.Lending
         /// Create new and manage existing data connections for a company.
         /// </summary>
         public IConnections Connections { get; }
+
         public IManageData ManageData { get; }
 
         /// <summary>
         /// Match mutable accounting data with immutable banking data to increase confidence in financial data.
         /// </summary>
         public IDataIntegrity DataIntegrity { get; }
+
         public IFinancialStatements FinancialStatements { get; }
+
         public IBanking Banking { get; }
+
         public IAccountsReceivable AccountsReceivable { get; }
 
         /// <summary>
         /// Debt and other liabilities.
         /// </summary>
         public ILiabilities Liabilities { get; }
+
         public ISales Sales { get; }
 
         /// <summary>
         /// Download reports in Excel format.
         /// </summary>
         public IExcelReports ExcelReports { get; }
+
         public ITransactions Transactions { get; }
+
         public IAccountsPayable AccountsPayable { get; }
 
         /// <summary>
@@ -101,6 +103,7 @@ namespace Codat.Lending
         /// Endpoints to manage uploaded files.
         /// </summary>
         public IFileUpload FileUpload { get; }
+
         public ILoanWriteback LoanWriteback { get; }
 
         /// <summary>
@@ -114,22 +117,19 @@ namespace Codat.Lending
         public IManageReports ManageReports { get; }
     }
 
-
     /// <summary>
-    /// Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers&apos; latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
-    /// 
-    /// <remarks>
+    /// Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.<br/>
     /// <br/>
     /// The Lending solution is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/lending/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/lending/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See OpenAPI spec</a>
     /// <br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
     /// ## Endpoints<br/>
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Bank statements | Retrieve banking data from linked bank accounts. |<br/>
     /// | Sales | Retrieve standardized sales data from a linked commerce software. |<br/>
@@ -145,35 +145,90 @@ namespace Codat.Lending
     /// | File upload | Endpoints to manage uploaded files. |<br/>
     /// | Loan writeback | Implement the <a href="https://docs.codat.io/lending/guides/loan-writeback/introduction">loan writeback</a> procedure in your lending process to maintain an accurate position of a loan during the entire lending cycle. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
-    /// </remarks>
     /// </summary>
     public class CodatLending: ICodatLending
     {
+        /// <summary>
+        /// The main SDK Configuration.
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// The Companies sub-SDK.
+        /// </summary>
         public ICompanies Companies { get; private set; }
+        /// <summary>
+        /// The Connections sub-SDK.
+        /// </summary>
         public IConnections Connections { get; private set; }
+        /// <summary>
+        /// The ManageData sub-SDK.
+        /// </summary>
         public IManageData ManageData { get; private set; }
+        /// <summary>
+        /// The DataIntegrity sub-SDK.
+        /// </summary>
         public IDataIntegrity DataIntegrity { get; private set; }
+        /// <summary>
+        /// The FinancialStatements sub-SDK.
+        /// </summary>
         public IFinancialStatements FinancialStatements { get; private set; }
+        /// <summary>
+        /// The Banking sub-SDK.
+        /// </summary>
         public IBanking Banking { get; private set; }
+        /// <summary>
+        /// The AccountsReceivable sub-SDK.
+        /// </summary>
         public IAccountsReceivable AccountsReceivable { get; private set; }
+        /// <summary>
+        /// The Liabilities sub-SDK.
+        /// </summary>
         public ILiabilities Liabilities { get; private set; }
+        /// <summary>
+        /// The Sales sub-SDK.
+        /// </summary>
         public ISales Sales { get; private set; }
+        /// <summary>
+        /// The ExcelReports sub-SDK.
+        /// </summary>
         public IExcelReports ExcelReports { get; private set; }
+        /// <summary>
+        /// The Transactions sub-SDK.
+        /// </summary>
         public ITransactions Transactions { get; private set; }
+        /// <summary>
+        /// The AccountsPayable sub-SDK.
+        /// </summary>
         public IAccountsPayable AccountsPayable { get; private set; }
+        /// <summary>
+        /// The CompanyInfo sub-SDK.
+        /// </summary>
         public ICompanyInfo CompanyInfo { get; private set; }
+        /// <summary>
+        /// The AccountingBankData sub-SDK.
+        /// </summary>
         public IAccountingBankData AccountingBankData { get; private set; }
+        /// <summary>
+        /// The FileUpload sub-SDK.
+        /// </summary>
         public IFileUpload FileUpload { get; private set; }
+        /// <summary>
+        /// The LoanWriteback sub-SDK.
+        /// </summary>
         public ILoanWriteback LoanWriteback { get; private set; }
+        /// <summary>
+        /// The BankStatements sub-SDK.
+        /// </summary>
         public IBankStatements BankStatements { get; private set; }
+        /// <summary>
+        /// The ManageReports sub-SDK.
+        /// </summary>
         public IManageReports ManageReports { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the SDK based on a <see cref="SDKConfig"/> configuration object.
+        /// </summary>
+        /// <param name="config">The SDK configuration object.</param>
         public CodatLending(SDKConfig config)
         {
             SDKConfiguration = config;
@@ -226,14 +281,23 @@ namespace Codat.Lending
         /// <param name="urlParams">A dictionary of parameters to use for templating the serverUrl. Only used when serverUrl is provided.</param>
         /// <param name="client">A custom HTTP client implementation to use for making API requests. If not provided, the default SpeakeasyHttpClient will be used.</param>
         /// <param name="retryConfig">Configuration for retry behavior when API requests fail. Defines retry strategies, backoff policies, and maximum retry attempts.</param>
-        /// <exception cref="Exception">Thrown when the serverIndex is out of range (less than 0 or greater than or equal to the server list length).</exception>
-        public CodatLending(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
+        /// <exception cref="ArgumentOutOfRangeException">Invalid value provided for <paramref name="serverIndex"/>: must be between 0 (inclusive) and 1 (exclusive).</exception>
+        /// <exception cref="ArgumentException">None of <paramref name="authHeader"/> and <paramref name="authHeaderSource"/> were provided.</exception>
+        public CodatLending(
+            string? authHeader = null,
+            Func<string>? authHeaderSource = null,
+            int? serverIndex = null,
+            string? serverUrl = null,
+            Dictionary<string, string>? urlParams = null,
+            ISpeakeasyHttpClient? client = null,
+            RetryConfig? retryConfig = null
+        )
         {
             if (serverIndex != null)
             {
                 if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
             }
 
@@ -256,7 +320,7 @@ namespace Codat.Lending
             }
             else
             {
-                throw new Exception("authHeader and authHeaderSource cannot both be null");
+                throw new ArgumentException("authHeader and authHeaderSource cannot both be null");
             }
 
             SDKConfiguration = new SDKConfig(client)
@@ -319,22 +383,31 @@ namespace Codat.Lending
             SDKConfiguration = config;
         }
 
+        /// <summary>
+        /// Builder class for constructing an instance of the SDK.
+        /// </summary>
         public class SDKBuilder
         {
             private SDKConfig _sdkConfig = new SDKConfig(client: new SpeakeasyHttpClient());
 
             public SDKBuilder() { }
 
+            /// <summary>
+            /// Overrides the default server by index.
+            /// </summary>
             public SDKBuilder WithServerIndex(int serverIndex)
             {
                 if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
                 _sdkConfig.ServerIndex = serverIndex;
                 return this;
             }
 
+            /// <summary>
+            /// Overrides the default server URL for the SDK.
+            /// </summary>
             public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
             {
                 if (serverVariables != null)
@@ -345,34 +418,49 @@ namespace Codat.Lending
                 return this;
             }
 
+            /// <summary>
+            /// Sets the authHeaderSource security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithAuthHeaderSource(Func<string> authHeaderSource)
             {
                 _sdkConfig.SecuritySource = () => new Codat.Lending.Models.Components.Security() { AuthHeader = authHeaderSource() };
                 return this;
             }
 
+            /// <summary>
+            /// Sets the authHeader security parameter for the SDK.
+            /// </summary>
             public SDKBuilder WithAuthHeader(string authHeader)
             {
                 _sdkConfig.SecuritySource = () => new Codat.Lending.Models.Components.Security() { AuthHeader = authHeader };
                 return this;
             }
 
+            /// <summary>
+            /// Sets a custom HTTP client to be used by the SDK.
+            /// </summary>
             public SDKBuilder WithClient(ISpeakeasyHttpClient client)
             {
                 _sdkConfig.Client = client;
                 return this;
             }
 
+            /// <summary>
+            /// Sets the retry configuration for the SDK.
+            /// </summary>
             public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
             {
                 _sdkConfig.RetryConfig = retryConfig;
                 return this;
             }
 
+            /// <summary>
+            /// Builds and returns the SDK instance.
+            /// </summary>
             public CodatLending Build()
             {
               if (_sdkConfig.SecuritySource == null) {
-                  throw new Exception("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
+                  throw new ArgumentException("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
               }
               return new CodatLending(_sdkConfig);
             }

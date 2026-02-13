@@ -12,11 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Banking Account Balances data type provides a list of balances for a bank account including end-of-day batch balance or running balances per transaction.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.<br/>
     /// <br/>
@@ -25,11 +23,9 @@ namespace Codat.Lending.Models.Components
     /// &gt; Because these balances are closing balances, we recommend you pull Account Balance no more frequently than daily. If you require a live intraday balance, this can be found for each account on the <a href="https://docs.codat.io/lending-api#/schemas/Account">Account</a> data type.<br/>
     /// &gt; <br/>
     /// &gt; Whilst you can choose to sync hourly, this may incur usage charges from Plaid or TrueLayer.
-    /// </remarks>
     /// </summary>
     public class BankingAccountBalance
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -49,9 +45,7 @@ namespace Codat.Lending.Models.Components
         public AccountBalanceAmounts Balance { get; set; } = default!;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -70,7 +64,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("date")]
         public string Date { get; set; } = default!;

@@ -13,12 +13,11 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class EnhancedReportAccountCategory
     {
-
         /// <summary>
-        /// Returns a status of &quot;Suggested&quot; or &quot;Confirmed&quot;. If an account has a confirmed category, it will replace any suggested category returned.
+        /// Returns a status of "Suggested" or "Confirmed". If an account has a confirmed category, it will replace any suggested category returned.
         /// </summary>
         [JsonProperty("status")]
         public string? Status { get; set; }

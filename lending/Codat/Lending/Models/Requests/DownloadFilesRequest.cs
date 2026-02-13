@@ -10,10 +10,9 @@
 namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Utils;
-    
+
     public class DownloadFilesRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

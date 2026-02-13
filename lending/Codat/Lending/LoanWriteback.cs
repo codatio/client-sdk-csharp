@@ -17,32 +17,84 @@ namespace Codat.Lending
     public interface ILoanWriteback
     {
         public IBankAccounts BankAccounts { get; }
+
         public ICodatLendingLoanWritebackAccounts Accounts { get; }
+
         public ISourceAccounts SourceAccounts { get; }
+
         public ICodatLendingSuppliers Suppliers { get; }
+
         public ICodatLendingTransfers Transfers { get; }
+
         public IBankTransactions BankTransactions { get; }
+
         public ICodatLendingDirectCosts DirectCosts { get; }
+
         public ICodatLendingLoanWritebackPayments Payments { get; }
+
         public ICreateOperations CreateOperations { get; }
     }
 
     public class LoanWriteback: ILoanWriteback
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// BankAccounts SubSDK.
+        /// <see cref="IBankAccounts"/>
+        /// </summary>
         public IBankAccounts BankAccounts { get; private set; }
+
+        /// <summary>
+        /// Accounts SubSDK.
+        /// <see cref="ICodatLendingLoanWritebackAccounts"/>
+        /// </summary>
         public ICodatLendingLoanWritebackAccounts Accounts { get; private set; }
+
+        /// <summary>
+        /// SourceAccounts SubSDK.
+        /// <see cref="ISourceAccounts"/>
+        /// </summary>
         public ISourceAccounts SourceAccounts { get; private set; }
+
+        /// <summary>
+        /// Suppliers SubSDK.
+        /// <see cref="ICodatLendingSuppliers"/>
+        /// </summary>
         public ICodatLendingSuppliers Suppliers { get; private set; }
+
+        /// <summary>
+        /// Transfers SubSDK.
+        /// <see cref="ICodatLendingTransfers"/>
+        /// </summary>
         public ICodatLendingTransfers Transfers { get; private set; }
+
+        /// <summary>
+        /// BankTransactions SubSDK.
+        /// <see cref="IBankTransactions"/>
+        /// </summary>
         public IBankTransactions BankTransactions { get; private set; }
+
+        /// <summary>
+        /// DirectCosts SubSDK.
+        /// <see cref="ICodatLendingDirectCosts"/>
+        /// </summary>
         public ICodatLendingDirectCosts DirectCosts { get; private set; }
+
+        /// <summary>
+        /// Payments SubSDK.
+        /// <see cref="ICodatLendingLoanWritebackPayments"/>
+        /// </summary>
         public ICodatLendingLoanWritebackPayments Payments { get; private set; }
+
+        /// <summary>
+        /// CreateOperations SubSDK.
+        /// <see cref="ICreateOperations"/>
+        /// </summary>
         public ICreateOperations CreateOperations { get; private set; }
 
         public LoanWriteback(SDKConfig config)

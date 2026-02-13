@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CommerceReportError
     {
-
         /// <summary>
         /// Message returned by error.
         /// </summary>

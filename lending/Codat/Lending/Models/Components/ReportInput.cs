@@ -12,7 +12,7 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Accounting method used to prepare the cash flow statement.
     /// </summary>
@@ -58,5 +58,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum ReportInput");
         }
     }
-
 }

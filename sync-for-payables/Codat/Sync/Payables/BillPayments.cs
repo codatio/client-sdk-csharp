@@ -13,44 +13,63 @@ namespace Codat.Sync.Payables
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Models.Errors;
     using Codat.Sync.Payables.Models.Requests;
-    using Codat.Sync.Payables.Utils.Retries;
     using Codat.Sync.Payables.Utils;
+    using Codat.Sync.Payables.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Get, create, and update Bill payments.
     /// </summary>
     public interface IBillPayments
     {
-
         /// <summary>
-        /// Get payment mapping options
-        /// 
+        /// Get payment mapping options.
+        /// </summary>
         /// <remarks>
-        /// Use the *Get mapping options - Payments* endpoint to return a list of available mapping options for a given company&apos;s connection ID.<br/>
+        /// Use the *Get mapping options - Payments* endpoint to return a list of available mapping options for a given company's connection ID.<br/>
         /// <br/>
         /// By default, this endpoint returns a list of active bank accounts. You can use <a href="https://docs.codat.io/using-the-api/querying">querying</a> to change that.<br/>
         /// <br/>
-        /// Mapping options are a set of bank accounts used to configure the SMB&apos;s payables integration.
+        /// Mapping options are a set of bank accounts used to configure the SMB's payables integration.
         /// </remarks>
-        /// </summary>
-        Task<GetMappingOptionsPaymentsResponse> GetPaymentOptionsAsync(GetMappingOptionsPaymentsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetMappingOptionsPaymentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetMappingOptionsPaymentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetMappingOptionsPaymentsResponse> GetPaymentOptionsAsync(
+            GetMappingOptionsPaymentsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Create bill payment
-        /// 
+        /// Create bill payment.
+        /// </summary>
         /// <remarks>
-        /// The *Create bill payment* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">bill payment</a> for a given company&apos;s connection.<br/>
+        /// The *Create bill payment* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">bill payment</a> for a given company's connection.<br/>
         /// <br/>
         /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any Accounts Payable account.
         /// </remarks>
-        /// </summary>
-        Task<CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CreateBillPaymentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBillPaymentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateBillPaymentResponse> CreateAsync(
+            CreateBillPaymentRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -58,38 +77,54 @@ namespace Codat.Sync.Payables
     /// </summary>
     public class BillPayments: IBillPayments
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "10.0.0";
-        private const string _sdkGenVersion = "2.463.0";
-        private const string _openapiDocVersion = "3.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 10.0.0 2.463.0 3.0.0 Codat.Sync.Payables";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Payables.Models.Components.Security>? _securitySource;
 
-        public BillPayments(ISpeakeasyHttpClient client, Func<Codat.Sync.Payables.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public BillPayments(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
 
-        public async Task<GetMappingOptionsPaymentsResponse> GetPaymentOptionsAsync(GetMappingOptionsPaymentsRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Get payment mapping options.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Get mapping options - Payments* endpoint to return a list of available mapping options for a given company's connection ID.<br/>
+        /// <br/>
+        /// By default, this endpoint returns a list of active bank accounts. You can use <a href="https://docs.codat.io/using-the-api/querying">querying</a> to change that.<br/>
+        /// <br/>
+        /// Mapping options are a set of bank accounts used to configure the SMB's payables integration.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetMappingOptionsPaymentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetMappingOptionsPaymentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetMappingOptionsPaymentsResponse> GetPaymentOptionsAsync(
+            GetMappingOptionsPaymentsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/payments", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/payments", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("get-mapping-options-payments", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "get-mapping-options-payments", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -123,8 +158,8 @@ namespace Codat.Sync.Payables
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -134,7 +169,7 @@ namespace Codat.Sync.Payables
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -164,7 +199,17 @@ namespace Codat.Sync.Payables
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<PaymentMappingOptions>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    PaymentMappingOptions obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<PaymentMappingOptions>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into PaymentMappingOptions.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new GetMappingOptionsPaymentsResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -175,33 +220,89 @@ namespace Codat.Sync.Payables
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateBillPaymentResponse> CreateAsync(CreateBillPaymentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create bill payment.
+        /// </summary>
+        /// <remarks>
+        /// The *Create bill payment* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">bill payment</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment">Bill payments</a> are an allocation of money within any Accounts Payable account.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateBillPaymentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBillPaymentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateBillPaymentResponse> CreateAsync(
+            CreateBillPaymentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
 
             var serializedBody = RequestBodySerializer.Serialize(request, "BillPaymentPrototype", "json", false, true);
@@ -210,12 +311,12 @@ namespace Codat.Sync.Payables
                 httpRequest.Content = serializedBody;
             }
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("create-bill-payment", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "create-bill-payment", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -249,8 +350,8 @@ namespace Codat.Sync.Payables
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -260,7 +361,7 @@ namespace Codat.Sync.Payables
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -290,7 +391,17 @@ namespace Codat.Sync.Payables
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<BillPayment>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    BillPayment obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<BillPayment>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into BillPayment.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new CreateBillPaymentResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -301,24 +412,59 @@ namespace Codat.Sync.Payables
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 409, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 409, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

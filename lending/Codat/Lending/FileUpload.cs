@@ -27,28 +27,41 @@ namespace Codat.Lending
     /// </summary>
     public interface IFileUpload
     {
-
         /// <summary>
-        /// List all files uploaded by a company
-        /// 
-        /// <remarks>
-        /// The *List files* endpoint returns a list of all files uploaded to Codat by the SMB. 
-        /// </remarks>
+        /// List all files uploaded by a company.
         /// </summary>
-        Task<ListFilesResponse> ListUploadedAsync(ListFilesRequest request, RetryConfig? retryConfig = null);
+        /// <remarks>
+        /// The *List files* endpoint returns a list of all files uploaded to Codat by the SMB.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListFilesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListFilesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListFilesResponse> ListUploadedAsync(ListFilesRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Download all files for a company
-        /// 
+        /// Download all files for a company.
+        /// </summary>
         /// <remarks>
         /// The *Download files* endpoint downloads all files that have  been uploaded by to SMB to Codat. A `date` may be specified to download any files uploaded on the date provided.
         /// </remarks>
-        /// </summary>
-        Task<DownloadFilesResponse> DownloadAsync(DownloadFilesRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DownloadFilesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadFilesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DownloadFilesResponse> DownloadAsync(DownloadFilesRequest request, RetryConfig? retryConfig = null);
 
         /// <summary>
-        /// Upload files for a company
-        /// 
+        /// Upload files for a company.
+        /// </summary>
         /// <remarks>
         /// The *Upload files* endpoint uploads multiple files provided by the SMB to Codat. This may include personal identity documents, pitch decks, contracts, or files with accounting and banking data.<br/>
         /// <br/>
@@ -58,8 +71,15 @@ namespace Codat.Lending
         /// - PDF, XLS, XLSX, XLSB, CSV, DOC, DOCX, PPT, PPTX, JPEG, JPG, and PNG files can be uploaded.<br/>
         /// - Each file can be up to 10MB in size.
         /// </remarks>
-        /// </summary>
-        Task<UploadFilesResponse> UploadAsync(UploadFilesRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="UploadFilesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadFilesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UploadFilesResponse> UploadAsync(UploadFilesRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -67,19 +87,35 @@ namespace Codat.Lending
     /// </summary>
     public class FileUpload: IFileUpload
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public FileUpload(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListFilesResponse> ListUploadedAsync(ListFilesRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List all files uploaded by a company.
+        /// </summary>
+        /// <remarks>
+        /// The *List files* endpoint returns a list of all files uploaded to Codat by the SMB.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListFilesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListFilesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListFilesResponse> ListUploadedAsync(
+            ListFilesRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -139,7 +175,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -244,7 +280,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DownloadFilesResponse> DownloadAsync(DownloadFilesRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Download all files for a company.
+        /// </summary>
+        /// <remarks>
+        /// The *Download files* endpoint downloads all files that have  been uploaded by to SMB to Codat. A `date` may be specified to download any files uploaded on the date provided.
+        /// </remarks>
+        /// <param name="request">A <see cref="DownloadFilesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadFilesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DownloadFilesResponse> DownloadAsync(
+            DownloadFilesRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -304,7 +358,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -398,7 +452,28 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<UploadFilesResponse> UploadAsync(UploadFilesRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Upload files for a company.
+        /// </summary>
+        /// <remarks>
+        /// The *Upload files* endpoint uploads multiple files provided by the SMB to Codat. This may include personal identity documents, pitch decks, contracts, or files with accounting and banking data.<br/>
+        /// <br/>
+        /// Uploaded files must meet the following requirements:<br/>
+        /// <br/>
+        /// - Up to 20 files can be uploaded at a time.<br/>
+        /// - PDF, XLS, XLSX, XLSB, CSV, DOC, DOCX, PPT, PPTX, JPEG, JPG, and PNG files can be uploaded.<br/>
+        /// - Each file can be up to 10MB in size.
+        /// </remarks>
+        /// <param name="request">A <see cref="UploadFilesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadFilesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UploadFilesResponse> UploadAsync(UploadFilesRequest request, RetryConfig? retryConfig = null)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -464,7 +539,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -550,5 +625,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

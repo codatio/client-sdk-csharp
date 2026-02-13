@@ -13,11 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// &gt; **Payments or bill payments?**<br/>
-    /// 
-    /// <remarks>
     /// &gt;<br/>
     /// &gt;  In Codat, payments represent accounts receivable only. For accounts payable, see <a href="https://docs.codat.io/lending-api#/schemas/BillPayment">bill payments</a>. These include <a href="https://docs.codat.io/lending-api#/schemas/Bill">bills</a> and credit notes against bills.<br/>
     /// <br/>
@@ -28,7 +26,7 @@ namespace Codat.Lending.Models.Components
     /// A payment in Codat usually represents an allocation of money within any customer accounts receivable account. This includes, but is not strictly limited to:<br/>
     /// <br/>
     /// - A payment made against an invoice, like a credit card, cheque, or cash payment.<br/>
-    /// - An allocation of a customer&apos;s credit note, either to an invoice or maybe a refund.<br/>
+    /// - An allocation of a customer's credit note, either to an invoice or maybe a refund.<br/>
     /// - A payment made directly to that accounts receivable account. This might be an overpayment or a prepayment. It might also be the refund of a payment made directly to an accounts receivable account.<br/>
     /// <br/>
     /// Depending on the payments allowed by the underlying accounting software, some payment types may be combined. Please see the example for more details.<br/>
@@ -129,7 +127,7 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// The **line** linked to the payment has the following properties:<br/>
     /// <br/>
-    /// - An **amount** that indicates the amount that was refunded. This is positive as its money that was added to accounts receivable. It&apos;s balanced out by the negative amount of the refund.<br/>
+    /// - An **amount** that indicates the amount that was refunded. This is positive as its money that was added to accounts receivable. It's balanced out by the negative amount of the refund.<br/>
     /// - A **links** array containing one element with the following properties:<br/>
     ///     - A **type** that indicates the type of **link**, in this case a `Refund`.<br/>
     ///     - An **id** that contains the ID of the payment that refunded this line.<br/>
@@ -152,26 +150,26 @@ namespace Codat.Lending.Models.Components
     /// - Base currency of the item the link represents.<br/>
     /// - Foreign currency of the payment.<br/>
     /// <br/>
-    /// These two rates allow the calculation of currency loss or gain for any of the transactions affected by the payment lines. The second rate is used when a payment is applied to an item in a currency that doesn&apos;t match either:<br/>
+    /// These two rates allow the calculation of currency loss or gain for any of the transactions affected by the payment lines. The second rate is used when a payment is applied to an item in a currency that doesn't match either:<br/>
     /// <br/>
     /// - The base currency for the accounts receivable account.<br/>
     /// - The currency of the item.<br/>
     /// <br/>
-    ///   ```json title=&quot;Currency rate example&quot;<br/>
+    ///   ```json title="Currency rate example"<br/>
     ///   {<br/>
-    ///       &quot;id&quot;: &quot;123&quot;,<br/>
-    ///       &quot;note&quot;: &quot;&quot;,<br/>
-    ///       &quot;totalAmount&quot;: 99.99,<br/>
-    ///       &quot;currency&quot;: &quot;GBP&quot;,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "id": "123",<br/>
+    ///       "note": "",<br/>
+    ///       "totalAmount": 99.99,<br/>
+    ///       "currency": "GBP",<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot;: 99.99,<br/>
-    ///               &quot;links&quot;: [<br/>
+    ///               "amount": 99.99,<br/>
+    ///               "links": [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot;: &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;178&quot;,<br/>
-    ///                       &quot;amount&quot;: -50,<br/>
-    ///                       &quot;currencyRate&quot;:  1.9998<br/>
+    ///                       "type": "Invoice",<br/>
+    ///                       "id": "178",<br/>
+    ///                       "amount": -50,<br/>
+    ///                       "currencyRate":  1.9998<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -189,17 +187,17 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// ## Simple examples<br/>
     /// <br/>
-    ///   ```json title=&quot;Payment for invoice&quot;<br/>
+    ///   ```json title="Payment for invoice"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 1000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 1000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -209,22 +207,22 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Allocation of credit note&quot;<br/>
+    ///   ```json title="Allocation of credit note"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 0,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 0,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 0,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 0,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -234,27 +232,27 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Payment of invoice and payment on account&quot;<br/>
+    ///   ```json title="Payment of invoice and payment on account"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 2000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 2000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;PaymentOnAccount&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "PaymentOnAccount",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -264,17 +262,17 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Refund of credit note&quot;<br/>
+    ///   ```json title="Refund of credit note"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: -1000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": -1000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : -1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : -1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -284,17 +282,17 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Refund on accounts receivable account&quot;<br/>
+    ///   ```json title="Refund on accounts receivable account"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: -1000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": -1000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : -1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : -1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;PaymentOnAccount&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "PaymentOnAccount",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -304,34 +302,34 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Linked refund on accounts receivable account&quot;<br/>
+    ///   ```json title="Linked refund on accounts receivable account"<br/>
     ///   {<br/>
-    ///       &quot;id&quot; : &quot;payment-001&quot;,<br/>
-    ///       &quot;totalAmount&quot;: 1000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "id" : "payment-001",<br/>
+    ///       "totalAmount": 1000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Refund&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;refund-001&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Refund",<br/>
+    ///                       "id" : "refund-001",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
     ///       ]<br/>
     ///   }<br/>
     ///   {<br/>
-    ///       &quot;id&quot; : &quot;refund-001&quot;,<br/>
-    ///       &quot;totalAmount&quot;: -1000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "id" : "refund-001",<br/>
+    ///       "totalAmount": -1000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : -1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : -1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Payment&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;payment-001&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "Payment",<br/>
+    ///                       "id" : "payment-001",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -341,32 +339,32 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Using a credit note and cash to pay an invoice&quot;<br/>
+    ///   ```json title="Using a credit note and cash to pay an invoice"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 250,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 250,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot;: 0,<br/>
-    ///               &quot;links&quot;: [<br/>
+    ///               "amount": 0,<br/>
+    ///               "links": [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot;: &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot;: -750<br/>
+    ///                       "type": "Invoice",<br/>
+    ///                       "id": "x",<br/>
+    ///                       "amount": -750<br/>
     ///                   }, <br/>
     ///                   {<br/>
-    ///                       &quot;type&quot;: &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot;: 750<br/>
+    ///                       "type": "CreditNote",<br/>
+    ///                       "id": "y",<br/>
+    ///                       "amount": 750<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot;: 250,<br/>
-    ///               &quot;links&quot;: [<br/>
+    ///               "amount": 250,<br/>
+    ///               "links": [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot;: &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot;: -250<br/>
+    ///                       "type": "Invoice",<br/>
+    ///                       "id": "x",<br/>
+    ///                       "amount": -250<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -378,47 +376,47 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// ## Complex examples<br/>
     /// <br/>
-    ///   ```json title=&quot;Use two credit notes and 1000 in to &quot;bank&quot; (cash, cheque etc.) to pay invoice&quot;<br/>
+    ///   ```json title="Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 1000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 1000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 0,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 0,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 0,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 0,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;z&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "z",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -428,57 +426,57 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Pay an invoice with two credit notes and cash, with 1000 left &apos;on account&apos;&quot;<br/>
+    ///   ```json title="Pay an invoice with two credit notes and cash, with 1000 left 'on account'"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 2000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 2000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 0,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 0,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 0,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 0,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;z&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "z",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;PaymentOnAccount&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;customer-001&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "PaymentOnAccount",<br/>
+    ///                       "id" : "customer-001",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -488,32 +486,32 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Two credit notes pay two invoices with no allocation amount specified&quot;<br/>
+    ///   ```json title="Two credit notes pay two invoices with no allocation amount specified"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 0,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 0,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 0,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 0,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;w&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "w",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;z&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "z",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -523,63 +521,63 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash&quot;<br/>
+    ///   ```json title="Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 2000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 2000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;w&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "w",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;u&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "u",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "y",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   },<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;z&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "CreditNote",<br/>
+    ///                       "id" : "z",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Refund&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;refund-001&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Refund",<br/>
+    ///                       "id" : "refund-001",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
     ///       ]<br/>
     ///   }<br/>
     ///   {<br/>
-    ///       &quot;id&quot; : &quot;refund-001&quot;,<br/>
-    ///       &quot;totalAmount&quot;: -1000,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "id" : "refund-001",<br/>
+    ///       "totalAmount": -1000,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : -1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : -1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Payment&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;payment-001&quot;,<br/>
-    ///                       &quot;amount&quot; : 1000<br/>
+    ///                       "type" : "Payment",<br/>
+    ///                       "id" : "payment-001",<br/>
+    ///                       "amount" : 1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -591,29 +589,29 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// In this example, a payment on account is used to pay the same invoice in January and again in February.<br/>
     /// <br/>
-    ///   ```json title=&quot;January&quot;<br/>
+    ///   ```json title="January"<br/>
     ///   {<br/>
-    ///       &quot;id&quot;: &quot;001&quot;,<br/>
-    ///       &quot;totalAmount&quot;: 5000,<br/>
-    ///       &quot;date&quot; : &quot;1901-01-01&quot;,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "id": "001",<br/>
+    ///       "totalAmount": 5000,<br/>
+    ///       "date" : "1901-01-01",<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;Invoice-x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "Invoice-x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 4000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 4000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;PaymentOnAccount&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;PaymentOnAccount-y&quot;,<br/>
-    ///                       &quot;amount&quot; : -4000<br/>
+    ///                       "type" : "PaymentOnAccount",<br/>
+    ///                       "id" : "PaymentOnAccount-y",<br/>
+    ///                       "amount" : -4000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -623,39 +621,39 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;February&quot;<br/>
+    ///   ```json title="February"<br/>
     ///   {<br/>
-    ///       &quot;id&quot;: &quot;001&quot;,<br/>
-    ///       &quot;totalAmount&quot;: 5000,<br/>
-    ///       &quot;date&quot; : &quot;1901-02-01&quot;,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "id": "001",<br/>
+    ///       "totalAmount": 5000,<br/>
+    ///       "date" : "1901-02-01",<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;Invoice-x&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "Invoice-x",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 1000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 1000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;Invoice-y&quot;,<br/>
-    ///                       &quot;amount&quot; : -1000<br/>
+    ///                       "type" : "Invoice",<br/>
+    ///                       "id" : "Invoice-y",<br/>
+    ///                       "amount" : -1000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           },<br/>
     ///           {<br/>
-    ///               &quot;amount&quot; : 3000,<br/>
-    ///               &quot;links&quot; : [<br/>
+    ///               "amount" : 3000,<br/>
+    ///               "links" : [<br/>
     ///                   {<br/>
-    ///                       &quot;type&quot; : &quot;PaymentOnAccount&quot;,<br/>
-    ///                       &quot;id&quot; : &quot;PaymentOnAccount-y&quot;,<br/>
-    ///                       &quot;amount&quot; : -3000<br/>
+    ///                       "type" : "PaymentOnAccount",<br/>
+    ///                       "id" : "PaymentOnAccount-y",<br/>
+    ///                       "amount" : -3000<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
@@ -665,39 +663,37 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// <br/>
     /// <br/>
-    ///   ```json title=&quot;Two credit notes and some cash pay two invoices with no allocations specified&quot;<br/>
+    ///   ```json title="Two credit notes and some cash pay two invoices with no allocations specified"<br/>
     ///   {<br/>
-    ///       &quot;totalAmount&quot;: 500,<br/>
-    ///       &quot;lines&quot;: [<br/>
+    ///       "totalAmount": 500,<br/>
+    ///       "lines": [<br/>
     ///           {<br/>
-    ///               &quot;amount&quot;: 500,<br/>
-    ///               &quot;links&quot;: [{<br/>
-    ///                       &quot;type&quot;: &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;a&quot;,<br/>
-    ///                       &quot;amount&quot;: -1000<br/>
+    ///               "amount": 500,<br/>
+    ///               "links": [{<br/>
+    ///                       "type": "Invoice",<br/>
+    ///                       "id": "a",<br/>
+    ///                       "amount": -1000<br/>
     ///                   }, {<br/>
-    ///                       &quot;type&quot;: &quot;Invoice&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;b&quot;,<br/>
-    ///                       &quot;amount&quot;: -1000<br/>
+    ///                       "type": "Invoice",<br/>
+    ///                       "id": "b",<br/>
+    ///                       "amount": -1000<br/>
     ///                   }, {<br/>
-    ///                       &quot;type&quot;: &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;y&quot;,<br/>
-    ///                       &quot;amount&quot;: 750<br/>
+    ///                       "type": "CreditNote",<br/>
+    ///                       "id": "y",<br/>
+    ///                       "amount": 750<br/>
     ///                   },{<br/>
-    ///                       &quot;type&quot;: &quot;CreditNote&quot;,<br/>
-    ///                       &quot;id&quot;: &quot;z&quot;,<br/>
-    ///                       &quot;amount&quot;: 750<br/>
+    ///                       "type": "CreditNote",<br/>
+    ///                       "id": "z",<br/>
+    ///                       "amount": 750<br/>
     ///                   }<br/>
     ///               ]<br/>
     ///           }<br/>
     ///       ]<br/>
     ///   }<br/>
     ///   ```
-    /// </remarks>
     /// </summary>
     public class AccountingPayment
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -726,34 +722,29 @@ namespace Codat.Lending.Models.Components
         public PaymentMethodRef? PaymentMethodRef { get; set; }
 
         /// <summary>
-        /// Amount of the payment in the payment currency. This value should never change and represents the amount of money paid into the customer&apos;s account.
+        /// Amount of the payment in the payment currency. This value should never change and represents the amount of money paid into the customer's account.
         /// </summary>
         [JsonProperty("totalAmount")]
         public decimal? TotalAmount { get; set; }
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
 
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Currency rates in Codat are implemented as the multiple of foreign currency units to each base currency unit.  <br/>
         /// <br/>
-        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company&apos;s base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
+        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company's base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
         /// <br/>
         /// Where the currency rate is provided by the underlying accounting software, it will be available from Codat with the same precision (up to a maximum of 9 decimal places). <br/>
         /// <br/>
@@ -781,15 +772,12 @@ namespace Codat.Lending.Models.Components
         /// | Integration       | Scenario                                        | System behavior                                                                                                                                                      |<br/>
         /// |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
         /// | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, specify a currencyRate in the request body.  |
-        /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
         public decimal? CurrencyRate { get; set; } = null;
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -808,7 +796,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("date")]
         public string Date { get; set; } = default!;
@@ -836,11 +823,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

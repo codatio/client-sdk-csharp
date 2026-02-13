@@ -13,19 +13,14 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Suppliers are people or organizations that provide something, such as a product or service. Use the <a href="https://docs.codat.io/sync-for-payables-v2-api#/operations/list-suppliers">List suppliers</a> endpoint to retrieve a list of all suppliers for a company.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
-    /// Suppliers&apos; data links to accounts payable <a href="https://docs.codat.io/sync-for-payables-v2-api#/schemas/Bill">bills</a>.<br/>
-    ///  
-    /// </remarks>
+    /// Suppliers' data links to accounts payable <a href="https://docs.codat.io/sync-for-payables-v2-api#/schemas/Bill">bills</a>.
     /// </summary>
     public class Supplier
     {
-
         /// <summary>
         /// Identifier for the supplier, unique to the company in the accounting software.
         /// </summary>
@@ -75,7 +70,7 @@ namespace Codat.Sync.Payables.Models.Components
         public decimal? Balance { get; set; } = null;
 
         /// <summary>
-        /// Default currency the supplier&apos;s transactional data is recorded in.
+        /// Default currency the supplier's transactional data is recorded in.
         /// </summary>
         [JsonProperty("defaultCurrency")]
         public string? DefaultCurrency { get; set; } = null;

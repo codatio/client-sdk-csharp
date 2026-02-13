@@ -17,24 +17,52 @@ namespace Codat.Lending
     public interface IBanking
     {
         public ICategorizedStatement CategorizedStatement { get; }
+
         public IAccountBalances AccountBalances { get; }
+
         public ICodatLendingBankingAccounts Accounts { get; }
+
         public ICodatLendingTransactions Transactions { get; }
+
         public ITransactionCategories TransactionCategories { get; }
     }
 
     public class Banking: IBanking
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// CategorizedStatement SubSDK.
+        /// <see cref="ICategorizedStatement"/>
+        /// </summary>
         public ICategorizedStatement CategorizedStatement { get; private set; }
+
+        /// <summary>
+        /// AccountBalances SubSDK.
+        /// <see cref="IAccountBalances"/>
+        /// </summary>
         public IAccountBalances AccountBalances { get; private set; }
+
+        /// <summary>
+        /// Accounts SubSDK.
+        /// <see cref="ICodatLendingBankingAccounts"/>
+        /// </summary>
         public ICodatLendingBankingAccounts Accounts { get; private set; }
+
+        /// <summary>
+        /// Transactions SubSDK.
+        /// <see cref="ICodatLendingTransactions"/>
+        /// </summary>
         public ICodatLendingTransactions Transactions { get; private set; }
+
+        /// <summary>
+        /// TransactionCategories SubSDK.
+        /// <see cref="ITransactionCategories"/>
+        /// </summary>
         public ITransactionCategories TransactionCategories { get; private set; }
 
         public Banking(SDKConfig config)

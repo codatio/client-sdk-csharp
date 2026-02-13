@@ -13,24 +13,23 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CommerceReportDimension
     {
-
         /// <summary>
-        /// The dimension&apos;s index.
+        /// The dimension's index.
         /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }
 
         /// <summary>
-        /// The dimension&apos;s display name.
+        /// The dimension's display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
 
         /// <summary>
-        /// The dimension&apos;s type.
+        /// The dimension's type.
         /// </summary>
         [JsonProperty("type")]
         public string? Type { get; set; }

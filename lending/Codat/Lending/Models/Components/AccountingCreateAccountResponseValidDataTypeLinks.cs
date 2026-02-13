@@ -12,11 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
-    /// When querying Codat&apos;s data model, some data types return `validDatatypeLinks` metadata in the JSON response. This indicates where that object can be used as a reference—a _valid link_—when creating or updating other data.<br/>
-    /// 
-    /// <remarks>
+    /// When querying Codat's data model, some data types return `validDatatypeLinks` metadata in the JSON response. This indicates where that object can be used as a reference—a _valid link_—when creating or updating other data.<br/>
     /// <br/>
     /// For example, `validDatatypeLinks` might indicate the following references:<br/>
     /// <br/>
@@ -31,18 +29,18 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// ```json validDatatypeLinks for an account<br/>
     /// {<br/>
-    ///             &quot;id&quot;: &quot;bd9e85e0-0478-433d-ae9f-0b3c4f04bfe4&quot;,<br/>
-    ///             &quot;nominalCode&quot;: &quot;090&quot;,<br/>
-    ///             &quot;name&quot;: &quot;Business Bank Account&quot;,<br/>
+    ///             "id": "bd9e85e0-0478-433d-ae9f-0b3c4f04bfe4",<br/>
+    ///             "nominalCode": "090",<br/>
+    ///             "name": "Business Bank Account",<br/>
     ///             #...<br/>
-    ///             &quot;validDatatypeLinks&quot;: [<br/>
+    ///             "validDatatypeLinks": [<br/>
     ///                 {<br/>
-    ///                     &quot;property&quot;: &quot;Id&quot;,<br/>
-    ///                     &quot;links&quot;: [<br/>
-    ///                         &quot;Payment.AccountRef.Id&quot;,<br/>
-    ///                         &quot;BillPayment.AccountRef.Id&quot;,<br/>
-    ///                         &quot;DirectIncome.LineItems.AccountRef.Id&quot;,<br/>
-    ///                         &quot;DirectCost.LineItems.AccountRef.Id&quot;<br/>
+    ///                     "property": "Id",<br/>
+    ///                     "links": [<br/>
+    ///                         "Payment.AccountRef.Id",<br/>
+    ///                         "BillPayment.AccountRef.Id",<br/>
+    ///                         "DirectIncome.LineItems.AccountRef.Id",<br/>
+    ///                         "DirectCost.LineItems.AccountRef.Id"<br/>
     ///                     ]<br/>
     ///                 }<br/>
     ///             ]<br/>
@@ -55,12 +53,10 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// Codat currently supports `validDatatypeLinks` for some data types on our Xero, QuickBooks Online, QuickBooks Desktop, Exact (NL), and Sage Business Cloud integrations. <br/>
     /// <br/>
-    /// If you&apos;d like us to extend support to more data types or integrations, suggest or vote for this on our &lt;a href=&quot;https://portal.productboard.com/codat/5-product-roadmap&quot;&gt;Product Roadmap&lt;/a&gt;.
-    /// </remarks>
+    /// If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
     /// </summary>
     public class AccountingCreateAccountResponseValidDataTypeLinks
     {
-
         /// <summary>
         /// The property from the account that can be linked.
         /// </summary>

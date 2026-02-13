@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class LendingCustomerRef
     {
-
         /// <summary>
         /// `id` from the Customers data type.
         /// </summary>

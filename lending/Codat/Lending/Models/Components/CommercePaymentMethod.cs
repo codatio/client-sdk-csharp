@@ -12,13 +12,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A Payment Method represents the payment method(s) used to make payments.
     /// </summary>
     public class CommercePaymentMethod
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -26,13 +25,13 @@ namespace Codat.Lending.Models.Components
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// A unique, persistent identifier for this record
+        /// A unique, persistent identifier for this record.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The name of the PaymentMethod
+        /// The name of the PaymentMethod.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

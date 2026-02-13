@@ -17,24 +17,52 @@ namespace Codat.Lending
     public interface ITransactions
     {
         public IAccountTransactions AccountTransactions { get; }
+
         public IDirectCosts DirectCosts { get; }
+
         public IJournalEntries JournalEntries { get; }
+
         public IJournals Journals { get; }
+
         public ITransfers Transfers { get; }
     }
 
     public class Transactions: ITransactions
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
 
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
+        /// <summary>
+        /// AccountTransactions SubSDK.
+        /// <see cref="IAccountTransactions"/>
+        /// </summary>
         public IAccountTransactions AccountTransactions { get; private set; }
+
+        /// <summary>
+        /// DirectCosts SubSDK.
+        /// <see cref="IDirectCosts"/>
+        /// </summary>
         public IDirectCosts DirectCosts { get; private set; }
+
+        /// <summary>
+        /// JournalEntries SubSDK.
+        /// <see cref="IJournalEntries"/>
+        /// </summary>
         public IJournalEntries JournalEntries { get; private set; }
+
+        /// <summary>
+        /// Journals SubSDK.
+        /// <see cref="IJournals"/>
+        /// </summary>
         public IJournals Journals { get; private set; }
+
+        /// <summary>
+        /// Transfers SubSDK.
+        /// <see cref="ITransfers"/>
+        /// </summary>
         public ITransfers Transfers { get; private set; }
 
         public Transactions(SDKConfig config)

@@ -11,12 +11,11 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class CommerceRecordRef
     {
-
         /// <summary>
-        /// The unique identitifer of the record being referenced
+        /// The unique identitifer of the record being referenced.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

@@ -1,35 +1,2042 @@
 lockVersion: 2.0.0
 id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
-  docChecksum: 05c2a60eb0f4b40cda5e4a92d94e7b93
+  docChecksum: 2c97e4172eda0b5a31c6dc31f428235d
   docVersion: 3.0.0
-  speakeasyVersion: 1.447.0
-  generationVersion: 2.463.0
-  releaseVersion: 10.0.0
-  configChecksum: ea66f426fff449b9489cf945c3268ed1
+  speakeasyVersion: 1.709.1
+  generationVersion: 2.812.2
+  releaseVersion: 10.1.0
+  configChecksum: d382bc2dd8aef4c90377cb4e45ea40f9
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   published: true
+persistentEdits:
+  generation_id: f331df6e-5a24-4978-88b8-ceb8118fde98
+  pristine_commit_hash: d939fd2b9cafeebbb3c33275847597bda1ca15cd
+  pristine_tree_hash: 86d29069a9115d2e9fe15a1b499ca6f0e223aa4d
 features:
   csharp:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.0.1
-    core: 3.10.6
+    constsAndDefaults: 0.0.2
+    core: 3.15.11
     decimal: 0.1.0
-    deprecations: 2.81.2
-    examples: 2.81.3
-    globalSecurity: 2.83.6
+    examples: 2.81.6
+    globalSecurity: 2.83.9
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.3
+    globalServerURLs: 2.83.0
     intellisenseMarkdownSupport: 0.1.0
-    methodArguments: 0.1.0
+    methodArguments: 0.2.1
     nameOverrides: 2.81.2
-    nullables: 0.1.0
+    nullables: 0.1.1
     responseFormat: 0.0.4
     retries: 0.0.1
-    sdkHooks: 0.1.0
+    sdkHooks: 0.3.0
+    serverEventsSentinels: 0.2.0
     webhooks: 1.0.0
+trackedFiles:
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:6cf623aa5081ea7f1e32b99d74fac393718a29cf
+    pristine_git_object: c094dba670119a1a5414e11c713a4ea3218147cd
+  Codat.Sync.Payables.sln:
+    id: 8bc65c11b4d0
+    last_write_checksum: sha1:6912bca8a880e2f5eb01851afadebfbca06f3d7c
+    pristine_git_object: e4a80b4dc1d008a192df8e2131f158d16bc3fbc1
+  Codat/Sync/Payables/BankAccounts.cs:
+    id: d759eaecf476
+    last_write_checksum: sha1:1d4e3918654842709199c57e14b481340910616e
+    pristine_git_object: 6620be5e0679a8beb99032b9e9b72fdb97161d54
+  Codat/Sync/Payables/BillPayments.cs:
+    id: e3b36293aaba
+    last_write_checksum: sha1:40d1632d43de6a391d38f1f51ffbe363d38cdc1d
+    pristine_git_object: 57544ad518f0c20437bc62593a5656fc50511807
+  Codat/Sync/Payables/Bills.cs:
+    id: e083f5e93c50
+    last_write_checksum: sha1:f43c20f2e11aa2b6b5125076fc30844e35a8d760
+    pristine_git_object: 7e98dc123e84093b4a1c8f4c62e048de65069f38
+  Codat/Sync/Payables/Codat.Sync.Payables.csproj:
+    id: 27c2af8e86c9
+    last_write_checksum: sha1:1d5e4e6b595d801ad1dc6160c26bd53782629ddf
+    pristine_git_object: e6d31a5187f84f9f50c9e836bf0c866c814af316
+  Codat/Sync/Payables/CodatSyncPayables.cs:
+    id: 41ceacd335c5
+    last_write_checksum: sha1:148411c35706d8823055167c1ec4bfa8b250f1e6
+    pristine_git_object: f7b0c5503da9483366586abae7623db55c4a77bd
+  Codat/Sync/Payables/Companies.cs:
+    id: 326ddbb4ab90
+    last_write_checksum: sha1:980a401bfb1a5dba8ad64412eee2ac6d2ccad1ca
+    pristine_git_object: a99d2af22423832f615e185d741afb963cb8a736
+  Codat/Sync/Payables/CompanyInformation.cs:
+    id: bfeecd399691
+    last_write_checksum: sha1:6a3eb168d5efc2d4219165c806fce227e6c3b64b
+    pristine_git_object: 3950ffaeab2a903b4978f99236476c615ed01e40
+  Codat/Sync/Payables/Connections.cs:
+    id: 2b9602c659b0
+    last_write_checksum: sha1:741b980d7020bc7f3c90d2ae8d105c7db04c93bb
+    pristine_git_object: d9402de39626e8abb58d2d18ee08dbd1e655ecef
+  Codat/Sync/Payables/Hooks/HookTypes.cs:
+    id: 1d1fbd218744
+    last_write_checksum: sha1:91c874b962b507713528c9c2f22e4cdc0bba5940
+    pristine_git_object: 59980e150cbbbc220ae19abfe10491db99c1e984
+  Codat/Sync/Payables/Hooks/SDKHooks.cs:
+    id: ba72e82110f4
+    last_write_checksum: sha1:d9551e3f4bf10682c016c5b343470a44ee62f548
+    pristine_git_object: 87f331a1da5dee32f74f6fb2587ccda8c9b87de8
+  Codat/Sync/Payables/Models/Components/AccountMappingOption.cs:
+    id: a2035c00766e
+    last_write_checksum: sha1:19a27ab42828e0303a46759ef273f5ce5221f3a4
+    pristine_git_object: 214db63829bdfbc49e0be8367d63f96787a7a75e
+  Codat/Sync/Payables/Models/Components/AccountStatus.cs:
+    id: 55bfaf9dd666
+    last_write_checksum: sha1:7658d84945a15c17d2fa07a19760f14c9c2f8684
+    pristine_git_object: 381e22b94550eff69b0fbbc96464fd506d096e67
+  Codat/Sync/Payables/Models/Components/Address.cs:
+    id: 275f2215d0fe
+    last_write_checksum: sha1:ad1da5673fe7d97e099a3ba276f592c5e6e44eaa
+    pristine_git_object: 0325099f4033329fcc6ed9ae0da9b4d3a6380f88
+  Codat/Sync/Payables/Models/Components/AddressType.cs:
+    id: 38811db8f374
+    last_write_checksum: sha1:935e584620955fd7da70f5636a511456f44d5630
+    pristine_git_object: 7d105cc1eb8bdcaa50410de33d6b1dc84bdcd43a
+  Codat/Sync/Payables/Models/Components/Attachment.cs:
+    id: 984ae1664181
+    last_write_checksum: sha1:1a1e92bc040098d3dd19ba13981f7b648ad8b535
+    pristine_git_object: d6edd27e42214514a2f30c1de5dbcf7799930298
+  Codat/Sync/Payables/Models/Components/AttachmentUpload.cs:
+    id: 1ffae559eeea
+    last_write_checksum: sha1:4b1375e56c8945eb73cca816885859a35f0753f6
+    pristine_git_object: d8ddf20f4534fe224b29787c779a3abee1f089af
+  Codat/Sync/Payables/Models/Components/BankAccount.cs:
+    id: de3d8bf6eaf8
+    last_write_checksum: sha1:8e69c60febb5528ec992964e1b5437c4fac7dee4
+    pristine_git_object: eac234aa2d1fc00d75bcea068d38e340cd393df0
+  Codat/Sync/Payables/Models/Components/BankAccountMappingOption.cs:
+    id: 84695624f3fa
+    last_write_checksum: sha1:28431cf5cb59be98219837932896a3971c7e8b66
+    pristine_git_object: 47dc7f5edb12f7e0c94cbd58dae519f122e43664
+  Codat/Sync/Payables/Models/Components/BankAccountPrototype.cs:
+    id: 68ca87f661ac
+    last_write_checksum: sha1:49bf577b193d170f9ab24be7701c1e08b371ddf1
+    pristine_git_object: 261c3390469b6506c38a5cd091a25e05f8d023e5
+  Codat/Sync/Payables/Models/Components/BankAccountStatus.cs:
+    id: b5530f51e44b
+    last_write_checksum: sha1:22c5b301d668bd8c05e4cd3951edcd204279b3d3
+    pristine_git_object: 00aa13702d2a1523415de4e8ad7d928f7e18e374
+  Codat/Sync/Payables/Models/Components/BankAccountType.cs:
+    id: a3bb1d709e15
+    last_write_checksum: sha1:49784454a1c847652900b1d2ce04c6bd2a9c935d
+    pristine_git_object: b9e49ea4aaf9ea03b32eb12ecec6cccb34e2f019
+  Codat/Sync/Payables/Models/Components/Bill.cs:
+    id: 89072cd2206b
+    last_write_checksum: sha1:4918b5441eb3f8cff76cbfc0f57301f14099dd82
+    pristine_git_object: 89e93c5c9ea104b2f0da713e86e251d8526a692b
+  Codat/Sync/Payables/Models/Components/BillAccountRef.cs:
+    id: 28ea21ff6f14
+    last_write_checksum: sha1:1ff673b26d6cf03954d4a8549c6c6f2c8d17019e
+    pristine_git_object: bb2090c15176b16a8ba975324adb1592a0d96622
+  Codat/Sync/Payables/Models/Components/BillLineItem.cs:
+    id: 7bdc06009cc6
+    last_write_checksum: sha1:6cb344085750239b6b6a75d248dcfacf303c827d
+    pristine_git_object: 010d588c04cc539f040a679712585c3643f3cd16
+  Codat/Sync/Payables/Models/Components/BillMappingOptions.cs:
+    id: 1bb9dbd2896d
+    last_write_checksum: sha1:24b5e407cf6f96eb1dffcfccc41c99eab52bbf85
+    pristine_git_object: 6ad8721e05f45fe3b305487b8d5cb629d241e4e7
+  Codat/Sync/Payables/Models/Components/BillPayment.cs:
+    id: 61e123cfc471
+    last_write_checksum: sha1:fd8202b6c7bc0f069807d1a1b3f682ed27c4ecdc
+    pristine_git_object: 8d95c40ef5c20adde0d541e770988684c6d01ec6
+  Codat/Sync/Payables/Models/Components/BillPaymentAccountRef.cs:
+    id: e3016e469211
+    last_write_checksum: sha1:8e20a6e4b4a284407943bd009b875e72e1edc188
+    pristine_git_object: fa340b6ecb64d317716258b5d135944d72c38e77
+  Codat/Sync/Payables/Models/Components/BillPaymentPrototype.cs:
+    id: 259499be6a0d
+    last_write_checksum: sha1:841954a4cc3a2ad43a5a8080123a09785069da7a
+    pristine_git_object: e3f867beae790689e230e4a18ad9fbaf23e4da18
+  Codat/Sync/Payables/Models/Components/BillPrototype.cs:
+    id: 259026b3393f
+    last_write_checksum: sha1:e6663aba2f621686bf510e1e6c33c37e2e3e3127
+    pristine_git_object: 42213c22f29d71e6911b0d96bfe4ed56a62d0021
+  Codat/Sync/Payables/Models/Components/BillStatus.cs:
+    id: dafaa4452ff0
+    last_write_checksum: sha1:493b399c9618655e48773b76fa709e30626f4ead
+    pristine_git_object: e73a650170112d7e858b1301c816c9f8d2d43836
+  Codat/Sync/Payables/Models/Components/BillTaxRateRef.cs:
+    id: 9e4da3ce08dd
+    last_write_checksum: sha1:565e64ceb8b5b49b52d95465690cec4aa2813b40
+    pristine_git_object: 5a2756c758fc414a1433cc362de2c08df16637ed
+  Codat/Sync/Payables/Models/Components/Bills.cs:
+    id: 4272173c6db4
+    last_write_checksum: sha1:28812c41a3bbeebc8cc5e67d4da9c937443b1661
+    pristine_git_object: 9230c017809af5787b968c54f3e5fb4b3b4cf6bf
+  Codat/Sync/Payables/Models/Components/ClientRateLimitWebhook.cs:
+    id: 4392c6218ca1
+    last_write_checksum: sha1:65edd5c262d8a26bd00123c1725e6c1fd4a8d720
+    pristine_git_object: 93fb16b374f6118781fa3ae201943798218e637a
+  Codat/Sync/Payables/Models/Components/ClientRateLimitWebhookPayload.cs:
+    id: ba1ec9bc2423
+    last_write_checksum: sha1:0cb5bcffe80b06b95226649d7dbce50a82d2621a
+    pristine_git_object: 7ae2d02dfc17481b2d6ffe77414420fa0ea30c67
+  Codat/Sync/Payables/Models/Components/CodatFile.cs:
+    id: d4293dff5564
+    last_write_checksum: sha1:e48786cc583c733de7099763ded56f5d59b811c2
+    pristine_git_object: 3904e5b472df59f9fc0362de34d656fb7ca8afa2
+  Codat/Sync/Payables/Models/Components/Companies.cs:
+    id: "120001158414"
+    last_write_checksum: sha1:974d5dd04f70b4a06e6f59dd119f85f211bf26bf
+    pristine_git_object: ef8f2dce0d05b5fdcd5977f6991a69c99c88c4f4
+  Codat/Sync/Payables/Models/Components/Company.cs:
+    id: df957ec120d6
+    last_write_checksum: sha1:f53c2f84deefbb4a1d45ad05275774c47663a4cd
+    pristine_git_object: baecfff532fe7a72eac4aed2b68ef9be724ce7ab
+  Codat/Sync/Payables/Models/Components/CompanyInformation.cs:
+    id: 591353cf71af
+    last_write_checksum: sha1:fc115f1dac551d4644ce74b8576a54606088363e
+    pristine_git_object: 33c300797680d1d1b9415a3f9f4626675b6b1b9d
+  Codat/Sync/Payables/Models/Components/CompanyReference.cs:
+    id: 2875d241fc2f
+    last_write_checksum: sha1:24871d33ba0eb226b8819cb81b1a08027eb2b63b
+    pristine_git_object: 9bd813b3c188c583455525619519b94abe7cce12
+  Codat/Sync/Payables/Models/Components/CompanyReferenceLinks.cs:
+    id: e804d69f9552
+    last_write_checksum: sha1:a54a52d1ddf839859e0510c0bad15ceeda9a9957
+    pristine_git_object: 0b7c6feba1653304a38578c7915f391f057b7f56
+  Codat/Sync/Payables/Models/Components/CompanyRequestBody.cs:
+    id: 055c4d487b8b
+    last_write_checksum: sha1:c1c33b0a404fbfc89616c4edd302e17bf9a761a9
+    pristine_git_object: 072912778922a20529fa112192b389c96f4e6075
+  Codat/Sync/Payables/Models/Components/CompanyUpdateRequest.cs:
+    id: 2c0dad8ea349
+    last_write_checksum: sha1:8722afb93b3aa556b6c2f2507f12e49f2b027123
+    pristine_git_object: b3602add10426e59d5dcdc6d567ee1483ef1a8f2
+  Codat/Sync/Payables/Models/Components/Connection.cs:
+    id: 17979458ec28
+    last_write_checksum: sha1:1090f558787d33b4f22e17cc2ff5b8e8c8f2062b
+    pristine_git_object: 94b8aadc282a9726e1ef845ad5b0cb62aeec7814
+  Codat/Sync/Payables/Models/Components/Connections.cs:
+    id: f6f85bee383d
+    last_write_checksum: sha1:0e79ce89abb5994efe288ceb66257c338c4ead71
+    pristine_git_object: 034beb101d47e9e8e5b36e5b9c4ac8b8d49e5716
+  Codat/Sync/Payables/Models/Components/DataConnectionError.cs:
+    id: 2fa181fa7f41
+    last_write_checksum: sha1:689e41339dc698918fa54036263ff9776c8cf3e8
+    pristine_git_object: 8ded5105324f90c2c7d9151cbc56753dc7585425
+  Codat/Sync/Payables/Models/Components/DataConnectionStatus.cs:
+    id: f2134a74c927
+    last_write_checksum: sha1:22c84c4659ba326826e64b64bcfecc050836ad1b
+    pristine_git_object: 43ee3e03d13a64aee013e102d1a113e907433d22
+  Codat/Sync/Payables/Models/Components/DataType.cs:
+    id: 03ea8c497a95
+    last_write_checksum: sha1:3e0fc34315c6f8899bab5ddfea8d5011166834e9
+    pristine_git_object: adff43f1f1e2ac45f59181df9c20a8d00a234708
+  Codat/Sync/Payables/Models/Components/ErrorStatus.cs:
+    id: ad708a358eaf
+    last_write_checksum: sha1:7a2064fe7bc3a813e93554405359ab72806f6ab5
+    pristine_git_object: edc3e7691e0f04b70d0fa8c31e9cb0cb372e72ef
+  Codat/Sync/Payables/Models/Components/ErrorValidation.cs:
+    id: 0ab25762d19b
+    last_write_checksum: sha1:716e5ae98c6154b639993403d63fbe2952caf7c2
+    pristine_git_object: ac95111c31e3415096eaf992944532dc92a3684f
+  Codat/Sync/Payables/Models/Components/ErrorValidationItem.cs:
+    id: 983c3d64e759
+    last_write_checksum: sha1:d554b2edc02f7cccecec726acebc59a3eb4d855f
+    pristine_git_object: a375891c3922b37d73d1e4f761406c335cd82ab3
+  Codat/Sync/Payables/Models/Components/HalRef.cs:
+    id: 943add32b63d
+    last_write_checksum: sha1:666de1066bf5398fefe3affccc2ddc196c9ebb41
+    pristine_git_object: 17a6f0c66af20582b0cc0de1249209a16991bcd6
+  Codat/Sync/Payables/Models/Components/Links.cs:
+    id: 942ae965d8c1
+    last_write_checksum: sha1:1f7ab5ce59b28b7d966f90145e166bb2b2d384b1
+    pristine_git_object: e0b9c428d356d927ec44ec76a84bc85e9f29c11d
+  Codat/Sync/Payables/Models/Components/Pagination.cs:
+    id: 0a1607c922a5
+    last_write_checksum: sha1:40f3fd8725b7df9ba50aa9682b30d36432d65dda
+    pristine_git_object: 06f3589c4d759120465669132ca71058a1f2dbc7
+  Codat/Sync/Payables/Models/Components/PaymentMappingOptions.cs:
+    id: a833c427dff8
+    last_write_checksum: sha1:a7975a9144dff292cf2fe972323196fc9d964cbd
+    pristine_git_object: 34cfdfc0398069f9dc70938a21fc6f30ae8d8074
+  Codat/Sync/Payables/Models/Components/Security.cs:
+    id: c18befcc9acf
+    last_write_checksum: sha1:a0e00d4e7ee808bfe91393a0a2fb0698251cb91d
+    pristine_git_object: a593417b457ce2b4e63d0b03a4dd2c1ad0ceb241
+  Codat/Sync/Payables/Models/Components/SourceType.cs:
+    id: 68e5ea353d10
+    last_write_checksum: sha1:909711431bd46d22889b944e9e3413703e9f3a70
+    pristine_git_object: 5a51c7769f2c48f1518421a0ccd679d93be90564
+  Codat/Sync/Payables/Models/Components/Supplier.cs:
+    id: 686b572cab07
+    last_write_checksum: sha1:2ed220efd1bcad289297f74268a78106792822c1
+    pristine_git_object: fc9c61314b093c6e21b909084caeae1672d71d54
+  Codat/Sync/Payables/Models/Components/SupplierPrototype.cs:
+    id: cd8dac0b5b5e
+    last_write_checksum: sha1:392e192c4d35c286fd163cdd5460d22cccba7661
+    pristine_git_object: 37c9ddc389e9280cc88be752296e7dc929ecd509
+  Codat/Sync/Payables/Models/Components/SupplierRef.cs:
+    id: 35415c5ece02
+    last_write_checksum: sha1:a1cc0f8a1ff9df87f1e63e2c5e0f1cbcf47449fc
+    pristine_git_object: fae913e8fe181c7975ed3b797e1bc73201f766e9
+  Codat/Sync/Payables/Models/Components/SupplierStatus.cs:
+    id: dd89993f55ad
+    last_write_checksum: sha1:8b7e9d72d691f7ce108b73b225756718bc6918f1
+    pristine_git_object: 2067fda98106ee27fb16362593ba3ef647b16b16
+  Codat/Sync/Payables/Models/Components/Suppliers.cs:
+    id: a4df5788207c
+    last_write_checksum: sha1:1374092884d5f3eba62ae48cbe16d227b7494fba
+    pristine_git_object: da91a741c587a9c3f761b1b9ee6411dad5ab542b
+  Codat/Sync/Payables/Models/Components/TaxRateMappingOption.cs:
+    id: 03534324026e
+    last_write_checksum: sha1:1f2bc46654a75bd4ba18db32e9e605d2802678b3
+    pristine_git_object: a04fb5fae469d2694bceccdb08337098d8fb1e0d
+  Codat/Sync/Payables/Models/Components/TaxRateStatus.cs:
+    id: 9bf642e8a1fd
+    last_write_checksum: sha1:31136e3c52bd9cc00c218fe2d30cb1f502c64cc7
+    pristine_git_object: 99db1749bf62ba546368d0d071607b2efa429ac0
+  Codat/Sync/Payables/Models/Components/TrackingRef.cs:
+    id: 128cd17d85ea
+    last_write_checksum: sha1:fb4d8ee8165b76746d1da27476ebdb2932e69569
+    pristine_git_object: 73e954ff069885bff5ce05feda0b7e87c5786bcd
+  Codat/Sync/Payables/Models/Errors/CodatSyncPayablesException.cs:
+    id: aeafcbf03d34
+    last_write_checksum: sha1:b40ab6ea9d4fb19f62d52c34ba3bd75a4ffa37c9
+    pristine_git_object: d1a1881aef1439358c91aa52bdb84b30561bbaeb
+  Codat/Sync/Payables/Models/Errors/ErrorMessage.cs:
+    id: b2b27b44f1b2
+    last_write_checksum: sha1:93dd6f835634b970bf10f7baf5d1099bc28e102d
+    pristine_git_object: 2aeef89b4dabbced804b96ccbc6256518aaf6065
+  Codat/Sync/Payables/Models/Errors/ResponseValidationException.cs:
+    id: 17f210a91806
+    last_write_checksum: sha1:0e641b9164c0a6238b6c20f13ccea1050102ccd3
+    pristine_git_object: c0c570f6ef7c70e24080d5e471298fd6fb494326
+  Codat/Sync/Payables/Models/Errors/SDKException.cs:
+    id: 2640894425d5
+    last_write_checksum: sha1:cf8a558ba4918243597cb46c44709ecf783dc180
+    pristine_git_object: e5c1e3d9b66ddcdbbad71d3ff9b13dd146aaa63b
+  Codat/Sync/Payables/Models/Requests/CreateBankAccountRequest.cs:
+    id: 0e2420237d19
+    last_write_checksum: sha1:caa3c78563377792ac8b64eb3d8a68eafae72ebf
+    pristine_git_object: 78d5d0836782aa734ceac00dd4dc6b04bcc5687e
+  Codat/Sync/Payables/Models/Requests/CreateBankAccountResponse.cs:
+    id: f169371720ad
+    last_write_checksum: sha1:1b0017a2048c64b3f19f9485e00c204f69867f56
+    pristine_git_object: ebfd1fc4ab83741ac848ebdc5595d7d0a3587f4e
+  Codat/Sync/Payables/Models/Requests/CreateBillPaymentRequest.cs:
+    id: c3d74d5b3220
+    last_write_checksum: sha1:1b35909c27cbafc0493a046bdf5b45c671891dad
+    pristine_git_object: e75f00e992ece7110e47bd71b13cb65f66459999
+  Codat/Sync/Payables/Models/Requests/CreateBillPaymentResponse.cs:
+    id: e186275a530e
+    last_write_checksum: sha1:593126a60cd905709d8502577cf9690a9356f459
+    pristine_git_object: 2b591743b3294aabab2289f1eb33ff1413236c31
+  Codat/Sync/Payables/Models/Requests/CreateBillRequest.cs:
+    id: 5e7faeb9da76
+    last_write_checksum: sha1:3b53d6d3ff5dd1cdbfc939204e88b3edaf43b784
+    pristine_git_object: ee8e80db2c2c3501cd654ac0ae964c0e944ec690
+  Codat/Sync/Payables/Models/Requests/CreateBillResponse.cs:
+    id: cc843781f0b4
+    last_write_checksum: sha1:545170b40346af4d74b0757d5b01b9faac15343b
+    pristine_git_object: b8f9e3fbbabc2e1f75483cd3cd0600d950cc6ede
+  Codat/Sync/Payables/Models/Requests/CreateCompanyResponse.cs:
+    id: 5e3c04ba602e
+    last_write_checksum: sha1:0a169e0395b67964046d5069ff867810b5a59fb7
+    pristine_git_object: 1e07cbf7e22100b53c6b814b71eaa846fa055ef4
+  Codat/Sync/Payables/Models/Requests/CreateConnectionRequest.cs:
+    id: e004f5bfdeed
+    last_write_checksum: sha1:aa548c59c873f625e28ef3dac64c85115b68272b
+    pristine_git_object: ee2807dab98491fb3f0a26dc63e5d13927109c4c
+  Codat/Sync/Payables/Models/Requests/CreateConnectionRequestBody.cs:
+    id: 66268c03973a
+    last_write_checksum: sha1:d7575cc6ccd65f53b3095ffadc655e6ba6b4fe11
+    pristine_git_object: 1bbae574b87f5e22eebfb59690ae4cb150e7564f
+  Codat/Sync/Payables/Models/Requests/CreateConnectionResponse.cs:
+    id: 1deeae3542c5
+    last_write_checksum: sha1:c3e3508458d078655a37cffcfdb973035c929947
+    pristine_git_object: 49bde8f5f17259a179064c0fb0f09ab2f8421797
+  Codat/Sync/Payables/Models/Requests/CreateSupplierRequest.cs:
+    id: 3d19b78e6236
+    last_write_checksum: sha1:5ff0f994a7733a5825bb61cd2c451d90bd82b77e
+    pristine_git_object: 8c024b1975822582efce3e5acc913437dc11787f
+  Codat/Sync/Payables/Models/Requests/CreateSupplierResponse.cs:
+    id: 1d16bafcaccd
+    last_write_checksum: sha1:efed004dbadfddfc9c74310512771a61aab94232
+    pristine_git_object: 1fcc8c857d90ca011dcd9a145b05b70905be976c
+  Codat/Sync/Payables/Models/Requests/DeleteCompanyRequest.cs:
+    id: c071502380bb
+    last_write_checksum: sha1:d3791a12f5f3f5d0c6b13cb2c3191589b4a9b7a3
+    pristine_git_object: f1aff709e06abb6d347673cc512bb2a710f74ccc
+  Codat/Sync/Payables/Models/Requests/DeleteCompanyResponse.cs:
+    id: a53804f508c5
+    last_write_checksum: sha1:e3087a3b6bfdfd2c3c44d4d7b3e74cd7ff769829
+    pristine_git_object: 7a9f703bd1914ac073a4dba1ba55344c37b636fc
+  Codat/Sync/Payables/Models/Requests/DeleteConnectionRequest.cs:
+    id: a8fbe6ba76d1
+    last_write_checksum: sha1:f5e96e3dfe49a747ab595af6e9bf8d1a67065b92
+    pristine_git_object: 63de094c1c7b5709fa32c3f1e9afd161b7077c9b
+  Codat/Sync/Payables/Models/Requests/DeleteConnectionResponse.cs:
+    id: 76658b2d8bea
+    last_write_checksum: sha1:5a17adf1a2b4f4709fda91b51fb83a0e0803f186
+    pristine_git_object: e94108f9c2e59433e4581e6909cbf11a79034351
+  Codat/Sync/Payables/Models/Requests/DownloadBillAttachmentRequest.cs:
+    id: 32e2c880e5e2
+    last_write_checksum: sha1:41f323266111a285c14621ac77eb41abcc5e4d1b
+    pristine_git_object: b302d3c9a6d51f66f53a520429156b4312453472
+  Codat/Sync/Payables/Models/Requests/DownloadBillAttachmentResponse.cs:
+    id: d2c9bb290d25
+    last_write_checksum: sha1:a6131239e8308b1d7d9971b75410632eef556d8b
+    pristine_git_object: a4f910ff7183e9507aae98f6341cdcf2276d914e
+  Codat/Sync/Payables/Models/Requests/GetCompanyInformationRequest.cs:
+    id: 6feee1be369f
+    last_write_checksum: sha1:60c58651af31aeb7bdd0e3eaad5a0411d491530f
+    pristine_git_object: a76045a22abb921319a92a7a2a78ba1755931d68
+  Codat/Sync/Payables/Models/Requests/GetCompanyInformationResponse.cs:
+    id: 003d088cdff3
+    last_write_checksum: sha1:455a5ce6a3a3fd9002361e34e7df2d57c26e5a86
+    pristine_git_object: 81778afe62524394caa4e265f44427c4d578db86
+  Codat/Sync/Payables/Models/Requests/GetCompanyRequest.cs:
+    id: 323ae337f48d
+    last_write_checksum: sha1:c828ecde9395a11e8ac064a1814e775795544563
+    pristine_git_object: b90933e05720686440318e6b551ed4c3d208c803
+  Codat/Sync/Payables/Models/Requests/GetCompanyResponse.cs:
+    id: 930aa2718c7d
+    last_write_checksum: sha1:9f67724e50848159e3ab8ee8864c5bc3697cce5c
+    pristine_git_object: 9898592333682c99ee2effe9865e970a3c39a36a
+  Codat/Sync/Payables/Models/Requests/GetConnectionRequest.cs:
+    id: e45cd25c85ca
+    last_write_checksum: sha1:8eb4f76af6baa0e0283b35a28cc333b1cc77a3f8
+    pristine_git_object: 10c389d64b74262aacbd9caf1bd277b7aa2c4424
+  Codat/Sync/Payables/Models/Requests/GetConnectionResponse.cs:
+    id: c686fd4f4339
+    last_write_checksum: sha1:bc054a4037cd22c397ff08b82cdad798b6ee789a
+    pristine_git_object: 7b2791bdd6d37c27c0cba8fc48b06dc53fbd0591
+  Codat/Sync/Payables/Models/Requests/GetMappingOptionsBillsRequest.cs:
+    id: 5d344ae3a395
+    last_write_checksum: sha1:5d64d913fd6fca44945cd401575e3db3c4f1f370
+    pristine_git_object: 84c8235c244abc9bb5b8a46476b5b0f7bddbf7f3
+  Codat/Sync/Payables/Models/Requests/GetMappingOptionsBillsResponse.cs:
+    id: 1591bf3425f2
+    last_write_checksum: sha1:a3b1312ab6432d9376d46a726fc64d735008df99
+    pristine_git_object: ef907195052d6ca323e77da96e09128b8f685081
+  Codat/Sync/Payables/Models/Requests/GetMappingOptionsPaymentsRequest.cs:
+    id: 938d277b633e
+    last_write_checksum: sha1:e978b1d320d0888c5000c342de86b8fa2fe0c613
+    pristine_git_object: 2f3ee441ed360ca6c0ed9dc815634117c985ac39
+  Codat/Sync/Payables/Models/Requests/GetMappingOptionsPaymentsResponse.cs:
+    id: cea629b60ef8
+    last_write_checksum: sha1:e411484117d07b5d2cf9b6b66706a427fc814dca
+    pristine_git_object: a76a75dea450c54c8ffc0603af146f4ecd64ed79
+  Codat/Sync/Payables/Models/Requests/ListBillAttachmentsRequest.cs:
+    id: 13e40dedb558
+    last_write_checksum: sha1:a4bcec0069a58dadf0351407666a211afa003232
+    pristine_git_object: fb7d079bc1665d48bd017cdcea234eeabd85aa5f
+  Codat/Sync/Payables/Models/Requests/ListBillAttachmentsResponse.cs:
+    id: d43efb331fd2
+    last_write_checksum: sha1:79179e27d1f7ac641061d9d038e6504800384693
+    pristine_git_object: 36cb1453f99d8124a412f24268ece92ebb71b572
+  Codat/Sync/Payables/Models/Requests/ListBillsRequest.cs:
+    id: f0d431f16347
+    last_write_checksum: sha1:0862203fc04895e35f611a5e1b04cf2e151f2a27
+    pristine_git_object: 4ae146042a1ee2fa2017551ba9f309b64edfcd5e
+  Codat/Sync/Payables/Models/Requests/ListBillsResponse.cs:
+    id: 0034600080a0
+    last_write_checksum: sha1:c1fc561810e52f03dc870efae4137ddfe034920c
+    pristine_git_object: e5d6a5ccceb52ed08cc20966a8103bf19913d3b0
+  Codat/Sync/Payables/Models/Requests/ListCompaniesRequest.cs:
+    id: 897c7bd8f03b
+    last_write_checksum: sha1:5ee08b9fd9937932dd0bb1f607af173e0b0ea736
+    pristine_git_object: 4d07d3027cb74b721e16e4be6d9c2c3ef25c0c4f
+  Codat/Sync/Payables/Models/Requests/ListCompaniesResponse.cs:
+    id: 46236dcc0212
+    last_write_checksum: sha1:4fb1b504deeab721823dfd554f9b84c93db9daa5
+    pristine_git_object: e77ce184b96c48e7996778ac4bcfef2a353715bf
+  Codat/Sync/Payables/Models/Requests/ListConnectionsRequest.cs:
+    id: 4fc79687ea76
+    last_write_checksum: sha1:c2a0e27b8c0050685917c1c1b5626ed02ce4e369
+    pristine_git_object: 35358c7fc38cf96661806691f8083ac3f43c2ccb
+  Codat/Sync/Payables/Models/Requests/ListConnectionsResponse.cs:
+    id: f25768bf38bf
+    last_write_checksum: sha1:bed92c964ba870dd8479925685e99126e8afd2e3
+    pristine_git_object: 602fcee93abbe84f25962cdddca1836cb6a7556e
+  Codat/Sync/Payables/Models/Requests/ListSuppliersRequest.cs:
+    id: af482848b542
+    last_write_checksum: sha1:6fb28ba4201a44ff9cc63b5b68797803c8dfcd19
+    pristine_git_object: 2a6ad8d2abfc313614a5f34a03de25a84df8ba43
+  Codat/Sync/Payables/Models/Requests/ListSuppliersResponse.cs:
+    id: b953ff298b54
+    last_write_checksum: sha1:6aa7070872eac9f5ba7a44ea5e7b28a292faac5e
+    pristine_git_object: 9bb7c33348e1093b0fa2d0f845317f1b0b369ed6
+  Codat/Sync/Payables/Models/Requests/ReplaceCompanyRequest.cs:
+    id: 1e644837085d
+    last_write_checksum: sha1:755f000c0498702eb9cee81d2bc6808c9cfa78d3
+    pristine_git_object: e20d96594f13147e901d0a9a8b9c333f3ce377f6
+  Codat/Sync/Payables/Models/Requests/ReplaceCompanyResponse.cs:
+    id: 34f87ddc97de
+    last_write_checksum: sha1:3d40445ad5bdb92e73b43c90c7e5b052b62257aa
+    pristine_git_object: cb5f0c9da554590ac7980f033f17883b1b29aa8a
+  Codat/Sync/Payables/Models/Requests/UnlinkConnectionRequest.cs:
+    id: 081712a57cfe
+    last_write_checksum: sha1:243062718ced3c75f013b30434a81a6425e55755
+    pristine_git_object: 22bccf88486fca525295bb66d46837d84dbdce14
+  Codat/Sync/Payables/Models/Requests/UnlinkConnectionResponse.cs:
+    id: 86efed71ca3f
+    last_write_checksum: sha1:a02d38dd84b6cfe47eb61036c427bbed1e48bf79
+    pristine_git_object: b6140adae62678c4d4ff15fa50b675344b23e0b8
+  Codat/Sync/Payables/Models/Requests/UnlinkConnectionUpdateConnection.cs:
+    id: 3603d725ff50
+    last_write_checksum: sha1:cc5c04ad9066c1e6505f9baa8930bca131ed7b94
+    pristine_git_object: f88f479ca10ed640486e0455e57bfb383c630446
+  Codat/Sync/Payables/Models/Requests/UpdateBillRequest.cs:
+    id: 789db5ca64bd
+    last_write_checksum: sha1:a2f4bfea88590f5c2e652c3d3a125903b4d8010b
+    pristine_git_object: a92bc49d5b2fe05342d40692b1c8eccd1ed9185d
+  Codat/Sync/Payables/Models/Requests/UpdateBillResponse.cs:
+    id: 2e3e466361c3
+    last_write_checksum: sha1:79b0b08190116984625015cece3e644fd6595961
+    pristine_git_object: 3eb163711dbfbfa7f769883e6c15b1cd308fa6cb
+  Codat/Sync/Payables/Models/Requests/UpdateCompanyRequest.cs:
+    id: 89f5f8528743
+    last_write_checksum: sha1:c97a35cf4c050cb7a4af4caea07de8d1d8c555c8
+    pristine_git_object: 609169e1a756b11bb96f250b6079888b3d84111b
+  Codat/Sync/Payables/Models/Requests/UpdateCompanyResponse.cs:
+    id: 878ed4d6fd8a
+    last_write_checksum: sha1:caa89444729bb095acb8073b52af8171aad72c16
+    pristine_git_object: 08c1c63aa8dcefa920c57bab1337d0c68a29e289
+  Codat/Sync/Payables/Models/Requests/UploadBillAttachmentRequest.cs:
+    id: ca4d0625f87d
+    last_write_checksum: sha1:634e3a104bd936d3ffb3c997827fb80918668def
+    pristine_git_object: 91989241560a302261fc304a5127772be830091c
+  Codat/Sync/Payables/Models/Requests/UploadBillAttachmentResponse.cs:
+    id: 6c19704ce11d
+    last_write_checksum: sha1:349367062875a52480e723143d6fed6aacf27a66
+    pristine_git_object: 838b8b587fa7fcfba5b7f7263ea019f83885d20b
+  Codat/Sync/Payables/Models/Webhooks/ClientRateLimitReachedResponse.cs:
+    id: 404f1f79a11f
+    last_write_checksum: sha1:d9adb938751385507eacf511f42323d08842a2b0
+    pristine_git_object: 791d143e53c95ef2dae72a3da8062b2c5811d1be
+  Codat/Sync/Payables/Models/Webhooks/ClientRateLimitResetResponse.cs:
+    id: 14ea65dabbfa
+    last_write_checksum: sha1:3c63077c16ccc509e21e00431368921f32276a56
+    pristine_git_object: 1eb9db1274e988187f1ab67a90110461e8d5d349
+  Codat/Sync/Payables/SDKConfig.cs:
+    id: 9a9d58bae336
+    last_write_checksum: sha1:bad336f78d21103ecf75bbcab5807d2eeb9a5f0e
+    pristine_git_object: 943101aead9db02749061d5c95018ac026ae299c
+  Codat/Sync/Payables/Suppliers.cs:
+    id: dc6d700dd058
+    last_write_checksum: sha1:86310ad245d55d00cc3c4f03c7e99e957967cc67
+    pristine_git_object: 748840ba00883c703abbb5bfbdac7630fd677f99
+  Codat/Sync/Payables/Utils/AnyDeserializer.cs:
+    id: 6154a3501f3a
+    last_write_checksum: sha1:42fe4f7c0880b9bdf2632a2f81da67238964243c
+    pristine_git_object: 0a7697ce25d8d75589f33d9720819475002bd29d
+  Codat/Sync/Payables/Utils/BigIntStrConverter.cs:
+    id: b5c151d27338
+    last_write_checksum: sha1:8743c217a205fd855a83830779ad2e04d985ab60
+    pristine_git_object: 19c8f4a154f7882ea81ca6c8d1effa78b5009852
+  Codat/Sync/Payables/Utils/Constants.cs:
+    id: 26a6c908c9c7
+    last_write_checksum: sha1:7f03e8e8b8e38b0a6d531f70ee045ea2da9c8f24
+    pristine_git_object: 9cb4ab96e84989265ff6e89af667a12b65040ce4
+  Codat/Sync/Payables/Utils/DecimalStrConverter.cs:
+    id: 732482e82206
+    last_write_checksum: sha1:6d3efc9c8e2de4ee867f7ab85fd86d6825812d83
+    pristine_git_object: 03f3a5318a054677f6b28139145fb5936b1f71be
+  Codat/Sync/Payables/Utils/EnumConverter.cs:
+    id: 9851e63b97fe
+    last_write_checksum: sha1:0b3b53f34b81ed5fcbc4a2af97bf1dbcb0d0883d
+    pristine_git_object: 15c373f713261c60a5326dc7bb4c0955985a9954
+  Codat/Sync/Payables/Utils/FlexibleObjectDeserializer.cs:
+    id: 38cedff0908d
+    last_write_checksum: sha1:3abb1d72ef8bdf9721258411129e54755cf04c37
+    pristine_git_object: b8511e5354426b4830c63360dc03a9ead4189ea8
+  Codat/Sync/Payables/Utils/HeaderSerializer.cs:
+    id: 701abff065b2
+    last_write_checksum: sha1:e7bd8914c6dbd2f1bc653d19bb24b468f027cd99
+    pristine_git_object: a4d460f1b4c7d907db9a4341bdda7e3f21d0564b
+  Codat/Sync/Payables/Utils/IsoDateTimeSerializer.cs:
+    id: cff2a584869f
+    last_write_checksum: sha1:92432e426ca88b74f16d14845e29311f8ccef231
+    pristine_git_object: 258f19c4279f3913efaaf7d075b8409105599041
+  Codat/Sync/Payables/Utils/OpenEnumConverter.cs:
+    id: ec5eaffc51b8
+    last_write_checksum: sha1:52b0267b94a885f3dd9a4c05c56e52a451957f27
+    pristine_git_object: 48486dcc9715da2b1a1e4e9217b9b2c186699a5c
+  Codat/Sync/Payables/Utils/RequestBodySerializer.cs:
+    id: be7bbb8d329d
+    last_write_checksum: sha1:86ff3982d6b0412b04799e06fcb67351c96bc54f
+    pristine_git_object: aeed4914af0c130ec1184339c5712a0bdf02fffa
+  Codat/Sync/Payables/Utils/ResponseBodyDeserializer.cs:
+    id: e562493b0e77
+    last_write_checksum: sha1:1392b496914ae6e5db4f7eb8aa12df82006f725d
+    pristine_git_object: 39876eda8123c6ee292de2d9c5dfbda8d306c136
+  Codat/Sync/Payables/Utils/Retries/BackoffStrategy.cs:
+    id: e2814204d17c
+    last_write_checksum: sha1:92464cc0d1e21abc9bcf767c92f4ff14c8746c92
+    pristine_git_object: 89a56678a9bb263c33c24461d3541ef2f1808cf6
+  Codat/Sync/Payables/Utils/Retries/Retries.cs:
+    id: 4c3cf6b5e847
+    last_write_checksum: sha1:92e9c715d45fbda094f4c1e919d0d78209cb9c4e
+    pristine_git_object: eb8331889085c079961e2dd3a6c8c4211c70ae24
+  Codat/Sync/Payables/Utils/Retries/RetryConfig.cs:
+    id: f420b749e187
+    last_write_checksum: sha1:6137595ed58bd47500ed6ff5e74cbef2957ff782
+    pristine_git_object: 21794a32d6c11021a5d7e77eaffe958cfdfd2b21
+  Codat/Sync/Payables/Utils/SecurityMetadata.cs:
+    id: bca126653bce
+    last_write_checksum: sha1:6a7bf390eb9d9acbe215eb5078297f9d447ecca0
+    pristine_git_object: f57cd9776ce65e31e9b881f766c83c2ce8562054
+  Codat/Sync/Payables/Utils/SpeakeasyHttpClient.cs:
+    id: bdf2a26940c2
+    last_write_checksum: sha1:5f51f3813bdf8357b3283a9994d48f81ca5c0a00
+    pristine_git_object: 5c3627ef8b4fd3f7968e58a0439ef77786ef4ec1
+  Codat/Sync/Payables/Utils/SpeakeasyMetadata.cs:
+    id: 74f102705004
+    last_write_checksum: sha1:93f23841e559c8b476f68662de430fc8d404c5eb
+    pristine_git_object: 5da622cd6da7b87051e5903645f7908e08361ece
+  Codat/Sync/Payables/Utils/URLBuilder.cs:
+    id: f0d6a4e95df6
+    last_write_checksum: sha1:a1918dc5b4e311c3b733a7403e1d9781e401c758
+    pristine_git_object: 436e7620fac8fac7c9bda994768437456ad4a1e2
+  Codat/Sync/Payables/Utils/Utilities.cs:
+    id: 5491ebcd861c
+    last_write_checksum: sha1:198b3e68375a1f43471863dda5cdf6cb9dce2dc4
+    pristine_git_object: f83b9d08bdfe7668bfce090fd014a4cab7f9ece1
+  NUGET.md:
+    id: f4c8a442a6e5
+    last_write_checksum: sha1:112ef1aeb54f1a69730a5a7acc36a2ed2bf7b91c
+    pristine_git_object: d41b44b32026e839ebfc9931c840c8ef40cde7dd
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:b4c74e210215313e1be434c0c3ed8cb2956079ac
+    pristine_git_object: 6e49064f2b0a7bf99381aed10940b76884be0414
+  docs/Models/Components/AccountMappingOption.md:
+    id: 98c1a939735c
+    last_write_checksum: sha1:bc2e6dccb799b0b79be4a6562901b7d4d4f30a99
+    pristine_git_object: 24fae66145f73465c904366f5ea80f2c06dbe99d
+  docs/Models/Components/AccountStatus.md:
+    id: e56505065ab2
+    last_write_checksum: sha1:e7f7510368dd4bddf3d900b279c88bb3290dfeb1
+    pristine_git_object: 46619626a5e6e91095b83025c5c33354bf824651
+  docs/Models/Components/Address.md:
+    id: de24ea0d518d
+    last_write_checksum: sha1:7d6fa16c554125ee122ba9ca5823779ea965cac1
+    pristine_git_object: 51abe05a9b7a013afefc85a26d88da4193d2299d
+  docs/Models/Components/AddressType.md:
+    id: 2ce77b364191
+    last_write_checksum: sha1:be47293e227b1e808067b23126c1c9964f744fbb
+    pristine_git_object: 00e042679b10efc7581db359ca7b5c13a300e51d
+  docs/Models/Components/Attachment.md:
+    id: df237b715365
+    last_write_checksum: sha1:ba6918300dfb47f4f65e9d98601b2c687c4a544c
+    pristine_git_object: 5661cc91357253ba10116172899883031767fa8a
+  docs/Models/Components/AttachmentUpload.md:
+    id: 23332d819ce0
+    last_write_checksum: sha1:5c8d5315005bffabc16e5b97f50e10057d28b53a
+    pristine_git_object: ce2b64654de55fb1b14fe8ead338aa9212724db2
+  docs/Models/Components/BankAccount.md:
+    id: f63219418217
+    last_write_checksum: sha1:05abbf8b8a22406ee810af9a99e1b6122e083ef5
+    pristine_git_object: 5d162a4f660571c7d8e5bc77392aa4b01201262d
+  docs/Models/Components/BankAccountMappingOption.md:
+    id: e3761ee0ba18
+    last_write_checksum: sha1:dad3bdab20174372756ab35add578528c08db76e
+    pristine_git_object: c11ec369c2135ced55a148cad694add1d2680eea
+  docs/Models/Components/BankAccountPrototype.md:
+    id: 8cf7078c92b3
+    last_write_checksum: sha1:982bd5fe2d2041c4a9f0a4d74e8779f3137d6258
+    pristine_git_object: 7a7adef9c94f2f11eb3fc722be846b2c72c7f0e1
+  docs/Models/Components/BankAccountStatus.md:
+    id: 2e04c2652cc7
+    last_write_checksum: sha1:aa2d9cee73884f8f017f24f750aaa6a6ea2e3d3a
+    pristine_git_object: 565acbf37bb64a80291233bc9ad964e55dea151c
+  docs/Models/Components/BankAccountType.md:
+    id: 0560e30f7d5f
+    last_write_checksum: sha1:9f3be767d9bebe03856cb55324cfc63304c0dae1
+    pristine_git_object: 422338c051e74907c712c41894dbb07a20065114
+  docs/Models/Components/Bill.md:
+    id: b0a5cd527ff0
+    last_write_checksum: sha1:d86f196592d20847d50396a7c95f8fddd58fe6a1
+    pristine_git_object: 1626ea1dcae1e28f0da87e016e3e0795b1bf699b
+  docs/Models/Components/BillAccountRef.md:
+    id: 4677015e59a9
+    last_write_checksum: sha1:fddd4444394c08f523f2166d5eb53dcecd9e2586
+    pristine_git_object: 194b7819529eb42834fa2553a29df28d41ee81c9
+  docs/Models/Components/BillLineItem.md:
+    id: c9b2b830a535
+    last_write_checksum: sha1:943a81b521417c5a71d93b7bfd1ee0bfddf0b320
+    pristine_git_object: e8d3415e306de2a441c61660b67ed4fb6296fa98
+  docs/Models/Components/BillMappingOptions.md:
+    id: 2ca3466d0d92
+    last_write_checksum: sha1:9b164cfed913347b2afbc3685ca90108a5629040
+    pristine_git_object: 44b487652facccc67b9278558890b0dc82b022cc
+  docs/Models/Components/BillPayment.md:
+    id: 79581bddd734
+    last_write_checksum: sha1:4dc34bdf328819ce87b3ab4df0f2768f8f823955
+    pristine_git_object: 5f70c40235eb0d1de84b117ee8b71be1b10967a2
+  docs/Models/Components/BillPaymentAccountRef.md:
+    id: b38c0f9670cd
+    last_write_checksum: sha1:9c5a51758159a9c9db90e1b5dc57b8dd62ad57fb
+    pristine_git_object: 776e28bc47bffeaf9c75e3d055babbe0190a2a7d
+  docs/Models/Components/BillPaymentPrototype.md:
+    id: 1c3f03c4a12d
+    last_write_checksum: sha1:83c3dd5328f7401c467d8c52f82e1dead48dd823
+    pristine_git_object: f1153d59f9b8da8299897547b187b7cfd2491a7f
+  docs/Models/Components/BillPrototype.md:
+    id: 803612ab2e6d
+    last_write_checksum: sha1:0e150e85f62036cffd393c2a3ffedda8a393a89f
+    pristine_git_object: 6700edd61d7fe105cbb549c289e531b9b1febf28
+  docs/Models/Components/BillStatus.md:
+    id: 43d9eb047117
+    last_write_checksum: sha1:aa54cff8d41c38921e0b5b99653b0233f9a11157
+    pristine_git_object: 1ffbeca0563a987a7380c3e2d302a5c3232425be
+  docs/Models/Components/BillTaxRateRef.md:
+    id: 44ef8016bf64
+    last_write_checksum: sha1:0a765c7c98df80d34e709ca8b1376be4818dd350
+    pristine_git_object: c1695492e3503054348753d5549fdb0f0431baa5
+  docs/Models/Components/Bills.md:
+    id: 0283d8661c72
+    last_write_checksum: sha1:414d8b0e0b9a76d02eebdae3ad2bc1125507a5f5
+    pristine_git_object: f66ba2a2e562160b8bc8590a3127bd28e6ca87f8
+  docs/Models/Components/ClientRateLimitWebhook.md:
+    id: 76c3a2ac70a1
+    last_write_checksum: sha1:2484e6e6a26741193199400c161723f5c372ce4c
+    pristine_git_object: b5ded115e678cd1fba759ce350b25c66bad90f26
+  docs/Models/Components/ClientRateLimitWebhookPayload.md:
+    id: 56e0e7798a5e
+    last_write_checksum: sha1:1a7795dd1007642791299f3ec78d349d1ebb47ec
+    pristine_git_object: ba85388946a28ad7793134a481f5ae3cd7896f3d
+  docs/Models/Components/CodatFile.md:
+    id: 0cca107479b0
+    last_write_checksum: sha1:e6c646213692731f42360190fa282d4eb84e6861
+    pristine_git_object: 21a4956c29ce17027ce75d35d0e950907112b77f
+  docs/Models/Components/Companies.md:
+    id: 246c1946d2f7
+    last_write_checksum: sha1:6767cd36f46b34a075db4da70d4bfc8a540a4ecf
+    pristine_git_object: 8aacbd8d53cd9a85ac67035a6c6eeff3cfd9eddb
+  docs/Models/Components/Company.md:
+    id: 4827695a19b4
+    last_write_checksum: sha1:0ea2d9885ae4e0bc8d469e1b68a69b02ef3c29de
+    pristine_git_object: 038238510e783ab3c1d0a7d5ca127bc0cb29cbac
+  docs/Models/Components/CompanyInformation.md:
+    id: 046f1da41902
+    last_write_checksum: sha1:64f0330219bd1b62423320ccb1618dc87c6c05cb
+    pristine_git_object: e0562cf3b5182ade0096513c05eaf989b196111c
+  docs/Models/Components/CompanyReference.md:
+    id: 7e01a182a597
+    last_write_checksum: sha1:d8d4c91b6a53b56c9f5e2f5870d5f67c948b0409
+    pristine_git_object: e1795c96792a675687fc583f9eb848d51ec4c24f
+  docs/Models/Components/CompanyReferenceLinks.md:
+    id: 64c32b92b754
+    last_write_checksum: sha1:4dd0733752e32a5e740d6036d40df386e4329e82
+    pristine_git_object: bbabdd5293c37d951b3557d0029a5c5a92d4666b
+  docs/Models/Components/CompanyRequestBody.md:
+    id: 442daaa3841e
+    last_write_checksum: sha1:c9efd43219c61b60c8787e0f5a1fb59d3f13e868
+    pristine_git_object: 11705efb355c106127797a13170b01cea15140a6
+  docs/Models/Components/CompanyUpdateRequest.md:
+    id: a56f577b7dd1
+    last_write_checksum: sha1:04fb553b98adc9c012c4316827ad8b9bbb165f3d
+    pristine_git_object: 2e5fa23d7bb058f3ae24ddb1dd16b618858575c2
+  docs/Models/Components/Connection.md:
+    id: 5688c7e8f7e9
+    last_write_checksum: sha1:7f091061eed231048f880246972f5ed712f10d87
+    pristine_git_object: c62e9746443117fb7cc425967dc78bf04b499d7e
+  docs/Models/Components/Connections.md:
+    id: f7e1a57da8a7
+    last_write_checksum: sha1:e112155362b0d07c0fc76f7e0f7db1e0e6d5bf6e
+    pristine_git_object: dfabbaca541835f4199581aa6f11e493992bf45f
+  docs/Models/Components/DataConnectionError.md:
+    id: 5dd8d2166aa9
+    last_write_checksum: sha1:b4d88a730a6e98e92763c87ed51620b1eeaf45ae
+    pristine_git_object: 2e7779da343adc3bcde777c9dacc76734a8f223c
+  docs/Models/Components/DataConnectionStatus.md:
+    id: 100db3cb3431
+    last_write_checksum: sha1:b4fe05d43957d052510e1a5e916e25bc0175116a
+    pristine_git_object: 5d13bea516133003653398aacc1e9b963339249f
+  docs/Models/Components/DataType.md:
+    id: ea9ccd5a7c4d
+    last_write_checksum: sha1:6bb25f64acea6f77e3df6a0726f750d09e9a8a98
+    pristine_git_object: f20ceb8d2b4969ba60c0f88d1677e1efe00cc8d6
+  docs/Models/Components/ErrorStatus.md:
+    id: 8de8545283c4
+    last_write_checksum: sha1:54db65bad80e1edaecafa188d720645ba04cf00a
+    pristine_git_object: 9dc6625538bc288b5d0290e56d43ef5d84b0e676
+  docs/Models/Components/ErrorValidation.md:
+    id: b9d95ce89516
+    last_write_checksum: sha1:677582395d374eef93c9fab9ec1e069e6bdc1530
+    pristine_git_object: 9d49d6fa622a06fa65c156bfdc58a5fc50e32361
+  docs/Models/Components/ErrorValidationItem.md:
+    id: cdf407a86027
+    last_write_checksum: sha1:726fb6472066f59a3bcbac265430235499e100ae
+    pristine_git_object: 6e0b6e5e3945b1fa7ad710c2b30d977332e20abe
+  docs/Models/Components/HalRef.md:
+    id: 4ef57d2f8806
+    last_write_checksum: sha1:e939b73619984d87dd17850152acb1df5ec0e313
+    pristine_git_object: ca171430470c4cefd9b63ff1872f9d4e02c6f083
+  docs/Models/Components/Links.md:
+    id: 96c82369ab69
+    last_write_checksum: sha1:ca26d2590a5ec377cb1479f96f392963c8b32c59
+    pristine_git_object: 0f1008779ac0f290bde00fcd4be663fa0c4753b6
+  docs/Models/Components/Pagination.md:
+    id: 1e1f649abd7f
+    last_write_checksum: sha1:c1cc34e0508fe63ad70b967e1bdaf646e26890a1
+    pristine_git_object: 9d83f0b400cc5a12ec0ad4f131d45c1d232acbbd
+  docs/Models/Components/PaymentMappingOptions.md:
+    id: 7985be0cf64e
+    last_write_checksum: sha1:1aab732ef03fbb35881c7a6c93a9cc22106d282d
+    pristine_git_object: ce7df255f6b4304c61320cf455a9b648b88290a5
+  docs/Models/Components/Security.md:
+    id: 7bcd54fda13a
+    last_write_checksum: sha1:afb3c4b0cb11e752dd6bf6890c9331d4d0adc0cd
+    pristine_git_object: a997c0213ebb03783bfda0a7559d0e1f0fd7d463
+  docs/Models/Components/SourceType.md:
+    id: c28bbe36cebc
+    last_write_checksum: sha1:f03d269bb54c4c8c38078a56ace7aba84193e83d
+    pristine_git_object: 3ddd34f70f3d4f0233402b8450a8002d16904e84
+  docs/Models/Components/Supplier.md:
+    id: 39dd0f0a8bd0
+    last_write_checksum: sha1:3f1379ff862f5cfaa621f10f5a75caa7a9433e2f
+    pristine_git_object: 3de574b773a26ce5d15bfa6ed2c92fe5800a39be
+  docs/Models/Components/SupplierPrototype.md:
+    id: 3be667e1fc6e
+    last_write_checksum: sha1:733739b96d7b22bc8b71042760fd88e7cfa47556
+    pristine_git_object: 4e84d45dbf317ec0be3034bee792937ebdac49c2
+  docs/Models/Components/SupplierRef.md:
+    id: e76f612c9913
+    last_write_checksum: sha1:2dda3fdcf3d2bc31cba47e77e9bad77da1bf5c88
+    pristine_git_object: ccbce3052ed5c3d132e507b438794e8457f8b370
+  docs/Models/Components/SupplierStatus.md:
+    id: bcdaa17ab65f
+    last_write_checksum: sha1:3daf809a3b86d6c3c605f4bb4470837d3e091f00
+    pristine_git_object: 328b27e13caa24656927d381050c965d48fda507
+  docs/Models/Components/Suppliers.md:
+    id: f3463fb08a9a
+    last_write_checksum: sha1:9059ffa30305a120af8fc0ec0eb94ea0e39e07b5
+    pristine_git_object: b504d691385a3bceef9de9b315aeb02e0e8cfe55
+  docs/Models/Components/TaxRateMappingOption.md:
+    id: 6d021089bbc2
+    last_write_checksum: sha1:a79075f5295ae2d7fbe79dd1a772113095e1ce23
+    pristine_git_object: b836e0d114f066a168022f074266c89f919a69fb
+  docs/Models/Components/TaxRateStatus.md:
+    id: d98d8250b78a
+    last_write_checksum: sha1:692ab3f7ad9c1d471cfaa81df89664d473a36e7d
+    pristine_git_object: 5402adc318a6bf5da799b64bb0dcb2d9f65fd043
+  docs/Models/Components/TrackingRef.md:
+    id: 2f5ee35bd7d6
+    last_write_checksum: sha1:dfd2bde72eedcf47a95f8d2d7eba92e50357040c
+    pristine_git_object: 35573aec4e73ba82a1cc7259edf9348a45cebc34
+  docs/Models/Errors/ErrorMessage.md:
+    id: 59d72a2b78b9
+    last_write_checksum: sha1:aede0aa82c9fba75a2496535d5cea95c8180f73c
+    pristine_git_object: 375f0caa5dc4cce2c1456a387d75c396ac187078
+  docs/Models/Requests/CreateBankAccountRequest.md:
+    id: a25992601305
+    last_write_checksum: sha1:2e654e43b1d2cf699c31a949860804ec5e7638f8
+    pristine_git_object: 69aa62ef65588ec57bc3fbce183f0f5e23d9c83a
+  docs/Models/Requests/CreateBankAccountResponse.md:
+    id: 43c6716abc9a
+    last_write_checksum: sha1:90b024058b4e952d6b74b997cd4a18b95c4ee4e4
+    pristine_git_object: 4c2176ade982bacf02875cc1ae46e7f486798729
+  docs/Models/Requests/CreateBillPaymentRequest.md:
+    id: d4ce607071d4
+    last_write_checksum: sha1:033cad500ce92e00df4863931f23fd351ad0d5a0
+    pristine_git_object: d476ddc01aa6545e6a0f3f97c2b022d854d5202d
+  docs/Models/Requests/CreateBillPaymentResponse.md:
+    id: 1b0e294f28bd
+    last_write_checksum: sha1:c98d6658c3b1746bf02da53ab91c5833e2c1619a
+    pristine_git_object: d8fa74c1d3d311c7041672b8b8626b2622b9b2ef
+  docs/Models/Requests/CreateBillRequest.md:
+    id: 3398d18f92da
+    last_write_checksum: sha1:e8f8250927a743ca22a4bc7cdb82b769f28d1644
+    pristine_git_object: 632ec66223c315d1c99403e3ab6a5c151512c349
+  docs/Models/Requests/CreateBillResponse.md:
+    id: e52311f9bd72
+    last_write_checksum: sha1:2e00b3235b8183829197e8822172d08fc9ed6c3f
+    pristine_git_object: 1bf47387f16b36ad7a554937d9b504cfa7f28bbd
+  docs/Models/Requests/CreateCompanyResponse.md:
+    id: cfc32cab5fa2
+    last_write_checksum: sha1:278dfc86bd4e09633136307908375fcc5a554584
+    pristine_git_object: ebbbbda7fdc03c282b4143a53dd03fc2c75d285c
+  docs/Models/Requests/CreateConnectionRequest.md:
+    id: ea17f2f26eed
+    last_write_checksum: sha1:ae1f8a7a67d9ca5fc290a7611eff5daa44a7b956
+    pristine_git_object: 82be5a89068b1d570aa342f33b7ae72bf462637f
+  docs/Models/Requests/CreateConnectionRequestBody.md:
+    id: 13bdb3f1e63d
+    last_write_checksum: sha1:3063d4c37caf5d0571fc8ed582c9a50226c9b6b2
+    pristine_git_object: 303023338dfd380c8f811e80d67d61dcfa459be4
+  docs/Models/Requests/CreateConnectionResponse.md:
+    id: 296991307ac1
+    last_write_checksum: sha1:d892c341c798bc5d0548f4b5a461edc55548a584
+    pristine_git_object: c9a1df658612745ce9916b7100d81505134a2f6b
+  docs/Models/Requests/CreateSupplierRequest.md:
+    id: afd5c52662d7
+    last_write_checksum: sha1:fafde33aa64a829654b0a410a0783b0374b0a51e
+    pristine_git_object: 83da43f12b7403f267bc1aacf0de077845aa4359
+  docs/Models/Requests/CreateSupplierResponse.md:
+    id: c15ccce7cea4
+    last_write_checksum: sha1:67e8a4769af08d5bca4a0d5662b9be4908a96485
+    pristine_git_object: a86de52ba35b12da3624c100bb22019f02bf67ad
+  docs/Models/Requests/DeleteCompanyRequest.md:
+    id: 648af31deb8b
+    last_write_checksum: sha1:9e3f4f795aad6591efb73848cf2a70c617dea1ec
+    pristine_git_object: f904d2c84655a379449b9c31ce666760d8ec5cb3
+  docs/Models/Requests/DeleteCompanyResponse.md:
+    id: dbe048965eca
+    last_write_checksum: sha1:bc14b81759bbca45b06982ddab15a0bc30094559
+    pristine_git_object: 503ad022105ca787a4c4c1a6aa2ddbb87abdc49e
+  docs/Models/Requests/DeleteConnectionRequest.md:
+    id: 59a9b310a32f
+    last_write_checksum: sha1:b4a46a3ba3236c3c4a93819ff7bc75215c58f032
+    pristine_git_object: 3132fc2cfec48e479b767e78dfedb10f4e7b4632
+  docs/Models/Requests/DeleteConnectionResponse.md:
+    id: cb910ab4c05d
+    last_write_checksum: sha1:daf41415e9a63b606c07e27493af9b9b8e977d64
+    pristine_git_object: ce373caba7e53b86fa3a74ff11c52914beeb22d2
+  docs/Models/Requests/DownloadBillAttachmentRequest.md:
+    id: 3f95c1d1821e
+    last_write_checksum: sha1:d3b54eabc3aaf3d551d5ea35f2b3ef5c1292dfe2
+    pristine_git_object: 9c09dd0380bc58977c6e3d62275b47807993224e
+  docs/Models/Requests/DownloadBillAttachmentResponse.md:
+    id: 11e856d085e0
+    last_write_checksum: sha1:eb3618ffbcfcc1df54a2e8279895a1eede64b345
+    pristine_git_object: 3fa47499de58fb5ca4846636bbec7f00c4a82168
+  docs/Models/Requests/GetCompanyInformationRequest.md:
+    id: 55dfbb0257aa
+    last_write_checksum: sha1:990754573f8ebe08e22158a1ac764e183462aa84
+    pristine_git_object: 7699c8b224b0acc0869324b188acb399759799fe
+  docs/Models/Requests/GetCompanyInformationResponse.md:
+    id: 67835d2bd713
+    last_write_checksum: sha1:8a0d96edbf2f266f60ace760d4aab05672c4085f
+    pristine_git_object: 7b92b7fbad3ee66f6e1692a9bbd48632663ed8fa
+  docs/Models/Requests/GetCompanyRequest.md:
+    id: d3f08c665a9d
+    last_write_checksum: sha1:2a5d0772b58020f36b42b784120e831b0e78ecb1
+    pristine_git_object: b65ac93b3e3b337fcd283b6c0dbb3fa032fcee5e
+  docs/Models/Requests/GetCompanyResponse.md:
+    id: b49d5acc8f52
+    last_write_checksum: sha1:2f04c91e3cf62f74cb8becfd547c398a0a8f2200
+    pristine_git_object: 816d16523a09068618867800abbba073c32a3764
+  docs/Models/Requests/GetConnectionRequest.md:
+    id: 55116a54bd44
+    last_write_checksum: sha1:96b49d46b44f852fcf182df179d60db32b4c2ed3
+    pristine_git_object: 5ebe8b8e55de1e2d14ee9c2215be4f49332e1b10
+  docs/Models/Requests/GetConnectionResponse.md:
+    id: 0d0d4300ad6e
+    last_write_checksum: sha1:cac42cb0ba55fd388bb06d17c9f24d572e871318
+    pristine_git_object: 84db1bc0b7b7dc5382b105e701892b7d6b7cdeb1
+  docs/Models/Requests/GetMappingOptionsBillsRequest.md:
+    id: 7d2c54b0b615
+    last_write_checksum: sha1:953b81ae052f3c8db25cf20465cb0832f45cc7fa
+    pristine_git_object: 2a8fc8383653d10a46c52a11d19968fc06b7d7ee
+  docs/Models/Requests/GetMappingOptionsBillsResponse.md:
+    id: cee0b1b0c02f
+    last_write_checksum: sha1:c6325640de80083786a41fb6d477143df55982cd
+    pristine_git_object: ed6f2f9049372f7d07b9eb14118932c284bc8dad
+  docs/Models/Requests/GetMappingOptionsPaymentsRequest.md:
+    id: 61b9924807d5
+    last_write_checksum: sha1:eaa006dbd99c029b6734929500cd94a943209acb
+    pristine_git_object: 9c4aeff9a84f2ad3adca6fcfb44dca5f268a72c3
+  docs/Models/Requests/GetMappingOptionsPaymentsResponse.md:
+    id: 868ae76f2acd
+    last_write_checksum: sha1:34b0e951406824c1a7ef4abe52a3f44fa7c8c56b
+    pristine_git_object: 13bcbd067c251d390653c3f4f2c2ad07f9736b4f
+  docs/Models/Requests/ListBillAttachmentsRequest.md:
+    id: cb981eb33427
+    last_write_checksum: sha1:9e4f97357185bbddb8957845bbab63bf3da75c11
+    pristine_git_object: 045f9cd5fade7b66d99e2ec82ea7b5db6bcb60c3
+  docs/Models/Requests/ListBillAttachmentsResponse.md:
+    id: b3e0454c5c12
+    last_write_checksum: sha1:09e56f71437628fba2d5ccdb33203199a2f98d72
+    pristine_git_object: 0c47e5c39247bc7586398b2848c4675baeb058f5
+  docs/Models/Requests/ListBillsRequest.md:
+    id: 4a766ab77782
+    last_write_checksum: sha1:824b88fbdfeedb028b38d5665db1839d31cc7644
+    pristine_git_object: c925654d2fc123dcf53b29cbc8c5242b2d89a109
+  docs/Models/Requests/ListBillsResponse.md:
+    id: 763ef6fcbdde
+    last_write_checksum: sha1:a8dfd21086499247ab75832b904373d82de503ea
+    pristine_git_object: 88464ebd8e076ead6e63c07dfb506e79a06e8747
+  docs/Models/Requests/ListCompaniesRequest.md:
+    id: 7ba05c60d65b
+    last_write_checksum: sha1:3cde84a069f3bd199f3cb04c7f0c2444a83552ba
+    pristine_git_object: 350f218c0123e7f7a00693689a2efe9884b4cc93
+  docs/Models/Requests/ListCompaniesResponse.md:
+    id: 5ace27f2f4fb
+    last_write_checksum: sha1:58fb1979bd7e91e39e07e4d069b0be01a1240d10
+    pristine_git_object: 26e3dde528d53fa237d3562059886e4ae8b8cd5d
+  docs/Models/Requests/ListConnectionsRequest.md:
+    id: 5ea7caf28403
+    last_write_checksum: sha1:b27a417f6a13466e9b9a9d952216abca56bb496e
+    pristine_git_object: 1da5255ce43fc01920061e662236568de0f30ae3
+  docs/Models/Requests/ListConnectionsResponse.md:
+    id: 5d5a6916f5f4
+    last_write_checksum: sha1:b351065101f403c3aaecd989e3205300e1e1aba1
+    pristine_git_object: 69f421519b106dd80ae57ee85b67950fda84a03e
+  docs/Models/Requests/ListSuppliersRequest.md:
+    id: f9e26d61a749
+    last_write_checksum: sha1:12b27e5b366da5156484f3554dca3cd1ad8c07d9
+    pristine_git_object: 4a8e938f941dbd7b4f7c18676f4c8d3cc315e93f
+  docs/Models/Requests/ListSuppliersResponse.md:
+    id: dab059f2c6e7
+    last_write_checksum: sha1:4f863c5c6689ba55bc1af7f79e55c5a2f73f4df4
+    pristine_git_object: f62c31984798e055499831399926c0bef167e279
+  docs/Models/Requests/ReplaceCompanyRequest.md:
+    id: d6cd2bd48f75
+    last_write_checksum: sha1:6fe90f5bd40cf0efd7540e6d8eaaf662e3505cf2
+    pristine_git_object: b3b949cbb1528c01b55b70a94357b091276becd8
+  docs/Models/Requests/ReplaceCompanyResponse.md:
+    id: 1b8c67e8f55d
+    last_write_checksum: sha1:68d4366960b748ad455e8e72b3b82d684b7e88aa
+    pristine_git_object: 46ff9ecbac96070af896dafb8a8826597389b547
+  docs/Models/Requests/UnlinkConnectionRequest.md:
+    id: ef0b6070dff1
+    last_write_checksum: sha1:fcf8ba79a029059eca540594e43388dfac16aed2
+    pristine_git_object: d0fb2abaa694cef4fed22614bab97c3154b85dd3
+  docs/Models/Requests/UnlinkConnectionResponse.md:
+    id: af3184a1e765
+    last_write_checksum: sha1:21f48057af188b2f1bfecf58566f53013b4e9d89
+    pristine_git_object: c4c577601f0141ab24263da460adc9ef1830f761
+  docs/Models/Requests/UnlinkConnectionUpdateConnection.md:
+    id: 6f27b351f936
+    last_write_checksum: sha1:8b618ce1c800a541139fde6f3c66e5c28d8db90f
+    pristine_git_object: 7cdc5825da2934771b0cd5944a388469204dcf55
+  docs/Models/Requests/UpdateBillRequest.md:
+    id: dac87f5d39e4
+    last_write_checksum: sha1:dc475a0ac5787cf1f250c141ab884f6dfc25c6ca
+    pristine_git_object: a156987fce690cbd6e03e3a1e06fb22d8e1a7f68
+  docs/Models/Requests/UpdateBillResponse.md:
+    id: 12350297053f
+    last_write_checksum: sha1:48c871233e60f54ef96e65ff0dc5056baff92e03
+    pristine_git_object: 7947d55c3045575373366afac6e1afa51854777b
+  docs/Models/Requests/UpdateCompanyRequest.md:
+    id: a9e8c8ac4776
+    last_write_checksum: sha1:235a0d4a264b5a5f92d253bb1cadcac8a248a770
+    pristine_git_object: 2351dd6e62e957aa6a9f0f0ecc43a2ec039e9bcc
+  docs/Models/Requests/UpdateCompanyResponse.md:
+    id: 81c4ddd700b4
+    last_write_checksum: sha1:ac8e7f37088d015ddb7ec4635ffc99ed51daee22
+    pristine_git_object: 7df91368deff7f172400090cbdda219f7d58c4f5
+  docs/Models/Requests/UploadBillAttachmentRequest.md:
+    id: a0ce2dfa9f52
+    last_write_checksum: sha1:77f49c36c53bbcfb3e58ad3664c4c1110db6fe01
+    pristine_git_object: 36ee5d18965f730d9d71cb6a02d8d6c383ade0e6
+  docs/Models/Requests/UploadBillAttachmentResponse.md:
+    id: 9bb5dad6968a
+    last_write_checksum: sha1:5524fc6de17624843ffdaa353197055bcf59ab71
+    pristine_git_object: d06a42360b8a85ead3c4b6663a0498ae3a34d261
+  docs/Models/Webhooks/ClientRateLimitReachedResponse.md:
+    id: c2fdaff5362d
+    last_write_checksum: sha1:55a031899f071b43c51844bd7be6711499eb100b
+    pristine_git_object: 7dbf08dbf61a190316d13ad765ed741783d76f15
+  docs/Models/Webhooks/ClientRateLimitResetResponse.md:
+    id: d57017369cdb
+    last_write_checksum: sha1:cc433eb763f2a4fd0bb182d03f5adb2a99a60119
+    pristine_git_object: 94e8224449b12d31bae84f283649675d21c0169f
+  docs/sdks/bankaccounts/README.md:
+    id: 510ffee224ea
+    last_write_checksum: sha1:e0e23414a0a6473e589c5f6088fbf6d456712968
+    pristine_git_object: 74936b22543a42549912f115e8fa9c537e52647c
+  docs/sdks/billpayments/README.md:
+    id: 9436cf9c44bd
+    last_write_checksum: sha1:5710b393311270a59614e80d2642285ff86029d0
+    pristine_git_object: 78b4049c081820c7612602eced80d5e66745c288
+  docs/sdks/bills/README.md:
+    id: 2a9c97966ab7
+    last_write_checksum: sha1:451aa35094000e2e229ac3e8181dc11e704568ad
+    pristine_git_object: 3d4d3ac8cbbd90176a74e6ba968c39c9f012488f
+  docs/sdks/companies/README.md:
+    id: 67e8a49afa67
+    last_write_checksum: sha1:fa422bdc86239493921abeb75a666423d6db13ce
+    pristine_git_object: 6db449b0a0995b6719d864d625f47f9ad8ba4e19
+  docs/sdks/companyinformation/README.md:
+    id: 319c7ed51023
+    last_write_checksum: sha1:18a02b6bcd252f81072ce04f72e9f2c2b2cffec2
+    pristine_git_object: 9cbe4503be26c95be6584f7866b3ac2e0d322b06
+  docs/sdks/connections/README.md:
+    id: 3ef8931411ea
+    last_write_checksum: sha1:d13cbad34de1be5f5d80a45186ea9158d78b11ae
+    pristine_git_object: 9c618764bd5422a7a4a316b04f20ed573631c58f
+  docs/sdks/suppliers/README.md:
+    id: 85867190cd79
+    last_write_checksum: sha1:3def1227797b999d658d6ffaefb2f2686eac7206
+    pristine_git_object: 0e1124abf5ef70f2027b20670adfe565105bf1b3
+  global.json:
+    id: 908e72401bf4
+    last_write_checksum: sha1:3161b880f51cd74e7d1dea069b541d8bf4736dc9
+    pristine_git_object: ef3195af86a7d6ef1e34296c380fd52d85b696fd
+examples:
+  list-companies:
+    speakeasy-default-list-companies:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
+      responses:
+        "200":
+          application/json: {"pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    One company:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+    List of Companies:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "products": ["spend-insights", "lending", "payables-v2"], "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}, {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["lending", "spend-insights", "payables"], "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "redirect": "https://link.codat.io/company/db94eddc-9212-4568-9b5c-3eab0e325913", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/connections/1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 3, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+    Malformed query:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-company:
+    With no description:
+      requestBody:
+        application/json: {"name": "Technicalium"}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceSubsidiaryCompanies": [], "dataConnections": []}
+    With a description:
+      requestBody:
+        application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development"}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceSubsidiaryCompanies": [], "dataConnections": []}
+    With a tag:
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "tags": {"region": "us"}, "referenceSubsidiaryCompanies": [], "dataConnections": []}
+    Malformed query:
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  replace-company:
+    Update name:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "New Name"}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+    Update description:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Same name", "description": "Additional documents required"}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    speakeasy-default-replace-company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+  update-company:
+    Update tags:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"tags": {"refrence": "new reference"}}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+    Update name:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "New Name"}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    speakeasy-default-update-company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+  delete-company:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    speakeasy-default-delete-company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+  get-company:
+    Simple company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores holdings", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceSubsidiaryCompanies": [], "dataConnections": []}
+    Parent multi-entity company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}
+    Subsidiary multi-entity company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "description": "", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-connections:
+    speakeasy-default-list-connections:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Connections:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-connection:
+    Connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-connection:
+    Connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  delete-connection:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    speakeasy-default-delete-connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+  unlink-connection:
+    Example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"status": "Unlinked"}
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    speakeasy-default-unlink-connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+  get-company-information:
+    Company information:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "200":
+          application/json: {"companyName": "Bank of Dave", "baseCurrency": "GBP"}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-mapping-options-bills:
+    speakeasy-default-get-mapping-options-bills:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "610", "name": "Accounts Payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "taxRates": [{"id": "d2939064-dd3a-4c0f-9865-a238c2193515"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Mapping options:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "879-i", "name": "Accounts payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00.000Z"}], "taxRates": [{"id": "d2939064-dd3a-4c0f-9865-a238c2193515", "name": "VAT @ 20%", "code": "VAT20", "effectiveTaxRate": 20, "totalTaxRate": 20, "status": "Active"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-bills:
+    Status (open):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=Open"
+      responses:
+        "200":
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Status (partially paid):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=PartiallyPaid"
+      responses:
+        "200":
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
+      responses:
+        "200":
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Status (open) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Open"
+      responses:
+        "200":
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Status (partially paid) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=PartiallyPaid"
+      responses:
+        "200":
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Bills:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": [{"id": "18", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Open", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "22", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Paid", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-bill:
+    Create bill:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}, "trackingRefs": [{"id": "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa", "dataType": "trackingCategories"}]}], "status": "Open"}
+      responses:
+        "201":
+          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Created bill:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open"}
+      responses:
+        "201":
+          application/json: {"id": "bill-1029932", "reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}, "trackingRefs": [{"id": "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa", "dataType": "trackingCategories"}]}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": null}], "status": "Open"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-bill:
+    Update bill:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"reference": "bill_updated_ref", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-05-23T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Updated line item - Microsoft Office training", "unitAmount": 2000, "quantity": 1, "taxAmount": 400, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2400, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone - updated rate", "unitAmount": 4500, "quantity": 1, "taxAmount": 900, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 5400, "taxRateRef": {"id": "INPUT2"}, "trackingRefs": [{"id": "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa", "dataType": "trackingCategories"}]}], "status": "Open"}
+      responses:
+        "200":
+          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Updated bill:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open"}
+      responses:
+        "200":
+          application/json: {"id": "bill-1029932", "reference": "bill_updated_ref", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-05-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Updated line item - Microsoft Office training", "unitAmount": 2000, "quantity": 1, "taxAmount": 400, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2400, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone - updated rate", "unitAmount": 4500, "quantity": 1, "taxAmount": 900, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 5400, "taxRateRef": {"id": "INPUT2"}, "trackingRefs": [{"id": "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa", "dataType": "trackingCategories"}]}], "status": "Open", "totalAmount": 7800, "amountDue": 7800}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  upload-bill-attachment:
+    Attachment metadata:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      responses:
+        "201":
+          application/json: {"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-bill-attachments:
+    Success:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      responses:
+        "200":
+          application/json: [{"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "20cfd269-2f0f-44ef-a28c-7b5f725cf1aa", "name": "another_receipt.png", "contentType": "image/png", "dateCreated": "2022-10-24T00:00:00.000Z", "fileSize": 98, "includeWhenSent": true, "sourceModifiedDate": "2022-05-27T12:38:10Z"}]
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  download-bill-attachment:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+          attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    speakeasy-default-download-bill-attachment:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+          attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/octet-stream: "0xDe2896EE66"
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+  get-mapping-options-payments:
+    speakeasy-default-get-mapping-options-payments:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"bankAccounts": [{"id": "3d5a8e00-d108-4045-8823-7f342676cffa", "name": "Bank of Dave current account", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Mapping options:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "200":
+          application/json: {"bankAccounts": [{"id": "3d5a8e00-d108-4045-8823-7f342676cffa", "name": "Bank of Dave current account", "accountNumber": "12345678", "nominalCode": "1234567", "sortCode": "123456", "currency": "GBP", "status": "Active", "accountType": "Debit", "sourceModifiedDate": "2022-10-23T00:00:00.000Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          statusQuery: "status=Archived"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-bill-payment:
+    Bill payment example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
+      responses:
+        "201":
+          application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Bill payment:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
+      responses:
+        "201":
+          application/json: {"id": "billPayment-1029932", "amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-suppliers:
+    Source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Status (active):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=Active"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Status (archived):
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "status=Archived"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Status (active) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Status (archived) & source modified date:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Archived"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Suppliers:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "200":
+          application/json: {"results": [{"id": "c523e12f-8b74-4d3a-bbd8-32d7a2f598b4", "supplierName": "City Limousines", "contactName": "Martin Dale", "emailAddress": "martyd@citylim.co", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "balance": 100, "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}, {"id": "41", "supplierName": "AI Support", "contactName": "AI Support", "addresses": [{"type": "Billing", "line1": "test", "region": "string", "country": "Djibouti"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-12-07T10:48:18Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+        query:
+          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-supplier:
+    Suppliers:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GBR", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
+      responses:
+        "201":
+          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP"}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"supplierName": "<value>", "phone": "+44 25691 154789", "status": "Unknown"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-bank-account:
+    Bank account example:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"nominalCode": "22", "name": "Plutus - Payables - Bank Account 12", "accountType": "Debit", "accountNumber": "0120 0440", "sortCode": "50-50-50", "currency": "GBP"}
+      responses:
+        "201":
+          application/json: {"currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"name": "<value>", "accountType": "Debit", "accountNumber": "<value>", "currency": "GBP"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    speakeasy-default-create-bank-account:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"name": "<value>", "accountType": "Debit", "accountNumber": "<value>", "currency": "GBP"}
+      responses:
+        "201":
+          application/json: {"currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+examplesVersion: 1.0.2
+generatedTests: {}
 generatedFiles:
   - .gitattributes
   - CONTRIBUTING.md
@@ -284,799 +2291,3 @@ generatedFiles:
   - docs/sdks/connections/README.md
   - docs/sdks/suppliers/README.md
   - global.json
-examples:
-  list-companies:
-    "":
-      parameters:
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400": {}
-    One company:
-      parameters:
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
-        "400": {}
-    List of Companies:
-      parameters:
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}, {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "redirect": "https://link.codat.io/company/db94eddc-9212-4568-9b5c-3eab0e325913", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/connections/1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 3, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
-        "400": {}
-    Malformed query:
-      parameters:
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400":
-          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Unresolved property:
-      parameters:
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400":
-          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  create-company:
-    With no description:
-      requestBody:
-        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme."}
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
-        "400": {}
-    With a description:
-      requestBody:
-        application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development"}
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
-        "400": {}
-    With a group:
-      requestBody:
-        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme.", "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "platform": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": [], "groups": [{"id": "f8a6f6ed-9812-4d1e-ba48-4346348403c8"}]}
-        "400": {}
-    Malformed query:
-      requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
-      responses:
-        "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    With a tag:
-      requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "tags": {"region": "us"}, "referenceSubsidiaryCompanies": [], "dataConnections": []}
-  update-company:
-    Update name:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      requestBody:
-        application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme."}
-      responses:
-        "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
-        "401": {}
-    Update description:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      requestBody:
-        application/json: {"name": "Same name", "description": "Additional documents required"}
-      responses:
-        "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
-        "401": {}
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
-      responses:
-        "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  delete-company:
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  get-company:
-    Simple company:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores holdings", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
-        "401": {}
-    With groups:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "My First Company", "description": "", "platform": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "dataConnections": [], "groups": [{"id": "f8a6f6ed-9812-4d1e-ba48-4346348403c8"}]}
-        "401": {}
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "platform": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Parent multi-entity company:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}
-    Subsidiary multi-entity company:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "200":
-          application/json: {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "description": "", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}
-  list-connections:
-    "":
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400": {}
-    Connections:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
-        "400": {}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400":
-          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Unresolved property:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-        query:
-          page: 1
-          pageSize: 100
-          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
-          orderBy: "-modifiedDate"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400":
-          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  create-connection:
-    Connection:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      requestBody:
-        application/json: {"platformKey": "gbol"}
-      responses:
-        "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
-        "401": {}
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      requestBody:
-        application/json: {"platformKey": "gbol"}
-      responses:
-        "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  get-connection:
-    Connection:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-      responses:
-        "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
-        "401": {}
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-      responses:
-        "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  delete-connection:
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-      responses:
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  unlink-connection:
-    Example:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-      requestBody:
-        application/json: {"status": "Unlinked"}
-      responses:
-        "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
-        "401": {}
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-      responses:
-        "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  get-company-information:
-    Company information:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-      responses:
-        "200":
-          application/json: {"companyName": "Bank of Dave", "baseCurrency": "GBP"}
-        "400": {}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-      responses:
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-        "200": {}
-  get-mapping-options-bills:
-    "":
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          statusQuery: "status=Archived"
-      responses:
-        "200":
-          application/json: {"accounts": [], "taxRates": []}
-        "400": {}
-    Mapping options:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          statusQuery: "status=Archived"
-      responses:
-        "200":
-          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "879-i", "name": "Accounts payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "taxRates": [{"id": "d2939064-dd3a-4c0f-9865-a238c2193515", "name": "VAT @ 20%", "code": "VAT20", "effectiveTaxRate": 20, "totalTaxRate": 20, "status": "Active"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
-        "400": {}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          statusQuery: "status=Archived"
-      responses:
-        "200":
-          application/json: {"accounts": [], "taxRate": []}
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  list-bills:
-    Status (open):
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "status=Open"
-      responses:
-        "200":
-          application/json: {"results": []}
-        "400": {}
-    Status (partially paid):
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "status=PartiallyPaid"
-      responses:
-        "200":
-          application/json: {"results": []}
-        "400": {}
-    Source modified date:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
-      responses:
-        "200":
-          application/json: {"results": []}
-        "400": {}
-    Status (open) & source modified date:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Open"
-      responses:
-        "200":
-          application/json: {"results": []}
-        "400": {}
-    Status (partially paid) & source modified date:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=PartiallyPaid"
-      responses:
-        "200":
-          application/json: {"results": []}
-        "400": {}
-    Bills:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-      responses:
-        "200":
-          application/json: {"results": [{"id": "18", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": "1,", "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Open", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "22", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Paid", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
-        "400": {}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-      responses:
-        "200":
-          application/json: {"results": []}
-        "400":
-          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Unresolved property:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-      responses:
-        "200":
-          application/json: {"results": []}
-        "400":
-          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  create-bill:
-    Create bill:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
-      requestBody:
-        application/json: {"reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open"}
-      responses:
-        "200":
-          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "status": "Open", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}
-        "400": {}
-        "201":
-          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "USD", "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-    Created bill:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
-      requestBody:
-        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "USD", "status": "Open"}
-      responses:
-        "200":
-          application/json: {"id": "bill-1029932", "reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2, "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}
-        "400": {}
-        "201":
-          application/json: {"id": "bill-1029932", "reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2, "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
-      requestBody:
-        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "status": "Open"}
-      responses:
-        "200":
-          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "EUR", "status": "Open", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  upload-bill-attachment:
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
-      responses:
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Attachment metadata:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
-      responses:
-        "201":
-          application/json: {"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}
-  list-bill-attachments:
-    Info:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
-      responses:
-        "200":
-          application/json: {"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}
-        "401": {}
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
-      responses:
-        "200":
-          application/json: {"dateCreated": "2022-10-23T00:00:00Z", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Attachments:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
-      responses:
-        "200":
-          application/json: [{"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "20cfd269-2f0f-44ef-a28c-7b5f725cf1aa", "name": "another_receipt.png", "contentType": "image/png", "dateCreated": "2022-10-24T00:00:00.000Z", "fileSize": 98, "includeWhenSent": true, "sourceModifiedDate": "2022-05-27T12:38:10Z"}]
-  download-bill-attachment:
-    Unauthorized:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
-          attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "401":
-          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-        "200": {}
-  get-mapping-options-payments:
-    "":
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          statusQuery: "status=Archived"
-      responses:
-        "200":
-          application/json: {"bankAccounts": []}
-        "400": {}
-    Mapping options:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          statusQuery: "status=Archived"
-      responses:
-        "200":
-          application/json: {"bankAccounts": [{"id": "3d5a8e00-d108-4045-8823-7f342676cffa", "name": "Bank of Dave current account", "accountNumber": "12345678", "nominalCode": "1234567", "sortCode": "123456", "currency": "GBP", "status": "Active", "accountType": "Debit", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
-        "400": {}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          statusQuery: "status=Archived"
-      responses:
-        "200":
-          application/json: {"bankAccounts": []}
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  create-bill-payment:
-    Bill payment example:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
-        header: {}
-      requestBody:
-        application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
-      responses:
-        "200":
-          application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
-        "400": {}
-        "201":
-          application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
-    Bill payment:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "7110701885"
-        header: {}
-      requestBody:
-        application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
-      responses:
-        "200":
-          application/json: {"id": "billPayment-1029932", "amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
-        "400": {}
-        "201":
-          application/json: {"id": "billPayment-1029932", "amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
-        header: {}
-      requestBody:
-        application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
-      responses:
-        "200":
-          application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  list-suppliers:
-    Source modified date:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
-    Status (active):
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "status=Active"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
-    Status (archived):
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "status=Archived"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
-    Status (active) & source modified date:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
-    Status (archived) & source modified date:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-          query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Archived"
-      responses:
-        "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
-    Suppliers:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-      responses:
-        "200":
-          application/json: {"results": [{"id": "c523e12f-8b74-4d3a-bbd8-32d7a2f598b4", "supplierName": "City Limousines", "contactName": "Martin Dale", "emailAddress": "martyd@citylim.co", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "balance": 100, "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}, {"id": "41", "supplierName": "AI Support", "contactName": "AI Support", "addresses": [{"type": "Billing", "line1": "test", "region": "string", "country": "Djibouti"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-12-07T10:48:18Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
-        "400": {}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-      responses:
-        "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
-        "400":
-          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Unresolved property:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        query:
-          continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
-      responses:
-        "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}]}
-        "400":
-          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  create-supplier:
-    Suppliers:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
-      requestBody:
-        application/json: {"supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GBR", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
-      responses:
-        "200":
-          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}
-        "400": {}
-        "201":
-          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
-      requestBody:
-        application/json: {"supplierName": "<value>", "phone": "(877) 492-8687", "status": "Active"}
-      responses:
-        "200":
-          application/json: {"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": {"sourceModifiedDate": "2022-10-23T00:00:00Z"}}
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-  create-bank-account:
-    Bank account example:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
-      requestBody:
-        application/json: {"nominalCode": "22", "name": "Plutus - Payables - Bank Account 12", "accountType": "Debit", "accountNumber": "0120 0440", "sortCode": "50-50-50", "currency": "GBP"}
-      responses:
-        "200":
-          application/json: {"currency": "USD", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-        "400": {}
-        "201":
-          application/json: {"currency": "USD", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
-      requestBody:
-        application/json: {"name": "<value>", "accountType": "Credit", "accountNumber": "<value>", "currency": "USD"}
-      responses:
-        "200":
-          application/json: {"currency": "USD", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-generatedTests: {}

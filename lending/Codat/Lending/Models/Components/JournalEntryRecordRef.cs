@@ -12,15 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Links a journal entry to the underlying record that created it.
     /// </summary>
     public class JournalEntryRecordRef
     {
-
         /// <summary>
-        /// &apos;id&apos; of the underlying record or data type.
+        /// 'id' of the underlying record or data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

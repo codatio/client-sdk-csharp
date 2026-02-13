@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class PurchaseOrderReference
     {
-
         /// <summary>
         /// Identifier for the purchase order, unique for the company in the accounting software.
         /// </summary>

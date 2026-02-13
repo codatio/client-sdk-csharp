@@ -55,7 +55,6 @@ namespace Codat.Lending.Models.Requests
         }
     }
 
-
     [JsonConverter(typeof(UploadBankStatementDataRequestBody.UploadBankStatementDataRequestBodyConverter))]
     public class UploadBankStatementDataRequestBody
     {

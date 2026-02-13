@@ -12,10 +12,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     public class BillPaymentPrototype
     {
-
         /// <summary>
         /// Amount of the payment in the bill currency.
         /// </summary>
@@ -39,12 +38,10 @@ namespace Codat.Sync.Payables.Models.Components
 
         /// <summary>
         /// Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Currency rates in Codat are implemented as the multiple of foreign currency units to each base currency unit.  <br/>
         /// <br/>
-        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company&apos;s base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
+        /// It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company's base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.<br/>
         /// <br/>
         /// Where the currency rate is provided by the underlying accounting software, it will be available from Codat with the same precision (up to a maximum of 9 decimal places). <br/>
         /// <br/>
@@ -72,7 +69,6 @@ namespace Codat.Sync.Payables.Models.Components
         /// | Integration       | Scenario                                        | System behavior                                                                                                                                                      |<br/>
         /// |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
         /// | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, specify a currencyRate in the request body.  |
-        /// </remarks>
         /// </summary>
         [JsonProperty("currencyRate")]
         public decimal? CurrencyRate { get; set; } = null;

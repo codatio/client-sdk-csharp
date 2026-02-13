@@ -24,41 +24,60 @@ namespace Codat.Lending
 
     public interface ISourceAccounts
     {
-
         /// <summary>
-        /// Create source account
-        /// 
+        /// Create source account.
+        /// </summary>
         /// <remarks>
-        /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat&apos;s domain. The company can then map the source account to an existing or new target account in their accounting software.<br/>
+        /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.<br/>
         /// <br/>
         /// &gt; ### Versioning<br/>
         /// &gt; If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
         /// </remarks>
-        /// </summary>
-        Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CreateSourceAccountRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateSourceAccountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateSourceAccountResponse> CreateAsync(
+            CreateSourceAccountRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List bank feed account mappings
-        /// 
+        /// List bank feed account mappings.
+        /// </summary>
         /// <remarks>
         /// The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
         /// <br/>
         /// &gt; **For custom builds only**<br/>
         /// &gt; <br/>
         /// &gt; Only use this endpoint if you are building your own account management UI.
         /// </remarks>
-        /// </summary>
-        Task<GetBankAccountMappingResponse> ListMappingsAsync(GetBankAccountMappingRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetBankAccountMappingResponse> ListMappingsAsync(
+            GetBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Create bank feed account mapping
-        /// 
+        /// Create bank feed account mapping.
+        /// </summary>
         /// <remarks>
         /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
         /// <br/>
-        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user&apos;s account in the underlying software).<br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
         /// <br/>
         /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
         /// <br/>
@@ -73,7 +92,7 @@ namespace Codat.Lending
         /// #### Mapping options:<br/>
         /// <br/>
         /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
-        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat&apos;s provided user interface for mapping.<br/>
+        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.<br/>
         /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
         /// <br/>
         /// ### Integration-specific behavior<br/>
@@ -87,25 +106,54 @@ namespace Codat.Lending
         /// | QuickBooks Online     |             |                  | ✅                          |<br/>
         /// | Sage                  |             |                  | ✅                          |
         /// </remarks>
-        /// </summary>
-        Task<CreateBankAccountMappingResponse> CreateMappingAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CreateBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateBankAccountMappingResponse> CreateMappingAsync(
+            CreateBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class SourceAccounts: ISourceAccounts
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public SourceAccounts(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<CreateSourceAccountResponse> CreateAsync(CreateSourceAccountRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Create source account.
+        /// </summary>
+        /// <remarks>
+        /// The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.<br/>
+        /// <br/>
+        /// &gt; ### Versioning<br/>
+        /// &gt; If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateSourceAccountRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateSourceAccountResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateSourceAccountResponse> CreateAsync(
+            CreateSourceAccountRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -171,7 +219,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -276,7 +324,31 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetBankAccountMappingResponse> ListMappingsAsync(GetBankAccountMappingRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List bank feed account mappings.
+        /// </summary>
+        /// <remarks>
+        /// The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.<br/>
+        /// <br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
+        /// <br/>
+        /// &gt; **For custom builds only**<br/>
+        /// &gt; <br/>
+        /// &gt; Only use this endpoint if you are building your own account management UI.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetBankAccountMappingResponse> ListMappingsAsync(
+            GetBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -336,7 +408,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -441,7 +513,54 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<CreateBankAccountMappingResponse> CreateMappingAsync(CreateBankAccountMappingRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Create bank feed account mapping.
+        /// </summary>
+        /// <remarks>
+        /// The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting software (target account).<br/>
+        /// <br/>
+        /// A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).<br/>
+        /// <br/>
+        /// To find valid target account options, first call the <a href="https://docs.codat.io//bank-feeds-api#/operations/get-bank-account-mapping">List bank feed account mappings</a> endpoint.<br/>
+        /// <br/>
+        /// &gt; **For custom builds only**<br/>
+        /// &gt;<br/>
+        /// &gt; Only use this endpoint if you are building your own account management UI.<br/>
+        /// <br/>
+        /// #### Account mapping variability<br/>
+        /// <br/>
+        /// The method of mapping the source account to the target account varies depending on the accounting software your company uses.<br/>
+        /// <br/>
+        /// #### Mapping options:<br/>
+        /// <br/>
+        /// 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.<br/>
+        /// 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.<br/>
+        /// 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.<br/>
+        /// <br/>
+        /// ### Integration-specific behavior<br/>
+        /// <br/>
+        /// | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |<br/>
+        /// | --------------------- | ----------- | ---------------- | --------------------------- |<br/>
+        /// | Xero                  | ✅          | ✅               |                             |<br/>
+        /// | FreeAgent             | ✅          | ✅               |                             |<br/>
+        /// | Oracle NetSuite       | ✅          | ✅               |                             |<br/>
+        /// | Exact Online (NL)     | ✅          | ✅               |                             |<br/>
+        /// | QuickBooks Online     |             |                  | ✅                          |<br/>
+        /// | Sage                  |             |                  | ✅                          |
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateBankAccountMappingRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateBankAccountMappingResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateBankAccountMappingResponse> CreateMappingAsync(
+            CreateBankAccountMappingRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -507,7 +626,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -611,5 +730,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

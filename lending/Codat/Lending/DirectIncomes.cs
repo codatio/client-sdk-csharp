@@ -24,84 +24,151 @@ namespace Codat.Lending
 
     public interface IDirectIncomes
     {
-
         /// <summary>
-        /// List direct incomes
-        /// 
-        /// <remarks>
-        /// The *List direct incomes* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">direct incomes</a> for a given company&apos;s connection.<br/>
-        /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business&apos; operations at the point of the sale.<br/>
-        /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        ///     
-        /// </remarks>
+        /// List direct incomes.
         /// </summary>
-        Task<ListAccountingDirectIncomesResponse> ListAsync(ListAccountingDirectIncomesRequest request, RetryConfig? retryConfig = null);
+        /// <remarks>
+        /// The *List direct incomes* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">direct incomes</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingDirectIncomesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectIncomesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingDirectIncomesResponse> ListAsync(
+            ListAccountingDirectIncomesRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get direct income
-        /// 
+        /// Get direct income.
+        /// </summary>
         /// <remarks>
         /// The *Get direct income* endpoint returns a single direct income for a given directIncomeId.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business&apos; operations at the point of the sale.<br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.<br/>
         /// <br/>
-        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.<br/>
-        /// 
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingDirectIncomeResponse> GetAsync(GetAccountingDirectIncomeRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingDirectIncomeRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectIncomeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingDirectIncomeResponse> GetAsync(
+            GetAccountingDirectIncomeRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Get direct income attachment
-        /// 
+        /// Get direct income attachment.
+        /// </summary>
         /// <remarks>
         /// The *Get direct income attachment* endpoint returns a specific attachment for a given `directIncomeId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business&apos; operations at the point of the sale.
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.
         /// </remarks>
-        /// </summary>
-        Task<GetAccountingDirectIncomeAttachmentResponse> GetAttachmentAsync(GetAccountingDirectIncomeAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GetAccountingDirectIncomeAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectIncomeAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GetAccountingDirectIncomeAttachmentResponse> GetAttachmentAsync(
+            GetAccountingDirectIncomeAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// Download direct income attachment
-        /// 
+        /// Download direct income attachment.
+        /// </summary>
         /// <remarks>
         /// The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business&apos; operations at the point of the sale.
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.
         /// </remarks>
-        /// </summary>
-        Task<DownloadAccountingDirectIncomeAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectIncomeAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="DownloadAccountingDirectIncomeAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingDirectIncomeAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<DownloadAccountingDirectIncomeAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingDirectIncomeAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List direct income attachments
-        /// 
+        /// List direct income attachments.
+        /// </summary>
         /// <remarks>
         /// The *List direct income attachments* endpoint returns a list of attachments available to download for given `directIncomeId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business&apos; operations at the point of the sale.
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.
         /// </remarks>
-        /// </summary>
-        Task<ListAccountingDirectIncomeAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectIncomeAttachmentsRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="ListAccountingDirectIncomeAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectIncomeAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListAccountingDirectIncomeAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingDirectIncomeAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     public class DirectIncomes: IDirectIncomes
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public DirectIncomes(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<ListAccountingDirectIncomesResponse> ListAsync(ListAccountingDirectIncomesRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// List direct incomes.
+        /// </summary>
+        /// <remarks>
+        /// The *List direct incomes* endpoint returns a list of <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">direct incomes</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingDirectIncomesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectIncomesResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your `query` parameter was not correctly formed. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingDirectIncomesResponse> ListAsync(
+            ListAccountingDirectIncomesRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -161,7 +228,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -266,7 +333,29 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingDirectIncomeResponse> GetAsync(GetAccountingDirectIncomeRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get direct income.
+        /// </summary>
+        /// <remarks>
+        /// The *Get direct income* endpoint returns a single direct income for a given directIncomeId.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.<br/>
+        /// <br/>
+        /// Before using this endpoint, you must have <a href="https://docs.codat.io/lending-api#/operations/refresh-company-data">retrieved data for the company</a>.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingDirectIncomeRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectIncomeResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingDirectIncomeResponse> GetAsync(
+            GetAccountingDirectIncomeRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -326,7 +415,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -431,7 +520,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<GetAccountingDirectIncomeAttachmentResponse> GetAttachmentAsync(GetAccountingDirectIncomeAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Get direct income attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Get direct income attachment* endpoint returns a specific attachment for a given `directIncomeId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetAccountingDirectIncomeAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetAccountingDirectIncomeAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GetAccountingDirectIncomeAttachmentResponse> GetAttachmentAsync(
+            GetAccountingDirectIncomeAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -491,7 +600,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -596,7 +705,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<DownloadAccountingDirectIncomeAttachmentResponse> DownloadAttachmentAsync(DownloadAccountingDirectIncomeAttachmentRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// Download direct income attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.
+        /// </remarks>
+        /// <param name="request">A <see cref="DownloadAccountingDirectIncomeAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="DownloadAccountingDirectIncomeAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<DownloadAccountingDirectIncomeAttachmentResponse> DownloadAttachmentAsync(
+            DownloadAccountingDirectIncomeAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -656,7 +785,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -750,7 +879,27 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListAccountingDirectIncomeAttachmentsResponse> ListAttachmentsAsync(ListAccountingDirectIncomeAttachmentsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List direct income attachments.
+        /// </summary>
+        /// <remarks>
+        /// The *List direct income attachments* endpoint returns a list of attachments available to download for given `directIncomeId`.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/lending-api#/schemas/DirectIncome">Direct incomes</a> are incomes received directly from the business' operations at the point of the sale.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListAccountingDirectIncomeAttachmentsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListAccountingDirectIncomeAttachmentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">Your API request was not properly authorized. Thrown when the API returns a 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListAccountingDirectIncomeAttachmentsResponse> ListAttachmentsAsync(
+            ListAccountingDirectIncomeAttachmentsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -810,7 +959,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -914,5 +1063,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

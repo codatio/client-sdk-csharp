@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class ReportGenerationPayload
     {
-
         /// <summary>
         /// Unique identifier of the report.
         /// </summary>

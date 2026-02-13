@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class LoanRef
     {
-
         /// <summary>
         /// The id of the object being referred to.
         /// </summary>

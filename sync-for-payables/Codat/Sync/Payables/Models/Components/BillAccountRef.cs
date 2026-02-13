@@ -11,15 +11,14 @@ namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference to the account to which the line item is linked.
     /// </summary>
     public class BillAccountRef
     {
-
         /// <summary>
-        /// &apos;id&apos; from the Accounts data type.
+        /// 'id' from the Accounts data type.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

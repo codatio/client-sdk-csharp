@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
-    
+
     public class GenerateReportRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Codat.Lending.Models.Requests
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// The type of the report
+        /// The type of the report.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=reportType")]
         public ReportType ReportType { get; set; } = default!;

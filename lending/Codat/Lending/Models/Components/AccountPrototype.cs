@@ -13,12 +13,11 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class AccountPrototype
     {
-
         /// <summary>
-        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn&apos;t a unique identifier in the Codat system.
+        /// Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn't a unique identifier in the Codat system.
         /// </summary>
         [JsonProperty("nominalCode")]
         public string? NominalCode { get; set; } = null;
@@ -37,38 +36,29 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Full category of the account. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// For example, `Liability.Current` or `Income.Revenue`. To determine a list of possible categories for each integration, see our examples, follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide, or refer to the integration&apos;s own documentation.
-        /// </remarks>
+        /// For example, `Liability.Current` or `Income.Revenue`. To determine a list of possible categories for each integration, see our examples, follow our <a href="https://docs.codat.io/using-the-api/push">Create, update, delete data</a> guide, or refer to the integration's own documentation.
         /// </summary>
         [JsonProperty("fullyQualifiedCategory")]
         public string? FullyQualifiedCategory { get; set; } = null;
 
         /// <summary>
         /// Full name of the account, for example:<br/>
-        /// 
-        /// <remarks>
         /// - `Cash On Hand`<br/>
         /// - `Rents Held In Trust`<br/>
         /// - `Fixed Asset`
-        /// </remarks>
         /// </summary>
         [JsonProperty("fullyQualifiedName")]
         public string? FullyQualifiedName { get; set; } = null;
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }
@@ -80,13 +70,13 @@ namespace Codat.Lending.Models.Components
         public decimal? CurrentBalance { get; set; } = null;
 
         /// <summary>
-        /// Type of account
+        /// Type of account.
         /// </summary>
         [JsonProperty("type")]
         public AccountType? Type { get; set; }
 
         /// <summary>
-        /// Status of the account
+        /// Status of the account.
         /// </summary>
         [JsonProperty("status")]
         public AccountStatus? Status { get; set; }
@@ -105,11 +95,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Supplemental data is additional data you can include in our standard data types. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// It is referenced as a configured dynamic key value pair that is unique to the accounting software. <a href="https://docs.codat.io/using-the-api/supplemental-data/overview">Learn more</a> about supplemental data.
-        /// </remarks>
         /// </summary>
         [JsonProperty("supplementalData")]
         public SupplementalData? SupplementalData { get; set; }

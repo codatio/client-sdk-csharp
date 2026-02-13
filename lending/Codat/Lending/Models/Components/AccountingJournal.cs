@@ -12,11 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// &gt; **Language tip:** For line items, or individual transactions, of a company&apos;s financial documents, refer to the <a href="https://docs.codat.io/lending-api#/schemas/JournalEntry">Journal entries</a> data type<br/>
-    /// 
-    /// <remarks>
+    /// &gt; **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the <a href="https://docs.codat.io/lending-api#/schemas/JournalEntry">Journal entries</a> data type<br/>
     /// <br/>
     /// ## Overview<br/>
     /// <br/>
@@ -35,13 +33,10 @@ namespace Codat.Lending.Models.Components
     /// - <a href="https://docs.codat.io/integrations/accounting/exact-online/accounting-exact-online">Exact Online</a>  (mandatory)<br/>
     /// - <a href="https://docs.codat.io/integrations/accounting/netsuite/accounting-netsuite">Oracle NetSuite</a> (optional)<br/>
     /// <br/>
-    /// &gt; When pushing journal entries to an accounting software that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.<br/>
-    /// 
-    /// </remarks>
+    /// &gt; When pushing journal entries to an accounting software that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.
     /// </summary>
     public class AccountingJournal
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -62,10 +57,7 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Journal name.<br/>
-        /// 
-        /// <remarks>
         /// The maximum length for a journal name is 256 characters. All characters above that number will be truncated.
-        /// </remarks>
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; } = null;
@@ -78,10 +70,7 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Parent journal ID.<br/>
-        /// 
-        /// <remarks>
         /// If the journal is a parent journal, this value is not present.
-        /// </remarks>
         /// </summary>
         [JsonProperty("parentId")]
         public string? ParentId { get; set; } = null;
@@ -93,9 +82,7 @@ namespace Codat.Lending.Models.Components
         public bool? HasChildren { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -114,7 +101,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("createdOn")]
         public string? CreatedOn { get; set; }

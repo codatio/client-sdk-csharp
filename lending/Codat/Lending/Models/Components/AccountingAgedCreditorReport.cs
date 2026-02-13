@@ -13,13 +13,11 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// The Aged Creditors report shows the total balance owed by a business to its suppliers over time.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
-    /// You can generate it for a company based on recently synced data from your customers&apos; accounting software. The report is available in the **Reports** tab in the Codat portal.<br/>
+    /// You can generate it for a company based on recently synced data from your customers' accounting software. The report is available in the **Reports** tab in the Codat portal.<br/>
     /// <br/>
     /// Total assets or liabilities are grouped into 30-day periods for each supplier, up to the current date. You can adjust the report date, period length, and number of periods to show on each report. The data can be grouped by customer or currency.<br/>
     /// <br/>
@@ -38,26 +36,22 @@ namespace Codat.Lending.Models.Components
     /// Apart from returning the report via the API as JSON and query, you can also return the Aged Creditors report in the Codat portal.<br/>
     /// <br/>
     /// 1. In the navigation bar, click **Companies**.<br/>
-    /// 2. Click the name of the company you want to generate the report for. The company&apos;s data page is displayed.<br/>
+    /// 2. Click the name of the company you want to generate the report for. The company's data page is displayed.<br/>
     /// 3. Click the **Accounting** tab then click **Reports**.<br/>
     /// 4. Select **Aged Creditors**.<br/>
     /// 5. _(Optional)_ Edit the default reporting parameters.<br/>
-    ///    a. You can change the report date in the **Date** box. By default, the report includes transactions that occurred up to, but not including, today&apos;s date. To include transactions for today, enter tomorrow&apos;s date. <br/>
+    ///    a. You can change the report date in the **Date** box. By default, the report includes transactions that occurred up to, but not including, today's date. To include transactions for today, enter tomorrow's date. <br/>
     ///    b. In the **Period Length Days** box, select the default period length for each column (the default is 30 days).<br/>
     ///    b. In the **Number of Periods** box, enter the number of periods to show as columns in the report (the default is 4 periods).<br/>
     /// 6. To run the report, click **Load aged creditors**.<br/>
     /// 7. The report is generated and displayed at the bottom of the page.<br/>
     /// <br/>
     /// The report will be grouped per supplier and depending on the periods requested. The details indicates whether the amounts owed come from outstanding bills or bill credit notes.
-    /// </remarks>
     /// </summary>
     public class AccountingAgedCreditorReport
     {
-
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -76,15 +70,12 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("generated")]
         public string? Generated { get; set; }
 
         /// <summary>
-        /// In Codat&apos;s data model, dates and times are represented using the &lt;a class=&quot;external&quot; href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot; target=&quot;_blank&quot;&gt;ISO 8601 standard&lt;/a&gt;. Date and time fields are formatted as strings; for example:<br/>
-        /// 
-        /// <remarks>
+        /// In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:<br/>
         /// <br/>
         /// ```<br/>
         /// 2020-10-08T22:40:50Z<br/>
@@ -103,7 +94,6 @@ namespace Codat.Lending.Models.Components
         /// &gt; <br/>
         /// &gt; Not all dates from Codat will contain information about time zones.  <br/>
         /// &gt; Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-        /// </remarks>
         /// </summary>
         [JsonProperty("reportDate")]
         public string? ReportDate { get; set; }

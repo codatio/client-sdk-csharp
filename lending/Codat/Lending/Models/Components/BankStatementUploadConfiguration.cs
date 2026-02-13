@@ -12,27 +12,26 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
-    /// Configuration settings for uploading banking data to Codat
+    /// Configuration settings for uploading banking data to Codat.
     /// </summary>
     public class BankStatementUploadConfiguration
     {
-
         /// <summary>
-        /// The source of the banking data that determines its format
+        /// The source of the banking data that determines its format.
         /// </summary>
         [JsonProperty("source")]
         public Source? Source { get; set; }
 
         /// <summary>
-        /// The ID of the account in the third-party platform
+        /// The ID of the account in the third-party platform.
         /// </summary>
         [JsonProperty("accountId")]
         public string? AccountId { get; set; }
 
         /// <summary>
-        /// TrueLayer provider ID (only required if source is TrueLayer)
+        /// TrueLayer provider ID (only required if source is TrueLayer).
         /// </summary>
         [JsonProperty("providerId")]
         public string? ProviderId { get; set; }

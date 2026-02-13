@@ -21,13 +21,14 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 csharp:
-  version: 10.0.0
+  version: 10.0.1
   additionalDependencies: []
   author: Codat
   baseErrorName: CodatLendingException

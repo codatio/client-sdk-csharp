@@ -14,10 +14,9 @@ namespace Codat.Lending.Models.Components
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public class CreditNoteLineItem
     {
-
         /// <summary>
         /// Friendly name of each line item. For example, the goods or service for which credit has been issued.
         /// </summary>
@@ -74,8 +73,6 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// Found on:<br/>
         /// <br/>
@@ -84,8 +81,7 @@ namespace Codat.Lending.Models.Components
         /// - Credit Note line items<br/>
         /// - Direct incomes line items<br/>
         /// - Invoice line items<br/>
-        /// - Items
-        /// </remarks>
+        /// - Items.
         /// </summary>
         [JsonProperty("taxRateRef")]
         public TaxRateRef? TaxRateRef { get; set; }

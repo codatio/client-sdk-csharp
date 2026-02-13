@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class TransactionCategory
     {
-
         /// <summary>
         /// Returns the aggregate confidence of the suggested category for the transaction. The value is between 0 and 100.
         /// </summary>

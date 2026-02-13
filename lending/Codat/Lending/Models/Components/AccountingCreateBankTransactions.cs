@@ -13,10 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class AccountingCreateBankTransactions
     {
-
         /// <summary>
         /// Unique identifier for a bank account.
         /// </summary>

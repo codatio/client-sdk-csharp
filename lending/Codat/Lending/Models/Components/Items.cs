@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class Items
     {
-
         /// <summary>
         /// Name assigned to withheld tax.
         /// </summary>

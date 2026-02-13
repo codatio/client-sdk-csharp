@@ -13,10 +13,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class Suppliers
     {
-
         [JsonProperty("results")]
         public List<Supplier>? Results { get; set; }
 

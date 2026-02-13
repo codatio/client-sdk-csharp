@@ -13,11 +13,9 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// ## Structure<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Assess reports follow a consistent structure. Reports contain four sections of information:<br/>
     /// <br/>
@@ -34,7 +32,7 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     ///   1. The type of dimension (e.g. datetime, recordRef).<br/>
     ///   2. The display name of the dimension (e.g. Period, Category type, Category sub type).<br/>
-    ///   3. The details about each item within the dimension (e.g. displayName:&quot;Jan 2022&quot;, start:&quot;...&quot;, end:&quot;...&quot;, id:&quot;...&quot;, name:&quot;...&quot;).<br/>
+    ///   3. The details about each item within the dimension (e.g. displayName:"Jan 2022", start:"...", end:"...", id:"...", name:"...").<br/>
     /// <br/>
     /// ### 3. Measure info<br/>
     /// <br/>
@@ -53,16 +51,14 @@ namespace Codat.Lending.Models.Components
     /// <br/>
     /// Reports can be rendered as follows (ordering is implicit rather than explicit):<br/>
     /// <br/>
-    /// !<a href="https://files.readme.io/1fa20ca-Report1.png">A table showing an example of how a report can be rendered</a><br/>
+    /// !<a href="https://files.readme.io/1fa20ca-Report1.png">A table showing an example of how a report can be rendered</a>
     /// <br/>
     /// # Data model<br/>
     /// <br/>
-    /// ## Dimensions
-    /// </remarks>
+    /// ## Dimensions.
     /// </summary>
     public class CommerceReport
     {
-
         [JsonProperty("reportInfo")]
         public Dictionary<string, string>? ReportInfo { get; set; }
 

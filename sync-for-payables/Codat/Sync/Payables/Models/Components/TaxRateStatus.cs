@@ -12,14 +12,11 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// Status of the tax rate in the accounting software.  <br/>
-    /// 
-    /// <remarks>
     /// - `Active` - An active tax rate in use by a company.  <br/>
-    /// - `Archived` - A tax rate that has been archived or is inactive in the accounting software.  
-    /// </remarks>
+    /// - `Archived` - A tax rate that has been archived or is inactive in the accounting software.
     /// </summary>
     public enum TaxRateStatus
     {
@@ -61,5 +58,4 @@ namespace Codat.Sync.Payables.Models.Components
             throw new Exception($"Unknown value {value} for enum TaxRateStatus");
         }
     }
-
 }

@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Information about the total inventory as well as the locations inventory is in.
     /// </summary>
     public class ProductInventory
     {
-
         /// <summary>
         /// The total quantity of stock remaining across locations.
         /// </summary>

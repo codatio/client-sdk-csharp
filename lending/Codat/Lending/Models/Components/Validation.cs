@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
     /// </summary>
     public class Validation
     {
-
         [JsonProperty("errors")]
         public List<ValidationItem>? Errors { get; set; } = null;
 

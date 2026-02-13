@@ -12,21 +12,20 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference to the purchase order line this line was generated from.
     /// </summary>
     public class RecordLineReference
     {
-
         /// <summary>
-        /// &apos;id&apos; of the underlying record.
+        /// 'id' of the underlying record.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Allowed name of the &apos;dataType&apos;.
+        /// Allowed name of the 'dataType'.
         /// </summary>
         [JsonProperty("dataType")]
         public BillLineItemDataType? DataType { get; set; }

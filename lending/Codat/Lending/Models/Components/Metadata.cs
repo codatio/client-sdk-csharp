@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class Metadata
     {
-
         /// <summary>
         /// Indicates whether the record has been deleted in the third-party system this record originated from.
         /// </summary>

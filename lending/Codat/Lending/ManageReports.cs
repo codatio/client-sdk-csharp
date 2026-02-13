@@ -27,26 +27,42 @@ namespace Codat.Lending
     /// </summary>
     public interface IManageReports
     {
-
         /// <summary>
-        /// Generate report
-        /// 
+        /// Generate report.
+        /// </summary>
         /// <remarks>
         /// Use the *Generate report* endpoint to initiate the generation of a report specified by the `reportType` parameter.<br/>
         /// <br/>
-        /// This action triggers the system to refresh and pull the necessary data from the company&apos;s data sources to ensure the report contains the most up-to-date information.
+        /// This action triggers the system to refresh and pull the necessary data from the company's data sources to ensure the report contains the most up-to-date information.
         /// </remarks>
-        /// </summary>
-        Task<GenerateReportResponse> GenerateReportAsync(GenerateReportRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="GenerateReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<GenerateReportResponse> GenerateReportAsync(
+            GenerateReportRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
-        /// List reports
-        /// 
-        /// <remarks>
-        /// Use the *List reports* endpoint to return details (such as generation&apos;s current status, date of request, and date of generation) about all reports generated for a company. The query parameter can be used to filter the results.
-        /// </remarks>
+        /// List reports.
         /// </summary>
-        Task<ListReportsResponse> ListReportsAsync(ListReportsRequest request, RetryConfig? retryConfig = null);
+        /// <remarks>
+        /// Use the *List reports* endpoint to return details (such as generation's current status, date of request, and date of generation) about all reports generated for a company. The query parameter can be used to filter the results.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListReportsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListReportsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<ListReportsResponse> ListReportsAsync(ListReportsRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -54,19 +70,37 @@ namespace Codat.Lending
     /// </summary>
     public class ManageReports: IManageReports
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = Constants.Language;
-        private const string _sdkVersion = Constants.SdkVersion;
-        private const string _sdkGenVersion = Constants.SdkGenVersion;
-        private const string _openapiDocVersion = Constants.OpenApiDocVersion;
 
         public ManageReports(SDKConfig config)
         {
             SDKConfiguration = config;
         }
 
-        public async Task<GenerateReportResponse> GenerateReportAsync(GenerateReportRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Generate report.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Generate report* endpoint to initiate the generation of a report specified by the `reportType` parameter.<br/>
+        /// <br/>
+        /// This action triggers the system to refresh and pull the necessary data from the company's data sources to ensure the report contains the most up-to-date information.
+        /// </remarks>
+        /// <param name="request">A <see cref="GenerateReportRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="GenerateReportResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 409, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<GenerateReportResponse> GenerateReportAsync(
+            GenerateReportRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -126,7 +160,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 409 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -231,7 +265,25 @@ namespace Codat.Lending
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
 
-        public async Task<ListReportsResponse> ListReportsAsync(ListReportsRequest request, RetryConfig? retryConfig = null)
+
+        /// <summary>
+        /// List reports.
+        /// </summary>
+        /// <remarks>
+        /// Use the *List reports* endpoint to return details (such as generation's current status, date of request, and date of generation) about all reports generated for a company. The query parameter can be used to filter the results.
+        /// </remarks>
+        /// <param name="request">A <see cref="ListReportsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="ListReportsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<ListReportsResponse> ListReportsAsync(
+            ListReportsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -291,7 +343,7 @@ namespace Codat.Lending
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -395,5 +447,6 @@ namespace Codat.Lending
 
             throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

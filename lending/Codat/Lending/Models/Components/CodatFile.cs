@@ -10,10 +10,9 @@
 namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
-    
+
     public class CodatFile
     {
-
         [SpeakeasyMetadata("multipartForm:name=fileName")]
         public string FileName { get; set; } = default!;
 

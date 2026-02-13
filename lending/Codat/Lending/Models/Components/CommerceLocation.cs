@@ -12,18 +12,14 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// The Location datatype holds information on the geographic location at which stocks of products may be held, as referenced in the Products data type.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// A Location also holds information on geographic locations where orders were placed, as referenced in the Orders data type.
-    /// </remarks>
     /// </summary>
     public class CommerceLocation
     {
-
         [JsonProperty("modifiedDate")]
         public string? ModifiedDate { get; set; }
 
@@ -31,13 +27,13 @@ namespace Codat.Lending.Models.Components
         public string? SourceModifiedDate { get; set; }
 
         /// <summary>
-        /// A unique, persistent identifier for this record
+        /// A unique, persistent identifier for this record.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// Name of this location
+        /// Name of this location.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

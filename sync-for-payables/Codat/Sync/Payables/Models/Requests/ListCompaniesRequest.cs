@@ -10,10 +10,9 @@
 namespace Codat.Sync.Payables.Models.Requests
 {
     using Codat.Sync.Payables.Utils;
-    
+
     public class ListCompaniesRequest
     {
-
         /// <summary>
         /// Page number. <a href="https://docs.codat.io/using-the-api/paging">Read more</a>.
         /// </summary>
@@ -37,5 +36,11 @@ namespace Codat.Sync.Payables.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=orderBy")]
         public string? OrderBy { get; set; }
+
+        /// <summary>
+        /// Filter companies by tags using the "equals" (=), "not equals" (!=), and "contains" (~) operators with <a href="https://docs.codat.io/using-the-api/querying">Codat’s query language</a>.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=tags")]
+        public string? Tags { get; set; }
     }
 }

@@ -11,14 +11,13 @@ namespace Codat.Sync.Payables.Models.Components
 {
     using Codat.Sync.Payables.Models.Components;
     using Codat.Sync.Payables.Utils;
-    
+
     public class AttachmentUpload
     {
-
         /// <summary>
         /// The file to be uploaded as an attachment.
         /// </summary>
-        [SpeakeasyMetadata("multipartForm:file")]
+        [SpeakeasyMetadata("multipartForm:file,name=file")]
         public CodatFile File { get; set; } = default!;
     }
 }

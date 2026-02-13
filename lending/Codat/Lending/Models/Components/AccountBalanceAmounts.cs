@@ -11,15 +11,14 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Depending on the data provided by the underlying bank, not all balances are always available.
     /// </summary>
     public class AccountBalanceAmounts
     {
-
         /// <summary>
-        /// The balance available in the account, including any pending transactions. This doesn&apos;t include additional funds available from any overdrafts.
+        /// The balance available in the account, including any pending transactions. This doesn't include additional funds available from any overdrafts.
         /// </summary>
         [JsonProperty("available")]
         public decimal? Available { get; set; } = null;

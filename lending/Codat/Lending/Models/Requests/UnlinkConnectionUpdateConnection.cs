@@ -12,10 +12,9 @@ namespace Codat.Lending.Models.Requests
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class UnlinkConnectionUpdateConnection
     {
-
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>

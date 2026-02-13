@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Requests
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class CreateConnectionRequestBody
     {
-
         /// <summary>
         /// A unique 4-letter key to represent a platform in each integration. View <a href="https://docs.codat.io/integrations/accounting/overview#platform-keys">accounting</a>, <a href="https://docs.codat.io/integrations/banking/overview#platform-keys">banking</a>, and <a href="https://docs.codat.io/integrations/commerce/overview#platform-keys">commerce</a> platform keys.
         /// </summary>

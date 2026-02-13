@@ -11,11 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.<br/>
-    /// 
-    /// <remarks>
     /// <br/>
     /// Found on:<br/>
     /// <br/>
@@ -24,12 +22,10 @@ namespace Codat.Lending.Models.Components
     /// - Credit Note line items<br/>
     /// - Direct incomes line items<br/>
     /// - Invoice line items<br/>
-    /// - Items
-    /// </remarks>
+    /// - Items.
     /// </summary>
     public class TaxRateReference
     {
-
         /// <summary>
         /// Unique identifier for the tax rate in the accounting software.
         /// </summary>

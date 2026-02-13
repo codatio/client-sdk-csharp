@@ -12,7 +12,7 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The current status of the bank account.
     /// </summary>
@@ -56,5 +56,4 @@ namespace Codat.Sync.Payables.Models.Components
             throw new Exception($"Unknown value {value} for enum BankAccountStatus");
         }
     }
-
 }

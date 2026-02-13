@@ -12,14 +12,11 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The type of transactions and balances on the account.  <br/>
-    /// 
-    /// <remarks>
     /// For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  <br/>
     /// For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
-    /// </remarks>
     /// </summary>
     public enum BankAccountType
     {
@@ -63,5 +60,4 @@ namespace Codat.Sync.Payables.Models.Components
             throw new Exception($"Unknown value {value} for enum BankAccountType");
         }
     }
-
 }

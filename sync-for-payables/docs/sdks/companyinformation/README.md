@@ -1,5 +1,4 @@
 # CompanyInformation
-(*CompanyInformation*)
 
 ## Overview
 
@@ -17,10 +16,11 @@ Use the *Get company information* endpoint to return information about the compa
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-company-information" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/info" example="Company information" -->
 ```csharp
 using Codat.Sync.Payables;
-using Codat.Sync.Payables.Models.Requests;
 using Codat.Sync.Payables.Models.Components;
+using Codat.Sync.Payables.Models.Requests;
 
 var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -48,5 +48,6 @@ var res = await sdk.CompanyInformation.GetAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429                   | application/json                               |
+| Codat.Sync.Payables.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Payables.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

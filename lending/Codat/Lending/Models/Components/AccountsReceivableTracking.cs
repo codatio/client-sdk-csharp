@@ -13,13 +13,12 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// Categories, and a project and customer, against which the item is tracked.
     /// </summary>
     public class AccountsReceivableTracking
     {
-
         [JsonProperty("categoryRefs")]
         public List<TrackingCategoryRef> CategoryRefs { get; set; } = default!;
 
@@ -43,11 +42,8 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// Links the current record to the underlying record or data type that created it. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model. 
-        /// </remarks>
+        /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
         /// </summary>
         [JsonProperty("recordRef")]
         public AccountingRecordRef? RecordRef { get; set; }

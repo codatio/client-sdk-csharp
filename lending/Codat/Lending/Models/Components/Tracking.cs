@@ -13,20 +13,16 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class Tracking
     {
-
         [JsonProperty("recordRefs")]
         public List<TrackingRecordRef> RecordRefs { get; set; } = default!;
 
         /// <summary>
         /// Links the current record to the underlying record or data type that created it. <br/>
-        /// 
-        /// <remarks>
         /// <br/>
-        /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model. 
-        /// </remarks>
+        /// For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
         /// </summary>
         [JsonProperty("invoiceTo")]
         public AccountingRecordRef? InvoiceTo { get; set; }

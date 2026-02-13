@@ -12,7 +12,7 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The underlying data type associated to the reference `id`.
     /// </summary>
@@ -54,5 +54,4 @@ namespace Codat.Lending.Models.Components
             throw new Exception($"Unknown value {value} for enum AccountingInvoiceDataType");
         }
     }
-
 }

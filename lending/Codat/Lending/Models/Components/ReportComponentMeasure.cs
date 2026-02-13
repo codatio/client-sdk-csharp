@@ -11,24 +11,23 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class ReportComponentMeasure
     {
-
         /// <summary>
-        /// The measure&apos;s index.
+        /// The measure's index.
         /// </summary>
         [JsonProperty("index")]
         public long? Index { get; set; }
 
         /// <summary>
-        /// The measure&apos;s display name.
+        /// The measure's display name.
         /// </summary>
         [JsonProperty("measureDisplayName")]
         public string? MeasureDisplayName { get; set; }
 
         /// <summary>
-        /// The measure&apos;s value.
+        /// The measure's value.
         /// </summary>
         [JsonProperty("value")]
         public decimal? Value { get; set; }

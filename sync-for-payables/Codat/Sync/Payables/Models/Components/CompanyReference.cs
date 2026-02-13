@@ -13,10 +13,9 @@ namespace Codat.Sync.Payables.Models.Components
     using Codat.Sync.Payables.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class CompanyReference
     {
-
         /// <summary>
         /// Unique identifier for your SMB in Codat.
         /// </summary>
@@ -24,7 +23,7 @@ namespace Codat.Sync.Payables.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the company
+        /// The name of the company.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }

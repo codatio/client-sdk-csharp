@@ -12,18 +12,17 @@ namespace Codat.Lending.Models.Components
     using Codat.Lending.Models.Components;
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class Accounts
     {
-
         /// <summary>
-        /// A source reference containing the `sourceType` object &quot;Banking&quot;.
+        /// A source reference containing the `sourceType` object "Banking".
         /// </summary>
         [JsonProperty("sourceRef")]
         public ReportSourceReference? SourceRef { get; set; }
 
         /// <summary>
-        /// Name of the banking data source, e.g. &quot;Plaid&quot;.
+        /// Name of the banking data source, e.g. "Plaid".
         /// </summary>
         [JsonProperty("platformName")]
         public string? PlatformName { get; set; }
@@ -48,15 +47,12 @@ namespace Codat.Lending.Models.Components
 
         /// <summary>
         /// The currency data type in Codat is the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code, e.g. _GBP_.<br/>
-        /// 
-        /// <remarks>
         /// <br/>
         /// ## Unknown currencies<br/>
         /// <br/>
         /// In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. <br/>
         /// <br/>
         /// There are only a very small number of edge cases where this currency code is returned by the Codat system.
-        /// </remarks>
         /// </summary>
         [JsonProperty("currency")]
         public string? Currency { get; set; }

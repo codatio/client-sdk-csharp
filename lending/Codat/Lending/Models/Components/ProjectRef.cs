@@ -11,10 +11,9 @@ namespace Codat.Lending.Models.Components
 {
     using Codat.Lending.Utils;
     using Newtonsoft.Json;
-    
+
     public class ProjectRef
     {
-
         /// <summary>
         /// Unique identifier to the project reference.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Codat.Lending.Models.Components
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The project&apos;s name.
+        /// The project's name.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; } = null;

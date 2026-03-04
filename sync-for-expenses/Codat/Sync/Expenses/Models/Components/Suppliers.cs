@@ -13,12 +13,11 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class Suppliers
     {
-
         [JsonProperty("results")]
-        public List<Supplier>? Results { get; set; }
+        public List<Supplier?>? Results { get; set; }
 
         /// <summary>
         /// Current page number.

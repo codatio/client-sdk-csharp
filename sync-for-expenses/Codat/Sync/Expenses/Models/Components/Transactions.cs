@@ -13,10 +13,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class Transactions
     {
-
         [JsonProperty("results")]
         public List<Transaction>? Results { get; set; }
 

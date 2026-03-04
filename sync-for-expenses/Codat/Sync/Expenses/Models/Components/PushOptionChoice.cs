@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushOptionChoice
     {
-
         /// <summary>
         /// Allowed value for field.
         /// </summary>
@@ -29,7 +28,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public PushOptionType? Type { get; set; }
 
         /// <summary>
-        /// The property&apos;s display name.
+        /// The property's display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }

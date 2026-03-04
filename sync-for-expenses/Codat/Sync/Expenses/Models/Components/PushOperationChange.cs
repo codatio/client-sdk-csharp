@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushOperationChange
     {
-
         /// <summary>
         /// Type of change being applied to record in third party platform.
         /// </summary>

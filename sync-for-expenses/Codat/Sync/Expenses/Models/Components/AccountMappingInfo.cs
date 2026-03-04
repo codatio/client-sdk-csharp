@@ -13,10 +13,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class AccountMappingInfo
     {
-
         /// <summary>
         /// Unique identifier of account.
         /// </summary>
@@ -30,7 +29,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public string? NominalCode { get; set; } = null;
 
         /// <summary>
-        /// Name of the account as it appears in the company&apos;s accounting software.
+        /// Name of the account as it appears in the company's accounting software.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
@@ -48,7 +47,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public AccountMappingInfoAccountType? AccountType { get; set; }
 
         /// <summary>
-        /// Full account type and category of the account
+        /// Full account type and category of the account.
         /// </summary>
         [JsonProperty("fullyQualifiedCategory")]
         public string? FullyQualifiedCategory { get; set; }

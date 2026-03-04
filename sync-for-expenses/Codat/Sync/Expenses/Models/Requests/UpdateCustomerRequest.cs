@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
-    
+
     public class UpdateCustomerRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -46,7 +45,7 @@ namespace Codat.Sync.Expenses.Models.Requests
         public bool? AllowSyncOnPushComplete { get; set; } = true;
 
         /// <summary>
-        /// When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting software, if they&apos;re different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
+        /// When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting software, if they're different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=forceUpdate")]
         public bool? ForceUpdate { get; set; } = false;

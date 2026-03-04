@@ -11,26 +11,26 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
-    public class SyncFailedWebhookData
+    using System.Collections.Generic;
+
+    public class CompanyUpdateRequest
     {
+        /// <summary>
+        /// Name of company being connected.
+        /// </summary>
+        [JsonProperty("name")]
+        public string? Name { get; set; }
 
         /// <summary>
-        /// Unique identifier for the failed sync.
+        /// Additional information about the company. This can be used to store foreign IDs, references, etc.
         /// </summary>
-        [JsonProperty("syncId")]
-        public string? SyncId { get; set; }
+        [JsonProperty("description")]
+        public string? Description { get; set; }
 
         /// <summary>
-        /// The type of sync being performed.
+        /// A collection of user-defined key-value pairs that store custom metadata against the company.
         /// </summary>
-        [JsonProperty("syncType")]
-        public string? SyncType { get; set; }
-
-        /// <summary>
-        /// The stage of the job the sync failed.
-        /// </summary>
-        [JsonProperty("FailureStage")]
-        public string? FailureStage { get; set; }
+        [JsonProperty("tags")]
+        public Dictionary<string, string>? Tags { get; set; }
     }
 }

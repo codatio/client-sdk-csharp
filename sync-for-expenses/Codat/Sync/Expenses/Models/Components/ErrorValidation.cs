@@ -13,13 +13,12 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     /// <summary>
     /// A human-readable object describing validation decisions Codat has made. If an operation has failed because of validation errors, they will be detailed here.
     /// </summary>
     public class ErrorValidation
     {
-
         [JsonProperty("errors")]
         public List<ErrorValidationItem>? Errors { get; set; } = null;
 

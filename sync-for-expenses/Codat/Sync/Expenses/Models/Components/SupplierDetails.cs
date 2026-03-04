@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class SupplierDetails
     {
-
         /// <summary>
         /// Identifier for the supplier, unique to the company in the accounting software.
         /// </summary>

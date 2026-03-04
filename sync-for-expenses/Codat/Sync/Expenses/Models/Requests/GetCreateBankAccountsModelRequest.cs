@@ -10,10 +10,9 @@
 namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Utils;
-    
+
     public class GetCreateBankAccountsModelRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

@@ -12,11 +12,11 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The type of phone number
+    /// The type of phone number.
     /// </summary>
-    public enum PhoneNumberType
+    public enum ItemsType
     {
         [JsonProperty("Primary")]
         Primary,
@@ -30,16 +30,16 @@ namespace Codat.Sync.Expenses.Models.Components
         Unknown,
     }
 
-    public static class PhoneNumberTypeExtension
+    public static class ItemsTypeExtension
     {
-        public static string Value(this PhoneNumberType value)
+        public static string Value(this ItemsType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static PhoneNumberType ToEnum(this string value)
+        public static ItemsType ToEnum(this string value)
         {
-            foreach(var field in typeof(PhoneNumberType).GetFields())
+            foreach(var field in typeof(ItemsType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -52,15 +52,14 @@ namespace Codat.Sync.Expenses.Models.Components
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is PhoneNumberType)
+                    if (enumVal is ItemsType)
                     {
-                        return (PhoneNumberType)enumVal;
+                        return (ItemsType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum PhoneNumberType");
+            throw new Exception($"Unknown value {value} for enum ItemsType");
         }
     }
-
 }

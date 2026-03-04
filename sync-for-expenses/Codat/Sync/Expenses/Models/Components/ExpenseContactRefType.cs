@@ -12,7 +12,7 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The type of contact.
     /// </summary>
@@ -54,5 +54,4 @@ namespace Codat.Sync.Expenses.Models.Components
             throw new Exception($"Unknown value {value} for enum ExpenseContactRefType");
         }
     }
-
 }

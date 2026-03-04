@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class CompanyConfiguration
     {
-
         [JsonProperty("bankAccount")]
         public BankAccountDetails BankAccount { get; set; } = default!;
 

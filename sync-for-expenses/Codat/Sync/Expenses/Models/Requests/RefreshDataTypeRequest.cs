@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
-    
+
     public class RefreshDataTypeRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Codat.Sync.Expenses.Models.Requests
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// The key of a Codat data type
+        /// The key of a Codat data type.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=dataType")]
         public DataType DataType { get; set; } = default!;

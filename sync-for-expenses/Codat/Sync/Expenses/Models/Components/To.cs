@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class To
     {
-
         /// <summary>
         /// Reference of the account you are transferring money to.
         /// </summary>

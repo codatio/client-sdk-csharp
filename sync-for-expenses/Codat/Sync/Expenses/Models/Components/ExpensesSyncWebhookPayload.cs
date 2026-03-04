@@ -13,10 +13,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class ExpensesSyncWebhookPayload
     {
-
         [JsonProperty("referenceCompany")]
         public CompanyReference? ReferenceCompany { get; set; }
 

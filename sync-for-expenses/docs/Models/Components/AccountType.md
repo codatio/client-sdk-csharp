@@ -2,6 +2,14 @@
 
 Type of account
 
+## Example Usage
+
+```csharp
+using Codat.Sync.Expenses.Models.Components;
+
+var value = AccountType.Unknown;
+```
+
 
 ## Values
 

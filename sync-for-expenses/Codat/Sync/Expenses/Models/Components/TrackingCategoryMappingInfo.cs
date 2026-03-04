@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class TrackingCategoryMappingInfo
     {
-
         /// <summary>
         /// Unique identifier of the tracking category.
         /// </summary>
@@ -34,7 +33,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public bool? HasChildren { get; set; }
 
         /// <summary>
-        /// ID of the parent tracking category
+        /// ID of the parent tracking category.
         /// </summary>
         [JsonProperty("parentId")]
         public string? ParentId { get; set; } = null;

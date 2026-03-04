@@ -1,5 +1,4 @@
 # TransactionStatus
-(*TransactionStatus*)
 
 ## Overview
 
@@ -16,18 +15,17 @@ Gets the transactions and status for a sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-sync-transactions" method="get" path="/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListSyncTransactionsRequest req = new ListSyncTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     SyncId = "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-    Page = 1,
-    PageSize = 100,
 };
 
 var res = await sdk.TransactionStatus.ListAsync(req);
@@ -49,7 +47,8 @@ var res = await sdk.TransactionStatus.ListAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429                   | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Get
@@ -58,10 +57,11 @@ Gets the status of a transaction for a sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-sync-transaction" method="get" path="/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -90,5 +90,6 @@ var res = await sdk.TransactionStatus.GetAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                        | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

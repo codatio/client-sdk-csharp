@@ -2,6 +2,14 @@
 
 The current status of the dataset.
 
+## Example Usage
+
+```csharp
+using Codat.Sync.Expenses.Models.Components;
+
+var value = Status.Initial;
+```
+
 
 ## Values
 

@@ -12,13 +12,12 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Weblink associated with the company.
     /// </summary>
     public class Weblink
     {
-
         /// <summary>
         /// The type of the weblink.
         /// </summary>

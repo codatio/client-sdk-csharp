@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class TrackingRefAdjustmentTransaction
     {
-
         /// <summary>
         /// Unique identifier of the linked reference from mapping options or the unique identifier of the linked customer or supplier.
         /// </summary>
@@ -23,7 +22,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// The type of the linked reference
+        /// The type of the linked reference.
         /// </summary>
         [JsonProperty("dataType")]
         public TrackingRefAdjustmentTransactionDataType? DataType { get; set; } = Codat.Sync.Expenses.Models.Components.TrackingRefAdjustmentTransactionDataType.TrackingCategories;

@@ -1,5 +1,4 @@
 # MappingOptions
-(*MappingOptions*)
 
 ## Overview
 
@@ -15,10 +14,11 @@ Gets the mapping options (accounts, trackingCategories and taxRates) for a compa
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-mapping-options" method="get" path="/companies/{companyId}/sync/expenses/mappingOptions" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -45,5 +45,6 @@ var res = await sdk.MappingOptions.GetMappingOptionsAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                        | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

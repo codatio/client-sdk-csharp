@@ -12,7 +12,7 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
     /// The current authorization status of the data connection.
     /// </summary>
@@ -60,5 +60,4 @@ namespace Codat.Sync.Expenses.Models.Components
             throw new Exception($"Unknown value {value} for enum DataConnectionStatus");
         }
     }
-
 }

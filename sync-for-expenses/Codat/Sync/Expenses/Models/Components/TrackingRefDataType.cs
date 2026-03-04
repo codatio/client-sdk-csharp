@@ -12,9 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// The type of the linked reference
+    /// The type of the linked reference.
     /// </summary>
     public enum TrackingRefDataType
     {
@@ -56,5 +56,4 @@ namespace Codat.Sync.Expenses.Models.Components
             throw new Exception($"Unknown value {value} for enum TrackingRefDataType");
         }
     }
-
 }

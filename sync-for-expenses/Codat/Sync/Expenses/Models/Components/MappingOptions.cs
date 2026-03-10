@@ -13,10 +13,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class MappingOptions
     {
-
         /// <summary>
         /// Name of the expense integration.
         /// </summary>

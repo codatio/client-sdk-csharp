@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class ApAccountRef
     {
-
         /// <summary>
         /// Unique identifier for the Accounts Payable account associated with the transaction. The `apAccountRef` object is currently supported only for QuickBooks Desktop.
         /// </summary>

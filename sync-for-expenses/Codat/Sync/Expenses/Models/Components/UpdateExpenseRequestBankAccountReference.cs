@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class UpdateExpenseRequestBankAccountReference
     {
-
         /// <summary>
         /// Identifier of the bank account.
         /// </summary>

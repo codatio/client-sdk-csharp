@@ -11,12 +11,11 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class BankAccountDetails
     {
-
         /// <summary>
-        /// The id of the account from which purchases are made
+        /// The id of the account from which purchases are made.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

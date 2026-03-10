@@ -10,10 +10,9 @@
 namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Utils;
-    
+
     public class GetLatestSyncRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Models.Requests;
     using Codat.Sync.Expenses.Utils;
-    
+
     public class UnlinkConnectionRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

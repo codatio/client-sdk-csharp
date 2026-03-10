@@ -13,44 +13,54 @@ namespace Codat.Sync.Expenses
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Models.Errors;
     using Codat.Sync.Expenses.Models.Requests;
-    using Codat.Sync.Expenses.Utils.Retries;
     using Codat.Sync.Expenses.Utils;
+    using Codat.Sync.Expenses.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Attach receipts to a transaction for a complete audit trail.
     /// </summary>
     public interface IAttachments
     {
-
         /// <summary>
-        /// Upload attachment
-        /// 
+        /// Upload attachment.
+        /// </summary>
         /// <remarks>
         /// The *Upload attachment* endpoint uploads an attachment in the accounting software against the given transactionId. <br/>
         /// <br/>
         /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. Attachments for `Adjustment` and `Transfer` transaction types are not supported for any integrations.<br/>
         /// <br/>
-        /// **Integration-specific behaviour**<br/>
+        /// **Integration-specific behavior**<br/>
         /// <br/>
         /// Each accounting software supports different file formats and sizes.<br/>
         /// <br/>
-        /// | Integration       | File size | File extension                                                                                                                                 |Supported transaction type<br/>
-        /// |-------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|<br/>
-        /// | **Xero**              | 3 MB      | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF,   ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX,   ZIP | All supported types |<br/>
-        /// | **QuickBooks Online** | 100 MB    | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF,   TXT, XLS, XLSX, XML                                                               |  `ReimbursableExpenses`, `ExpensePayment`, `ExpenseRefund` |<br/>
-        /// | **NetSuite**          | 100 MB    | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF,   DOC, DOCX, ZIP |`ExpensePayment`, `ExpenseRefund`                                                                     |<br/>
-        /// | **Dynamics 365 Business Central** | 350 MB | <a href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice">No explicit requirements outlined</a> for text, image, and video files. | All supported types<br/>
-        /// | **QuickBooks Desktop** | NA      | Does not support attachment upload | N/A                                                                                                                           |<br/>
-        /// | **FreeAgent** | 5MB      | PNG, X-PNG, JPEG, PJG, GIF, X-PDF   
+        /// | Integration                       | File size | File extension                                        | Supported transactions |<br/>
+        /// |-----------------------------------|-----------|-------------------------------------------------------|------------------------|<br/>
+        /// | **Xero**                          | 3 MB      | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF,   ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP | All supported types |<br/>
+        /// | **QuickBooks Online**             | 100 MB    | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML                                                      | `expense-transactions.Payment`, `expense-transactions.Refund`, `reimbursable-expense-transactions` |<br/>
+        /// | **NetSuite**                      | 100 MB    | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |`expense-transactions.Payment`, `expense-transactions.Refund`                                                                    |<br/>
+        /// | **Dynamics 365 Business Central** | 350 MB    | <a href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice">No explicit requirements outlined</a> for text, image, and video files. | All supported types<br/>
+        /// | **QuickBooks Desktop**            | NA        | Does not support attachment upload                     | N/A                    |<br/>
+        /// | **FreeAgent**                     | 5MB       | PNG, X-PNG, JPEG, PJG, GIF, X-PDF  | `expense-transactions.Payment`, `reimbursable-expense-transactions`<br/>
+        /// | **Zoho Books**                    | 5MB       | GIF, PNG, JPEG, JPG, BMP, PDF      | `expense-transactions.Payment`, `reimbursable-expense-transactions`        |
         /// </remarks>
-        /// </summary>
-        Task<UploadExpenseAttachmentResponse> UploadAsync(UploadExpenseAttachmentRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="UploadExpenseAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadExpenseAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UploadExpenseAttachmentResponse> UploadAsync(
+            UploadExpenseAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -58,31 +68,64 @@ namespace Codat.Sync.Expenses
     /// </summary>
     public class Attachments: IAttachments
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "7.0.0";
-        private const string _sdkGenVersion = "2.463.0";
-        private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;
 
-        public Attachments(ISpeakeasyHttpClient client, Func<Codat.Sync.Expenses.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public Attachments(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
 
-        public async Task<UploadExpenseAttachmentResponse> UploadAsync(UploadExpenseAttachmentRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Upload attachment.
+        /// </summary>
+        /// <remarks>
+        /// The *Upload attachment* endpoint uploads an attachment in the accounting software against the given transactionId. <br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction">Expense transactions</a> represent transactions made with a company debit or credit card. Attachments for `Adjustment` and `Transfer` transaction types are not supported for any integrations.<br/>
+        /// <br/>
+        /// **Integration-specific behavior**<br/>
+        /// <br/>
+        /// Each accounting software supports different file formats and sizes.<br/>
+        /// <br/>
+        /// | Integration                       | File size | File extension                                        | Supported transactions |<br/>
+        /// |-----------------------------------|-----------|-------------------------------------------------------|------------------------|<br/>
+        /// | **Xero**                          | 3 MB      | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF,   ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP | All supported types |<br/>
+        /// | **QuickBooks Online**             | 100 MB    | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML                                                      | `expense-transactions.Payment`, `expense-transactions.Refund`, `reimbursable-expense-transactions` |<br/>
+        /// | **NetSuite**                      | 100 MB    | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |`expense-transactions.Payment`, `expense-transactions.Refund`                                                                    |<br/>
+        /// | **Dynamics 365 Business Central** | 350 MB    | <a href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice">No explicit requirements outlined</a> for text, image, and video files. | All supported types<br/>
+        /// | **QuickBooks Desktop**            | NA        | Does not support attachment upload                     | N/A                    |<br/>
+        /// | **FreeAgent**                     | 5MB       | PNG, X-PNG, JPEG, PJG, GIF, X-PDF  | `expense-transactions.Payment`, `reimbursable-expense-transactions`<br/>
+        /// | **Zoho Books**                    | 5MB       | GIF, PNG, JPEG, JPG, BMP, PDF      | `expense-transactions.Payment`, `reimbursable-expense-transactions`        |
+        /// </remarks>
+        /// <param name="request">A <see cref="UploadExpenseAttachmentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UploadExpenseAttachmentResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UploadExpenseAttachmentResponse> UploadAsync(
+            UploadExpenseAttachmentRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "AttachmentUpload", "multipart", false, true);
             if (serializedBody != null)
@@ -90,12 +133,12 @@ namespace Codat.Sync.Expenses
                 httpRequest.Content = serializedBody;
             }
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("upload-expense-attachment", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "upload-expense-attachment", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -129,8 +172,8 @@ namespace Codat.Sync.Expenses
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Expenses.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -140,7 +183,7 @@ namespace Codat.Sync.Expenses
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -149,9 +192,9 @@ namespace Codat.Sync.Expenses
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -170,7 +213,17 @@ namespace Codat.Sync.Expenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<Attachment>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Attachment obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attachment>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Attachment.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new UploadExpenseAttachmentResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -181,24 +234,59 @@ namespace Codat.Sync.Expenses
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

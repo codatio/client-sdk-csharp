@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class ItemRef
     {
-
         /// <summary>
         /// Unique identifier for the item associated with the transaction. The `itemRef` object is currently supported only for QuickBooks Desktop. You can specify either `itemRef` or `accountRef`, but not both.
         /// </summary>

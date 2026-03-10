@@ -12,13 +12,12 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Unique identifier for the customer billed for the transaction. The `invoiceTo` object is currently supported only for QuickBooks Online and QuickBooks Desktop.
     /// </summary>
     public class InvoiceTo
     {
-
         /// <summary>
         /// identifier of customer.
         /// </summary>

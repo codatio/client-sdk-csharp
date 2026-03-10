@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Requests
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class UnlinkConnectionUpdateConnection
     {
-
         /// <summary>
         /// The current authorization status of the data connection.
         /// </summary>

@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
-    
+
     public class CreateTransferTransactionRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -22,7 +21,7 @@ namespace Codat.Sync.Expenses.Models.Requests
         public string CompanyId { get; set; } = default!;
 
         /// <summary>
-        /// The unique identifier for your SMB&apos;s transaction.
+        /// The unique identifier for your SMB's transaction.
         /// </summary>
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=transactionId")]
         public string TransactionId { get; set; } = default!;

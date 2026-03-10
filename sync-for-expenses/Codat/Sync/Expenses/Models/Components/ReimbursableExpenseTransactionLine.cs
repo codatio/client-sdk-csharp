@@ -13,12 +13,11 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class ReimbursableExpenseTransactionLine
     {
-
         /// <summary>
-        /// line description
+        /// line description.
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }

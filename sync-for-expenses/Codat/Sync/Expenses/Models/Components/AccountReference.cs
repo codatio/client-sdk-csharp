@@ -11,15 +11,14 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// Reference of the account you are transferring money from.
     /// </summary>
     public class AccountReference
     {
-
         /// <summary>
-        /// &apos;id&apos; from the Accounts data type.
+        /// 'id' from the Accounts data type.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

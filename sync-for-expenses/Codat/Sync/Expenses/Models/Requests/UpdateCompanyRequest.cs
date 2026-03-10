@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Requests
 {
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
-    
+
     public class UpdateCompanyRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>
@@ -22,6 +21,6 @@ namespace Codat.Sync.Expenses.Models.Requests
         public string CompanyId { get; set; } = default!;
 
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CompanyRequestBody? CompanyRequestBody { get; set; }
+        public CompanyUpdateRequest? CompanyUpdateRequest { get; set; }
     }
 }

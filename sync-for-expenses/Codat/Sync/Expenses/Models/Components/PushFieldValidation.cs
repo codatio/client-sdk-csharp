@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushFieldValidation
     {
-
         /// <summary>
         /// Field name that resulted in the validation issue.
         /// </summary>

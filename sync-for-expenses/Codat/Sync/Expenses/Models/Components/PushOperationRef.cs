@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class PushOperationRef
     {
-
         /// <summary>
         /// Unique identifier for a push operation.
         /// </summary>
@@ -23,7 +22,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Available data types
+        /// Available data types.
         /// </summary>
         [JsonProperty("dataType")]
         public PropertieDataType? DataType { get; set; }

@@ -2,6 +2,14 @@
 
 Available data types
 
+## Example Usage
+
+```csharp
+using Codat.Sync.Expenses.Models.Components;
+
+var value = PropertieDataType.AccountTransactions;
+```
+
 
 ## Values
 

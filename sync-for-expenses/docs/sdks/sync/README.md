@@ -1,5 +1,4 @@
 # Sync
-(*Sync*)
 
 ## Overview
 
@@ -18,10 +17,11 @@ Gets the status of the last successful sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-last-successful-sync" method="get" path="/companies/{companyId}/sync/expenses/syncs/lastSuccessful/status" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -48,7 +48,8 @@ var res = await sdk.Sync.GetLastSuccessfulSyncAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                        | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## GetLatestSync
@@ -57,10 +58,11 @@ Gets the latest sync status
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-latest-sync" method="get" path="/companies/{companyId}/sync/expenses/syncs/latest/status" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -87,7 +89,8 @@ var res = await sdk.Sync.GetLatestSyncAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                        | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## List
@@ -96,10 +99,11 @@ Gets a list of sync statuses
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="list-syncs" method="get" path="/companies/{companyId}/sync/expenses/syncs/list/status" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -126,7 +130,8 @@ var res = await sdk.Sync.ListAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                        | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Get
@@ -135,10 +140,11 @@ Get the sync status for a specified sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-sync-by-id" method="get" path="/companies/{companyId}/sync/expenses/syncs/{syncId}/status" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -166,5 +172,6 @@ var res = await sdk.Sync.GetAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                        | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class Phone
     {
-
         /// <summary>
         /// A phone number.
         /// </summary>
@@ -23,9 +22,9 @@ namespace Codat.Sync.Expenses.Models.Components
         public string? Number { get; set; } = null;
 
         /// <summary>
-        /// The type of phone number
+        /// The type of phone number.
         /// </summary>
         [JsonProperty("type")]
-        public PhoneNumberType Type { get; set; } = default!;
+        public CompanyInformationPhoneNumbersType Type { get; set; } = default!;
     }
 }

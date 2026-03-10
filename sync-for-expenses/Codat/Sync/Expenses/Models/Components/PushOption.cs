@@ -13,10 +13,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class PushOption
     {
-
         /// <summary>
         /// The option type.
         /// </summary>
@@ -24,7 +23,7 @@ namespace Codat.Sync.Expenses.Models.Components
         public PushOptionType Type { get; set; } = default!;
 
         /// <summary>
-        /// The property&apos;s display name.
+        /// The property's display name.
         /// </summary>
         [JsonProperty("displayName")]
         public string DisplayName { get; set; } = default!;

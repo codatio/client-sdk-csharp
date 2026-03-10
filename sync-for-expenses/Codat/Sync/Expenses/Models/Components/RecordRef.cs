@@ -11,10 +11,9 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class RecordRef
     {
-
         /// <summary>
         /// Identifier of linked reference from mapping options.
         /// </summary>

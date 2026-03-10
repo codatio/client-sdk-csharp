@@ -1,5 +1,4 @@
 # Configuration
-(*Configuration*)
 
 ## Overview
 
@@ -16,10 +15,11 @@ Gets a company's expense sync configuration
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="get-company-configuration" method="get" path="/companies/{companyId}/sync/expenses/config" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -46,7 +46,8 @@ var res = await sdk.Configuration.GetAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429, 500, 503              | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                        | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |
 
 ## Set
@@ -55,10 +56,11 @@ Sets a company's expense sync configuration
 
 ### Example Usage
 
+<!-- UsageSnippet language="csharp" operationID="set-company-configuration" method="post" path="/companies/{companyId}/sync/expenses/config" example="Malformed query" -->
 ```csharp
 using Codat.Sync.Expenses;
-using Codat.Sync.Expenses.Models.Requests;
 using Codat.Sync.Expenses.Models.Components;
+using Codat.Sync.Expenses.Models.Requests;
 
 var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -92,5 +94,6 @@ var res = await sdk.Configuration.SetAsync(req);
 
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503         | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429                   | application/json                               |
+| Codat.Sync.Expenses.Models.Errors.ErrorMessage | 500, 503                                       | application/json                               |
 | Codat.Sync.Expenses.Models.Errors.SDKException | 4XX, 5XX                                       | \*/\*                                          |

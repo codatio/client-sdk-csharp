@@ -12,26 +12,23 @@ namespace Codat.Sync.Expenses
     using Codat.Sync.Expenses.Hooks;
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Models.Errors;
-    using Codat.Sync.Expenses.Utils.Retries;
     using Codat.Sync.Expenses.Utils;
+    using Codat.Sync.Expenses.Utils.Retries;
     using Newtonsoft.Json;
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using System;
-
     /// <summary>
-    /// Sync for Expenses: The API for Sync for Expenses.<br/>
-    /// 
-    /// <remarks>
+    /// Expenses: The API for Codat's Expenses solution.<br/>
     /// <br/>
-    /// Sync for Expenses is an API and a set of supporting tools. It has been built to<br/>
+    /// Expenses is an API and a set of supporting tools. It has been built to<br/>
     /// enable corporate card and expense management platforms to provide high-quality<br/>
     /// integrations with multiple accounting software through a standardized API.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See our OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See our OpenAPI spec</a>
     /// <br/>
-    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Sync for Expenses</a>.<br/>
+    /// Not seeing the endpoints you're expecting? We've <a href="https://docs.codat.io/updates/230901-new-products">reorganized our solutions</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Expenses</a>.<br/>
     /// <br/>
     /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
@@ -39,13 +36,13 @@ namespace Codat.Sync.Expenses
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Configuration | View and manage mapping configuration and defaults for expense transactions. |<br/>
     /// | Sync | Monitor the status of data syncs. |<br/>
-    /// | Expenses | Create and update transactions that represent your customers&apos; spend. |<br/>
-    /// | Transfers | Create and update transactions that represent the movement of your customers&apos; money. |<br/>
-    /// | Reimbursements | Create and update transactions that represent your customers&apos; repayable spend. |<br/>
+    /// | Expenses | Create and update transactions that represent your customers' spend. |<br/>
+    /// | Transfers | Create and update transactions that represent the movement of your customers' money. |<br/>
+    /// | Reimbursements | Create and update transactions that represent your customers' repayable spend. |<br/>
     /// | Attachments | Attach receipts to a transaction for a complete audit trail. |<br/>
     /// | Transaction status | Monitor the status of individual transactions in data syncs. |<br/>
     /// | Manage data | Control and monitor the retrieval of data from an integration. |<br/>
@@ -54,13 +51,11 @@ namespace Codat.Sync.Expenses
     /// | Customers | Get, create, and update customers. |<br/>
     /// | Suppliers | Get, create, and update suppliers. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
-    /// </remarks>
     /// </summary>
     public interface ICodatSyncExpenses
     {
-
         /// <summary>
-        /// Create and manage your SMB users&apos; companies.
+        /// Create and manage your SMB users' companies.
         /// </summary>
         public ICompanies Companies { get; }
 
@@ -70,7 +65,7 @@ namespace Codat.Sync.Expenses
         public IConnections Connections { get; }
 
         /// <summary>
-        /// View the company information of your customers&apos; linked accounting software.
+        /// View the company information of your customers' linked accounting software.
         /// </summary>
         public ICompanyInfo CompanyInfo { get; }
 
@@ -95,22 +90,22 @@ namespace Codat.Sync.Expenses
         public ITransactionStatus TransactionStatus { get; }
 
         /// <summary>
-        /// Create and update transactions that represent your customers&apos; spend.
+        /// Create and update transactions that represent your customers' spend.
         /// </summary>
         public IExpenses Expenses { get; }
 
         /// <summary>
-        /// Create and update transactions that represent the movement of your customers&apos; money.
+        /// Create and update transactions that represent the movement of your customers' money.
         /// </summary>
         public ITransfers Transfers { get; }
 
         /// <summary>
-        /// Create transactions that represent your adjustments to your customers&apos; spend.
+        /// Create transactions that represent your adjustments to your customers' spend.
         /// </summary>
         public IAdjustments Adjustments { get; }
 
         /// <summary>
-        /// Create and update transactions that represent your customers&apos; repayable spend.
+        /// Create and update transactions that represent your customers' repayable spend.
         /// </summary>
         public IReimbursements Reimbursements { get; }
 
@@ -150,53 +145,16 @@ namespace Codat.Sync.Expenses
         public ISuppliers Suppliers { get; }
     }
 
-    public class SDKConfig
-    {
-        /// <summary>
-        /// List of server URLs available to the SDK.
-        /// </summary>
-        public static readonly string[] ServerList = {
-            "https://api.codat.io",
-        };
-
-        public string ServerUrl = "";
-        public int ServerIndex = 0;
-        public SDKHooks Hooks = new SDKHooks();
-        public RetryConfig? RetryConfig = null;
-
-        public string GetTemplatedServerUrl()
-        {
-            if (!String.IsNullOrEmpty(this.ServerUrl))
-            {
-                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.ServerUrl, "/"), new Dictionary<string, string>());
-            }
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.ServerIndex], new Dictionary<string, string>());
-        }
-
-        public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
-        {
-            string preHooksUrl = GetTemplatedServerUrl();
-            var (postHooksUrl, postHooksClient) = this.Hooks.SDKInit(preHooksUrl, client);
-            if (preHooksUrl != postHooksUrl)
-            {
-                this.ServerUrl = postHooksUrl;
-            }
-            return postHooksClient;
-        }
-    }
-
     /// <summary>
-    /// Sync for Expenses: The API for Sync for Expenses.<br/>
-    /// 
-    /// <remarks>
+    /// Expenses: The API for Codat's Expenses solution.<br/>
     /// <br/>
-    /// Sync for Expenses is an API and a set of supporting tools. It has been built to<br/>
+    /// Expenses is an API and a set of supporting tools. It has been built to<br/>
     /// enable corporate card and expense management platforms to provide high-quality<br/>
     /// integrations with multiple accounting software through a standardized API.<br/>
     /// <br/>
-    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Explore product</a> | <a href="https://github.com/codatio/oas">See our OpenAPI spec</a><br/>
+    /// <a href="https://docs.codat.io/sync-for-expenses/overview">Explore solution</a> | <a href="https://github.com/codatio/oas">See our OpenAPI spec</a>
     /// <br/>
-    /// Not seeing the endpoints you&apos;re expecting? We&apos;ve <a href="https://docs.codat.io/updates/230901-new-products">reorganized our products</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Sync for Expenses</a>.<br/>
+    /// Not seeing the endpoints you're expecting? We've <a href="https://docs.codat.io/updates/230901-new-products">reorganized our solutions</a>, and you may be using a <a href="https://docs.codat.io/sync-for-expenses-v1-api#/">different version of Expenses</a>.<br/>
     /// <br/>
     /// ---<br/>
     /// &lt;!-- Start Codat Tags Table --&gt;<br/>
@@ -204,13 +162,13 @@ namespace Codat.Sync.Expenses
     /// <br/>
     /// | Endpoints | Description |<br/>
     /// | :- |:- |<br/>
-    /// | Companies | Create and manage your SMB users&apos; companies. |<br/>
+    /// | Companies | Create and manage your SMB users' companies. |<br/>
     /// | Connections | Create new and manage existing data connections for a company. |<br/>
     /// | Configuration | View and manage mapping configuration and defaults for expense transactions. |<br/>
     /// | Sync | Monitor the status of data syncs. |<br/>
-    /// | Expenses | Create and update transactions that represent your customers&apos; spend. |<br/>
-    /// | Transfers | Create and update transactions that represent the movement of your customers&apos; money. |<br/>
-    /// | Reimbursements | Create and update transactions that represent your customers&apos; repayable spend. |<br/>
+    /// | Expenses | Create and update transactions that represent your customers' spend. |<br/>
+    /// | Transfers | Create and update transactions that represent the movement of your customers' money. |<br/>
+    /// | Reimbursements | Create and update transactions that represent your customers' repayable spend. |<br/>
     /// | Attachments | Attach receipts to a transaction for a complete audit trail. |<br/>
     /// | Transaction status | Monitor the status of individual transactions in data syncs. |<br/>
     /// | Manage data | Control and monitor the retrieval of data from an integration. |<br/>
@@ -219,49 +177,160 @@ namespace Codat.Sync.Expenses
     /// | Customers | Get, create, and update customers. |<br/>
     /// | Suppliers | Get, create, and update suppliers. |<br/>
     /// &lt;!-- End Codat Tags Table --&gt;
-    /// </remarks>
     /// </summary>
     public class CodatSyncExpenses: ICodatSyncExpenses
     {
+        /// <summary>
+        /// The main SDK Configuration.
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-
-        private const string _language = "csharp";
-        private const string _sdkVersion = "7.0.0";
-        private const string _sdkGenVersion = "2.463.0";
-        private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
-        private string _serverUrl = "";
-        private int _serverIndex = 0;
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;
+        /// <summary>
+        /// The Companies sub-SDK.
+        /// </summary>
         public ICompanies Companies { get; private set; }
+        /// <summary>
+        /// The Connections sub-SDK.
+        /// </summary>
         public IConnections Connections { get; private set; }
+        /// <summary>
+        /// The CompanyInfo sub-SDK.
+        /// </summary>
         public ICompanyInfo CompanyInfo { get; private set; }
+        /// <summary>
+        /// The Configuration sub-SDK.
+        /// </summary>
         public IConfiguration Configuration { get; private set; }
+        /// <summary>
+        /// The MappingOptions sub-SDK.
+        /// </summary>
         public IMappingOptions MappingOptions { get; private set; }
+        /// <summary>
+        /// The Sync sub-SDK.
+        /// </summary>
         public ISync Sync { get; private set; }
+        /// <summary>
+        /// The TransactionStatus sub-SDK.
+        /// </summary>
         public ITransactionStatus TransactionStatus { get; private set; }
+        /// <summary>
+        /// The Expenses sub-SDK.
+        /// </summary>
         public IExpenses Expenses { get; private set; }
+        /// <summary>
+        /// The Transfers sub-SDK.
+        /// </summary>
         public ITransfers Transfers { get; private set; }
+        /// <summary>
+        /// The Adjustments sub-SDK.
+        /// </summary>
         public IAdjustments Adjustments { get; private set; }
+        /// <summary>
+        /// The Reimbursements sub-SDK.
+        /// </summary>
         public IReimbursements Reimbursements { get; private set; }
+        /// <summary>
+        /// The Attachments sub-SDK.
+        /// </summary>
         public IAttachments Attachments { get; private set; }
+        /// <summary>
+        /// The ManageData sub-SDK.
+        /// </summary>
         public IManageData ManageData { get; private set; }
+        /// <summary>
+        /// The PushOperations sub-SDK.
+        /// </summary>
         public IPushOperations PushOperations { get; private set; }
+        /// <summary>
+        /// The Accounts sub-SDK.
+        /// </summary>
         public IAccounts Accounts { get; private set; }
+        /// <summary>
+        /// The BankAccounts sub-SDK.
+        /// </summary>
         public IBankAccounts BankAccounts { get; private set; }
+        /// <summary>
+        /// The Customers sub-SDK.
+        /// </summary>
         public ICustomers Customers { get; private set; }
+        /// <summary>
+        /// The Suppliers sub-SDK.
+        /// </summary>
         public ISuppliers Suppliers { get; private set; }
 
-        public CodatSyncExpenses(string? authHeader = null, Func<string>? authHeaderSource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Initializes a new instance of the SDK based on a <see cref="SDKConfig"/> configuration object.
+        /// </summary>
+        /// <param name="config">The SDK configuration object.</param>
+        public CodatSyncExpenses(SDKConfig config)
+        {
+            SDKConfiguration = config;
+            InitHooks();
+
+            Companies = new Companies(SDKConfiguration);
+
+            Connections = new Connections(SDKConfiguration);
+
+            CompanyInfo = new CompanyInfo(SDKConfiguration);
+
+            Configuration = new Configuration(SDKConfiguration);
+
+            MappingOptions = new MappingOptions(SDKConfiguration);
+
+            Sync = new Sync(SDKConfiguration);
+
+            TransactionStatus = new TransactionStatus(SDKConfiguration);
+
+            Expenses = new Expenses(SDKConfiguration);
+
+            Transfers = new Transfers(SDKConfiguration);
+
+            Adjustments = new Adjustments(SDKConfiguration);
+
+            Reimbursements = new Reimbursements(SDKConfiguration);
+
+            Attachments = new Attachments(SDKConfiguration);
+
+            ManageData = new ManageData(SDKConfiguration);
+
+            PushOperations = new PushOperations(SDKConfiguration);
+
+            Accounts = new Accounts(SDKConfiguration);
+
+            BankAccounts = new BankAccounts(SDKConfiguration);
+
+            Customers = new Customers(SDKConfiguration);
+
+            Suppliers = new Suppliers(SDKConfiguration);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the SDK with optional configuration parameters.
+        /// </summary>
+        /// <param name="authHeader">The security configuration to use for API requests. If provided, this will be used as a static security configuration.</param>
+        /// <param name="authHeaderSource">A function that returns the security configuration dynamically. This takes precedence over the static security parameter if both are provided.</param>
+        /// <param name="serverIndex">The index of the server to use from the predefined server list. Must be between 0 and the length of the server list. Defaults to 0 if not specified.</param>
+        /// <param name="serverUrl">A custom server URL to use instead of the predefined server list. If provided with urlParams, the URL will be templated with the provided parameters.</param>
+        /// <param name="urlParams">A dictionary of parameters to use for templating the serverUrl. Only used when serverUrl is provided.</param>
+        /// <param name="client">A custom HTTP client implementation to use for making API requests. If not provided, the default SpeakeasyHttpClient will be used.</param>
+        /// <param name="retryConfig">Configuration for retry behavior when API requests fail. Defines retry strategies, backoff policies, and maximum retry attempts.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Invalid value provided for <paramref name="serverIndex"/>: must be between 0 (inclusive) and 1 (exclusive).</exception>
+        /// <exception cref="ArgumentException">None of <paramref name="authHeader"/> and <paramref name="authHeaderSource"/> were provided.</exception>
+        public CodatSyncExpenses(
+            string? authHeader = null,
+            Func<string>? authHeaderSource = null,
+            int? serverIndex = null,
+            string? serverUrl = null,
+            Dictionary<string, string>? urlParams = null,
+            ISpeakeasyHttpClient? client = null,
+            RetryConfig? retryConfig = null
+        )
         {
             if (serverIndex != null)
             {
                 if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
                 {
-                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
                 }
-                _serverIndex = serverIndex.Value;
             }
 
             if (serverUrl != null)
@@ -270,10 +339,8 @@ namespace Codat.Sync.Expenses
                 {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
-                _serverUrl = serverUrl;
             }
-
-            _client = client ?? new SpeakeasyHttpClient();
+            Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource = null;
 
             if(authHeaderSource != null)
             {
@@ -285,71 +352,153 @@ namespace Codat.Sync.Expenses
             }
             else
             {
-                throw new Exception("authHeader and authHeaderSource cannot both be null");
+                throw new ArgumentException("authHeader and authHeaderSource cannot both be null");
             }
 
-            SDKConfiguration = new SDKConfig()
+            SDKConfiguration = new SDKConfig(client)
             {
-                ServerIndex = _serverIndex,
-                ServerUrl = _serverUrl,
+                ServerIndex = serverIndex == null ? 0 : serverIndex.Value,
+                ServerUrl = serverUrl == null ? "" : serverUrl,
+                SecuritySource = _securitySource,
                 RetryConfig = retryConfig
             };
 
-            _client = SDKConfiguration.InitHooks(_client);
+            InitHooks();
 
+            Companies = new Companies(SDKConfiguration);
 
-            Companies = new Companies(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Connections = new Connections(SDKConfiguration);
 
+            CompanyInfo = new CompanyInfo(SDKConfiguration);
 
-            Connections = new Connections(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Configuration = new Configuration(SDKConfiguration);
 
+            MappingOptions = new MappingOptions(SDKConfiguration);
 
-            CompanyInfo = new CompanyInfo(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Sync = new Sync(SDKConfiguration);
 
+            TransactionStatus = new TransactionStatus(SDKConfiguration);
 
-            Configuration = new Configuration(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Expenses = new Expenses(SDKConfiguration);
 
+            Transfers = new Transfers(SDKConfiguration);
 
-            MappingOptions = new MappingOptions(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Adjustments = new Adjustments(SDKConfiguration);
 
+            Reimbursements = new Reimbursements(SDKConfiguration);
 
-            Sync = new Sync(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Attachments = new Attachments(SDKConfiguration);
 
+            ManageData = new ManageData(SDKConfiguration);
 
-            TransactionStatus = new TransactionStatus(_client, _securitySource, _serverUrl, SDKConfiguration);
+            PushOperations = new PushOperations(SDKConfiguration);
 
+            Accounts = new Accounts(SDKConfiguration);
 
-            Expenses = new Expenses(_client, _securitySource, _serverUrl, SDKConfiguration);
+            BankAccounts = new BankAccounts(SDKConfiguration);
 
+            Customers = new Customers(SDKConfiguration);
 
-            Transfers = new Transfers(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Adjustments = new Adjustments(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Reimbursements = new Reimbursements(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Attachments = new Attachments(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            ManageData = new ManageData(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            PushOperations = new PushOperations(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Accounts = new Accounts(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            BankAccounts = new BankAccounts(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Customers = new Customers(_client, _securitySource, _serverUrl, SDKConfiguration);
-
-
-            Suppliers = new Suppliers(_client, _securitySource, _serverUrl, SDKConfiguration);
+            Suppliers = new Suppliers(SDKConfiguration);
         }
+
+        private void InitHooks()
+        {
+            string preHooksUrl = SDKConfiguration.GetTemplatedServerUrl();
+            var (postHooksUrl, postHooksClient) = SDKConfiguration.Hooks.SDKInit(preHooksUrl, SDKConfiguration.Client);
+            var config = SDKConfiguration;
+            if (preHooksUrl != postHooksUrl)
+            {
+                config.ServerUrl = postHooksUrl;
+            }
+            config.Client = postHooksClient;
+            SDKConfiguration = config;
+        }
+
+        /// <summary>
+        /// Builder class for constructing an instance of the SDK.
+        /// </summary>
+        public class SDKBuilder
+        {
+            private SDKConfig _sdkConfig = new SDKConfig(client: new SpeakeasyHttpClient());
+
+            public SDKBuilder() { }
+
+            /// <summary>
+            /// Overrides the default server by index.
+            /// </summary>
+            public SDKBuilder WithServerIndex(int serverIndex)
+            {
+                if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
+                {
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
+                }
+                _sdkConfig.ServerIndex = serverIndex;
+                return this;
+            }
+
+            /// <summary>
+            /// Overrides the default server URL for the SDK.
+            /// </summary>
+            public SDKBuilder WithServerUrl(string serverUrl, Dictionary<string, string>? serverVariables = null)
+            {
+                if (serverVariables != null)
+                {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, serverVariables);
+                }
+                _sdkConfig.ServerUrl = serverUrl;
+                return this;
+            }
+
+            /// <summary>
+            /// Sets the authHeaderSource security parameter for the SDK.
+            /// </summary>
+            public SDKBuilder WithAuthHeaderSource(Func<string> authHeaderSource)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Sync.Expenses.Models.Components.Security() { AuthHeader = authHeaderSource() };
+                return this;
+            }
+
+            /// <summary>
+            /// Sets the authHeader security parameter for the SDK.
+            /// </summary>
+            public SDKBuilder WithAuthHeader(string authHeader)
+            {
+                _sdkConfig.SecuritySource = () => new Codat.Sync.Expenses.Models.Components.Security() { AuthHeader = authHeader };
+                return this;
+            }
+
+            /// <summary>
+            /// Sets a custom HTTP client to be used by the SDK.
+            /// </summary>
+            public SDKBuilder WithClient(ISpeakeasyHttpClient client)
+            {
+                _sdkConfig.Client = client;
+                return this;
+            }
+
+            /// <summary>
+            /// Sets the retry configuration for the SDK.
+            /// </summary>
+            public SDKBuilder WithRetryConfig(RetryConfig retryConfig)
+            {
+                _sdkConfig.RetryConfig = retryConfig;
+                return this;
+            }
+
+            /// <summary>
+            /// Builds and returns the SDK instance.
+            /// </summary>
+            public CodatSyncExpenses Build()
+            {
+              if (_sdkConfig.SecuritySource == null) {
+                  throw new ArgumentException("securitySource cannot be null. One of `AuthHeader` or `authHeaderSource` needs to be defined.");
+              }
+              return new CodatSyncExpenses(_sdkConfig);
+            }
+
+        }
+
+        public static SDKBuilder Builder() => new SDKBuilder();
     }
 }

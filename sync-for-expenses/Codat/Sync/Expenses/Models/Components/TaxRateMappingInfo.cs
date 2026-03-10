@@ -13,10 +13,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class TaxRateMappingInfo
     {
-
         /// <summary>
         /// Unique identifier of tax rate.
         /// </summary>

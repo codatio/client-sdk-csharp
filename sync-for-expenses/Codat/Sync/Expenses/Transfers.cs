@@ -13,73 +13,119 @@ namespace Codat.Sync.Expenses
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Models.Errors;
     using Codat.Sync.Expenses.Models.Requests;
-    using Codat.Sync.Expenses.Utils.Retries;
     using Codat.Sync.Expenses.Utils;
+    using Codat.Sync.Expenses.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
-    /// Create and update transactions that represent the movement of your customers&apos; money.
+    /// Create and update transactions that represent the movement of your customers' money.
     /// </summary>
     public interface ITransfers
     {
-
         /// <summary>
-        /// Create transfer transaction
-        /// 
+        /// Create transfer transaction.
+        /// </summary>
         /// <remarks>
-        /// Use the *Create transfer* endpoint to create or update a <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/TransferTransactionRequest">transfer transaction</a> in the accounting software for a given company&apos;s connection. <br/>
+        /// Use the *Create transfer* endpoint to create or update a <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/TransferTransactionRequest">transfer transaction</a> in the accounting software for a given company's connection. <br/>
         /// <br/>
         /// Transfers record the movement of money between two bank accounts, or between a bank account and a nominal account. Use them to represent actions such as topping up a debit card account or a balance transfer to another credit card.<br/>
         /// <br/>
         /// The `from.amount` and `to.amount` fields are in the native currency of the account.<br/>
         /// <br/>
         /// ### Supported Integrations<br/>
-        /// | Integration           | Supported |<br/>
-        /// |-----------------------|-----------|<br/>
-        /// | FreeAgent             | Yes       |<br/>
-        /// | QuickBooks Desktop    | Yes       |<br/>
-        /// | QuickBooks Online     | Yes       |<br/>
-        /// | Xero                  | Yes       |
+        /// | Integration           | Create transfer  | Update transfer  |<br/>
+        /// |-----------------------|------------------|------------------|<br/>
+        /// | Dynamics				| No			   | No				  |<br/>
+        /// | FreeAgent             | Yes              | Yes              |<br/>
+        /// | NetSuite              | No               | No               |<br/>
+        /// | QuickBooks Desktop    | Yes              | No               |<br/>
+        /// | QuickBooks Online     | Yes              | Yes              |<br/>
+        /// | Sage Intacct          | No               | No               |<br/>
+        /// | Xero                  | Yes              | No               |<br/>
+        /// | Zoho Books            | No               | No               |
         /// </remarks>
-        /// </summary>
-        Task<CreateTransferTransactionResponse> CreateAsync(CreateTransferTransactionRequest request, RetryConfig? retryConfig = null);
+        /// <param name="request">A <see cref="CreateTransferTransactionRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateTransferTransactionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<CreateTransferTransactionResponse> CreateAsync(
+            CreateTransferTransactionRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
-    /// Create and update transactions that represent the movement of your customers&apos; money.
+    /// Create and update transactions that represent the movement of your customers' money.
     /// </summary>
     public class Transfers: ITransfers
     {
+        /// <summary>
+        /// SDK Configuration.
+        /// <see cref="SDKConfig"/>
+        /// </summary>
         public SDKConfig SDKConfiguration { get; private set; }
-        private const string _language = "csharp";
-        private const string _sdkVersion = "7.0.0";
-        private const string _sdkGenVersion = "2.463.0";
-        private const string _openapiDocVersion = "prealpha";
-        private const string _userAgent = "speakeasy-sdk/csharp 7.0.0 2.463.0 prealpha Codat.Sync.Expenses";
-        private string _serverUrl = "";
-        private ISpeakeasyHttpClient _client;
-        private Func<Codat.Sync.Expenses.Models.Components.Security>? _securitySource;
 
-        public Transfers(ISpeakeasyHttpClient client, Func<Codat.Sync.Expenses.Models.Components.Security>? securitySource, string serverUrl, SDKConfig config)
+        public Transfers(SDKConfig config)
         {
-            _client = client;
-            _securitySource = securitySource;
-            _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
 
-        public async Task<CreateTransferTransactionResponse> CreateAsync(CreateTransferTransactionRequest request, RetryConfig? retryConfig = null)
+        /// <summary>
+        /// Create transfer transaction.
+        /// </summary>
+        /// <remarks>
+        /// Use the *Create transfer* endpoint to create or update a <a href="https://docs.codat.io/sync-for-expenses-api#/schemas/TransferTransactionRequest">transfer transaction</a> in the accounting software for a given company's connection. <br/>
+        /// <br/>
+        /// Transfers record the movement of money between two bank accounts, or between a bank account and a nominal account. Use them to represent actions such as topping up a debit card account or a balance transfer to another credit card.<br/>
+        /// <br/>
+        /// The `from.amount` and `to.amount` fields are in the native currency of the account.<br/>
+        /// <br/>
+        /// ### Supported Integrations<br/>
+        /// | Integration           | Create transfer  | Update transfer  |<br/>
+        /// |-----------------------|------------------|------------------|<br/>
+        /// | Dynamics				| No			   | No				  |<br/>
+        /// | FreeAgent             | Yes              | Yes              |<br/>
+        /// | NetSuite              | No               | No               |<br/>
+        /// | QuickBooks Desktop    | Yes              | No               |<br/>
+        /// | QuickBooks Online     | Yes              | Yes              |<br/>
+        /// | Sage Intacct          | No               | No               |<br/>
+        /// | Xero                  | Yes              | No               |<br/>
+        /// | Zoho Books            | No               | No               |
+        /// </remarks>
+        /// <param name="request">A <see cref="CreateTransferTransactionRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="CreateTransferTransactionResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<CreateTransferTransactionResponse> CreateAsync(
+            CreateTransferTransactionRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
-            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}", request);
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}", request, null);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
-            httpRequest.Headers.Add("user-agent", _userAgent);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "TransferTransactionRequest", "json", false, true);
             if (serializedBody != null)
@@ -87,12 +133,12 @@ namespace Codat.Sync.Expenses
                 httpRequest.Content = serializedBody;
             }
 
-            if (_securitySource != null)
+            if (SDKConfiguration.SecuritySource != null)
             {
-                httpRequest = new SecurityMetadata(_securitySource).Apply(httpRequest);
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext("create-transfer-transaction", null, _securitySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "create-transfer-transaction", null, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
             if (retryConfig == null)
@@ -126,8 +172,8 @@ namespace Codat.Sync.Expenses
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
             {
-                var _httpRequest = await _client.CloneAsync(httpRequest);
-                return await _client.SendAsync(_httpRequest);
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
             };
             var retries = new Codat.Sync.Expenses.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
@@ -137,7 +183,7 @@ namespace Codat.Sync.Expenses
                 httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode == 400 || _statusCode == 401 || _statusCode == 402 || _statusCode == 403 || _statusCode == 404 || _statusCode == 429 || _statusCode >= 400 && _statusCode < 500 || _statusCode == 500 || _statusCode == 503 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -146,9 +192,9 @@ namespace Codat.Sync.Expenses
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -167,7 +213,17 @@ namespace Codat.Sync.Expenses
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<TransferTransactionResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    TransferTransactionResponse obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<TransferTransactionResponse>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into TransferTransactionResponse.", httpResponse, httpResponseBody, ex);
+                    }
+
                     var response = new CreateTransferTransactionResponse()
                     {
                         StatusCode = responseStatusCode,
@@ -178,24 +234,59 @@ namespace Codat.Sync.Expenses
                     return response;
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 402, 403, 404, 429, 500, 503}.Contains(responseStatusCode))
+            else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
-                    var obj = ResponseBodyDeserializer.Deserialize<ErrorMessage>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    throw obj!;
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
                 }
 
-                throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
             {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
-            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
+
     }
 }

@@ -12,10 +12,9 @@ namespace Codat.Sync.Expenses.Models.Requests
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using System.Collections.Generic;
-    
+
     public class CreateAdjustmentTransactionRequest
     {
-
         /// <summary>
         /// Unique identifier for a company.
         /// </summary>

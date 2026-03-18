@@ -7,24 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Codat.Sync.Expenses.Models.Components
+namespace Codat.Sync.Expenses.Models.Requests
 {
+    using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
-    using Newtonsoft.Json;
-    
-    public class SyncCompleteWebhookData
+
+    public class ReplaceCompanyRequest
     {
-
         /// <summary>
-        /// Unique identifier for the failed sync.
+        /// Unique identifier for a company.
         /// </summary>
-        [JsonProperty("syncId")]
-        public string? SyncId { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=companyId")]
+        public string CompanyId { get; set; } = default!;
 
-        /// <summary>
-        /// The type of sync being performed.
-        /// </summary>
-        [JsonProperty("syncType")]
-        public string? SyncType { get; set; }
+        [SpeakeasyMetadata("request:mediaType=application/json")]
+        public CompanyRequestBody? CompanyRequestBody { get; set; }
     }
 }

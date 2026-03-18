@@ -2,6 +2,14 @@
 
 The current status of the push operation.
 
+## Example Usage
+
+```csharp
+using Codat.Sync.Expenses.Models.Components;
+
+var value = PushOperationStatus.Pending;
+```
+
 
 ## Values
 

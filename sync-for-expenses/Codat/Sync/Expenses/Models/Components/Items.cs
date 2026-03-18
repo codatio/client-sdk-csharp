@@ -12,12 +12,11 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Models.Components;
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class Items
     {
-
         /// <summary>
-        /// The type of the address
+        /// The type of the address.
         /// </summary>
         [JsonProperty("type")]
         public AccountingAddressType Type { get; set; } = default!;

@@ -12,9 +12,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System;
-    
+
     /// <summary>
-    /// Type of account
+    /// Type of account.
     /// </summary>
     public enum AccountType
     {
@@ -64,5 +64,4 @@ namespace Codat.Sync.Expenses.Models.Components
             throw new Exception($"Unknown value {value} for enum AccountType");
         }
     }
-
 }

@@ -11,12 +11,11 @@ namespace Codat.Sync.Expenses.Models.Components
 {
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
-    
+
     public class AdjustmentTransactionResponse
     {
-
         /// <summary>
-        /// Unique id of sync created
+        /// Unique id of sync created.
         /// </summary>
         [JsonProperty("syncId")]
         public string? SyncId { get; set; }

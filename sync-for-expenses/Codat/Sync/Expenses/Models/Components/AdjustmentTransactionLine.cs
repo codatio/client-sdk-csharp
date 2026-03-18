@@ -13,10 +13,9 @@ namespace Codat.Sync.Expenses.Models.Components
     using Codat.Sync.Expenses.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    
+
     public class AdjustmentTransactionLine
     {
-
         /// <summary>
         /// Amount of the line. A positive line represents a debit; a negative line represents a credit.
         /// </summary>

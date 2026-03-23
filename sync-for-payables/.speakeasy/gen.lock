@@ -1,36 +1,37 @@
 lockVersion: 2.0.0
 id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
-  docChecksum: 2c97e4172eda0b5a31c6dc31f428235d
+  docChecksum: 66b675d1d723d12ccffb437a1e3793aa
   docVersion: 3.0.0
-  speakeasyVersion: 1.709.1
-  generationVersion: 2.812.2
-  releaseVersion: 10.1.0
-  configChecksum: d382bc2dd8aef4c90377cb4e45ea40f9
+  speakeasyVersion: 1.759.1
+  generationVersion: 2.869.10
+  releaseVersion: 10.1.1
+  configChecksum: de60b1b13cbafe198826d501ed30b16a
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
+  installationURL: https://github.com/codatio/client-sdk-csharp
   published: true
 persistentEdits:
-  generation_id: f331df6e-5a24-4978-88b8-ceb8118fde98
-  pristine_commit_hash: d939fd2b9cafeebbb3c33275847597bda1ca15cd
-  pristine_tree_hash: 86d29069a9115d2e9fe15a1b499ca6f0e223aa4d
+  generation_id: 36f832f3-c6db-428b-8600-cfee12500f97
+  pristine_commit_hash: 75603cdf6b836dba5660f30384d8d494762bd6ef
+  pristine_tree_hash: 909f70f14b7e80294eed309208ed4afdacfe5ddc
 features:
   csharp:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.0.2
-    core: 3.15.11
+    constsAndDefaults: 0.0.3
+    core: 3.15.20
     decimal: 0.1.0
-    examples: 2.81.6
-    globalSecurity: 2.83.9
+    examples: 2.81.7
+    globalSecurity: 2.83.10
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.83.0
+    globalServerURLs: 2.83.1
     intellisenseMarkdownSupport: 0.1.0
     methodArguments: 0.2.1
-    nameOverrides: 2.81.2
+    nameOverrides: 2.81.4
     nullables: 0.1.1
     responseFormat: 0.0.4
-    retries: 0.0.1
+    retries: 0.0.2
     sdkHooks: 0.3.0
     serverEventsSentinels: 0.2.0
     webhooks: 1.0.0
@@ -45,36 +46,36 @@ trackedFiles:
     pristine_git_object: e4a80b4dc1d008a192df8e2131f158d16bc3fbc1
   Codat/Sync/Payables/BankAccounts.cs:
     id: d759eaecf476
-    last_write_checksum: sha1:1d4e3918654842709199c57e14b481340910616e
-    pristine_git_object: 6620be5e0679a8beb99032b9e9b72fdb97161d54
+    last_write_checksum: sha1:d6fbe8553e7ef443127c794a1e775035f7d6417e
+    pristine_git_object: e5b1baa4a046905f237d122d4bf0f7d9cda31415
   Codat/Sync/Payables/BillPayments.cs:
     id: e3b36293aaba
-    last_write_checksum: sha1:40d1632d43de6a391d38f1f51ffbe363d38cdc1d
-    pristine_git_object: 57544ad518f0c20437bc62593a5656fc50511807
+    last_write_checksum: sha1:1d324b93d5d9e6e0c22e81e15cf522f17e71b7ed
+    pristine_git_object: 3f09432df5b54810ee25c8d4d42c5568bb6d09aa
   Codat/Sync/Payables/Bills.cs:
     id: e083f5e93c50
-    last_write_checksum: sha1:f43c20f2e11aa2b6b5125076fc30844e35a8d760
-    pristine_git_object: 7e98dc123e84093b4a1c8f4c62e048de65069f38
+    last_write_checksum: sha1:75ada7df53a4f67087b3ff00ef9c384af89c5f5e
+    pristine_git_object: 5470bcf6522c2b29f0e9fd8cebda4d7a4844b767
   Codat/Sync/Payables/Codat.Sync.Payables.csproj:
     id: 27c2af8e86c9
-    last_write_checksum: sha1:1d5e4e6b595d801ad1dc6160c26bd53782629ddf
-    pristine_git_object: e6d31a5187f84f9f50c9e836bf0c866c814af316
+    last_write_checksum: sha1:a96df527fd9cb1c7a30b7e53c265513db690e6c1
+    pristine_git_object: c28f1ecf2f60e661d4a45a4c5a135e8def781785
   Codat/Sync/Payables/CodatSyncPayables.cs:
     id: 41ceacd335c5
     last_write_checksum: sha1:148411c35706d8823055167c1ec4bfa8b250f1e6
     pristine_git_object: f7b0c5503da9483366586abae7623db55c4a77bd
   Codat/Sync/Payables/Companies.cs:
     id: 326ddbb4ab90
-    last_write_checksum: sha1:980a401bfb1a5dba8ad64412eee2ac6d2ccad1ca
-    pristine_git_object: a99d2af22423832f615e185d741afb963cb8a736
+    last_write_checksum: sha1:cfb70a92abe602819a8cca6fe12083c0eb8c8266
+    pristine_git_object: b5af46a63d945b6615bf5ed9d4e3127c2eb61dc7
   Codat/Sync/Payables/CompanyInformation.cs:
     id: bfeecd399691
-    last_write_checksum: sha1:6a3eb168d5efc2d4219165c806fce227e6c3b64b
-    pristine_git_object: 3950ffaeab2a903b4978f99236476c615ed01e40
+    last_write_checksum: sha1:eb68bb01a4ab8124836c2ff23e24f48545373628
+    pristine_git_object: 1f0fbe375fd143c64e079f28e37f5fdcc08d4a42
   Codat/Sync/Payables/Connections.cs:
     id: 2b9602c659b0
-    last_write_checksum: sha1:741b980d7020bc7f3c90d2ae8d105c7db04c93bb
-    pristine_git_object: d9402de39626e8abb58d2d18ee08dbd1e655ecef
+    last_write_checksum: sha1:2bf12905ad7c7bead2c9d73e3ad8560b19e01547
+    pristine_git_object: d6e3710b5bc5acf98eb555a7a4253260013f97f3
   Codat/Sync/Payables/Hooks/HookTypes.cs:
     id: 1d1fbd218744
     last_write_checksum: sha1:91c874b962b507713528c9c2f22e4cdc0bba5940
@@ -93,8 +94,8 @@ trackedFiles:
     pristine_git_object: 381e22b94550eff69b0fbbc96464fd506d096e67
   Codat/Sync/Payables/Models/Components/Address.cs:
     id: 275f2215d0fe
-    last_write_checksum: sha1:ad1da5673fe7d97e099a3ba276f592c5e6e44eaa
-    pristine_git_object: 0325099f4033329fcc6ed9ae0da9b4d3a6380f88
+    last_write_checksum: sha1:a21b1bfc78ae7fe7ad33e18bd230351b4c3311d7
+    pristine_git_object: 5c52cc33ad46a07eb09fb94173ea5a01dd8aedca
   Codat/Sync/Payables/Models/Components/AddressType.cs:
     id: 38811db8f374
     last_write_checksum: sha1:935e584620955fd7da70f5636a511456f44d5630
@@ -503,6 +504,14 @@ trackedFiles:
     id: 878ed4d6fd8a
     last_write_checksum: sha1:caa89444729bb095acb8073b52af8171aad72c16
     pristine_git_object: 08c1c63aa8dcefa920c57bab1337d0c68a29e289
+  Codat/Sync/Payables/Models/Requests/UpdateSupplierRequest.cs:
+    id: 35a528e5808f
+    last_write_checksum: sha1:55854a807845aa51e598357ba2ea237eb098e8c4
+    pristine_git_object: 576a7fbbbf903aa2553e0900ac9cf7eb4e968ad8
+  Codat/Sync/Payables/Models/Requests/UpdateSupplierResponse.cs:
+    id: a8cb32d977e0
+    last_write_checksum: sha1:c8e9550634879f4d7c091105f558e16aae870adb
+    pristine_git_object: 8bdab30eeb9a6228dab68130bceb3ad7035d64a4
   Codat/Sync/Payables/Models/Requests/UploadBillAttachmentRequest.cs:
     id: ca4d0625f87d
     last_write_checksum: sha1:634e3a104bd936d3ffb3c997827fb80918668def
@@ -521,12 +530,12 @@ trackedFiles:
     pristine_git_object: 1eb9db1274e988187f1ab67a90110461e8d5d349
   Codat/Sync/Payables/SDKConfig.cs:
     id: 9a9d58bae336
-    last_write_checksum: sha1:bad336f78d21103ecf75bbcab5807d2eeb9a5f0e
-    pristine_git_object: 943101aead9db02749061d5c95018ac026ae299c
+    last_write_checksum: sha1:294ddcbf38c7a277e506ff8949750583d8aa3291
+    pristine_git_object: 06c6f503c509fb6e9f9585e491df858f4581ce89
   Codat/Sync/Payables/Suppliers.cs:
     id: dc6d700dd058
-    last_write_checksum: sha1:86310ad245d55d00cc3c4f03c7e99e957967cc67
-    pristine_git_object: 748840ba00883c703abbb5bfbdac7630fd677f99
+    last_write_checksum: sha1:bb7f1f11c4f27b69441f9b53d807f0e8a17bd2bb
+    pristine_git_object: 79fe50a9fcada466e9b9fbfc330c97ffa5e381e1
   Codat/Sync/Payables/Utils/AnyDeserializer.cs:
     id: 6154a3501f3a
     last_write_checksum: sha1:42fe4f7c0880b9bdf2632a2f81da67238964243c
@@ -537,8 +546,8 @@ trackedFiles:
     pristine_git_object: 19c8f4a154f7882ea81ca6c8d1effa78b5009852
   Codat/Sync/Payables/Utils/Constants.cs:
     id: 26a6c908c9c7
-    last_write_checksum: sha1:7f03e8e8b8e38b0a6d531f70ee045ea2da9c8f24
-    pristine_git_object: 9cb4ab96e84989265ff6e89af667a12b65040ce4
+    last_write_checksum: sha1:9cba89923c39f2d6ccc3bbfe918d8ec62f734ee9
+    pristine_git_object: 1099673a41eff7f853d872a8e6808e989348abe1
   Codat/Sync/Payables/Utils/DecimalStrConverter.cs:
     id: 732482e82206
     last_write_checksum: sha1:6d3efc9c8e2de4ee867f7ab85fd86d6825812d83
@@ -565,8 +574,8 @@ trackedFiles:
     pristine_git_object: 48486dcc9715da2b1a1e4e9217b9b2c186699a5c
   Codat/Sync/Payables/Utils/RequestBodySerializer.cs:
     id: be7bbb8d329d
-    last_write_checksum: sha1:86ff3982d6b0412b04799e06fcb67351c96bc54f
-    pristine_git_object: aeed4914af0c130ec1184339c5712a0bdf02fffa
+    last_write_checksum: sha1:e4f72299e28755a1d5da4541a940a6cee8c8ced0
+    pristine_git_object: df55c84245ebd49c5ffb2b1a869b457b129cd22b
   Codat/Sync/Payables/Utils/ResponseBodyDeserializer.cs:
     id: e562493b0e77
     last_write_checksum: sha1:1392b496914ae6e5db4f7eb8aa12df82006f725d
@@ -577,16 +586,16 @@ trackedFiles:
     pristine_git_object: 89a56678a9bb263c33c24461d3541ef2f1808cf6
   Codat/Sync/Payables/Utils/Retries/Retries.cs:
     id: 4c3cf6b5e847
-    last_write_checksum: sha1:92e9c715d45fbda094f4c1e919d0d78209cb9c4e
-    pristine_git_object: eb8331889085c079961e2dd3a6c8c4211c70ae24
+    last_write_checksum: sha1:3ad39ad8c7d208340ec1b422618b94caf7888aaf
+    pristine_git_object: 39a94168173eb2a99571ffbfb830f7b90dbbceba
   Codat/Sync/Payables/Utils/Retries/RetryConfig.cs:
     id: f420b749e187
     last_write_checksum: sha1:6137595ed58bd47500ed6ff5e74cbef2957ff782
     pristine_git_object: 21794a32d6c11021a5d7e77eaffe958cfdfd2b21
   Codat/Sync/Payables/Utils/SecurityMetadata.cs:
     id: bca126653bce
-    last_write_checksum: sha1:6a7bf390eb9d9acbe215eb5078297f9d447ecca0
-    pristine_git_object: f57cd9776ce65e31e9b881f766c83c2ce8562054
+    last_write_checksum: sha1:34fa5bfdbba63f9d9a1459b95eae96b4cdc8299d
+    pristine_git_object: 642590cd58c729e55810fd83a8bb5621c4fa65c5
   Codat/Sync/Payables/Utils/SpeakeasyHttpClient.cs:
     id: bdf2a26940c2
     last_write_checksum: sha1:5f51f3813bdf8357b3283a9994d48f81ca5c0a00
@@ -617,16 +626,16 @@ trackedFiles:
     pristine_git_object: 24fae66145f73465c904366f5ea80f2c06dbe99d
   docs/Models/Components/AccountStatus.md:
     id: e56505065ab2
-    last_write_checksum: sha1:e7f7510368dd4bddf3d900b279c88bb3290dfeb1
-    pristine_git_object: 46619626a5e6e91095b83025c5c33354bf824651
+    last_write_checksum: sha1:8a0280b5d39322217023409ec43b67419892024d
+    pristine_git_object: b5e8404ab2095810f0de412ade8c8c96af2ddcca
   docs/Models/Components/Address.md:
     id: de24ea0d518d
-    last_write_checksum: sha1:7d6fa16c554125ee122ba9ca5823779ea965cac1
-    pristine_git_object: 51abe05a9b7a013afefc85a26d88da4193d2299d
+    last_write_checksum: sha1:68c5fe71443920cee8617ff7f6430dbfef399580
+    pristine_git_object: 22e55e03212b60391c7e8a4e909c79fd965a8678
   docs/Models/Components/AddressType.md:
     id: 2ce77b364191
-    last_write_checksum: sha1:be47293e227b1e808067b23126c1c9964f744fbb
-    pristine_git_object: 00e042679b10efc7581db359ca7b5c13a300e51d
+    last_write_checksum: sha1:d0de3ed9ffa375cc362ef981e3682d170643ede4
+    pristine_git_object: 2db068c2c0742e9a49f43d8495b87fe2a2dcc2ca
   docs/Models/Components/Attachment.md:
     id: df237b715365
     last_write_checksum: sha1:ba6918300dfb47f4f65e9d98601b2c687c4a544c
@@ -649,12 +658,12 @@ trackedFiles:
     pristine_git_object: 7a7adef9c94f2f11eb3fc722be846b2c72c7f0e1
   docs/Models/Components/BankAccountStatus.md:
     id: 2e04c2652cc7
-    last_write_checksum: sha1:aa2d9cee73884f8f017f24f750aaa6a6ea2e3d3a
-    pristine_git_object: 565acbf37bb64a80291233bc9ad964e55dea151c
+    last_write_checksum: sha1:86b8860742ca9fe9603281f07d29003a5e95b718
+    pristine_git_object: 6186ccbe558574df935d1f41339bad39ac66d11f
   docs/Models/Components/BankAccountType.md:
     id: 0560e30f7d5f
-    last_write_checksum: sha1:9f3be767d9bebe03856cb55324cfc63304c0dae1
-    pristine_git_object: 422338c051e74907c712c41894dbb07a20065114
+    last_write_checksum: sha1:9f4adcd5c723f524aedb297c7a2fa2f5a5b6e232
+    pristine_git_object: 2204d9ce34c558d3bea9b1216cedd4dcd7252416
   docs/Models/Components/Bill.md:
     id: b0a5cd527ff0
     last_write_checksum: sha1:d86f196592d20847d50396a7c95f8fddd58fe6a1
@@ -689,8 +698,8 @@ trackedFiles:
     pristine_git_object: 6700edd61d7fe105cbb549c289e531b9b1febf28
   docs/Models/Components/BillStatus.md:
     id: 43d9eb047117
-    last_write_checksum: sha1:aa54cff8d41c38921e0b5b99653b0233f9a11157
-    pristine_git_object: 1ffbeca0563a987a7380c3e2d302a5c3232425be
+    last_write_checksum: sha1:e8edb8ffaccd186bee878145baddd955cf2af368
+    pristine_git_object: 9b8e6e3378f3fa6d4c64868fcaaef2792e1c6581
   docs/Models/Components/BillTaxRateRef.md:
     id: 44ef8016bf64
     last_write_checksum: sha1:0a765c7c98df80d34e709ca8b1376be4818dd350
@@ -753,16 +762,16 @@ trackedFiles:
     pristine_git_object: 2e7779da343adc3bcde777c9dacc76734a8f223c
   docs/Models/Components/DataConnectionStatus.md:
     id: 100db3cb3431
-    last_write_checksum: sha1:b4fe05d43957d052510e1a5e916e25bc0175116a
-    pristine_git_object: 5d13bea516133003653398aacc1e9b963339249f
+    last_write_checksum: sha1:7e440410d2b84c155ec57d21d23aaeeddeb688a1
+    pristine_git_object: 1dca82816f5f010870966ece0fa1ea21a3deb07e
   docs/Models/Components/DataType.md:
     id: ea9ccd5a7c4d
-    last_write_checksum: sha1:6bb25f64acea6f77e3df6a0726f750d09e9a8a98
-    pristine_git_object: f20ceb8d2b4969ba60c0f88d1677e1efe00cc8d6
+    last_write_checksum: sha1:0fd4178893b3113832d7526157d679e06fdf48d0
+    pristine_git_object: 587d7ec85b8c66d11f38fd5313c8d162f38d607f
   docs/Models/Components/ErrorStatus.md:
     id: 8de8545283c4
-    last_write_checksum: sha1:54db65bad80e1edaecafa188d720645ba04cf00a
-    pristine_git_object: 9dc6625538bc288b5d0290e56d43ef5d84b0e676
+    last_write_checksum: sha1:e76b175c531cbf96ed8ccf42674dc2f889d495f5
+    pristine_git_object: 2c11fdcecfc7655338e91187a770b0a7bde0128c
   docs/Models/Components/ErrorValidation.md:
     id: b9d95ce89516
     last_write_checksum: sha1:677582395d374eef93c9fab9ec1e069e6bdc1530
@@ -793,8 +802,8 @@ trackedFiles:
     pristine_git_object: a997c0213ebb03783bfda0a7559d0e1f0fd7d463
   docs/Models/Components/SourceType.md:
     id: c28bbe36cebc
-    last_write_checksum: sha1:f03d269bb54c4c8c38078a56ace7aba84193e83d
-    pristine_git_object: 3ddd34f70f3d4f0233402b8450a8002d16904e84
+    last_write_checksum: sha1:24f2b99fbde278a0b41f08af2d67eff1a3c179e2
+    pristine_git_object: bd4179f48d1a99e781ba06a92a7547e659eeaa5e
   docs/Models/Components/Supplier.md:
     id: 39dd0f0a8bd0
     last_write_checksum: sha1:3f1379ff862f5cfaa621f10f5a75caa7a9433e2f
@@ -809,8 +818,8 @@ trackedFiles:
     pristine_git_object: ccbce3052ed5c3d132e507b438794e8457f8b370
   docs/Models/Components/SupplierStatus.md:
     id: bcdaa17ab65f
-    last_write_checksum: sha1:3daf809a3b86d6c3c605f4bb4470837d3e091f00
-    pristine_git_object: 328b27e13caa24656927d381050c965d48fda507
+    last_write_checksum: sha1:bef5f7368139b14ed361bc125dc8c7c2095edddc
+    pristine_git_object: 718361af86d918d37d446b29441a6b2edf2aa144
   docs/Models/Components/Suppliers.md:
     id: f3463fb08a9a
     last_write_checksum: sha1:9059ffa30305a120af8fc0ec0eb94ea0e39e07b5
@@ -821,8 +830,8 @@ trackedFiles:
     pristine_git_object: b836e0d114f066a168022f074266c89f919a69fb
   docs/Models/Components/TaxRateStatus.md:
     id: d98d8250b78a
-    last_write_checksum: sha1:692ab3f7ad9c1d471cfaa81df89664d473a36e7d
-    pristine_git_object: 5402adc318a6bf5da799b64bb0dcb2d9f65fd043
+    last_write_checksum: sha1:7f93471bc19a0fb6f69ed2eb708383b1915db5b7
+    pristine_git_object: 7ea9b0540161e0846dd61479a307ac02f4d462e9
   docs/Models/Components/TrackingRef.md:
     id: 2f5ee35bd7d6
     last_write_checksum: sha1:dfd2bde72eedcf47a95f8d2d7eba92e50357040c
@@ -877,8 +886,8 @@ trackedFiles:
     pristine_git_object: 83da43f12b7403f267bc1aacf0de077845aa4359
   docs/Models/Requests/CreateSupplierResponse.md:
     id: c15ccce7cea4
-    last_write_checksum: sha1:67e8a4769af08d5bca4a0d5662b9be4908a96485
-    pristine_git_object: a86de52ba35b12da3624c100bb22019f02bf67ad
+    last_write_checksum: sha1:a919b9c740f4c428f5b6671dde4b1c2df8009bcd
+    pristine_git_object: 5389a88a17cd5ce61d9d6234af857743e59afef8
   docs/Models/Requests/DeleteCompanyRequest.md:
     id: 648af31deb8b
     last_write_checksum: sha1:9e3f4f795aad6591efb73848cf2a70c617dea1ec
@@ -1019,6 +1028,14 @@ trackedFiles:
     id: 81c4ddd700b4
     last_write_checksum: sha1:ac8e7f37088d015ddb7ec4635ffc99ed51daee22
     pristine_git_object: 7df91368deff7f172400090cbdda219f7d58c4f5
+  docs/Models/Requests/UpdateSupplierRequest.md:
+    id: f643d15213a1
+    last_write_checksum: sha1:6229939c032c8ea11296b22567951184479952ef
+    pristine_git_object: 62765c1a0136f8a54ace7d2651d195c25be6941f
+  docs/Models/Requests/UpdateSupplierResponse.md:
+    id: 8c2815c6803f
+    last_write_checksum: sha1:b6f8989829dbf520d988b1772795a31d47f1406f
+    pristine_git_object: 356c07ad5d77c7a9eb17234650aa31e18694f0ba
   docs/Models/Requests/UploadBillAttachmentRequest.md:
     id: a0ce2dfa9f52
     last_write_checksum: sha1:77f49c36c53bbcfb3e58ad3664c4c1110db6fe01
@@ -1037,8 +1054,8 @@ trackedFiles:
     pristine_git_object: 94e8224449b12d31bae84f283649675d21c0169f
   docs/sdks/bankaccounts/README.md:
     id: 510ffee224ea
-    last_write_checksum: sha1:e0e23414a0a6473e589c5f6088fbf6d456712968
-    pristine_git_object: 74936b22543a42549912f115e8fa9c537e52647c
+    last_write_checksum: sha1:5e23dd6d3cd1a61f639fab0ce6df49b383609736
+    pristine_git_object: 5f85617b01541a7a44a8b7a9e20033c1bea1a3e0
   docs/sdks/billpayments/README.md:
     id: 9436cf9c44bd
     last_write_checksum: sha1:5710b393311270a59614e80d2642285ff86029d0
@@ -1061,8 +1078,8 @@ trackedFiles:
     pristine_git_object: 9c618764bd5422a7a4a316b04f20ed573631c58f
   docs/sdks/suppliers/README.md:
     id: 85867190cd79
-    last_write_checksum: sha1:3def1227797b999d658d6ffaefb2f2686eac7206
-    pristine_git_object: 0e1124abf5ef70f2027b20670adfe565105bf1b3
+    last_write_checksum: sha1:b2468181cff25d6a31d063510d191c9bd989b35a
+    pristine_git_object: 6c102b72600d79ff71af38e84e45c59a5649312e
   global.json:
     id: 908e72401bf4
     last_write_checksum: sha1:3161b880f51cd74e7d1dea069b541d8bf4736dc9
@@ -1946,7 +1963,7 @@ examples:
           continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
       responses:
         "200":
-          application/json: {"results": [{"id": "c523e12f-8b74-4d3a-bbd8-32d7a2f598b4", "supplierName": "City Limousines", "contactName": "Martin Dale", "emailAddress": "martyd@citylim.co", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "balance": 100, "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}, {"id": "41", "supplierName": "AI Support", "contactName": "AI Support", "addresses": [{"type": "Billing", "line1": "test", "region": "string", "country": "Djibouti"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-12-07T10:48:18Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+          application/json: {"results": [{"id": "c523e12f-8b74-4d3a-bbd8-32d7a2f598b4", "supplierName": "City Limousines", "contactName": "Martin Dale", "emailAddress": "martyd@citylim.co", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA", "postalCode": "93308"}], "status": "Active", "balance": 100, "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}, {"id": "41", "supplierName": "AI Support", "contactName": "AI Support", "addresses": [{"type": "Billing", "line1": "test", "region": "string", "country": "Djibouti"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-12-07T10:48:18Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
     Malformed query:
       parameters:
         path:
@@ -1978,10 +1995,10 @@ examples:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       requestBody:
-        application/json: {"supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GBR", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
+        application/json: {"supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
       responses:
         "201":
-          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP"}
+          application/json: {"id": "sup-10933920", "supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "balance": 0, "defaultCurrency": "GBP", "sourceModifiedDate": "2026-03-18T10:30:00Z"}
     Malformed query:
       parameters:
         path:
@@ -2035,8 +2052,61 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+    Created bank account:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"name": "<value>", "accountType": "Debit", "accountNumber": "<value>", "currency": "GBP"}
+      responses:
+        "201":
+          application/json: {"id": "fb623ab2-f6ff-4b22-b7d3-b7cc2a4aa0ea", "nominalCode": "22", "name": "Plutus - Payables - Bank Account 12", "accountType": "Debit", "accountNumber": "0120 0440", "sortCode": "50-50-50", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2024-02-22T14:46:43.99Z"}
+  update-supplier:
+    Update supplier:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
+      responses:
+        "200":
+          application/json: {"id": "sup-10933920", "supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "balance": 0, "defaultCurrency": "GBP", "sourceModifiedDate": "2026-03-18T10:30:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Updated supplier:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierName": "<value>", "phone": "+44 25691 154789", "status": "Active"}
+      responses:
+        "200":
+          application/json: {"id": "sup-10933920", "supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "balance": 0, "defaultCurrency": "GBP", "sourceModifiedDate": "2026-03-18T10:30:00Z"}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierName": "<value>", "phone": "+44 25691 154789", "status": "Active"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Csharp SDK Changes:
+  * `Codat.syncPayables.Suppliers.Update()`: **Added**
 generatedFiles:
   - .gitattributes
   - CONTRIBUTING.md

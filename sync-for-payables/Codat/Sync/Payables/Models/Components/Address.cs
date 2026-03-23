@@ -46,7 +46,7 @@ namespace Codat.Sync.Payables.Models.Components
         public string? Region { get; set; } = null;
 
         /// <summary>
-        /// Country of the customer's address. For NetSuite, use the 2-digit <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes">ISO 3166</a> country code.
+        /// Country of the address. We recommend using the 2-digit ISO 3166 country code (e.g. `GB`, `US`, `FR`) as this is accepted by all supported platforms.
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; } = null;

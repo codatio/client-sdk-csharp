@@ -152,6 +152,7 @@ var res = await sdk.Companies.ListAsync(req);
 
 * [List](docs/sdks/suppliers/README.md#list) - List suppliers
 * [Create](docs/sdks/suppliers/README.md#create) - Create supplier
+* [Update](docs/sdks/suppliers/README.md#update) - Update supplier
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

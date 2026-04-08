@@ -141,6 +141,7 @@ var res = await sdk.Companies.CreateAsync(req);
 * [Delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
 * [GenerateCredentials](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
 * [DeleteCredentials](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
+* [GenerateOtp](docs/sdks/sourceaccounts/README.md#generateotp) - Generate one-time password
 
 ### [Transactions](docs/sdks/transactions/README.md)
 

@@ -2,6 +2,14 @@
 
 Status of the source account.
 
+## Example Usage
+
+```csharp
+using Codat.BankFeeds.Models.Shared;
+
+var value = SourceAccountStatus.Pending;
+```
+
 
 ## Values
 

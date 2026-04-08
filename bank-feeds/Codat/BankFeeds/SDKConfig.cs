@@ -45,7 +45,7 @@ namespace Codat.BankFeeds
             Client = client ?? new SpeakeasyHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 8.0.0 2.799.0 3.0.0 Codat.BankFeeds";
+            UserAgent = "speakeasy-sdk/csharp 8.0.1 2.879.6 3.0.0 Codat.BankFeeds";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

@@ -2,6 +2,14 @@
 
 Status of the bank account.
 
+## Example Usage
+
+```csharp
+using Codat.BankFeeds.Models.Shared;
+
+var value = BankAccountStatus.Unknown;
+```
+
 
 ## Values
 

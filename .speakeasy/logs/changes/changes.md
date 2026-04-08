@@ -1,2 +1,2 @@
 ## Csharp SDK Changes:
-* `Codat.syncPayables.Suppliers.Update()`: **Added**
+* `Codat.bankFeeds.SourceAccounts.GenerateOtp()`: **Added**

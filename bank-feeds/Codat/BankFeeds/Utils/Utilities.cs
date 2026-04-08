@@ -130,11 +130,26 @@ namespace Codat.BankFeeds.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
         }
 
+        public static bool IsModelNamespace(string ns)
+        {
+            var modelNamespaces = new[]
+            {
+                "Codat.BankFeeds.Models.Operations",
+                "Codat.BankFeeds.Models.Shared",
+                "Codat.BankFeeds.Models.Errors",
+                "Codat.BankFeeds.Models.Webhooks",
+            };
+
+            return modelNamespaces.Contains(ns);
+        }
+
         public static bool IsClass(object? o)
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.BankFeeds.Models");
+            if (!o.GetType().IsClass)
+                return false;
+            return IsModelNamespace(o.GetType().Namespace ?? "");
         }
 
         // TODO: code review polyfilled for IsAssignableTo
@@ -303,6 +318,7 @@ namespace Codat.BankFeeds.Utils
 
             return $"Bearer {authHeaderValue}";
         }
+
         public static string RemoveSuffix(string inputString, string suffix)
         {
             if (!String.IsNullOrEmpty(suffix) && inputString.EndsWith(suffix))
@@ -311,6 +327,7 @@ namespace Codat.BankFeeds.Utils
             }
             return inputString;
         }
+
         public static string TemplateUrl(string template, Dictionary<string, string> paramDict)
         {
             foreach(KeyValuePair<string, string> entry in paramDict)
@@ -318,6 +335,20 @@ namespace Codat.BankFeeds.Utils
                 template = template.Replace('{' + entry.Key + '}', entry.Value);
             }
             return template;
+        }
+
+        public static Dictionary<string, List<string>> CollectHeaders(HttpHeaders headers)
+        {
+            var dict = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+            foreach (var header in headers)
+            {
+                if (!dict.ContainsKey(header.Key))
+                {
+                    dict[header.Key] = new List<string>();
+                }
+                dict[header.Key].AddRange(header.Value);
+            }
+            return dict;
         }
     }
 }

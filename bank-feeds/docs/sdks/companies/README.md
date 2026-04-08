@@ -23,9 +23,69 @@ Each company can have multiple [connections](https://docs.codat.io/bank-feeds-ap
 
 If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="csharp" operationID="create-company" method="post" path="/companies" -->
+<!-- UsageSnippet language="csharp" operationID="create-company" method="post" path="/companies" example="Malformed query" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
+    Description = "Requested early access to the new financing scheme.",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: With a description
+
+<!-- UsageSnippet language="csharp" operationID="create-company" method="post" path="/companies" example="With a description" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Technicalium",
+    Description = "Technology services, including web and app design and development",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: With a tag
+
+<!-- UsageSnippet language="csharp" operationID="create-company" method="post" path="/companies" example="With a tag" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CompanyRequestBody req = new CompanyRequestBody() {
+    Name = "Bank of Dave",
+    Description = "Requested early access to the new financing scheme.",
+};
+
+var res = await sdk.Companies.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: With no description
+
+<!-- UsageSnippet language="csharp" operationID="create-company" method="post" path="/companies" example="With no description" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Shared;
@@ -81,9 +141,31 @@ For example, you can use the querying to filter companies tagged with a specific
 - Region: `region != uk`
 - Owning team and region: `region = uk && owningTeam = invoice-finance`
 
-### Example Usage
+### Example Usage: List of Companies
 
-<!-- UsageSnippet language="csharp" operationID="list-companies" method="get" path="/companies" -->
+<!-- UsageSnippet language="csharp" operationID="list-companies" method="get" path="/companies" example="List of Companies" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
+};
+
+var res = await sdk.Companies.ListAsync(req);
+
+// handle response
+```
+### Example Usage: One company
+
+<!-- UsageSnippet language="csharp" operationID="list-companies" method="get" path="/companies" example="One company" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -130,9 +212,49 @@ A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a 
 Each company can have multiple [connections](https://docs.codat.io/bank-feeds-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
 
-### Example Usage
+### Example Usage: Parent multi-entity company
 
-<!-- UsageSnippet language="csharp" operationID="get-company" method="get" path="/companies/{companyId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-company" method="get" path="/companies/{companyId}" example="Parent multi-entity company" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+GetCompanyRequest req = new GetCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Companies.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Simple company
+
+<!-- UsageSnippet language="csharp" operationID="get-company" method="get" path="/companies/{companyId}" example="Simple company" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+GetCompanyRequest req = new GetCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+var res = await sdk.Companies.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Subsidiary multi-entity company
+
+<!-- UsageSnippet language="csharp" operationID="get-company" method="get" path="/companies/{companyId}" example="Subsidiary multi-entity company" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -223,9 +345,57 @@ var res = await sdk.Companies.DeleteAsync(req);
 A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/bank-feeds-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
-### Example Usage
+### Example Usage: Unauthorized
 
-<!-- UsageSnippet language="csharp" operationID="replace-company" method="put" path="/companies/{companyId}" -->
+<!-- UsageSnippet language="csharp" operationID="replace-company" method="put" path="/companies/{companyId}" example="Unauthorized" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+ReplaceCompanyRequest req = new ReplaceCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CompanyRequestBody = new CompanyRequestBody() {
+        Name = "Bank of Dave",
+        Description = "Requested early access to the new financing scheme.",
+    },
+};
+
+var res = await sdk.Companies.ReplaceAsync(req);
+
+// handle response
+```
+### Example Usage: Update description
+
+<!-- UsageSnippet language="csharp" operationID="replace-company" method="put" path="/companies/{companyId}" example="Update description" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+ReplaceCompanyRequest req = new ReplaceCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CompanyRequestBody = new CompanyRequestBody() {
+        Name = "Same name",
+        Description = "Additional documents required",
+    },
+};
+
+var res = await sdk.Companies.ReplaceAsync(req);
+
+// handle response
+```
+### Example Usage: Update name
+
+<!-- UsageSnippet language="csharp" operationID="replace-company" method="put" path="/companies/{companyId}" example="Update name" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -273,9 +443,56 @@ The *Update company* endpoint doesn't have any required fields. If any of the fi
 
 A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
 
-### Example Usage
+### Example Usage: Unauthorized
 
-<!-- UsageSnippet language="csharp" operationID="update-company" method="patch" path="/companies/{companyId}" -->
+<!-- UsageSnippet language="csharp" operationID="update-company" method="patch" path="/companies/{companyId}" example="Unauthorized" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+UpdateCompanyRequest req = new UpdateCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CompanyUpdateRequest = new CompanyUpdateRequest() {
+        Name = "Bank of Dave",
+        Description = "Requested early access to the new financing scheme.",
+    },
+};
+
+var res = await sdk.Companies.UpdateAsync(req);
+
+// handle response
+```
+### Example Usage: Update name
+
+<!-- UsageSnippet language="csharp" operationID="update-company" method="patch" path="/companies/{companyId}" example="Update name" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+UpdateCompanyRequest req = new UpdateCompanyRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CompanyUpdateRequest = new CompanyUpdateRequest() {
+        Name = "New Name",
+    },
+};
+
+var res = await sdk.Companies.UpdateAsync(req);
+
+// handle response
+```
+### Example Usage: Update tags
+
+<!-- UsageSnippet language="csharp" operationID="update-company" method="patch" path="/companies/{companyId}" example="Update tags" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -326,7 +543,7 @@ The token is required by Codat's embeddable UIs (such as [Connections SDK](https
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-company-access-token" method="get" path="/companies/{companyId}/accessToken" -->
+<!-- UsageSnippet language="csharp" operationID="get-company-access-token" method="get" path="/companies/{companyId}/accessToken" example="Simple company" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;

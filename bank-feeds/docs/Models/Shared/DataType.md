@@ -2,6 +2,14 @@
 
 Available data types
 
+## Example Usage
+
+```csharp
+using Codat.BankFeeds.Models.Shared;
+
+var value = DataType.AccountTransactions;
+```
+
 
 ## Values
 

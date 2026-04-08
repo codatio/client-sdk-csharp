@@ -2,6 +2,14 @@
 
 The current authorization status of the data connection.
 
+## Example Usage
+
+```csharp
+using Codat.BankFeeds.Models.Shared;
+
+var value = DataConnectionStatus.PendingAuth;
+```
+
 
 ## Values
 

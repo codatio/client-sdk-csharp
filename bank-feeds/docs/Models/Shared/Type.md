@@ -2,6 +2,14 @@
 
 The type of routing number.
 
+## Example Usage
+
+```csharp
+using Codat.BankFeeds.Models.Shared;
+
+var value = Type.Rtn;
+```
+
 
 ## Values
 

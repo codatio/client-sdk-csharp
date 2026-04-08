@@ -13,6 +13,7 @@ Provide and manage lists of source bank accounts.
 * [Delete](#delete) - Delete source account
 * [GenerateCredentials](#generatecredentials) - Generate source account credentials
 * [DeleteCredentials](#deletecredentials) - Delete all source account credentials
+* [GenerateOtp](#generateotp) - Generate one-time password
 
 ## CreateBatch
 
@@ -23,7 +24,7 @@ The _Batch create source accounts_ endpoint allows you to create multiple repres
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="create-batch-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/batch" -->
+<!-- UsageSnippet language="csharp" operationID="create-batch-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/batch" example="Malformed query" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -78,9 +79,70 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 > ### Versioning
 > If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" -->
+<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Malformed query" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountPrototype(
+        new SourceAccountPrototype() {
+            Id = "<id>",
+            Currency = "GBP",
+            ModifiedDate = "2022-10-23T00:00:00Z",
+        }
+    ),
+};
+
+var res = await sdk.SourceAccounts.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Version 1
+
+<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 1" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountPrototype(
+        new SourceAccountPrototype() {
+            Id = "acc-002",
+            AccountName = "account-081",
+            AccountType = "Credit",
+            AccountNumber = "12345670",
+            SortCode = "123456",
+            Currency = "GBP",
+            Balance = 99.99M,
+            ModifiedDate = "2023-01-09T14:14:14.1057478Z",
+        }
+    ),
+};
+
+var res = await sdk.SourceAccounts.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Version 2
+
+<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 2" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -187,7 +249,7 @@ var res = await sdk.SourceAccounts.ListAsync(req);
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="update-source-account" method="patch" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}" -->
+<!-- UsageSnippet language="csharp" operationID="update-source-account" method="patch" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}" example="Malformed query" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -297,7 +359,7 @@ The old credentials will still be valid until the revoke credentials endpoint is
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="generate-credentials" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials" -->
+<!-- UsageSnippet language="csharp" operationID="generate-credentials" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials" example="Unauthorized" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;
@@ -380,5 +442,54 @@ var res = await sdk.SourceAccounts.DeleteCredentialsAsync(req);
 | Error Type                                 | Status Code                                | Content Type                               |
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 401, 402, 403, 404, 429                    | application/json                           |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
+| Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |
+
+## GenerateOtp
+
+The *Generate OTP* endpoint generates a one-time password (OTP) for a bank feed connection. The OTP is returned along with an expiry time, after which it will no longer be valid.
+
+> **For Sage only**
+>
+> Only call this endpoint for connections to Sage. Calling it for other integrations will return an error.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="generate-otp" method="post" path="/companies/{companyId}/connections/{connectionId}/bankFeeds/otp" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+GenerateOtpRequest req = new GenerateOtpRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.SourceAccounts.GenerateOtpAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [GenerateOtpRequest](../../Models/Operations/GenerateOtpRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+
+### Response
+
+**[Models.Operations.GenerateOtpResponse](../../Models/Operations/GenerateOtpResponse.md)**
+
+### Errors
+
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| Codat.BankFeeds.Models.Errors.ErrorMessage | 400, 401, 402, 403, 404, 429               | application/json                           |
 | Codat.BankFeeds.Models.Errors.ErrorMessage | 500, 503                                   | application/json                           |
 | Codat.BankFeeds.Models.Errors.SDKException | 4XX, 5XX                                   | \*/\*                                      |

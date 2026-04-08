@@ -22,9 +22,195 @@ Create new bank account transactions for a company's connections, and see previo
 The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
 Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
 
-### Example Usage
+### Example Usage: FreeAgent
 
-<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" -->
+<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="FreeAgent" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    CreateBankTransactions = new CreateBankTransactions() {
+        AccountId = "49cd5a42-b311-4750-9361-52e2ed1d4653",
+        Transactions = new List<BankTransactions>() {
+            new BankTransactions() {
+                Id = "716422529",
+                Date = "2023-08-22T10:21:00",
+                Description = "Repayment of Credit Card",
+                Amount = 100M,
+                TransactionType = BankTransactionType.Credit,
+            },
+            new BankTransactions() {
+                Id = "716422530",
+                Date = "2023-08-22T10:22:00",
+                Description = "Amazon Purchase",
+                Amount = -100M,
+                TransactionType = BankTransactionType.Debit,
+            },
+            new BankTransactions() {
+                Id = "716422531",
+                Date = "2023-08-22T10:23:00",
+                Description = "Office Supplies",
+                Amount = -60M,
+                TransactionType = BankTransactionType.Debit,
+            },
+        },
+    },
+};
+
+var res = await sdk.Transactions.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Malformed query" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    CreateBankTransactions = new CreateBankTransactions() {
+        AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+        Transactions = new List<BankTransactions>() {},
+    },
+};
+
+var res = await sdk.Transactions.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Bank Feeds
+
+<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="QuickBooks Online Bank Feeds" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    CreateBankTransactions = new CreateBankTransactions() {
+        AccountId = "49cd5a42-b311-4750-9361-52e2ed1d4653",
+        Transactions = new List<BankTransactions>() {
+            new BankTransactions() {
+                Id = "716422529",
+                Date = "2023-08-22T10:21:00",
+                Description = "Repayment of Credit Card",
+                Amount = 100M,
+                Balance = 100M,
+                TransactionType = BankTransactionType.Credit,
+            },
+            new BankTransactions() {
+                Id = "716422530",
+                Date = "2023-08-22T10:22:00",
+                Description = "Amazon Purchase",
+                Amount = -100M,
+                Balance = 0M,
+                TransactionType = BankTransactionType.Debit,
+            },
+            new BankTransactions() {
+                Id = "716422531",
+                Date = "2023-08-22T10:23:00",
+                Description = "Office Supplies",
+                Amount = -60M,
+                Balance = -60M,
+                TransactionType = BankTransactionType.Debit,
+            },
+        },
+    },
+};
+
+var res = await sdk.Transactions.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Sage
+
+<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Sage" -->
+```csharp
+using Codat.BankFeeds;
+using Codat.BankFeeds.Models.Operations;
+using Codat.BankFeeds.Models.Shared;
+using System.Collections.Generic;
+
+var sdk = new CodatBankFeeds(security: new Security() {
+    AuthHeader = "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+CreateBankTransactionsRequest req = new CreateBankTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    CreateBankTransactions = new CreateBankTransactions() {
+        AccountId = "49cd5a42-b311-4750-9361-52e2ed1d4653",
+        Transactions = new List<BankTransactions>() {
+            new BankTransactions() {
+                Id = "716422529",
+                Date = "2023-08-22T10:21:00",
+                Description = "Repayment of Credit Card",
+                Counterparty = "Bank of Example",
+                Reference = "Ref-12345",
+                Amount = 100M,
+                Balance = 100M,
+                TransactionType = BankTransactionType.Credit,
+            },
+            new BankTransactions() {
+                Id = "716422530",
+                Date = "2023-08-22T10:22:00",
+                Description = "Amazon Purchase",
+                Counterparty = "Amazon",
+                Reference = "Ref-12346",
+                Amount = -100M,
+                Balance = 0M,
+                TransactionType = BankTransactionType.Debit,
+            },
+            new BankTransactions() {
+                Id = "716422531",
+                Date = "2023-08-22T10:23:00",
+                Description = "Office Supplies",
+                Counterparty = "Office Mart",
+                Reference = "Ref-12347",
+                Amount = -60M,
+                Balance = -60M,
+                TransactionType = BankTransactionType.Debit,
+            },
+        },
+    },
+};
+
+var res = await sdk.Transactions.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Xero" -->
 ```csharp
 using Codat.BankFeeds;
 using Codat.BankFeeds.Models.Operations;

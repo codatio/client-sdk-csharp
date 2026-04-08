@@ -2,6 +2,14 @@
 
 The option type.
 
+## Example Usage
+
+```csharp
+using Codat.BankFeeds.Models.Shared;
+
+var value = PushOptionType.Array;
+```
+
 
 ## Values
 

@@ -98,34 +98,7 @@
 <body><h2 id="csharp-sdk-changes">Csharp SDK Changes:</h2>
 
 <ul>
-<li><code>Codat.sync.expenses.Connections.Create()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>Codat.sync.expenses.Companies.List()</code>:
-
-<ul>
-<li><code>request.Tags</code> <strong>Added</strong></li>
-<li><code>response.results[].DataConnections[].ConnectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-</ul></li>
-<li><code>Codat.sync.expenses.Companies.Create()</code>:  <code>response.dataConnections[].ConnectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>Codat.sync.expenses.Companies.Update()</code>:
-
-<ul>
-<li><code>request</code> <strong>Changed</strong> (Breaking ⚠️)
-
-<ul>
-<li><code>companyRequestBody</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>companyUpdateRequest</code> <strong>Added</strong></li>
-</ul></li>
-<li><code>response.dataConnections[].ConnectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-</ul></li>
-<li><code>Codat.sync.expenses.Companies.Get()</code>:  <code>response.dataConnections[].ConnectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>Codat.sync.expenses.Connections.List()</code>:  <code>response.results[].ConnectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>Codat.sync.expenses.Connections.Get()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>Codat.sync.expenses.Connections.Unlink()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>Codat.sync.expenses.Connections.CreatePartnerExpenseConnection()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>Codat.sync.expenses.Companies.Replace()</code>: <strong>Added</strong></li>
-<li><code>Codat.sync.expenses.ManageData.RefreshAllDataTypes()</code>:  <code>error.status[400]</code> <strong>Added</strong></li>
-<li><code>Codat.sync.expenses.ManageData.Get()</code>:  <code>response.accountTransactions.LastSuccessfulSync</code> <strong>Changed</strong></li>
-<li><code>Codat.sync.expenses.ManageData.RefreshDataType()</code>:  <code>error.status[400]</code> <strong>Added</strong></li>
+<li><code>Codat.bankFeeds.SourceAccounts.GenerateOtp()</code>: <strong>Added</strong></li>
 </ul>
 </body>
 </html>

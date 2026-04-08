@@ -41,6 +41,31 @@ var res = await sdk.BankAccounts.CreateAsync(req);
 
 // handle response
 ```
+### Example Usage: Created bank account
+
+<!-- UsageSnippet language="csharp" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" example="Created bank account" -->
+```csharp
+using Codat.Sync.Payables;
+using Codat.Sync.Payables.Models.Components;
+using Codat.Sync.Payables.Models.Requests;
+
+var sdk = new CodatSyncPayables(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateBankAccountRequest req = new CreateBankAccountRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BankAccountPrototype = new BankAccountPrototype() {
+        Name = "<value>",
+        AccountType = BankAccountType.Debit,
+        AccountNumber = "<value>",
+        Currency = "GBP",
+    },
+};
+
+var res = await sdk.BankAccounts.CreateAsync(req);
+
+// handle response
+```
 ### Example Usage: Malformed query
 
 <!-- UsageSnippet language="csharp" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" example="Malformed query" -->

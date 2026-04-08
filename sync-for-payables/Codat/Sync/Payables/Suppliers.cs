@@ -37,7 +37,18 @@ namespace Codat.Sync.Payables
         /// <br/>
         /// By default, this endpoint returns a list of active and archived suppliers. You can use <a href="https://docs.codat.io/using-the-api/querying">querying</a> to change that. <br/>
         /// <br/>
-        /// For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate&gt;2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.
+        /// For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate&gt;2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.<br/>
+        /// <br/>
+        /// ### Supported Integrations<br/>
+        /// <br/>
+        /// | Integration                   | Supported |<br/>
+        /// |-------------------------------|-----------|<br/>
+        /// | FreeAgent                     | Yes       |<br/>
+        /// | QuickBooks Online             | Yes       |<br/>
+        /// | Xero                          | Yes       |<br/>
+        /// | Oracle NetSuite               | Yes       |<br/>
+        /// | Sage Intacct                  | Yes       |<br/>
+        /// | Zoho Books                    | Yes       |
         /// </remarks>
         /// <param name="request">A <see cref="ListSuppliersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -55,7 +66,18 @@ namespace Codat.Sync.Payables
         /// <remarks>
         /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a> for a given company's connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// ### Supported Integrations<br/>
+        /// <br/>
+        /// | Integration                   | Supported |<br/>
+        /// |-------------------------------|-----------|<br/>
+        /// | FreeAgent                     | Yes       |<br/>
+        /// | QuickBooks Online             | Yes       |<br/>
+        /// | Xero                          | Yes       |<br/>
+        /// | Oracle NetSuite               | Yes       |<br/>
+        /// | Sage Intacct                  | Yes       |<br/>
+        /// | Zoho Books                    | Yes       |
         /// </remarks>
         /// <param name="request">A <see cref="CreateSupplierRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -66,6 +88,42 @@ namespace Codat.Sync.Payables
         /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
         /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public  Task<CreateSupplierResponse> CreateAsync(CreateSupplierRequest request, RetryConfig? retryConfig = null);
+
+        /// <summary>
+        /// Update supplier.
+        /// </summary>
+        /// <remarks>
+        /// The *Update supplier* endpoint updates an existing <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// This is a full-replace PUT endpoint. Any fields not included in the request body will be cleared on the supplier record.<br/>
+        /// <br/>
+        /// ### Supported Integrations<br/>
+        /// <br/>
+        /// | Integration                   | Supported |<br/>
+        /// |-------------------------------|-----------|<br/>
+        /// | FreeAgent                     | Yes       |<br/>
+        /// | QuickBooks Online             | Yes       |<br/>
+        /// | Xero                          | Yes       |<br/>
+        /// | Oracle NetSuite               | No        |<br/>
+        /// | Sage Intacct                  | No        |<br/>
+        /// | Zoho Books                    | No        |<br/>
+        /// <br/>
+        /// ### Platform-specific behavior<br/>
+        /// <br/>
+        /// - **Xero**: Archived suppliers cannot be updated (returns `400`). Suppliers must be unarchived manually in the Xero UI before updating.<br/>
+        /// - **QuickBooks Online**: Currency can only be set when creating a supplier, and cannot be changed via update.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateSupplierRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateSupplierResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public  Task<UpdateSupplierResponse> UpdateAsync(UpdateSupplierRequest request, RetryConfig? retryConfig = null);
     }
 
     /// <summary>
@@ -94,7 +152,18 @@ namespace Codat.Sync.Payables
         /// <br/>
         /// By default, this endpoint returns a list of active and archived suppliers. You can use <a href="https://docs.codat.io/using-the-api/querying">querying</a> to change that. <br/>
         /// <br/>
-        /// For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate&gt;2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.
+        /// For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate&gt;2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate&gt;2023-12-15T00:00:00.000Z&amp;&amp;status=Active`.<br/>
+        /// <br/>
+        /// ### Supported Integrations<br/>
+        /// <br/>
+        /// | Integration                   | Supported |<br/>
+        /// |-------------------------------|-----------|<br/>
+        /// | FreeAgent                     | Yes       |<br/>
+        /// | QuickBooks Online             | Yes       |<br/>
+        /// | Xero                          | Yes       |<br/>
+        /// | Oracle NetSuite               | Yes       |<br/>
+        /// | Sage Intacct                  | Yes       |<br/>
+        /// | Zoho Books                    | Yes       |
         /// </remarks>
         /// <param name="request">A <see cref="ListSuppliersRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -116,6 +185,11 @@ namespace Codat.Sync.Payables
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             if (SDKConfiguration.SecuritySource != null)
             {
@@ -176,9 +250,9 @@ namespace Codat.Sync.Payables
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -279,7 +353,18 @@ namespace Codat.Sync.Payables
         /// <remarks>
         /// The *Create supplier* endpoint creates a new <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a> for a given company's connection.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// ### Supported Integrations<br/>
+        /// <br/>
+        /// | Integration                   | Supported |<br/>
+        /// |-------------------------------|-----------|<br/>
+        /// | FreeAgent                     | Yes       |<br/>
+        /// | QuickBooks Online             | Yes       |<br/>
+        /// | Xero                          | Yes       |<br/>
+        /// | Oracle NetSuite               | Yes       |<br/>
+        /// | Sage Intacct                  | Yes       |<br/>
+        /// | Zoho Books                    | Yes       |
         /// </remarks>
         /// <param name="request">A <see cref="CreateSupplierRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -302,6 +387,11 @@ namespace Codat.Sync.Payables
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
             httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
 
             var serializedBody = RequestBodySerializer.Serialize(request, "SupplierPrototype", "json", false, true);
             if (serializedBody != null)
@@ -368,9 +458,9 @@ namespace Codat.Sync.Payables
                     }
                 }
             }
-            catch (Exception error)
+            catch (Exception _hookError)
             {
-                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -401,6 +491,220 @@ namespace Codat.Sync.Payables
                     }
 
                     var response = new CreateSupplierResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
+                    response.Supplier = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(new List<int>{400, 401, 402, 403, 404, 429}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(new List<int>{500, 503}.Contains(responseStatusCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    ErrorMessagePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<ErrorMessagePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into ErrorMessagePayload.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new ErrorMessage(payload, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.SDKException("Unknown content type received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", httpResponse, await httpResponse.Content.ReadAsStringAsync());
+        }
+
+
+        /// <summary>
+        /// Update supplier.
+        /// </summary>
+        /// <remarks>
+        /// The *Update supplier* endpoint updates an existing <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">supplier</a> for a given company's connection.<br/>
+        /// <br/>
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Supplier">Suppliers</a> are people or organizations that provide something, such as a product or service.<br/>
+        /// <br/>
+        /// This is a full-replace PUT endpoint. Any fields not included in the request body will be cleared on the supplier record.<br/>
+        /// <br/>
+        /// ### Supported Integrations<br/>
+        /// <br/>
+        /// | Integration                   | Supported |<br/>
+        /// |-------------------------------|-----------|<br/>
+        /// | FreeAgent                     | Yes       |<br/>
+        /// | QuickBooks Online             | Yes       |<br/>
+        /// | Xero                          | Yes       |<br/>
+        /// | Oracle NetSuite               | No        |<br/>
+        /// | Sage Intacct                  | No        |<br/>
+        /// | Zoho Books                    | No        |<br/>
+        /// <br/>
+        /// ### Platform-specific behavior<br/>
+        /// <br/>
+        /// - **Xero**: Archived suppliers cannot be updated (returns `400`). Suppliers must be unarchived manually in the Xero UI before updating.<br/>
+        /// - **QuickBooks Online**: Currency can only be set when creating a supplier, and cannot be changed via update.
+        /// </remarks>
+        /// <param name="request">A <see cref="UpdateSupplierRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
+        /// <returns>An awaitable task that returns a <see cref="UpdateSupplierResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="ErrorMessage">The request made is not valid. Thrown when the API returns a 400, 401, 402, 403, 404, 429, 500 or 503 response.</exception>
+        /// <exception cref="SDKException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async  Task<UpdateSupplierResponse> UpdateAsync(
+            UpdateSupplierRequest request,
+            RetryConfig? retryConfig = null
+        )
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/companies/{companyId}/connections/{connectionId}/payables/suppliers/{supplierId}", request, null);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Put, urlString);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "SupplierPrototype", "json", false, true);
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
+
+            if (SDKConfiguration.SecuritySource != null)
+            {
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "update-supplier", null, SDKConfiguration.SecuritySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 500L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string>
+            {
+                "408",
+                "429",
+                "5XX",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Codat.Sync.Payables.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await retries.Run();
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception _hookError)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Supplier obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Supplier>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Supplier.", httpResponse, httpResponseBody, ex);
+                    }
+
+                    var response = new UpdateSupplierResponse()
                     {
                         StatusCode = responseStatusCode,
                         ContentType = contentType,

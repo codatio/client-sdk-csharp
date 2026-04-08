@@ -2,6 +2,14 @@
 
 Status of the supplier.
 
+## Example Usage
+
+```csharp
+using Codat.Sync.Payables.Models.Components;
+
+var value = SupplierStatus.Unknown;
+```
+
 
 ## Values
 

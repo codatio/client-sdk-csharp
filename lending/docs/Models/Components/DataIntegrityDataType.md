@@ -1,5 +1,13 @@
 # DataIntegrityDataType
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = DataIntegrityDataType.BankingAccounts;
+```
+
 
 ## Values
 

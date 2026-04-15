@@ -12,7 +12,7 @@ Get the state of each data type for a company
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-data-status" method="get" path="/companies/{companyId}/dataStatus" -->
+<!-- UsageSnippet language="csharp" operationID="get-data-status" method="get" path="/companies/{companyId}/dataStatus" example="Example" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

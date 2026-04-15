@@ -18,7 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="list-commerce-product-categories" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories" -->
+<!-- UsageSnippet language="csharp" operationID="list-commerce-product-categories" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories" example="Lightspeed K Trial" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -67,7 +67,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-commerce-product-category" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories/{productId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-commerce-product-category" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories/{productId}" example="Lightspeed K Trial" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

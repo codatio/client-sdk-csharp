@@ -16,9 +16,177 @@ The *List transfers* endpoint returns a list of [transfers](https://docs.codat.i
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" -->
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingTransfersRequest req = new ListAccountingTransfersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.Transfers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-transfers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers" example="Sage Intacct" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -65,9 +233,169 @@ The *Get transfer* endpoint returns a single transfer for a given transferId.
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingTransferRequest req = new GetAccountingTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransferId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Transactions.Transfers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-transfer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/transfers/{transferId}" example="Sage Intacct" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

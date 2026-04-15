@@ -16,9 +16,30 @@ The *List transactions* endpoint returns a list of [transactions](https://docs.c
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Basiq
 
-<!-- UsageSnippet language="csharp" operationID="list-banking-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions" -->
+<!-- UsageSnippet language="csharp" operationID="list-banking-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions" example="Basiq" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListBankingTransactionsRequest req = new ListBankingTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Banking.Transactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Plaid
+
+<!-- UsageSnippet language="csharp" operationID="list-banking-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions" example="Plaid" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -65,9 +86,29 @@ The *Get transaction* endpoint returns a single transaction for a given transact
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Basiq
 
-<!-- UsageSnippet language="csharp" operationID="get-banking-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions/{transactionId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-banking-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions/{transactionId}" example="Basiq" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetBankingTransactionRequest req = new GetBankingTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransactionId = "<id>",
+};
+
+var res = await sdk.Banking.Transactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Plaid
+
+<!-- UsageSnippet language="csharp" operationID="get-banking-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions/{transactionId}" example="Plaid" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

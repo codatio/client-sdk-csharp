@@ -2,6 +2,14 @@
 
 Current status of the dispute
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = DisputeStatus.Won;
+```
+
 
 ## Values
 

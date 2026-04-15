@@ -2,6 +2,14 @@
 
 Current state of the bill.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = BillStatus.Unknown;
+```
+
 
 ## Values
 

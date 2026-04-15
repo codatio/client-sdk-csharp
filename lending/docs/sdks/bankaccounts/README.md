@@ -18,9 +18,161 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 See the *response examples* for integration-specific indicative models.
 
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" -->
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateUpdateBankAccountsModelRequest req = new GetCreateUpdateBankAccountsModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.BankAccounts.GetCreateUpdateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Sandbox" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -68,7 +220,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" -->
+<!-- UsageSnippet language="csharp" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" example="Malformed query" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

@@ -2,6 +2,14 @@
 
 Code to identify the underlying transaction.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = TransactionCode.Unknown;
+```
+
 
 ## Values
 

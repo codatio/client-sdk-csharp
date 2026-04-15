@@ -74,9 +74,349 @@ Before using this endpoint, you must have [retrieved data for the company](https
 To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" -->
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage 200cloud" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Wave" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingInvoicesRequest req = new ListAccountingInvoicesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -126,9 +466,332 @@ Before using this endpoint, you must have [retrieved data for the company](https
 To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage 200cloud" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Wave" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingInvoiceRequest req = new GetAccountingInvoiceRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    InvoiceId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Invoices.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

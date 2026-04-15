@@ -2,6 +2,14 @@
 
 Status of the supplier.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = SupplierStatus.Unknown;
+```
+
 
 ## Values
 

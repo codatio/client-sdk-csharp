@@ -16,7 +16,7 @@ The _Get categorized bank statement_ endpoint provides a fully categorized list 
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-categorized-bank-statement" method="get" path="/companies/{companyId}/reports/enhancedCashFlow/transactions" -->
+<!-- UsageSnippet language="csharp" operationID="get-categorized-bank-statement" method="get" path="/companies/{companyId}/reports/enhancedCashFlow/transactions" example="Categorized bank statement" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

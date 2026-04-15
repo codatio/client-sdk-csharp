@@ -12,6 +12,14 @@ Types of payment line links, either:
 `Manual Journal`  
 `Discount` - ID refers to the payment
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = PaymentLinkType.Unknown;
+```
+
 
 ## Values
 

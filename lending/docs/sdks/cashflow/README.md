@@ -10,9 +10,114 @@
 
 Gets the latest cash flow statement for a company.
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCashFlowStatementRequest req = new GetAccountingCashFlowStatementRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.CashFlow.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCashFlowStatementRequest req = new GetAccountingCashFlowStatementRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.CashFlow.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCashFlowStatementRequest req = new GetAccountingCashFlowStatementRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.CashFlow.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCashFlowStatementRequest req = new GetAccountingCashFlowStatementRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.CashFlow.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCashFlowStatementRequest req = new GetAccountingCashFlowStatementRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.CashFlow.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

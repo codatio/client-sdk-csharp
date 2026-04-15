@@ -2,6 +2,14 @@
 
 The type of the service charge.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = ServiceChargeType.Generic;
+```
+
 
 ## Values
 

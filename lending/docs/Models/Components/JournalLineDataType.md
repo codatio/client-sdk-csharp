@@ -2,6 +2,14 @@
 
 Allowed name of the 'dataType'.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = JournalLineDataType.Customers;
+```
+
 
 ## Values
 

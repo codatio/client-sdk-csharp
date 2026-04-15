@@ -2,6 +2,14 @@
 
 The type of phone number
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = Type.Primary;
+```
+
 
 ## Values
 

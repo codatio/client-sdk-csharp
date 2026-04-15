@@ -22,7 +22,7 @@ When you use the [*Upload data*](https://docs.codat.io/lending-api#/operations/u
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-bank-statement-upload-configuration" method="get" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
+<!-- UsageSnippet language="csharp" operationID="get-bank-statement-upload-configuration" method="get" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" example="Codat" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -68,7 +68,7 @@ Each data connection can only have one configuration for each company and extern
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="set-bank-statement-upload-configuration" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
+<!-- UsageSnippet language="csharp" operationID="set-bank-statement-upload-configuration" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" example="Codat" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -162,7 +162,7 @@ Make sure you created configuration for the account using the [*Set upload confi
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="upload-bank-statement-data" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/upload" -->
+<!-- UsageSnippet language="csharp" operationID="upload-bank-statement-data" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/upload" example="Malformed query" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -179,32 +179,32 @@ UploadBankStatementDataRequest req = new UploadBankStatementDataRequest() {
         new Dictionary<string, object>() {
             { "results", new List<object>() {
                 new Dictionary<string, object>() {
+                    { "id", "1703194f-7805-4da8-bac0-2ba5da4a4216" },
+                    { "name", "Business Current Account" },
+                    { "informalName", "Codat" },
+                    { "holder", "Codat Ltd" },
+                    { "type", "Debit" },
                     { "balance", new Dictionary<string, object>() {
                         { "available", -459987.97D },
                         { "current", -459964.9D },
                         { "limit", 5000 },
                     } },
                     { "identifiers", new Dictionary<string, object>() {
-                        { "bic", "LOYDGB21006" },
-                        { "maskedAccountNumber", "LOYDGB21006" },
                         { "type", "Depository" },
                         { "subtype", "checking" },
                         { "number", "46762629" },
                         { "bankCode", 9911 },
                         { "iban", "GB29 LOYD 4773 2346 7626 29" },
+                        { "bic", "LOYDGB21006" },
+                        { "maskedAccountNumber", "LOYDGB21006" },
                     } },
+                    { "currency", "GBP" },
                     { "institution", new Dictionary<string, object>() {
                         { "id", "lloyds-bank" },
                         { "name", "Lloyds Bank" },
                     } },
                     { "modifiedDate", "2022-05-23T16:32:50Z" },
-                    { "holder", "Codat Ltd" },
-                    { "currency", "GBP" },
                     { "sourceModifiedDate", "2021-08-14T05:04:12" },
-                    { "id", "1703194f-7805-4da8-bac0-2ba5da4a4216" },
-                    { "name", "Business Current Account" },
-                    { "informalName", "Codat" },
-                    { "type", "Debit" },
                 },
             } },
         }

@@ -13,7 +13,7 @@ Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" -->
+<!-- UsageSnippet language="csharp" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" example="Example" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

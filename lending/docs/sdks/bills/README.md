@@ -23,9 +23,329 @@ Before using this endpoint, you must have [retrieved data for the company](https
 To access the `paymentAllocations` property, ensure that the `billPayments` data type is queued and cached in Codat before retrieving `bills` from Codat's cache.
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" -->
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Sage 200cloud" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBillsRequest req = new ListAccountingBillsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsPayable.Bills.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -75,9 +395,313 @@ Before using this endpoint, you must have [retrieved data for the company](https
 To access the `paymentAllocations` property, ensure that the `billPayments` data type is queued and cached in Codat before retrieving `bills` from Codat's cache.
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Sage 200cloud" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBillRequest req = new GetAccountingBillRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    BillId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsPayable.Bills.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

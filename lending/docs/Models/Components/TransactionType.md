@@ -10,6 +10,14 @@ The type of the platform transaction:
 - `Refund` — Refunds to a customer's credit or debit card.  
 - `Transfer` — Secure transfer of funds to the seller's bank account.  
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = TransactionType.Payment;
+```
+
 
 ## Values
 

@@ -45,7 +45,7 @@ namespace Codat.Lending
             Client = client ?? new SpeakeasyHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 10.0.1 2.803.3 3.0.0 Codat.Lending";
+            UserAgent = "speakeasy-sdk/csharp 10.0.2 2.879.13 3.0.0 Codat.Lending";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

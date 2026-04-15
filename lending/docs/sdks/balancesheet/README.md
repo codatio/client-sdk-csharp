@@ -55,9 +55,324 @@ var res = await sdk.FinancialStatements.BalanceSheet.GetCategorizedAccountsAsync
 
 Gets the latest balance sheet for a company.
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: MYOB AccountRight and Essentials
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="MYOB AccountRight and Essentials" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Wave" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingBalanceSheetRequest req = new GetAccountingBalanceSheetRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    PeriodLength = 4,
+    PeriodsToCompare = 20,
+    StartMonth = "2022-10-23T00:00:00Z",
+};
+
+var res = await sdk.FinancialStatements.BalanceSheet.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

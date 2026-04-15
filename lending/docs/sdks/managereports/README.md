@@ -17,7 +17,7 @@ This action triggers the system to refresh and pull the necessary data from the 
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="generate-report" method="post" path="/companies/{companyId}/reports/{reportType}" -->
+<!-- UsageSnippet language="csharp" operationID="generate-report" method="post" path="/companies/{companyId}/reports/{reportType}" example="Report" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

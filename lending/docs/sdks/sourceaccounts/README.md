@@ -15,9 +15,66 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 > ### Versioning
 > If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" -->
+<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Malformed query" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountPrototype(
+        new SourceAccountPrototype() {
+            Id = "<id>",
+            Currency = "GBP",
+            ModifiedDate = "2022-10-23T00:00:00Z",
+        }
+    ),
+};
+
+var res = await sdk.LoanWriteback.SourceAccounts.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Version 1
+
+<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 1" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateSourceAccountRequest req = new CreateSourceAccountRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    RequestBody = CreateSourceAccountRequestBody.CreateSourceAccountPrototype(
+        new SourceAccountPrototype() {
+            Id = "acc-002",
+            AccountName = "account-081",
+            AccountType = "Credit",
+            AccountNumber = "12345670",
+            SortCode = "123456",
+            Currency = "GBP",
+            Balance = 99.99M,
+            ModifiedDate = "2023-01-09T14:14:14.1057478Z",
+        }
+    ),
+};
+
+var res = await sdk.LoanWriteback.SourceAccounts.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: Version 2
+
+<!-- UsageSnippet language="csharp" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 2" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -72,7 +129,7 @@ A bank feed account mapping is a specified link between the source account (prov
 
 ### Example Usage
 
-<!-- UsageSnippet language="csharp" operationID="get-bank-account-mapping" method="get" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping" -->
+<!-- UsageSnippet language="csharp" operationID="get-bank-account-mapping" method="get" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping" example="Example" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -141,9 +198,32 @@ The method of mapping the source account to the target account varies depending 
 | QuickBooks Online     |             |                  | ✅                          |
 | Sage                  |             |                  | ✅                          |
 
-### Example Usage
+### Example Usage: Example
 
-<!-- UsageSnippet language="csharp" operationID="create-bank-account-mapping" method="post" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping" -->
+<!-- UsageSnippet language="csharp" operationID="create-bank-account-mapping" method="post" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping" example="Example" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateBankAccountMappingRequest req = new CreateBankAccountMappingRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    BankFeedBankAccountMapping = new BankFeedBankAccountMapping() {
+        SourceAccountId = "acc-002",
+        TargetAccountId = "account-081",
+    },
+};
+
+var res = await sdk.LoanWriteback.SourceAccounts.CreateMappingAsync(req);
+
+// handle response
+```
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="csharp" operationID="create-bank-account-mapping" method="post" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping" example="Malformed query" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

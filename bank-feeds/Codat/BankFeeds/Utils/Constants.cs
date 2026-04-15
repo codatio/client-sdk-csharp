@@ -22,12 +22,12 @@ namespace Codat.BankFeeds.Utils
         /// <summary>
         /// The version of the SDK.
         /// </summary>
-        public const string SdkVersion = "8.0.1";
+        public const string SdkVersion = "8.0.2";
 
         /// <summary>
         /// The version of the SDK generator used to create this SDK.
         /// </summary>
-        public const string SdkGenVersion = "2.879.6";
+        public const string SdkGenVersion = "2.879.13";
 
         /// <summary>
         /// The version of the OpenAPI document used to generate this SDK.

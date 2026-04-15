@@ -1,2 +1,10 @@
 ## Csharp SDK Changes:
-* `Codat.bankFeeds.SourceAccounts.GenerateOtp()`: **Added**
+* `Codat.syncPayables.Companies.List()`:  `response.results[].DataConnections[].IntegrationKey` **Changed**
+* `Codat.syncPayables.Companies.Create()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.syncPayables.Companies.Replace()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.syncPayables.Companies.Update()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.syncPayables.Companies.Get()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.syncPayables.Connections.List()`:  `response.results[].IntegrationKey` **Changed**
+* `Codat.syncPayables.Connections.Create()`:  `response.integrationKey` **Changed**
+* `Codat.syncPayables.Connections.Get()`:  `response.integrationKey` **Changed**
+* `Codat.syncPayables.Connections.Unlink()`:  `response.integrationKey` **Changed**

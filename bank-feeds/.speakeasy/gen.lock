@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 0e14a69b-dba1-4c0f-85f5-3b5d7f7f7731
 management:
-  docChecksum: 5585d6d3f1630763832805877be3a651
+  docChecksum: 4d9c9e0c2c4bcc00392c83527d11c46c
   docVersion: 3.0.0
-  speakeasyVersion: 1.761.1
-  generationVersion: 2.879.6
-  releaseVersion: 8.0.1
-  configChecksum: 421128a8a475865bb12149c21db6681f
+  speakeasyVersion: 1.761.9
+  generationVersion: 2.881.4
+  releaseVersion: 8.0.2
+  configChecksum: 26125778d042f338262f3c830985a7ca
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: bank-feeds
   installationURL: https://github.com/codatio/client-sdk-csharp
   published: true
 persistentEdits:
-  generation_id: 9af65452-eef3-4be8-966c-a116d456550d
-  pristine_commit_hash: 58cbfcc8d042a44cec84f3694505ec13fbd35b0a
-  pristine_tree_hash: e9c01e8132f98d6671ecc1c290755608dfb73eea
+  generation_id: bb38ea70-cdc2-49b8-bf20-1a77f7c30857
+  pristine_commit_hash: d3d10d5002b18d59906571010934b8a94d37cc8a
+  pristine_tree_hash: ce25476ba4d231ac70fc244534fdaa7dd2b63d27
 features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.3
-    core: 3.15.20
+    core: 3.15.21
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.7
@@ -55,8 +55,8 @@ trackedFiles:
     pristine_git_object: ad0536482e5ebf8fb62e8c1c590d5e515e083dd1
   Codat/BankFeeds/Codat.BankFeeds.csproj:
     id: b14ae93586a5
-    last_write_checksum: sha1:c50c35213ff9cb2d125d04d47a705feeeaea97c8
-    pristine_git_object: f0f82291806a91dddb24bc8314edeb9a58451577
+    last_write_checksum: sha1:ae37561c5fde1f3d369f85eca7f8ff8cde2dec94
+    pristine_git_object: 11acfb975a1d53e8ed7de502c881104595746164
   Codat/BankFeeds/CodatBankFeeds.cs:
     id: 8cff43071308
     last_write_checksum: sha1:6af679fe11ad7ff635f58bbedea979cd9c961780
@@ -511,8 +511,8 @@ trackedFiles:
     pristine_git_object: 5008e258f0f3360eadf0eb407bbe309779e2670f
   Codat/BankFeeds/Models/Shared/Connection.cs:
     id: aa19f40700c2
-    last_write_checksum: sha1:91b3aa3e56042fdcbba0c6c3666607042fc6a36b
-    pristine_git_object: 7d0dd7850a8dcd83d23b1d12adb9014d4e6d3cc0
+    last_write_checksum: sha1:96e70e4030d194c2da2858286ea5b62a49048bbf
+    pristine_git_object: cf2c7e2c43240ea780946e22c174d2c1a35acea3
   Codat/BankFeeds/Models/Shared/Connections.cs:
     id: f453c01bdf2b
     last_write_checksum: sha1:87f0261a9770dad883bea59d5f0194e7360d75a3
@@ -735,8 +735,8 @@ trackedFiles:
     pristine_git_object: 50b495a125d2fd6f8868333ff66dac7d5a9c405f
   Codat/BankFeeds/SDKConfig.cs:
     id: f6805c21e6f6
-    last_write_checksum: sha1:26c2e1c1a4137f2b819e773703184e2df5883721
-    pristine_git_object: dbc1e3aa6489ee280d872c71a463942bde4a069c
+    last_write_checksum: sha1:81c8441332099b57a4d7a599851e53196afd38b1
+    pristine_git_object: 625c84077a469739a64ad9808098a284788c03f7
   Codat/BankFeeds/SourceAccounts.cs:
     id: f6a7ce806fc8
     last_write_checksum: sha1:60eb3cabac79fdc6b33f051cde71e4d6365134d2
@@ -755,8 +755,8 @@ trackedFiles:
     pristine_git_object: 03b63a14db181e929d0d57303d21934f638cef99
   Codat/BankFeeds/Utils/Constants.cs:
     id: 0e6827a53cba
-    last_write_checksum: sha1:ae27c3c7c69aabe631dac31bf6305d703b6a8733
-    pristine_git_object: b11cd84efb422a1f96e659a1c0146594d934619c
+    last_write_checksum: sha1:1f5fa85e65c5117a2b1daea8224e652a52656674
+    pristine_git_object: 49800dfa7da39731eab96c4e4f9e30a362ca567a
   Codat/BankFeeds/Utils/DecimalStrConverter.cs:
     id: 5f4bbeaf1e21
     last_write_checksum: sha1:94d464c1aa7131359a0c93d64160c1466caa313b
@@ -1243,8 +1243,8 @@ trackedFiles:
     pristine_git_object: 2e5fa23d7bb058f3ae24ddb1dd16b618858575c2
   docs/Models/Shared/Connection.md:
     id: dc957f4fb698
-    last_write_checksum: sha1:dbadff097fdfa61568b129a37177b28214ae0402
-    pristine_git_object: 0dd5577f1e1df0390214765a095af4b3c88fe879
+    last_write_checksum: sha1:34c0018008e97589b2768a4a96fe45f35cd955bc
+    pristine_git_object: a833160dd478f96a94bba3b505dd00c5587f1a2b
   docs/Models/Shared/Connections.md:
     id: b666cc92052a
     last_write_checksum: sha1:972fd49e0b70b8083d0e5dcedc1c24c1ddf5a42f
@@ -2819,7 +2819,15 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Csharp SDK Changes:
-  * `Codat.bankFeeds.SourceAccounts.GenerateOtp()`: **Added**
+  * `Codat.bankFeeds.Companies.Create()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.bankFeeds.Companies.List()`:  `response.results[].DataConnections[].IntegrationKey` **Changed**
+  * `Codat.bankFeeds.Companies.Get()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.bankFeeds.Companies.Replace()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.bankFeeds.Companies.Update()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.bankFeeds.Connections.List()`:  `response.results[].IntegrationKey` **Changed**
+  * `Codat.bankFeeds.Connections.Create()`:  `response.integrationKey` **Changed**
+  * `Codat.bankFeeds.Connections.Get()`:  `response.integrationKey` **Changed**
+  * `Codat.bankFeeds.Connections.Unlink()`:  `response.integrationKey` **Changed**
 generatedFiles:
   - .gitattributes
   - Codat.BankFeeds.sln

@@ -1,29 +1,29 @@
 lockVersion: 2.0.0
 id: 18b9d064-aee3-46b6-b773-6d0ab95e296c
 management:
-  docChecksum: 0045f2c288d7f2842402371b22686871
+  docChecksum: 30019a7a4b59fe2bee4f34a5b4a56669
   docVersion: prealpha
-  speakeasyVersion: 1.750.0
-  generationVersion: 2.856.1
-  releaseVersion: 7.1.0
-  configChecksum: 759522a604b3e97013ffe9e10c719901
+  speakeasyVersion: 1.761.9
+  generationVersion: 2.881.4
+  releaseVersion: 7.1.1
+  configChecksum: 872e67f6889af6be6feb3c78d71315af
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-expenses
   installationURL: https://github.com/codatio/client-sdk-csharp
   published: true
 persistentEdits:
-  generation_id: 1b384040-99ee-4a44-8156-41c0fbe927aa
-  pristine_commit_hash: 10b8bcbb18a4986d53e323ca95a86e162b576bc1
-  pristine_tree_hash: cd15313d6d8d9936d56c66fcf474398b889016d6
+  generation_id: bb74541c-3784-4254-847e-c2453a8fff4e
+  pristine_commit_hash: ac43eba53c4efa220091fcf35b5c232460f67fa2
+  pristine_tree_hash: 8ba42a735582baaefb3718115a46d0785e9f0fe3
 features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.3
-    core: 3.15.19
+    core: 3.15.21
     decimal: 0.1.0
     deprecations: 2.81.2
     examples: 2.81.7
-    globalSecurity: 2.83.10
+    globalSecurity: 2.83.11
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.83.1
@@ -63,8 +63,8 @@ trackedFiles:
     pristine_git_object: 591ff698d387cb7024a5aa32add091ee565ecec8
   Codat/Sync/Expenses/Codat.Sync.Expenses.csproj:
     id: 9a17e90bae47
-    last_write_checksum: sha1:3c4d9629ec4a66598a8fb5160f3cc18b55cb2f07
-    pristine_git_object: 1eb1e3cc62ba6ff30062b2878e785f64a362fd15
+    last_write_checksum: sha1:77fa5a4a0eb3015ee85d3a86ddc78d7753144659
+    pristine_git_object: 0d6708259f36e2d3d5c650522e900cb694b0711d
   Codat/Sync/Expenses/CodatSyncExpenses.cs:
     id: aedbba25a430
     last_write_checksum: sha1:48aa4887303e4d41a788a07d2c7ec1949f20dc48
@@ -259,8 +259,8 @@ trackedFiles:
     pristine_git_object: 653137c59cdb9475a29660829a364001d7d1dc07
   Codat/Sync/Expenses/Models/Components/Connection.cs:
     id: 380933f0fca9
-    last_write_checksum: sha1:b90cbaa4fee3887b9ccc57efa546fe4d4ff491bf
-    pristine_git_object: 7dbb2a7f79ce9b964bedaf7e01cf3a51d7733670
+    last_write_checksum: sha1:289408ee5feb3584f987f31f8c5ae571ac4c28e7
+    pristine_git_object: d7abb8b770d9f599e398821d4f982309cbb9cabd
   Codat/Sync/Expenses/Models/Components/Connections.cs:
     id: 18af4a82b2d9
     last_write_checksum: sha1:cf419b8858a3f62a6b6fd73cd87ade759ee0f36d
@@ -1099,8 +1099,8 @@ trackedFiles:
     pristine_git_object: d1da1f2fa5dda15b17af474b3ed9d2c4a48edec2
   Codat/Sync/Expenses/SDKConfig.cs:
     id: a1f98b4a0c58
-    last_write_checksum: sha1:9d100c7129a82cf95683d9bef27888a7dcfa8eee
-    pristine_git_object: 4c9d058e90e58f1bc6d2d7226733382a39d626dd
+    last_write_checksum: sha1:39eb736e67da0d29275f7e1253ceac5fa84975c3
+    pristine_git_object: d7d95013613723538b276271f6181da4326c6b7f
   Codat/Sync/Expenses/Suppliers.cs:
     id: a9e03614b5f4
     last_write_checksum: sha1:d9284b7b3da999c73a3bb0b327057f878acb7a05
@@ -1127,8 +1127,8 @@ trackedFiles:
     pristine_git_object: 944a372bbfa6f9d32d3fabec3e3f622a9b044f0e
   Codat/Sync/Expenses/Utils/Constants.cs:
     id: 54df56378cbf
-    last_write_checksum: sha1:1462b5302f01f3fff581894a3a0092d39c03a62e
-    pristine_git_object: 6674d3e1a06d5d84f2683f1aa1aa01ebc07ec6b1
+    last_write_checksum: sha1:e2eb85feaf0b954e23d64992cb114dd832adc503
+    pristine_git_object: 4a6ace6670a3e3b23edacff427c7667708c529e9
   Codat/Sync/Expenses/Utils/DecimalStrConverter.cs:
     id: 3367a988e547
     last_write_checksum: sha1:3bda730fb6157443e944918ed1060d78fa609b59
@@ -1175,24 +1175,24 @@ trackedFiles:
     pristine_git_object: 7c3ec59a5d8eaf87a12fd933d826ae5e03aad500
   Codat/Sync/Expenses/Utils/SecurityMetadata.cs:
     id: e3463e1438ab
-    last_write_checksum: sha1:8866b5f4a6a1cbe685a07f1873073a1e405fd381
-    pristine_git_object: 581b96e543fff0dacf67ade27e454e071ea6f7e4
+    last_write_checksum: sha1:316a848bb8a21dcdd177e969e66ef0ed0e816c07
+    pristine_git_object: e51c8c06fd483656eccc0f13ec1a7d23978a7e0c
   Codat/Sync/Expenses/Utils/SpeakeasyHttpClient.cs:
     id: b1b11b6ede07
     last_write_checksum: sha1:5e81284b480c8d84f9db59f0083041cfd59e941d
     pristine_git_object: 64a595ee89738941b56f73cffd7dd8d371c23b62
   Codat/Sync/Expenses/Utils/SpeakeasyMetadata.cs:
     id: 562e9a94850f
-    last_write_checksum: sha1:33b9895f714a7a07cd641d07242d71e7bfe7b832
-    pristine_git_object: b9716f21a2e41f28caacbef835b4d1c7b4af6cfb
+    last_write_checksum: sha1:a4addbc543a897983d6fce01abf1848d8e83a1eb
+    pristine_git_object: 332fcfb8f0d6303fe0c72e28d781eda033ff2c7d
   Codat/Sync/Expenses/Utils/URLBuilder.cs:
     id: 684ae300f26b
     last_write_checksum: sha1:d916bff880ecb89110d709b155a48872a0007732
     pristine_git_object: 27c5d063eb36ea4d5c3f6b3118c6513e3f482106
   Codat/Sync/Expenses/Utils/Utilities.cs:
     id: fe358d13e3d0
-    last_write_checksum: sha1:0add85fc14546278bc58d2dea158b034cb0352dd
-    pristine_git_object: 334838c1dfc119117894aef076caa3ea57541ea7
+    last_write_checksum: sha1:426bb98916dd86eb771f21a331b9c36ff22c7df5
+    pristine_git_object: 86e1736c2aa174912ec6ada5bd6f94e950dfd94d
   NUGET.md:
     id: f4c8a442a6e5
     last_write_checksum: sha1:44076d5cb5116568062a7cfbee6fe3762bfd01e6
@@ -1351,8 +1351,8 @@ trackedFiles:
     pristine_git_object: 2e5fa23d7bb058f3ae24ddb1dd16b618858575c2
   docs/Models/Components/Connection.md:
     id: 5688c7e8f7e9
-    last_write_checksum: sha1:2899000a35f3fd220d59341f48e20356d4f97b8b
-    pristine_git_object: fbb1ac7e935c3949dce8ccc43711aeeef3e1e03d
+    last_write_checksum: sha1:f1814eff650e2eba9033114b82dede9808ca1837
+    pristine_git_object: 9625e553e18d975afa709100a66d33a96d9a9f78
   docs/Models/Components/Connections.md:
     id: f7e1a57da8a7
     last_write_checksum: sha1:e112155362b0d07c0fc76f7e0f7db1e0e6d5bf6e
@@ -4633,7 +4633,18 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Csharp SDK Changes:\n* `Codat.sync.expenses.Connections.Create()`:  `response.connectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Companies.List()`: \n  *  `request.Tags` **Added**\n  *  `response.results[].DataConnections[].ConnectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Companies.Create()`:  `response.dataConnections[].ConnectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Companies.Update()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response.dataConnections[].ConnectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Companies.Get()`:  `response.dataConnections[].ConnectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Connections.List()`:  `response.results[].ConnectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Connections.Get()`:  `response.connectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Connections.Unlink()`:  `response.connectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Connections.CreatePartnerExpenseConnection()`:  `response.connectionInfo.Map<any>` **Changed** (Breaking ⚠️)\n* `Codat.sync.expenses.Companies.Replace()`: **Added**\n* `Codat.sync.expenses.ManageData.RefreshAllDataTypes()`:  `error.status[400]` **Added**\n* `Codat.sync.expenses.ManageData.Get()`:  `response.accountTransactions.LastSuccessfulSync` **Changed**\n* `Codat.sync.expenses.ManageData.RefreshDataType()`:  `error.status[400]` **Added**\n"
+releaseNotes: |
+  ## Csharp SDK Changes:
+  * `Codat.sync.expenses.Companies.List()`:  `response.results[].DataConnections[].IntegrationKey` **Changed**
+  * `Codat.sync.expenses.Companies.Create()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.sync.expenses.Companies.Replace()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.sync.expenses.Companies.Update()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.sync.expenses.Companies.Get()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.sync.expenses.Connections.List()`:  `response.results[].IntegrationKey` **Changed**
+  * `Codat.sync.expenses.Connections.Create()`:  `response.integrationKey` **Changed**
+  * `Codat.sync.expenses.Connections.Get()`:  `response.integrationKey` **Changed**
+  * `Codat.sync.expenses.Connections.Unlink()`:  `response.integrationKey` **Changed**
+  * `Codat.sync.expenses.Connections.CreatePartnerExpenseConnection()`:  `response.integrationKey` **Changed**
 generatedFiles:
   - .gitattributes
   - CONTRIBUTING.md

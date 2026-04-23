@@ -130,11 +130,26 @@ namespace Codat.Sync.Expenses.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
         }
 
+        public static bool IsModelNamespace(string ns)
+        {
+            var modelNamespaces = new[]
+            {
+                "Codat.Sync.Expenses.Models.Requests",
+                "Codat.Sync.Expenses.Models.Components",
+                "Codat.Sync.Expenses.Models.Errors",
+                "Codat.Sync.Expenses.Models.Webhooks",
+            };
+
+            return modelNamespaces.Contains(ns);
+        }
+
         public static bool IsClass(object? o)
         {
             if (o == null)
                 return false;
-            return o.GetType().IsClass && (o.GetType().FullName ?? "").StartsWith("Codat.Sync.Expenses.Models");
+            if (!o.GetType().IsClass)
+                return false;
+            return IsModelNamespace(o.GetType().Namespace ?? "");
         }
 
         // TODO: code review polyfilled for IsAssignableTo

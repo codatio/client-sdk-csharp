@@ -33,8 +33,8 @@ sources:
             - "1.1"
     sync-for-expenses-source:
         sourceNamespace: sync-for-expenses-source
-        sourceRevisionDigest: sha256:5dfc2374e127deec41d3939693c268068f3649d794687399f56d9e49685e9c5f
-        sourceBlobDigest: sha256:87c0a544209788904d0cba68b864dbfc7f554dc69335339c71f52f146931ae26
+        sourceRevisionDigest: sha256:11af6475e2c0576d71adee597a3315d14622ac764c9627301b129c2701d72041
+        sourceBlobDigest: sha256:34aa4d8a3385871bfb861e1ac69865cc6dbd2d2f776983533959baedd2a3da0e
         tags:
             - latest
             - prealpha
@@ -91,10 +91,10 @@ targets:
     sync-for-expenses-library:
         source: sync-for-expenses-source
         sourceNamespace: sync-for-expenses-source
-        sourceRevisionDigest: sha256:5dfc2374e127deec41d3939693c268068f3649d794687399f56d9e49685e9c5f
-        sourceBlobDigest: sha256:87c0a544209788904d0cba68b864dbfc7f554dc69335339c71f52f146931ae26
+        sourceRevisionDigest: sha256:11af6475e2c0576d71adee597a3315d14622ac764c9627301b129c2701d72041
+        sourceBlobDigest: sha256:34aa4d8a3385871bfb861e1ac69865cc6dbd2d2f776983533959baedd2a3da0e
         codeSamplesNamespace: sync-for-expenses-source-csharp-code-samples
-        codeSamplesRevisionDigest: sha256:86b5d3a4ff0ed135676ddc3dc35560eec749c34613052b8d2200ce580a96d4bb
+        codeSamplesRevisionDigest: sha256:ea06f0345376e88d667d5234cba7ea8f8e91d367295eeae0da7b7a3ecfedb9d6
     sync-for-payables-library:
         source: sync-for-payables-source
         sourceNamespace: sync-for-payables-source

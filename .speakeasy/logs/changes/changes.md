@@ -1,2 +1,10 @@
 ## Csharp SDK Changes:
-* `Codat.bankFeeds.SourceAccounts.GenerateOtp()`: **Added**
+* `Codat.bankFeeds.Companies.Create()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.bankFeeds.Companies.List()`:  `response.results[].DataConnections[].IntegrationKey` **Changed**
+* `Codat.bankFeeds.Companies.Get()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.bankFeeds.Companies.Replace()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.bankFeeds.Companies.Update()`:  `response.dataConnections[].IntegrationKey` **Changed**
+* `Codat.bankFeeds.Connections.List()`:  `response.results[].IntegrationKey` **Changed**
+* `Codat.bankFeeds.Connections.Create()`:  `response.integrationKey` **Changed**
+* `Codat.bankFeeds.Connections.Get()`:  `response.integrationKey` **Changed**
+* `Codat.bankFeeds.Connections.Unlink()`:  `response.integrationKey` **Changed**

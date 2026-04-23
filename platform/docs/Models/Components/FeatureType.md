@@ -2,6 +2,14 @@
 
 The type of feature.
 
+## Example Usage
+
+```csharp
+using Codat.Platform.Models.Components;
+
+var value = FeatureType.Get;
+```
+
 
 ## Values
 

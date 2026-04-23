@@ -2,6 +2,14 @@
 
 Type of write request.
 
+## Example Usage
+
+```csharp
+using Codat.Platform.Models.Components;
+
+var value = WriteType.Create;
+```
+
 
 ## Values
 

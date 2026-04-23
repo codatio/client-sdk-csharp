@@ -2,6 +2,14 @@
 
 Data types that support supplemental data
 
+## Example Usage
+
+```csharp
+using Codat.Platform.Models.Requests;
+
+var value = DataType.ChartOfAccounts;
+```
+
 
 ## Values
 

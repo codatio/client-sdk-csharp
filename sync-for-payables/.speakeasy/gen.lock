@@ -1,28 +1,28 @@
 lockVersion: 2.0.0
 id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
-  docChecksum: 66b675d1d723d12ccffb437a1e3793aa
+  docChecksum: 384bfbce0790e3cb0ef8a6a311ab8782
   docVersion: 3.0.0
-  speakeasyVersion: 1.759.1
-  generationVersion: 2.869.10
-  releaseVersion: 10.1.1
-  configChecksum: de60b1b13cbafe198826d501ed30b16a
+  speakeasyVersion: 1.761.9
+  generationVersion: 2.881.4
+  releaseVersion: 10.1.2
+  configChecksum: 0934b8ece521222c8b8202a56af9ca84
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   installationURL: https://github.com/codatio/client-sdk-csharp
   published: true
 persistentEdits:
-  generation_id: 36f832f3-c6db-428b-8600-cfee12500f97
-  pristine_commit_hash: 75603cdf6b836dba5660f30384d8d494762bd6ef
-  pristine_tree_hash: 909f70f14b7e80294eed309208ed4afdacfe5ddc
+  generation_id: cba82c2e-a66f-4fcf-af74-4d7441a27fc3
+  pristine_commit_hash: 8cd8ca1a927902c7468f703d2b4d22cbf7d5569d
+  pristine_tree_hash: a92b36daa30e0e8f2f322babebc2df24e84623f6
 features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.3
-    core: 3.15.20
+    core: 3.15.21
     decimal: 0.1.0
     examples: 2.81.7
-    globalSecurity: 2.83.10
+    globalSecurity: 2.83.11
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.83.1
@@ -58,8 +58,8 @@ trackedFiles:
     pristine_git_object: 5470bcf6522c2b29f0e9fd8cebda4d7a4844b767
   Codat/Sync/Payables/Codat.Sync.Payables.csproj:
     id: 27c2af8e86c9
-    last_write_checksum: sha1:a96df527fd9cb1c7a30b7e53c265513db690e6c1
-    pristine_git_object: c28f1ecf2f60e661d4a45a4c5a135e8def781785
+    last_write_checksum: sha1:7c01bf5c20c3ab1ca985c567463a3393a6bf2c03
+    pristine_git_object: b34d758ec74dcfbb1eaef9034ef86df69a1b4116
   Codat/Sync/Payables/CodatSyncPayables.cs:
     id: 41ceacd335c5
     last_write_checksum: sha1:148411c35706d8823055167c1ec4bfa8b250f1e6
@@ -214,8 +214,8 @@ trackedFiles:
     pristine_git_object: b3602add10426e59d5dcdc6d567ee1483ef1a8f2
   Codat/Sync/Payables/Models/Components/Connection.cs:
     id: 17979458ec28
-    last_write_checksum: sha1:1090f558787d33b4f22e17cc2ff5b8e8c8f2062b
-    pristine_git_object: 94b8aadc282a9726e1ef845ad5b0cb62aeec7814
+    last_write_checksum: sha1:c9ea62267b44e10769b7b2ca8f5e0f8fdbb835bf
+    pristine_git_object: efbd9d7d80a0d5da9dcaa409c0ae8a5b74038260
   Codat/Sync/Payables/Models/Components/Connections.cs:
     id: f6f85bee383d
     last_write_checksum: sha1:0e79ce89abb5994efe288ceb66257c338c4ead71
@@ -530,8 +530,8 @@ trackedFiles:
     pristine_git_object: 1eb9db1274e988187f1ab67a90110461e8d5d349
   Codat/Sync/Payables/SDKConfig.cs:
     id: 9a9d58bae336
-    last_write_checksum: sha1:294ddcbf38c7a277e506ff8949750583d8aa3291
-    pristine_git_object: 06c6f503c509fb6e9f9585e491df858f4581ce89
+    last_write_checksum: sha1:e3a60bda210dd437c3954a71cefafc36218e92de
+    pristine_git_object: df6a801939f0e980b157732de2afc0641d73374c
   Codat/Sync/Payables/Suppliers.cs:
     id: dc6d700dd058
     last_write_checksum: sha1:bb7f1f11c4f27b69441f9b53d807f0e8a17bd2bb
@@ -546,8 +546,8 @@ trackedFiles:
     pristine_git_object: 19c8f4a154f7882ea81ca6c8d1effa78b5009852
   Codat/Sync/Payables/Utils/Constants.cs:
     id: 26a6c908c9c7
-    last_write_checksum: sha1:9cba89923c39f2d6ccc3bbfe918d8ec62f734ee9
-    pristine_git_object: 1099673a41eff7f853d872a8e6808e989348abe1
+    last_write_checksum: sha1:88a9e45f10e2137983252841543cfb9ddfb64448
+    pristine_git_object: e54efcd8b2f1dbbe851cceab7b4f0674ab22c2ac
   Codat/Sync/Payables/Utils/DecimalStrConverter.cs:
     id: 732482e82206
     last_write_checksum: sha1:6d3efc9c8e2de4ee867f7ab85fd86d6825812d83
@@ -594,24 +594,24 @@ trackedFiles:
     pristine_git_object: 21794a32d6c11021a5d7e77eaffe958cfdfd2b21
   Codat/Sync/Payables/Utils/SecurityMetadata.cs:
     id: bca126653bce
-    last_write_checksum: sha1:34fa5bfdbba63f9d9a1459b95eae96b4cdc8299d
-    pristine_git_object: 642590cd58c729e55810fd83a8bb5621c4fa65c5
+    last_write_checksum: sha1:78da3691df859a4baf1acd252ef05d0dbf2bf0ef
+    pristine_git_object: a26c56b5ad710a0f9692fd89e814b76e1dbd6df7
   Codat/Sync/Payables/Utils/SpeakeasyHttpClient.cs:
     id: bdf2a26940c2
     last_write_checksum: sha1:5f51f3813bdf8357b3283a9994d48f81ca5c0a00
     pristine_git_object: 5c3627ef8b4fd3f7968e58a0439ef77786ef4ec1
   Codat/Sync/Payables/Utils/SpeakeasyMetadata.cs:
     id: 74f102705004
-    last_write_checksum: sha1:93f23841e559c8b476f68662de430fc8d404c5eb
-    pristine_git_object: 5da622cd6da7b87051e5903645f7908e08361ece
+    last_write_checksum: sha1:81cbbd0e1123d2c845c9e9de559e4433b8329e9f
+    pristine_git_object: 63b4100faaa4c33668452f2451f2037ced18500a
   Codat/Sync/Payables/Utils/URLBuilder.cs:
     id: f0d6a4e95df6
     last_write_checksum: sha1:a1918dc5b4e311c3b733a7403e1d9781e401c758
     pristine_git_object: 436e7620fac8fac7c9bda994768437456ad4a1e2
   Codat/Sync/Payables/Utils/Utilities.cs:
     id: 5491ebcd861c
-    last_write_checksum: sha1:198b3e68375a1f43471863dda5cdf6cb9dce2dc4
-    pristine_git_object: f83b9d08bdfe7668bfce090fd014a4cab7f9ece1
+    last_write_checksum: sha1:2556074118ca3590cdff2c945dc6e60dd4e86aa1
+    pristine_git_object: 65e148518e325a17b07e589bb94e0bfdc621808a
   NUGET.md:
     id: f4c8a442a6e5
     last_write_checksum: sha1:112ef1aeb54f1a69730a5a7acc36a2ed2bf7b91c
@@ -750,8 +750,8 @@ trackedFiles:
     pristine_git_object: 2e5fa23d7bb058f3ae24ddb1dd16b618858575c2
   docs/Models/Components/Connection.md:
     id: 5688c7e8f7e9
-    last_write_checksum: sha1:7f091061eed231048f880246972f5ed712f10d87
-    pristine_git_object: c62e9746443117fb7cc425967dc78bf04b499d7e
+    last_write_checksum: sha1:289b78aa10b8ae02edbe3bd2470eaa18eff075d4
+    pristine_git_object: 8371354fedf59be9532181a3bb0ced63fca17898
   docs/Models/Components/Connections.md:
     id: f7e1a57da8a7
     last_write_checksum: sha1:e112155362b0d07c0fc76f7e0f7db1e0e6d5bf6e
@@ -2106,7 +2106,15 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Csharp SDK Changes:
-  * `Codat.syncPayables.Suppliers.Update()`: **Added**
+  * `Codat.syncPayables.Companies.List()`:  `response.results[].DataConnections[].IntegrationKey` **Changed**
+  * `Codat.syncPayables.Companies.Create()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.syncPayables.Companies.Replace()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.syncPayables.Companies.Update()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.syncPayables.Companies.Get()`:  `response.dataConnections[].IntegrationKey` **Changed**
+  * `Codat.syncPayables.Connections.List()`:  `response.results[].IntegrationKey` **Changed**
+  * `Codat.syncPayables.Connections.Create()`:  `response.integrationKey` **Changed**
+  * `Codat.syncPayables.Connections.Get()`:  `response.integrationKey` **Changed**
+  * `Codat.syncPayables.Connections.Unlink()`:  `response.integrationKey` **Changed**
 generatedFiles:
   - .gitattributes
   - CONTRIBUTING.md

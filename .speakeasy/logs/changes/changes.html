@@ -98,7 +98,16 @@
 <body><h2 id="csharp-sdk-changes">Csharp SDK Changes:</h2>
 
 <ul>
-<li><code>Codat.bankFeeds.SourceAccounts.GenerateOtp()</code>: <strong>Added</strong></li>
+<li><code>Codat.sync.expenses.Companies.List()</code>:  <code>response.results[].DataConnections[].IntegrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Companies.Create()</code>:  <code>response.dataConnections[].IntegrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Companies.Replace()</code>:  <code>response.dataConnections[].IntegrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Companies.Update()</code>:  <code>response.dataConnections[].IntegrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Companies.Get()</code>:  <code>response.dataConnections[].IntegrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Connections.List()</code>:  <code>response.results[].IntegrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Connections.Create()</code>:  <code>response.integrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Connections.Get()</code>:  <code>response.integrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Connections.Unlink()</code>:  <code>response.integrationKey</code> <strong>Changed</strong></li>
+<li><code>Codat.sync.expenses.Connections.CreatePartnerExpenseConnection()</code>:  <code>response.integrationKey</code> <strong>Changed</strong></li>
 </ul>
 </body>
 </html>

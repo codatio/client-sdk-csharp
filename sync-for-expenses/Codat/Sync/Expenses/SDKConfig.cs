@@ -45,7 +45,7 @@ namespace Codat.Sync.Expenses
             Client = client ?? new SpeakeasyHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 7.1.0 2.856.1 prealpha Codat.Sync.Expenses";
+            UserAgent = "speakeasy-sdk/csharp 7.1.1 2.881.4 prealpha Codat.Sync.Expenses";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

@@ -44,7 +44,7 @@ namespace Codat.Sync.Expenses.Models.Components
         /// A unique four-character ID that identifies the platform of the company's data connection. This ensures continuity if the platform changes its name in the future.
         /// </summary>
         [JsonProperty("integrationKey")]
-        public string IntegrationKey { get; set; } = default!;
+        public string? IntegrationKey { get; set; }
 
         /// <summary>
         /// A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.

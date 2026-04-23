@@ -22,12 +22,12 @@ namespace Codat.Sync.Payables.Utils
         /// <summary>
         /// The version of the SDK.
         /// </summary>
-        public const string SdkVersion = "10.1.1";
+        public const string SdkVersion = "10.1.2";
 
         /// <summary>
         /// The version of the SDK generator used to create this SDK.
         /// </summary>
-        public const string SdkGenVersion = "2.869.10";
+        public const string SdkGenVersion = "2.881.4";
 
         /// <summary>
         /// The version of the OpenAPI document used to generate this SDK.

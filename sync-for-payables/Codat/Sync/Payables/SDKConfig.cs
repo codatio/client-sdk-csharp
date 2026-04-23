@@ -45,7 +45,7 @@ namespace Codat.Sync.Payables
             Client = client ?? new SpeakeasyHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 10.1.1 2.869.10 3.0.0 Codat.Sync.Payables";
+            UserAgent = "speakeasy-sdk/csharp 10.1.2 2.881.4 3.0.0 Codat.Sync.Payables";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;

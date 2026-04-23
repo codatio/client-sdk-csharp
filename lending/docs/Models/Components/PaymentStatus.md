@@ -2,6 +2,14 @@
 
 Status of the payment.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = PaymentStatus.Pending;
+```
+
 
 ## Values
 

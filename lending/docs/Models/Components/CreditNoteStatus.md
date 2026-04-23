@@ -2,6 +2,14 @@
 
 Current state of the credit note.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = CreditNoteStatus.Unknown;
+```
+
 
 ## Values
 

@@ -2,6 +2,14 @@
 
 Type of account
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = AccountIdentifierType.Account;
+```
+
 
 ## Values
 

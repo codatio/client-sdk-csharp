@@ -16,9 +16,198 @@ The *List customers* endpoint returns a list of [customers](https://docs.codat.i
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: BigCommerce
 
-<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" -->
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="BigCommerce" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Clover
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="Clover" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="Mollie" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie Test
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="Mollie Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: PrestaShop
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="PrestaShop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="Shopify" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="Square" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Stripe Test
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="Stripe Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: WooCommerce
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="WooCommerce" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceCustomersRequest req = new ListCommerceCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Zettle
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-customers" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers" example="Zettle" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -65,9 +254,189 @@ The *Get customer* endpoint returns a single customer for a given customerId.
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: BigCommerce
 
-<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="BigCommerce" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Clover
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="Clover" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="Mollie" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie Test
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="Mollie Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: PrestaShop
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="PrestaShop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="Shopify" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="Square" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Stripe Test
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="Stripe Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: WooCommerce
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="WooCommerce" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceCustomerRequest req = new GetCommerceCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Zettle
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-customer" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}" example="Zettle" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

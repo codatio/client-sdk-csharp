@@ -2,6 +2,14 @@
 
 Status of the source account.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = SourceAccountStatus.Pending;
+```
+
 
 ## Values
 

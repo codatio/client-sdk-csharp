@@ -2,6 +2,14 @@
 
 The name of the generated report.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = ReportOperationType.CategorizedBankStatement;
+```
+
 
 ## Values
 

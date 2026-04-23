@@ -2,6 +2,14 @@
 
 The type of loan transaction.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = LoanTransactionType.Investment;
+```
+
 
 ## Values
 

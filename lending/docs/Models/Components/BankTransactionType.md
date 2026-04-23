@@ -2,6 +2,14 @@
 
 Type of transaction for the bank statement line.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = BankTransactionType.Unknown;
+```
+
 
 ## Values
 

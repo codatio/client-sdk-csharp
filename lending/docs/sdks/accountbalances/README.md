@@ -15,9 +15,30 @@ The *List account balances* endpoint returns a list of [account balances](https:
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Basiq
 
-<!-- UsageSnippet language="csharp" operationID="list-banking-account-balances" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accountBalances" -->
+<!-- UsageSnippet language="csharp" operationID="list-banking-account-balances" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accountBalances" example="Basiq" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListBankingAccountBalancesRequest req = new ListBankingAccountBalancesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Banking.AccountBalances.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Plaid
+
+<!-- UsageSnippet language="csharp" operationID="list-banking-account-balances" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accountBalances" example="Plaid" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

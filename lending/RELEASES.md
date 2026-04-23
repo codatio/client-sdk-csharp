@@ -293,3 +293,13 @@ Based on:
 - [csharp v10.0.1] lending
 ### Releases
 - [NuGet v10.0.1] https://www.nuget.org/packages/Codat.Lending/10.0.1 - lending
+
+## 2026-04-23 10:54:38
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.761.9 (2.881.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v10.0.2] lending
+### Releases
+- [NuGet v10.0.2] https://www.nuget.org/packages/Codat.Lending/10.0.2 - lending

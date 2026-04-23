@@ -18,9 +18,180 @@ The *Get create transfer model* endpoint returns the expected data for the reque
 See the *response examples* for integration-specific indicative models.
 
 
-### Example Usage
+### Example Usage: Exact (Netherlands)
 
-<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" -->
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCreateTransfersModelRequest req = new GetCreateTransfersModelRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.LoanWriteback.Transfers.GetCreateModelAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" example="Xero" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -66,9 +237,51 @@ The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/le
 
 Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/lending-api#/operations/get-create-transfers-model).
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="csharp" operationID="create-transfer" method="post" path="/companies/{companyId}/connections/{connectionId}/push/transfers" -->
+<!-- UsageSnippet language="csharp" operationID="create-transfer" method="post" path="/companies/{companyId}/connections/{connectionId}/push/transfers" example="Malformed query" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+using System.Collections.Generic;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+CreateTransferRequest req = new CreateTransferRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountingTransfer = new AccountingTransfer() {
+        ModifiedDate = "2022-10-23T00:00:00Z",
+        SourceModifiedDate = "2022-10-23T00:00:00Z",
+        Date = "2022-10-23T00:00:00Z",
+        From = new TransferAccount() {
+            AccountRef = new AccountingRecordRef() {
+                DataType = "journalEntry",
+            },
+            Currency = "GBP",
+        },
+        To = new TransferAccount() {
+            AccountRef = new AccountingRecordRef() {
+                DataType = "journalEntry",
+            },
+            Currency = "GBP",
+        },
+        DepositedRecordRefs = new List<AccountingRecordRef>() {
+            new AccountingRecordRef() {
+                DataType = "journalEntry",
+            },
+        },
+    },
+};
+
+var res = await sdk.LoanWriteback.Transfers.CreateAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="create-transfer" method="post" path="/companies/{companyId}/connections/{connectionId}/push/transfers" example="QuickBooks Desktop" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

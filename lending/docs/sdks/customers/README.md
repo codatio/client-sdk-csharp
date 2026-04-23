@@ -19,9 +19,349 @@ The *List customers* endpoint returns a list of [customers](https://docs.codat.i
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" -->
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Sage 200cloud" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Wave" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingCustomersRequest req = new ListAccountingCustomersRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.Customers.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -67,9 +407,332 @@ The *Get customer* endpoint returns a single customer for a given customerId.
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Exact (Netherlands)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Exact (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="FreshBooks" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Oracle NetSuite" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Sage 200cloud" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Wave" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingCustomerRequest req = new GetAccountingCustomerRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    CustomerId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.Customers.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

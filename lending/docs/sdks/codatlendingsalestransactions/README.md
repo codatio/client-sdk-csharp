@@ -16,9 +16,114 @@ The *List transactions* endpoint returns a list of [transactions](https://docs.c
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Mollie
 
-<!-- UsageSnippet language="csharp" operationID="list-commerce-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions" -->
+<!-- UsageSnippet language="csharp" operationID="list-commerce-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions" example="Mollie" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceTransactionsRequest req = new ListCommerceTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Transactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie Test
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions" example="Mollie Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceTransactionsRequest req = new ListCommerceTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Transactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions" example="Shopify" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceTransactionsRequest req = new ListCommerceTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Transactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Stripe Test
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions" example="Stripe Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceTransactionsRequest req = new ListCommerceTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Transactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: SumUp
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions" example="SumUp" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceTransactionsRequest req = new ListCommerceTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.Transactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Zettle
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions" example="Zettle" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -65,9 +170,109 @@ The *Get transaction* endpoint returns a single transaction for a given transact
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Mollie
 
-<!-- UsageSnippet language="csharp" operationID="get-commerce-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-commerce-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}" example="Mollie" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceTransactionRequest req = new GetCommerceTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransactionId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Transactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie Test
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}" example="Mollie Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceTransactionRequest req = new GetCommerceTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransactionId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Transactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}" example="Shopify" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceTransactionRequest req = new GetCommerceTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransactionId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Transactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Stripe Test
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}" example="Stripe Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceTransactionRequest req = new GetCommerceTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransactionId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Transactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: SumUp
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}" example="SumUp" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceTransactionRequest req = new GetCommerceTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    TransactionId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Transactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Zettle
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}" example="Zettle" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

@@ -16,9 +16,93 @@ The *List account transactions* endpoint returns a list of [account transactions
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="list-accounting-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions" -->
+<!-- UsageSnippet language="csharp" operationID="list-accounting-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingAccountTransactionsRequest req = new ListAccountingAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.AccountTransactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingAccountTransactionsRequest req = new ListAccountingAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.AccountTransactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingAccountTransactionsRequest req = new ListAccountingAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.AccountTransactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingAccountTransactionsRequest req = new ListAccountingAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Transactions.AccountTransactions.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions" example="Xero" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -65,9 +149,89 @@ The *Get account transaction* endpoint returns a single account transaction for 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-account-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions/{accountTransactionId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-account-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions/{accountTransactionId}" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingAccountTransactionRequest req = new GetAccountingAccountTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountTransactionId = "<id>",
+};
+
+var res = await sdk.Transactions.AccountTransactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-account-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions/{accountTransactionId}" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingAccountTransactionRequest req = new GetAccountingAccountTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountTransactionId = "<id>",
+};
+
+var res = await sdk.Transactions.AccountTransactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-account-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions/{accountTransactionId}" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingAccountTransactionRequest req = new GetAccountingAccountTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountTransactionId = "<id>",
+};
+
+var res = await sdk.Transactions.AccountTransactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-account-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions/{accountTransactionId}" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingAccountTransactionRequest req = new GetAccountingAccountTransactionRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountTransactionId = "<id>",
+};
+
+var res = await sdk.Transactions.AccountTransactions.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-account-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/accountTransactions/{accountTransactionId}" example="Xero" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

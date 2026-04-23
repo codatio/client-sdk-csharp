@@ -2,6 +2,14 @@
 
 Data source type.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Requests;
+
+var value = QueryParamSourceType.Banking;
+```
+
 
 ## Values
 

@@ -2,6 +2,14 @@
 
 The type of platform of the connection.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = SourceType.Accounting;
+```
+
 
 ## Values
 

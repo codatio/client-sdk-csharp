@@ -2,6 +2,14 @@
 
 Type of payment.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = PaymentType.Cash;
+```
+
 
 ## Values
 

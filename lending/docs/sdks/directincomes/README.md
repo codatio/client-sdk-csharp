@@ -19,9 +19,156 @@ The *List direct incomes* endpoint returns a list of [direct incomes](https://do
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" -->
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingDirectIncomesRequest req = new ListAccountingDirectIncomesRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" example="Xero" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -68,9 +215,149 @@ The *Get direct income* endpoint returns a single direct income for a given dire
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="Clear Books" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectIncomeId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectIncomeId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectIncomeId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectIncomeId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="QuickBooks Online" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectIncomeId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="QuickBooks Online Sandbox" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectIncomeId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="Sage Intacct" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetAccountingDirectIncomeRequest req = new GetAccountingDirectIncomeRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    DirectIncomeId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.AccountsReceivable.DirectIncomes.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" example="Xero" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

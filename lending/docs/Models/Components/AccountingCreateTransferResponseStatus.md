@@ -2,6 +2,14 @@
 
 The status of the transfer in the account
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = AccountingCreateTransferResponseStatus.Unknown;
+```
+
 
 ## Values
 

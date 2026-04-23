@@ -16,9 +16,156 @@ The *List payment methods* endpoint returns a list of [payment methods](https://
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Amazon Seller Central
 
-<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" -->
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="Amazon Seller Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommercePaymentMethodsRequest req = new ListCommercePaymentMethodsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.PaymentMethods.ListAsync(req);
+
+// handle response
+```
+### Example Usage: BigCommerce
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="BigCommerce" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommercePaymentMethodsRequest req = new ListCommercePaymentMethodsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.PaymentMethods.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Clover
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="Clover" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommercePaymentMethodsRequest req = new ListCommercePaymentMethodsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.PaymentMethods.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Lightspeed K Trial
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="Lightspeed K Trial" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommercePaymentMethodsRequest req = new ListCommercePaymentMethodsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.PaymentMethods.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="Mollie" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommercePaymentMethodsRequest req = new ListCommercePaymentMethodsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.PaymentMethods.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie Test
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="Mollie Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommercePaymentMethodsRequest req = new ListCommercePaymentMethodsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.PaymentMethods.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="Square" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommercePaymentMethodsRequest req = new ListCommercePaymentMethodsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.Sales.PaymentMethods.ListAsync(req);
+
+// handle response
+```
+### Example Usage: SumUp
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-payment-methods" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods" example="SumUp" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -65,9 +212,149 @@ The *Get payment method* endpoint returns a single payment method for a given pa
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Amazon Seller Central
 
-<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="Amazon Seller Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommercePaymentMethodRequest req = new GetCommercePaymentMethodRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentMethodId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.PaymentMethods.GetAsync(req);
+
+// handle response
+```
+### Example Usage: BigCommerce
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="BigCommerce" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommercePaymentMethodRequest req = new GetCommercePaymentMethodRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentMethodId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.PaymentMethods.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Clover
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="Clover" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommercePaymentMethodRequest req = new GetCommercePaymentMethodRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentMethodId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.PaymentMethods.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Lightspeed K Trial
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="Lightspeed K Trial" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommercePaymentMethodRequest req = new GetCommercePaymentMethodRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentMethodId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.PaymentMethods.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="Mollie" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommercePaymentMethodRequest req = new GetCommercePaymentMethodRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentMethodId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.PaymentMethods.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Mollie Test
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="Mollie Test" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommercePaymentMethodRequest req = new GetCommercePaymentMethodRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentMethodId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.PaymentMethods.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="Square" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommercePaymentMethodRequest req = new GetCommercePaymentMethodRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    PaymentMethodId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.PaymentMethods.GetAsync(req);
+
+// handle response
+```
+### Example Usage: SumUp
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-payment-method" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}" example="SumUp" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

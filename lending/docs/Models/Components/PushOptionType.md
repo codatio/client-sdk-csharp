@@ -2,6 +2,14 @@
 
 The option type.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = PushOptionType.Array;
+```
+
 
 ## Values
 

@@ -16,9 +16,66 @@ The *List locations* endpoint returns a list of [locations](https://docs.codat.i
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Clover
 
-<!-- UsageSnippet language="csharp" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" -->
+<!-- UsageSnippet language="csharp" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Clover" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceLocationsRequest req = new ListCommerceLocationsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.Sales.Locations.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Lightspeed K Trial
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Lightspeed K Trial" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceLocationsRequest req = new ListCommerceLocationsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.Sales.Locations.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Shopify" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCommerceLocationsRequest req = new ListCommerceLocationsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+};
+
+var res = await sdk.Sales.Locations.ListAsync(req);
+
+// handle response
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="csharp" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Square" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -63,9 +120,69 @@ The *Get location* endpoint returns a single location for a given locationId.
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Clover
 
-<!-- UsageSnippet language="csharp" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" -->
+<!-- UsageSnippet language="csharp" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Clover" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceLocationRequest req = new GetCommerceLocationRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    LocationId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Locations.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Lightspeed K Trial
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Lightspeed K Trial" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceLocationRequest req = new GetCommerceLocationRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    LocationId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Locations.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Shopify" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+GetCommerceLocationRequest req = new GetCommerceLocationRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    LocationId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+
+var res = await sdk.Sales.Locations.GetAsync(req);
+
+// handle response
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="csharp" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Square" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

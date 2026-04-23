@@ -2,6 +2,14 @@
 
 Types of links to bill payment lines.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = BillPaymentLineLinkType.Unknown;
+```
+
 
 ## Values
 

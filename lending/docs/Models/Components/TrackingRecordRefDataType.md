@@ -2,6 +2,14 @@
 
 Name of underlying data type.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = TrackingRecordRefDataType.Customers;
+```
+
 
 ## Values
 

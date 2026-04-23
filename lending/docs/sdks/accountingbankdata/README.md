@@ -17,9 +17,163 @@ The *List account bank transactions* endpoint returns a list of [bank account tr
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" -->
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="Dynamics 365 Business Central" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBankAccountTransactionsRequest req = new ListAccountingBankAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
+
+// handle response
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="FreeAgent" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBankAccountTransactionsRequest req = new ListAccountingBankAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
+
+// handle response
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="KashFlow" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBankAccountTransactionsRequest req = new ListAccountingBankAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
+
+// handle response
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="QuickBooks Desktop" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBankAccountTransactionsRequest req = new ListAccountingBankAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
+
+// handle response
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="Sage 50 (UK)" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBankAccountTransactionsRequest req = new ListAccountingBankAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
+
+// handle response
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="Sage Business Cloud Accounting" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBankAccountTransactionsRequest req = new ListAccountingBankAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
+
+// handle response
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="Xero" -->
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListAccountingBankAccountTransactionsRequest req = new ListAccountingBankAccountTransactionsRequest() {
+    CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
+    ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    AccountId = "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+};
+
+var res = await sdk.AccountingBankData.ListTransactionsAsync(req);
+
+// handle response
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="csharp" operationID="list-accounting-bank-account-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions" example="Zoho Books" -->
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;

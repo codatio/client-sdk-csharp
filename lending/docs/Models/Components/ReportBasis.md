@@ -2,6 +2,14 @@
 
 The basis of a report.
 
+## Example Usage
+
+```csharp
+using Codat.Lending.Models.Components;
+
+var value = ReportBasis.Unknown;
+```
+
 
 ## Values
 

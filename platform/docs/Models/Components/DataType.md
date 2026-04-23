@@ -2,6 +2,14 @@
 
 Available data types
 
+## Example Usage
+
+```csharp
+using Codat.Platform.Models.Components;
+
+var value = DataType.AccountTransactions;
+```
+
 
 ## Values
 

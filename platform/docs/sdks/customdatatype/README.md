@@ -42,12 +42,12 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
         DataSource = "api/purchaseOrders",
         RequiredData = new Dictionary<string, string>() {
+            { "currency", "$[*].currencyCode" },
             { "number", "$[*].number" },
             { "date", "$[*].orderDate" },
             { "totalexvat", "$[*].totalAmountExcludingTax" },
             { "totaltax", "$[*].totalTaxAmount" },
             { "vendor", "$[*].number" },
-            { "currency", "$[*].currencyCode" },
         },
         KeyBy = new List<string>() {
             "$[*].id",
@@ -79,9 +79,9 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
         DataSource = "/query?query=select * from Account",
         RequiredData = new Dictionary<string, string>() {
-            { "SubAcc", "$.SubAccount" },
             { "id", "$.Id" },
             { "Currentbal", "$.CurrentBalance" },
+            { "SubAcc", "$.SubAccount" },
         },
         KeyBy = new List<string>() {
             "$.Id",
@@ -113,13 +113,13 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
         DataSource = "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
         RequiredData = new Dictionary<string, string>() {
-            { "vendorName", "$[*].number" },
             { "currencyCode", "$[*].currencyCode" },
             { "id", "$[*].id" },
             { "number", "$[*].number" },
             { "orderDate", "$[*].orderDate" },
             { "totalAmountExcludingTax", "$[*].totalAmountExcludingTax" },
             { "totalTaxAmount", "$[*].totalTaxAmount" },
+            { "vendorName", "$[*].number" },
         },
         KeyBy = new List<string>() {
             "$[*].id",
@@ -151,10 +151,10 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
         DataSource = "/api.xro/2.0/Invoices",
         RequiredData = new Dictionary<string, string>() {
+            { "invNumber", "$.InvoiceNumber" },
             { "type", "$.Type" },
             { "InvoiceID", "$.InvoiceID" },
             { "lines", "$.LineItems[*]" },
-            { "invNumber", "$.InvoiceNumber" },
         },
         KeyBy = new List<string>() {
             "$.InvoiceID",
@@ -186,10 +186,10 @@ ConfigureCustomDataTypeRequest req = new ConfigureCustomDataTypeRequest() {
     CustomDataTypeConfiguration = new CustomDataTypeConfiguration() {
         DataSource = "/api.xro/2.0/Accounts",
         RequiredData = new Dictionary<string, string>() {
-            { "SysAcc", "$.SystemAccount" },
             { "code", "$.Code" },
             { "accountId", "$.AccountID" },
             { "type", "$.Type" },
+            { "SysAcc", "$.SystemAccount" },
         },
         KeyBy = new List<string>() {
             "$.AccountID",

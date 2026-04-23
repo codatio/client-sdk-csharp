@@ -2,6 +2,14 @@
 
 The current status of the dataset.
 
+## Example Usage
+
+```csharp
+using Codat.Platform.Models.Components;
+
+var value = DatasetStatus.Initial;
+```
+
 
 ## Values
 

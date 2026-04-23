@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Codat.Platform</PackageId>
-    <Version>6.2.0</Version>
+    <Version>6.2.1</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Codat</Authors>
     <Copyright>Copyright (c) Codat 2026</Copyright>

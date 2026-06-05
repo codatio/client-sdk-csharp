@@ -137,7 +137,6 @@ namespace Codat.Sync.Payables.Utils
                 "Codat.Sync.Payables.Models.Requests",
                 "Codat.Sync.Payables.Models.Components",
                 "Codat.Sync.Payables.Models.Errors",
-                "Codat.Sync.Payables.Models.Webhooks",
             };
 
             return modelNamespaces.Contains(ns);

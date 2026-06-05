@@ -165,9 +165,7 @@ namespace Codat.Sync.Payables
         /// <remarks>
         /// The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support downloading a bill attachment.
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
         /// </remarks>
         /// <param name="request">A <see cref="DownloadBillAttachmentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -1371,9 +1369,7 @@ namespace Codat.Sync.Payables
         /// <remarks>
         /// The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.<br/>
         /// <br/>
-        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.<br/>
-        /// <br/>
-        /// Check out our <a href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&amp;dataType=bills">coverage explorer</a> for integrations that support downloading a bill attachment.
+        /// <a href="https://docs.codat.io/sync-for-payables-api#/schemas/Bill">Bills</a> are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
         /// </remarks>
         /// <param name="request">A <see cref="DownloadBillAttachmentRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

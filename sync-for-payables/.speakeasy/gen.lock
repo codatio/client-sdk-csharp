@@ -1,27 +1,27 @@
 lockVersion: 2.0.0
 id: 00cbdd6c-b863-4d25-8a48-4bec7ae20fc1
 management:
-  docChecksum: 384bfbce0790e3cb0ef8a6a311ab8782
+  docChecksum: 15fd85bd3a6195af019f2ccc20d6905b
   docVersion: 3.0.0
-  speakeasyVersion: 1.761.9
-  generationVersion: 2.881.4
-  releaseVersion: 10.1.2
-  configChecksum: 0934b8ece521222c8b8202a56af9ca84
+  speakeasyVersion: 1.770.0
+  generationVersion: 2.893.0
+  releaseVersion: 10.2.0
+  configChecksum: 0ce5b206e67ebe29cc1f33a8db4f64f7
   repoURL: https://github.com/codatio/client-sdk-csharp.git
   repoSubDirectory: sync-for-payables
   installationURL: https://github.com/codatio/client-sdk-csharp
   published: true
 persistentEdits:
-  generation_id: cba82c2e-a66f-4fcf-af74-4d7441a27fc3
-  pristine_commit_hash: 8cd8ca1a927902c7468f703d2b4d22cbf7d5569d
-  pristine_tree_hash: a92b36daa30e0e8f2f322babebc2df24e84623f6
+  generation_id: dfcfc8a9-d47d-42fc-b040-2495319ce981
+  pristine_commit_hash: 082ee329c6b91e3fa5b18ae99bc0b4976329cf95
+  pristine_tree_hash: 8a3bd868afac20ccc42416a421235bd50d67733f
 features:
   csharp:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.0.3
-    core: 3.15.21
+    core: 3.15.22
     decimal: 0.1.0
-    examples: 2.81.7
+    examples: 2.81.8
     globalSecurity: 2.83.11
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
@@ -34,7 +34,6 @@ features:
     retries: 0.0.2
     sdkHooks: 0.3.0
     serverEventsSentinels: 0.2.0
-    webhooks: 1.0.0
 trackedFiles:
   .gitattributes:
     id: 24139dae6567
@@ -54,12 +53,12 @@ trackedFiles:
     pristine_git_object: 3f09432df5b54810ee25c8d4d42c5568bb6d09aa
   Codat/Sync/Payables/Bills.cs:
     id: e083f5e93c50
-    last_write_checksum: sha1:75ada7df53a4f67087b3ff00ef9c384af89c5f5e
-    pristine_git_object: 5470bcf6522c2b29f0e9fd8cebda4d7a4844b767
+    last_write_checksum: sha1:442adb5fefa7816f9e7b27580f66cb0f5440a7fb
+    pristine_git_object: 6a43a57ca516ef28cb8220948eaa8152655ef424
   Codat/Sync/Payables/Codat.Sync.Payables.csproj:
     id: 27c2af8e86c9
-    last_write_checksum: sha1:7c01bf5c20c3ab1ca985c567463a3393a6bf2c03
-    pristine_git_object: b34d758ec74dcfbb1eaef9034ef86df69a1b4116
+    last_write_checksum: sha1:f39b309d9e6801d1ac051d020fffb79b571baeb1
+    pristine_git_object: cda1cd72d13b95a30973972f3c17c7bc232cbe1b
   Codat/Sync/Payables/CodatSyncPayables.cs:
     id: 41ceacd335c5
     last_write_checksum: sha1:148411c35706d8823055167c1ec4bfa8b250f1e6
@@ -82,8 +81,8 @@ trackedFiles:
     pristine_git_object: 59980e150cbbbc220ae19abfe10491db99c1e984
   Codat/Sync/Payables/Hooks/SDKHooks.cs:
     id: ba72e82110f4
-    last_write_checksum: sha1:d9551e3f4bf10682c016c5b343470a44ee62f548
-    pristine_git_object: 87f331a1da5dee32f74f6fb2587ccda8c9b87de8
+    last_write_checksum: sha1:0cf7384f41d7a3b1c7a0de707fbf3118431c8ee2
+    pristine_git_object: b1bd430489a5d15407edee58bb0965c6ce3e4c84
   Codat/Sync/Payables/Models/Components/AccountMappingOption.cs:
     id: a2035c00766e
     last_write_checksum: sha1:19a27ab42828e0303a46759ef273f5ce5221f3a4
@@ -172,14 +171,6 @@ trackedFiles:
     id: 4272173c6db4
     last_write_checksum: sha1:28812c41a3bbeebc8cc5e67d4da9c937443b1661
     pristine_git_object: 9230c017809af5787b968c54f3e5fb4b3b4cf6bf
-  Codat/Sync/Payables/Models/Components/ClientRateLimitWebhook.cs:
-    id: 4392c6218ca1
-    last_write_checksum: sha1:65edd5c262d8a26bd00123c1725e6c1fd4a8d720
-    pristine_git_object: 93fb16b374f6118781fa3ae201943798218e637a
-  Codat/Sync/Payables/Models/Components/ClientRateLimitWebhookPayload.cs:
-    id: ba1ec9bc2423
-    last_write_checksum: sha1:0cb5bcffe80b06b95226649d7dbce50a82d2621a
-    pristine_git_object: 7ae2d02dfc17481b2d6ffe77414420fa0ea30c67
   Codat/Sync/Payables/Models/Components/CodatFile.cs:
     id: d4293dff5564
     last_write_checksum: sha1:e48786cc583c733de7099763ded56f5d59b811c2
@@ -520,18 +511,10 @@ trackedFiles:
     id: 6c19704ce11d
     last_write_checksum: sha1:349367062875a52480e723143d6fed6aacf27a66
     pristine_git_object: 838b8b587fa7fcfba5b7f7263ea019f83885d20b
-  Codat/Sync/Payables/Models/Webhooks/ClientRateLimitReachedResponse.cs:
-    id: 404f1f79a11f
-    last_write_checksum: sha1:d9adb938751385507eacf511f42323d08842a2b0
-    pristine_git_object: 791d143e53c95ef2dae72a3da8062b2c5811d1be
-  Codat/Sync/Payables/Models/Webhooks/ClientRateLimitResetResponse.cs:
-    id: 14ea65dabbfa
-    last_write_checksum: sha1:3c63077c16ccc509e21e00431368921f32276a56
-    pristine_git_object: 1eb9db1274e988187f1ab67a90110461e8d5d349
   Codat/Sync/Payables/SDKConfig.cs:
     id: 9a9d58bae336
-    last_write_checksum: sha1:e3a60bda210dd437c3954a71cefafc36218e92de
-    pristine_git_object: df6a801939f0e980b157732de2afc0641d73374c
+    last_write_checksum: sha1:1f5cd98b1e31875cd71bda2cf29c547a5bc5b0f6
+    pristine_git_object: ebddfc51ce9ace854ff0e5cbd0e30918d17afdc4
   Codat/Sync/Payables/Suppliers.cs:
     id: dc6d700dd058
     last_write_checksum: sha1:bb7f1f11c4f27b69441f9b53d807f0e8a17bd2bb
@@ -546,8 +529,8 @@ trackedFiles:
     pristine_git_object: 19c8f4a154f7882ea81ca6c8d1effa78b5009852
   Codat/Sync/Payables/Utils/Constants.cs:
     id: 26a6c908c9c7
-    last_write_checksum: sha1:88a9e45f10e2137983252841543cfb9ddfb64448
-    pristine_git_object: e54efcd8b2f1dbbe851cceab7b4f0674ab22c2ac
+    last_write_checksum: sha1:93ce6c42ef586ba482661e1a9b62567135093f3d
+    pristine_git_object: e7623bef5ff24d70efb3b70abdbe421fe24134b3
   Codat/Sync/Payables/Utils/DecimalStrConverter.cs:
     id: 732482e82206
     last_write_checksum: sha1:6d3efc9c8e2de4ee867f7ab85fd86d6825812d83
@@ -610,8 +593,8 @@ trackedFiles:
     pristine_git_object: 436e7620fac8fac7c9bda994768437456ad4a1e2
   Codat/Sync/Payables/Utils/Utilities.cs:
     id: 5491ebcd861c
-    last_write_checksum: sha1:2556074118ca3590cdff2c945dc6e60dd4e86aa1
-    pristine_git_object: 65e148518e325a17b07e589bb94e0bfdc621808a
+    last_write_checksum: sha1:6bccf2a081309523e5cd676e6bb752cc4099e26a
+    pristine_git_object: 5d42d830688aeb30b7950bca0df4c30cb2a03831
   NUGET.md:
     id: f4c8a442a6e5
     last_write_checksum: sha1:112ef1aeb54f1a69730a5a7acc36a2ed2bf7b91c
@@ -708,14 +691,6 @@ trackedFiles:
     id: 0283d8661c72
     last_write_checksum: sha1:414d8b0e0b9a76d02eebdae3ad2bc1125507a5f5
     pristine_git_object: f66ba2a2e562160b8bc8590a3127bd28e6ca87f8
-  docs/Models/Components/ClientRateLimitWebhook.md:
-    id: 76c3a2ac70a1
-    last_write_checksum: sha1:2484e6e6a26741193199400c161723f5c372ce4c
-    pristine_git_object: b5ded115e678cd1fba759ce350b25c66bad90f26
-  docs/Models/Components/ClientRateLimitWebhookPayload.md:
-    id: 56e0e7798a5e
-    last_write_checksum: sha1:1a7795dd1007642791299f3ec78d349d1ebb47ec
-    pristine_git_object: ba85388946a28ad7793134a481f5ae3cd7896f3d
   docs/Models/Components/CodatFile.md:
     id: 0cca107479b0
     last_write_checksum: sha1:e6c646213692731f42360190fa282d4eb84e6861
@@ -1044,14 +1019,6 @@ trackedFiles:
     id: 9bb5dad6968a
     last_write_checksum: sha1:5524fc6de17624843ffdaa353197055bcf59ab71
     pristine_git_object: d06a42360b8a85ead3c4b6663a0498ae3a34d261
-  docs/Models/Webhooks/ClientRateLimitReachedResponse.md:
-    id: c2fdaff5362d
-    last_write_checksum: sha1:55a031899f071b43c51844bd7be6711499eb100b
-    pristine_git_object: 7dbf08dbf61a190316d13ad765ed741783d76f15
-  docs/Models/Webhooks/ClientRateLimitResetResponse.md:
-    id: d57017369cdb
-    last_write_checksum: sha1:cc433eb763f2a4fd0bb182d03f5adb2a99a60119
-    pristine_git_object: 94e8224449b12d31bae84f283649675d21c0169f
   docs/sdks/bankaccounts/README.md:
     id: 510ffee224ea
     last_write_checksum: sha1:5e23dd6d3cd1a61f639fab0ce6df49b383609736
@@ -1062,8 +1029,8 @@ trackedFiles:
     pristine_git_object: 78b4049c081820c7612602eced80d5e66745c288
   docs/sdks/bills/README.md:
     id: 2a9c97966ab7
-    last_write_checksum: sha1:451aa35094000e2e229ac3e8181dc11e704568ad
-    pristine_git_object: 3d4d3ac8cbbd90176a74e6ba968c39c9f012488f
+    last_write_checksum: sha1:3ed0a672e4acb31fd47cb23107863db0b8468a10
+    pristine_git_object: 498814b71913901aa2fb924c6e95ed56d1edb35d
   docs/sdks/companies/README.md:
     id: 67e8a49afa67
     last_write_checksum: sha1:fa422bdc86239493921abeb75a666423d6db13ce
@@ -2104,17 +2071,6 @@ examples:
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Csharp SDK Changes:
-  * `Codat.syncPayables.Companies.List()`:  `response.results[].DataConnections[].IntegrationKey` **Changed**
-  * `Codat.syncPayables.Companies.Create()`:  `response.dataConnections[].IntegrationKey` **Changed**
-  * `Codat.syncPayables.Companies.Replace()`:  `response.dataConnections[].IntegrationKey` **Changed**
-  * `Codat.syncPayables.Companies.Update()`:  `response.dataConnections[].IntegrationKey` **Changed**
-  * `Codat.syncPayables.Companies.Get()`:  `response.dataConnections[].IntegrationKey` **Changed**
-  * `Codat.syncPayables.Connections.List()`:  `response.results[].IntegrationKey` **Changed**
-  * `Codat.syncPayables.Connections.Create()`:  `response.integrationKey` **Changed**
-  * `Codat.syncPayables.Connections.Get()`:  `response.integrationKey` **Changed**
-  * `Codat.syncPayables.Connections.Unlink()`:  `response.integrationKey` **Changed**
 generatedFiles:
   - .gitattributes
   - CONTRIBUTING.md

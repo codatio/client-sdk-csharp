@@ -1,0 +1,51 @@
+name: SDK quality (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      test_project:
+        description: Path to the test project (.csproj)
+        required: true
+        type: string
+      global_json:
+        description: Path to the target's global.json
+        required: true
+        type: string
+      artifact_name:
+        description: Name for the uploaded results artifact
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  sdk-quality:
+    runs-on: ubuntu-latest
+    env:
+      TEST_PROJECT: ${{ inputs.test_project }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          global-json-file: ${{ inputs.global_json }}
+
+      - name: Build (Release)
+        run: dotnet build "$TEST_PROJECT" -c Release --nologo
+
+      - name: Test (Release)
+        run: >
+          dotnet test "$TEST_PROJECT" -c Release --no-build
+          --logger "trx;LogFileName=results.trx"
+          --results-directory ./test-results
+
+      - name: Publish results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: |
+            **/*.received.txt
+            ./test-results/**
+          if-no-files-found: ignore

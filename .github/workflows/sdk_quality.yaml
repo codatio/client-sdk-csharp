@@ -1,0 +1,39 @@
+name: SDK quality (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      target:
+        description: SDK target directory (e.g. platform)
+        required: true
+        type: string
+      artifact_name:
+        description: Name for the uploaded results artifact
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  sdk-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Check (build + test)
+        run: pwsh ./check.ps1 -Target ${{ inputs.target }}
+
+      - name: Publish results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: |
+            **/*.received.txt
+            **/test-results/**
+          if-no-files-found: ignore

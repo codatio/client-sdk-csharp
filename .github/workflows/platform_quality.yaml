@@ -1,0 +1,23 @@
+name: Platform SDK quality gate (C#)
+
+on:
+  pull_request:
+    paths:
+      - platform/**
+      - .github/workflows/platform_quality.yaml
+      - .github/workflows/sdk_quality.yaml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: platform-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    uses: ./.github/workflows/sdk_quality.yaml
+    with:
+      target: platform
+      artifact_name: platform-quality

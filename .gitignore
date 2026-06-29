@@ -1,2 +1,5 @@
 # Ignore Speakeasy regen change logs
 .speakeasy/logs/changes/
+
+# Local test run output (uploaded as a CI artifact, never committed)
+**/test-results/

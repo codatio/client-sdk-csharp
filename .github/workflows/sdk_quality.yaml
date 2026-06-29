@@ -3,12 +3,8 @@ name: SDK quality (reusable)
 on:
   workflow_call:
     inputs:
-      test_project:
-        description: Path to the test project (.csproj)
-        required: true
-        type: string
-      global_json:
-        description: Path to the target's global.json
+      target:
+        description: SDK target directory (e.g. platform)
         required: true
         type: string
       artifact_name:
@@ -22,23 +18,15 @@ permissions:
 jobs:
   sdk-quality:
     runs-on: ubuntu-latest
-    env:
-      TEST_PROJECT: ${{ inputs.test_project }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
-          global-json-file: ${{ inputs.global_json }}
+          global-json-file: ${{ inputs.target }}/global.json
 
-      - name: Build (Release)
-        run: dotnet build "$TEST_PROJECT" -c Release --nologo
-
-      - name: Test (Release)
-        run: >
-          dotnet test "$TEST_PROJECT" -c Release --no-build
-          --logger "trx;LogFileName=results.trx"
-          --results-directory ./test-results
+      - name: Check (build + test)
+        run: pwsh ./check.ps1 -Target ${{ inputs.target }}
 
       - name: Publish results
         if: always()
@@ -47,5 +35,5 @@ jobs:
           name: ${{ inputs.artifact_name }}
           path: |
             **/*.received.txt
-            ./test-results/**
+            **/test-results/**
           if-no-files-found: ignore

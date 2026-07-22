@@ -36,7 +36,6 @@ namespace Codat.Platform.Hooks
             this.beforeRequestHooks = new List<IBeforeRequestHook>();
             this.afterSuccessHooks = new List<IAfterSuccessHook>();
             this.afterErrorHooks = new List<IAfterErrorHook>();
-            HookRegistration.InitHooks(this);
         }
 
         /// <summary>

@@ -113,6 +113,12 @@ namespace Codat.Platform.Models.Components
         [JsonProperty("tags")]
         public Dictionary<string, string>? Tags { get; set; }
 
+        /// <summary>
+        /// The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+        /// </summary>
+        [JsonProperty("ownerUserIds")]
+        public List<string>? OwnerUserIds { get; set; }
+
         [JsonProperty("referenceParentCompany")]
         public CompanyReference? ReferenceParentCompany { get; set; }
 

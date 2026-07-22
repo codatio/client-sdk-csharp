@@ -29,7 +29,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 csharp:
-  version: 6.2.1
+  version: 6.3.0
   additionalDependencies: []
   author: Codat
   baseErrorName: CodatPlatformException
@@ -61,7 +61,10 @@ csharp:
   outputModelSuffix: output
   packageName: Codat.Platform
   packageTags: ""
+  presenceAwareJsonSerialization: false
   respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope
   sourceDirectory: ""
+  targetFramework: dotnetVersion
+  unionStrategy: left-to-right
   useNodatime: true

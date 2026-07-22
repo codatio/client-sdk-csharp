@@ -137,7 +137,6 @@ namespace Codat.Platform.Utils
                 "Codat.Platform.Models.Requests",
                 "Codat.Platform.Models.Components",
                 "Codat.Platform.Models.Errors",
-                "Codat.Platform.Models.Webhooks",
             };
 
             return modelNamespaces.Contains(ns);

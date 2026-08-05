@@ -1,7 +1,7 @@
 # Sync for Payroll
 
 <!-- Start Codat Library Description -->
-Push payroll to accounting platforms.
+Push payroll to accounting software.
 <!-- End Codat Library Description -->
 
 <!-- Start Summary [summary] -->
@@ -324,7 +324,7 @@ catch (Exception ex)
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 <!-- Start Codat Support Notes -->
-### Support
+## Support
 
 If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance. 
 You can raise any issues by contacting your dedicated Codat representative or reaching out to our [support team](mailto:support@codat.io).

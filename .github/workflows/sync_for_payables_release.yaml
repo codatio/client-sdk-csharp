@@ -1,3 +1,15 @@
+# Written by sdk-codegen (emit_workflow_stubs.py); do not edit by hand.
+# Publishing no longer runs in this repo. The packaging checks, the upload to
+# NuGet, the tag and the GitHub release all run centrally in publish-csharp.yml
+# in Codat SDK Codegen - no check has been dropped, they just moved. This stub
+# only forwards the release trigger there, authenticated with a short-lived
+# token minted from the GitHub App in the PUBLISH_TRIGGER_APP_* secrets.
+#
+# Set the PUBLISH_PRERELEASE Actions variable on this repo to rc1 to make the
+# next merge publish <version>-rc1 rather than <version>. A plain
+# `dotnet add package` takes the newest stable version, so only people who ask
+# for the rc by name get it. Clear the variable once the real version has been
+# promoted.
 name: Release Sync for Payables library
 'on':
   push:
@@ -5,11 +17,34 @@ name: Release Sync for Payables library
     - sync-for-payables/RELEASES.md
     branches:
     - main
+  workflow_dispatch: {}
+concurrency: publish-sync-for-payables-csharp
 jobs:
   publish:
-    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
-    secrets:
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
-      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-      nuget_api_key: ${{ secrets.NUGET_API_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the App secrets are set
+        env:
+          APP_ID_SET: ${{ secrets.PUBLISH_TRIGGER_APP_ID != '' }}
+          APP_KEY_SET: ${{ secrets.PUBLISH_TRIGGER_APP_PRIVATE_KEY != '' }}
+        run: |
+          if [ "$APP_ID_SET" != "true" ] || [ "$APP_KEY_SET" != "true" ]; then
+            echo "::error::PUBLISH_TRIGGER_APP_ID / PUBLISH_TRIGGER_APP_PRIVATE_KEY secrets are not set - needed to mint the token that sends the publish-csharp repository dispatch to codat-internal/sdk-codegen"
+            exit 1
+          fi
+      - name: Mint a token from the GitHub App
+        id: app_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.PUBLISH_TRIGGER_APP_ID }}
+          private-key: ${{ secrets.PUBLISH_TRIGGER_APP_PRIVATE_KEY }}
+          owner: codat-internal
+          repositories: sdk-codegen
+      - name: Hand the release to the central publish pipeline
+        run: |
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ steps.app_token.outputs.token }}" \
+            https://api.github.com/repos/codat-internal/sdk-codegen/dispatches \
+            -d '{"event_type": "publish-csharp", "client_payload": {"product": "sync-for-payables", "sha": "${{ github.sha }}", "sdk_repo": "${{ github.repository }}", "prerelease": "${{ vars.PUBLISH_PRERELEASE }}"}}'
+          echo "publish-csharp dispatch sent to codat-internal/sdk-codegen for sync-for-payables @ ${{ github.sha }}${{ vars.PUBLISH_PRERELEASE && format(' as a {0} pre-release', vars.PUBLISH_PRERELEASE) || '' }}"

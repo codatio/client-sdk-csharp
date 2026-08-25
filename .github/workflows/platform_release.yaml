@@ -1,15 +1,11 @@
 # Written by sdk-codegen (emit_workflow_stubs.py); do not edit by hand.
-# Publishing no longer runs in this repo. The packaging checks, the upload to
-# NuGet, the tag and the GitHub release all run centrally in publish-csharp.yml
-# in Codat SDK Codegen - no check has been dropped, they just moved. This stub
-# only forwards the release trigger there, authenticated with a short-lived
-# token minted from the GitHub App in the PUBLISH_TRIGGER_APP_* secrets.
+# The upload to NuGet, the packaging checks, the tag and the GitHub release run
+# centrally in publish-csharp.yml in Codat SDK Codegen. This stub only forwards
+# the release trigger there.
 #
 # Set the PUBLISH_PRERELEASE Actions variable on this repo to rc1 to make the
-# next merge publish <version>-rc1 rather than <version>. A plain
-# `dotnet add package` takes the newest stable version, so only people who ask
-# for the rc by name get it. Clear the variable once the real version has been
-# promoted.
+# next merge publish <version>-rc1 rather than <version>. Clear it once the
+# real version has gone out.
 name: Release Platform library
 'on':
   push:

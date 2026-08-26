@@ -1,7 +1,7 @@
-# Written by sdk-codegen (emit_workflow_stubs.py); do not edit by hand.
+# Written by sdk-codegen; do not edit by hand.
 # The upload to NuGet, the packaging checks, the tag and the GitHub release run
-# centrally in publish-csharp.yml in Codat SDK Codegen. This stub only forwards
-# the release trigger there.
+# centrally in Codat SDK Codegen. This stub only forwards the release trigger
+# there.
 #
 # Set the PUBLISH_PRERELEASE Actions variable on this repo to rc1 to make the
 # next merge publish <version>-rc1 rather than <version>. Clear it once the

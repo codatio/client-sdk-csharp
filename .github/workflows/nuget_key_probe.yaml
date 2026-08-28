@@ -1,0 +1,43 @@
+# Throwaway check: is the NUGET_API_KEY this repo can read still accepted by nuget.org,
+# and for which of the five packages? Re-pushing a version that is already published can
+# never publish anything: nuget.org answers 409 when the key is valid and 403 when it is
+# not. Only the status code is printed.
+name: nuget-key-probe
+
+on:
+  push:
+    branches: [spike/CONN-1665-nuget-key-probe]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Re-push already-published versions and report the status code only
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          if [ -z "$NUGET_API_KEY" ]; then
+            echo "RESULT: NUGET_API_KEY is not readable from this job"
+            exit 1
+          fi
+          for id in codat.bankfeeds codat.lending codat.platform codat.sync.expenses codat.sync.payables; do
+            version=$(curl -fsSL "https://api.nuget.org/v3-flatcontainer/$id/index.json" \
+              | python3 -c 'import json, sys; print(json.load(sys.stdin)["versions"][-1])')
+            curl -fsSL -o "$id.nupkg" "https://api.nuget.org/v3-flatcontainer/$id/$version/$id.$version.nupkg"
+            out=$(dotnet nuget push "$id.nupkg" --source https://api.nuget.org/v3/index.json --api-key "$NUGET_API_KEY" 2>&1) || true
+            if echo "$out" | grep -q "409"; then
+              verdict="409: key valid and scoped to this package"
+            elif echo "$out" | grep -q "403"; then
+              verdict="403: key rejected (expired, or not scoped to this package)"
+            else
+              verdict="unexpected: $(echo "$out" | grep -o -E '\b[0-9]{3} \(' | head -1)"
+            fi
+            echo "RESULT: $id $version -> $verdict"
+          done

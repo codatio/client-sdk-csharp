@@ -322,7 +322,12 @@ CreateBillRequest req = new CreateBillRequest() {
         Currency = "GBP",
         LineItems = new List<BillLineItem>() {
             new BillLineItem() {
-                TrackingRefs = null,
+                TrackingRefs = new List<TrackingRef>() {
+                    new TrackingRef() {
+                        Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                        DataType = DataType.TrackingCategories,
+                    },
+                },
             },
         },
         Status = BillStatus.Open,
@@ -356,7 +361,12 @@ CreateBillRequest req = new CreateBillRequest() {
         Currency = "GBP",
         LineItems = new List<BillLineItem>() {
             new BillLineItem() {
-                TrackingRefs = null,
+                TrackingRefs = new List<TrackingRef>() {
+                    new TrackingRef() {
+                        Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                        DataType = DataType.TrackingCategories,
+                    },
+                },
             },
         },
         Status = BillStatus.Open,

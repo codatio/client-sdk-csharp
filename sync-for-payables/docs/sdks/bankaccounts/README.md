@@ -56,7 +56,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     BankAccountPrototype = new BankAccountPrototype() {
         Name = "<value>",
-        AccountType = BankAccountType.Debit,
+        AccountType = BankAccountType.Credit,
         AccountNumber = "<value>",
         Currency = "GBP",
     },
@@ -81,7 +81,7 @@ CreateBankAccountRequest req = new CreateBankAccountRequest() {
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     BankAccountPrototype = new BankAccountPrototype() {
         Name = "<value>",
-        AccountType = BankAccountType.Debit,
+        AccountType = BankAccountType.Credit,
         AccountNumber = "<value>",
         Currency = "GBP",
     },

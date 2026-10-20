@@ -209,7 +209,7 @@ CreateSupplierRequest req = new CreateSupplierRequest() {
     SupplierPrototype = new SupplierPrototype() {
         SupplierName = "<value>",
         Phone = "+44 25691 154789",
-        Status = SupplierStatus.Unknown,
+        Status = SupplierStatus.Active,
     },
 };
 

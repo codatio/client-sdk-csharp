@@ -219,3 +219,13 @@ Based on:
 - [csharp v10.2.0] sync-for-payables
 ### Releases
 - [NuGet v10.2.0] https://www.nuget.org/packages/Codat.Sync.Payables/10.2.0 - sync-for-payables
+
+## 2026-10-20 15:33:15
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+- codat sdk-codegen 0dc23abe198ed4f43d904e7ecb8e5bcbc8bbbec0
+### Generated
+- [csharp v11.0.0] sync-for-payables
+### Releases
+- [NuGet v11.0.0] https://www.nuget.org/packages/Codat.Sync.Payables/11.0.0 - sync-for-payables

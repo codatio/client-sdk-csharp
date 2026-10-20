@@ -42,7 +42,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateExcelReportRequest req = new GenerateExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedFinancials,
+    ReportType = ExcelReportTypes.Audit,
 };
 
 var res = await sdk.ExcelReports.GenerateAsync(req);
@@ -88,7 +88,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetExcelReportGenerationStatusRequest req = new GetExcelReportGenerationStatusRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedCashFlow,
+    ReportType = ExcelReportTypes.Audit,
 };
 
 var res = await sdk.ExcelReports.GetStatusAsync(req);
@@ -134,7 +134,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 DownloadExcelReportRequest req = new DownloadExcelReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    ReportType = ExcelReportTypes.EnhancedCashFlow,
+    ReportType = ExcelReportTypes.Audit,
 };
 
 var res = await sdk.ExcelReports.DownloadAsync(req);

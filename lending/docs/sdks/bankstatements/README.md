@@ -174,7 +174,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 UploadBankStatementDataRequest req = new UploadBankStatementDataRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DatasetId = "f0095e43-88a7-4395-9f2c-1d5226e1c9e5",
+    DatasetId = "f53e9b98-1003-5e76-bc0c-b3d7f677796a",
     RequestBody = UploadBankStatementDataRequestBody.CreateAny(
         new Dictionary<string, object>() {
             { "results", new List<object>() {
@@ -253,7 +253,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 EndBankStatementUploadSessionRequest req = new EndBankStatementUploadSessionRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    DatasetId = "79c714cf-8643-4bc6-9b4e-8d1a971222b7",
+    DatasetId = "36f3193f-9108-5722-8667-d9563e890333",
 };
 
 var res = await sdk.BankStatements.EndUploadSessionAsync(req);

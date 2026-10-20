@@ -321,22 +321,10 @@ CreateDirectCostRequest req = new CreateDirectCostRequest() {
         IssueDate = "2022-10-23T00:00:00Z",
         Currency = "GBP",
         LineItems = new List<DirectCostLineItem>() {},
-        PaymentAllocations = new List<AccountingPaymentAllocation>() {
-            new AccountingPaymentAllocation() {
-                Payment = new PaymentAllocationPayment() {
-                    AccountRef = new AccountRef() {},
-                    Currency = "GBP",
-                    PaidOnDate = "2022-10-23T00:00:00Z",
-                },
-                Allocation = new Allocation() {
-                    Currency = "GBP",
-                    AllocatedOnDate = "2022-10-23T00:00:00Z",
-                },
-            },
-        },
-        SubTotal = 3566.34M,
-        TaxAmount = 7664.68M,
-        TotalAmount = 208.93M,
+        PaymentAllocations = new List<AccountingPaymentAllocation>() {},
+        SubTotal = 32282.8M,
+        TaxAmount = 96265.06M,
+        TotalAmount = 8043.83M,
     },
 };
 

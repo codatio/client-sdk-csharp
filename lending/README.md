@@ -1,10 +1,7 @@
 # Lending
 
-<!-- Start Codat Library Description -->
 Lending helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from the operating systems they are already using. You can use that data for automating decisioning and surfacing new insights on the customer, all via one API.
-<!-- End Codat Library Description -->
 
-<!-- Start Summary [summary] -->
 ## Summary
 
 Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.
@@ -13,7 +10,6 @@ The Lending solution is built on top of the latest accounting, commerce, and ban
 
 [Explore solution](https://docs.codat.io/lending/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
-<!-- Start Codat Tags Table -->
 ## Endpoints
 
 | Endpoints | Description |
@@ -33,27 +29,21 @@ The Lending solution is built on top of the latest accounting, commerce, and ban
 | Manage data | Control how data is retrieved from an integration. |
 | File upload | Endpoints to manage uploaded files. |
 | Loan writeback | Implement the [loan writeback](https://docs.codat.io/lending/guides/loan-writeback/introduction) procedure in your lending process to maintain an accurate position of a loan during the entire lending cycle. |
-<!-- End Codat Tags Table -->
-<!-- End Summary [summary] -->
 
-<!-- Start Table of Contents [toc] -->
 ## Table of Contents
-<!-- $toc-max-depth=2 -->
-* [Lending](#lending)
-  * [Endpoints](#endpoints)
-  * [SDK Installation](#sdk-installation)
-  * [Example Usage](#example-usage)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Server Selection](#server-selection)
-  * [Authentication](#authentication)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Custom HTTP Client](#custom-http-client)
 
-<!-- End Table of Contents [toc] -->
+* [Summary](#summary)
+* [Endpoints](#endpoints)
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+* [Error Handling](#error-handling)
+* [Retries](#retries)
+* [Custom HTTP Client](#custom-http-client)
+* [Support](#support)
 
-<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NuGet
@@ -69,10 +59,7 @@ To add a reference to a local instance of the SDK in a .NET project:
 ```bash
 dotnet add reference Codat/Lending/Codat.Lending.csproj
 ```
-<!-- End SDK Installation [installation] -->
 
-## Example Usage
-<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
 ### Example
@@ -94,9 +81,7 @@ var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage [usage] -->
 
-<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
 <details open>
@@ -180,14 +165,6 @@ var res = await sdk.Companies.ListAsync(req);
 * [IsAgedCreditorsAvailable](docs/sdks/codatlendingreports/README.md#isagedcreditorsavailable) - Aged creditors report available
 * [GetAgedCreditors](docs/sdks/codatlendingreports/README.md#getagedcreditors) - Aged creditors report
 
-### [BankStatements](docs/sdks/bankstatements/README.md)
-
-* [GetUploadConfiguration](docs/sdks/bankstatements/README.md#getuploadconfiguration) - Get upload configuration
-* [SetUploadConfiguration](docs/sdks/bankstatements/README.md#setuploadconfiguration) - Set upload configuration
-* [StartUploadSession](docs/sdks/bankstatements/README.md#startuploadsession) - Start upload session
-* [UploadBankStatementData](docs/sdks/bankstatements/README.md#uploadbankstatementdata) - Upload data
-* [EndUploadSession](docs/sdks/bankstatements/README.md#enduploadsession) - End upload session
-
 ### [Banking.AccountBalances](docs/sdks/accountbalances/README.md)
 
 * [List](docs/sdks/accountbalances/README.md#list) - List account balances
@@ -210,6 +187,14 @@ var res = await sdk.Companies.ListAsync(req);
 
 * [List](docs/sdks/codatlendingtransactions/README.md#list) - List transactions
 * [Get](docs/sdks/codatlendingtransactions/README.md#get) - Get bank transaction
+
+### [BankStatements](docs/sdks/bankstatements/README.md)
+
+* [GetUploadConfiguration](docs/sdks/bankstatements/README.md#getuploadconfiguration) - Get upload configuration
+* [SetUploadConfiguration](docs/sdks/bankstatements/README.md#setuploadconfiguration) - Set upload configuration
+* [StartUploadSession](docs/sdks/bankstatements/README.md#startuploadsession) - Start upload session
+* [UploadBankStatementData](docs/sdks/bankstatements/README.md#uploadbankstatementdata) - Upload data
+* [EndUploadSession](docs/sdks/bankstatements/README.md#enduploadsession) - End upload session
 
 ### [Companies](docs/sdks/companies/README.md)
 
@@ -323,11 +308,6 @@ var res = await sdk.Companies.ListAsync(req);
 * [GetCreateModel](docs/sdks/codatlendingtransfers/README.md#getcreatemodel) - Get create transfer model
 * [Create](docs/sdks/codatlendingtransfers/README.md#create) - Create transfer
 
-### [ManageReports](docs/sdks/managereports/README.md)
-
-* [GenerateReport](docs/sdks/managereports/README.md#generatereport) - Generate report
-* [ListReports](docs/sdks/managereports/README.md#listreports) - List reports
-
 ### [ManageData](docs/sdks/managedata/README.md)
 
 * [GetStatus](docs/sdks/managedata/README.md#getstatus) - Get data status
@@ -341,6 +321,11 @@ var res = await sdk.Companies.ListAsync(req);
 
 * [AllDataTypes](docs/sdks/refresh/README.md#alldatatypes) - Refresh all data
 * [DataType](docs/sdks/refresh/README.md#datatype) - Refresh data type
+
+### [ManageReports](docs/sdks/managereports/README.md)
+
+* [GenerateReport](docs/sdks/managereports/README.md#generatereport) - Generate report
+* [ListReports](docs/sdks/managereports/README.md#listreports) - List reports
 
 ### [Sales.Customers](docs/sdks/codatlendingcustomers/README.md)
 
@@ -427,9 +412,7 @@ var res = await sdk.Companies.ListAsync(req);
 * [Get](docs/sdks/transfers/README.md#get) - Get transfer
 
 </details>
-<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Override Server URL Per-Client
@@ -455,9 +438,7 @@ var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End Server Selection [server] -->
 
-<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -468,7 +449,7 @@ This SDK supports the following security scheme globally:
 | ------------ | ------ | ------- |
 | `AuthHeader` | apiKey | API key |
 
-To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
+To authenticate with the API the `authHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Lending;
 using Codat.Lending.Models.Components;
@@ -486,77 +467,7 @@ var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End Authentication [security] -->
 
-<!-- Start Retries [retries] -->
-## Retries
-
-Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
-
-To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Components;
-using Codat.Lending.Models.Requests;
-
-var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
-
-ListCompaniesRequest req = new ListCompaniesRequest() {
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    OrderBy = "-modifiedDate",
-    Tags = "region=uk && team=invoice-finance",
-};
-
-var res = await sdk.Companies.ListAsync(
-    retryConfig: new RetryConfig(
-        strategy: RetryConfig.RetryStrategy.BACKOFF,
-        backoff: new BackoffStrategy(
-            initialIntervalMs: 1L,
-            maxIntervalMs: 50L,
-            maxElapsedTimeMs: 100L,
-            exponent: 1.1
-        ),
-        retryConnectionErrors: false
-    ),
-    request: req
-);
-
-// handle response
-```
-
-If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
-```csharp
-using Codat.Lending;
-using Codat.Lending.Models.Components;
-using Codat.Lending.Models.Requests;
-
-var sdk = new CodatLending(
-    retryConfig: new RetryConfig(
-        strategy: RetryConfig.RetryStrategy.BACKOFF,
-        backoff: new BackoffStrategy(
-            initialIntervalMs: 1L,
-            maxIntervalMs: 50L,
-            maxElapsedTimeMs: 100L,
-            exponent: 1.1
-        ),
-        retryConnectionErrors: false
-    ),
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
-);
-
-ListCompaniesRequest req = new ListCompaniesRequest() {
-    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    OrderBy = "-modifiedDate",
-    Tags = "region=uk && team=invoice-finance",
-};
-
-var res = await sdk.Companies.ListAsync(req);
-
-// handle response
-```
-<!-- End Retries [retries] -->
-
-<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 [`CodatLendingException`](./Codat/Lending/Models/Errors/CodatLendingException.cs) is the base exception class for all HTTP error responses. It has the following properties:
@@ -579,6 +490,9 @@ using Codat.Lending;
 using Codat.Lending.Models.Components;
 using Codat.Lending.Models.Errors;
 using Codat.Lending.Models.Requests;
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -606,12 +520,12 @@ catch (CodatLendingException ex)  // all SDK exceptions inherit from CodatLendin
     string? contentType = ex.ContentType;
     var responseBody = ex.Body;
 
-    if (ex is ErrorMessage) // different exceptions may be thrown depending on the method
+    if (ex is Codat.Lending.Models.Errors.ErrorMessage errorMessage) // different exceptions may be thrown depending on the method
     {
         // Check error data fields
-        ErrorMessagePayload payload = ex.Payload;
-        long StatusCode = payload.StatusCode;
-        string Service = payload.Service;
+        Codat.Lending.Models.Errors.ErrorMessagePayload payload = errorMessage.Payload;
+        var errorStatusCode = payload.StatusCode;
+        var service = payload.Service;
         // ...
     }
 
@@ -623,7 +537,8 @@ catch (CodatLendingException ex)  // all SDK exceptions inherit from CodatLendin
 }
 catch (System.Net.Http.HttpRequestException ex)
 {
-    // Check ex.InnerException for Network connectivity errors
+    // Check ex.InnerException for network connectivity errors
+    System.Console.WriteLine(ex.InnerException);
 }
 ```
 
@@ -631,101 +546,157 @@ catch (System.Net.Http.HttpRequestException ex)
 
 **Primary exceptions:**
 * [`CodatLendingException`](./Codat/Lending/Models/Errors/CodatLendingException.cs): The base class for HTTP error responses.
-  * [`ErrorMessage`](./Codat/Lending/Models/Errors/ErrorMessage.cs): Your `query` parameter was not correctly formed.
+  * [`ErrorMessage`](./Codat/Lending/Models/Errors/ErrorMessage.cs): A Codat API error response. Its structured fields are on `Payload`.
 
-<details><summary>Less common exceptions (2)</summary>
+<details><summary>Less common exceptions (3)</summary>
 
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CodatLendingException`](./Codat/Lending/Models/Errors/CodatLendingException.cs):
-  * [`ResponseValidationError`](./Codat/Lending/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
+  * [`SDKException`](./Codat/Lending/Models/Errors/SDKException.cs): The fallback exception if no more specific exception is matched.
+  * [`ResponseValidationException`](./Codat/Lending/Models/Errors/ResponseValidationException.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
-<!-- End Error Handling [errors] -->
 
-<!-- Start Custom HTTP Client [http-client] -->
+## Retries
+
+Every operation in this SDK retries failed requests with a default backoff strategy. By default it retries connection errors and responses with status 408, 429 or 5XX, starting at 500 ms and backing off by a factor of 1.5 up to 60 s between attempts, for at most an hour. You can override the retry strategy for a single call, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Utils.Retries;
+
+var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
+
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
+};
+
+var res = await sdk.Companies.ListAsync(
+    retryConfig: new RetryConfig(
+        strategy: RetryConfig.RetryStrategy.BACKOFF,
+        backoff: new BackoffStrategy(
+            initialIntervalMs: 1L,
+            maxIntervalMs: 50L,
+            maxElapsedTimeMs: 100L,
+            exponent: 1.1
+        ),
+        retryConnectionErrors: false
+    ),
+    request: req
+);
+
+// handle response
+```
+
+If you'd like to override the default retry strategy for all operations, you can use the `RetryConfig` optional parameter when initializing the SDK:
+```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Utils.Retries;
+
+var sdk = new CodatLending(
+    retryConfig: new RetryConfig(
+        strategy: RetryConfig.RetryStrategy.BACKOFF,
+        backoff: new BackoffStrategy(
+            initialIntervalMs: 1L,
+            maxIntervalMs: 50L,
+            maxElapsedTimeMs: 100L,
+            exponent: 1.1
+        ),
+        retryConnectionErrors: false
+    ),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+ListCompaniesRequest req = new ListCompaniesRequest() {
+    Query = "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    OrderBy = "-modifiedDate",
+    Tags = "region=uk && team=invoice-finance",
+};
+
+var res = await sdk.Companies.ListAsync(req);
+
+// handle response
+```
+
 ## Custom HTTP Client
 
-The C# SDK makes API calls using an `ISpeakeasyHttpClient` that wraps the native
-[HttpClient](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient). This
-client provides the ability to attach hooks around the request lifecycle that can be used to modify the request or handle
-errors and response.
+The C# SDK makes API calls through an `ICodatHttpClient`. The default implementation, `CodatHttpClient`, wraps the native
+[HttpClient](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient).
 
-The `ISpeakeasyHttpClient` interface allows you to either use the default `SpeakeasyHttpClient` that comes with the SDK,
-or provide your own custom implementation with customized configuration such as custom message handlers, timeouts,
-connection pooling, and other HTTP client settings.
+You can extend `CodatHttpClient`, or provide your own `ICodatHttpClient` implementation with customized configuration
+such as custom message handlers, timeouts, connection pooling, and other HTTP client settings.
 
-The following example shows how to create a custom HTTP client with request modification and error handling:
+The following example shows how to extend the default client to modify each request and handle errors:
 
 ```csharp
 using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 using Codat.Lending.Utils;
+using System;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 
-// Create a custom HTTP client
-public class CustomHttpClient : ISpeakeasyHttpClient
+var sdk = new CodatLending(
+    client: new CustomHttpClient(),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+public class CustomHttpClient : CodatHttpClient
 {
-    private readonly ISpeakeasyHttpClient _defaultClient;
-
-    public CustomHttpClient()
+    public override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request)
     {
-        _defaultClient = new SpeakeasyHttpClient();
-    }
-
-    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
-    {
-        // Add custom header and timeout
         request.Headers.Add("x-custom-header", "custom value");
-        request.Headers.Add("x-request-timeout", "30");
-        
+
         try
         {
-            var response = await _defaultClient.SendAsync(request, cancellationToken);
-            // Log successful response
+            var response = await base.SendAsync(request);
             Console.WriteLine($"Request successful: {response.StatusCode}");
             return response;
         }
         catch (Exception error)
         {
-            // Log error
             Console.WriteLine($"Request failed: {error.Message}");
             throw;
         }
     }
-
-    public void Dispose()
-    {
-        _httpClient?.Dispose();
-        _defaultClient?.Dispose();
-    }
 }
-
-// Use the custom HTTP client with the SDK
-var customHttpClient = new CustomHttpClient();
-var sdk = new CodatLending(client: customHttpClient);
 ```
 
 <details>
 <summary>You can also provide a completely custom HTTP client with your own configuration:</summary>
 
 ```csharp
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
 using Codat.Lending.Utils;
+using System;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 
-// Custom HTTP client with custom configuration
-public class AdvancedHttpClient : ISpeakeasyHttpClient
+var sdk = new CodatLending(
+    client: new AdvancedHttpClient(),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+public class AdvancedHttpClient : ICodatHttpClient
 {
     private readonly HttpClient _httpClient;
+    private readonly CodatHttpClient _defaultClient = new CodatHttpClient();
 
     public AdvancedHttpClient()
     {
         var handler = new HttpClientHandler()
         {
             MaxConnectionsPerServer = 10,
-            // ServerCertificateCustomValidationCallback = customCertValidation, // Custom SSL validation if needed
         };
 
         _httpClient = new HttpClient(handler)
@@ -734,70 +705,68 @@ public class AdvancedHttpClient : ISpeakeasyHttpClient
         };
     }
 
-    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request)
     {
-        return await _httpClient.SendAsync(request, cancellationToken ?? CancellationToken.None);
+        return await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
     }
 
-    public void Dispose()
+    public Task<HttpRequestMessage> CloneAsync(HttpRequestMessage request)
     {
-        _httpClient?.Dispose();
+        return _defaultClient.CloneAsync(request);
     }
 }
-
-var sdk = CodatLending.Builder()
-    .WithClient(new AdvancedHttpClient())
-    .Build();
 ```
 </details>
 
 <details>
-<summary>For simple debugging, you can enable request/response logging by implementing a custom client:</summary>
+<summary>For simple debugging, you can enable request/response logging by wrapping another client:</summary>
 
 ```csharp
-public class LoggingHttpClient : ISpeakeasyHttpClient
-{
-    private readonly ISpeakeasyHttpClient _innerClient;
+using Codat.Lending;
+using Codat.Lending.Models.Components;
+using Codat.Lending.Models.Requests;
+using Codat.Lending.Utils;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-    public LoggingHttpClient(ISpeakeasyHttpClient innerClient = null)
+var sdk = new CodatLending(
+    client: new LoggingHttpClient(),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+public class LoggingHttpClient : ICodatHttpClient
+{
+    private readonly ICodatHttpClient _innerClient;
+
+    public LoggingHttpClient(ICodatHttpClient? innerClient = null)
     {
-        _innerClient = innerClient ?? new SpeakeasyHttpClient();
+        _innerClient = innerClient ?? new CodatHttpClient();
     }
 
-    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request)
     {
-        // Log request
         Console.WriteLine($"Sending {request.Method} request to {request.RequestUri}");
-        
-        var response = await _innerClient.SendAsync(request, cancellationToken);
-        
-        // Log response
+
+        var response = await _innerClient.SendAsync(request);
+
         Console.WriteLine($"Received {response.StatusCode} response");
-        
+
         return response;
     }
 
-    public void Dispose() => _innerClient?.Dispose();
+    public Task<HttpRequestMessage> CloneAsync(HttpRequestMessage request)
+    {
+        return _innerClient.CloneAsync(request);
+    }
 }
-
-var sdk = new CodatLending(client: new LoggingHttpClient());
 ```
 </details>
 
-The SDK also provides built-in hook support through the `SDKConfiguration.Hooks` system, which automatically handles
-`BeforeRequestAsync`, `AfterSuccessAsync`, and `AfterErrorAsync` hooks for advanced request lifecycle management.
-<!-- End Custom HTTP Client [http-client] -->
+The SDK also runs hooks before each request and after each response or error. Register your own on `sdk.SDKConfiguration.Hooks` with `RegisterBeforeRequestHook`, `RegisterAfterSuccessHook` or `RegisterAfterErrorHook`, passing an implementation of the matching interface from `Codat.Lending.Hooks`.
 
-<!-- Placeholder for Future Speakeasy SDK Sections -->
+## Support
 
-<!-- Start Codat Support Notes -->
-### Support
-
-If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance. 
+If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance.
 You can raise any issues by contacting your dedicated Codat representative or reaching out to our [support team](mailto:support@codat.io).
 We're here to help ensure a smooth experience for you.
-<!-- End Codat Support Notes -->
-
-<!-- Start Codat Generated By -->
-### Library generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
-<!-- End Codat Generated By -->

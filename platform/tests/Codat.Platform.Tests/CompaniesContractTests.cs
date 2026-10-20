@@ -23,7 +23,7 @@ public class CompaniesContractTests
     [Fact]
     public async Task ListCompanies_emits_expected_request_and_deserialises_response()
     {
-        var http = new TestSpeakeasyHttpClient();
+        var http = new TestCodatHttpClient();
         http.Handler.Setup(
             r => r.Method == HttpMethod.Get && r.RequestUri!.AbsolutePath == "/companies",
             HttpStatusCode.OK,

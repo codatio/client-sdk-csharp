@@ -29,7 +29,7 @@ var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetReadValidationResultsRequest req = new GetReadValidationResultsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "0812af6e-436a-491f-9056-db91cb961ad3",
+    DatasetId = "067b5009-6f29-542d-bce0-105fec7c118a",
 };
 
 var res = await sdk.ReadData.GetValidationResultsAsync(req);

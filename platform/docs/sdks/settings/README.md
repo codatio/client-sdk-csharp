@@ -238,7 +238,7 @@ using System.Collections.Generic;
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 UpdateProfileSyncSettingsRequestBody req = new UpdateProfileSyncSettingsRequestBody() {
-    ClientId = "9807ce3e-cfa5-4370-b4f2-09c282b1598b",
+    ClientId = "182988c8-b1e0-5637-9505-8a3d90cf7a44",
     Settings = new List<SyncSetting>() {
         new SyncSetting() {
             DataType = Codat.Platform.Models.Components.DataType.Invoices,

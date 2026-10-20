@@ -4,13 +4,13 @@ using Codat.Platform.Utils;
 
 namespace Codat.Platform.Tests.TestDoubles;
 
-public sealed class TestSpeakeasyHttpClient : SpeakeasyHttpClient
+public sealed class TestCodatHttpClient : CodatHttpClient
 {
     private readonly HttpClient _client;
 
     public MockHttpMessageHandler Handler { get; }
 
-    public TestSpeakeasyHttpClient()
+    public TestCodatHttpClient()
     {
         Handler = new MockHttpMessageHandler();
         _client = new HttpClient(Handler);

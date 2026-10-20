@@ -373,7 +373,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 GenerateCredentialsRequest req = new GenerateCredentialsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    RequestBody = System.Text.Encoding.UTF8.GetBytes("0x6ad2e1635D"),
+    RequestBody = System.Text.Encoding.UTF8.GetBytes("0x3B7Ae6552E"),
 };
 
 var res = await sdk.SourceAccounts.GenerateCredentialsAsync(req);

@@ -1,9 +1,6 @@
-.speakeasy/reports
 .env
 .env.local
 .DS_Store
-**/.speakeasy/temp/
-**/.speakeasy/logs/
 obj/
 bin/
 debug/

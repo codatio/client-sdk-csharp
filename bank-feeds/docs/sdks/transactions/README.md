@@ -361,7 +361,7 @@ var sdk = new CodatBankFeeds(security: new Security() {
 
 GetCreateOperationRequest req = new GetCreateOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
+    PushOperationKey = "622c0e39-d183-5d45-9e34-8fe6be983897",
 };
 
 var res = await sdk.Transactions.GetCreateOperationAsync(req);

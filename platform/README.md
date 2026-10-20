@@ -1,22 +1,15 @@
 # Platform
 
-<!-- Start Codat Library Description -->
 Manage the building blocks of Codat, including companies, connections, and more.
-<!-- End Codat Library Description -->
 
-<!-- Start Summary [summary] -->
 ## Summary
 
-Platform API: Platform API
-
-An API for the common components of all of Codat's products.
+Platform API: An API for the common components of all of Codat's products.
 
 These end points cover creating and managing your companies, data connections, and integrations.
 
-[Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies) | [See our OpenAPI spec](https://github.com/codatio/oas) 
+[Explore solution](https://docs.codat.io/core-concepts/companies) | [See OpenAPI spec](https://github.com/codatio/oas)
 
----
-<!-- Start Codat Tags Table -->
 ## Endpoints
 
 | Endpoints | Description |
@@ -31,27 +24,21 @@ These end points cover creating and managing your companies, data connections, a
 | Push data | Initiate and monitor Create, Update, and Delete operations. |
 | Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |
 | Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |
-<!-- End Codat Tags Table -->
-<!-- End Summary [summary] -->
 
-<!-- Start Table of Contents [toc] -->
 ## Table of Contents
-<!-- $toc-max-depth=2 -->
-* [Platform](#platform)
-  * [Endpoints](#endpoints)
-  * [SDK Installation](#sdk-installation)
-  * [Example Usage](#example-usage)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Server Selection](#server-selection)
-  * [Authentication](#authentication)
-  * [Error Handling](#error-handling)
-  * [Retries](#retries)
-  * [Custom HTTP Client](#custom-http-client)
 
-<!-- End Table of Contents [toc] -->
+* [Summary](#summary)
+* [Endpoints](#endpoints)
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+* [Error Handling](#error-handling)
+* [Retries](#retries)
+* [Custom HTTP Client](#custom-http-client)
+* [Support](#support)
 
-<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NuGet
@@ -67,10 +54,7 @@ To add a reference to a local instance of the SDK in a .NET project:
 ```bash
 dotnet add reference Codat/Platform/Codat.Platform.csproj
 ```
-<!-- End SDK Installation [installation] -->
 
-## Example Usage
-<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
 ### Example
@@ -92,9 +76,7 @@ var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage [usage] -->
 
-<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
 <details open>
@@ -188,9 +170,7 @@ var res = await sdk.Companies.ListAsync(req);
 * [DeleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
 
 </details>
-<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Override Server URL Per-Client
@@ -216,9 +196,7 @@ var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End Server Selection [server] -->
 
-<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -229,7 +207,7 @@ This SDK supports the following security scheme globally:
 | ------------ | ------ | ------- |
 | `AuthHeader` | apiKey | API key |
 
-To authenticate with the API the `AuthHeader` parameter must be set when initializing the SDK client instance. For example:
+To authenticate with the API the `authHeader` parameter must be set when initializing the SDK client instance. For example:
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
@@ -247,9 +225,7 @@ var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End Authentication [security] -->
 
-<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 [`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs) is the base exception class for all HTTP error responses. It has the following properties:
@@ -272,6 +248,9 @@ using Codat.Platform;
 using Codat.Platform.Models.Components;
 using Codat.Platform.Models.Errors;
 using Codat.Platform.Models.Requests;
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -299,12 +278,12 @@ catch (CodatPlatformException ex)  // all SDK exceptions inherit from CodatPlatf
     string? contentType = ex.ContentType;
     var responseBody = ex.Body;
 
-    if (ex is Models.Errors.ErrorMessage) // different exceptions may be thrown depending on the method
+    if (ex is Codat.Platform.Models.Errors.ErrorMessage errorMessage) // different exceptions may be thrown depending on the method
     {
         // Check error data fields
-        Models.Errors.ErrorMessagePayload payload = ex.Payload;
-        long StatusCode = payload.StatusCode;
-        string Service = payload.Service;
+        Codat.Platform.Models.Errors.ErrorMessagePayload payload = errorMessage.Payload;
+        var errorStatusCode = payload.StatusCode;
+        var service = payload.Service;
         // ...
     }
 
@@ -316,7 +295,8 @@ catch (CodatPlatformException ex)  // all SDK exceptions inherit from CodatPlatf
 }
 catch (System.Net.Http.HttpRequestException ex)
 {
-    // Check ex.InnerException for Network connectivity errors
+    // Check ex.InnerException for network connectivity errors
+    System.Console.WriteLine(ex.InnerException);
 }
 ```
 
@@ -324,27 +304,27 @@ catch (System.Net.Http.HttpRequestException ex)
 
 **Primary exceptions:**
 * [`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs): The base class for HTTP error responses.
-  * [`ErrorMessage`](./Codat/Platform/Models/Errors/ErrorMessage.cs): Your `query` parameter was not correctly formed.
+  * [`ErrorMessage`](./Codat/Platform/Models/Errors/ErrorMessage.cs): A Codat API error response. Its structured fields are on `Payload`.
 
-<details><summary>Less common exceptions (2)</summary>
+<details><summary>Less common exceptions (3)</summary>
 
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CodatPlatformException`](./Codat/Platform/Models/Errors/CodatPlatformException.cs):
-  * [`ResponseValidationError`](./Codat/Platform/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
+  * [`SDKException`](./Codat/Platform/Models/Errors/SDKException.cs): The fallback exception if no more specific exception is matched.
+  * [`ResponseValidationException`](./Codat/Platform/Models/Errors/ResponseValidationException.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
-<!-- End Error Handling [errors] -->
 
-<!-- Start Retries [retries] -->
 ## Retries
 
-Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+Every operation in this SDK retries failed requests with a default backoff strategy. By default it retries connection errors and responses with status 408, 429 or 5XX, starting at 500 ms and backing off by a factor of 1.5 up to 60 s between attempts, for at most an hour. You can override the retry strategy for a single call, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
 using Codat.Platform.Models.Requests;
+using Codat.Platform.Utils.Retries;
 
 var sdk = new CodatPlatform(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
@@ -371,11 +351,12 @@ var res = await sdk.Companies.ListAsync(
 // handle response
 ```
 
-If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
+If you'd like to override the default retry strategy for all operations, you can use the `RetryConfig` optional parameter when initializing the SDK:
 ```csharp
 using Codat.Platform;
 using Codat.Platform.Models.Components;
 using Codat.Platform.Models.Requests;
+using Codat.Platform.Utils.Retries;
 
 var sdk = new CodatPlatform(
     retryConfig: new RetryConfig(
@@ -401,92 +382,79 @@ var res = await sdk.Companies.ListAsync(req);
 
 // handle response
 ```
-<!-- End Retries [retries] -->
 
-<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The C# SDK makes API calls using an `ISpeakeasyHttpClient` that wraps the native
-[HttpClient](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient). This
-client provides the ability to attach hooks around the request lifecycle that can be used to modify the request or handle
-errors and response.
+The C# SDK makes API calls through an `ICodatHttpClient`. The default implementation, `CodatHttpClient`, wraps the native
+[HttpClient](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient).
 
-The `ISpeakeasyHttpClient` interface allows you to either use the default `SpeakeasyHttpClient` that comes with the SDK,
-or provide your own custom implementation with customized configuration such as custom message handlers, timeouts,
-connection pooling, and other HTTP client settings.
+You can extend `CodatHttpClient`, or provide your own `ICodatHttpClient` implementation with customized configuration
+such as custom message handlers, timeouts, connection pooling, and other HTTP client settings.
 
-The following example shows how to create a custom HTTP client with request modification and error handling:
+The following example shows how to extend the default client to modify each request and handle errors:
 
 ```csharp
 using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 using Codat.Platform.Utils;
+using System;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 
-// Create a custom HTTP client
-public class CustomHttpClient : ISpeakeasyHttpClient
+var sdk = new CodatPlatform(
+    client: new CustomHttpClient(),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+public class CustomHttpClient : CodatHttpClient
 {
-    private readonly ISpeakeasyHttpClient _defaultClient;
-
-    public CustomHttpClient()
+    public override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request)
     {
-        _defaultClient = new SpeakeasyHttpClient();
-    }
-
-    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
-    {
-        // Add custom header and timeout
         request.Headers.Add("x-custom-header", "custom value");
-        request.Headers.Add("x-request-timeout", "30");
-        
+
         try
         {
-            var response = await _defaultClient.SendAsync(request, cancellationToken);
-            // Log successful response
+            var response = await base.SendAsync(request);
             Console.WriteLine($"Request successful: {response.StatusCode}");
             return response;
         }
         catch (Exception error)
         {
-            // Log error
             Console.WriteLine($"Request failed: {error.Message}");
             throw;
         }
     }
-
-    public void Dispose()
-    {
-        _httpClient?.Dispose();
-        _defaultClient?.Dispose();
-    }
 }
-
-// Use the custom HTTP client with the SDK
-var customHttpClient = new CustomHttpClient();
-var sdk = new CodatPlatform(client: customHttpClient);
 ```
 
 <details>
 <summary>You can also provide a completely custom HTTP client with your own configuration:</summary>
 
 ```csharp
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
 using Codat.Platform.Utils;
+using System;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 
-// Custom HTTP client with custom configuration
-public class AdvancedHttpClient : ISpeakeasyHttpClient
+var sdk = new CodatPlatform(
+    client: new AdvancedHttpClient(),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+public class AdvancedHttpClient : ICodatHttpClient
 {
     private readonly HttpClient _httpClient;
+    private readonly CodatHttpClient _defaultClient = new CodatHttpClient();
 
     public AdvancedHttpClient()
     {
         var handler = new HttpClientHandler()
         {
             MaxConnectionsPerServer = 10,
-            // ServerCertificateCustomValidationCallback = customCertValidation, // Custom SSL validation if needed
         };
 
         _httpClient = new HttpClient(handler)
@@ -495,70 +463,68 @@ public class AdvancedHttpClient : ISpeakeasyHttpClient
         };
     }
 
-    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request)
     {
-        return await _httpClient.SendAsync(request, cancellationToken ?? CancellationToken.None);
+        return await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
     }
 
-    public void Dispose()
+    public Task<HttpRequestMessage> CloneAsync(HttpRequestMessage request)
     {
-        _httpClient?.Dispose();
+        return _defaultClient.CloneAsync(request);
     }
 }
-
-var sdk = CodatPlatform.Builder()
-    .WithClient(new AdvancedHttpClient())
-    .Build();
 ```
 </details>
 
 <details>
-<summary>For simple debugging, you can enable request/response logging by implementing a custom client:</summary>
+<summary>For simple debugging, you can enable request/response logging by wrapping another client:</summary>
 
 ```csharp
-public class LoggingHttpClient : ISpeakeasyHttpClient
-{
-    private readonly ISpeakeasyHttpClient _innerClient;
+using Codat.Platform;
+using Codat.Platform.Models.Components;
+using Codat.Platform.Models.Requests;
+using Codat.Platform.Utils;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-    public LoggingHttpClient(ISpeakeasyHttpClient innerClient = null)
+var sdk = new CodatPlatform(
+    client: new LoggingHttpClient(),
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)"
+);
+
+public class LoggingHttpClient : ICodatHttpClient
+{
+    private readonly ICodatHttpClient _innerClient;
+
+    public LoggingHttpClient(ICodatHttpClient? innerClient = null)
     {
-        _innerClient = innerClient ?? new SpeakeasyHttpClient();
+        _innerClient = innerClient ?? new CodatHttpClient();
     }
 
-    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken? cancellationToken = null)
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request)
     {
-        // Log request
         Console.WriteLine($"Sending {request.Method} request to {request.RequestUri}");
-        
-        var response = await _innerClient.SendAsync(request, cancellationToken);
-        
-        // Log response
+
+        var response = await _innerClient.SendAsync(request);
+
         Console.WriteLine($"Received {response.StatusCode} response");
-        
+
         return response;
     }
 
-    public void Dispose() => _innerClient?.Dispose();
+    public Task<HttpRequestMessage> CloneAsync(HttpRequestMessage request)
+    {
+        return _innerClient.CloneAsync(request);
+    }
 }
-
-var sdk = new CodatPlatform(client: new LoggingHttpClient());
 ```
 </details>
 
-The SDK also provides built-in hook support through the `SDKConfiguration.Hooks` system, which automatically handles
-`BeforeRequestAsync`, `AfterSuccessAsync`, and `AfterErrorAsync` hooks for advanced request lifecycle management.
-<!-- End Custom HTTP Client [http-client] -->
+The SDK also runs hooks before each request and after each response or error. Register your own on `sdk.SDKConfiguration.Hooks` with `RegisterBeforeRequestHook`, `RegisterAfterSuccessHook` or `RegisterAfterErrorHook`, passing an implementation of the matching interface from `Codat.Platform.Hooks`.
 
-<!-- Placeholder for Future Speakeasy SDK Sections -->
+## Support
 
-<!-- Start Codat Support Notes -->
-### Support
-
-If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance. 
+If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance.
 You can raise any issues by contacting your dedicated Codat representative or reaching out to our [support team](mailto:support@codat.io).
 We're here to help ensure a smooth experience for you.
-<!-- End Codat Support Notes -->
-
-<!-- Start Codat Generated By -->
-### Library generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
-<!-- End Codat Generated By -->

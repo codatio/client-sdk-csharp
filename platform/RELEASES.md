@@ -237,3 +237,13 @@ Based on:
 - [csharp v6.2.1] platform
 ### Releases
 - [NuGet v6.2.1] https://www.nuget.org/packages/Codat.Platform/6.2.1 - platform
+
+## 2026-10-20 09:19:40
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+- codat sdk-codegen 7673baa1d48819dacf73940319858f8a84ab5a0a
+### Generated
+- [csharp v7.0.0] platform
+### Releases
+- [NuGet v7.0.0] https://www.nuget.org/packages/Codat.Platform/7.0.0 - platform

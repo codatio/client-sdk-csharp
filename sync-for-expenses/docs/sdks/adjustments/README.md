@@ -93,9 +93,9 @@ CreateAdjustmentTransactionRequest req = new CreateAdjustmentTransactionRequest(
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     RequestBody = new List<AdjustmentTransactionRequest>() {
         new AdjustmentTransactionRequest() {
-            Id = "6a13b8cf-d482-4389-9f93-08d52faa3dc0",
+            Id = "fce339ab-7526-58ac-9d6a-8df03c189361",
             Date = "2022-10-23T00:00:00Z",
-            Currency = "Lilangeni",
+            Currency = "GBP",
             Lines = new List<AdjustmentTransactionLine>() {},
         },
     },
@@ -120,9 +120,9 @@ CreateAdjustmentTransactionRequest req = new CreateAdjustmentTransactionRequest(
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     RequestBody = new List<AdjustmentTransactionRequest>() {
         new AdjustmentTransactionRequest() {
-            Id = "6a13b8cf-d482-4389-9f93-08d52faa3dc0",
+            Id = "fce339ab-7526-58ac-9d6a-8df03c189361",
             Date = "2022-10-23T00:00:00Z",
-            Currency = "Lilangeni",
+            Currency = "GBP",
             Lines = new List<AdjustmentTransactionLine>() {},
         },
     },

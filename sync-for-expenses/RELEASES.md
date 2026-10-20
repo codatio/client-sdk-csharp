@@ -221,3 +221,13 @@ Based on:
 - [csharp v7.1.1] sync-for-expenses
 ### Releases
 - [NuGet v7.1.1] https://www.nuget.org/packages/Codat.Sync.Expenses/7.1.1 - sync-for-expenses
+
+## 2026-10-20 14:43:50
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+- codat sdk-codegen 0dc23abe198ed4f43d904e7ecb8e5bcbc8bbbec0
+### Generated
+- [csharp v8.0.0] sync-for-expenses
+### Releases
+- [NuGet v8.0.0] https://www.nuget.org/packages/Codat.Sync.Expenses/8.0.0 - sync-for-expenses

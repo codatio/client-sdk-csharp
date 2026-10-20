@@ -99,7 +99,9 @@ CreateReimbursableExpenseTransactionRequest req = new CreateReimbursableExpenseT
             ContactRef = new ReimbursementContactRef() {
                 Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
             },
-            ApAccountRef = null,
+            ApAccountRef = new ApAccountRef() {
+                Id = "8000004C-1724173136",
+            },
             IssueDate = "2022-10-23T00:00:00Z",
             DueDate = "2022-10-23T00:00:00Z",
             Currency = "GBP",
@@ -156,7 +158,9 @@ CreateReimbursableExpenseTransactionRequest req = new CreateReimbursableExpenseT
             ContactRef = new ReimbursementContactRef() {
                 Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
             },
-            ApAccountRef = null,
+            ApAccountRef = new ApAccountRef() {
+                Id = "8000004C-1724173136",
+            },
             IssueDate = "2022-10-23T00:00:00Z",
             DueDate = "2022-10-23T00:00:00Z",
             Currency = "GBP",

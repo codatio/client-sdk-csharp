@@ -83,13 +83,13 @@ CreateTransferTransactionRequest req = new CreateTransferTransactionRequest() {
             AccountRef = new AccountReference() {
                 Id = "<id>",
             },
-            Amount = 7329.18M,
+            Amount = 87454.27M,
         },
         To = new To() {
             AccountRef = new TransferTransactionRequestAccountReference() {
                 Id = "<id>",
             },
-            Amount = 522.15M,
+            Amount = 87454.27M,
         },
     },
 };
@@ -118,13 +118,13 @@ CreateTransferTransactionRequest req = new CreateTransferTransactionRequest() {
             AccountRef = new AccountReference() {
                 Id = "<id>",
             },
-            Amount = 7329.18M,
+            Amount = 87454.27M,
         },
         To = new To() {
             AccountRef = new TransferTransactionRequestAccountReference() {
                 Id = "<id>",
             },
-            Amount = 522.15M,
+            Amount = 87454.27M,
         },
     },
 };

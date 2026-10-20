@@ -303,3 +303,13 @@ Based on:
 - [csharp v10.0.2] lending
 ### Releases
 - [NuGet v10.0.2] https://www.nuget.org/packages/Codat.Lending/10.0.2 - lending
+
+## 2026-10-20 13:57:53
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
+- codat sdk-codegen 0dc23abe198ed4f43d904e7ecb8e5bcbc8bbbec0
+### Generated
+- [csharp v11.0.0] lending
+### Releases
+- [NuGet v11.0.0] https://www.nuget.org/packages/Codat.Lending/11.0.0 - lending

@@ -32,7 +32,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateLoanTransactionsRequest req = new GenerateLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = Codat.Lending.Models.Requests.SourceType.Commerce,
+    SourceType = Codat.Lending.Models.Requests.SourceType.Banking,
 };
 
 var res = await sdk.Liabilities.GenerateLoanTransactionsAsync(req);
@@ -79,7 +79,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 ListLoanTransactionsRequest req = new ListLoanTransactionsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = QueryParamSourceType.Commerce,
+    SourceType = QueryParamSourceType.Banking,
 };
 
 var res = await sdk.Liabilities.ListLoanTransactionsAsync(req);
@@ -126,7 +126,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GenerateLoanSummaryRequest req = new GenerateLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = GenerateLoanSummaryQueryParamSourceType.Accounting,
+    SourceType = GenerateLoanSummaryQueryParamSourceType.Banking,
 };
 
 var res = await sdk.Liabilities.GenerateLoanSummaryAsync(req);
@@ -173,7 +173,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetLoanSummaryRequest req = new GetLoanSummaryRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    SourceType = GetLoanSummaryQueryParamSourceType.Accounting,
+    SourceType = GetLoanSummaryQueryParamSourceType.Banking,
 };
 
 var res = await sdk.Liabilities.GetLoanSummaryAsync(req);

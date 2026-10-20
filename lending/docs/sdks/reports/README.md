@@ -46,8 +46,8 @@ GetCommerceOrdersReportRequest req = new GetCommerceOrdersReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 176756,
-    NumberOfPeriods = 64425,
+    PeriodLength = 837746,
+    NumberOfPeriods = 589885,
     PeriodUnit = PeriodUnit.Day,
 };
 
@@ -114,9 +114,9 @@ GetCommerceRefundsReportRequest req = new GetCommerceRefundsReportRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 931992,
-    NumberOfPeriods = 555513,
-    PeriodUnit = PeriodUnit.Year,
+    PeriodLength = 740137,
+    NumberOfPeriods = 351204,
+    PeriodUnit = PeriodUnit.Day,
 };
 
 var res = await sdk.Sales.Reports.GetRefundsAsync(req);

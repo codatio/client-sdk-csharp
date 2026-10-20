@@ -66,7 +66,7 @@ var sdk = new CodatLending(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetPullOperationRequest req = new GetPullOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    DatasetId = "fa5f3e86-bd80-49b8-853c-5fbba4b201f5",
+    DatasetId = "e06a6d75-3e83-5755-8c2f-6ef3ab1008fa",
 };
 
 var res = await sdk.ManageData.PullOperations.GetAsync(req);

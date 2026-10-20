@@ -310,7 +310,6 @@ CreatePaymentRequest req = new CreatePaymentRequest() {
     AccountingPayment = new AccountingPayment() {
         ModifiedDate = "2022-10-23T00:00:00Z",
         SourceModifiedDate = "2022-10-23T00:00:00Z",
-        AccountRef = new AccountRef() {},
         PaymentMethodRef = new PaymentMethodRef() {
             Id = "EILBDVJVNUAGVKRQ",
             Name = "AliPay",
@@ -319,7 +318,7 @@ CreatePaymentRequest req = new CreatePaymentRequest() {
         Date = "2022-10-23T00:00:00Z",
         Lines = new List<PaymentLine>() {
             new PaymentLine() {
-                Amount = 9098.82M,
+                Amount = 14991.93M,
                 AllocatedOnDate = "2022-10-23T00:00:00Z",
             },
         },

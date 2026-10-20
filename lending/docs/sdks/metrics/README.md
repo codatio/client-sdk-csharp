@@ -47,9 +47,9 @@ GetCommerceRevenueMetricsRequest req = new GetCommerceRevenueMetricsRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 44877,
-    NumberOfPeriods = 459595,
-    PeriodUnit = PeriodUnit.Year,
+    PeriodLength = 182920,
+    NumberOfPeriods = 935980,
+    PeriodUnit = PeriodUnit.Day,
 };
 
 var res = await sdk.Sales.Metrics.GetRevenueAsync(req);
@@ -121,8 +121,8 @@ GetCommerceCustomerRetentionMetricsRequest req = new GetCommerceCustomerRetentio
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 555812,
-    NumberOfPeriods = 292320,
+    PeriodLength = 691636,
+    NumberOfPeriods = 699352,
     PeriodUnit = PeriodUnit.Day,
 };
 
@@ -187,8 +187,8 @@ GetCommerceLifetimeValueMetricsRequest req = new GetCommerceLifetimeValueMetrics
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     ReportDate = "29-09-2020",
-    PeriodLength = 402759,
-    NumberOfPeriods = 976344,
+    PeriodLength = 189002,
+    NumberOfPeriods = 838467,
     PeriodUnit = PeriodUnit.Day,
 };
 

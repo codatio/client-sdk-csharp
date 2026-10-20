@@ -269,3 +269,13 @@ Based on:
 - [csharp v8.0.2] bank-feeds
 ### Releases
 - [NuGet v8.0.2] https://www.nuget.org/packages/Codat.BankFeeds/8.0.2 - bank-feeds
+
+## 2026-10-20 13:23:12
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- codat sdk-codegen 0dc23abe198ed4f43d904e7ecb8e5bcbc8bbbec0
+### Generated
+- [csharp v9.0.0] bank-feeds
+### Releases
+- [NuGet v9.0.0] https://www.nuget.org/packages/Codat.BankFeeds/9.0.0 - bank-feeds

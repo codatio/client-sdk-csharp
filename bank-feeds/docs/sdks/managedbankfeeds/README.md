@@ -32,7 +32,7 @@ GetManagedBankFeedSyncRequest req = new GetManagedBankFeedSyncRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
     ConnectionId = "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     SourceAccountId = "<id>",
-    SyncId = "823d304f-a204-4760-9b5d-b8a89bf29bed",
+    SyncId = "1b28e4f7-e407-5e3d-b825-5c77f9af2ac1",
 };
 
 var res = await sdk.ManagedBankFeeds.GetSyncAsync(req);

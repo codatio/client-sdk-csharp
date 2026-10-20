@@ -332,9 +332,18 @@ UpdateExpenseTransactionRequest req = new UpdateExpenseTransactionRequest() {
                 AccountRef = new RecordRef() {
                     Id = "40e3e57c-2322-4898-966c-ca41adfd23fd",
                 },
-                ItemRef = null,
-                TrackingRefs = null,
-                InvoiceTo = null,
+                ItemRef = new ItemRef() {
+                    Id = "80000002-1675158984",
+                },
+                TrackingRefs = new List<TrackingRef>() {
+                    new TrackingRef() {
+                        Id = "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                    },
+                },
+                InvoiceTo = new InvoiceTo() {
+                    Id = "80000002-1674552702",
+                    Type = InvoiceToType.Customer,
+                },
             },
         },
         Notes = "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",

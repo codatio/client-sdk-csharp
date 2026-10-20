@@ -799,12 +799,17 @@ CreateCustomerRequest req = new CreateCustomerRequest() {
         DefaultCurrency = "GBP",
         Contacts = new List<Contact>() {
             new Contact() {
-                Phone = null,
-                Status = CustomerStatus.Unknown,
+                Phone = new List<PhoneNumberItems>() {
+                    new PhoneNumberItems() {
+                        Number = "+44 25691 154789",
+                        Type = ItemsType.Primary,
+                    },
+                },
+                Status = CustomerStatus.Active,
                 ModifiedDate = "2022-10-23T00:00:00Z",
             },
         },
-        Status = CustomerStatus.Unknown,
+        Status = CustomerStatus.Active,
     },
 };
 
@@ -868,7 +873,7 @@ UpdateCustomerRequest req = new UpdateCustomerRequest() {
                         Type = ItemsType.Primary,
                     },
                 },
-                Status = CustomerStatus.Unknown,
+                Status = CustomerStatus.Active,
                 ModifiedDate = "2022-10-23T00:00:00Z",
             },
         },

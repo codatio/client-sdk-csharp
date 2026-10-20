@@ -68,7 +68,7 @@ var sdk = new CodatSyncExpenses(authHeader: "Basic BASE_64_ENCODED(API_KEY)");
 
 GetPushOperationRequest req = new GetPushOperationRequest() {
     CompanyId = "8a210b68-6988-11ed-a1eb-0242ac120002",
-    PushOperationKey = "660e8684-c0fb-4468-9e2a-b2e3b115d747",
+    PushOperationKey = "623866aa-21c1-5b15-aec1-ee5b2503259f",
 };
 
 var res = await sdk.PushOperations.GetAsync(req);
